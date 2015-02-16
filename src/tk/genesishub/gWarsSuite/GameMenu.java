@@ -27,7 +27,6 @@ public class GameMenu {
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
 	            	if(!(Constants.airplaneline.contains(p.getName()))){
 	            	summon.Initialize(p, "airplane");
-	            	Bukkit.getLogger().info("Working...");
 	            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 	            	Constants.airplaneline.add(p.getName());
 	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
@@ -35,9 +34,6 @@ public class GameMenu {
 	                   cons.removeAirplaneline(p);
 	                   }
 	                }, 600L);
-	            	}
-	            	else{
-	            		event.getPlayer().sendMessage(ChatColor.BOLD+"You cannot summon airplanes within 30 seconds of each other!");
 	            	}
 	            	event.getPlayer().closeInventory();
 	            }

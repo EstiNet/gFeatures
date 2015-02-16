@@ -27,6 +27,7 @@ public class AirplaneSummoner {
 						Bukkit.getLogger().info(i + " and " + iter);
 						bool = true;
 						p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+						p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another aircraft.");
 					}
 				}
 			}
@@ -39,6 +40,7 @@ public class AirplaneSummoner {
 							Bukkit.getLogger().info(i + " and " + iter);
 							bool = true;
 							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+							p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another aircraft.");
 						}
 					}
 				}
@@ -50,12 +52,13 @@ public class AirplaneSummoner {
 							world.spawnEntity(blue[rand], EntityType.MINECART);
 							bool = true;
 							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+							p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another aircraft.");
 						}
 					}
 				}
 		if(bool == false){
 			p.sendMessage(ChatColor.BOLD+"Get closer to an airfield!");
+			p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another aircraft.");
 		}
-	Bukkit.getLogger().info("Summon");	
 	}
 }
