@@ -23,7 +23,7 @@ public class BoatSummoner {
 					int rand = (int) Math.ceil(Math.random()*4);
 						world.spawnEntity(orange[rand], EntityType.MINECART);
 						bool = true;
-						p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+						p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 						p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 					}
 				}
@@ -34,7 +34,7 @@ public class BoatSummoner {
 						int rand = (int) Math.ceil(Math.random()*4);
 							world.spawnEntity(blue[rand], EntityType.MINECART);
 							bool = true;
-							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+							p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 							p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 						}
 					}
@@ -45,18 +45,7 @@ public class BoatSummoner {
 						int rand = (int) Math.ceil(Math.random()*2);
 							world.spawnEntity(island[rand], EntityType.MINECART);
 							bool = true;
-							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
-							p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
-						}
-					}
-				}
-			for(int i = 547; i<=563; i++){
-				for(int iter = 414; iter<=416; iter++){
-					if(x == i && z == iter){
-						int rand = (int) Math.ceil(Math.random()*2);
-							world.spawnEntity(island[rand], EntityType.MINECART);
-							bool = true;
-							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+							p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 							p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 						}
 					}
