@@ -123,10 +123,10 @@ public class TierSelectionMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), "Sniper", "Classic Sniper.")
-    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), "Auto Rifle", "Classic Auto Rifle.")
-    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), "Shotgun", "Classic Shotgun.")
-	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), "Special", "More health, less damage.");
+    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
+    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
+    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
+	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
 	}
 	public InventoryAPI TierOneInventory(){
@@ -152,10 +152,10 @@ public class TierSelectionMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), "Sniper", "ULR338")
-    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), "Auto Rifle", "m16")
-    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), "Shotgun", "Colt Model 1")
-	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), "Special", "Bazooka");
+    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"ULR338")
+    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"m16")
+    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Colt Model 1")
+	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"Bazooka");
 	return menu;
 	}
 	public InventoryAPI TierTwoInventory(){
@@ -181,10 +181,10 @@ public class TierSelectionMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), "Sniper", "SilSil69")
-    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), "Auto Rifle", "AK47-Black Edition")
-    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), "Shotgun", "SPAS")
-	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), "Special", "Flamethrower");
+    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"SilSil69")
+    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"AK47-Black Edition")
+    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"SPAS")
+	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"Flamethrower");
 	return menu;
 	}
 	public InventoryAPI TierThreeInventory(){
@@ -210,10 +210,10 @@ public class TierSelectionMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), "Sniper", "Classic Sniper.")
-    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), "Auto Rifle", "Classic Auto Rifle.")
-    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), "Shotgun", "Classic Shotgun.")
-	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), "Special", "More health, less damage.");
+    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
+    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
+    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
+	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
 	}
 	public InventoryAPI TierFourInventory(){
@@ -239,10 +239,10 @@ public class TierSelectionMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), "Sniper", "Classic Sniper.")
-    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), "Auto Rifle", "Classic Auto Rifle.")
-    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), "Shotgun", "Classic Shotgun.")
-	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), "Special", "More health, less damage.");
+    .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
+    .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
+    .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
+	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
 	}
 }

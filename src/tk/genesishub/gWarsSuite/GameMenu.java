@@ -54,7 +54,7 @@ public class GameMenu {
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
     .setOption(0, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Airplane", ChatColor.WHITE+"Stand close to an airfield!")
     .setOption(1, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Anti Aircraft Guns", ChatColor.WHITE+"Stand close to an Anti-Aircraft Station!")
-    .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", "Stand close to the docks!")
+    .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand close to the docks!")
 	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GRAY+"The nearest player to you is " + getNearest(p, 10000.000).getName() + " from the " + tm.getTeam(p.getName()) + " team!");
 	return menu;
 	}catch(Exception e){
