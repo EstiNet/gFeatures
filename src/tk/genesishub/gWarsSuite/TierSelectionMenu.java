@@ -9,6 +9,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitScheduler;
 
+import tk.genesishub.gWarsSuite.Tiers.TierFour;
+import tk.genesishub.gWarsSuite.Tiers.TierOne;
+import tk.genesishub.gWarsSuite.Tiers.TierThree;
+import tk.genesishub.gWarsSuite.Tiers.TierTwo;
+import tk.genesishub.gWarsSuite.Tiers.TierZero;
+
 public class TierSelectionMenu {
 	public void Initialize(PlayerInteractEvent event){
 		if(!(Constants.gunin.contains(event.getPlayer().getName())) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
@@ -106,6 +112,9 @@ public class TierSelectionMenu {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
+	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
+	        		
+	        	}
 	        	switch(chosen){
 	        	case "Sniper":
 	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");

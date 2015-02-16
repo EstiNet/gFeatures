@@ -8,12 +8,12 @@ import org.bukkit.entity.Player;
 import org.w3c.dom.Document;
 
 public class Constants {
-    static List<String> bt = new ArrayList<>();
-    static List<String> ot = new ArrayList<>();
-    static List<String> arena = new ArrayList<>();
-    static List<String> gunin = new ArrayList<>();
-    static List<String> spectate = new ArrayList<>();
-    static List<String> airplaneline = new ArrayList<>();
+    public static List<String> bt = new ArrayList<>();
+    public static List<String> ot = new ArrayList<>();
+    public static List<String> arena = new ArrayList<>();
+    public static List<String> gunin = new ArrayList<>();
+    public static List<String> spectate = new ArrayList<>();
+    public static List<String> airplaneline = new ArrayList<>();
     static String hi;
 	static boolean boot, boots = true;
 	static String playernukename;

@@ -1,4 +1,4 @@
-package tk.genesishub.gWarsSuite;
+package tk.genesishub.gWarsSuite.Tiers;
 
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -6,6 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import tk.genesishub.gWarsSuite.Constants;
+import tk.genesishub.gWarsSuite.KitManagerSecondary;
+import tk.genesishub.gWarsSuite.StatsRetrieve;
 
 public class TierTwo {
 	Constants cons = new Constants();
