@@ -14,21 +14,33 @@ public class AirplaneSummoner {
 		Location location = p.getLocation();
 		Location[] orange = {new Location(world, 425, 4, 200), new Location(world, 423, 4, 200), new Location(world, 427, 4, 200), new Location(world, 429, 4, 200)};
 		Location[] blue = {new Location(world, 562, 4, 132), new Location(world, 564, 4, 132),  new Location(world, 566, 4, 132), new Location(world, 568, 4, 132)};
-		if(Constants.ot.contains(p.getName())){
 		for(int i = 421; i<=433; i++){
 			for(int iter = 164; iter<=204; iter++){
+				Bukkit.getLogger().info(i + " and " + iter);
 				if(location.getX() == i && location.getZ() == iter){
 					int rand = (int) Math.ceil(Math.random()*4);
 						world.spawnEntity(orange[rand], EntityType.MINECART);
+						Bukkit.getLogger().info(i + " and " + iter);
 						bool = true;
 						p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
 					}
 				}
 			}
-		}
-		else if(Constants.bt.contains(p.getName())){
 			for(int i = 560; i<=570; i++){
 				for(int iter = 128; iter<=167; iter++){
+					Bukkit.getLogger().info(i + " and " + iter);
+					if(location.getX() == i && location.getZ() == iter){
+						int rand = (int) Math.ceil(Math.random()*4);
+							world.spawnEntity(blue[rand], EntityType.MINECART);
+							Bukkit.getLogger().info(i + " and " + iter);
+							bool = true;
+							p.sendMessage(ChatColor.BOLD+"An airplane has been summoned to your area!");
+						}
+					}
+				}
+			for(int i = 565; i<=547; i++){
+				for(int iter = 427; iter<=430; iter++){
+					Bukkit.getLogger().info(i + " and " + iter);
 					if(location.getX() == i && location.getZ() == iter){
 						int rand = (int) Math.ceil(Math.random()*4);
 							world.spawnEntity(blue[rand], EntityType.MINECART);
@@ -37,9 +49,9 @@ public class AirplaneSummoner {
 						}
 					}
 				}
-		}
 		if(bool == false){
 			p.sendMessage(ChatColor.BOLD+"Get closer to an airfield!");
 		}
+	Bukkit.getLogger().info("Summon");	
 	}
 }

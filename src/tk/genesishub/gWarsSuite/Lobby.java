@@ -2,7 +2,6 @@ package tk.genesishub.gWarsSuite;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -98,7 +97,7 @@ public class Lobby {
 	    		player.getLocation().setPitch((float) -2.1);
 	    		ItemStack chest1 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im1 = chest1.getItemMeta();
-	            im1.setDisplayName(Color.AQUA + "Game Menu");
+	            im1.setDisplayName(ChatColor.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
 	    		}

@@ -5,7 +5,6 @@ import java.io.File;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Damageable;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
@@ -34,7 +33,6 @@ public class HitManager {
             Player damager = (Player)event.getPlayer();
             try{
     			Player death = (Player) event.getVictim();
-    			Entity cause = event.getPlayer();
     			Damageable d = (Damageable) death;
     			int health = (int) d.getHealth();
     			double damage = event.getDamage();
