@@ -14,11 +14,11 @@ public class BoatSummoner {
 		Location location = p.getLocation();
 		int x = (int) location.getX();
 		int z = (int) location.getZ();
-		Location[] orange = {new Location(world, 425, 4, 200), new Location(world, 423, 4, 200), new Location(world, 427, 4, 200), new Location(world, 429, 4, 200)};
+		Location[] orange = {new Location(world, 414, 4, 218), new Location(world, 414, 4, 220), new Location(world, 414, 4, 226), new Location(world, 414, 4, 231)};
 		Location[] blue = {new Location(world, 562, 4, 132), new Location(world, 564, 4, 132),  new Location(world, 566, 4, 132), new Location(world, 568, 4, 132)};
 		Location[] island = {new Location(world, 550, 8, 415), new Location(world, 560, 8, 428)};
-		for(int i = 421; i<=433; i++){
-			for(int iter = 164; iter<=204; iter++){
+		for(int i = 409; i<=417; i++){
+			for(int iter = 411; iter<=238; iter++){
 				if(x == i && z == iter){
 					int rand = (int) Math.ceil(Math.random()*4);
 						world.spawnEntity(orange[rand], EntityType.MINECART);
