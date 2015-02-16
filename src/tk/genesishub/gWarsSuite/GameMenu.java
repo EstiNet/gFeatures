@@ -27,6 +27,7 @@ public class GameMenu {
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
 	            	if(!(Constants.airplaneline.contains(p.getName()))){
 	            	summon.Initialize(p, "Airplane");
+	            	Bukkit.getLogger().info("Working...");
 	            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 	            	Constants.airplaneline.add(p.getName());
 	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
