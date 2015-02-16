@@ -23,6 +23,7 @@ public class GameMenu {
 		InventoryAPI menu = new InventoryAPI("Game Menu", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
+	        	Bukkit.getLogger().info("He's got " + Boolean.toString(Constants.airplaneline.contains(p.getName())));
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
 	            	if(!(Constants.airplaneline.contains(p.getName()))){
 	            	summon.Initialize(p, "Airplane");
