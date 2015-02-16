@@ -17,8 +17,8 @@ public class BoatSummoner {
 		Location[] orange = {new Location(world, 414, 4, 218), new Location(world, 414, 4, 220), new Location(world, 414, 4, 226), new Location(world, 414, 4, 231)};
 		Location[] blue = {new Location(world, 562, 4, 132), new Location(world, 564, 4, 132),  new Location(world, 566, 4, 132), new Location(world, 568, 4, 132)};
 		Location[] island = {new Location(world, 550, 8, 415), new Location(world, 560, 8, 428)};
-		for(int i = 409; i<=417; i++){
-			for(int iter = 411; iter<=238; iter++){
+		for(int i = 409; i<=420; i++){
+			for(int iter = 212; iter<=238; iter++){
 				if(x == i && z == iter){
 					int rand = (int) Math.ceil(Math.random()*4);
 						world.spawnEntity(orange[rand], EntityType.MINECART);
@@ -51,7 +51,7 @@ public class BoatSummoner {
 					}
 				}
 		if(bool == false){
-			p.sendMessage(ChatColor.BOLD+"Get closer to an airfield!");
+			p.sendMessage(ChatColor.BOLD+"Get closer to the docks!");
 			p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another vehicle.");
 		}
 	}
