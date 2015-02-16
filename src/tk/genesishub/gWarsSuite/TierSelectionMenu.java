@@ -113,21 +113,16 @@ public class TierSelectionMenu {
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		
-	        	}
-	        	switch(chosen){
-	        	case "Sniper":
 	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
-	        		break;
-	        	case "Auto Rifle":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
-	        		break;
-	        	case "Shotgun":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
-	        		break;
-	        	case "Special":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
-	        		break;
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -144,19 +139,17 @@ public class TierSelectionMenu {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
-	        	switch(chosen){
-	        	case "Sniper":
+	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
 	        		to.Initialize((CommandSender)event.getPlayer(), "sniper");
-	        		break;
-	        	case "Auto Rifle":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
 	        		to.Initialize((CommandSender)event.getPlayer(), "autorifle");
-	        		break;
-	        	case "Shotgun":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
 	        		to.Initialize((CommandSender)event.getPlayer(), "shotgun");
-	        		break;
-	        	case "Special":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
 	        		to.Initialize((CommandSender)event.getPlayer(), "special");
-	        		break;
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -173,19 +166,17 @@ public class TierSelectionMenu {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
-	        	switch(chosen){
-	        	case "Sniper":
+	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
-	        		break;
-	        	case "Auto Rifle":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
-	        		break;
-	        	case "Shotgun":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
-	        		break;
-	        	case "Special":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
-	        		break;
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -202,19 +193,17 @@ public class TierSelectionMenu {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
-	        	switch(chosen){
-	        	case "Sniper":
+	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
-	        		break;
-	        	case "Auto Rifle":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
-	        		break;
-	        	case "Shotgun":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
-	        		break;
-	        	case "Special":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
-	        		break;
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -231,19 +220,17 @@ public class TierSelectionMenu {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
-	        	switch(chosen){
-	        	case "Sniper":
+	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
-	        		break;
-	        	case "Auto Rifle":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
-	        		break;
-	        	case "Shotgun":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
-	        		break;
-	        	case "Special":
+	        	}
+	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
 	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
-	        		break;
 	        	}
 	            event.setWillClose(true);
 	        }
