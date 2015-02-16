@@ -54,7 +54,7 @@ public class JoinManager{
             ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
             ItemStack chest = new ItemStack(Material.CHEST, 1);
             ItemMeta im = chest.getItemMeta();
-            im.setDisplayName(Color.AQUA + "Select Gun");
+            im.setDisplayName(ChatColor.AQUA + "Select Gun");
             chest.setItemMeta(im);
             player.getInventory().setHelmet(wool);
             player.getInventory().setHeldItemSlot(0);
@@ -72,7 +72,7 @@ public class JoinManager{
             ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
             ItemStack chest = new ItemStack(Material.CHEST, 1);
             ItemMeta im = chest.getItemMeta();
-            im.setDisplayName(Color.AQUA + "Select Gun");
+            im.setDisplayName(ChatColor.AQUA + "Select Gun");
             chest.setItemMeta(im);
             player.getInventory().setHelmet(wool);
             player.getInventory().setHeldItemSlot(0);

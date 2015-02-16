@@ -1,6 +1,7 @@
 package tk.genesishub.gWarsSuite;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -34,11 +35,12 @@ public class LeaveManager{
              scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
                  @Override
                  public void run() {
+                	p.getInventory().clear();
                  	ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
                     p.getInventory().setHelmet(wool);
                     ItemStack chest = new ItemStack(Material.CHEST);
                     ItemMeta im = chest.getItemMeta();
-                    im.setDisplayName(Color.AQUA + "Select Gun");
+                    im.setDisplayName(ChatColor.AQUA + "Select Gun");
                     chest.setItemMeta(im);
                     p.getInventory().setItemInHand(chest);
                 	 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
@@ -49,10 +51,11 @@ public class LeaveManager{
     		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
                 @Override
                 public void run() {
+                p.getInventory().clear();
                	 ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
                	 ItemStack chest = new ItemStack(Material.CHEST);
                  ItemMeta im = chest.getItemMeta();
-                 im.setDisplayName(Color.AQUA + "Select Gun");
+                 im.setDisplayName(ChatColor.AQUA + "Select Gun");
                  chest.setItemMeta(im);
                  p.getInventory().setItemInHand(chest);
                  p.getInventory().setHelmet(wool);
