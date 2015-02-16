@@ -84,7 +84,7 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
-    	
+    	ltp.Initalize(event);
     }
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event) throws InterruptedException{

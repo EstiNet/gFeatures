@@ -42,10 +42,8 @@ public class GameMenu {
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
     .setOption(0, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Airplane", ChatColor.WHITE+"Stand close to an airfield!")
-    .setOption(1, new ItemStack(Material.GOLD_BLOCK, 1), "Tier 1", "Weapons here cost 5 kills.")
-    .setOption(2, new ItemStack(Material.LAPIS_BLOCK, 1), "Tier 2", "Weapons here cost 10 kills.")
-    .setOption(3, new ItemStack(Material.DIAMOND_BLOCK, 1), "Tier 3", "Weapons here cost 25 kills.")
-    .setOption(4, new ItemStack(Material.EMERALD_BLOCK, 1), "Tier 4", "Weapons here cost 50 kills.")
+    .setOption(1, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Anti Aircraft Guns", ChatColor.WHITE+"Stand close to an Anti-Aircraft Station!")
+    .setOption(2, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.GOLD+"Summon Boat", "Stand close to the docks!")
 	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GRAY+"The nearest player to you is " + getNearest(p, 10000.000).getName() + " from the " + tm.getTeam(p.getName()) + " team!");
 	return menu;
 	}catch(Exception e){

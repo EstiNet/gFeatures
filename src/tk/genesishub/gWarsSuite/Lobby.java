@@ -1,6 +1,7 @@
 package tk.genesishub.gWarsSuite;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -36,7 +37,7 @@ public class Lobby {
 		case "town": 
 			ItemStack chest = new ItemStack(Material.CHEST, 1);
             ItemMeta im = chest.getItemMeta();
-            im.setDisplayName(Color.AQUA + "Select Gun");
+            im.setDisplayName(ChatColor.AQUA + "Game Menu");
             chest.setItemMeta(im);
             
 			if(Constants.arena.contains(player.getName())){
@@ -97,7 +98,7 @@ public class Lobby {
 	    		player.getLocation().setPitch((float) -2.1);
 	    		ItemStack chest1 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im1 = chest1.getItemMeta();
-	            im1.setDisplayName(Color.AQUA + "Select Gun");
+	            im1.setDisplayName(Color.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
 	    		}
@@ -118,7 +119,7 @@ public class Lobby {
 	        	player.getLocation().setPitch((float) -2.1);
 	        	ItemStack chest2 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im2 = chest2.getItemMeta();
-	            im2.setDisplayName(Color.AQUA + "Select Gun");
+	            im2.setDisplayName(ChatColor.AQUA + "Select Gun");
 	            chest2.setItemMeta(im2);
 	        	player.getInventory().addItem(chest2);
 	    		}
@@ -133,7 +134,7 @@ public class Lobby {
 	public void Initiate(int ox, int oy, int oz, double oyaw, double opitch, int bx, int by, int bz, double byaw, double bpitch, Player player, CommandSender sender){
 		ItemStack chest = new ItemStack(Material.CHEST, 1);
         ItemMeta im = chest.getItemMeta();
-        im.setDisplayName(Color.AQUA + "Select Gun");
+        im.setDisplayName(ChatColor.AQUA + "Game Menu");
         chest.setItemMeta(im);
 		if(Constants.arena.contains(player.getName())){
     		sender.sendMessage("You are in the arena!");
