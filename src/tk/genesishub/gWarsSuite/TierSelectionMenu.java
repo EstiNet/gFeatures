@@ -40,7 +40,6 @@ public class TierSelectionMenu {
 		InventoryAPI menu = new InventoryAPI("Select Tier", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
-	        	Bukkit.getServer().getLogger().info(event.getName());
 	            if(event.getName().equals(ChatColor.AQUA+"Tier 0")){
 	            	final InventoryAPI menus = TierZeroInventory(p);
 	            	event.getPlayer().closeInventory();
