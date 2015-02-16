@@ -38,4 +38,14 @@ public class Constants {
 			e.printStackTrace();
 		}
 	}
+	public void removeAirplaneline(Player p){
+		try{
+			int index = airplaneline.indexOf(p.getName());
+			airplaneline.remove(index);
+			}
+			catch(Exception e){
+				Bukkit.getServer().getLogger().info("This is a GenesisHub Error.");
+				e.printStackTrace();
+			}
+	}
 }

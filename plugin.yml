@@ -203,6 +203,11 @@ commands:
       usage:
       permission: gWarsSuite.admin
       permission-message: You don't have <permission>
+   admin-airplaneline:
+      description: Technical Command.
+      usage:
+      permission: gWarsSuite.admin
+      permission-message: You don't have <permission>
    admin-bt:
       description: Technical Command.
       usage:
@@ -214,6 +219,16 @@ commands:
       permission: gWarsSuite.admin
       permission-message: You don't have <permission>
    admin-clear-arena:
+      description: Technical Command.
+      usage:
+      permission: gWarsSuite.admin
+      permission-message: You don't have <permission>
+   admin-clear-gunin:
+      description: Technical Command.
+      usage:
+      permission: gWarsSuite.admin
+      permission-message: You don't have <permission>
+   admin-clear-airplaneline:
       description: Technical Command.
       usage:
       permission: gWarsSuite.admin

@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 public class GameMenu {
 	Summon summon = new Summon();
 	TeamManager tm = new TeamManager();
+	Constants cons = new Constants();
 	public void Initialize(Player p){
 		if(p.getItemInHand().getType() == Material.CHEST && Constants.arena.contains(p.getName())){
 			InventoryAPI menu = makeInventory(p);
@@ -29,7 +30,7 @@ public class GameMenu {
 	            	Constants.airplaneline.add(p.getName());
 	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
 	                	public void run(){
-	                   Constants.airplaneline.remove(p.getName());
+	                   cons.removeAirplaneline(p);
 	                   }
 	                }, 600L);
 	            	}

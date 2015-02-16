@@ -238,8 +238,17 @@ public class CommandHub {
     	if (cmd.getName().equalsIgnoreCase("admin-gunin")){
     		admin.listGunin(s);
     	}
+    	if (cmd.getName().equalsIgnoreCase("admin-airplaneline")){
+    		admin.listAirplaneline(s);
+    	}
     	if(cmd.getName().equalsIgnoreCase("admin-clear-arena")){
     		admin.clearArena(s);
+    	}
+    	if(cmd.getName().equalsIgnoreCase("admin-clear-gunin")){
+    		admin.clearGunin(s);
+    	}
+    	if(cmd.getName().equalsIgnoreCase("admin-clear-airplaneline")){
+    		admin.clearAirplaneline(s);
     	}
     	if (cmd.getName().equalsIgnoreCase("admin-bt")){
     		admin.listBT(s);

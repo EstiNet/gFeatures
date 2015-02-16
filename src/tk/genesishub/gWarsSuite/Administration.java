@@ -24,6 +24,13 @@ public class Administration {
 			p.sendMessage("Length " + Integer.toString(Constants.gunin.size()));
 		}
 	}
+	public void listAirplaneline(Player p){
+		for(int i = 0; i<Constants.airplaneline.size(); i++){
+			String msg = Constants.airplaneline.get(i);
+			p.sendMessage(msg);
+			p.sendMessage("Length " + Integer.toString(Constants.airplaneline.size()));
+		}
+	}
 	public void listBT(Player p){
 		for(int i = 0; i<Constants.bt.size(); i++){
 			String msg = Constants.bt.get(i);
@@ -41,6 +48,14 @@ public class Administration {
 	public void clearArena(Player player){
 		if(Constants.arena.contains(player.getName())){
 			Constants.arena.remove(player.getName());
+		}
+		else{
+			player.sendMessage("Couldn't remove you.");
+		}
+	}
+	public void clearAirplaneline(Player player){
+		if(Constants.airplaneline.contains(player.getName())){
+			Constants.airplaneline.remove(player.getName());
 		}
 		else{
 			player.sendMessage("Couldn't remove you.");
