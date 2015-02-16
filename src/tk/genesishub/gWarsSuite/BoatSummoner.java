@@ -7,8 +7,8 @@ import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-public class AirplaneSummoner {
-	public void AirplaneSummon(Player p){
+public class BoatSummoner {
+	public void BoatSummon(Player p){
 		boolean bool = false;
 		World world = Bukkit.getServer().getWorld("gWars");
 		Location location = p.getLocation();

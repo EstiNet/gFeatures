@@ -23,7 +23,6 @@ public class GameMenu {
 		InventoryAPI menu = new InventoryAPI("Game Menu", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
-	        	Bukkit.getLogger().info("He's got " + Boolean.toString(Constants.airplaneline.contains(p.getName())));
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
 	            	if(!(Constants.airplaneline.contains(p.getName()))){
 	            	summon.Initialize(p, "airplane");
@@ -33,10 +32,23 @@ public class GameMenu {
 	                	public void run(){
 	                   cons.removeAirplaneline(p);
 	                   }
-	                }, 600L);
+	                }, 200L);
 	            	}
 	            	event.getPlayer().closeInventory();
 	            }
+	            else if(event.getName().equals(ChatColor.GOLD+"Summon Boat")){
+		            	if(!(Constants.airplaneline.contains(p.getName()))){
+		            	summon.Initialize(p, "boat");
+		            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
+		            	Constants.airplaneline.add(p.getName());
+		                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+		                	public void run(){
+		                   cons.removeAirplaneline(p);
+		                   }
+		                }, 200L);
+		            }
+		           event.getPlayer().closeInventory();
+		      }
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
