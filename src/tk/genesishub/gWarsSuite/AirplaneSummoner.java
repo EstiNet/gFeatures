@@ -14,6 +14,7 @@ public class AirplaneSummoner {
 		Location location = p.getLocation();
 		int x = (int) location.getX();
 		int z = (int) location.getZ();
+		Bukkit.getLogger().info("X: " + x + " Z: " + z);
 		Location[] orange = {new Location(world, 425, 4, 200), new Location(world, 423, 4, 200), new Location(world, 427, 4, 200), new Location(world, 429, 4, 200)};
 		Location[] blue = {new Location(world, 562, 4, 132), new Location(world, 564, 4, 132),  new Location(world, 566, 4, 132), new Location(world, 568, 4, 132)};
 		for(int i = 421; i<=433; i++){
