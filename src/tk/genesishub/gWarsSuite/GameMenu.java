@@ -19,7 +19,7 @@ public class GameMenu {
 	}
 	public InventoryAPI makeInventory(final Player p){
 		try{
-		InventoryAPI menu = new InventoryAPI("Select Tier", 9, new InventoryAPI.OptionClickEventHandler() {
+		InventoryAPI menu = new InventoryAPI("Game Menu", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){

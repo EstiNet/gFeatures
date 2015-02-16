@@ -50,6 +50,9 @@ public class Administration {
 		if(Constants.gunin.contains(player.getName())){
 			Constants.gunin.remove(player.getName());
 		}
+		else{
+			player.sendMessage("Couldn't remove you.");
+		}
 	}
 	public void commandGiveKills(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		if(args.length == 0){
