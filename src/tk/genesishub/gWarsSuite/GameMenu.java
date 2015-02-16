@@ -26,7 +26,7 @@ public class GameMenu {
 	        	Bukkit.getLogger().info("He's got " + Boolean.toString(Constants.airplaneline.contains(p.getName())));
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
 	            	if(!(Constants.airplaneline.contains(p.getName()))){
-	            	summon.Initialize(p, "Airplane");
+	            	summon.Initialize(p, "airplane");
 	            	Bukkit.getLogger().info("Working...");
 	            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 	            	Constants.airplaneline.add(p.getName());

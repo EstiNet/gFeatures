@@ -18,6 +18,7 @@ public class AirplaneSummoner {
 			for(int iter = 164; iter<=204; iter++){
 				Bukkit.getLogger().info(i + " and " + iter);
 				if(location.getX() == i && location.getZ() == iter){
+					Bukkit.getLogger().info("HI");
 					int rand = (int) Math.ceil(Math.random()*4);
 						world.spawnEntity(orange[rand], EntityType.MINECART);
 						Bukkit.getLogger().info(i + " and " + iter);
