@@ -29,9 +29,9 @@ public class Capture{
 			Block block8 = world.getBlockAt(495, 3, 179);
 			Block block9 = world.getBlockAt(495, 3, 178);
 			Block block10 = world.getBlockAt(495, 3, 177);
-			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals("orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals("blue"))){
+			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals(ChatColor.GOLD+"orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals(ChatColor.DARK_AQUA+"blue"))){
 			Bukkit.getServer().broadcastMessage(ChatColor.GRAY+p.getName()+ " has captured the town for the "+ChatColor.BOLD+  tm.getTeam(p.getName()) +ChatColor.RESET+" "+ChatColor.GRAY+"team!");
-			if(tm.getTeam(p.getName()).equals("orange")){
+			if(tm.getTeam(p.getName()).equals(ChatColor.GOLD+"orange")){
 				block.setType(Material.GRASS);
 				block1.setData((byte) 1);
     			block2.setData((byte) 1);
@@ -43,19 +43,19 @@ public class Capture{
     			block8.setData((byte) 1);
     			block9.setData((byte) 1);
     			block10.setData((byte) 1);
-    			}
-    			else if(tm.getTeam(p.getName()).equals("blue")){	
-    				block.setType(Material.STONE);
-    				block1.setData((byte) 3);
-        			block2.setData((byte) 3);
-        			block3.setData((byte) 3);
-        			block4.setData((byte) 3);
-        			block5.setData((byte) 3);
-        			block6.setData((byte) 3);
-        			block7.setData((byte) 3);
-        			block8.setData((byte) 3);
-        			block9.setData((byte) 3);
-        			block10.setData((byte) 3);
+    		}
+    		else if(tm.getTeam(p.getName()).equals(ChatColor.DARK_AQUA+"blue")){	
+    			block.setType(Material.STONE);
+    			block1.setData((byte) 3);
+        		block2.setData((byte) 3);
+        		block3.setData((byte) 3);
+        		block4.setData((byte) 3);
+        		block5.setData((byte) 3);
+        		block6.setData((byte) 3);
+        		block7.setData((byte) 3);
+        		block8.setData((byte) 3);
+        		block9.setData((byte) 3);
+        		block10.setData((byte) 3);
         	}
 			}else{
 				sender.sendMessage("Your team already captured the town!");
@@ -72,9 +72,9 @@ public class Capture{
 			Block block6 = world.getBlockAt(551, 3, 420);
 			Block block7 = world.getBlockAt(552, 3, 420);
 			Block block8 = world.getBlockAt(552, 3, 421);
-			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals("orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals("blue"))){
+			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals(ChatColor.GOLD+"orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals(ChatColor.DARK_AQUA+"blue"))){
 				Bukkit.getServer().broadcastMessage(ChatColor.GRAY+p.getName()+ " has captured the island for the "+ChatColor.BOLD+  tm.getTeam(p.getName()) +ChatColor.RESET+" "+ChatColor.GRAY+"team!");
-			if(tm.getTeam(p.getName()).equals("orange")){
+			if(tm.getTeam(p.getName()).equals(ChatColor.GOLD+"orange")){
 			block.setType(Material.GRASS);
 			block1.setData((byte) 1);
 			block2.setData((byte) 1);
@@ -85,7 +85,7 @@ public class Capture{
 			block7.setData((byte) 1);
 			block8.setData((byte) 1);
 			}
-			else if(tm.getTeam(p.getName()).equals("blue")){	
+			else if(tm.getTeam(p.getName()).equals(ChatColor.DARK_AQUA+"blue")){	
 			block.setType(Material.STONE);
 			block1.setData((byte) 3);
     		block2.setData((byte) 3);
