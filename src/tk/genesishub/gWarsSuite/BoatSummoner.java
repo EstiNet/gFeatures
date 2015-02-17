@@ -52,7 +52,7 @@ public class BoatSummoner {
 				}
 		if(bool == false){
 			p.sendMessage(ChatColor.BOLD+"Get closer to the docks!");
-			p.sendMessage(ChatColor.BOLD+"Please wait 30 seconds before summoning another vehicle.");
+			p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 		}
 	}
 }

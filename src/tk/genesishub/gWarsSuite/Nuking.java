@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
@@ -85,6 +86,10 @@ public class Nuking{
 		if(s.getName() == Constants.playernukename){
 		sender.sendMessage("Launching missle...");
 		Bukkit.getServer().broadcastMessage("A nuke has been fired by " + s.getName() + " at the location " + (int)nukeplace.getX() + " " + (int)nukeplace.getY() + " " + (int)nukeplace.getZ());
+		Player[] all = Bukkit.getServer().getOnlinePlayers();
+		for(Player sound : all){
+			sound.playSound(sound.getLocation(), Sound.AMBIENCE_THUNDER, 3, 0);
+		}
 		for (Player killhim : nearbyPlayers){
 			if(!(Constants.spectate.contains(killhim))){
 			killhim.setHealth(0);

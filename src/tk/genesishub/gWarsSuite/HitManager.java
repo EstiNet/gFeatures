@@ -36,7 +36,6 @@ public class HitManager {
     			Damageable d = (Damageable) death;
     			int health = (int) d.getHealth();
     			double damage = event.getDamage();
-    			Bukkit.getServer().getLogger().info(Double.toString(health));
     			if(health - damage <= 0){
     			death.getInventory().remove(Material.CHEST);
     			death.getInventory().remove(Material.STAINED_GLASS);
