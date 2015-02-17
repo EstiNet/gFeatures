@@ -1,6 +1,7 @@
 # GenesisEssentials by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.2-ALPHA Hub Edition
+# Version: 0.2-ALPHA gFeatures Edition
+#Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
 #
 #   Copyright 2015 DolphinBox
 #
@@ -26,13 +27,13 @@ on login:
 command /icanhasge:
 	description: Seecret Command!
 	trigger:
-		send "This server is running GenesisEssentials Hub Edition version 0.2-ALPHA (This is a unstable build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version 0.5-ALPHA (This is a dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "This server is running GenesisEssentials Hub Edition version 0.2-ALPHA (This is a unstable build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version 0.5-ALPHA (This is a dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
