@@ -33,7 +33,7 @@ public class TeamManager {
 				player.setHealth(0);
 			}
 			else{
-				sender.sendMessage("You can't switch teams, the teams will be unfair!");
+				sender.sendMessage("You can't switch teams: teams will be uneven!");
 			}
 	 }
 }

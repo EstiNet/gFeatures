@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
+//Admin Controls and Debugging
 public class Administration {
 	File f = new File("KillsDeaths.xml");
 	StatsManager sm = new StatsManager();

@@ -60,15 +60,16 @@ public class Listeners extends JavaPlugin implements Listener{
 	
 	@Override
     public void onEnable() { //What to do on server load/reload
-        getLogger().info("gWarsSuite is enabled. All clear for take off!");
+        getLogger().info("[gFeatures] Starting gFeatures...");
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
         fm.EnablerCheck();
+        getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         }
  
     @Override
     public void onDisable() { //What to do on server unload/reload
-       getLogger().info("gWarsSuite is disabled. Bye!");
+       getLogger().info("[gFeatures] gFeatures is turning off...!");  
     }
     JavaPlugin plugin;
     Server server;

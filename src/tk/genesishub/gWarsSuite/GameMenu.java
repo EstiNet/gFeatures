@@ -7,7 +7,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitScheduler;
-
+//GameMenu System
 public class GameMenu {
 	Summon summon = new Summon();
 	TeamManager tm = new TeamManager();
@@ -52,10 +52,10 @@ public class GameMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
-    .setOption(0, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Airplane", ChatColor.WHITE+"Stand close to an airfield!")
+    .setOption(0, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Airplane", ChatColor.WHITE+"Stand on an airfield!")
     .setOption(1, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Anti Aircraft Guns", ChatColor.WHITE+"Stand close to an Anti-Aircraft Station!")
-    .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand close to the docks!")
-	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GRAY+"The nearest player to you is " + getNearest(p, 10000.000).getName() + " from the " + tm.getTeam(p.getName()) + " team!");
+    .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand on a docks!")
+	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GRAY+"Nearest Player: " + getNearest(p, 10000.000).getName() + " on team " + tm.getTeam(p.getName()));
 	return menu;
 	}catch(Exception e){
 		e.printStackTrace();
