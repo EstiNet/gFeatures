@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -93,7 +94,7 @@ public class Nuking{
 		for (Player killhim : nearbyPlayers){
 			if(!(Constants.spectate.contains(killhim))){
 			killhim.setHealth(0);
-			Bukkit.getServer().broadcastMessage("Player " + killhim.getName() + " from the " + tm.getTeam(killhim.getName()) + " team has been obliberated by the nuke!");
+			Bukkit.getServer().broadcastMessage(ChatColor.GRAY+"Player " + killhim.getName() + " from the " + tm.getTeam(killhim.getName()) + ChatColor.GRAY+" team has been obliberated by the nuke!");
 			}
 		}
 		sender.sendMessage("Your nuke killed " + nearbyPlayers.size() + " people.");
