@@ -1,6 +1,7 @@
 package tk.genesishub.gWarsSuite;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -35,7 +36,7 @@ public class ListTeams{
 		}
 	}
 	public void orangelist(Player sender){
-		sender.sendMessage("Orange Team Members:");
+		sender.sendMessage(ChatColor.GOLD+"Orange Team Members:");
 		sender.sendMessage("There are " + Constants.ot.size() + " players on this team.");
 		for(int iter = 0; iter <= Constants.ot.size(); iter++){
 			sender.sendMessage(Constants.ot.get(iter) + " with " + sr.getKills(Constants.ot.get(iter)) + " kills");
@@ -43,7 +44,7 @@ public class ListTeams{
 		return;
 	}
 	public void bluelist(Player sender){
-		sender.sendMessage("Blue Team Members:");
+		sender.sendMessage(ChatColor.DARK_AQUA+"Blue Team Members:");
 		sender.sendMessage("There are " + Constants.bt.size() + " players on this team.");
 		for(int iter = 0; iter <= Constants.bt.size(); iter++){
 			sender.sendMessage(Constants.bt.get(iter) + " with " + sr.getKills(Constants.bt.get(iter)) + " kills");
