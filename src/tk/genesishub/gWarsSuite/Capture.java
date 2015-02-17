@@ -1,6 +1,7 @@
 package tk.genesishub.gWarsSuite;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -29,8 +30,7 @@ public class Capture{
 			Block block9 = world.getBlockAt(495, 3, 178);
 			Block block10 = world.getBlockAt(495, 3, 177);
 			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals("orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals("blue"))){
-			Bukkit.getServer().getLogger().info(p.getName() + " has captured the town for the " + tm.getTeam(p.getName()));
-			Bukkit.getServer().broadcastMessage(p.getName()+ " has captured the town for the "+  tm.getTeam(p.getName()) +" team!");
+			Bukkit.getServer().broadcastMessage(ChatColor.GRAY+p.getName()+ " has captured the town for the "+ChatColor.BOLD+  tm.getTeam(p.getName()) +ChatColor.RESET+" "+ChatColor.GRAY+"team!");
 			if(tm.getTeam(p.getName()).equals("orange")){
 				block.setType(Material.GRASS);
 				block1.setData((byte) 1);
@@ -73,8 +73,7 @@ public class Capture{
 			Block block7 = world.getBlockAt(552, 3, 420);
 			Block block8 = world.getBlockAt(552, 3, 421);
 			if((block.getType() == Material.STONE && tm.getTeam(p.getName()).equals("orange"))||(block.getType() == Material.GRASS && tm.getTeam(p.getName()).equals("blue"))){
-			Bukkit.getServer().getLogger().info(p.getName() + " has captured the island for the " + tm.getTeam(p.getName()));
-			Bukkit.getServer().broadcastMessage(p.getName()+ " has captured the island for the "+  tm.getTeam(p.getName()) +" team!");
+				Bukkit.getServer().broadcastMessage(ChatColor.GRAY+p.getName()+ " has captured the island for the "+ChatColor.BOLD+  tm.getTeam(p.getName()) +ChatColor.RESET+" "+ChatColor.GRAY+"team!");
 			if(tm.getTeam(p.getName()).equals("orange")){
 			block.setType(Material.GRASS);
 			block1.setData((byte) 1);

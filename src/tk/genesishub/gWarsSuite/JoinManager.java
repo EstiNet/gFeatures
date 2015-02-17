@@ -42,10 +42,10 @@ public class JoinManager{
     		hello1=Integer.toString(hello);
     		Bukkit.getServer().getLogger().info(hello1);
     	player.setGameMode(GameMode.SURVIVAL);
-    	Bukkit.getServer().broadcastMessage(player.getName()+" has joined gWars!");
+    	Bukkit.getServer().broadcastMessage(ChatColor.BOLD+player.getName()+" has joined gWars!");
     	if(Constants.ot.size() > Constants.bt.size()){
     		Constants.bt.add(player.getName());
-    		Bukkit.getServer().broadcastMessage(player.getName()+" has joined the Blue Team!");
+    		Bukkit.getServer().broadcastMessage(ChatColor.DARK_AQUA+player.getName()+" has joined the Blue Team!");
     		double x = Double.parseDouble("134");//insert x
             double y = Double.parseDouble("53");//insert y
             double z = Double.parseDouble("282");//insert z
@@ -63,7 +63,7 @@ public class JoinManager{
     	}
     	else{
     		Constants.ot.add(player.getName());
-    		Bukkit.getServer().broadcastMessage(player.getName()+ " has joined the Orange Team!");
+    		Bukkit.getServer().broadcastMessage(ChatColor.GOLD+player.getName()+ " has joined the Orange Team!");
     		 double x1 = Double.parseDouble("134");//insert x
             double y1 = Double.parseDouble("11");//insert y
             double z1 = Double.parseDouble("282");//insert z
