@@ -1,4 +1,11 @@
 package tk.genesishub.gFeatures.Listeners;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+
+import tk.genesishub.gFeatures.Commands.gFeatureCore;
+import tk.genesishub.gFeatures.Commands.gWarsSuiteCore;
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -17,15 +24,6 @@ https://github.com/Seshpenguin/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-public class CommandCentral {
-
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-
-
-import tk.genesishub.gFeatures.Commands.gFeatureCore;
-import tk.genesishub.gFeatures.Commands.gWarsSuiteCore;
-
 
 public class CommandCentral {
 
