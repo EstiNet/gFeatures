@@ -18,5 +18,5 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 public class YAMLToConstants {
-
+	public void getPlugin(){}
 }
