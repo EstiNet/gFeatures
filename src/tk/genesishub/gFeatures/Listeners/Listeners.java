@@ -17,6 +17,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.lang.util.SimpleEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -50,7 +51,6 @@ public class Listeners extends JavaPlugin implements Listener{
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
         	// put all code related to Skript here!
-        	//Skript.registerEvent("");
         }
         }
  
