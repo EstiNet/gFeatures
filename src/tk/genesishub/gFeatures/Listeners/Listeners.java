@@ -16,9 +16,12 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import ch.njol.skript.Skript;
+
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
+
 gFeatures main class file
 https://github.com/Seshpenguin/gFeatures
 
@@ -39,13 +42,15 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Listeners extends JavaPlugin implements Listener{
 	@Override
+	
     public void onEnable() { //What to do on server load/reload
         getLogger().info("[gFeatures] Starting gFeatures...");
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
-        	// put all code related to Skript here, Coming Soon!
+        	// put all code related to Skript here!
+        	//Skript.registerEvent("");
         }
         }
  
