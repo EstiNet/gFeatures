@@ -1,6 +1,5 @@
 package tk.genesishub.gFeatures.Listeners;
 
-import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
@@ -15,7 +14,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitScheduler;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 public class Listeners extends JavaPlugin implements Listener{
@@ -31,9 +29,6 @@ public class Listeners extends JavaPlugin implements Listener{
     public void onDisable() { //What to do on server unload/reload
        getLogger().info("[gFeatures] gFeatures is turning off...!");  
     }
-    JavaPlugin plugin;
-    Server server;
-    BukkitScheduler sched;
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
