@@ -18,5 +18,7 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 public class YAMLInitialize {
-
+	public void Enabler(){
+		
+	}
 }
