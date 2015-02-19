@@ -45,7 +45,7 @@ public class Listeners extends JavaPlugin implements Listener{
         pm.registerEvents(this, this);
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
-        	// put all code related to Skript here
+        	// put all code related to Skript here, Coming Soon!
         }
         }
  

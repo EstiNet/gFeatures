@@ -4,3 +4,4 @@ version: 1.0
 
 commands:
    
+depend: [Skript, CrackShot]
