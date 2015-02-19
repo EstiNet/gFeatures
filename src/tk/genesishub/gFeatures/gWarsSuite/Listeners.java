@@ -80,7 +80,7 @@ public class Listeners extends JavaPlugin implements Listener{
     	jm.JoinManage(event);
     }
     @EventHandler
-    public void onPlayerLeave(PlayerQuitEvent event){
+    public void onPlayerQuit(PlayerQuitEvent event){
     	lm.ManageLeave(event);
     }
     @EventHandler
@@ -94,12 +94,12 @@ public class Listeners extends JavaPlugin implements Listener{
     	lm.ManageRespawn(event);
     }
     @EventHandler
-    public void onDeath(PlayerDeathEvent event){
+    public void onPlayerDeath(PlayerDeathEvent event){
     	Constants.arena.remove(event.getEntity().getName());
     	dm.ManageDeath(event.getEntity(), event);
     }
     @EventHandler
-    public void onHit(EntityDamageByEntityEvent event) {
+    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         hm.EntityDamageByOther(event);
     }
         @EventHandler
@@ -120,7 +120,7 @@ public class Listeners extends JavaPlugin implements Listener{
 			return true;
         }
         @EventHandler
-        public void PlayerInteract(PlayerInteractEvent event){
+        public void onPlayerInteract(PlayerInteractEvent event){
         	tsm.Initialize(event);
         	tnfb.Initialize(event);
         	gm.Initialize(event.getPlayer());

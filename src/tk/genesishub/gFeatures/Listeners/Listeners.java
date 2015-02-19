@@ -38,37 +38,45 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
     	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerJoinInitialize();
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
     	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerQuitInitialize();
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
     	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerMoveInitialize();
     }
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event){
     	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerRespawnInitialize();
     }
     @EventHandler
     public void onDeath(PlayerDeathEvent event){
     	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerDeathInitialize();
     }
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event) {
     	ListenersHub lh = new ListenersHub(event);
+    	lh.EntityDamageEntityInitialize();
     }
-        @EventHandler
-        public void onHit1(WeaponDamageEntityEvent event) {
-        	ListenersHub lh = new ListenersHub(event);
-        }
-        @Override
-        public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
-        	return true;
-        }
-        @EventHandler
-        public void PlayerInteract(PlayerInteractEvent event){
-        	ListenersHub lh = new ListenersHub(event);
-       	 }
+    @EventHandler
+    public void onHit1(WeaponDamageEntityEvent event) {
+        ListenersHub lh = new ListenersHub(event);
+        lh.WeaponDamageEntityInitialize();
+    }
+    @EventHandler
+    public void PlayerInteract(PlayerInteractEvent event){
+        ListenersHub lh = new ListenersHub(event);
+        lh.PlayerInteractInitialize();
+    }
+    @Override
+    public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+        return true;
+    }
 }

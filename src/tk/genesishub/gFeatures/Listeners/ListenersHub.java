@@ -48,34 +48,33 @@ public class ListenersHub {
 		try {
 			gWars.onPlayerJoin(playerjoin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	protected void PlayerQuitInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onPlayerQuit(playerquit);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
 	protected void PlayerMoveInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onPlayerMove(playermove);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
 	protected void PlayerRespawnInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onPlayerRespawn(playerrespawn);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -84,7 +83,7 @@ public class ListenersHub {
 		try {
 			gWars.onPlayerJoin(playerjoin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -93,7 +92,7 @@ public class ListenersHub {
 		try {
 			gWars.onPlayerJoin(playerjoin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -102,7 +101,7 @@ public class ListenersHub {
 		try {
 			gWars.onPlayerJoin(playerjoin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -111,7 +110,7 @@ public class ListenersHub {
 		try {
 			gWars.onPlayerJoin(playerjoin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
