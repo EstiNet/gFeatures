@@ -25,13 +25,16 @@ import org.bukkit.command.CommandSender;
 
 
 import tk.genesishub.gFeatures.Commands.gFeatureCore;
+import tk.genesishub.gFeatures.Commands.gWarsSuiteCore;
 
 
 public class CommandCentral {
 
 	gFeatureCore gfc  = new gFeatureCore();
+	gWarsSuiteCore gwc = new gWarsSuiteCore();
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args){
 		gfc.CommandSwitch(sender, cmd, label, args);
 		//gFeatureCore
+		
 	}
 }
