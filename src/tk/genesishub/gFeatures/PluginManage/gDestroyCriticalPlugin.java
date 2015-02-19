@@ -9,6 +9,9 @@ public class gDestroyCriticalPlugin {
 	public gDestroyCriticalPlugin(double version1){
 		version = version1;
 	}
+	public double getVersion(){
+		return version;
+	}
 	public PluginState getState(){
 		return this.state;
 	}

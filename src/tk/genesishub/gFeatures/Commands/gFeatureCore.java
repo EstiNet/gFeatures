@@ -12,7 +12,9 @@ public class gFeatureCore {
 			}
 			else if(args.length == 1){
 				switch(args[0]){
-				
+				case "version":
+					
+					break;
 				}
 			}
 		}
