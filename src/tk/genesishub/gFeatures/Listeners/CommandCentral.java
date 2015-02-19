@@ -3,7 +3,6 @@ package tk.genesishub.gFeatures.Listeners;
 gFeatures
 https://github.com/Seshpenguin/gFeatures
 
-<<<<<<< HEAD
    Copyright 2015 DolphinBox
 
    Licensed under the Apache License, Version 2.0 (the "License");
