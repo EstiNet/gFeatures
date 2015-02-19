@@ -57,23 +57,6 @@ public class Listeners extends JavaPlugin implements Listener{
 	FileManager fm = new FileManager();
 	LobbyTeleport ltp = new LobbyTeleport();
 	TotallyNotFlyingBoats tnfb = new TotallyNotFlyingBoats();
-	
-	@Override
-    public void onEnable() { //What to do on server load/reload
-        getLogger().info("[gFeatures] Starting gFeatures...");
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(this, this);
-        fm.EnablerCheck();
-        getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
-        }
- 
-    @Override
-    public void onDisable() { //What to do on server unload/reload
-       getLogger().info("[gFeatures] gFeatures is turning off...!");  
-    }
-    JavaPlugin plugin;
-    Server server;
-    BukkitScheduler sched;
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException, ParserConfigurationException, TransformerException, SAXException, IOException{
@@ -103,7 +86,7 @@ public class Listeners extends JavaPlugin implements Listener{
         hm.EntityDamageByOther(event);
     }
         @EventHandler
-        public void onHit1(WeaponDamageEntityEvent event) {
+        public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
             hm.WeaponDamage(event);
         }
         @Override

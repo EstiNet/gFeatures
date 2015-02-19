@@ -81,7 +81,7 @@ public class ListenersHub {
 	protected void PlayerDeathInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onPlayerDeath(playerdeath);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -90,7 +90,7 @@ public class ListenersHub {
 	protected void EntityDamageEntityInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onEntityDamageByEntity(damageentity);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -99,7 +99,7 @@ public class ListenersHub {
 	protected void WeaponDamageEntityInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onWeaponDamageEntity(weaponevent);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -108,7 +108,7 @@ public class ListenersHub {
 	protected void PlayerInteractInitialize(){
 		inTo();
 		try {
-			gWars.onPlayerJoin(playerjoin);
+			gWars.onPlayerInteract(playerinteract);
 		} catch (Exception e) {
 			
 			e.printStackTrace();
