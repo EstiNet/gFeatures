@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
@@ -38,7 +39,7 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
  */
 
-public class Listeners extends JavaPlugin implements Listener{
+public class Listeners{
 	Summon summon = new Summon();
 	HitManager hm = new HitManager();
 	DeathManager dm = new DeathManager();
@@ -53,6 +54,13 @@ public class Listeners extends JavaPlugin implements Listener{
 	LobbyTeleport ltp = new LobbyTeleport();
 	TotallyNotFlyingBoats tnfb = new TotallyNotFlyingBoats();
 
+    public void onEnable(){
+    	//SETUP ALL PLUGINS ONENABLE AND FILEMANAGER
+    }
+    
+    public void onDisable(){
+    	
+    }
     
     public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException, ParserConfigurationException, TransformerException, SAXException, IOException{
     	jm.JoinManage(event);
@@ -67,7 +75,7 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     public void onPlayerRespawn(PlayerRespawnEvent event) throws InterruptedException{
     	Constants.arena.remove(event.getPlayer().getName());
-    	getLogger().info(event.getPlayer().getName() + " has died.");
+    	Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " has died.");
     	lm.ManageRespawn(event);
     }
     

@@ -1,5 +1,11 @@
 package tk.genesishub.gFeatures.Commands;
 
-public class gDestroyCritical {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
+public class gDestroyCritical {
+public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
+		
+		return null;
+	}
 }

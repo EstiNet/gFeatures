@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * 
  * */
 
-public class Listeners extends JavaPlugin implements Listener{
+public class Listeners{
 	Constants cons = new Constants();
 	List<String> Acceptance = cons.Acceptance;
 	CommandManager cm = new CommandManager();
