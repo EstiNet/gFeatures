@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.Listeners;
 gFeatures
 https://github.com/Seshpenguin/gFeatures
 
+<<<<<<< HEAD
    Copyright 2015 DolphinBox
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,4 +20,12 @@ https://github.com/Seshpenguin/gFeatures
 */
 public class CommandCentral {
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+
+public class CommandCentral {
+	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args){
+		
+	}
 }

@@ -58,34 +58,32 @@ public class Listeners extends JavaPlugin implements Listener{
 	LobbyTeleport ltp = new LobbyTeleport();
 	TotallyNotFlyingBoats tnfb = new TotallyNotFlyingBoats();
 
-    @EventHandler
+    
     public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException, ParserConfigurationException, TransformerException, SAXException, IOException{
     	jm.JoinManage(event);
     }
-    @EventHandler
+    
     public void onPlayerQuit(PlayerQuitEvent event){
     	lm.ManageLeave(event);
     }
-    @EventHandler
+    
     public void onPlayerMove(PlayerMoveEvent event){
     	ltp.Initalize(event);
     }
-    @EventHandler(priority=EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event) throws InterruptedException{
     	Constants.arena.remove(event.getPlayer().getName());
     	getLogger().info(event.getPlayer().getName() + " has died.");
     	lm.ManageRespawn(event);
     }
-    @EventHandler
+    
     public void onPlayerDeath(PlayerDeathEvent event){
     	Constants.arena.remove(event.getEntity().getName());
     	dm.ManageDeath(event.getEntity(), event);
     }
-    @EventHandler
+    
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         hm.EntityDamageByOther(event);
     }
-        @EventHandler
         public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
             hm.WeaponDamage(event);
         }
@@ -93,16 +91,12 @@ public class Listeners extends JavaPlugin implements Listener{
         public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     		try {
 				ch.CommandInitiate(sender, cmd, label, args);
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return true;
         }
-        @EventHandler
+        
         public void onPlayerInteract(PlayerInteractEvent event){
         	tsm.Initialize(event);
         	tnfb.Initialize(event);
