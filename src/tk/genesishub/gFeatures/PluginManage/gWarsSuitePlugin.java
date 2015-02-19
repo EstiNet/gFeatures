@@ -1,11 +1,11 @@
 package tk.genesishub.gFeatures.PluginManage;
 
 public class gWarsSuitePlugin {
-	PluginState state;
+	public static PluginState state;
 	public gWarsSuitePlugin(PluginState state1){
-			this.state = state1;
+			gWarsSuitePlugin.state = state1;
 	}
-	public PluginState getState(){
-		return this.state;
+	public static PluginState getState(){
+		return gWarsSuitePlugin.state;
 	}
 }
