@@ -5,11 +5,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+//import org.bukkit.potion.PotionEffectType;
+
 import org.bukkit.potion.PotionEffectType;
 
-import tk.genesishub.gWarsSuite.Constants;
-import tk.genesishub.gWarsSuite.KitManagerSecondary;
-import tk.genesishub.gWarsSuite.StatsRetrieve;
+import tk.genesishub.gFeatures.gWarsSuite.Constants;
+import tk.genesishub.gFeatures.gWarsSuite.KitManagerSecondary;
+import tk.genesishub.gFeatures.gWarsSuite.StatsRetrieve;
 
 public class TierFour {
 	Constants cons = new Constants();

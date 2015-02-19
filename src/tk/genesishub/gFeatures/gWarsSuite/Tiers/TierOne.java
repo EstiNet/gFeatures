@@ -5,13 +5,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import tk.genesishub.gWarsSuite.Constants;
-import tk.genesishub.gWarsSuite.KitManagerSecondary;
-import tk.genesishub.gWarsSuite.StatsRetrieve;
+import tk.genesishub.gFeatures.gWarsSuite.Constants;
+import tk.genesishub.gFeatures.gWarsSuite.KitManagerSecondary;
 
 public class TierOne {
 	Constants cons = new Constants();
-	StatsRetrieve sr = new StatsRetrieve();
+	tk.genesishub.gFeatures.gWarsSuite.StatsRetrieve sr = new tk.genesishub.gFeatures.gWarsSuite.StatsRetrieve();
 	KitManagerSecondary kmh = new KitManagerSecondary();
 	public void Initialize(CommandSender sender, String value){
 		ItemStack ammo = new ItemStack(Material.MELON_SEEDS,32);

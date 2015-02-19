@@ -43,5 +43,7 @@ public class ListenersHub {
 	public ListenersHub(PlayerInteractEvent event){
 		playerinteract = event;
 	}
-	
+	public void PlayerJoinInitialize(){
+		
+	}
 }

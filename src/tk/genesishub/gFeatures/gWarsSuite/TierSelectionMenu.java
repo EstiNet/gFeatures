@@ -9,11 +9,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import tk.genesishub.gWarsSuite.Tiers.TierFour;
-import tk.genesishub.gWarsSuite.Tiers.TierOne;
-import tk.genesishub.gWarsSuite.Tiers.TierThree;
-import tk.genesishub.gWarsSuite.Tiers.TierTwo;
-import tk.genesishub.gWarsSuite.Tiers.TierZero;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierFour;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierOne;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierThree;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierTwo;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierZero;
 
 public class TierSelectionMenu {
 	public void Initialize(PlayerInteractEvent event){

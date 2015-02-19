@@ -3,11 +3,11 @@ package tk.genesishub.gFeatures.gWarsSuite;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import tk.genesishub.gWarsSuite.Tiers.TierFour;
-import tk.genesishub.gWarsSuite.Tiers.TierOne;
-import tk.genesishub.gWarsSuite.Tiers.TierThree;
-import tk.genesishub.gWarsSuite.Tiers.TierTwo;
-import tk.genesishub.gWarsSuite.Tiers.TierZero;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierFour;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierOne;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierThree;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierTwo;
+import tk.genesishub.gFeatures.gWarsSuite.Tiers.TierZero;
 
 public class KitManagerHub {
 	TierZero tz = new TierZero();
