@@ -77,7 +77,7 @@ public class Administration {
 			sender.sendMessage("/admin-givekills player amount");
 		}
 		else if(args.length == 2){
-			int[] i = sm.giveKills(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
+			int[] i = sm.giveKills(Bukkit.getServer().getPluginManager().getPlugin("gFeatures").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
 			sender.sendMessage("Gave " + args[1] + " kills to " + args[0] + " who originally had " + i[0] + " kills and now has " + i[1] + " kills. Node value = ");
 		}
 	}
@@ -90,7 +90,7 @@ public class Administration {
 		}
 		else if(args.length == 2){
 			sender.sendMessage("Took " + args[1] + " kills from " + args[0]);
-			sm.takeKills(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
+			sm.takeKills(Bukkit.getServer().getPluginManager().getPlugin("gFeatures").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
 		}
 	}
 
@@ -103,7 +103,7 @@ public class Administration {
 		}
 		else if(args.length == 2){
 			sender.sendMessage("Gave " + args[1] + " deaths to " + args[0]);
-			sm.giveDeaths(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
+			sm.giveDeaths(Bukkit.getServer().getPluginManager().getPlugin("gFeatures").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
 		}
 	}
 
@@ -116,7 +116,7 @@ public class Administration {
 		}
 		else if(args.length == 2){
 			sender.sendMessage("Took " + args[1] + " deaths from " + args[0]);
-			sm.takeDeaths(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
+			sm.takeDeaths(Bukkit.getServer().getPluginManager().getPlugin("gFeatures").getServer().getPlayer(args[0]), Integer.parseInt(args[1]));
 		}
 	}
 

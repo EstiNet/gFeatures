@@ -34,7 +34,7 @@ public class Nuking{
 		Constants.playernukename = s.getName();
 		s.setGameMode(GameMode.SPECTATOR);
 		Constants.boot = true;
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		if (Constants.boot==true){
            sender.sendMessage("You took too long!");
@@ -43,7 +43,7 @@ public class Nuking{
     		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tp "+ sender.getName() + " 569 2 419");}
            }
         }, 720L);
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
            Bukkit.getServer().broadcastMessage("Nuke is ready to launch!");
           Constants.boots = true;

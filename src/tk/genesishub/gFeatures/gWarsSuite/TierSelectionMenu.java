@@ -30,7 +30,7 @@ public class TierSelectionMenu {
                 event.getPlayer().sendMessage("You have chosen " + event.getName());
                 event.setWillClose(true);
             }
-        }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+        }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
 		.setOption(1, new ItemStack(Material.IRON_BLOCK, 1), ChatColor.AQUA + "Tier 0", ChatColor.GOLD+"Weapons here cost 0 kills.")
 	    .setOption(2, new ItemStack(Material.GOLD_BLOCK, 1), ChatColor.AQUA+"Tier 1", ChatColor.GOLD+"Weapons here cost 5 kills.")
 	    .setOption(3, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.AQUA+"Tier 2", ChatColor.GOLD+"Weapons here cost 10 kills.")

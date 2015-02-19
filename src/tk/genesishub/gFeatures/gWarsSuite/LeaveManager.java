@@ -23,7 +23,7 @@ public class LeaveManager{
 	}
 	public void ManageRespawn(final PlayerRespawnEvent event){
 		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-	    scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	    scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	    	public void run(){
 	    		admin.clearArena(event.getPlayer());
 	    		admin.clearGunin(event.getPlayer());
@@ -31,7 +31,7 @@ public class LeaveManager{
 	    }, 20L);
 		final Player p = (Player) event.getPlayer();
     	if(Constants.bt.contains(p.getName())){ 
-             scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+             scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
                  @Override
                  public void run() {
                 	p.getInventory().clear();
@@ -47,7 +47,7 @@ public class LeaveManager{
              }, 12L);
     	}
     	else if(Constants.ot.contains(p.getName())){
-    		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+    		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
                 @Override
                 public void run() {
                 p.getInventory().clear();

@@ -28,7 +28,7 @@ public class GameMenu {
 	            	summon.Initialize(p, "airplane");
 	            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 	            	Constants.airplaneline.add(p.getName());
-	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                   cons.removeAirplaneline(p);
 	                   }
@@ -41,7 +41,7 @@ public class GameMenu {
 		            	summon.Initialize(p, "boat");
 		            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		            	Constants.airplaneline.add(p.getName());
-		                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+		                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 		                	public void run(){
 		                   cons.removeAirplaneline(p);
 		                   }

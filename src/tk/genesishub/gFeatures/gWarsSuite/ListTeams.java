@@ -13,7 +13,7 @@ public class ListTeams{
 	public void TeamListInitiate(final CommandSender sender, Command cmd, String label, String[] args){
 	doorange((Player)sender);
 	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-    scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+    scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
     	public void run(){
        doblue((Player)sender);
        }
