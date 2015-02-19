@@ -84,7 +84,6 @@ public class Listeners extends JavaPlugin implements Listener{
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         hm.EntityDamageByOther(event);
     }
-        
         public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
             hm.WeaponDamage(event);
         }
@@ -92,11 +91,7 @@ public class Listeners extends JavaPlugin implements Listener{
         public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     		try {
 				ch.CommandInitiate(sender, cmd, label, args);
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return true;
