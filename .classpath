@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/gFeatures/Eclipse/CrackShot.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/gFeatures/Eclipse/minecraft_server.jar"/>
+	<classpathentry kind="lib" path="C:/Users/devin_000/Downloads/Minecraft Server/minecraft_serverfd.jar"/>
+	<classpathentry kind="lib" path="C:/Users/devin_000/Downloads/Minecraft Server/plugins/CrackShot.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
