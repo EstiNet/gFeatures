@@ -42,8 +42,11 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	@Override
 	
+	String EnteredKey = "Hi!";
+	String ProductKey = "gFE-69a-123-abc";
+	
+	@Override
     public void onEnable() { //What to do on server load/reload
         getLogger().info("[gFeatures] Starting gFeatures...");
         PluginManager pm = getServer().getPluginManager();
@@ -51,7 +54,11 @@ public class Listeners extends JavaPlugin implements Listener{
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
         	// put all code related to Skript here!
+        	//Skript.registerEvent();
         }
+        //Product Key System
+        if (EnteredKey.equals(ProductKey));
+        
         }
  
     @Override
