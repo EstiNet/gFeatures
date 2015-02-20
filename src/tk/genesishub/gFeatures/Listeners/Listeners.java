@@ -48,6 +48,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	@Override
     public void onEnable() { //What to do on server load/reload
         getLogger().info("[gFeatures] Starting gFeatures...");
+        Enabler e = new Enabler();
+        e.Enable();
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
