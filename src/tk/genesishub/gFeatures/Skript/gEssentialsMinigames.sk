@@ -1,7 +1,8 @@
 # GenesisEssentials by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.5-ALPHA gFeatures Edition
+# Version: 0.3-ALPHA gFeatures Add-On Minigame Edition
 # Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
+# Preset: Hub
 #
 #   Copyright 2015 DolphinBox
 #
@@ -27,13 +28,13 @@ on login:
 command /icanhasge:
 	description: Seecret Command!
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version 0.5-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version 0.5-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
@@ -55,18 +56,7 @@ command /spawn:
 		play mob spawner flames at the player
 		message "[GenesisEssentials] Teleported to spawn!"
 		
-command /hub:
-	description: Teleport yourself to the hub!
-	permission: ge.hub
-	executable by: players
-	trigger:
-		if {server.spawn.location} is not set:
-			message "[GenesisEssentials] The server hub is not set! Use /setspawn"
-			stop trigger
-		teleport player to {server.spawn.location}
-		play mob spawner flames at the player
-		message "[GenesisEssentials] Teleported to the Hub!"
-		
+
 	
 command /setmotd <text>:
 	permission: ge.setmotd
@@ -118,22 +108,3 @@ on place:
 on break:
 	{ge.protect.toggle} is true
 	cancel event
-	
-command /togglefall:
-	description: Toggle Prevent Fall
-	permission: fall.toggle
-	executable by: players
-	trigger:
-		if {ge.fall.toggle} is true:
-			set {ge.fall.toggle} to false
-			message "[GenesisEssentials] PreventFall is now disabled!"
-			stop trigger
-		set {ge.fall.toggle} to true
-		message "[GenesisEssentials] PreventFall is now enabled!"
-	
-every second:
-  loop all players:
-    if y coordinate of loop-player is less than 100:
-      {ge.fall.toggle} is true
-      teleport loop-player to {server.spawn.location}
-      play mob spawner flames at the loop-player
