@@ -4,10 +4,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.w3c.dom.Document;
 
-public class EntryExitHandler extends JavaPlugin{
+public class EntryExitHandler{
 	Constants cons = new Constants();
 	FileManager fm = new FileManager();
 	public void onJoin(Player player){

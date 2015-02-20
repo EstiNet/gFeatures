@@ -16,9 +16,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import ch.njol.skript.Skript;
-import ch.njol.skript.lang.util.SimpleEvent;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -108,6 +105,16 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+    	CommandCentral cc = new CommandCentral();
+    	try {
+			cc.CommandInitiate(sender, cmd, label, args);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return true;
     }
 }

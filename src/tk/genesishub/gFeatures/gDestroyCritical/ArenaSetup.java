@@ -14,9 +14,8 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class ArenaSetup extends JavaPlugin{
+public class ArenaSetup{
 	Constants cons = new Constants();
 	public void Assemble() throws IOException{
 		Bukkit.getServer().broadcastMessage("Choosing a random arena for the game...");
@@ -43,9 +42,9 @@ public class ArenaSetup extends JavaPlugin{
 				Assemble();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				getLogger().info("UHOH");
+				Bukkit.getLogger().info("UHOH");
 			}
-	    	 cons.sched.scheduleSyncDelayedTask(this, new Runnable() {
+	    	 cons.sched.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	         	public void run(){
 	            gameEnd();
 	     		}
@@ -64,7 +63,7 @@ public class ArenaSetup extends JavaPlugin{
 	     			 cons.BlockBroke.set(cons.Acceptance.indexOf(player.getName()), "0");
 				}
 	     	}
-	    	 cons.sched.scheduleSyncDelayedTask(this, new Runnable() {
+	    	 cons.sched.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	          	public void run(){
 	            Bukkit.getServer().broadcastMessage("The leaderboard stats are:");
 	            //LEADERBOARD STUFF HERE
