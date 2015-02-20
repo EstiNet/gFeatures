@@ -1,13 +1,13 @@
 package tk.genesishub.gFeatures.PluginManage;
 
-public class gFeaturePlugin {
+public class gHubPlugin {
 	PluginState state;
 	static double version;
-	public gFeaturePlugin(){}
-	public gFeaturePlugin(PluginState state1){
+	public gHubPlugin(){}
+	public gHubPlugin(PluginState state1){
 			this.state = state1;
 	}
-	public gFeaturePlugin(double version1){
+	public gHubPlugin(double version1){
 		version = version1;
 	}
 	public double getVersion(){

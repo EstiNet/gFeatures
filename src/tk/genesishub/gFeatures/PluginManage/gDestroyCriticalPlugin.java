@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.PluginManage;
 public class gDestroyCriticalPlugin {
 	PluginState state;
 	static double version;
+	public gDestroyCriticalPlugin(){}
 	public gDestroyCriticalPlugin(PluginState state1){
 			this.state = state1;
 	}

@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.PluginManage;
 public class gFactionsPlugin {
 	PluginState state;
 	static double version;
+	public gFactionsPlugin(){}
 	public gFactionsPlugin(PluginState state1){
 			this.state = state1;
 	}

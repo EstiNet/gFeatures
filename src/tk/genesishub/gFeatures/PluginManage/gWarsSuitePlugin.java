@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.PluginManage;
 public class gWarsSuitePlugin {
 	public static PluginState state;
 	static double version;
+	public gWarsSuitePlugin(){}
 	public gWarsSuitePlugin(PluginState state1){
 			gWarsSuitePlugin.state = state1;
 	}
