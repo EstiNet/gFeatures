@@ -54,11 +54,11 @@ public class Listeners extends JavaPlugin implements Listener{
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
         	// put all code related to Skript here!
-        	//Skript.registerEvent();
+        	Skript.registerEffect(EffTitle.class, new String[] { "send title %string% in %world%" }); //Test thing
         }
         //Product Key System
         if (EnteredKey.equals(ProductKey));
-        
+        //To-Do
         }
  
     @Override
