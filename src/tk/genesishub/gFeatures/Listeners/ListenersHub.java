@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
 gFeatures
@@ -40,6 +39,9 @@ public class ListenersHub {
 	EntityDamageByEntityEvent damageentity;
 	WeaponDamageEntityEvent weaponevent;
 	PlayerInteractEvent playerinteract;
+	
+	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
+	
 	protected ListenersHub(PlayerJoinEvent event){
 		playerjoin = event;
 	}
@@ -67,7 +69,7 @@ public class ListenersHub {
 	protected void PlayerJoinInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
@@ -77,7 +79,7 @@ public class ListenersHub {
 	protected void PlayerQuitInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerQuit(playerquit);
 			}
 		} catch (Exception e) {
@@ -88,7 +90,7 @@ public class ListenersHub {
 	protected void PlayerMoveInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerMove(playermove);
 			}
 		} catch (Exception e) {
@@ -99,7 +101,7 @@ public class ListenersHub {
 	protected void PlayerRespawnInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerRespawn(playerrespawn);
 			}
 		} catch (Exception e) {
@@ -110,7 +112,7 @@ public class ListenersHub {
 	protected void PlayerDeathInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerDeath(playerdeath);
 			}
 		} catch (Exception e) {
@@ -121,7 +123,7 @@ public class ListenersHub {
 	protected void EntityDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onEntityDamageByEntity(damageentity);
 			}
 		} catch (Exception e) {
@@ -132,7 +134,7 @@ public class ListenersHub {
 	protected void WeaponDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onWeaponDamageEntity(weaponevent);
 			}
 		} catch (Exception e) {
@@ -143,7 +145,7 @@ public class ListenersHub {
 	protected void PlayerInteractInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gwsp.getState() == PluginState.ENABLE){
 			gWars.onPlayerInteract(playerinteract);
 			}
 		} catch (Exception e) {

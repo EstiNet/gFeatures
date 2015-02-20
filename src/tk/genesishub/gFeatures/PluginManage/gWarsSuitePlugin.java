@@ -13,7 +13,7 @@ public class gWarsSuitePlugin {
 	public double getVersion(){
 		return version;
 	}
-	public static PluginState getState(){
+	public PluginState getState(){
 		return gWarsSuitePlugin.state;
 	}
 }
