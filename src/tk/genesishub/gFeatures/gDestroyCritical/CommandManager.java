@@ -4,10 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
-public class CommandManager extends JavaPlugin{
+public class CommandManager{
 	 Constants cons = new Constants();
 	 ArenaSetup w = new ArenaSetup();
 	 GameEndure ge = new GameEndure();
@@ -38,7 +37,7 @@ public class CommandManager extends JavaPlugin{
     	if (cmd.getName().equalsIgnoreCase("listteams")){
     		doorange((Player)sender);
     		BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-            scheduler.scheduleSyncDelayedTask(this, new Runnable() {
+            scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
                public void run(){
                  doblue((Player)sender);
                 }
@@ -46,7 +45,7 @@ public class CommandManager extends JavaPlugin{
     	}
      }
       catch(Exception e){
-        getLogger().info("UHOH");
+        Bukkit.getLogger().info("UHOH");
      }
    	 return false;
     }
@@ -55,7 +54,7 @@ public void doorange(Player sender){
 		orangelist((Player) sender);
 		}
 		catch(Exception e){
-			getLogger().info("UHOH");
+			Bukkit.getLogger().info("UHOH");
 		}
 	}
 	public void doblue(Player sender){
@@ -63,7 +62,7 @@ public void doorange(Player sender){
 		bluelist((Player) sender);
 		}
 		catch(Exception e){
-			getLogger().info("UHOH");
+			Bukkit.getLogger().info("UHOH");
 		}
 	}
 	public void orangelist(Player sender){

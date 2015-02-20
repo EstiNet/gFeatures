@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 
+
 import tk.genesishub.gFeatures.Commands.gFeatureCore;
 import tk.genesishub.gFeatures.Commands.gWarsSuiteCore;
 /*
@@ -29,8 +30,9 @@ public class CommandCentral {
 
 	gFeatureCore gfc  = new gFeatureCore();
 	gWarsSuiteCore gwc = new gWarsSuiteCore();
-	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args){
+	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		gfc.CommandSwitch(sender, cmd, label, args);
+		gwc.CommandSwitch(sender, cmd, label, args);
 		//gFeatureCore
 		
 	}

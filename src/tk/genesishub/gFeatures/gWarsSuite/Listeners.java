@@ -8,7 +8,6 @@ import javax.xml.transform.TransformerException;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -16,7 +15,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.xml.sax.SAXException;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
@@ -56,10 +54,12 @@ public class Listeners{
 
     public void onEnable(){
     	//SETUP ALL PLUGINS ONENABLE AND FILEMANAGER
+    	Bukkit.getServer().getLogger().info("gWarsSuite is enabled!");
+    	fm.EnablerCheck();
     }
     
     public void onDisable(){
-    	
+    	Bukkit.getServer().getLogger().info("gWarsSuite is disabled!");
     }
     
     public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException, ParserConfigurationException, TransformerException, SAXException, IOException{
@@ -90,7 +90,6 @@ public class Listeners{
         public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
             hm.WeaponDamage(event);
         }
-        @Override
         public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     		try {
 				ch.CommandInitiate(sender, cmd, label, args);
@@ -105,9 +104,6 @@ public class Listeners{
         	tnfb.Initialize(event);
         	gm.Initialize(event.getPlayer());
        	 }
-        public void log(String log){
-        	getLogger().info(log);
-        }
         public boolean getIsland(int X, int Z){
         	if((X == 551 || (X > 551 && !(X>(551-5)))||(X < 551 && !(X<551-5)))&&(Z == 421 || (Z > 421 && !(Z>(421-5)))||(Z < 421 && !(Z<421-5)))){
         		return true;

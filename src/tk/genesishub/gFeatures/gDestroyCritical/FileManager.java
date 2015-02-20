@@ -11,8 +11,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,11 +20,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class FileManager extends JavaPlugin{
+public class FileManager{
 	Constants cons = new Constants();
 	public void AssembleFile(File f){
         try {
-       	    getLogger().info("Creating a new file...");
+       	    Bukkit.getLogger().info("Creating a new file...");
     		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
     		DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
      
@@ -58,7 +58,7 @@ public class FileManager extends JavaPlugin{
      
     		transformer.transform(source, result);
      
-    		getLogger().info("File saved!");
+    		Bukkit.getLogger().info("File saved!");
      
     	  } catch (ParserConfigurationException pce) {
     		pce.printStackTrace();
@@ -98,7 +98,7 @@ public class FileManager extends JavaPlugin{
  	 		transformer.transform(source, result);
  	 		}
  	 		catch(Exception e){
- 	 			getLogger().info("UHOH");
+ 	 			Bukkit.getLogger().info("UHOH");
  	 		}
 	}
 	public void Savepoints(Player p, int num){
@@ -133,7 +133,7 @@ public class FileManager extends JavaPlugin{
  	 		transformer.transform(source, result);
  	 		}
  	 		catch(Exception e){
- 	 			getLogger().info("UHOH");
+ 	 			Bukkit.getLogger().info("UHOH");
  	 		}
 	}
 	public void setupPlayer(Player p) throws ParserConfigurationException, TransformerException, SAXException, IOException{
@@ -170,19 +170,19 @@ public class FileManager extends JavaPlugin{
   
  		transformer.transform(source, result);
   
- 		getLogger().info("Player saved!");
+ 		Bukkit.getLogger().info("Player saved!");
  	
 	}
 	public void checkDirectories(){
 		if(!(cons.main.isDirectory())){
 			cons.main.mkdir();
-			getLogger().info("Seems like it's the first time you ran gDestroy...");
-			getLogger().info("Successfully added plugin data folders!");
+			Bukkit.getLogger().info("Seems like it's the first time you ran gDestroy...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		if(!(cons.directory.isDirectory())){
 			cons.directory.mkdir();
-			getLogger().info("Successfully added plugin data folders!");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
-		getLogger().info("Plugin data check completed.");
+		Bukkit.getLogger().info("Plugin data check completed.");
 	}
 }
