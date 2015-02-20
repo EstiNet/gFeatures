@@ -69,7 +69,7 @@ public class ListenersHub {
 	protected void PlayerJoinInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
@@ -79,7 +79,7 @@ public class ListenersHub {
 	protected void PlayerQuitInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerQuit(playerquit);
 			}
 		} catch (Exception e) {
@@ -90,7 +90,7 @@ public class ListenersHub {
 	protected void PlayerMoveInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerMove(playermove);
 			}
 		} catch (Exception e) {
@@ -101,7 +101,7 @@ public class ListenersHub {
 	protected void PlayerRespawnInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerRespawn(playerrespawn);
 			}
 		} catch (Exception e) {
@@ -112,7 +112,7 @@ public class ListenersHub {
 	protected void PlayerDeathInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerDeath(playerdeath);
 			}
 		} catch (Exception e) {
@@ -123,7 +123,7 @@ public class ListenersHub {
 	protected void EntityDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onEntityDamageByEntity(damageentity);
 			}
 		} catch (Exception e) {
@@ -134,7 +134,7 @@ public class ListenersHub {
 	protected void WeaponDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onWeaponDamageEntity(weaponevent);
 			}
 		} catch (Exception e) {
@@ -145,7 +145,7 @@ public class ListenersHub {
 	protected void PlayerInteractInitialize(){
 		inTo();
 		try {
-			if(gwsp.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerInteract(playerinteract);
 			}
 		} catch (Exception e) {

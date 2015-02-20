@@ -10,10 +10,16 @@ public class gWarsSuitePlugin {
 	public gWarsSuitePlugin(double version1){
 		version = version1;
 	}
-	public double getVersion(){
+	static public void setPluginState(PluginState pluginstate){
+		state = pluginstate;
+	}
+	static public void setVersion(double pluginversion){
+		version = pluginversion;
+	}
+	static public double getVersion(){
 		return version;
 	}
-	public PluginState getState(){
+	static public PluginState getState(){
 		return gWarsSuitePlugin.state;
 	}
 }

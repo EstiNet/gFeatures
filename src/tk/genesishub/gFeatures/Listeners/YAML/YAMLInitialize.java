@@ -1,4 +1,11 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
+
+import tk.genesishub.gFeatures.PluginManage.PluginState;
+import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
+import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -18,7 +25,14 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 public class YAMLInitialize {
+	gHubPlugin ghp = new gHubPlugin();
+	gFactionsPlugin gfp = new gFactionsPlugin();
+	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
+	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	public void Enabler(){
-		
+		gHubPlugin.setPluginState(PluginState.DISABLE);
+		gFactionsPlugin.setPluginState(PluginState.DISABLE);
+		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
+		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
 	}
 }

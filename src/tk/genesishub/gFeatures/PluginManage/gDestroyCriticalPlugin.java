@@ -1,19 +1,25 @@
 package tk.genesishub.gFeatures.PluginManage;
 
 public class gDestroyCriticalPlugin {
-	PluginState state;
+	static PluginState state;
 	static double version;
 	public gDestroyCriticalPlugin(){}
 	public gDestroyCriticalPlugin(PluginState state1){
-			this.state = state1;
+			state = state1;
 	}
 	public gDestroyCriticalPlugin(double version1){
 		version = version1;
 	}
-	public double getVersion(){
+	static public void setPluginState(PluginState pluginstate){
+		state = pluginstate;
+	}
+	static public void setVersion(double pluginversion){
+		version = pluginversion;
+	}
+	static public double getVersion(){
 		return version;
 	}
-	public PluginState getState(){
-		return this.state;
+	static public PluginState getState(){
+		return state;
 	}
 }
