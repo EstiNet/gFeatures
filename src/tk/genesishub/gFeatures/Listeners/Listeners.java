@@ -113,10 +113,8 @@ public class Listeners extends JavaPlugin implements Listener{
     	try {
 			cc.CommandInitiate(sender, cmd, label, args);
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         return true;

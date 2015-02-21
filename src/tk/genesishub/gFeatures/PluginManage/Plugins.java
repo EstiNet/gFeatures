@@ -1,5 +1,5 @@
 package tk.genesishub.gFeatures.PluginManage;
 
 public enum Plugins {
-	gWarsSuite, gFactions, gFeatures, gDestroyCritical
+	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess
 }

@@ -1,5 +1,6 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -8,8 +9,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
+import tk.genesishub.gFeatures.GenesisAccess.Main;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
+import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
+
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
 gFeatures
@@ -31,6 +35,8 @@ https://github.com/Seshpenguin/gFeatures
 */
 public class ListenersHub {
 	tk.genesishub.gFeatures.gWarsSuite.Listeners gWars = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
+	Main GenesisAccess = new Main();
+	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
 	PlayerJoinEvent playerjoin;
 	PlayerQuitEvent playerquit;
 	PlayerMoveEvent playermove;
@@ -39,6 +45,7 @@ public class ListenersHub {
 	EntityDamageByEntityEvent damageentity;
 	WeaponDamageEntityEvent weaponevent;
 	PlayerInteractEvent playerinteract;
+	BlockBreakEvent blockbreak;
 	
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	
@@ -66,9 +73,15 @@ public class ListenersHub {
 	protected ListenersHub(PlayerInteractEvent event){
 		playerinteract = event;
 	}
+	protected ListenersHub(BlockBreakEvent event){
+		blockbreak = event;
+	}
 	protected void PlayerJoinInitialize(){
 		inTo();
 		try {
+			if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+				gDestroy.playerJoinEvent(playerjoin);
+			}
 			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerJoin(playerjoin);
 			}
@@ -79,6 +92,9 @@ public class ListenersHub {
 	protected void PlayerQuitInitialize(){
 		inTo();
 		try {
+			if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+				gDestroy.playerLeaveEvent(playerquit);
+			}
 			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
 			gWars.onPlayerQuit(playerquit);
 			}
@@ -151,6 +167,12 @@ public class ListenersHub {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+		}
+	}
+	protected void PlayerBreakBlockInitialize(){
+		inTo();
+		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+			gDestroy.blockbreakevent(blockbreak);
 		}
 	}
 	private void inTo(){

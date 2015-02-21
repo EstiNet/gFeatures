@@ -1,5 +1,6 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
 
+import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -29,10 +30,12 @@ public class YAMLInitialize {
 	gFactionsPlugin gfp = new gFactionsPlugin();
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
+	GenesisAccessPlugin gap = new GenesisAccessPlugin();
 	public void Enabler(){
 		gHubPlugin.setPluginState(PluginState.DISABLE);
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);
 		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
 		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
+		GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 	}
 }

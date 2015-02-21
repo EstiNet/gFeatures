@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.bukkit.Bukkit;
 
+import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -17,6 +18,7 @@ public class gFeaturesFileManager {
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	File f = new File("plugins/gFeatures/Config.yml");
+	File GenesisAccess = new File("./GenesisAccess");
 	File main = new File("plugins/gFeatures");
 	File gWars = new File("plugins/gFeatures/gWars");
 	File gDestroyCritical = new File("plugins/gFeatures/gDestroyCritical");
@@ -46,6 +48,11 @@ public class gFeaturesFileManager {
 		if(!(main.isDirectory()) && gHubPlugin.getState().equals(PluginState.ENABLE)){
 			gHub.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran gHub...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
+		if(!(GenesisAccess.isDirectory()) && GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisAccess.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisAccess...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		if(!(f.exists())){
