@@ -1,5 +1,13 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Map;
+
+import com.esotericsoftware.yamlbeans.YamlException;
+import com.esotericsoftware.yamlbeans.YamlReader;
+
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
@@ -26,12 +34,18 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 public class YAMLInitialize {
+	File f = new File("plugins/gFeatures/Config.yml");
 	gHubPlugin ghp = new gHubPlugin();
 	gFactionsPlugin gfp = new gFactionsPlugin();
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
-	public void Enabler(){
+	public void Enabler() throws FileNotFoundException, YamlException{
+		 YamlReader reader = new YamlReader(new FileReader(f));
+		    Object object = reader.read();
+		    System.out.println(object);
+		    Map map = (Map)object;
+		    System.out.println(map.get("address"));
 		gHubPlugin.setPluginState(PluginState.DISABLE);
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);
 		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);

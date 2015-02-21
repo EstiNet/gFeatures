@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -106,6 +107,11 @@ public class Listeners extends JavaPlugin implements Listener{
     public void PlayerInteract(PlayerInteractEvent event){
         ListenersHub lh = new ListenersHub(event);
         lh.PlayerInteractInitialize();
+    }
+    @EventHandler
+    public void PlayerBreakBlock(BlockBreakEvent event){
+    	ListenersHub lh = new ListenersHub(event);
+    	lh.PlayerBreakBlockInitialize();
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
