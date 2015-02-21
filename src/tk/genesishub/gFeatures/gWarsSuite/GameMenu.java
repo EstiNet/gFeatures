@@ -14,6 +14,7 @@ public class GameMenu {
 	Constants cons = new Constants();
 	public void Initialize(Player p){
 		if(p.getItemInHand().getType() == Material.CHEST && Constants.arena.contains(p.getName())){
+			Bukkit.getLogger().info(p.getName());
 			InventoryAPI menu = makeInventory(p);
 			menu.open(p);
 		}
