@@ -1,5 +1,7 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import java.io.FileNotFoundException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -19,6 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import ch.njol.skript.Skript;
 
+import com.esotericsoftware.yamlbeans.YamlException;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -50,7 +53,15 @@ public class Listeners extends JavaPlugin implements Listener{
     public void onEnable() { //What to do on server load/reload
         getLogger().info("[gFeatures] Starting gFeatures...");
         Enabler e = new Enabler();
-        e.Enable();
+        try {
+			e.Enable();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (YamlException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
         getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
