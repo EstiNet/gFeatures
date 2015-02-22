@@ -18,6 +18,9 @@ public class CommandHub {
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		Bukkit.getServer().getWorld("gWars");
 		Player s = (Player) sender;
+		if (cmd.getName().equalsIgnoreCase("help")){
+			
+		}
 		if (cmd.getName().equalsIgnoreCase("spectate")){
 			spectate.SpectateInitiate(sender, cmd, label, args, s);
 		}

@@ -11,6 +11,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -49,6 +51,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	String EnteredKey = "Hi!";
 	String ProductKey = "gFE-69a-123-abc";
 	
+	ListenersHub lh = new ListenersHub();
+	
 	@Override
     public void onEnable() { //What to do on server load/reload
         getLogger().info("[gFeatures] Starting gFeatures...");
@@ -81,48 +85,58 @@ public class Listeners extends JavaPlugin implements Listener{
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.playerjoin = event;
     	lh.PlayerJoinInitialize();
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.playerquit = event;
     	lh.PlayerQuitInitialize();
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.playermove = event;
     	lh.PlayerMoveInitialize();
     }
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.playerrespawn = event;
     	lh.PlayerRespawnInitialize();
     }
     @EventHandler
     public void onDeath(PlayerDeathEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.playerdeath = event;
     	lh.PlayerDeathInitialize();
     }
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event) {
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.damageentity = event;
     	lh.EntityDamageEntityInitialize();
     }
     @EventHandler
     public void onHit1(WeaponDamageEntityEvent event) {
-        ListenersHub lh = new ListenersHub(event);
+        ListenersHub.weaponevent = event;
         lh.WeaponDamageEntityInitialize();
     }
     @EventHandler
     public void PlayerInteract(PlayerInteractEvent event){
-        ListenersHub lh = new ListenersHub(event);
+        ListenersHub.playerinteract = event;
         lh.PlayerInteractInitialize();
     }
     @EventHandler
     public void PlayerBreakBlock(BlockBreakEvent event){
-    	ListenersHub lh = new ListenersHub(event);
+    	ListenersHub.blockbreak = event;
     	lh.PlayerBreakBlockInitialize();
+    }
+    @EventHandler
+    public void PlayerChatEvent(AsyncPlayerChatEvent event){
+    	ListenersHub.playerchat = event;
+    	lh.PlayerChatInitialize();
+    }
+    @EventHandler
+    public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
+    	ListenersHub.playercommand = event;
+    	lh.PlayerCommandEvent();
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

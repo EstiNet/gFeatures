@@ -3,6 +3,8 @@ package tk.genesishub.gFeatures.Listeners;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -10,6 +12,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 import tk.genesishub.gFeatures.GenesisAccess.Main;
+import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
@@ -37,53 +40,31 @@ public class ListenersHub {
 	tk.genesishub.gFeatures.gWarsSuite.Listeners gWars = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 	Main GenesisAccess = new Main();
 	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
-	PlayerJoinEvent playerjoin;
-	PlayerQuitEvent playerquit;
-	PlayerMoveEvent playermove;
-	PlayerDeathEvent playerdeath;
-	PlayerRespawnEvent playerrespawn;
-	EntityDamageByEntityEvent damageentity;
-	WeaponDamageEntityEvent weaponevent;
-	PlayerInteractEvent playerinteract;
-	BlockBreakEvent blockbreak;
+	static PlayerJoinEvent playerjoin;
+	static PlayerQuitEvent playerquit;
+	static PlayerMoveEvent playermove;
+	static PlayerDeathEvent playerdeath;
+	static PlayerRespawnEvent playerrespawn;
+	static EntityDamageByEntityEvent damageentity;
+	static WeaponDamageEntityEvent weaponevent;
+	static PlayerInteractEvent playerinteract;
+	static BlockBreakEvent blockbreak;
+	static AsyncPlayerChatEvent playerchat;
+	static PlayerCommandPreprocessEvent playercommand;
 	
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	
-	protected ListenersHub(PlayerJoinEvent event){
-		playerjoin = event;
-	}
-	protected ListenersHub(PlayerQuitEvent event){
-		playerquit = event;
-	}
-	protected ListenersHub(PlayerMoveEvent event){
-		playermove = event;
-	}
-	protected ListenersHub(PlayerRespawnEvent event){
-		playerrespawn = event;
-	}
-	protected ListenersHub(PlayerDeathEvent event){
-		playerdeath = event;
-	}
-	protected ListenersHub(EntityDamageByEntityEvent event){
-		damageentity = event;
-	}
-	protected ListenersHub(WeaponDamageEntityEvent event){
-		weaponevent = event;
-	}
-	protected ListenersHub(PlayerInteractEvent event){
-		playerinteract = event;
-	}
-	protected ListenersHub(BlockBreakEvent event){
-		blockbreak = event;
-	}
 	protected void PlayerJoinInitialize(){
 		inTo();
 		try {
 			if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
 				gDestroy.playerJoinEvent(playerjoin);
 			}
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
-			gWars.onPlayerJoin(playerjoin);
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+				gWars.onPlayerJoin(playerjoin);
+			}
+			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+				GenesisAccess.PlayerJoinEvent(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,8 +76,11 @@ public class ListenersHub {
 			if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
 				gDestroy.playerLeaveEvent(playerquit);
 			}
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
-			gWars.onPlayerQuit(playerquit);
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+				gWars.onPlayerQuit(playerquit);
+			}
+			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+				GenesisAccess.PlayerleaveEvent(playerquit);
 			}
 		} catch (Exception e) {
 			
@@ -106,7 +90,7 @@ public class ListenersHub {
 	protected void PlayerMoveInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			gWars.onPlayerMove(playermove);
 			}
 		} catch (Exception e) {
@@ -117,7 +101,7 @@ public class ListenersHub {
 	protected void PlayerRespawnInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			gWars.onPlayerRespawn(playerrespawn);
 			}
 		} catch (Exception e) {
@@ -128,8 +112,11 @@ public class ListenersHub {
 	protected void PlayerDeathInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
-			gWars.onPlayerDeath(playerdeath);
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+				gWars.onPlayerDeath(playerdeath);
+			}
+			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+				GenesisAccess.PlayerSlainEvent(playerdeath);
 			}
 		} catch (Exception e) {
 			
@@ -139,7 +126,7 @@ public class ListenersHub {
 	protected void EntityDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			gWars.onEntityDamageByEntity(damageentity);
 			}
 		} catch (Exception e) {
@@ -150,7 +137,7 @@ public class ListenersHub {
 	protected void WeaponDamageEntityInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			gWars.onWeaponDamageEntity(weaponevent);
 			}
 		} catch (Exception e) {
@@ -161,7 +148,7 @@ public class ListenersHub {
 	protected void PlayerInteractInitialize(){
 		inTo();
 		try {
-			if(gWarsSuitePlugin.getState() == PluginState.ENABLE){
+			if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			gWars.onPlayerInteract(playerinteract);
 			}
 		} catch (Exception e) {
@@ -173,6 +160,18 @@ public class ListenersHub {
 		inTo();
 		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
 			gDestroy.blockbreakevent(blockbreak);
+		}
+	}
+	protected void PlayerChatInitialize(){
+		inTo();
+		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisAccess.PlayerChatEvent(playerchat);
+		}
+	}
+	protected void PlayerCommandEvent(){
+		inTo();
+		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisAccess.PlayerCommandEvent(playercommand);
 		}
 	}
 	private void inTo(){

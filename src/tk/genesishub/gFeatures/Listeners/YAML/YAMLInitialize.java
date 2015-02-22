@@ -14,6 +14,8 @@ import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
+import tk.genesishub.gFeatures.Presets.gDestroyPreset;
+import tk.genesishub.gFeatures.Presets.gWarsPreset;
 
 /*
 gFeatures
@@ -35,6 +37,8 @@ https://github.com/Seshpenguin/gFeatures
 */
 public class YAMLInitialize {
 	File f = new File("plugins/gFeatures/Config.yml");
+	gWarsPreset gwp = new gWarsPreset();
+	gDestroyPreset gdp = new gDestroyPreset();
 	gHubPlugin ghp = new gHubPlugin();
 	gFactionsPlugin gfp = new gFactionsPlugin();
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
@@ -43,13 +47,15 @@ public class YAMLInitialize {
 	public void Enabler() throws FileNotFoundException, YamlException{
 		 YamlReader reader = new YamlReader(new FileReader(f));
 		    Object object = reader.read();
-		    System.out.println(object);
 		    Map map = (Map)object;
-		    System.out.println(map.get("address"));
+		    if(map.get("gWars") == "true"){
+		    	gwp.Initialize();
+		    }
+		    if(map.get("gDestroy") == "true"){
+		    	gdp.Initialize();
+		    }
 		gHubPlugin.setPluginState(PluginState.DISABLE);
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);
-		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
 		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
-		GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 	}
 }

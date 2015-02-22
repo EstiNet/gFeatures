@@ -12,7 +12,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.PluginManager;
 
 public class Main {
 	File f = new File("GenesisAccess/chat.txt");
@@ -41,7 +40,7 @@ public class Main {
     public void onDisable() { //What to do on server unload/reload
        Bukkit.getLogger().info("GenesisAccess is disabled. Bye!");
     }
-    @EventHandler
+    
     public void PlayerChatEvent(AsyncPlayerChatEvent e){
    	 String message = e.getMessage();
    	 String playername = e.getPlayer().getName();
@@ -56,7 +55,7 @@ public class Main {
 			Bukkit.getLogger().info("UHOH");
 		}
     }
-    @EventHandler
+    
     public void PlayerCommandEvent(PlayerCommandPreprocessEvent e){
    	 String message = e.getMessage();
    	 String playername = e.getPlayer().getName();
@@ -71,9 +70,9 @@ public class Main {
 			Bukkit.getLogger().info("UHOH");
 		}
     }
-    @EventHandler
-    public void PlayerJoinEvent(PlayerLoginEvent e){
-   	 String playername = e.getPlayer().getName();
+    
+    public void PlayerJoinEvent(org.bukkit.event.player.PlayerJoinEvent playerjoin){
+   	 String playername = playerjoin.getPlayer().getName();
    	 BufferedWriter output;
 		try {
 			output = new BufferedWriter(new FileWriter(f, true));
@@ -86,7 +85,7 @@ public class Main {
 		}
     }
 
-    @EventHandler
+    
     public void PlayerSlainEvent(PlayerDeathEvent e){
    	 if(e.getEntity() instanceof Player){
    	 String playername = e.getEntity().getName();
@@ -102,7 +101,7 @@ public class Main {
 		}
 		}
     }
-    @EventHandler
+    
     public void PlayerleaveEvent(PlayerQuitEvent e){
    	 String playername = e.getPlayer().getName();
    	 BufferedWriter output;
