@@ -90,8 +90,13 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
 			yamlFile.createSection("Config.Presets.gWars");
+			yamlFile.createSection("Config.Presets.gDestroy");
+			yamlFile.createSection("Config.Presets.gHub");
+			yamlFile.createSection("Config.Presets.gFactions");
 			yamlFile.set("Config.Presets.gWars", "true");
-			
+			yamlFile.set("Config.Presets.gDestroy", "true");
+			yamlFile.set("Config.Presets.gHub", "true");
+			yamlFile.set("Config.Presets.gFactions", "true");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
