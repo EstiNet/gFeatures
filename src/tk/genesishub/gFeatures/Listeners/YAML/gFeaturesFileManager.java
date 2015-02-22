@@ -1,7 +1,12 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.bukkit.Bukkit;
 
@@ -25,6 +30,7 @@ public class gFeaturesFileManager {
 	File gFactions = new File("plugins/gFeatures/gFactions");
 	File gHub = new File("plugins/gFeatures/gHub");
 	public void exists() throws IOException{
+		try{
 		if(!(main.isDirectory())){
 			main.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran gFeatures...");
@@ -57,8 +63,25 @@ public class gFeaturesFileManager {
 		}
 		if(!(f.exists())){
 			f.createNewFile();
+			InputStream is = this.getClass().getResourceAsStream("/gFeatureConfig.yml");
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+			String s = bufferedReader.toString();
+			BufferedWriter output;
+			try {
+				output = new BufferedWriter(new FileWriter(f, true));
+				output.write(s);
+				output.newLine();
+	        output.close();
+			}
+			catch(Exception e1){
+				Bukkit.getLogger().info("UHOH");
+			}
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		Bukkit.getLogger().info("Plugin data check completed.");
+		}
+		catch(NullPointerException e){
+			
+		}
 	}
 }

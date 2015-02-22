@@ -1,6 +1,7 @@
 package tk.genesishub.gFeatures.Listeners;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -23,7 +24,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import ch.njol.skript.Skript;
 
-import com.esotericsoftware.yamlbeans.YamlException;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -59,10 +59,7 @@ public class Listeners extends JavaPlugin implements Listener{
         Enabler e = new Enabler();
         try {
 			e.Enable();
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (YamlException e1) {
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

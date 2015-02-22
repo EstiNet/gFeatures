@@ -1,4 +1,4 @@
-spectate:
+   spectate:
       description: Puts you in spectator mode.
       usage:
       permission: gWarsSuite.stats

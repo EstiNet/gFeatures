@@ -5,8 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Map;
 
-import com.esotericsoftware.yamlbeans.YamlException;
-import com.esotericsoftware.yamlbeans.YamlReader;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
@@ -44,8 +43,10 @@ public class YAMLInitialize {
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
-	public void Enabler() throws FileNotFoundException, YamlException{
-		 YamlReader reader = new YamlReader(new FileReader(f));
+	public void Enabler() throws FileNotFoundException{
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		
+		 /*YamlReader reader = new YamlReader(new FileReader(f));
 		    Object object = reader.read();
 		    Map map = (Map)object;
 		    if(map.get("gWars") == "true"){
@@ -53,7 +54,8 @@ public class YAMLInitialize {
 		    }
 		    if(map.get("gDestroy") == "true"){
 		    	gdp.Initialize();
-		    }
+		    }*/
+		gwp.Initialize();
 		gHubPlugin.setPluginState(PluginState.DISABLE);
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);
 		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);

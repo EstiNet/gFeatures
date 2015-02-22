@@ -13,6 +13,5 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/CrackShot.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/yamlbeans-1.09.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
