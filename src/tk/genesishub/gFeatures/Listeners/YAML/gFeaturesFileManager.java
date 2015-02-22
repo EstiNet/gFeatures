@@ -89,8 +89,9 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
-			List<String> values = new ArrayList<String>();
-			yamlFile.set("Config.Presets", values);
+			yamlFile.createSection("Config.Presets.gWars");
+			yamlFile.set("Config.Presets.gWars", "true");
+			
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
