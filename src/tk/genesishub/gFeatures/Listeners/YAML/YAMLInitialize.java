@@ -46,11 +46,12 @@ public class YAMLInitialize {
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
 	public void Enabler() throws FileNotFoundException{
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f); 
-		if(yamlFile.get("gWars") == "true"){
+		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
+		if(yamlFile.get("Config.Presets.gWars").equals("true")){
 			gwp.Initialize();
 			Bukkit.getLogger().info("READY!");
 		}
-		Bukkit.getLogger().info("AWWWWW.........");
+		Bukkit.getLogger().info("AWWWWWSHOOT.........");
 		 /*YamlReader reader = new YamlReader(new FileReader(f));
 		    Object object = reader.read();
 		    Map map = (Map)object;
