@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.libs.jline.internal.Configuration;
 
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
@@ -89,9 +90,6 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
 			List<String> values = new ArrayList<String>();
-			values.add("gWars");
-			values.add("gDestroy");
-			values.add("gHub");
 			yamlFile.set("Config.Presets", values);
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
