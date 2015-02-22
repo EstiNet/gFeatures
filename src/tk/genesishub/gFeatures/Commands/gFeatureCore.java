@@ -4,6 +4,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.PluginState;
+import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
+
 public class gFeatureCore {
 	public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gFeature") || cmd.getName().equalsIgnoreCase("gFeatures")){
@@ -21,7 +25,43 @@ public class gFeatureCore {
 					sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all plugins with their states also.");
 					break;
 				case "list":
-					if()
+					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					}
+					if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "GenesisAccess : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "GenesisAccess : DISABLED");
+					}//REMEMBER TO FINISH
+					//TODO EVERYWHERE
+					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					}
+					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					}
+					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					}
+					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					}
+					else{
+						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					}
 				}
 			}
 		}
