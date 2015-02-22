@@ -1,14 +1,14 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
@@ -63,19 +63,37 @@ public class gFeaturesFileManager {
 		}
 		if(!(f.exists())){
 			f.createNewFile();
-			InputStream is = this.getClass().getResourceAsStream("/gFeatureConfig.yml");
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
-			String s = bufferedReader.toString();
-			BufferedWriter output;
-			try {
+			try{
+				/*BufferedWriter output;
 				output = new BufferedWriter(new FileWriter(f, true));
-				output.write(s);
+				output.write("# Welcome to the gFeatures Main Config!\n"+
+						"# Configure stuff here! (NO DUH)\n"+
+						"#Specific plugins\n"+
+						"gWarsSuite: false\n"+
+						"gDestroyCritical: false\n"+
+						"gHub: false\n"+
+						"gFactions: false\n"+
+						"#Presets\n"+
+						"gWars: false\n"+
+						"gDestroy: false\n"+
+						"gHub: false\n"+
+						"gFactions: false\n");
 				output.newLine();
-	        output.close();
+				output.close();*/
 			}
 			catch(Exception e1){
 				Bukkit.getLogger().info("UHOH");
 			}
+			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+			yamlFile.createSection("Config");
+			yamlFile.createSection("Config.Presets");
+			yamlFile.createSection("Config.Plugins");
+			List<String> values = new ArrayList<String>();
+			values.add("gWars");
+			values.add("gDestroy");
+			values.add("gHub");
+			yamlFile.set("Config.Presets", values);
+			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		Bukkit.getLogger().info("Plugin data check completed.");

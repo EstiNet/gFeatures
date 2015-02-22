@@ -94,7 +94,7 @@ public class Main {
 			output = new BufferedWriter(new FileWriter(f, true));
 			output.write(playername + " was slain by "+ e.getEntity().getKiller());
 			output.newLine();
-        output.close();
+			output.close();
 		}
 		catch(Exception e1){
 			Bukkit.getLogger().info("UHOH");
