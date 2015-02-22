@@ -19,6 +19,8 @@ public class TierSelectionMenu {
 	public void Initialize(PlayerInteractEvent event){
 		if(!(Constants.gunin.contains(event.getPlayer().getName())) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
 			InventoryAPI menu = makeInventory(event.getPlayer());
+			final InventoryAPI menus = TierZeroInventory(event.getPlayer());
+			menus.open(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
 		}
@@ -50,7 +52,7 @@ public class TierSelectionMenu {
 	            if(event.getName().equals(ChatColor.AQUA+"Tier 0")){
 	            	final InventoryAPI menus = TierZeroInventory(p);
 	            	event.getPlayer().closeInventory();
-	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("Features"), new Runnable() {
 	                	public void run(){
 	                		menus.open(event.getPlayer());
 	                   }
@@ -59,7 +61,7 @@ public class TierSelectionMenu {
 	            else if(event.getName().equals(ChatColor.AQUA+"Tier 1")){
 	            	final InventoryAPI menu1 = TierOneInventory();
 	            	event.getPlayer().closeInventory();
-	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		menu1.open(event.getPlayer());
 	                   }
@@ -68,7 +70,7 @@ public class TierSelectionMenu {
 	            else if(event.getName().equals(ChatColor.AQUA+"Tier 2")){
 	            	final InventoryAPI menu2 = TierTwoInventory();
 	            	event.getPlayer().closeInventory();
-	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		menu2.open(event.getPlayer());
 	                   }
@@ -77,7 +79,7 @@ public class TierSelectionMenu {
 	            	else if(event.getName().equals(ChatColor.AQUA+"Tier 3")){
 	            	final InventoryAPI menu3 = TierThreeInventory();
 	            	event.getPlayer().closeInventory();
-	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		menu3.open(event.getPlayer());
 	                   }
@@ -86,7 +88,7 @@ public class TierSelectionMenu {
 	            	else if(event.getName().equals(ChatColor.AQUA+"Tier 4")){
 	            	final InventoryAPI menu4 = TierFourInventory();
 	            	event.getPlayer().closeInventory();
-	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"), new Runnable() {
+	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		menu4.open(event.getPlayer());
 	                   }
@@ -94,7 +96,7 @@ public class TierSelectionMenu {
 	            	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(0, new ItemStack(Material.IRON_BLOCK, 1), ChatColor.AQUA+"Tier 0", ChatColor.GOLD+"Weapons here cost 0 kills.")
     .setOption(1, new ItemStack(Material.GOLD_BLOCK, 1), ChatColor.AQUA+"Tier 1", ChatColor.GOLD+"Weapons here cost 5 kills.")
     .setOption(2, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.AQUA+"Tier 2", ChatColor.GOLD+"Weapons here cost 10 kills.")
@@ -127,7 +129,7 @@ public class TierSelectionMenu {
 	        	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
     .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
@@ -154,7 +156,7 @@ public class TierSelectionMenu {
 	        	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"ULR338")
     .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"m16")
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Colt Model 1")
@@ -181,7 +183,7 @@ public class TierSelectionMenu {
 	        	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"SilSil69")
     .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"AK47-Black Edition")
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"SPAS")
@@ -208,7 +210,7 @@ public class TierSelectionMenu {
 	        	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
     .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
@@ -235,7 +237,7 @@ public class TierSelectionMenu {
 	        	}
 	            event.setWillClose(true);
 	        }
-	    }, Bukkit.getServer().getPluginManager().getPlugin("gWarsSuite"))
+	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(1, new ItemStack(Material.WOOD_PICKAXE, 1), ChatColor.DARK_AQUA+"Sniper", ChatColor.WHITE+"Classic Sniper.")
     .setOption(2, new ItemStack(Material.WOOD_AXE, 1), ChatColor.DARK_AQUA+"Auto Rifle", ChatColor.WHITE+"Classic Auto Rifle.")
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")

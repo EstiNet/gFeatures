@@ -13,8 +13,15 @@ public class gFeatureCore {
 			else if(args.length == 1){
 				switch(args[0]){
 				case "version":
-					
+					sender.sendMessage(ChatColor.GRAY + "gFeatures Version 1.0.0");
 					break;
+				case "help":
+					sender.sendMessage(ChatColor.GRAY + "------Help------");
+					sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the plugin version.");
+					sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all plugins with their states also.");
+					break;
+				case "list":
+					if()
 				}
 			}
 		}
