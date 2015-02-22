@@ -19,6 +19,7 @@ public class TierSelectionMenu {
 	public void Initialize(PlayerInteractEvent event){
 		if(!(Constants.gunin.contains(event.getPlayer().getName())) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
 			InventoryAPI menu = makeInventory(event.getPlayer());
+			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
 		}
 	}
