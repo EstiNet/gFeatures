@@ -56,7 +56,7 @@ public class gFeatureCore {
 				case "pluginstate":
 					PluginManager pm = new PluginManager();
 					PluginState ps = pm.getPluginState(Plugins.toPlugins(args[1]));
-					sender.sendMessage(ChatColor.GRAY + "Plugin " + args[0] + " state is " + ps.toString());
+					sender.sendMessage(ChatColor.GRAY + "Plugin " + args[1] + " state is " + ps.toString());
 					break;
 				default:
 					sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");

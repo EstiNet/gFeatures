@@ -64,31 +64,15 @@ public class gFeaturesFileManager {
 		}
 		if(!(f.exists())){
 			f.createNewFile();
-			try{
-				/*BufferedWriter output;
-				output = new BufferedWriter(new FileWriter(f, true));
-				output.write("# Welcome to the gFeatures Main Config!\n"+
-						"# Configure stuff here! (NO DUH)\n"+
-						"#Specific plugins\n"+
-						"gWarsSuite: false\n"+
-						"gDestroyCritical: false\n"+
-						"gHub: false\n"+
-						"gFactions: false\n"+
-						"#Presets\n"+
-						"gWars: false\n"+
-						"gDestroy: false\n"+
-						"gHub: false\n"+
-						"gFactions: false\n");
-				output.newLine();
-				output.close();*/
-			}
-			catch(Exception e1){
-				Bukkit.getLogger().info("UHOH");
-			}
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
+			yamlFile.createSection("Config.Plugins.gWarsSuite");
+			yamlFile.createSection("Config.Plugins.gHub");
+			yamlFile.createSection("Config.Plugins.gFactions");
+			yamlFile.createSection("Config.Plugins.GenesisAccess");
+			yamlFile.createSection("Config.Plugins.gDestroyCritical");
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
 			yamlFile.createSection("Config.Presets.gHub");
@@ -97,6 +81,11 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Presets.gDestroy", "false");
 			yamlFile.set("Config.Presets.gHub", "false");
 			yamlFile.set("Config.Presets.gFactions", "false");
+			yamlFile.set("Config.Plugins.gWarsSuite", "false");
+			yamlFile.set("Config.Plugins.gHub", "false");
+			yamlFile.set("Config.Plugins.gFactions", "false");
+			yamlFile.set("Config.Plugins.GenesisAccess", "false");
+			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
