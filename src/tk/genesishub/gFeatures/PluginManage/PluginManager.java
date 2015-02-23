@@ -21,6 +21,9 @@ public class PluginManager {
 		if(gFeaturePlugin.getState().equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gFeatures);
 		}
+		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+			plugins.add(Plugins.gWarsSuite);
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -39,6 +42,9 @@ public class PluginManager {
 		}
 		if(gFeaturePlugin.getState().equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gFeatures);
+		}
+		if(gWarsSuitePlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gWarsSuite);
 		}
 		return plugins;
 	}

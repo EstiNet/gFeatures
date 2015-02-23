@@ -8,6 +8,7 @@ import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.PluginManage.gFeaturePlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
@@ -18,6 +19,7 @@ public class Enabler {
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);
 		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
 		GenesisAccessPlugin.setPluginState(PluginState.DISABLE);
+		gFeaturePlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
