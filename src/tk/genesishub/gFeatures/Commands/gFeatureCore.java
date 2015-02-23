@@ -46,6 +46,9 @@ public class gFeatureCore {
 					break;
 				case "pluginstate":
 					sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures pluginstate <Plugin>");
+				default:
+					sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+					break;
 				}
 			}
 			else if(args.length == 2){
@@ -54,6 +57,9 @@ public class gFeatureCore {
 					PluginManager pm = new PluginManager();
 					PluginState ps = pm.getPluginState(Plugins.toPlugins(args[1]));
 					sender.sendMessage(ChatColor.GRAY + "Plugin " + args[0] + " state is " + ps.toString());
+					break;
+				default:
+					sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
 					break;
 				}
 			}

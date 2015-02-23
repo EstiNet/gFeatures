@@ -49,20 +49,11 @@ public class YAMLInitialize {
 		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
 		if(yamlFile.get("Config.Presets.gWars").equals("true")){
 			gwp.Initialize();
-			Bukkit.getLogger().info("READY!");
+			Bukkit.getLogger().info("Loaded gWars preset.");
 		}
-		Bukkit.getLogger().info("AWWWWWSHOOT.........");
-		 /*YamlReader reader = new YamlReader(new FileReader(f));
-		    Object object = reader.read();
-		    Map map = (Map)object;
-		    if(map.get("gWars") == "true"){
-		    	gwp.Initialize();
-		    }
-		    if(map.get("gDestroy") == "true"){
-		    	gdp.Initialize();
-		    }*/
-		gHubPlugin.setPluginState(PluginState.DISABLE);
-		gFactionsPlugin.setPluginState(PluginState.DISABLE);
-		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
+		else if(yamlFile.get("Config.Presets.gDestroy").equals("true")){
+			gdp.Initialize();
+			Bukkit.getLogger().info("Loaded gDestroy preset.");
+		}
 	}
 }
