@@ -23,4 +23,23 @@ public class PluginManager {
 		}
 		return plugins;
 	}
+	public List<Plugins> getDisabledPlugins(){
+		List<Plugins> plugins = new ArrayList<>();
+		if(gDestroyCriticalPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gDestroyCritical);
+		}
+		if(GenesisAccessPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.GenesisAccess);
+		}
+		if(gFactionsPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gFactions);
+		}
+		if(gHubPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gHub);
+		}
+		if(gFeaturePlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gFeatures);
+		}
+		return plugins;
+	}
 }

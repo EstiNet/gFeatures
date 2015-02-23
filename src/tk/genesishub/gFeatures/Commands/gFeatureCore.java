@@ -1,12 +1,14 @@
 package tk.genesishub.gFeatures.Commands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
-import tk.genesishub.gFeatures.PluginManage.PluginState;
-import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
+import tk.genesishub.gFeatures.PluginManage.PluginManager;
+import tk.genesishub.gFeatures.PluginManage.Plugins;
 
 public class gFeatureCore {
 	public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
@@ -25,42 +27,19 @@ public class gFeatureCore {
 					sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all plugins with their states also.");
 					break;
 				case "list":
-					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
+					PluginManager pm = new PluginManager();
+					List<Plugins> enabled = new ArrayList<>();
+					List<Plugins> disabled = new ArrayList<>();
+					enabled = pm.getEnabledPlugins();
+					disabled = pm.getDisabledPlugins();
+					sender.sendMessage(ChatColor.GRAY + "Plugins:");
+					sender.sendMessage(ChatColor.GRAY + "Enabled:");
+					for(int i = 0; i<enabled.size(); i++){
+						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(enabled.get(i)));
 					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
-					}
-					if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "GenesisAccess : ENABLED");
-					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "GenesisAccess : DISABLED");
-					}//REMEMBER TO FINISH
-					//TODO EVERYWHERE
-					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
-					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
-					}
-					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
-					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
-					}
-					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
-					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
-					}
-					if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : ENABLED");
-					}
-					else{
-						sender.sendMessage(ChatColor.GRAY + "gDestroyCritical : DISABLED");
+					sender.sendMessage(ChatColor.GRAY + "Disabled:");
+					for(int i = 0; i<enabled.size(); i++){
+						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(disabled.get(i)));
 					}
 				}
 			}
