@@ -49,7 +49,7 @@ public class PluginManager {
 		return plugins;
 	}
 	public PluginState getPluginState(Plugins p){
-		PluginState ps = null;
+		PluginState ps = PluginState.UNKNOWNPLUGIN;
 		switch(p){
 		case gWarsSuite:
 			ps = gWarsSuitePlugin.getState();

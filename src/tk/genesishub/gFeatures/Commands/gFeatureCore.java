@@ -8,6 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import tk.genesishub.gFeatures.PluginManage.PluginManager;
+import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.Plugins;
 
 public class gFeatureCore {
@@ -44,7 +45,16 @@ public class gFeatureCore {
 					}
 					break;
 				case "pluginstate":
-					PluginManager pm2 = new PluginManager();
+					sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures pluginstate <Plugin>");
+				}
+			}
+			else if(args.length == 2){
+				switch(args[0]){
+				case "pluginstate":
+					PluginManager pm = new PluginManager();
+					PluginState ps = pm.getPluginState(Plugins.toPlugins(args[1]));
+					sender.sendMessage(ChatColor.GRAY + "Plugin " + args[0] + " state is " + ps.toString());
+					break;
 				}
 			}
 		}
