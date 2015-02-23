@@ -52,7 +52,6 @@ public class PluginManager {
 		PluginState ps = PluginState.UNKNOWNPLUGIN;
 		switch(p){
 		case gWarsSuite:
-			ps = gWarsSuitePlugin.getState();
 			break;
 		case gFactions:
 			ps = gFactionsPlugin.getState();

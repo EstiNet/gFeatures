@@ -31,17 +31,17 @@ public class gFeatureCore {
 				case "list":
 					PluginManager pm = new PluginManager();
 					List<Plugins> enabled = new ArrayList<>();
-					List<Plugins> disabled = new ArrayList<>();
+					List<Plugins> all = new ArrayList<>();
 					enabled = pm.getEnabledPlugins();
-					disabled = pm.getDisabledPlugins();
 					sender.sendMessage(ChatColor.GRAY + "Plugins:");
 					sender.sendMessage(ChatColor.GRAY + "Enabled:");
 					for(int i = 0; i<enabled.size(); i++){
+						all.remove(i);
 						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(enabled.get(i)));
 					}
 					sender.sendMessage(ChatColor.GRAY + "Disabled:");
-					for(int i = 0; i<enabled.size(); i++){
-						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(disabled.get(i)));
+					for(int i = 0; i<all.size(); i++){
+						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(all.get(i)));
 					}
 					break;
 				case "pluginstate":

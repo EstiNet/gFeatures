@@ -1,5 +1,8 @@
 package tk.genesishub.gFeatures.PluginManage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Plugins {
 	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, UnknownPlugin;
 	public static String toString(Plugins plugin){
@@ -53,5 +56,15 @@ public enum Plugins {
 			break;
 		}
 		return plugin;
+	}
+	public static List<Plugins> getPlugins(){
+		List<Plugins> list = new ArrayList<>();
+		list.add(gWarsSuite);
+		list.add(gFactions);
+		list.add(gFeatures);
+		list.add(gDestroyCritical);
+		list.add(gHub);
+		list.add(GenesisAccess);
+		return list;
 	}
 }
