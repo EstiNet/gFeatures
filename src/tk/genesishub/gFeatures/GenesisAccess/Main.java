@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Main {
-	File f = new File("plugins/gFeatures/GenesisAccess/chat.txt");
+	File f = new File("GenesisAccess/chat.txt");
     public void onEnable() { //What to do on server load/reload
         Bukkit.getLogger().info("GenesisAccess 1.0 is enabled. All clear for take off!");
         int num = 0;
@@ -31,7 +31,7 @@ public class Main {
         
     	else{
     		num += 1;
-    		f=new File("plugins/gFeatures/GenesisAccess/chat"+num+".txt");
+    		f=new File("GenesisAccess/chat"+num+".txt");
     	}
         }
         }

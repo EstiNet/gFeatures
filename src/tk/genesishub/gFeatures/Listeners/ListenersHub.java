@@ -1,5 +1,6 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -81,6 +82,7 @@ public class ListenersHub {
 			}
 			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 				GenesisAccess.PlayerleaveEvent(playerquit);
+				Bukkit.getLogger().info("PlayerLeft");
 			}
 		} catch (Exception e) {
 			
