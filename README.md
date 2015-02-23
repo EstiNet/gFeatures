@@ -11,6 +11,12 @@ gFeatures Core is made in java, and add-ons can be written in Skript.
 
 ###GenesisHub Info
 GenesisHub IP: genesishub.tk
+###Licensing
+If you want to be able to use gFeatures on your sevrer, you must first obtain a Product Key.
+After you get a Product Key, you will enter that into the gFeatures Configuration (Created when gFeatures firsts boots up on your server.) Without a Product Key, gFeatures will not function.
+Please send inquiries to: mcgenesishub@gmail.com
+NOTE! AS GFEATURES IS NOT A FINAL PRODUCT AT THIS STAGE, PRODUCT KEYS WILL NOT BE SOLD.
+
 ###Staff Info
 Sharepoint: http://genesishub.ddns.net/
 
