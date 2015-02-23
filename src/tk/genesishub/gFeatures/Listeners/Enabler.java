@@ -25,5 +25,23 @@ public class Enabler {
 		gffm.exists();
 		ymli.Enabler();
 		gffm.exists();
+		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gDestroyCritical.Listeners Listeners = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
+			Listeners.onEnable();
+		}
+		if(gHubPlugin.getState().equals(PluginState.ENABLE)){
+			
+		}
+		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
+			
+		}
+		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gWarsSuite.Listeners Listeners = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
+			Listeners.onEnable();
+		}
+		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.GenesisAccess.Main Listeners = new tk.genesishub.gFeatures.GenesisAccess.Main();
+			Listeners.onEnable();
+		}
 	}
 }
