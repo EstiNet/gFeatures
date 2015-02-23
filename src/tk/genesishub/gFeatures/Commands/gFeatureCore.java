@@ -25,6 +25,7 @@ public class gFeatureCore {
 					sender.sendMessage(ChatColor.GRAY + "------Help------");
 					sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the plugin version.");
 					sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all plugins with their states also.");
+					sender.sendMessage(ChatColor.GRAY + "/gFeatures pluginstate <Plugin> : Gets the state of the plugin.");
 					break;
 				case "list":
 					PluginManager pm = new PluginManager();
@@ -41,6 +42,9 @@ public class gFeatureCore {
 					for(int i = 0; i<enabled.size(); i++){
 						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(disabled.get(i)));
 					}
+					break;
+				case "pluginstate":
+					PluginManager pm2 = new PluginManager();
 				}
 			}
 		}

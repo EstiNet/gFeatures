@@ -48,4 +48,28 @@ public class PluginManager {
 		}
 		return plugins;
 	}
+	public PluginState getPluginState(Plugins p){
+		PluginState ps = null;
+		switch(p){
+		case gWarsSuite:
+			ps = gWarsSuitePlugin.getState();
+			break;
+		case gFactions:
+			ps = gFactionsPlugin.getState();
+			break;
+		case gFeatures:
+			ps = PluginState.ENABLE;
+			break;
+		case gDestroyCritical:
+			ps = gDestroyCriticalPlugin.getState();
+			break;
+		case gHub:
+			ps = gHubPlugin.getState();
+			break;
+		case GenesisAccess:
+			ps = GenesisAccessPlugin.getState();
+			break;
+		}
+		return ps;
+	}
 }
