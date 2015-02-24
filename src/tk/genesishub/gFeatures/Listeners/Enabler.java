@@ -5,6 +5,8 @@ import java.io.IOException;
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -20,6 +22,8 @@ public class Enabler {
 		gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
 		GenesisAccessPlugin.setPluginState(PluginState.DISABLE);
 		gFeaturePlugin.setPluginState(PluginState.DISABLE);
+		GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
+		GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();

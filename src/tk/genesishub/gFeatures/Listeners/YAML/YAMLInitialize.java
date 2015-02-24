@@ -2,13 +2,12 @@ package tk.genesishub.gFeatures.Listeners.YAML;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.Map;
-
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -37,13 +36,6 @@ https://github.com/Seshpenguin/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
    
-   
-   yamlFile.set("Config.Plugins.gHub", "false");
-			yamlFile.set("Config.Plugins.gFactions", "false");
-			yamlFile.set("Config.Plugins.GenesisAccess", "false");
-			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
-			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
-			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 */
 public class YAMLInitialize {
 	File f = new File("plugins/gFeatures/Config.yml");
@@ -91,7 +83,15 @@ public class YAMLInitialize {
 		}
 		if(yamlFile.get("Config.Plugins.gWarsSuite").equals("true")){
 			gWarsSuitePlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gWarsSuite");
 		}
-		if
+		if(yamlFile.get("Config.Plugins.GenesisEconomy").equals("true")){
+			GenesisEconomyPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded GenesisEconomy");
+		}
+		if(yamlFile.get("Config.Plugins.GenesisBackup").equals("true")){
+			GenesisBackupPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded GenesisBackup");
+		}
 	}
 }
