@@ -55,9 +55,10 @@ public class YAMLInitialize {
 			gdp.Initialize();
 			Bukkit.getLogger().info("Loaded gDestroy preset.");
 		}
+		
 		if(yamlFile.get("Config.Plugins.GenesisAccess").equals("true")){
 			GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded GenesisAccess");
+			Bukkit.getLogger().info("Loaded GenesisAccess.");
 		}
 	}
 }
