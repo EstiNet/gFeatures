@@ -1,5 +1,8 @@
 package tk.genesishub.gFeatures.gWarsSuite;
 
+import java.io.File;
+import java.net.URL;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -25,6 +28,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class CommandHub {
+	File f = new File("./GenesisAccess");
 	Spectate spectate = new Spectate();
 	ListTeams lt = new ListTeams();
 	Capture capture = new Capture();

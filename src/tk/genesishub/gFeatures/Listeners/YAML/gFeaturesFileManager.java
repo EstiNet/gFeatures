@@ -76,12 +76,12 @@ public class gFeaturesFileManager {
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		if(!(gEconomy.isDirectory()) && GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
-			gHub.mkdir();
+			gEconomy.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisEconomy...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
 		if(!(gBackup.isDirectory()) && GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
-			gHub.mkdir();
+			gBackup.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisBackup...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}

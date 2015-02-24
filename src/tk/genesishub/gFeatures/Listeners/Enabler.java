@@ -1,6 +1,17 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.net.URL;
+
+import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
 
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
@@ -61,6 +72,11 @@ public class Enabler {
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gWarsSuite.Listeners Listeners = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 			Listeners.onEnable();
+			Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Commands/Config/gWarsSuite"));
+			StringWriter writer = new StringWriter();
+			IOUtils.copy(paramReader, writer);
+			String theString = writer.toString();
+			Bukkit.getLogger().info(theString);
 		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.GenesisAccess.Main Listeners = new tk.genesishub.gFeatures.GenesisAccess.Main();
