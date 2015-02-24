@@ -1,6 +1,5 @@
 package tk.genesishub.gFeatures.Listeners;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
