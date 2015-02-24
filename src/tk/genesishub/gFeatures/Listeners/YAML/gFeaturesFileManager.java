@@ -2,9 +2,13 @@ package tk.genesishub.gFeatures.Listeners.YAML;
 
 import java.io.File;
 import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -23,6 +27,8 @@ public class gFeaturesFileManager {
 	File gDestroyCritical = new File("plugins/gFeatures/gDestroyCritical");
 	File gFactions = new File("plugins/gFeatures/gFactions");
 	File gHub = new File("plugins/gFeatures/gHub");
+	File gEconomy = new File("plugins/gFeatures/GenesisEconomy");
+	File gBackup = new File("plugins/gFeatures/gBackup");
 	public void exists() throws IOException{
 		try{
 		if(!(main.isDirectory())){
@@ -50,6 +56,16 @@ public class gFeaturesFileManager {
 			Bukkit.getLogger().info("Seems like it's the first time you ran gHub...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
+		if(!(gEconomy.isDirectory()) && GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+			gHub.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisEconomy...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
+		if(!(gBackup.isDirectory()) && GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+			gHub.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisBackup...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
 		if(!(GenesisAccess.isDirectory()) && GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisAccess.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisAccess...");
@@ -66,6 +82,8 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.gFactions");
 			yamlFile.createSection("Config.Plugins.GenesisAccess");
 			yamlFile.createSection("Config.Plugins.gDestroyCritical");
+			yamlFile.createSection("Config.Plugins.GenesisEconomy");
+			yamlFile.createSection("Config.Plugins.GenesisBackup");
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
 			yamlFile.createSection("Config.Presets.gHub");
@@ -79,6 +97,8 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.gFactions", "false");
 			yamlFile.set("Config.Plugins.GenesisAccess", "false");
 			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
+			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
+			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}

@@ -15,6 +15,8 @@ import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Presets.gDestroyPreset;
+import tk.genesishub.gFeatures.Presets.gFactionsPreset;
+import tk.genesishub.gFeatures.Presets.gHubPreset;
 import tk.genesishub.gFeatures.Presets.gWarsPreset;
 
 /*
@@ -34,13 +36,21 @@ https://github.com/Seshpenguin/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+   
+   
+   yamlFile.set("Config.Plugins.gHub", "false");
+			yamlFile.set("Config.Plugins.gFactions", "false");
+			yamlFile.set("Config.Plugins.GenesisAccess", "false");
+			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
+			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
+			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 */
 public class YAMLInitialize {
 	File f = new File("plugins/gFeatures/Config.yml");
 	gWarsPreset gwp = new gWarsPreset();
 	gDestroyPreset gdp = new gDestroyPreset();
-	gHubPlugin ghp = new gHubPlugin();
-	gFactionsPlugin gfp = new gFactionsPlugin();
+	gHubPreset ghp = new gHubPreset();
+	gFactionsPreset gfp = new gFactionsPreset();
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
@@ -56,11 +66,32 @@ public class YAMLInitialize {
 			Bukkit.getLogger().info("Loaded gDestroy preset.");
 		}
 		if(yamlFile.get("Config.Presets.gHub").equals("true")){
-			
+			ghp.Initialize();
+			Bukkit.getLogger().info("Loaded gHub preset.");
+		}
+		if(yamlFile.get("Config.Presets.gFactions").equals("true")){
+			gfp.Initialize();
+			Bukkit.getLogger().info("Loaded gFactions preset.");
 		}
 		if(yamlFile.get("Config.Plugins.GenesisAccess").equals("true")){
 			GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded GenesisAccess.");
 		}
+		if(yamlFile.get("Config.Plugins.gHub").equals("true")){
+			gHubPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gHub.");
+		}
+		if(yamlFile.get("Config.Plugins.gFactions").equals("true")){
+			gFactionsPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gFactions.");
+		}
+		if(yamlFile.get("Config.Plugins.gDestroyCritical").equals("true")){
+			gDestroyCriticalPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gDestroyCritical");
+		}
+		if(yamlFile.get("Config.Plugins.gWarsSuite").equals("true")){
+			gWarsSuitePlugin.setPluginState(PluginState.ENABLE);
+		}
+		if
 	}
 }

@@ -24,6 +24,12 @@ public class PluginManager {
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gWarsSuite);
 		}
+		if(GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+			plugins.add(Plugins.GenesisBackup);
+		}
+		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+			plugins.add(Plugins.GenesisEconomy);
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -46,6 +52,12 @@ public class PluginManager {
 		if(gWarsSuitePlugin.getState().equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gWarsSuite);
 		}
+		if(GenesisBackupPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.GenesisBackup);
+		}
+		if(GenesisEconomyPlugin.getState().equals(PluginState.DISABLE)){
+			plugins.add(Plugins.GenesisEconomy);
+		}
 		return plugins;
 	}
 	public PluginState getPluginState(Plugins p){
@@ -67,6 +79,12 @@ public class PluginManager {
 			break;
 		case GenesisAccess:
 			ps = GenesisAccessPlugin.getState();
+			break;
+		case GenesisEconomy:
+			ps = GenesisEconomyPlugin.getState();
+			break;
+		case GenesisBackup:
+			ps = GenesisBackupPlugin.getState();
 			break;
 		}
 		return ps;
