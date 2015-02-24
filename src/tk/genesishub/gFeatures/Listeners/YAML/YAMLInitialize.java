@@ -51,11 +51,13 @@ public class YAMLInitialize {
 			gwp.Initialize();
 			Bukkit.getLogger().info("Loaded gWars preset.");
 		}
-		else if(yamlFile.get("Config.Presets.gDestroy").equals("true")){
+		if(yamlFile.get("Config.Presets.gDestroy").equals("true")){
 			gdp.Initialize();
 			Bukkit.getLogger().info("Loaded gDestroy preset.");
 		}
-		
+		if(yamlFile.get("Config.Presets.gHub").equals("true")){
+			
+		}
 		if(yamlFile.get("Config.Plugins.GenesisAccess").equals("true")){
 			GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded GenesisAccess.");

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Plugins {
-	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, UnknownPlugin;
+	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, GenesisEconomy, GenesisBackup, UnknownPlugin;
 	public static String toString(Plugins plugin){
 		String str = "Unknown Plugin";
 		switch(plugin){
@@ -25,6 +25,12 @@ public enum Plugins {
 			break;
 		case GenesisAccess:
 			str = "GenesisAccess";
+			break;
+		case GenesisEconomy:
+			str = "GenesisEconomy";
+			break;
+		case GenesisBackup:
+			str = "GenesisBackup";
 			break;
 		case UnknownPlugin:
 			break;
@@ -54,6 +60,12 @@ public enum Plugins {
 		case "GenesisAccess":
 			plugin = GenesisAccess;
 			break;
+		case "GenesisEconomy":
+			plugin = GenesisEconomy;
+			break;
+		case "GenesisBackup":
+			plugin = GenesisBackup;
+			break;
 		}
 		return plugin;
 	}
@@ -65,6 +77,8 @@ public enum Plugins {
 		list.add(gDestroyCritical);
 		list.add(gHub);
 		list.add(GenesisAccess);
+		list.add(GenesisEconomy);
+		list.add(GenesisBackup);
 		return list;
 	}
 }
