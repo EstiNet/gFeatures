@@ -31,7 +31,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class gFeatureCore {
-	public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gFeature") || cmd.getName().equalsIgnoreCase("gFeatures")){
 			if(args.length == 0){
 				sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
@@ -83,6 +83,5 @@ public class gFeatureCore {
 				}
 			}
 		}
-		return null;
 	}
 }

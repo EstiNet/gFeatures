@@ -298,6 +298,7 @@ public class CommandHub {
     		admin.commandTakeDeaths(sender, cmd, label, args);
     	}
     	if (cmd.getName().equalsIgnoreCase("stats")) { // If the player typed /basic then do the following...
+    		;
     		try{
     			sender.sendMessage("Kills = "+sr.getKills(s.getName()) + "  Deaths = "+sr.getDeaths(s.getName()));
     		}

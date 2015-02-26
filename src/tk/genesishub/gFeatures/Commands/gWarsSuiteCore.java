@@ -27,14 +27,14 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class gWarsSuiteCore {
-	public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
+		Commands c = new Commands();
 		CommandHub ch = new CommandHub();
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 		ch.CommandInitiate(sender, cmd, label, args);
 		}
-		else{
+		else if(c.Check("gWarsSuiteCommands", cmd.getName())){
 			sender.sendMessage("GenesisHub does not recognize this command. Type /help for help.");
 		}
-		return null;
 	}
 }

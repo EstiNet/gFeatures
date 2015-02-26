@@ -23,7 +23,6 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class GenesisBackupCore {
-	public String CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
-		return null;
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
 	}
 }

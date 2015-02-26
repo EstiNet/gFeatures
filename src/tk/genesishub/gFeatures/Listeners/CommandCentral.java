@@ -33,7 +33,5 @@ public class CommandCentral {
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		gfc.CommandSwitch(sender, cmd, label, args);
 		gwc.CommandSwitch(sender, cmd, label, args);
-		//gFeatureCore
-		
 	}
 }
