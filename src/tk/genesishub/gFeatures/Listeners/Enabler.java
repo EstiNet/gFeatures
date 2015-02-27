@@ -1,21 +1,6 @@
 package tk.genesishub.gFeatures.Listeners;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.net.URL;
-
-import org.apache.commons.io.IOUtils;
-import org.bukkit.Bukkit;
-
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;

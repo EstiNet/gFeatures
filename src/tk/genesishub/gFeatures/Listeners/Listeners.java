@@ -21,8 +21,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import ch.njol.skript.Skript;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*

@@ -1,8 +1,6 @@
 package tk.genesishub.gFeatures.Listeners.YAML;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
@@ -51,7 +49,6 @@ public class gFeaturesFileManager {
 	File gEconomy = new File("plugins/gFeatures/GenesisEconomy");
 	File gBackup = new File("plugins/gFeatures/gBackup");
 	public void exists() throws IOException{
-		BufferedWriter output = new BufferedWriter(new FileWriter(f));
 		try{
 		if(!(main.isDirectory())){
 			main.mkdir();
@@ -96,7 +93,6 @@ public class gFeaturesFileManager {
 		if(!(f.exists())){
 			f.createNewFile();
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-			output.write("#Welcome to the gFeatures Config!");
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
@@ -139,7 +135,7 @@ public class gFeaturesFileManager {
 		Bukkit.getLogger().info("Plugin data check completed.");
 		}
 		catch(NullPointerException e){
-			
+			e.printStackTrace();
 		}
 	}
 }

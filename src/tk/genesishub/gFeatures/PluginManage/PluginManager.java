@@ -106,6 +106,10 @@ public class PluginManager {
 		case GenesisBackup:
 			ps = GenesisBackupPlugin.getState();
 			break;
+		case UnknownPlugin:
+			break;
+		default:
+			break;
 		}
 		return ps;
 	}
