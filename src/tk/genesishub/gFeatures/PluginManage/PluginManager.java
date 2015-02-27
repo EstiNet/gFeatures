@@ -25,56 +25,56 @@ https://github.com/Seshpenguin/gFeatures
 public class PluginManager {
 	public List<Plugins> getEnabledPlugins(){
 		List<Plugins> plugins = new ArrayList<>();
-		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.gDestroyCritical).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gDestroyCritical);
 		}
-		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.GenesisAccess).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.GenesisAccess);
 		}
-		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.gFactions).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gFactions);
 		}
-		if(gHubPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.gHub).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gHub);
 		}
-		if(gFeaturePlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.gFeatures).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gFeatures);
 		}
-		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.gWarsSuite).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gWarsSuite);
 		}
-		if(GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.GenesisBackup).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.GenesisBackup);
 		}
-		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+		if(getPluginState(Plugins.GenesisEconomy).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.GenesisEconomy);
 		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
 		List<Plugins> plugins = new ArrayList<>();
-		if(gDestroyCriticalPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.gDestroyCritical).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gDestroyCritical);
 		}
-		if(GenesisAccessPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.GenesisAccess).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.GenesisAccess);
 		}
-		if(gFactionsPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.gFactions).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gFactions);
 		}
-		if(gHubPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.gHub).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gHub);
 		}
-		if(gFeaturePlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.gFeatures).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gFeatures);
 		}
-		if(gWarsSuitePlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.gWarsSuite).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gWarsSuite);
 		}
-		if(GenesisBackupPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.GenesisBackup).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.GenesisBackup);
 		}
-		if(GenesisEconomyPlugin.getState().equals(PluginState.DISABLE)){
+		if(getPluginState(Plugins.GenesisEconomy).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.GenesisEconomy);
 		}
 		return plugins;
@@ -83,6 +83,7 @@ public class PluginManager {
 		PluginState ps = PluginState.UNKNOWNPLUGIN;
 		switch(p){
 		case gWarsSuite:
+			ps = gWarsSuitePlugin.getState();
 			break;
 		case gFactions:
 			ps = gFactionsPlugin.getState();

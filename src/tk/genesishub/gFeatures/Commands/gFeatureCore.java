@@ -52,10 +52,10 @@ public class gFeatureCore {
 					List<Plugins> enabled = new ArrayList<>();
 					List<Plugins> all = new ArrayList<>();
 					enabled = pm.getEnabledPlugins();
+					all = pm.getDisabledPlugins();
 					sender.sendMessage(ChatColor.GRAY + "Plugins:");
 					sender.sendMessage(ChatColor.GRAY + "Enabled:");
 					for(int i = 0; i<enabled.size(); i++){
-						all.remove(i);
 						sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(enabled.get(i)));
 					}
 					sender.sendMessage(ChatColor.GRAY + "Disabled:");
