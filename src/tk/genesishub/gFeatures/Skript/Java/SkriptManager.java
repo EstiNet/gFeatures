@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
+
 import tk.genesishub.gFeatures.Skript.Skripts;
 
 /*
@@ -42,18 +44,19 @@ public class SkriptManager {
 		return list;
 	}
 	public void Enable(Skripts s) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Skript/" + s.toString()));
+		Bukkit.getLogger().info(s.toString());
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Skript/" + s.toString() + ".sk"));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
-		File f = new File("plugins/Skript/scripts/" + s.toString() + "/");
+		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
 		f.createNewFile();
 		BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
 		bw.write(theString);
 		bw.close();
 	}
 	public void Disable(Skripts s){
-		File f = new File("plugins/Skript/scripts/" + s.toString() + "/");
+		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
 		f.delete();
 	}
 }

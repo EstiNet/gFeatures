@@ -19,6 +19,8 @@ import tk.genesishub.gFeatures.Presets.gDestroyPreset;
 import tk.genesishub.gFeatures.Presets.gFactionsPreset;
 import tk.genesishub.gFeatures.Presets.gHubPreset;
 import tk.genesishub.gFeatures.Presets.gWarsPreset;
+import tk.genesishub.gFeatures.Skript.Skripts;
+import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
 
 /*
 gFeatures
@@ -41,6 +43,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 public class YAMLInitialize {
 	File f = new File("plugins/gFeatures/Config.yml");
+	SkriptManager sm = new SkriptManager();
 	gWarsPreset gwp = new gWarsPreset();
 	gDestroyPreset gdp = new gDestroyPreset();
 	gHubPreset ghp = new gHubPreset();
@@ -94,6 +97,14 @@ public class YAMLInitialize {
 		if(yamlFile.get("Config.Plugins.GenesisBackup").equals("true")){
 			GenesisBackupPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded GenesisBackup.");
+		}
+		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
+			sm.Enable(Skripts.gEssentialsHub);
+			Bukkit.getLogger().info("Loaded gEssentialsHub.");
+		}
+		if(yamlFile.get("Config.Skript.gEssentialsMinigames").equals("true")){
+			sm.Enable(Skripts.gEssentialsMinigames);
+			Bukkit.getLogger().info("Loaded gEssentialsMinigames.");
 		}
 	}
 }
