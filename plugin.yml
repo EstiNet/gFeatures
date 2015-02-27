@@ -8,6 +8,11 @@ commands:
      aliases: [gf, gFeature]
      permission: gFeatures.command.gFeatures
      usage: Syntax error! Do /gFeatures help for help.
+   GenesisBackup:
+     description: gBackup core command.
+     aliases: [gBackup, GenesisBackup, gb]
+     permission: gFeatures.command.gFeatures
+     usage: Syntax error! Do /gFeatures help for help.
    spectate:
       description: Puts you in spectator mode.
       usage:
