@@ -65,5 +65,12 @@ public class Enabler {
 			tk.genesishub.gFeatures.GenesisAccess.Main Listeners = new tk.genesishub.gFeatures.GenesisAccess.Main();
 			Listeners.onEnable();
 		}
+		if(GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.GenesisBackup.Listeners listeners = new tk.genesishub.gFeatures.GenesisBackup.Listeners();
+			listeners.onEnable();
+		}
+		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+			
+		}
 	}
 }
