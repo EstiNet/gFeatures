@@ -96,6 +96,8 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.Presets");
 			yamlFile.createSection("Config.Plugins");
+			yamlFile.createSection("Config.Skript");
+			//Plugins
 			yamlFile.createSection("Config.Plugins.gWarsSuite");
 			yamlFile.createSection("Config.Plugins.gHub");
 			yamlFile.createSection("Config.Plugins.gFactions");
@@ -103,14 +105,20 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.gDestroyCritical");
 			yamlFile.createSection("Config.Plugins.GenesisEconomy");
 			yamlFile.createSection("Config.Plugins.GenesisBackup");
+			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
 			yamlFile.createSection("Config.Presets.gHub");
 			yamlFile.createSection("Config.Presets.gFactions");
+			//Skript
+			yamlFile.createSection("Config.Skript.gEssentialsHub");
+			yamlFile.createSection("Config.Skript.gEssentialsMinigames");
+			//Presets value
 			yamlFile.set("Config.Presets.gWars", "false");
 			yamlFile.set("Config.Presets.gDestroy", "false");
 			yamlFile.set("Config.Presets.gHub", "false");
 			yamlFile.set("Config.Presets.gFactions", "false");
+			//Plugins value
 			yamlFile.set("Config.Plugins.gWarsSuite", "false");
 			yamlFile.set("Config.Plugins.gHub", "false");
 			yamlFile.set("Config.Plugins.gFactions", "false");
@@ -118,6 +126,9 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
 			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
+			//Skript value
+			yamlFile.set("Config.Skript.gEssentialsHub", "false");
+			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}

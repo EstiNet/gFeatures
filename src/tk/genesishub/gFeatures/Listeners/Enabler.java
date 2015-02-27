@@ -75,11 +75,6 @@ public class Enabler {
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gWarsSuite.Listeners Listeners = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 			Listeners.onEnable();
-			Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Commands/Config/gWarsSuite"));
-			StringWriter writer = new StringWriter();
-			IOUtils.copy(paramReader, writer);
-			String theString = writer.toString();
-			Bukkit.getLogger().info(theString);
 		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.GenesisAccess.Main Listeners = new tk.genesishub.gFeatures.GenesisAccess.Main();

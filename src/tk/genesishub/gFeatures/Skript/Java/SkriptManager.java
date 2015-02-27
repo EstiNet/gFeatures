@@ -1,5 +1,18 @@
 package tk.genesishub.gFeatures.Skript.Java;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.IOUtils;
+import tk.genesishub.gFeatures.Skript.Skripts;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -20,5 +33,27 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class SkriptManager {
-
+	public List<String> getList(){
+		List<String> list = new ArrayList<>();
+		List<Skripts> list2 = Skripts.getList();
+		for(Skripts s : list2){
+			list.add(s.toString());
+		}
+		return list;
+	}
+	public void Enable(Skripts s) throws IOException{
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Skript/" + s.toString()));
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(paramReader, writer);
+		String theString = writer.toString();
+		File f = new File("plugins/Skript/scripts/" + s.toString() + "/");
+		f.createNewFile();
+		BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
+		bw.write(theString);
+		bw.close();
+	}
+	public void Disable(Skripts s){
+		File f = new File("plugins/Skript/scripts/" + s.toString() + "/");
+		f.delete();
+	}
 }

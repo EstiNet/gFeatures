@@ -1,6 +1,8 @@
 package tk.genesishub.gFeatures.Listeners;
 
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -31,20 +33,29 @@ public class Disabler {
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gWarsSuite.Listeners Listener = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 			Listener.onDisable();
+			gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
 		}
 		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gDestroyCritical.Listeners Listener = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
 			Listener.onDisable();
+			gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
 		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.GenesisAccess.Main Listener = new tk.genesishub.gFeatures.GenesisAccess.Main();
 			Listener.onDisable();
+			GenesisAccessPlugin.setPluginState(PluginState.DISABLE);
 		}
 		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
-			
+			gFactionsPlugin.setPluginState(PluginState.DISABLE);
 		}
 		if(gHubPlugin.getState().equals(PluginState.ENABLE)){
-			
+			gHubPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 		}
 	}
 }

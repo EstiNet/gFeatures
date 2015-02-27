@@ -77,7 +77,7 @@ public class Listeners extends JavaPlugin implements Listener{
     public void onDisable() { //What to do on server unload/reload
        getLogger().info("[gFeatures] gFeatures is turning off...!");  
        Disabler d = new Disabler();
-       
+       d.Initialize();
     }
 
     @EventHandler

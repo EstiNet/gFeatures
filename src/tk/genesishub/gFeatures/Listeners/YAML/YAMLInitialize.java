@@ -2,6 +2,8 @@ package tk.genesishub.gFeatures.Listeners.YAML;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -46,7 +48,7 @@ public class YAMLInitialize {
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
-	public void Enabler() throws FileNotFoundException{
+	public void Enabler() throws IOException{
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f); 
 		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
 		if(yamlFile.get("Config.Presets.gWars").equals("true")){
@@ -79,19 +81,19 @@ public class YAMLInitialize {
 		}
 		if(yamlFile.get("Config.Plugins.gDestroyCritical").equals("true")){
 			gDestroyCriticalPlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded gDestroyCritical");
+			Bukkit.getLogger().info("Loaded gDestroyCritical.");
 		}
 		if(yamlFile.get("Config.Plugins.gWarsSuite").equals("true")){
 			gWarsSuitePlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded gWarsSuite");
+			Bukkit.getLogger().info("Loaded gWarsSuite.");
 		}
 		if(yamlFile.get("Config.Plugins.GenesisEconomy").equals("true")){
 			GenesisEconomyPlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded GenesisEconomy");
+			Bukkit.getLogger().info("Loaded GenesisEconomy.");
 		}
 		if(yamlFile.get("Config.Plugins.GenesisBackup").equals("true")){
 			GenesisBackupPlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded GenesisBackup");
+			Bukkit.getLogger().info("Loaded GenesisBackup.");
 		}
 	}
 }
