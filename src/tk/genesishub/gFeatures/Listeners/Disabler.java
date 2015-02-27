@@ -8,6 +8,8 @@ import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
+import tk.genesishub.gFeatures.Skript.Skripts;
+import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
 
 /*
 gFeatures
@@ -29,6 +31,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Disabler {
+	SkriptManager sm = new SkriptManager();
 	public void Initialize(){
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gWarsSuite.Listeners Listener = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
@@ -57,5 +60,7 @@ public class Disabler {
 		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 		}
+		sm.Disable(Skripts.gEssentialsHub);
+		sm.Disable(Skripts.gEssentialsMinigames);
 	}
 }

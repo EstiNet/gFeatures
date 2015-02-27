@@ -57,6 +57,8 @@ public class SkriptManager {
 	}
 	public void Disable(Skripts s){
 		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
+		if(f.exists()){
 		f.delete();
+		}
 	}
 }
