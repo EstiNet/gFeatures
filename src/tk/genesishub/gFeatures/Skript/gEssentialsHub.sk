@@ -141,7 +141,7 @@ every second:
       
 #Because Exploding cows.
 on right click holding a hoe:
-    shoot a arrow at speed 5
+    shoot a arrow at speed 2
 on projectile hit:
     projectile is arrow
     show mob spawner flames at the arrow
