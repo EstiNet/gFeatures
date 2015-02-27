@@ -1,6 +1,6 @@
 # GenesisEssentials by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.5-ALPHA gFeatures Add-On Hub Edition
+# Version: 0.6-ALPHA gFeatures Add-On Hub Edition
 # Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
 # Preset: Hub
 #
@@ -20,7 +20,7 @@
 	
 on login:
 	chance of 15%:
-		give a cake to the player
+		give a hoe to the player
 		wait a tick
 		send "You are lucky today! Have a free cake!" to the player
 	
@@ -28,13 +28,13 @@ on login:
 command /icanhasge:
 	description: Shh, Secret Command!
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.5-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.5-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
@@ -145,8 +145,9 @@ on right click holding a hoe:
 on projectile hit:
     projectile is arrow
     show mob spawner flames at the arrow
+    spawn a cow at the arrow
     wait 1 second
-    spawn a cow at the arrow
-    spawn a cow at the arrow
     create explosion of force 0 at the arrow
-    create explosion of force 0 at the arrow
+    kill all cows
+on death of cow:
+    clear drops
