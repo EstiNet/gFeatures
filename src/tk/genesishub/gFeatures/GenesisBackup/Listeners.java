@@ -1,5 +1,9 @@
 package tk.genesishub.gFeatures.GenesisBackup;
 
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -20,5 +24,13 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-
+	public void onEnable(){
+		Bukkit.getLogger().info("Enabled plugin GenesisBackup!");
+	}
+	public void onDisable(){
+		Bukkit.getLogger().info("Disabled plugin GenesisBackup!");
+	}
+	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		
+	}
 }
