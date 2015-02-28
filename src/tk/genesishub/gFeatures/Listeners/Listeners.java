@@ -52,6 +52,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	
 	@Override
     public void onEnable() { //What to do on server load/reload
+		getLogger().info("~--------------------------------------------------------------------------------~");
         getLogger().info("[gFeatures] Starting gFeatures...");
         Enabler e = new Enabler();
         try {
@@ -60,15 +61,23 @@ public class Listeners extends JavaPlugin implements Listener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+        
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(this, this);
-        getLogger().info("[gFeatures] Complete! gFeatures has loaded. All clear for take off!");    
+        
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
         	// put all code related to Skript here!
+        	getLogger().info("[gFeatures] Skript is detected on the server! Skript Add-Ons will function!");
         }
+        
         //Product Key System
-        if (EnteredKey.equals(ProductKey));
-        //To-Do
+        if (EnteredKey.equals(ProductKey)){
+        	//To-Do
+        	getLogger().info("[gFeatures] Product Key Verified!");	
+        }
+        
+        getLogger().info("[gFeatures] gFeatures has started.");
+        getLogger().info("~--------------------------------------------------------------------------------~");
         }
  
     @Override
