@@ -11,6 +11,7 @@ public enum Skripts {
 		list.add(gEssentialsMinigames);
 		list.add(gMMO);
 		list.add(gEssentialsFactions);
+		list.add(gCrates);
 		return list;
 	}
 }
