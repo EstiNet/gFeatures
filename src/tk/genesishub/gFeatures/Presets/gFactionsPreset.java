@@ -34,5 +34,6 @@ public class gFactionsPreset {
 		SkriptManager sm = new SkriptManager();
 		sm.Enable(Skripts.gMMO);
 		sm.Enable(Skripts.gEssentialsFactions);
+		sm.Enable(Skripts.gCrates);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum Skripts {
-	gEssentialsHub, gEssentialsMinigames, gMMO, gEssentialsFactions;
+	gEssentialsHub, gEssentialsMinigames, gMMO, gEssentialsFactions, gCrates;
 	public static List<Skripts> getList(){
 		List<Skripts> list = new ArrayList<>();
 		list.add(gEssentialsHub);

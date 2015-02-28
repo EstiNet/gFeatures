@@ -113,5 +113,9 @@ public class YAMLInitialize {
 			sm.Enable(Skripts.gEssentialsFactions);
 			Bukkit.getLogger().info("Loaded gEssentialsFactions.");
 		}
+		if(yamlFile.get("Config.Skript.gCrates").equals("true")){
+			sm.Enable(Skripts.gCrates);
+			Bukkit.getLogger().info("Loaded gCrates.");
+		}
 	}
 }
