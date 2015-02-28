@@ -1,8 +1,12 @@
 package tk.genesishub.gFeatures.Presets;
 
+import java.io.IOException;
+
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.Skript.Skripts;
+import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
 
 /*
 gFeatures
@@ -24,8 +28,10 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class gFactionsPreset {
-	public void Initialize(){
+	public void Initialize() throws IOException{
 		GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 		gFactionsPlugin.setPluginState(PluginState.ENABLE);
+		SkriptManager sm = new SkriptManager();
+		sm.Enable(Skripts.gMMO);
 	}
 }
