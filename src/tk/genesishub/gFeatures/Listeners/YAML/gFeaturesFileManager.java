@@ -116,6 +116,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Skript.gMMO");
 			yamlFile.createSection("Config.Skript.gEssentialsFactions");
 			yamlFile.createSection("Config.Skript.gCrates");
+			yamlFile.createSection("Config.Skript.gEssentialsGlobal");
 			//Presets value
 			yamlFile.set("Config.Presets.gWars", "false");
 			yamlFile.set("Config.Presets.gDestroy", "false");
@@ -125,7 +126,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.gWarsSuite", "false");
 			yamlFile.set("Config.Plugins.gHub", "false");
 			yamlFile.set("Config.Plugins.gFactions", "false");
-			yamlFile.set("Config.Plugins.GenesisAccess", "false");
+			yamlFile.set("Config.Plugins.GenesisAccess", "true");
 			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
 			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
@@ -135,6 +136,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Skript.gMMO", "false");
 			yamlFile.set("Config.Skript.gEssentialsFactions", "false");
 			yamlFile.set("Config.Skript.gCrates", "false");
+			yamlFile.set("Config.Skript.gEssentialsGlobal", "true");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
