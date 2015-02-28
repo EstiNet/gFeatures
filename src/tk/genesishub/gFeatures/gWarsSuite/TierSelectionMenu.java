@@ -42,6 +42,7 @@ public class TierSelectionMenu {
 			menus.open(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
+			Bukkit.getLogger().info("HI");
 		}
 	}
 	public InventoryAPI test(Player p){
