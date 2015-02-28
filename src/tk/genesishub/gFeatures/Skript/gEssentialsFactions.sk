@@ -1,8 +1,8 @@
 # GenesisEssentials by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.6-ALPHA gFeatures Add-On Hub Edition
+# Version: 0.6-ALPHA gFeatures Add-On Factions Edition
 # Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
-# Preset: Hub
+# Preset: Factions
 #
 #   Copyright 2015 DolphinBox
 #
@@ -18,23 +18,17 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 	
-on login:
-	chance of 15%:
-		give a hoe to the player
-		wait a tick
-		send "You are lucky today! Have a How that shoots exploding cows!" to the player
-	
 
 command /icanhasge:
 	description: Shh, Secret Command!
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version Factions Edition 0.6-ALPHA (This is a dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
+		send "This server is running GenesisEssentials as a gFeatures Add-on version Factions Edition 0.6-ALPHA (This is a dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
@@ -84,7 +78,6 @@ command /motd:
 on join:
 	wait a tick
 	message {motd}
-	teleport player to {server.spawn.location}
 	play mob spawner flames at the player
 
 on respawn:
@@ -100,54 +93,3 @@ command /logincount:
 	trigger:
 		message "Since the beginning, <green>%{logincount}%<reset> people have logged onto this server!"
 		
-command /toggleprotect:
-	description: Toggle world protection
-	permission: protect.toggle
-	executable by: players
-	trigger:
-		if {ge.protect.toggle} is true:
-			set {ge.protect.toggle} to false
-			message "[GenesisEssentials] Protection is now disbaled!"
-			stop trigger
-		set {ge.protect.toggle} to true
-		message "[GenesisEssentials] Protection is now enabled!"
-		
-on place:
-	{ge.protect.toggle} is true
-	cancel event
-	
-on break:
-	{ge.protect.toggle} is true
-	cancel event
-	
-command /togglefall:
-	description: Toggle Prevent Fall
-	permission: fall.toggle
-	executable by: players
-	trigger:
-		if {ge.fall.toggle} is true:
-			set {ge.fall.toggle} to false
-			message "[GenesisEssentials] PreventFall is now disabled!"
-			stop trigger
-		set {ge.fall.toggle} to true
-		message "[GenesisEssentials] PreventFall is now enabled!"
-	
-every second:
-  loop all players:
-    if y coordinate of loop-player is less than 100:
-      {ge.fall.toggle} is true
-      teleport loop-player to {server.spawn.location}
-      play mob spawner flames at the loop-player
-      
-#Because Exploding cows.
-on right click holding a hoe:
-    shoot a arrow at speed 2
-on projectile hit:
-    projectile is arrow
-    show mob spawner flames at the arrow
-    spawn a cow at the arrow
-    wait 1 second
-    create explosion of force 0 at the arrow
-    kill all cows
-on death of cow:
-    clear drops

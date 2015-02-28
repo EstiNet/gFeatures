@@ -22,7 +22,7 @@ on login:
 	chance of 15%:
 		give a hoe to the player
 		wait a tick
-		send "You are lucky today! Have a free cake!" to the player
+		send "You are lucky today! Have a How that shoots exploding cows!" to the player
 	
 
 command /icanhasge:
