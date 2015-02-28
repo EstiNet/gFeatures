@@ -1,6 +1,6 @@
 # GenesisEssentials Global by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.1-ALPHA gFeatures Add-On
+# Version: 0.3-ALPHA gFeatures Add-On
 # Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
 # Preset: Global
 #
@@ -21,12 +21,12 @@
 command /optimize:
 	description: Runs Commands and Tweaks to optimize server performance.
 	trigger:
-		broadcast "[GenesisEssentials] Optimizing Server Performance..."
-        execute console command "storm chunk"
-        broadcast "[GenesisEssentials] Complete!"
+		broadcast "&l&c[&aGenesis&bEssentials&c]&r Optimizing Server Performance..."
+		execute player command "storm chunk"
+		broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"
 		
 #gLagg Sector
 every 3 minute:
-    broadcast "[GenesisEssentials] Optimizing Server Performance..."
+    broadcast "[&aGenesis&bEssentials&r] Optimizing Server Performance..."
     execute console command "storm chunk"
-    broadcast "[GenesisEssentials] Complete!"
+    broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"

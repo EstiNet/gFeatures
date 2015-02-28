@@ -39,6 +39,6 @@ on rightclick:
         drop stone above the block
     drop diamond above the block
     drop iron ingot above the block
-    broadcast "%player% opened a loot crate!"
+    broadcast "&l&c[&aGenesis&bEssentials&c]&r %player% opened a loot crate!"
     play mob spawner flames above the block
     remove tool from player

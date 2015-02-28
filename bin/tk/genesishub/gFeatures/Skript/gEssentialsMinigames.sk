@@ -22,19 +22,19 @@ on login:
 	chance of 15%:
 		give a cake to the player
 		wait a tick
-		send "You are lucky today! Have a free cake!" to the player
+		send "&l&c[&aGenesis&bEssentials&c]&r You are lucky today! Have a free cake!" to the player
 	
 
 command /icanhasge:
 	description: Seecret Command!
 	trigger:
-		send "This server is running GenesisEssentials as a gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
+		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials as a gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "This server is running GenesisEssentials gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
+		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials gFeatures Add-on Minigame Edition version 0.3-ALPHA (This is a Dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
@@ -42,7 +42,7 @@ command /setspawn:
 	executable by: players
 	trigger:
 		set {server.spawn.location} to location of player
-		message "[GenesisEssentials]Set the server spawn to <grey>%location of player%<reset>!"	
+		message "&l&c[&aGenesis&bEssentials&c]&r Set the server spawn to <grey>%location of player%<reset>!"	
 	
 command /spawn:
 	description: Teleport yourself to spawn!
@@ -50,11 +50,11 @@ command /spawn:
 	executable by: players
 	trigger:
 		if {server.spawn.location} is not set:
-			message "[GenesisEssentials] The server spawn is not set! Use /setspawn"
+			message "&l&c[&aGenesis&bEssentials&c]&r The server spawn is not set! Use /setspawn"
 			stop trigger
 		teleport player to {server.spawn.location}
 		play mob spawner flames at the player
-		message "[GenesisEssentials] Teleported to spawn!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Teleported to spawn!"
 		
 
 	
@@ -62,7 +62,7 @@ command /setmotd <text>:
 	permission: ge.setmotd
 	description: Sets message of the day
 	trigger:
-		message "[GenesisEssentials] Set the MOTD to '%argument%<reset>'"
+		message "&l&c[&aGenesis&bEssentials&c]&r Set the MOTD to '%argument%<reset>'"
 		set {motd} to argument
 
 command /motd:
@@ -87,7 +87,7 @@ on login:
 command /logincount:
 	description: Find out how many people have ever logged into this server
 	trigger:
-		message "Since the beginning, <green>%{logincount}%<reset> people have logged onto this server!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Since the beginning, <green>%{logincount}%<reset> people have logged onto this server!"
 		
 command /toggleprotect:
 	description: Toggle world protection
@@ -96,10 +96,10 @@ command /toggleprotect:
 	trigger:
 		if {ge.protect.toggle} is true:
 			set {ge.protect.toggle} to false
-			message "[GenesisEssentials] Protection is now disbaled!"
+			message "&l&c[&aGenesis&bEssentials&c]&r Protection is now disbaled!"
 			stop trigger
 		set {ge.protect.toggle} to true
-		message "[GenesisEssentials] Protection is now enabled!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Protection is now enabled!"
 		
 on place:
 	{ge.protect.toggle} is true

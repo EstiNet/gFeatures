@@ -36,7 +36,7 @@ command /setspawn:
 	executable by: players
 	trigger:
 		set {server.spawn.location} to location of player
-		message "[GenesisEssentials]Set the server spawn to <grey>%location of player%<reset>!"	
+		message "&l&c[&aGenesis&bEssentials&c]&r Set the server spawn to <grey>%location of player%<reset>!"	
 	
 command /spawn:
 	description: Teleport yourself to spawn!
@@ -44,11 +44,11 @@ command /spawn:
 	executable by: players
 	trigger:
 		if {server.spawn.location} is not set:
-			message "[GenesisEssentials] The server spawn is not set! Use /setspawn"
+			message "&l&c[&aGenesis&bEssentials&c]&r The server spawn is not set! Use /setspawn"
 			stop trigger
 		teleport player to {server.spawn.location}
 		play mob spawner flames at the player
-		message "[GenesisEssentials] Teleported to spawn!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Teleported to spawn!"
 		
 command /hub:
 	description: Teleport yourself to the hub!
@@ -56,18 +56,18 @@ command /hub:
 	executable by: players
 	trigger:
 		if {server.spawn.location} is not set:
-			message "[GenesisEssentials] The server hub is not set! Use /setspawn"
+			message "&l&c[&aGenesis&bEssentials&c]&r The server hub is not set! Use /setspawn"
 			stop trigger
 		teleport player to {server.spawn.location}
 		play mob spawner flames at the player
-		message "[GenesisEssentials] Teleported to the Hub!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Teleported to the Hub!"
 		
 	
 command /setmotd <text>:
 	permission: ge.setmotd
 	description: Sets message of the day
 	trigger:
-		message "[GenesisEssentials] Set the MOTD to '%argument%<reset>'"
+		message "&l&c[&aGenesis&bEssentials&c]&r Set the MOTD to '%argument%<reset>'"
 		set {motd} to argument
 
 command /motd:
@@ -91,5 +91,5 @@ on login:
 command /logincount:
 	description: Find out how many people have ever logged into this server
 	trigger:
-		message "Since the beginning, <green>%{logincount}%<reset> people have logged onto this server!"
+		message "&l&c[&aGenesis&bEssentials&c]&r Since the beginning, <green>%{logincount}%<reset> people have logged onto this server!"
 		
