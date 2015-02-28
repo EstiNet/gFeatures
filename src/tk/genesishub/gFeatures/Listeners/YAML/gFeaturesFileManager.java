@@ -114,6 +114,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Skript.gEssentialsHub");
 			yamlFile.createSection("Config.Skript.gEssentialsMinigames");
 			yamlFile.createSection("Config.Skript.gMMO");
+			yamlFile.createSection("Config.Skript.gEssentialsFactions");
 			//Presets value
 			yamlFile.set("Config.Presets.gWars", "false");
 			yamlFile.set("Config.Presets.gDestroy", "false");
@@ -131,6 +132,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");
 			yamlFile.set("Config.Skript.gMMO", "false");
+			yamlFile.set("Config.Skript.gEssentialsFactions", "false");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}

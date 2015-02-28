@@ -33,5 +33,6 @@ public class gFactionsPreset {
 		gFactionsPlugin.setPluginState(PluginState.ENABLE);
 		SkriptManager sm = new SkriptManager();
 		sm.Enable(Skripts.gMMO);
+		sm.Enable(Skripts.gEssentialsFactions);
 	}
 }

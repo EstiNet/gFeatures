@@ -109,5 +109,9 @@ public class YAMLInitialize {
 			sm.Enable(Skripts.gMMO);
 			Bukkit.getLogger().info("Loaded gMMO.");
 		}
+		if(yamlFile.get("Config.Skript.gEssentialsFactions").equals("true")){
+			sm.Enable(Skripts.gEssentialsFactions);
+			Bukkit.getLogger().info("Loaded gEssentialsFactions.");
+		}
 	}
 }
