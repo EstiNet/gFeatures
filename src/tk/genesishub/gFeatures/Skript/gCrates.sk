@@ -41,4 +41,3 @@ on rightclick:
     drop iron ingot above the block
     broadcast "&l&c[&aGenesis&bEssentials&c]&r %player% opened a loot crate!"
     play mob spawner flames above the block
-    remove tool from player
