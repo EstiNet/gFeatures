@@ -23,6 +23,7 @@ command /optimize:
 	trigger:
 		broadcast "&l&c[&aGenesis&bEssentials&c]&r Optimizing Server Performance..."
 		execute player command "storm chunk"
+		execute player command "killall hostile"
 		broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"
 		
 #gLagg Sector
