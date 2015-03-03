@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
 import net.milkbowl.vault.permission.Permission;
 
 import org.bukkit.Bukkit;
@@ -42,7 +41,7 @@ public class Listeners {
     public static Chat chat = null;
 	public void onEnable(){
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
-		if (!setupEconomy() ) {
+		if (!CommandHub.setupEconomy() ) {
             GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
             return;
         }
@@ -52,29 +51,6 @@ public class Listeners {
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
 	}
-	private boolean setupEconomy() {
-        if (Bukkit.getServer().getPluginManager().getPlugin("Vault") == null) {
-            return false;
-        }
-        RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
-            return false;
-        }
-        econ = rsp.getProvider();
-        return econ != null;
-    }
-
-    private boolean setupChat() {
-        RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
-        chat = rsp.getProvider();
-        return chat != null;
-    }
-
-    private boolean setupPermissions() {
-        RegisteredServiceProvider<Permission> rsp = Bukkit.getServer().getServicesManager().getRegistration(Permission.class);
-        perms = rsp.getProvider();
-        return perms != null;
-    }
 
     public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
     	CommandHub ch = new CommandHub();
