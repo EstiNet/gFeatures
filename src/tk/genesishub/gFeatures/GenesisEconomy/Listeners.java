@@ -41,12 +41,12 @@ public class Listeners {
     public static Chat chat = null;
 	public void onEnable(){
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
-		if (!CommandHub.setupEconomy() ) {
+		if (!Econist.setupEconomy() ) {
             GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
             return;
         }
-        setupPermissions();
-        setupChat();
+        Econist.setupPermissions();
+        Econist.setupChat();
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
