@@ -1,5 +1,7 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -24,8 +26,10 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-	public void onEnable(){
+	ConfigManager cm = new ConfigManager();
+	public void onEnable() throws IOException{
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
+		cm.check();
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");

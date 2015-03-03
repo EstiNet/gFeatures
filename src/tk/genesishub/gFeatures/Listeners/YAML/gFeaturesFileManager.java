@@ -46,7 +46,7 @@ public class gFeaturesFileManager {
 	File gDestroyCritical = new File("plugins/gFeatures/gDestroyCritical");
 	File gFactions = new File("plugins/gFeatures/gFactions");
 	File gHub = new File("plugins/gFeatures/gHub");
-	File gEconomy = new File("plugins/gFeatures/GenesisEconomy");
+	File gEconomy = new File("plugins/gFeatures/gEconomy");
 	File gBackup = new File("plugins/gFeatures/gBackup");
 	public void exists() throws IOException{
 		try{
