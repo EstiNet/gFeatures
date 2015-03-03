@@ -1,16 +1,8 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
-import java.util.logging.Logger;
-
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.permission.Permission;
-
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
-import tk.genesishub.gFeatures.PluginManage.PluginState;
 
 /*
 gFeatures
@@ -32,18 +24,8 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-	private static final Logger log = Logger.getLogger("Minecraft");
-    public static Economy econ = null;
-    public static Permission perms = null;
-    public static Chat chat = null;
 	public void onEnable(){
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
-		if (!Econist.setupEconomy() ) {
-            GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
-            return;
-        }
-        Econist.setupPermissions();
-        Econist.setupChat();
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");

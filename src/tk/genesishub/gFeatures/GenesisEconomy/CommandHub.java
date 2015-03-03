@@ -1,6 +1,5 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
-import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -15,13 +14,7 @@ public class CommandHub {
         Player player = (Player) sender;
 
         if(command.getLabel().equals("money") || command.getName().equalsIgnoreCase("bal")) {
-            sender.sendMessage(String.format("You have %s", Econist.econ.format(Econist.econ.getBalance(player.getName()))));
-            EconomyResponse r = Econist.econ.depositPlayer(player, 1.05);
-            if(r.transactionSuccess()) {
-                sender.sendMessage(String.format("You were given %s and now have %s", Econist.econ.format(r.amount), Econist.econ.format(r.balance)));
-            } else {
-                sender.sendMessage(String.format("An error occured: %s", r.errorMessage));
-            }
+          
         } 
         else if(command.getName().equalsIgnoreCase("pay")){
         	
