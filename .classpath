@@ -13,5 +13,6 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/CrackShot.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

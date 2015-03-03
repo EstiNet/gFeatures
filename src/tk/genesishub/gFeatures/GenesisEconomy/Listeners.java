@@ -1,5 +1,7 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
+import org.bukkit.Bukkit;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -20,5 +22,10 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-
+	public void onEnable(){
+		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
+	}
+	public void onDisable(){
+		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
+	}
 }

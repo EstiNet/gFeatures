@@ -59,6 +59,8 @@ public class Disabler {
 		}
 		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
+			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
+			listeners.onDisable();
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);

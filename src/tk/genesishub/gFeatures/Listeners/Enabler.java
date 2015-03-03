@@ -70,7 +70,8 @@ public class Enabler {
 			listeners.onEnable();
 		}
 		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
-			
+			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
+			listeners.onEnable();
 		}
 	}
 }
