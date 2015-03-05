@@ -37,12 +37,12 @@ public class Listeners {
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
 	}
-
     public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
     	CommandHub ch = new CommandHub();
     	ch.Intitiate(sender, command, commandLabel, args);
     }
     public void onPlayerJoin(PlayerJoinEvent e){
-    	
+    	Join j = new Join();
+    	j.Initialize(e);
     }
 }
