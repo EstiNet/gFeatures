@@ -151,3 +151,7 @@ on projectile hit:
     kill all cows
 on death of cow:
     clear drops
+    
+command /fake suicide
+    trigger: 
+        broadcast "%player% has died"
