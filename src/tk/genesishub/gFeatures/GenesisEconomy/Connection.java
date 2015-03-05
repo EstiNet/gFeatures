@@ -23,12 +23,7 @@ public class Connection {
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
-            rs = st.executeQuery(query);
-
-            if (rs.next()) {
-                Bukkit.getLogger().info(rs.getString(1));
-            }
-
+            st.executeUpdate(query);
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -59,9 +54,10 @@ public class Connection {
         //String url = "jdbc:mysql://localhost:3306/testdb";
         //String user = "testuser";
         //String password = "test623";
-
+        Bukkit.getLogger().info("Establishing Connection to " + url);
         try {
             con = DriverManager.getConnection(url, user, password);
+            Bukkit.getLogger().info("Connected!");
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -94,11 +90,12 @@ public class Connection {
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-        con = DriverManager.getConnection(url, user, password);
+        String url1 = "jdbc:mysql://localhost:3306/";
+        con = DriverManager.getConnection(url1, user, password);
         st = con.createStatement();
         CheckConfig cc = new CheckConfig();
-        rs = st.executeQuery("SHOW TABLES LIKE '"+ cc.getTablename() +"'");
-        Bukkit.getLogger().info(rs.getString(1));
+       // rs = st.executeQuery("SHOW TABLES LIKE 'Money'");
+        //Bukkit.getLogger().info(rs.getString(1));
 		return false;
 	}
 	public String toURL(String port, String address, String table){

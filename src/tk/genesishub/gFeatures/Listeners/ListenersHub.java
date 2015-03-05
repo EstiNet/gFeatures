@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 import tk.genesishub.gFeatures.GenesisAccess.Main;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
@@ -40,6 +41,7 @@ https://github.com/Seshpenguin/gFeatures
 public class ListenersHub {
 	tk.genesishub.gFeatures.gWarsSuite.Listeners gWars = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 	Main GenesisAccess = new Main();
+	tk.genesishub.gFeatures.GenesisEconomy.Listeners gEconomy = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
 	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
@@ -66,6 +68,9 @@ public class ListenersHub {
 			}
 			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 				GenesisAccess.PlayerJoinEvent(playerjoin);
+			}
+			if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+				gEconomy.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -17,7 +17,8 @@ public class Enabled {
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
-		c.tableExists(URL, Username, Password);
+		//c.tableExists(URL, Username, Password);
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(Name VARCHAR(25), Money FLOAT) ENGINE=InnoDB;");
 		}
 	}
 }

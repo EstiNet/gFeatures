@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
 gFeatures
@@ -40,5 +41,8 @@ public class Listeners {
     public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
     	CommandHub ch = new CommandHub();
     	ch.Intitiate(sender, command, commandLabel, args);
+    }
+    public void onPlayerJoin(PlayerJoinEvent e){
+    	
     }
 }
