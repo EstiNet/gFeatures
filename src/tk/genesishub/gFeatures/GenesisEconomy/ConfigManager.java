@@ -22,7 +22,7 @@ public class ConfigManager {
 			yamlFile.createSection("Config.MySQL.Password");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
-			yamlFile.set("Config.MySQL.DatabaseName", "gEconomy");
+			yamlFile.set("Config.MySQL.DatabaseName", "geconomy");
 			yamlFile.set("Config.MySQL.Username", "root");
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			yamlFile.save(f);

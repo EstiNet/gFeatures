@@ -29,6 +29,9 @@ public class Listeners {
 	ConfigManager cm = new ConfigManager();
 	public void onEnable() throws IOException{
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
+		Connection c = new Connection();
+		Bukkit.getLogger().info("Trying to establish link to database...");
+		
 		cm.check();
 	}
 	public void onDisable(){
