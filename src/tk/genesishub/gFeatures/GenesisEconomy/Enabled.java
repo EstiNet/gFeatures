@@ -1,9 +1,12 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class Enabled {
-	public void Initialize() throws SQLException{
+	public void Initialize() throws SQLException, IOException{
+		ConfigManager cm = new ConfigManager();
+		if(cm.check()){
 		Connection c = new Connection();
 		CheckConfig cc = new CheckConfig();
 		String Address, Port, Tablename, Username, Password;
@@ -15,5 +18,6 @@ public class Enabled {
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
 		c.tableExists(URL, Username, Password);
+		}
 	}
 }

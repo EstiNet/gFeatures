@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class ConfigManager {
 	File f = new File("plugins/gFeatures/gEconomy/Config.yml");
-	public void check() throws IOException{
+	public boolean check() throws IOException{
 		if(!f.exists()){
 			Bukkit.getLogger().info("[gEconomy] Setting up configs....");
 			f.createNewFile();
@@ -27,6 +27,8 @@ public class ConfigManager {
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("[gEconomy] Successfully added config!");
+			return false;
 		}
+		return true;
 	}
 }

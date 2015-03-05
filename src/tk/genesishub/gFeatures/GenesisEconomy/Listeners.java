@@ -1,6 +1,7 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -27,12 +28,10 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Listeners {
 	ConfigManager cm = new ConfigManager();
-	public void onEnable() throws IOException{
+	public void onEnable() throws IOException, SQLException{
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
-		Connection c = new Connection();
-		Bukkit.getLogger().info("Trying to establish link to database...");
-		
-		cm.check();
+		Enabled e = new Enabled();
+		e.Initialize();
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
