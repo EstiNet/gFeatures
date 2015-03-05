@@ -19,18 +19,7 @@ public class Enabled {
 		c.checkOnline(URL, Username, Password);
 		//c.tableExists(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(Name VARCHAR(25), Money FLOAT) ENGINE=InnoDB;");
-		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "IF NOT EXISTS ("+
-				"SELECT * FROM information_schema.COLUMNS"+
-				"WHERE column_name=Name"+
-				"and table_name=geconomy"+
-				"and table_schema=geconomy"+
-				")"+
-			"THEN"+
-				"set @ddl=CONCAT('ALTER TABLE ',geconomy,'.',geconomy,"+
-					"' ADD COLUMN ',Name,' ',fieldDef);"+
-				"prepare stmt from @ddl;"+
-				"execute stmt;"
-			+"END IF");
+		c.Connect(URL, Username, Password, "INSERT INTO People(Name, Money) VALUES('test', 1);");
 		}
 	}
 }
