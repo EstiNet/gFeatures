@@ -6,17 +6,11 @@ public class Join {
 	public void Initialize(PlayerJoinEvent e){
 		Connection c = new Connection();
 		CheckConfig cc = new CheckConfig();
-		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "IF NOT EXISTS ("+
-		"SELECT * FROM information_schema.COLUMNS"+
-		"WHERE column_name=fieldName"+
-		"and table_name=tableName"+
-		"and table_schema=dbName"+
-		")"+
-	"THEN"+
-		"set @ddl=CONCAT('ALTER TABLE ',dbName,'.',tableName,"+
-			"' ADD COLUMN ',fieldName,' ',fieldDef);"+
-		"prepare stmt from @ddl;"+
-		"execute stmt;"
-	+"END IF");
+		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO People (Name, Money)"+
+				"SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId().toString() + "', '0') AS tmp"+
+				"WHERE NOT EXISTS ("+
+						"SELECT name FROM People WHERE name = '"+ e.getPlayer().getUniqueId().toString()+"'"+
+						") LIMIT 1;"
+			);
 	}
 }
