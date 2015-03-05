@@ -1,6 +1,8 @@
 package tk.genesishub.gFeatures.Listeners;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
@@ -33,7 +35,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Enabler {
-	public void Enable() throws IOException{
+	public void Enable() throws IOException, SQLException{
 		gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
 		gHubPlugin.setPluginState(PluginState.DISABLE);
 		gFactionsPlugin.setPluginState(PluginState.DISABLE);

@@ -57,7 +57,7 @@ public class Listeners extends JavaPlugin implements Listener{
         Enabler e = new Enabler();
         try {
 			e.Enable();
-		} catch (IOException e1) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
