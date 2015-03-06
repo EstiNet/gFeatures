@@ -18,9 +18,9 @@ public class Enabled {
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
 		//c.tableExists(URL, Username, Password);
-		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(Name VARCHAR(25), Money FLOAT) ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Peoples(Name VARCHAR(200), Money FLOAT) ENGINE=InnoDB;");
 		//c.Connect(URL, Username, Password, "INSERT INTO People(Name, Money) VALUES('InDev', 1) IF NOT EXISTS;");
-		c.Connect(URL, Username, Password, "UPDATE People SET Money = Money + 1\nWHERE Name = 'InDev';");
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = Money + 1\nWHERE Name = 'InDev';");
 		}
 	}
 }
