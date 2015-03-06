@@ -10,14 +10,11 @@ public class CommandHub {
 		if(!(sender instanceof Player)) {
             Bukkit.getLogger().info("Only players are supported for this GenesisEconomy as of now.");
         }
-
         Player player = (Player) sender;
-
-        if(command.getLabel().equals("money") || command.getName().equalsIgnoreCase("bal")) {
-          
+        if(command.getLabel().equals("clupic")) {
+          if(args.length == 0){
+        	  
+          }
         } 
-        else if(command.getName().equalsIgnoreCase("pay")){
-        	
-        }
 	}
 }

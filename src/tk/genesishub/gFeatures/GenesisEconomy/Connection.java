@@ -15,11 +15,9 @@ public class Connection {
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-
         //String url = "jdbc:mysql://localhost:3306/testdb";
         //String user = "testuser";
         //String password = "test623";
-
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
@@ -27,7 +25,6 @@ public class Connection {
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
-
         } finally {
             try {
                 if (rs != null) {
@@ -39,18 +36,49 @@ public class Connection {
                 if (con != null) {
                     con.close();
                 }
-
             } catch (SQLException ex) {
                 Logger lgr = Logger.getLogger(Version.class.getName());
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
 	}
+	public ResultSet ConnectReturn(String url, String user, String password, String query){
+		java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        //String url = "jdbc:mysql://localhost:3306/testdb";
+        //String user = "testuser";
+        //String password = "test623";
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+        } catch (SQLException ex) {
+            Logger lgr = Logger.getLogger(Version.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Logger lgr = Logger.getLogger(Version.class.getName());
+                lgr.log(Level.WARNING, ex.getMessage(), ex);
+            }
+        }
+		return result;
+	}
 	public boolean checkOnline(String url, String user, String password){
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-
         //String url = "jdbc:mysql://localhost:3306/testdb";
         //String user = "testuser";
         //String password = "test623";
