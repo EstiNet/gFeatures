@@ -3,6 +3,8 @@ package tk.genesishub.gFeatures.GenesisEconomy;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +44,8 @@ public class Connection {
             }
         }
 	}
-	public String ConnectReturn(String url, String user, String password, String query){
+	public List<String> ConnectReturn(String url, String user, String password, String query){
+		List<String> array = new ArrayList<>();
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
@@ -55,8 +58,12 @@ public class Connection {
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
+            for(; !result.isLast();){
             result.next();
-            return result.getString(1);
+            array.add(result.getString(1));
+            array.add(result.getString(2));
+            }
+            return array;
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -125,7 +132,7 @@ public class Connection {
         con = DriverManager.getConnection(url1, user, password);
         st = con.createStatement();
         CheckConfig cc = new CheckConfig();
-       // rs = st.executeQuery("SHOW TABLES LIKE 'Money'");
+        //rs = st.executeQuery("SHOW TABLES LIKE 'Money'");
         //Bukkit.getLogger().info(rs.getString(1));
 		return false;
 	}
