@@ -37,6 +37,6 @@ public class GenesisEconomyCore {
 		}
 		else if(c.Check("gEconomyCommands", cmd.getName())){
 			sender.sendMessage("GenesisHub does not recognize this command. Type /help for help.");
-		}
+		}   
 	}
 }

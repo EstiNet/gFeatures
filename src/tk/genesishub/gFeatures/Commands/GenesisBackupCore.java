@@ -5,10 +5,6 @@ import java.io.IOException;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
-import tk.genesishub.gFeatures.PluginManage.PluginState;
-import tk.genesishub.gFeatures.GenesisEconomy.Listeners;
-
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
