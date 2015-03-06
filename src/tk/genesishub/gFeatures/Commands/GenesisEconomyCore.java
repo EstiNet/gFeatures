@@ -1,7 +1,13 @@
 package tk.genesishub.gFeatures.Commands;
 
+import java.io.IOException;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
+import tk.genesishub.gFeatures.GenesisEconomy.Listeners;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.PluginState;
 
 /*
 gFeatures
@@ -23,6 +29,14 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class GenesisEconomyCore {
-	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws IOException{
+		Commands c = new Commands();
+		Listeners ch = new Listeners();
+		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+		ch.onCommand(sender, cmd, label, args);
+		}
+		else if(c.Check("gEconomyCommands", cmd.getName())){
+			sender.sendMessage("GenesisHub does not recognize this command. Type /help for help.");
+		}
 	}
 }
