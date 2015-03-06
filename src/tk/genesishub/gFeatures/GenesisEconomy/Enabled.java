@@ -1,9 +1,10 @@
 package tk.genesishub.gFeatures.GenesisEconomy;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.PreparedStatement;
+import org.bukkit.Bukkit;
 
 public class Enabled {
 	public void Initialize() throws SQLException, IOException{
@@ -22,6 +23,10 @@ public class Enabled {
 		//c.tableExists(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(Name VARCHAR(25), Money FLOAT) ENGINE=InnoDB;");
 		//c.Connect(URL, Username, Password, "INSERT INTO People(Name, Money) VALUES('test', 1);");
+		ResultSet rs = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM People WHERE Name = 'dunce'");
+			while(true){
+				Bukkit.getLogger().info(rs.getString(1));
+			}
 		}
 	}
 }

@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 
 public class MoneyManager {
 	public double getMoney(Player p){
+		
 		return (Double) null;
 	}
 	public double giveMoney(Player p, double amount){

@@ -42,7 +42,7 @@ public class Connection {
             }
         }
 	}
-	public ResultSet ConnectReturn(String url, String user, String password, String query){
+	public String ConnectReturn(String url, String user, String password, String query){
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
@@ -54,6 +54,9 @@ public class Connection {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
             result = st.executeQuery(query);
+            result.beforeFirst();
+            result.next();
+            return result.getString(1);
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger(Version.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
@@ -73,7 +76,7 @@ public class Connection {
                 lgr.log(Level.WARNING, ex.getMessage(), ex);
             }
         }
-		return result;
+		return null;
 	}
 	public boolean checkOnline(String url, String user, String password){
 		java.sql.Connection con = null;
