@@ -16,6 +16,13 @@ public class CommandHub {
           if(args.length == 0){
         	  sender.sendMessage("You have " + mm.getMoney(player));
           }
-        } 
+          if(args.length == 1){
+        	  switch(args[0]){
+        	  case "help":
+        		  sender.sendMessage("-----Help-----");
+        		  sender.sendMessage("-----Help-----");
+        	  }
+          }
+        }
 	}
 }

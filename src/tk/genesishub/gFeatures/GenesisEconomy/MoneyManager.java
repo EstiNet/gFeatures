@@ -17,7 +17,7 @@ public class MoneyManager {
 	public float getMoney(Player p){
 		List<String> rs = new ArrayList<>();
 		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
-		return Float.parseFloat(rs.get(2));
+		return Float.parseFloat(rs.get(1));
 	}
 	public void giveMoney(Player p, float amount){
 		List<String> rs = new ArrayList<>();
