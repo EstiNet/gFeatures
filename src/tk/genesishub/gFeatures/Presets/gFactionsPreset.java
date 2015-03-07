@@ -32,7 +32,7 @@ public class gFactionsPreset {
 		GenesisAccessPlugin.setPluginState(PluginState.ENABLE);
 		gFactionsPlugin.setPluginState(PluginState.ENABLE);
 		SkriptManager sm = new SkriptManager();
-		sm.Enable(Skripts.gMMO);
+		//sm.Enable(Skripts.gMMO);
 		sm.Enable(Skripts.gEssentialsFactions);
 		sm.Enable(Skripts.gCrates);
 	}
