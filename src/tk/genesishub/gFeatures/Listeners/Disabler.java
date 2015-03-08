@@ -66,7 +66,7 @@ public class Disabler {
 		sm.Disable(Skripts.gEssentialsMinigames);
 		sm.Disable(Skripts.gEssentialsFactions);
 		sm.Disable(Skripts.gEssentialsGlobal);
-		sm.Disable(Skripts.gMMO);
+		//sm.Disable(Skripts.gMMO);
 		sm.Disable(Skripts.gCrates);
 	}
 }

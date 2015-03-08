@@ -29,39 +29,6 @@ command /ge version:
 	permission: ge.version
 	trigger:
 		send "This server is running GenesisEssentials as a gFeatures Add-on version Factions Edition 0.6-ALPHA (This is a dev build!)" to player
-		
-command /setspawn:
-	description: Set the Servers Spawn!
-	permission: ge.setspawn
-	executable by: players
-	trigger:
-		set {server.spawn.location} to location of player
-		message "&l&c[&aGenesis&bEssentials&c]&r Set the server spawn to <grey>%location of player%<reset>!"	
-	
-command /spawn:
-	description: Teleport yourself to spawn!
-	permission: ge.spawn
-	executable by: players
-	trigger:
-		if {server.spawn.location} is not set:
-			message "&l&c[&aGenesis&bEssentials&c]&r The server spawn is not set! Use /setspawn"
-			stop trigger
-		teleport player to {server.spawn.location}
-		play mob spawner flames at the player
-		message "&l&c[&aGenesis&bEssentials&c]&r Teleported to spawn!"
-		
-command /hub:
-	description: Teleport yourself to the hub!
-	permission: ge.hub
-	executable by: players
-	trigger:
-		if {server.spawn.location} is not set:
-			message "&l&c[&aGenesis&bEssentials&c]&r The server hub is not set! Use /setspawn"
-			stop trigger
-		teleport player to {server.spawn.location}
-		play mob spawner flames at the player
-		message "&l&c[&aGenesis&bEssentials&c]&r Teleported to the Hub!"
-		
 	
 command /setmotd <text>:
 	permission: ge.setmotd
