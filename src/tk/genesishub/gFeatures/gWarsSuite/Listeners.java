@@ -10,6 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -83,7 +84,16 @@ public class Listeners{
     	Constants.arena.remove(event.getEntity().getName());
     	dm.ManageDeath(event.getEntity(), event);
     }
-    
+    public void onCommandPre(PlayerCommandPreprocessEvent event){
+    	String[] args = event.getMessage().split(" ");
+    	Lobby lobby = new Lobby();
+    	Command cmd = null;
+    	String label = "Hi.";
+    	Bukkit.getLogger().info(args[0]);
+    	if(args[0].equalsIgnoreCase("/spawn")){
+    		lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
+    	}
+    }
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         hm.EntityDamageByOther(event);
     }

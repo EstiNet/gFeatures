@@ -177,6 +177,9 @@ public class ListenersHub {
 	}
 	protected void PlayerCommandEvent(){
 		inTo();
+		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+			gWars.onCommandPre(playercommand);
+		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisAccess.PlayerCommandEvent(playercommand);
 		}

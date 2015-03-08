@@ -85,9 +85,6 @@ public class CommandHub {
     			sender.sendMessage("We have a youtube tutorial!");
     			sender.sendMessage("https://www.youtube.com/watch?v=OPu2IOPBVEI");
     	}
-    	if(cmd.getName().equalsIgnoreCase("spawn")){
-    		lobby.LobbyInitiate(sender, cmd, label, args, "spawn");
-    	}
     	if(cmd.getName().equalsIgnoreCase("town")){
     		lobby.LobbyInitiate(sender, cmd, label, args, "town");
     	}

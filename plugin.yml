@@ -191,11 +191,6 @@ commands:
       usage:
       permission: gWarsSuite.arenatp
       permission-message: You don't have <permission>
-   spawn:
-      description: Technical Command.
-      usage:
-      permission: gWarsSuite.arenatp
-      permission-message: You don't have <permission>
    nuke:
       description: Technical Command.
       usage:
