@@ -50,7 +50,7 @@ public class Lobby {
 			Initiate(426, 15, 225, 89.545, 6.45, 555, 15, 107, 89.545, -6.45, (Player)sender, sender);
 			break;
 		case "spawn": 
-			Initiate(134, 11, 277, 89.545, 6.45, 134, 53, 282, 89.545, -6.45, (Player)sender, sender);
+			Initiate(134, 11, 277, 89.545, 6.45, 134, 53, 282, 89.545, -6.45, (Player)sender, sender, "THIS IS A STRING");
 			break;
 		case "town": 
 			ItemStack chest = new ItemStack(Material.CHEST, 1);
@@ -171,6 +171,38 @@ public class Lobby {
     		}
     		else if(Constants.bt.contains(player.getName())){
     		Constants.arena.add(player.getName());
+    		double x1 = bx;
+        	double y1 = by;
+        	double z1 = bz;
+        	Location e = new Location(player.getWorld(), x1, y1, z1);
+        	player.teleport(e);
+        	player.getLocation().setYaw((float) byaw);
+        	player.getLocation().setPitch((float) bpitch);
+        	player.getInventory().addItem(chest);
+    		}
+    	}
+	}
+	// IF NO ARENA ADD
+	public void Initiate(int ox, int oy, int oz, double oyaw, double opitch, int bx, int by, int bz, double byaw, double bpitch, Player player, CommandSender sender, String nothing){
+		ItemStack chest = new ItemStack(Material.CHEST, 1);
+        ItemMeta im = chest.getItemMeta();
+        im.setDisplayName(ChatColor.AQUA + "Game Menu");
+        chest.setItemMeta(im);
+		if(Constants.arena.contains(player.getName())){
+    		sender.sendMessage("You are in the arena!");
+    		}
+    		else{
+    		if(Constants.ot.contains(player.getName())){
+    		double x1 = ox;
+    		double y1 = oy;
+    		double z1 = oz;
+    		Location e = new Location(player.getWorld(), x1, y1, z1);
+    		player.teleport(e);
+    		player.getLocation().setYaw((float) oyaw);
+    		player.getLocation().setPitch((float) opitch);
+    		player.getInventory().addItem(chest);
+    		}
+    		else if(Constants.bt.contains(player.getName())){
     		double x1 = bx;
         	double y1 = by;
         	double z1 = bz;

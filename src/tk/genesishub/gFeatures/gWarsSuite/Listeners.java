@@ -89,7 +89,6 @@ public class Listeners{
     	Lobby lobby = new Lobby();
     	Command cmd = null;
     	String label = "Hi.";
-    	Bukkit.getLogger().info(args[0]);
     	if(args[0].equalsIgnoreCase("/spawn")){
     		lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
     	}
