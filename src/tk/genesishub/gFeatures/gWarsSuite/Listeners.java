@@ -18,6 +18,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.xml.sax.SAXException;
 
+import tk.genesishub.gFeatures.API.CommandInitializer;
+
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
    gWarsSuite2 Version 7.4
@@ -38,7 +40,7 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
  */
 
-public class Listeners{
+public abstract class Listeners implements CommandInitializer<Object>{
 	Summon summon = new Summon();
 	HitManager hm = new HitManager();
 	DeathManager dm = new DeathManager();
@@ -89,8 +91,10 @@ public class Listeners{
     	Lobby lobby = new Lobby();
     	Command cmd = null;
     	String label = "Hi.";
+    	
     	if(args[0].equalsIgnoreCase("/spawn")){
     		lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
+    		event.setMessage("");
     	}
     }
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
@@ -126,4 +130,5 @@ public class Listeners{
         	}
 			return false;
         }
+
 }
