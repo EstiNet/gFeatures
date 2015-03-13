@@ -155,3 +155,10 @@ on death of cow:
 command /fake suicide
     trigger: 
         broadcast "%player% has died"
+        
+command /cocaine
+    trigger:
+        /effect %player% 15
+        /effect %player% 1
+        /effect %player% 9
+        
