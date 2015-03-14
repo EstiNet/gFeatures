@@ -170,16 +170,16 @@ public class TierSelectionMenu {
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-auto-rifle");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-shotgun");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-special");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -200,16 +200,16 @@ public class TierSelectionMenu {
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-auto-rifle");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-shotgun");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-special");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -230,16 +230,16 @@ public class TierSelectionMenu {
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-auto-rifle");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-shotgun");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-special");
 	        	}
 	            event.setWillClose(true);
 	        }

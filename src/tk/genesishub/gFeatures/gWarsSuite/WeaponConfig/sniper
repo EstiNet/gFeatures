@@ -1,0 +1,713 @@
+Sniper:
+    Item_Information:
+        Item_Name: Sniper
+        Item_Type: 270
+        Item_Lore: "&eSniper|&eClassic starter Sniper|&eAccurate but slow firing"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 20
+        Recoil_Amount: 3
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 25
+        Projectile_Damage: 10
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 20
+        Reload_Amount: 20
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 15
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: bolt
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: PISTON_EXTEND-1-2-0
+    Scope:
+        Enable: true
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: true
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+Shotgun:
+    Item_Information:
+        Item_Name: Shotgun
+        Item_Type: 269
+        Item_Lore: "&eShotgun|&eClassic starter Shotgun|&eShoots multiple bullets at once but slow"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 17
+        Recoil_Amount: 5
+        Projectile_Amount: 10
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 30
+        Projectile_Damage: 5
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1.3
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  ZOMBIE_WOOD-1-1-0,EXPLODE-1-2-0,GHAST_FIREBALL-1-1-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 5
+        Reload_Amount: 5
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 15
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: break
+        Open_Duration: 10
+        Close_Duration: 15
+        Close_Shoot_Delay: 3
+        Sound_Open: DOOR_OPEN-1-2-0
+        Sound_Close: DOOR_CLOSE-1-2-0
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+Auto-Rifle:
+    Item_Information:
+        Item_Name: Auto-Rifle
+        Item_Type: 271
+        Item_Lore: "&eAuto-Rifle|&eClassic starter Auto-Rifle|&eFast firing but unaccurate."
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 3
+        Recoil_Amount: 0
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 30
+        Projectile_Damage: 4
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 0.5
+        Reset_Fall_Distance: true
+        Sounds_Shoot: IRONGOLEM_HIT-1-2-0,SKELETON_HURT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Burstfire:
+        Enable: true
+        Shots_Per_Burst: 2
+        Delay_Between_Shots_In_Burst: 3
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 20
+        Reload_Amount: 20
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: true
+        Reload_Duration: 15
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Firearm_Action:
+        Type: slide
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 15
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+ULR338:
+    Item_Information:
+        Item_Name: ULR338
+        Item_Type: 270
+        Item_Lore: "&eULR338|&eTier 1 Sniper|&eAccurate but slow firing"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 15
+        Recoil_Amount: 3
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 100
+        Projectile_Damage: 16
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 20
+        Reload_Amount: 20
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 15
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: bolt
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: PISTON_EXTEND-1-2-0
+    Scope:
+        Enable: true
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: true
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+m16:
+    Item_Information:
+        Item_Name: m16
+        Item_Type: 271
+        Item_Lore: "&m16|&eTier 1 auto-rifle|&eReliable for close combat"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 1.5
+        Recoil_Amount: 0
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 30
+        Projectile_Damage: 5
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 0.5
+        Reset_Fall_Distance: true
+        Sounds_Shoot: IRONGOLEM_HIT-1-2-0,SKELETON_HURT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Burstfire:
+        Enable: true
+        Shots_Per_Burst: 2
+        Delay_Between_Shots_In_Burst: 1.8
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 20
+        Reload_Amount: 20
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: true
+        Reload_Duration: 8
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Firearm_Action:
+        Type: slide
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 8
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+Colt Model 1:
+    Item_Information:
+        Item_Name: Colt Model 1
+        Item_Type: 269
+        Item_Lore: "&eColt Model 1|&eTier 1 Shotgun|&eShoots multiple bullets at once but slow"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 17
+        Recoil_Amount: 5
+        Projectile_Amount: 10
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 30
+        Projectile_Damage: 13
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1.3
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  ZOMBIE_WOOD-1-1-0,EXPLODE-1-2-0,GHAST_FIREBALL-1-1-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 5
+        Reload_Amount: 5
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 15
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: break
+        Open_Duration: 10
+        Close_Duration: 15
+        Close_Shoot_Delay: 3
+        Sound_Open: DOOR_OPEN-1-2-0
+        Sound_Close: DOOR_CLOSE-1-2-0
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+AK47-Black Edition:
+    Item_Information:
+        Item_Name: AK47-Black Edition
+        Item_Type: 271
+        Item_Lore: "&eAK47-Black Edition|&eTier 2 auto-rifle|&eExtremely fast but unaccurate"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 0.5
+        Recoil_Amount: 0
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 30
+        Projectile_Damage: 3
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 0.5
+        Reset_Fall_Distance: true
+        Sounds_Shoot: IRONGOLEM_HIT-1-2-0,SKELETON_HURT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Burstfire:
+        Enable: true
+        Shots_Per_Burst: 2
+        Delay_Between_Shots_In_Burst: 0.5
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 100
+        Reload_Amount: 100
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: true
+        Reload_Duration: 12
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Firearm_Action:
+        Type: slide
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 15
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+SilSil69:
+    Item_Information:
+        Item_Name: SilSil69
+        Item_Type: 270
+        Item_Lore: "&SilSil69|&eTier 2 Sniper|&eAccurate and fast but lower damage than regular snipers"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 3
+        Recoil_Amount: 1
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 25
+        Projectile_Damage: 6
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 40
+        Reload_Amount: 40
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 12
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: bolt
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: PISTON_EXTEND-1-2-0
+    Scope:
+        Enable: true
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: true
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+
+SPAS:
+    Item_Information:
+        Item_Name: SPAS
+        Item_Type: 269
+        Item_Lore: "&eSPAS|&eTier 2 Shotgun|&eReliable for quick invasions"
+        Melee_Mode: false
+        Skip_Name_Check: true
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 13
+        Recoil_Amount: 5
+        Projectile_Amount: 10
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 15
+        Projectile_Damage: 17
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1.3
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  ZOMBIE_WOOD-1-1-0,EXPLODE-1-2-0,GHAST_FIREBALL-1-1-0
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 30
+        Reload_Amount: 30
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 10
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: break
+        Open_Duration: 10
+        Close_Duration: 15
+        Close_Shoot_Delay: 3
+        Sound_Open: DOOR_OPEN-1-2-0
+        Sound_Close: DOOR_CLOSE-1-2-0
+    Scope:
+        Enable: false
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: false
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
