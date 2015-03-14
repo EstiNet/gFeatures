@@ -91,7 +91,6 @@ public abstract class Listeners implements CommandInitializer<Object>{
     	Lobby lobby = new Lobby();
     	Command cmd = null;
     	String label = "Hi.";
-    	
     	if(args[0].equalsIgnoreCase("/spawn")){
     		lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
     		event.setMessage("");
