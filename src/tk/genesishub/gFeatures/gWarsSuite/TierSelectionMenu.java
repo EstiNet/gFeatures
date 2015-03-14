@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.gWarsSuite;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -130,22 +131,25 @@ public class TierSelectionMenu {
 		return null;
     }
 	public InventoryAPI TierZeroInventory(Player p){
-		final TierZero tz = new TierZero();
+		final KitManagerHub kmh = new KitManagerHub();
+		final Command cmd = null;
+		final String label = "";
+		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-auto-rifle");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-shotgun");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-special");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -157,22 +161,25 @@ public class TierSelectionMenu {
 	return menu;
 	}
 	public InventoryAPI TierOneInventory(){
-		final TierOne to = new TierOne();
+		final KitManagerHub kmh = new KitManagerHub();
+		final Command cmd = null;
+		final String label = "";
+		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		to.Initialize((CommandSender)event.getPlayer(), "sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		to.Initialize((CommandSender)event.getPlayer(), "autorifle");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		to.Initialize((CommandSender)event.getPlayer(), "shotgun");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		to.Initialize((CommandSender)event.getPlayer(), "special");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -184,22 +191,25 @@ public class TierSelectionMenu {
 	return menu;
 	}
 	public InventoryAPI TierTwoInventory(){
-		final TierTwo tz = new TierTwo();
+		final KitManagerHub kmh = new KitManagerHub();
+		final Command cmd = null;
+		final String label = "";
+		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -211,22 +221,25 @@ public class TierSelectionMenu {
 	return menu;
 	}
 	public InventoryAPI TierThreeInventory(){
-		final TierThree tz = new TierThree();
+		final KitManagerHub kmh = new KitManagerHub();
+		final Command cmd = null;
+		final String label = "";
+		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -238,22 +251,25 @@ public class TierSelectionMenu {
 	return menu;
 	}
 	public InventoryAPI TierFourInventory(){
-		final TierFour tz = new TierFour();
+		final KitManagerHub kmh = new KitManagerHub();
+		final Command cmd = null;
+		final String label = "";
+		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "sniper");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-sniper");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "autorifle");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-auto-rifle");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "shotgun");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-shotgun");
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		tz.Initialize((CommandSender)event.getPlayer(), "special");
+	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-special");
 	        	}
 	            event.setWillClose(true);
 	        }
