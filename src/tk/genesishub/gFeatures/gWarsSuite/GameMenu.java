@@ -45,26 +45,26 @@ public class GameMenu {
 	        @Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
 	            if(event.getName().equals(ChatColor.GOLD+"Summon Airplane")){
-	            	if(!(Constants.airplaneline.contains(p.getName()))){
-	            	summon.Initialize(p, "airplane");
+	            	if(!(Constants.airplaneline.contains(event.getPlayer().getName()))){
+	            	summon.Initialize(event.getPlayer(), "airplane");
 	            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-	            	Constants.airplaneline.add(p.getName());
+	            	Constants.airplaneline.add(event.getPlayer().getName());
 	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
-	                   cons.removeAirplaneline(p);
+	                   cons.removeAirplaneline(event.getPlayer());
 	                   }
 	                }, 200L);
 	            	}
 	            	event.getPlayer().closeInventory();
 	            }
 	            else if(event.getName().equals(ChatColor.GOLD+"Summon Boat")){
-		            	if(!(Constants.airplaneline.contains(p.getName()))){
-		            	summon.Initialize(p, "boat");
+		            	if(!(Constants.airplaneline.contains(event.getPlayer().getName()))){
+		            	summon.Initialize(event.getPlayer(), "boat");
 		            	BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
-		            	Constants.airplaneline.add(p.getName());
+		            	Constants.airplaneline.add(event.getPlayer().getName());
 		                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 		                	public void run(){
-		                   cons.removeAirplaneline(p);
+		                   cons.removeAirplaneline(event.getPlayer());
 		                   }
 		                }, 200L);
 		            }

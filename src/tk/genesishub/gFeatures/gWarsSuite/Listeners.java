@@ -53,12 +53,14 @@ public abstract class Listeners implements CommandInitializer<Object>{
 	GameMenu gm = new GameMenu();
 	FileManager fm = new FileManager();
 	LobbyTeleport ltp = new LobbyTeleport();
+	CrackshotConfiguration cc = new CrackshotConfiguration();
 	TotallyNotFlyingBoats tnfb = new TotallyNotFlyingBoats();
 
     public void onEnable(){
     	//SETUP ALL PLUGINS ONENABLE AND FILEMANAGER
     	Bukkit.getServer().getLogger().info("gWarsSuite is enabled!");
     	fm.EnablerCheck();
+    	cc.Initialize();
     }
     
     public void onDisable(){
