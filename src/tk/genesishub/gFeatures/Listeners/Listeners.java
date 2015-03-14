@@ -84,7 +84,12 @@ public class Listeners extends JavaPlugin implements Listener{
     public void onDisable() { //What to do on server unload/reload
        getLogger().info("[gFeatures] gFeatures is turning off...!");  
        tk.genesishub.gFeatures.Listeners.Disabler d = new tk.genesishub.gFeatures.Listeners.Disabler();
-       d.Initialize();
+       try {
+		d.Initialize();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
     }
 
     @EventHandler

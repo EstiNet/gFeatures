@@ -1,5 +1,7 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import java.io.IOException;
+
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
@@ -32,7 +34,7 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Disabler {
 	SkriptManager sm = new SkriptManager();
-	public void Initialize(){
+	public void Initialize() throws IOException{
 		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gWarsSuite.Listeners Listener = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
 			Listener.onDisable();

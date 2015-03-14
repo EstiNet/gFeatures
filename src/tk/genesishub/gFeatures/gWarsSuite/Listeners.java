@@ -58,11 +58,12 @@ public class Listeners{
     	//SETUP ALL PLUGINS ONENABLE AND FILEMANAGER
     	Bukkit.getServer().getLogger().info("gWarsSuite is enabled!");
     	fm.EnablerCheck();
-    	cc.Initialize();
+    	cc.Initialize(true);
     }
     
-    public void onDisable(){
+    public void onDisable() throws IOException{
     	Bukkit.getServer().getLogger().info("gWarsSuite is disabled!");
+    	cc.Initialize(false);
     }
     
     public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException, ParserConfigurationException, TransformerException, SAXException, IOException{

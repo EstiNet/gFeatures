@@ -1,7 +1,7 @@
 SilSil69:
     Item_Information:
         Item_Name: SilSil69
-        Item_Type: 270
+        Item_Type: 285
         Item_Lore: "&SilSil69|&eTier 2 Sniper|&eAccurate and fast but lower damage than regular snipers"
         Melee_Mode: false
         Skip_Name_Check: true
@@ -28,6 +28,10 @@ SilSil69:
         Bullet_Spread: 1
         Reset_Fall_Distance: true
         Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
+     Burstfire:
+        Enable: true
+        Shots_Per_Burst: 2
+        Delay_Between_Shots_In_Burst: 3
     Sneak:
         Enable: false
     Ammo:
