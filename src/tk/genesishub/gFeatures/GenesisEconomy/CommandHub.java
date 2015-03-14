@@ -16,7 +16,12 @@ public class CommandHub {
         if(command.getLabel().equals("clupic")) {
           if(args.length == 0){
         	  float m = mm.getMoney(player);
+        	  if(m%0.1 == 0){
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + "" + mm.getMoney(player) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
+        	  }
+        	  else{
         	  sender.sendMessage("You have " + mm.getMoney(player));
+        	  }
           }
           if(args.length == 1){
         	  switch(args[0]){
@@ -24,6 +29,14 @@ public class CommandHub {
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
         		  sender.sendMessage(ChatColor.AQUA + "/clupic | Views how much clupic you have.");
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
+        		  break;
+        	  case "pay":
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic pay <player>");
+        		  break;
+        	  case "set":
+        		  if(sender.hasPermission("GenesisEconomy.admin")){
+        			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic set <player> <amount>");
+        		  }
         	  }
           }
         }
