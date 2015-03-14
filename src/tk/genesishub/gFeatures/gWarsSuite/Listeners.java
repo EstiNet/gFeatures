@@ -18,8 +18,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.xml.sax.SAXException;
 
-import tk.genesishub.gFeatures.API.CommandInitializer;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
    gWarsSuite2 Version 7.4
@@ -40,7 +38,7 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
  */
 
-public abstract class Listeners implements CommandInitializer<Object>{
+public class Listeners{
 	Summon summon = new Summon();
 	HitManager hm = new HitManager();
 	DeathManager dm = new DeathManager();
@@ -56,7 +54,7 @@ public abstract class Listeners implements CommandInitializer<Object>{
 	CrackshotConfiguration cc = new CrackshotConfiguration();
 	TotallyNotFlyingBoats tnfb = new TotallyNotFlyingBoats();
 
-    public void onEnable(){
+    public void onEnable() throws IOException{
     	//SETUP ALL PLUGINS ONENABLE AND FILEMANAGER
     	Bukkit.getServer().getLogger().info("gWarsSuite is enabled!");
     	fm.EnablerCheck();
