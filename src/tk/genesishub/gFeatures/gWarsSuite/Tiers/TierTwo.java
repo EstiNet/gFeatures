@@ -40,8 +40,7 @@ public class TierTwo {
 		if((sr.getKills(player.getName()))<10){
 			sender.sendMessage("You don't have enough kills! 10 kills is required for Tier 2 weapons.");
 		}
-		else if(Constants.gunin.contains(player.getName())){
-		}
+		else if(Constants.gunin.contains(player.getName())){}
 		else{
 		player.getInventory().addItem(ammo);
 		player.getInventory().remove(Material.CHEST);

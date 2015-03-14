@@ -40,7 +40,6 @@ public class KitManagerHub {
 		switch(value){
 		case "tier0-sniper":
 			tz.Initialize(sender, "sniper");
-			Bukkit.getLogger().info("HI");
 			break;
 		case "tier0-shotgun":
 			tz.Initialize(sender, "shotgun");
@@ -53,7 +52,6 @@ public class KitManagerHub {
 			break;
 		case "tier1-sniper":
 			to.Initialize(sender, "sniper");
-			Bukkit.getLogger().info("HI1");
 			break;
 		case "tier1-shotgun":
 			to.Initialize(sender, "shotgun");
@@ -66,7 +64,6 @@ public class KitManagerHub {
 			break;
 		case "tier2-sniper":
 			tt.Initialize(sender, "sniper");
-			Bukkit.getLogger().info("HI2");
 			break;
 		case "tier2-shotgun":
 			tt.Initialize(sender, "shotgun");

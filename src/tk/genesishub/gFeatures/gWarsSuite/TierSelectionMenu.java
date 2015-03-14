@@ -39,8 +39,6 @@ public class TierSelectionMenu {
 	public void Initialize(PlayerInteractEvent event){
 		if(!(Constants.gunin.contains(event.getPlayer().getName())) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
 			InventoryAPI menu = makeInventory(event.getPlayer());
-			final InventoryAPI menus = TierZeroInventory(event.getPlayer());
-			menus.open(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
 			Bukkit.getLogger().info("HI");
@@ -73,7 +71,7 @@ public class TierSelectionMenu {
 	            if(event.getName().equals(ChatColor.AQUA+"Tier 0")){
 	            	final InventoryAPI menus = TierZeroInventory(p);
 	            	event.getPlayer().closeInventory();
-	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("Features"), new Runnable() {
+	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		menus.open(event.getPlayer());
 	                   }

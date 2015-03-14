@@ -41,7 +41,6 @@ public class KitManagerSecondary {
                Location e1 = new Location(player.getWorld(), x1, y1, z1);
                player.teleport(e1);//tp's to bluetp
     	}
-    	
     	CSUtility cs = new CSUtility();
     	cs.giveWeapon(player, gunName, 1);
     }
