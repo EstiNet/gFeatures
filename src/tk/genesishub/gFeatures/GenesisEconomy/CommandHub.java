@@ -102,10 +102,16 @@ public class CommandHub {
           if(args.length == 3){
           	switch(args[0]){
           	case "pay":
-          		OfflinePlayer op = Bukkit.getOfflinePlayer(args[2]);
           		float m = Float.parseFloat(args[3]);
+          		if(m > mm.getMoney((Player) sender)){
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough money!");
+          		}
+          		else{
+          		OfflinePlayer op = Bukkit.getOfflinePlayer(args[2]);
           		mm.giveMoney((Player)op, m);
           		mm.takeMoney((Player)sender, m);
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " money to " + op.getName());
+          		}
 		  		break;
 	  		case "set":
 		  		if(sender.hasPermission("GenesisEconomy.admin")){
