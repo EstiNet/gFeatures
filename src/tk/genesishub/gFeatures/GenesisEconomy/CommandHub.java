@@ -28,10 +28,12 @@ public class CommandHub {
         	  case "help":
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
         		  sender.sendMessage(ChatColor.AQUA + "/clupic | Views how much clupic you have.");
+        		  sender.sendMessage(ChatColor.AQUA + "/clupic pay <player> <amount>| Pays a player.");
+        		  sender.sendMessage(ChatColor.AQUA + "/clupic set <player> <amount>| Admin command.");
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
         		  break;
         	  case "pay":
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic pay <player>");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic pay <player> <amount>");
         		  break;
         	  case "set":
         		  if(sender.hasPermission("GenesisEconomy.admin")){
