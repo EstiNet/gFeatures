@@ -74,16 +74,7 @@ public class TierTwo {
 	}
 	public void Special(CommandSender sender){
 		Player player = (Player)sender;
-		ItemStack helm = new ItemStack(Material.CHAINMAIL_HELMET, 1);
-		ItemStack legging = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
-		ItemStack chest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
-		ItemStack boot = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
 		Constants.gunin.add(player.getName());
-		player.addPotionEffect((new PotionEffect(PotionEffectType.ABSORPTION, 100 ,	100)));
-		player.getInventory().addItem(helm);
-		player.getInventory().addItem(legging);
-		player.getInventory().addItem(chest);
-		player.getInventory().addItem(boot);
 		kmh.gunKitsSetup(player, "Flamethrower");
 		kmh.gunKitsSetup(player, "Python");
 	}

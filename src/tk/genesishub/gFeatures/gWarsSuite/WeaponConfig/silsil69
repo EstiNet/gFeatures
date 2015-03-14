@@ -28,7 +28,7 @@ SilSil69:
         Bullet_Spread: 1
         Reset_Fall_Distance: true
         Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
-     Burstfire:
+    Burstfire:
         Enable: true
         Shots_Per_Burst: 2
         Delay_Between_Shots_In_Burst: 3
