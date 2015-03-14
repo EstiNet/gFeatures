@@ -78,7 +78,6 @@ public class TierZero {
 		ItemStack legging = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
 		ItemStack chest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
 		ItemStack boot = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
-		player.addPotionEffect((new PotionEffect(PotionEffectType.ABSORPTION, 10,	1000)));
 		player.getInventory().setLeggings(legging);
 		player.getInventory().setChestplate(chest);
 		player.getInventory().setBoots(boot);

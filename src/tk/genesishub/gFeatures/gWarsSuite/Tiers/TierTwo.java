@@ -84,6 +84,7 @@ public class TierTwo {
 		player.getInventory().addItem(legging);
 		player.getInventory().addItem(chest);
 		player.getInventory().addItem(boot);
+		kmh.gunKitsSetup(player, "Flamethrower");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void AutoRifle(CommandSender sender){
