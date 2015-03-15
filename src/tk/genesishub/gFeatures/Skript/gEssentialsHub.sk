@@ -169,3 +169,8 @@ command /meth
         /effect %player% 5 20 21
         /effect %player% 20 20 20
         
+command /steroids
+    trigger:
+        /effect %player% 5 20 80
+        wait 60 seconds
+        /effect %player% 18 60 90000000
