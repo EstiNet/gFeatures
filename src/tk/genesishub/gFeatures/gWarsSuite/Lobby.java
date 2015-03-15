@@ -225,11 +225,6 @@ public class Lobby {
     		player.teleport(e);
     		player.getLocation().setYaw((float) oyaw);
     		player.getLocation().setPitch((float) opitch);
-    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
-            ItemMeta im1 = compass.getItemMeta();
-            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
-            compass.setItemMeta(im1);
-            player.getInventory().addItem(compass);
     		}
     		else if(Constants.bt.contains(player.getName())){
     		double x1 = bx;
@@ -239,11 +234,6 @@ public class Lobby {
         	player.teleport(e);
         	player.getLocation().setYaw((float) byaw);
         	player.getLocation().setPitch((float) bpitch);
-        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
-            ItemMeta im1 = compass.getItemMeta();
-            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
-            compass.setItemMeta(im1);
-            player.getInventory().addItem(compass);
     		}
     	}
 	}
