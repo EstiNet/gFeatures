@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.gWarsSuite;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -61,9 +62,14 @@ public class LeaveManager{
                     im.setDisplayName(ChatColor.AQUA + "Select Gun");
                     chest.setItemMeta(im);
                     p.getInventory().setItemInHand(chest);
-                	 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
+                	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
+                	Lobby lobby = new Lobby();
+                 	Command cmd = null;
+                 	String label = "Hi.";
+                 	String[] args = {"DOI"};
+                	lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
                  }
-             }, 12L);
+             }, 20L);
     	}
     	else if(Constants.ot.contains(p.getName())){
     		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -78,8 +84,13 @@ public class LeaveManager{
                  p.getInventory().setItemInHand(chest);
                  p.getInventory().setHelmet(wool);
                	 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
+               	 Lobby lobby = new Lobby();
+             	 Command cmd = null;
+             	 String label = "Hi.";
+             	 String[] args = {"DOI"};
+               	 lobby.LobbyInitiate(event.getPlayer(), cmd, label, args, "spawn");
                 }
-            }, 12L);
+            }, 20L);
     	}
 	}
 }

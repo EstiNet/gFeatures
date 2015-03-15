@@ -79,7 +79,7 @@ public class CommandHub {
     		  		}
     		  		break;
     	  		 case "get":
-           		  OfflinePlayer op = Bukkit.getOfflinePlayer(args[2]);
+           		  OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
            		  if(!op.equals(null)){
            			  Player p = (Player)op;
            			  float m = mm.getMoney(player);

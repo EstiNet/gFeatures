@@ -184,10 +184,6 @@ public class Lobby {
 	}
 	// IF NO ARENA ADD
 	public void Initiate(int ox, int oy, int oz, double oyaw, double opitch, int bx, int by, int bz, double byaw, double bpitch, Player player, CommandSender sender, String nothing){
-		ItemStack chest = new ItemStack(Material.CHEST, 1);
-        ItemMeta im = chest.getItemMeta();
-        im.setDisplayName(ChatColor.AQUA + "Game Menu");
-        chest.setItemMeta(im);
 		if(Constants.arena.contains(player.getName())){
     		sender.sendMessage("You are in the arena!");
     		}
@@ -200,7 +196,6 @@ public class Lobby {
     		player.teleport(e);
     		player.getLocation().setYaw((float) oyaw);
     		player.getLocation().setPitch((float) opitch);
-    		player.getInventory().addItem(chest);
     		}
     		else if(Constants.bt.contains(player.getName())){
     		double x1 = bx;
@@ -210,7 +205,6 @@ public class Lobby {
         	player.teleport(e);
         	player.getLocation().setYaw((float) byaw);
         	player.getLocation().setPitch((float) bpitch);
-        	player.getInventory().addItem(chest);
     		}
     	}
 	}
