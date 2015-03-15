@@ -16,7 +16,7 @@ public class CompassTracker {
 	public void onCompassTracker(PlayerInteractEvent e){
         Player p = e.getPlayer();
         if((e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && p.getItemInHand().getType() == Material.COMPASS){
-            p.setCompassTarget(getNearest(p, 1000000.0).getLocation());
+            p.setCompassTarget(getNearest(p, 10000.0).getLocation());
         }
     }
 	public Player getNearest(Player p, Double range) {

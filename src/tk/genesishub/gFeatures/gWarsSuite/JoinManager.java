@@ -48,6 +48,9 @@ public class JoinManager{
 	public void JoinManage(PlayerJoinEvent event) throws ParserConfigurationException, TransformerException, SAXException, IOException{
 		Player player = event.getPlayer();
     		Player p = event.getPlayer();
+    		if(p.isInsideVehicle()){
+    			p.setHealth(0.0);
+    		}
             boolean b = sr.playerExists(p.getUniqueId().toString());
     		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
      		DocumentBuilder docBuilder;
@@ -56,10 +59,6 @@ public class JoinManager{
     		if(!(b)){
     			fm.createaNode(p);
     		}
-    		int hello = doc.getElementsByTagName(p.getName()).getLength();
-    		String hello1 ="";
-    		hello1=Integer.toString(hello);
-    		Bukkit.getServer().getLogger().info(hello1);
     	player.setGameMode(GameMode.SURVIVAL);
     	Bukkit.getServer().broadcastMessage(ChatColor.BOLD+player.getName()+" has joined gWars!");
     	if(Constants.ot.size() > Constants.bt.size()){
