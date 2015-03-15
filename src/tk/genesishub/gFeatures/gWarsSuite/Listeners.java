@@ -49,6 +49,7 @@ public class Listeners{
 	JoinManager jm = new JoinManager();
 	LeaveManager lm = new LeaveManager();
 	CommandHub ch = new CommandHub();
+	CompassTracker ct = new CompassTracker();
 	ListTeams lt = new ListTeams();
 	TierSelectionMenu tsm = new TierSelectionMenu();
 	GameMenu gm = new GameMenu();
@@ -82,16 +83,7 @@ public class Listeners{
     }
     public void onPlayerRespawn(PlayerRespawnEvent event) throws InterruptedException{
     	Constants.arena.remove(event.getPlayer().getName());
-    	Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " has died.");
     	lm.ManageRespawn(event);
-    }
-    public void onCompassTracker(PlayerInteractEvent e){
-        Player p = e.getPlayer();
-        Player target = e.getPlayer();
-        if((e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && p.getItemInHand().getType() == Material.COMPASS){
-            p.setCompassTarget(target.getLocation());
-        }
-       
     }
     public void onPlayerDeath(PlayerDeathEvent event){
     	Constants.arena.remove(event.getEntity().getName());
@@ -126,6 +118,7 @@ public class Listeners{
         	tsm.Initialize(event);
         	tnfb.Initialize(event);
         	gm.Initialize(event.getPlayer());
+        	ct.onCompassTracker(event);
        	 }
         public boolean getIsland(int X, int Z){
         	if((X == 551 || (X > 551 && !(X>(551-5)))||(X < 551 && !(X<551-5)))&&(Z == 421 || (Z > 421 && !(Z>(421-5)))||(Z < 421 && !(Z<421-5)))){

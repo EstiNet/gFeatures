@@ -64,8 +64,8 @@ public class GameMenu {
 		            	Constants.airplaneline.add(event.getPlayer().getName());
 		                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 		                	public void run(){
-		                   cons.removeAirplaneline(event.getPlayer());
-		                   }
+		                		cons.removeAirplaneline(event.getPlayer());
+		                	}
 		                }, 200L);
 		            }
 		           event.getPlayer().closeInventory();
@@ -81,22 +81,5 @@ public class GameMenu {
 		e.printStackTrace();
 	}
 		return null;
-    }
-	public Player getNearest(Player p, Double range) {
-        double distance = Double.POSITIVE_INFINITY; // To make sure the first
-                                                    // player checked is closest
-        Player target = p;
-        for (Entity e : p.getNearbyEntities(range, range, range)) {
-            if (!(e instanceof Player))
-                continue;
-            double distanceto = p.getLocation().distance(e.getLocation());
-            if (distanceto > distance)
-                continue;
-            distance = distanceto;
-            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue")){
-            	target = (Player) e;
-            }
-        }
-        return target;
     }
 }
