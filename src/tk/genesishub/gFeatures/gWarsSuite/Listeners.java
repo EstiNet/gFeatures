@@ -113,7 +113,6 @@ public class Listeners{
 			}
 			return true;
         }
-        
         public void onPlayerInteract(PlayerInteractEvent event){
         	tsm.Initialize(event);
         	tnfb.Initialize(event);
