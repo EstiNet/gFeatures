@@ -57,7 +57,6 @@ public class Lobby {
             ItemMeta im = chest.getItemMeta();
             im.setDisplayName(ChatColor.AQUA + "Game Menu");
             chest.setItemMeta(im);
-            
 			if(Constants.arena.contains(player.getName())){
 	    		sender.sendMessage("You are in the arena!");
 	    		}
@@ -74,6 +73,11 @@ public class Lobby {
 	    		player.getLocation().setYaw((float) 178.803);
 	    		player.getLocation().setPitch((float) -1.8);
 	    		player.getInventory().addItem(chest);
+	    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    			sender.sendMessage("Your team didn't capture the town yet!");
@@ -91,6 +95,11 @@ public class Lobby {
 	        	player.getLocation().setYaw((float) 178.803);
 	        	player.getLocation().setPitch((float) -1.8);
 	        	player.getInventory().addItem(chest);
+	        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    		sender.sendMessage("Your team didn't capture the town yet!");
@@ -119,6 +128,11 @@ public class Lobby {
 	            im1.setDisplayName(ChatColor.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
+	    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im2 = compass.getItemMeta();
+	            im2.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im2);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    			sender.sendMessage("Your team didn't capture the island yet!");
@@ -140,6 +154,11 @@ public class Lobby {
 	            im2.setDisplayName(ChatColor.AQUA + "Select Gun");
 	            chest2.setItemMeta(im2);
 	        	player.getInventory().addItem(chest2);
+	        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    		sender.sendMessage("Your team didn't capture the island yet!");
@@ -168,6 +187,11 @@ public class Lobby {
     		player.getLocation().setYaw((float) oyaw);
     		player.getLocation().setPitch((float) opitch);
     		player.getInventory().addItem(chest);
+    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
     		}
     		else if(Constants.bt.contains(player.getName())){
     		Constants.arena.add(player.getName());
@@ -179,6 +203,11 @@ public class Lobby {
         	player.getLocation().setYaw((float) byaw);
         	player.getLocation().setPitch((float) bpitch);
         	player.getInventory().addItem(chest);
+        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
     		}
     	}
 	}
@@ -196,6 +225,11 @@ public class Lobby {
     		player.teleport(e);
     		player.getLocation().setYaw((float) oyaw);
     		player.getLocation().setPitch((float) opitch);
+    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
     		}
     		else if(Constants.bt.contains(player.getName())){
     		double x1 = bx;
@@ -205,6 +239,11 @@ public class Lobby {
         	player.teleport(e);
         	player.getLocation().setYaw((float) byaw);
         	player.getLocation().setPitch((float) bpitch);
+        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
     		}
     	}
 	}

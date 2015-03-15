@@ -64,7 +64,6 @@ public class LobbyTeleport {
             ItemMeta im = chest.getItemMeta();
             im.setDisplayName(ChatColor.AQUA + "Game Menu");
             chest.setItemMeta(im);
-            
 			if(Constants.arena.contains(player.getName())){
 	    		sender.sendMessage("You are in the arena!");
 	    		}
@@ -81,6 +80,11 @@ public class LobbyTeleport {
 	    		player.getLocation().setYaw((float) 178.803);
 	    		player.getLocation().setPitch((float) -1.8);
 	    		player.getInventory().addItem(chest);
+	    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    			sender.sendMessage("Your team didn't capture the town yet!");
@@ -98,6 +102,11 @@ public class LobbyTeleport {
 	        	player.getLocation().setYaw((float) 178.803);
 	        	player.getLocation().setPitch((float) -1.8);
 	        	player.getInventory().addItem(chest);
+	        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    		sender.sendMessage("Your team didn't capture the town yet!");
@@ -127,7 +136,11 @@ public class LobbyTeleport {
 	            im1.setDisplayName(Color.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
-	    		
+	    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im2 = compass.getItemMeta();
+	            im2.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im2);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    			sender.sendMessage("Your team didn't capture the island yet!");
@@ -146,9 +159,14 @@ public class LobbyTeleport {
 	        	player.getLocation().setPitch((float) -2.1);
 	        	ItemStack chest2 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im2 = chest2.getItemMeta();
-	            im2.setDisplayName(ChatColor.AQUA + "Select Gun");
+	            im2.setDisplayName(ChatColor.AQUA + "Game Menu");
 	            chest2.setItemMeta(im2);
 	        	player.getInventory().addItem(chest2);
+	        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+	            ItemMeta im1 = compass.getItemMeta();
+	            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+	            compass.setItemMeta(im1);
+	            player.getInventory().addItem(compass);
 	    		}
 	    		else{
 	    		sender.sendMessage("Your team didn't capture the island yet!");

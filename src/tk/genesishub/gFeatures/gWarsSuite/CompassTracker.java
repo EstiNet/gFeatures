@@ -15,9 +15,8 @@ public class CompassTracker {
 	}
 	public void onCompassTracker(PlayerInteractEvent e){
         Player p = e.getPlayer();
-        Player target = e.getPlayer();
         if((e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && p.getItemInHand().getType() == Material.COMPASS){
-            p.setCompassTarget(target.getLocation());
+            p.setCompassTarget(getNearest(p, 1000000.0).getLocation());
         }
     }
 	public Player getNearest(Player p, Double range) {
@@ -31,7 +30,10 @@ public class CompassTracker {
             if (distanceto > distance)
                 continue;
             distance = distanceto;
-            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue")){
+            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue") && tm.getTeam(p.getName()).equals(ChatColor.GOLD + "orange")){
+            	target = (Player) e;
+            }
+            else if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "orange") && tm.getTeam(p.getName()).equals(ChatColor.GOLD + "blue")){
             	target = (Player) e;
             }
         }
