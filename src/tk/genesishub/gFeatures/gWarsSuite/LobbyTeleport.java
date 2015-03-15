@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
@@ -43,7 +44,7 @@ public class LobbyTeleport {
 		int z = (int) loc.getZ();
 		if(x == 134 && z == 291){
 			//airfield
-			lobby.Initiate(421, 5, 201, 89.998, 1.95, 575, 1, 131, 269.849, -0.3, event.getPlayer(), (CommandSender)event.getPlayer());
+			lobby.Initiate(421, 5, 201, 89.998, 1.95, 570, 5, 131, 269.849, -0.3, event.getPlayer(), (CommandSender)event.getPlayer());
 		}
 		else if(x == 125 && z == 287){
 			//underground
@@ -126,6 +127,7 @@ public class LobbyTeleport {
 	            im1.setDisplayName(Color.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
+	    		
 	    		}
 	    		else{
 	    			sender.sendMessage("Your team didn't capture the island yet!");
@@ -152,7 +154,24 @@ public class LobbyTeleport {
 	    		sender.sendMessage("Your team didn't capture the island yet!");
 	    		}
 	    		}
-	    		}
+	    	}
 		}
 	}
+	public Player getNearest(Player p, Double range) {
+        double distance = Double.POSITIVE_INFINITY; // To make sure the first
+        TeamManager tm = new TeamManager();                           // player checked is closest
+        Player target = p;
+        for (Entity e : p.getNearbyEntities(range, range, range)) {
+            if (!(e instanceof Player))
+                continue;
+            double distanceto = p.getLocation().distance(e.getLocation());
+            if (distanceto > distance)
+                continue;
+            distance = distanceto;
+            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue")){
+            	target = (Player) e;
+            }
+        }
+        return target;
+    }
 }

@@ -33,4 +33,7 @@ public class MoneyManager {
 		float money = num - amount;
 		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
+	public void setMoney(Player p, float amount){
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = " + amount + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+	}
 }

@@ -6,8 +6,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -82,7 +85,14 @@ public class Listeners{
     	Bukkit.getServer().getLogger().info(event.getPlayer().getName() + " has died.");
     	lm.ManageRespawn(event);
     }
-    
+    public void onCompassTracker(PlayerInteractEvent e){
+        Player p = e.getPlayer();
+        Player target = e.getPlayer();
+        if((e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && p.getItemInHand().getType() == Material.COMPASS){
+            p.setCompassTarget(target.getLocation());
+        }
+       
+    }
     public void onPlayerDeath(PlayerDeathEvent event){
     	Constants.arena.remove(event.getEntity().getName());
     	dm.ManageDeath(event.getEntity(), event);
