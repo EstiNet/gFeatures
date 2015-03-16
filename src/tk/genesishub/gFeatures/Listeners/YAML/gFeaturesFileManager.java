@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -48,6 +49,7 @@ public class gFeaturesFileManager {
 	File gHub = new File("plugins/gFeatures/gHub");
 	File gEconomy = new File("plugins/gFeatures/gEconomy");
 	File gBackup = new File("plugins/gFeatures/gBackup");
+	File gScore = new File("plugins/gFeatures/gScore");
 	public void exists() throws IOException{
 		try{
 		if(!(main.isDirectory())){
@@ -90,6 +92,11 @@ public class gFeaturesFileManager {
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisAccess...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
+		if(!(gScore.isDirectory()) && GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+			gScore.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisScore...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
 		if(!(f.exists())){
 			f.createNewFile();
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
@@ -105,6 +112,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.gDestroyCritical");
 			yamlFile.createSection("Config.Plugins.GenesisEconomy");
 			yamlFile.createSection("Config.Plugins.GenesisBackup");
+			yamlFile.createSection("Config.Plugins.gScore");
 			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
@@ -130,6 +138,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.gDestroyCritical", "false");
 			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
+			yamlFile.set("Config.Plugins.gScore", "false");
 			//Skript value
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");

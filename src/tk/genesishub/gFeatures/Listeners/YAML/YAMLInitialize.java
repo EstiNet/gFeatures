@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -96,6 +97,10 @@ public class YAMLInitialize {
 		if(yamlFile.get("Config.Plugins.GenesisBackup").equals("true")){
 			GenesisBackupPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded GenesisBackup.");
+		}
+		if(yamlFile.get("Config.Plugins.gScore").equals("true")){
+			GenesisScorePlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gScore.");
 		}
 		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
 			sm.Enable(Skripts.gEssentialsHub);

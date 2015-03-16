@@ -24,6 +24,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -198,6 +199,9 @@ public class Listeners extends JavaPlugin implements Listener{
 			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
 			listeners.onDisable();
+		}
+		if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+			GenesisScorePlugin.setPluginState(PluginState.DISABLE);
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);

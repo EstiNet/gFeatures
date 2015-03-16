@@ -49,6 +49,9 @@ public class PluginManager {
 		if(getPluginState(Plugins.GenesisEconomy).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.GenesisEconomy);
 		}
+		if(getPluginState(Plugins.gScore).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.gScore);
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -76,6 +79,9 @@ public class PluginManager {
 		}
 		if(getPluginState(Plugins.GenesisEconomy).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.GenesisEconomy);
+		}
+		if(getPluginState(Plugins.gScore).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gScore);
 		}
 		return plugins;
 	}
@@ -106,6 +112,8 @@ public class PluginManager {
 		case GenesisBackup:
 			ps = GenesisBackupPlugin.getState();
 			break;
+		case gScore:
+			ps = GenesisScorePlugin.getState();
 		case UnknownPlugin:
 			break;
 		default:
