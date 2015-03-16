@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
+	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
