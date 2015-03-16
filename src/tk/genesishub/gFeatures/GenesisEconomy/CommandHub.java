@@ -67,7 +67,7 @@ public class CommandHub {
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic get <player>");
         		  break;
         	  case "trade":
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <player> <currency(Dollars/Clupic>");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <amount> <currency(Dollars/Clupic>");
         		  break;
         	  default:
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
@@ -108,7 +108,7 @@ public class CommandHub {
            		  }
            		  break;
     	  		case "trade":
-          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <player> <currency(Dollars/Clupic>");
+          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <amount> <currency(Dollars/Clupic>");
           		  break;
     	  		default:
           		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
@@ -126,7 +126,7 @@ public class CommandHub {
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
           		}
           		else{
-          			if(Bukkit.getPlayer(args[1]) != null){
+          			if(Bukkit.getPlayer(args[1]).isOnline()){
           				Player pl = Bukkit.getPlayer(args[1]);
           				mm.giveMoney(pl, m);
               			mm.takeMoney((Player)sender, m);

@@ -74,5 +74,15 @@ public class MoneyManager {
 		else{
 			return true;
 		}
+		}
+		public boolean playerExists(Player p){
+			List<String> rs = new ArrayList<>();
+			rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+			if(rs.get(1).equals(null)){
+				return false;
+			}
+			else{
+				return true;
+			}
 	}
 }
