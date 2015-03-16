@@ -80,6 +80,7 @@ public class CommandHub {
     		  		break;
     	  		 case "get":
            		  OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
+           		  try{
            		  if(!op.equals(null)){
            			  Player p = (Player)op;
            			  float m = mm.getMoney(player);
@@ -92,6 +93,9 @@ public class CommandHub {
            		  }
            		  else{
            			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
+           		  }
+           		  }catch(Exception e){
+           			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error in your input. Try again!");
            		  }
            		  break;
     	  		default:

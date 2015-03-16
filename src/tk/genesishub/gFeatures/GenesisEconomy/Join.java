@@ -10,7 +10,7 @@ public class Join {
 		Bukkit.getLogger().info("Player " + e.getPlayer().getName() + " has joined.");
 		Bukkit.getLogger().info("Adding " + e.getPlayer().getUniqueId());
 		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Peoples(Name, Money)\n"+
-				"SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
+				"SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '100') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
 				"SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n"+
 				") LIMIT 1;\n"
