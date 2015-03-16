@@ -21,17 +21,18 @@ public class CommandHub {
 		Tablename = cc.getTablename();
 		URL = c.toURL(Port, Address, Tablename);
 		if(!(sender instanceof Player)) {
+			if(!(args.length == 3)){
             Bukkit.getLogger().info("Only players are supported for this GenesisEconomy as of now.");
+            }
         }
-        Player player = (Player) sender;
         if(command.getLabel().equals("clupic")) {
           if(args.length == 0){
-        	  float m = mm.getMoney(player);
+        	  float m = mm.getMoney((Player)sender);
         	  if(m%0.1 == 0){
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + "" + mm.getMoney(player) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + "" + mm.getMoney((Player)sender) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
         	  }
         	  else{
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + mm.getMoney(player) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + mm.getMoney((Player)sender) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
         	  }
           }
           if(args.length == 1){
@@ -42,6 +43,7 @@ public class CommandHub {
         		  sender.sendMessage(ChatColor.AQUA + "/clupic get <player>| Views how much clupic the player has.");
         		  sender.sendMessage(ChatColor.AQUA + "/clupic pay <player> <amount>| Pays a player.");
         		  sender.sendMessage(ChatColor.AQUA + "/clupic set <player> <amount>| Admin command.");
+        		  sender.sendMessage(ChatColor.AQUA + "/clupic trade <amount> <currency(Dollars/Clupic)> | Trades between Dollars for Clupic and vice-versa");
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
         		  break;
         	  case "pay":
@@ -56,9 +58,13 @@ public class CommandHub {
         		  }
         		  break;
         	  case "top":
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "This feature is not available yet.");
         		  break;
         	  case "get":
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic get <player>");
+        		  break;
+        	  case "trade":
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <player> <currency(Dollars/Clupic>");
         		  break;
         	  default:
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
@@ -81,14 +87,13 @@ public class CommandHub {
     	  		 case "get":
            		  OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
            		  try{
-           		  if(!op.equals(null)){
-           			  Player p = (Player)op;
-           			  float m = mm.getMoney(player);
+           		  if(mm.playerExists(op)){
+           			  float m = mm.getMoney((Player)sender);
            			  if(m%0.1 == 0){
-                   		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + p.getName() + " has " + ChatColor.AQUA + "" + mm.getMoney(player) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
+                   		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + "" + mm.getMoney(op) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
                    	  }
                    	  else{
-                   	  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + p.getName() + " has " + ChatColor.AQUA + mm.getMoney(player) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
+                   	  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + mm.getMoney(op) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
                    	  }
            		  }
            		  else{
@@ -96,8 +101,12 @@ public class CommandHub {
            		  }
            		  }catch(Exception e){
            			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error in your input. Try again!");
+           			  e.printStackTrace();
            		  }
            		  break;
+    	  		case "trade":
+          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <player> <currency(Dollars/Clupic>");
+          		  break;
     	  		default:
           		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
           		  break;
@@ -106,13 +115,15 @@ public class CommandHub {
           if(args.length == 3){
           	switch(args[0]){
           	case "pay":
+          		if(!(Float.parseFloat(args[2]) < 0)){
+          		if(sender instanceof Player){
           		try{
           		float m = Float.parseFloat(args[2]);
           		if(m > mm.getMoney((Player)sender)){
-          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough money!");
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
           		}
           		else{
-          			if(Bukkit.getPlayer(args[1]).isOnline()){
+          			if(Bukkit.getPlayer(args[1]) != null){
           				Player pl = Bukkit.getPlayer(args[1]);
           				mm.giveMoney(pl, m);
               			mm.takeMoney((Player)sender, m);
@@ -121,7 +132,7 @@ public class CommandHub {
           			}
           			else{
           				OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
-          				mm.giveMoney((Player)op, m);
+          				mm.giveMoney(op, m);
           				mm.takeMoney((Player)sender, m);
           				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " clupic to " + op.getName());
           			}
@@ -130,12 +141,24 @@ public class CommandHub {
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
           			e.printStackTrace();
           		}
+          		}
+          		else{
+          			float m = Float.parseFloat(args[2]);
+          			Player pl = Bukkit.getPlayer(args[1]);
+          			mm.giveMoney(pl, m);
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Gave " + args[2] + " clupic to player " + pl.getName());
+          			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Recieved " + args[2] + " clupic.");
+          		}
+          		}
+          		else{
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "No negative integers!");
+          		}
 		  		break;
 	  		case "set":
 		  		if(sender.hasPermission("GenesisEconomy.admin")){
 		  			try{
-		  			mm.setMoney(Bukkit.getServer().getPlayer(args[1]), Float.parseFloat(args[2]));
-			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Set player " + Bukkit.getServer().getPlayer(args[1]).getName() + "'s balance to " + args[2]);
+		  			mm.setMoney(Bukkit.getServer().getOfflinePlayer(args[1]), Float.parseFloat(args[2]));
+			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Set player " + Bukkit.getServer().getOfflinePlayer(args[1]).getName() + "'s balance to " + args[2]);
 		  			}catch(Exception e){
 	          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
 	          		}
@@ -144,6 +167,23 @@ public class CommandHub {
 			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Beep bop. No access to the command!");
 		  		}
 		  		break;
+	  		case "trade":
+	  			if(!(args[2].equalsIgnoreCase("clupic") && (!(args[2].equalsIgnoreCase("dollars")) || !(args[2].equalsIgnoreCase("dollar"))))){
+	  				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "There are only 2 currencies, dollars and clupic");
+	  			}
+	  			else if(args[2].equalsIgnoreCase("clupic")){
+	  				try{
+	  				if(mm.getMoney((Player)sender) >= Float.parseFloat(args[1])){
+	  					mm.takeMoney((Player)sender, ((Float.parseFloat(cc.getRate()))*(Float.parseFloat(args[1]))));
+	  				}
+	  				else{
+	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
+	  				}
+	  				}catch(Exception e){
+	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error with your input! Try again.");
+	  				}
+	  			}
+	  			break;
 	  		default:
     		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
     		  break;

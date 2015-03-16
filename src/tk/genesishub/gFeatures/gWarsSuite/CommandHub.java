@@ -36,6 +36,7 @@ public class CommandHub {
 	StatsRetrieve sr = new StatsRetrieve();
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		Bukkit.getServer().getWorld("gWars");
+		if(sender instanceof Player){
 		Player s = (Player) sender;
 		if (cmd.getName().equalsIgnoreCase("help")){
 			
@@ -299,5 +300,8 @@ public class CommandHub {
     			e.printStackTrace();
     		}
     	}
+	  }
+		else{
+		}
 	}
 }

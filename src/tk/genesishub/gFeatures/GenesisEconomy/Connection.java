@@ -50,9 +50,6 @@ public class Connection {
         java.sql.Statement st = null;
         ResultSet rs = null;
         ResultSet result = null;
-        //String url = "jdbc:mysql://localhost:3306/testdb";
-        //String user = "testuser";
-        //String password = "test623";
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
@@ -65,8 +62,7 @@ public class Connection {
             }
             return array;
         } catch (SQLException ex) {
-            Logger lgr = Logger.getLogger(Version.class.getName());
-            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+            ex.printStackTrace();
         } finally {
             try {
                 if (rs != null) {
@@ -79,8 +75,7 @@ public class Connection {
                     con.close();
                 }
             } catch (SQLException ex) {
-                Logger lgr = Logger.getLogger(Version.class.getName());
-                lgr.log(Level.WARNING, ex.getMessage(), ex);
+                ex.printStackTrace();
             }
         }
 		return null;

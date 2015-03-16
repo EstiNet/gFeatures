@@ -21,6 +21,17 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.PluginState;
+import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
+import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
+import tk.genesishub.gFeatures.Skript.Skripts;
+import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
+
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -44,7 +55,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	
+	SkriptManager sm = new SkriptManager();
 	String EnteredKey = "Hi!";
 	String ProductKey = "gFE-69a-123-abc";
 	
@@ -83,9 +94,8 @@ public class Listeners extends JavaPlugin implements Listener{
     @Override
     public void onDisable() { //What to do on server unload/reload
        getLogger().info("[gFeatures] gFeatures is turning off...!");  
-       tk.genesishub.gFeatures.Listeners.Disabler d = new tk.genesishub.gFeatures.Listeners.Disabler();
        try {
-		d.Initialize();
+		Initialize();
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -159,4 +169,41 @@ public class Listeners extends JavaPlugin implements Listener{
 		}
         return true;
     }
+    public void Initialize() throws IOException{
+		if(gWarsSuitePlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gWarsSuite.Listeners Listener = new tk.genesishub.gFeatures.gWarsSuite.Listeners();
+			Listener.onDisable();
+			gWarsSuitePlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(gDestroyCriticalPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gDestroyCritical.Listeners Listener = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
+			Listener.onDisable();
+			gDestroyCriticalPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.GenesisAccess.Main Listener = new tk.genesishub.gFeatures.GenesisAccess.Main();
+			Listener.onDisable();
+			GenesisAccessPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
+			gFactionsPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(gHubPlugin.getState().equals(PluginState.ENABLE)){
+			gHubPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(GenesisBackupPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
+			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
+			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
+			listeners.onDisable();
+		}
+		sm.Disable(Skripts.gEssentialsHub);
+		sm.Disable(Skripts.gEssentialsMinigames);
+		sm.Disable(Skripts.gEssentialsFactions);
+		sm.Disable(Skripts.gEssentialsGlobal);
+		//sm.Disable(Skripts.gMMO);
+		sm.Disable(Skripts.gCrates);
+	}
 }

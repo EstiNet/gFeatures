@@ -22,4 +22,7 @@ public class CheckConfig {
 	public String getPassword(){
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
+	public String getRate(){
+		return yamlFile.get("Config.Trade.Rate").toString();
+	}
 }
