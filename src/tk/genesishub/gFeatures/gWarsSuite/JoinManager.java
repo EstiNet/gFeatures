@@ -50,6 +50,7 @@ public class JoinManager{
     		Player p = event.getPlayer();
     		if(p.isInsideVehicle()){
     			p.setHealth(0.0);
+    			Bukkit.getLogger().info(ChatColor.GOLD + "Player is in vehicle. Setting health to 0");
     		}
             boolean b = sr.playerExists(p.getUniqueId().toString());
     		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

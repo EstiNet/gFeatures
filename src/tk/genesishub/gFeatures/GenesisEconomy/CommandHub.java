@@ -102,6 +102,7 @@ public class CommandHub {
           if(args.length == 3){
           	switch(args[0]){
           	case "pay":
+          		try{
           		float m = Float.parseFloat(args[2]);
           		if(m > mm.getMoney((Player)sender)){
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough money!");
@@ -109,22 +110,31 @@ public class CommandHub {
           		else{
           			if(Bukkit.getPlayer(args[1]).isOnline()){
           				Player pl = Bukkit.getPlayer(args[1]);
-          				mm.giveMoney((Player)pl, m);
+          				mm.giveMoney(pl, m);
               			mm.takeMoney((Player)sender, m);
-              			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " money to " + pl.getName());
-              			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You recieved " + m + " money from " + sender.getName());
+              			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " clupic to " + pl.getName());
+              			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You recieved " + m + " clupic from " + sender.getName());
           			}
           			else{
           				OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
           				mm.giveMoney((Player)op, m);
           				mm.takeMoney((Player)sender, m);
-          				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " money to " + op.getName());
+          				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " clupic to " + op.getName());
           			}
+          		}
+          		}catch(Exception e){
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
+          			e.printStackTrace();
           		}
 		  		break;
 	  		case "set":
 		  		if(sender.hasPermission("GenesisEconomy.admin")){
-			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic set <player> <amount>");
+		  			try{
+		  			mm.setMoney(Bukkit.getServer().getPlayer(args[1]), Float.parseFloat(args[2]));
+			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Set player " + Bukkit.getServer().getPlayer(args[1]).getName() + "'s balance to " + args[2]);
+		  			}catch(Exception e){
+	          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
+	          		}
 		  		}
 		  		else{
 			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Beep bop. No access to the command!");

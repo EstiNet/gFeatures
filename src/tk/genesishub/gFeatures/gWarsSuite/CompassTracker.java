@@ -1,5 +1,6 @@
 package tk.genesishub.gFeatures.gWarsSuite;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -18,9 +19,11 @@ public class CompassTracker {
 	public void onCompassTracker(PlayerInteractEvent e){
         Player p = e.getPlayer();
         if((e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) && p.getItemInHand().getType() == Material.COMPASS){
-            ItemStack compass = new ItemStack(Material.COMPASS, 1);
+        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
             ItemMeta im1 = compass.getItemMeta();
             im1.setDisplayName(ChatColor.GOLD + "Player Finder <" + getNearest(p, 1500.0).getName() + ">");
+            compass.setItemMeta(im1);
+            p.setItemInHand(compass);
         	p.setCompassTarget(getNearest(p, 1500.0).getLocation());
         }
     }
@@ -35,10 +38,10 @@ public class CompassTracker {
             if (distanceto > distance)
                 continue;
             distance = distanceto;
-            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue") && tm.getTeam(p.getName()).equals(ChatColor.GOLD + "orange")){
+            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.DARK_AQUA + "blue") && tm.getTeam(p.getName()).equals(ChatColor.GOLD + "orange")){
             	target = (Player) e;
             }
-            else if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "orange") && tm.getTeam(p.getName()).equals(ChatColor.GOLD + "blue")){
+            else if(tm.getTeam(((Player) e).getName()).equals(ChatColor.GOLD + "orange") && tm.getTeam(p.getName()).equals(ChatColor.DARK_AQUA + "blue")){
             	target = (Player) e;
             }
         }
