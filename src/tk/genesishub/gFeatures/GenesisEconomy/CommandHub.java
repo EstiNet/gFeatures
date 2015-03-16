@@ -126,7 +126,7 @@ public class CommandHub {
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
           		}
           		else{
-          			if(Bukkit.getPlayer(args[1]).isOnline()){
+          			if(mm.playerOnline(args[1])){
           				Player pl = Bukkit.getPlayer(args[1]);
           				mm.giveMoney(pl, m);
               			mm.takeMoney((Player)sender, m);

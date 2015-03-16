@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.GenesisEconomy;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
@@ -84,5 +85,15 @@ public class MoneyManager {
 			else{
 				return true;
 			}
+	}
+	@SuppressWarnings("deprecation")
+	public boolean playerOnline(String name){
+		Player[] s = Bukkit.getOnlinePlayers();
+		for(Player p : s){
+			if(p.getName().equals(s)){
+				return true;
+			}
+		}
+		return false;
 	}
 }
