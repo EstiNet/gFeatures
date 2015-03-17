@@ -8,6 +8,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import com.earth2me.essentials.api.UserDoesNotExistException;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -37,7 +39,7 @@ public class Listeners {
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
 	}
-    public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) {
+    public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException {
     	CommandHub ch = new CommandHub();
     	ch.Intitiate(sender, command, commandLabel, args);
     }

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import com.earth2me.essentials.api.Economy;
+import com.earth2me.essentials.api.UserDoesNotExistException;
 
 public class CommandHub {
 	MoneyManager mm = new MoneyManager();
@@ -15,7 +16,7 @@ public class CommandHub {
 	Connection c = new Connection();
 	Economy eco = new Economy();
 	@SuppressWarnings("deprecation")
-	public void Intitiate(CommandSender sender, Command command, String commandLabel, String[] args) {
+	public void Intitiate(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException {
 		String URL, Username, Password, Address, Port, Tablename;
 		Password = cc.getPassword();
 		Username = cc.getUsername();

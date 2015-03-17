@@ -5,6 +5,8 @@ import java.io.IOException;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import com.earth2me.essentials.api.UserDoesNotExistException;
+
 import tk.genesishub.gFeatures.GenesisEconomy.Listeners;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
@@ -29,7 +31,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class GenesisEconomyCore {
-	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws IOException{
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws IOException, IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
 		Commands c = new Commands();
 		Listeners ch = new Listeners();
 		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){

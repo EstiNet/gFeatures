@@ -93,6 +93,9 @@ public class ListenersHub {
 			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 				GenesisAccess.PlayerleaveEvent(playerquit);
 			}
+			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+				gScore.onPlayerLeave(playerquit);
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();
