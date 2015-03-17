@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import tk.genesishub.gFeatures.GenesisAccess.Main;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
@@ -43,6 +44,7 @@ public class ListenersHub {
 	Main GenesisAccess = new Main();
 	tk.genesishub.gFeatures.GenesisEconomy.Listeners gEconomy = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
 	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
+	tk.genesishub.gFeatures.gScore.Listeners gScore = new tk.genesishub.gFeatures.gScore.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
 	static PlayerMoveEvent playermove;
@@ -72,6 +74,9 @@ public class ListenersHub {
 			if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
 				gEconomy.onPlayerJoin(playerjoin);
 			}
+			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+				gScore.onPlayerJoin(playerjoin);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -87,7 +92,6 @@ public class ListenersHub {
 			}
 			if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 				GenesisAccess.PlayerleaveEvent(playerquit);
-				Bukkit.getLogger().info("PlayerLeft");
 			}
 		} catch (Exception e) {
 			
