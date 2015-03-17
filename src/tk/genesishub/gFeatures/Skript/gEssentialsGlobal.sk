@@ -23,12 +23,12 @@ command /optimize:
 	trigger:
 		broadcast "&l&c[&aGenesis&bEssentials&c]&r Optimizing Server Performance..."
 		execute player command "storm chunk"
-		execute player command "killall monsters"
+		execute player command "killall hostile"
 		broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"
 		
 #gLagg Sector
 every 3 minute:
     broadcast "[&aGenesis&bEssentials&r] Optimizing Server Performance..."
     execute console command "storm chunk"
-    execute console command "killall monsters"
+    execute console command "killall hostile"
     broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"
