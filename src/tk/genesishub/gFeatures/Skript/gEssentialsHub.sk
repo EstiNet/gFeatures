@@ -1,6 +1,6 @@
 # GenesisEssentials by Seshpenguin
 # https://dolphinbox.net/
-# Version: 0.6-ALPHA gFeatures Add-On Hub Edition
+# Version: 0.7-ALPHA gFeatures Add-On Hub Edition
 # Designed for use as a gFeatures Add-on: https://github.com/Seshpenguin/gFeatures
 # Preset: Hub
 #
@@ -28,13 +28,13 @@ on login:
 command /icanhasge:
 	description: Shh, Secret Command!
 	trigger:
-		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
+		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.7-ALPHA (This is a dev build!)" to player
 		
 command /ge version:
 	description: Check the version of GenesisEssentials!
 	permission: ge.version
 	trigger:
-		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.6-ALPHA (This is a dev build!)" to player
+		send "&l&c[&aGenesis&bEssentials&c]&r This server is running GenesisEssentials as a gFeatures Add-on version Hub Edition 0.7-ALPHA (This is a dev build!)" to player
 		
 command /setspawn:
 	description: Set the Servers Spawn!
@@ -142,6 +142,7 @@ every second:
 #Because Exploding cows.
 on right click holding a hoe:
     shoot a arrow at speed 2
+    wait 5 seconds
 on projectile hit:
     projectile is arrow
     show mob spawner flames at the arrow
@@ -149,6 +150,7 @@ on projectile hit:
     wait 1 second
     create explosion of force 0 at the arrow
     kill all cows
+    execute console command "killall arrows"
 on death of cow:
     clear drops
     
