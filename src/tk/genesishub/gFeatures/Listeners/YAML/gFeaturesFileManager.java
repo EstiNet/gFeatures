@@ -52,6 +52,7 @@ public class gFeaturesFileManager {
 	File gScore = new File("plugins/gFeatures/gScore");
 	public void exists() throws IOException{
 		try{
+		if(f.exists()){
 		if(!(main.isDirectory())){
 			main.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran gFeatures...");
@@ -96,6 +97,7 @@ public class gFeaturesFileManager {
 			gScore.mkdir();
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisScore...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
 		}
 		if(!(f.exists())){
 			f.createNewFile();
