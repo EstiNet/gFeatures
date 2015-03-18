@@ -8,6 +8,7 @@ import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -44,6 +45,7 @@ public class Enabler {
 		gFeaturePlugin.setPluginState(PluginState.DISABLE);
 		GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 		GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
+		GenesisScorePlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
@@ -73,6 +75,10 @@ public class Enabler {
 		}
 		if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
+			listeners.onEnable();
+		}
+		if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gScore.Listeners listeners = new tk.genesishub.gFeatures.gScore.Listeners();
 			listeners.onEnable();
 		}
 	}
