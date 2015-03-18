@@ -39,7 +39,7 @@ public class gFeatureCore {
 			else if(args.length == 1){
 				switch(args[0]){
 				case "version":
-					sender.sendMessage(ChatColor.GRAY + "gFeatures Version 1.0.0");
+					sender.sendMessage(ChatColor.GRAY + "gFeatures Version 1.0.1");
 					break;
 				case "help":
 					sender.sendMessage(ChatColor.GRAY + "------Help------");
