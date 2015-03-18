@@ -261,4 +261,44 @@ commands:
       usage:
       permission: gWarsSuite.admin
       permission-message: You don't have <permission>
+   cam:
+      description: The main command for CPCameraStudio.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam r:
+      description: Removes the given point from the Camera Path. If not specified, it removes the last point.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam p:
+      description: Adds the current location to the Camera Path.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam list:
+      description: Lists up all the points of the Camera Path.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam reset:
+      description: Removes all points from the Camera Path.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam start:
+      description: Moves the player along the Camera Path in the given time.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam stop:
+      description: Stops the travelling immediately.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
+   cam help:
+      description: Displays help.
+      usage:
+      permission: CameraStudio.cam
+      permission-message: You don't have <permission>
 softdepend: [Skript, CrackShot]

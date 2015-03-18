@@ -53,7 +53,7 @@ public class PluginManager {
 			plugins.add(Plugins.gScore);
 		}
 		if(getPluginState(Plugins.CameraStudio).equals(PluginState.ENABLE)){
-			plugins.add(Plugins.CameraStudio;
+			plugins.add(Plugins.CameraStudio);
 		}
 		return plugins;
 	}
@@ -87,7 +87,7 @@ public class PluginManager {
 			plugins.add(Plugins.gScore);
 		}
 		if(getPluginState(Plugins.CameraStudio).equals(PluginState.DISABLE)){
-			plugins.add(Plugins.CameraStudio;
+			plugins.add(Plugins.CameraStudio);
 		}
 		return plugins;
 	}
