@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.API;
+package tk.genesishub.gFeatures.CameraStudio;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -24,8 +25,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CameraStudio
-  extends JavaPlugin
-  implements Listener
 {
   private HashMap<Player, List<Location>> points = new HashMap<>();
   private HashSet<Player> stopping = new HashSet<Player>();
@@ -34,13 +33,12 @@ public class CameraStudio
   
   public void onDisable()
   {
-    getLogger().info("CameraStudio disabled");
+    Bukkit.getLogger().info("CameraStudio disabled");
   }
   
   public void onEnable()
   {
-    getServer().getPluginManager().registerEvents(this, this);
-    getLogger().info("CameraStudio enabled");
+    Bukkit.getLogger().info("CameraStudio enabled");
   }
   
   public static double round(double unrounded, int precision)
@@ -48,19 +46,6 @@ public class CameraStudio
     BigDecimal bd = new BigDecimal(unrounded);
     BigDecimal rounded = bd.setScale(precision, 4);
     return rounded.doubleValue();
-  }
-  
-  @EventHandler
-  public void onPlayerJoined(final PlayerJoinEvent event)
-  {
-    getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable()
-    {
-      public void run()
-      {
-        event.getPlayer().sendMessage(CameraStudio.prefix + "This server is running the Camera Studio Plugin v1.0 by " + ChatColor.AQUA + "CrushedPixel");
-        event.getPlayer().sendMessage(CameraStudio.prefix + ChatColor.YELLOW + "http://youtube.com/CrushedPixel");
-      }
-    }, 10L);
   }
   
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
@@ -193,7 +178,7 @@ public class CameraStudio
         {
           this.stopping.add(player);
           player.sendMessage(prefix + "Travelling has been cancelled");
-          getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable()
+          Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable()
           {
             public void run()
             {
@@ -293,7 +278,7 @@ public class CameraStudio
                 player.teleport((Location)tps.get(0));
                 player.setFlying(true);
                 this.travelling.add(player);
-                getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable()
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable()
                 {
                   private int ticks = 0;
                   
@@ -304,7 +289,7 @@ public class CameraStudio
                       player.teleport((Location)tps.get(this.ticks));
                       if (!CameraStudio.this.stopping.contains(player))
                       {
-                        CameraStudio.this.getServer().getScheduler().scheduleSyncDelayedTask(CameraStudio.this, this, 1L);
+                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), this, 1L);
                       }
                       else
                       {

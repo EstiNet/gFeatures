@@ -113,6 +113,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.GenesisEconomy");
 			yamlFile.createSection("Config.Plugins.GenesisBackup");
 			yamlFile.createSection("Config.Plugins.gScore");
+            yamlFile.createSection("Config.Plugins.CameraStudio");
 			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
@@ -139,6 +140,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 			yamlFile.set("Config.Plugins.gScore", "false");
+            yamlFile.set("Config.Plugins.CameraStudio", "false");
 			//Skript value
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");

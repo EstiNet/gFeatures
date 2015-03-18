@@ -52,6 +52,9 @@ public class PluginManager {
 		if(getPluginState(Plugins.gScore).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gScore);
 		}
+		if(getPluginState(Plugins.CameraStudio).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.CameraStudio;
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -82,6 +85,9 @@ public class PluginManager {
 		}
 		if(getPluginState(Plugins.gScore).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gScore);
+		}
+		if(getPluginState(Plugins.CameraStudio).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.CameraStudio;
 		}
 		return plugins;
 	}
@@ -114,6 +120,10 @@ public class PluginManager {
 			break;
 		case gScore:
 			ps = GenesisScorePlugin.getState();
+			break;
+		case CameraStudio:
+			ps = CameraStudioPlugin.getState();
+			break;
 		case UnknownPlugin:
 			break;
 		default:

@@ -23,7 +23,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public enum Plugins {
-	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, GenesisEconomy, GenesisBackup, gScore, UnknownPlugin;
+	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, GenesisEconomy, GenesisBackup, gScore, CameraStudio, UnknownPlugin;
 	public static String toString(Plugins plugin){
 		String str = "Unknown Plugin";
 		switch(plugin){
@@ -53,6 +53,9 @@ public enum Plugins {
 			break;
 		case gScore:
 			str = "gScore";
+			break;
+		case CameraStudio:
+			str = "CameraStudio";
 			break;
 		case UnknownPlugin:
 			break;
@@ -91,6 +94,9 @@ public enum Plugins {
 		case "gScore":
 			plugin = gScore;
 			break;
+		case "CameraStudio":
+			plugin = CameraStudio;
+			break;
 		}
 		return plugin;
 	}
@@ -105,6 +111,7 @@ public enum Plugins {
 		list.add(GenesisEconomy);
 		list.add(GenesisBackup);
 		list.add(gScore);
+		list.add(CameraStudio);
 		return list;
 	}
 }
