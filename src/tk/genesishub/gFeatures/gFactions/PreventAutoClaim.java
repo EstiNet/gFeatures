@@ -5,7 +5,11 @@ import org.bukkit.entity.Player;
 
 import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.mewin.WGRegionEvents.events.RegionLeaveEvent;
-
+/*
+ * Prevents claiming land in WG Regions.
+ * Code Status = Totally hacked together.
+ * :D
+ */
 public class PreventAutoClaim {
 	public void Initialize(RegionEnterEvent event){
 		Player p = event.getPlayer();
