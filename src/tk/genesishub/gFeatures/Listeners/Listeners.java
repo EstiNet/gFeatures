@@ -34,6 +34,7 @@ import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Skript.Skripts;
 import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
 
+import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -65,6 +66,13 @@ public class Listeners extends JavaPlugin implements Listener{
 	
 	@Override
     public void onEnable() { //What to do on server load/reload
+		
+		/*
+		 * When Enabling, you must have on your server,
+		 * Worldguard
+		 * Worldguard Events
+		 * Crackshot
+		 * */
 		getLogger().info("~--------------------------------------------------------------------------------~");
         getLogger().info("[gFeatures] Starting gFeatures...");
         Enabler e = new Enabler();
@@ -158,6 +166,11 @@ public class Listeners extends JavaPlugin implements Listener{
     public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
     	ListenersHub.playercommand = event;
     	lh.PlayerCommandEvent();
+    }
+    @EventHandler
+    public void onRegionEnter(RegionEnterEvent event){
+    	ListenersHub.playerregionenter = event;
+    	lh.PlayerEnterRegionEvent();
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

@@ -1,7 +1,15 @@
 package tk.genesishub.gFeatures.gFactions;
 
+import java.util.Iterator;
+
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+
+import com.mewin.WGRegionEvents.events.RegionEnterEvent;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 /*
 gFeatures
@@ -34,6 +42,9 @@ public class Listeners {
 		jm.Initialize(event);
 	}
 	public void onCommand(){
+		
+	}
+	public void PlayerEnterRegionEvent(RegionEnterEvent event){
 		
 	}
 }

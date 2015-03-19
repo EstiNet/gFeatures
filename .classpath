@@ -15,5 +15,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
 	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/worldguard.jar"/>
+	<classpathentry kind="lib" path="C:/Factions.jar"/>
+	<classpathentry kind="lib" path="C:/WGRegionEvents.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

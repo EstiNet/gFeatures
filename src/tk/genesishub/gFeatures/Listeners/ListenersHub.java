@@ -18,8 +18,10 @@ import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
+import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
+import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
 gFeatures
@@ -45,6 +47,7 @@ public class ListenersHub {
 	tk.genesishub.gFeatures.GenesisEconomy.Listeners gEconomy = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
 	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
 	tk.genesishub.gFeatures.gScore.Listeners gScore = new tk.genesishub.gFeatures.gScore.Listeners();
+	tk.genesishub.gFeatures.gFactions.Listeners gFactions = new tk.genesishub.gFeatures.gFactions.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
 	static PlayerMoveEvent playermove;
@@ -56,6 +59,7 @@ public class ListenersHub {
 	static BlockBreakEvent blockbreak;
 	static AsyncPlayerChatEvent playerchat;
 	static PlayerCommandPreprocessEvent playercommand;
+	static RegionEnterEvent playerregionenter;
 	
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	
@@ -189,6 +193,12 @@ public class ListenersHub {
 		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisAccess.PlayerCommandEvent(playercommand);
+		}
+	}
+	protected void PlayerEnterRegionEvent(){
+		inTo();
+		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
+			gFactions.PlayerEnterRegionEvent(playerregionenter);
 		}
 	}
 	private void inTo(){
