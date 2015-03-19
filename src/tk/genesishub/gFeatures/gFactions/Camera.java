@@ -10,7 +10,7 @@ public class Camera {
 	public void Tutorial(Player p){
 		p.hidePlayer(p);
 		World world = Bukkit.getServer().getWorld("Factions1.8.3");
-		Location loc = new Location(world, -95, 71, 51);
+		Location loc = new Location(world, 44.3, 206, -167);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
 		p.sendMessage(ChatColor.DARK_AQUA + "Welcome to GenesisHub " + ChatColor.RED + " Factions" + ChatColor.DARK_AQUA + "!");
