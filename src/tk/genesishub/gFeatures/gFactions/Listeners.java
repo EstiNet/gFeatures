@@ -1,5 +1,8 @@
 package tk.genesishub.gFeatures.gFactions;
 
+import org.bukkit.Bukkit;
+import org.bukkit.event.player.PlayerJoinEvent;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -20,5 +23,17 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-
+	JoinManager jm = new JoinManager();
+	public void onEnable(){
+		Bukkit.getLogger().info("gFactions initialized! Yay!");
+	}
+	public void onDisable(){
+		Bukkit.getLogger().info("gFactions is now off! :(");
+	}
+	public void onPlayerJoin(PlayerJoinEvent event){
+		jm.Initialize(event);
+	}
+	public void onCommand(){
+		
+	}
 }
