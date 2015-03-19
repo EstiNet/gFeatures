@@ -102,10 +102,10 @@ public class YAMLInitialize {
 			GenesisScorePlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded gScore.");
 		}
-		if(yamlFile.get("Config.Plugins.CameraStudio").equals("true")){
+		/*if(yamlFile.get("Config.Plugins.CameraStudio").equals("true")){
 			GenesisScorePlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded CameraStudio.");
-		}
+		}*/
 		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
 			sm.Enable(Skripts.gEssentialsHub);
 			Bukkit.getLogger().info("Loaded gEssentialsHub.");

@@ -3,6 +3,10 @@ package tk.genesishub.gFeatures.Commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import tk.genesishub.gFeatures.PluginManage.PluginState;
+import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.gFactions.CommandHub;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -23,6 +27,14 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class gFactionsCore {
-	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args){
+	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
+		Commands c = new Commands();
+		CommandHub ch = new CommandHub();
+		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
+		ch.CommandSwitch(sender, cmd, label, args);
+		}
+		else if(c.Check("gFactions", cmd.getName())){
+			sender.sendMessage("GenesisHub does not recognize this command. Type /help for help.");
+		}
 	}
 }

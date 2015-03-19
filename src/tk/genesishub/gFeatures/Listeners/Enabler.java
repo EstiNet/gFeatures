@@ -83,9 +83,5 @@ public class Enabler {
 			tk.genesishub.gFeatures.gScore.Listeners listeners = new tk.genesishub.gFeatures.gScore.Listeners();
 			listeners.onEnable();
 		}
-		if(CameraStudioPlugin.getState().equals(PluginState.ENABLE)){
-			tk.genesishub.gFeatures.CameraStudio.CameraStudio listeners = new tk.genesishub.gFeatures.CameraStudio.CameraStudio();
-			listeners.onEnable();
-		}
 	}
 }
