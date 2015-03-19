@@ -4,10 +4,12 @@ import java.util.Iterator;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 import com.mewin.WGRegionEvents.events.RegionEnterEvent;
+import com.mewin.WGRegionEvents.events.RegionLeaveEvent;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
@@ -40,12 +42,18 @@ public class Listeners {
 		Bukkit.getLogger().info("gFactions is now off! :(");
 	}
 	public void onPlayerJoin(PlayerJoinEvent event){
-		jm.Initialize(event);
+		//jm.Initialize(event);
 	}
-	public void onCommand(){
-		
+	public void onCommandPre(PlayerCommandPreprocessEvent event){
+		if(Const.atSpawn.contains(event.getPlayer())){
+			
+		}
 	}
 	public void PlayerEnterRegionEvent(RegionEnterEvent event){
-		pac.Initialize(event);
+		Const.atSpawn.add(event.getPlayer().getName());
+		//pac.Initialize(event);
+	}
+	public void PlayerLeaveRegionEvent(RegionLeaveEvent event){
+		Const.atSpawn.remove(event.getPlayer().getName());
 	}
 }

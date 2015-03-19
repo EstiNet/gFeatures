@@ -133,37 +133,39 @@ public class Camera {
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam start 2m");
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 100L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
 	        	}
-			}, 2L);
+			}, 60L);
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
 		p.sendMessage(ChatColor.DARK_AQUA + "Done! Let's get started!");
 		p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
@@ -171,5 +173,7 @@ public class Camera {
 		p.sendMessage(ChatColor.DARK_AQUA + "Sit back and enjoy the ride!");
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
 		p.showPlayer(p);
+        	}
+		}, 60L * 16);
 	}
 }
