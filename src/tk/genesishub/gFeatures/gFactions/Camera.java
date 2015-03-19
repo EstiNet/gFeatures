@@ -7,55 +7,58 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 public class Camera {
-	public void Tutorial(Player p){
+	public void Tutorial(final Player p){
 		p.hidePlayer(p);
+		for(World world : Bukkit.getServer().getWorlds()){
+			Bukkit.getLogger().info(world.getName());
+		}
 		World world = Bukkit.getServer().getWorld("Factions1.8.3");
 		Location loc = new Location(world, 44.3, 206, -167);
 		loc.setPitch(-317.2F);
 		loc.setYaw(10.8F);
-		Location loc1 = new Location(world,36.6,223.2,-129.5);
+		final Location loc1 = new Location(world,36.6,223.2,-129.5);
 		loc.setPitch(-297.3F);
 		loc.setYaw(32.0F);
-		Location loc2 = new Location(world,44,230.3,-110.8);
+		final Location loc2 = new Location(world,44,230.3,-110.8);
 		loc.setPitch(-252.1F);
 		loc.setYaw(33.8F);
-		Location loc3 = new Location(world,-1.8,230.3,-89.7);
+		final Location loc3 = new Location(world,-1.8,230.3,-89.7);
 		loc.setPitch(-85.8F);
 		loc.setYaw(30.2F);
-		Location loc4 = new Location(world,8.4,230.3,-71.5);
+		final Location loc4 = new Location(world,8.4,230.3,-71.5);
 		loc.setPitch(-19F);
 		loc.setYaw(39.2F);
-		Location loc5 = new Location(world,-2.3,225,-60.3);
+		final Location loc5 = new Location(world,-2.3,225,-60.3);
 		loc.setPitch(-304.2F);
 		loc.setYaw(61.8F);
-		Location loc6 = new Location(world,-37.4,216,-36.6);
+		final Location loc6 = new Location(world,-37.4,216,-36.6);
 		loc.setPitch(-304.2F);
 		loc.setYaw(61.8F);
-		Location loc7 = new Location(world,-62.8,201.0,-19.7);
+		final Location loc7 = new Location(world,-62.8,201.0,-19.7);
 		loc.setPitch(-304.0F);
 		loc.setYaw(79.3F);
-		Location loc8 = new Location(world,-83.3,174.1,-4.1);
+		final Location loc8 = new Location(world,-83.3,174.1,-4.1);
 		loc.setPitch(-299.5F);
 		loc.setYaw(56.9F);
-		Location loc9 = new Location(world,-102,131,10.7);
+		final Location loc9 = new Location(world,-102,131,10.7);
 		loc.setPitch(-300.7F);
 		loc.setYaw(60.6F);
-		Location loc10 = new Location(world,-108.5,104,14.5);
+		final Location loc10 = new Location(world,-108.5,104,14.5);
 		loc.setPitch(-301.6F);
 		loc.setYaw(41.7F);
-		Location loc11 = new Location(world,-121.3,73.6,21.3);
+		final Location loc11 = new Location(world,-121.3,73.6,21.3);
 		loc.setPitch(-291.1F);
 		loc.setYaw(12.3F);
-		Location loc12 = new Location(world,-121.4,73.6,21.4);
+		final Location loc12 = new Location(world,-121.4,73.6,21.4);
 		loc.setPitch(-22.3F);
 		loc.setYaw(9.6F);
-		Location loc13 = new Location(world,-116.3,73.6,31.9);
+		final Location loc13 = new Location(world,-116.3,73.6,31.9);
 		loc.setPitch(-64.5F);
 		loc.setYaw(32.7F);
-		Location loc14 = new Location(world,-100.1,66.1,39.7);
+		final Location loc14 = new Location(world,-100.1,66.1,39.7);
 		loc.setPitch(-190.2F);
 		loc.setYaw(15.6F);
-		Location loc15 = new Location(world,-101.2,66,37.9);
+		final Location loc15 = new Location(world,-101.2,66,37.9);
 		loc.setPitch(-239.8F);
 		loc.setYaw(-12.1F);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
@@ -66,37 +69,101 @@ public class Camera {
 		//SETUP
 		p.teleport(loc);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc1);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc2);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc3);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc4);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc5);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc6);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc7);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc8);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc9);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc10);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc11);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
 		p.teleport(loc12);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		p.teleport(loc13);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		p.teleport(loc14);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		p.teleport(loc15);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam start 2m");
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		p.teleport(loc13);
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	        	public void run(){
+			p.teleport(loc14);
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	        	public void run(){
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	        	public void run(){
+			p.teleport(loc15);
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam start 2m");
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
+	        	}
+			}, 2L);
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
 		p.sendMessage(ChatColor.DARK_AQUA + "Done! Let's get started!");
 		p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
