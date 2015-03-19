@@ -32,6 +32,7 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Listeners {
 	JoinManager jm = new JoinManager();
+	PreventAutoClaim pac = new PreventAutoClaim();
 	public void onEnable(){
 		Bukkit.getLogger().info("gFactions initialized! Yay!");
 	}
@@ -45,6 +46,6 @@ public class Listeners {
 		
 	}
 	public void PlayerEnterRegionEvent(RegionEnterEvent event){
-		
+		pac.Initialize(event);
 	}
 }

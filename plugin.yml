@@ -301,4 +301,4 @@ commands:
       usage:
       permission: CameraStudio.cam
       permission-message: You don't have <permission>
-softdepend: [Skript, CrackShot]
+softdepend: [Skript, CrackShot, Factions]
