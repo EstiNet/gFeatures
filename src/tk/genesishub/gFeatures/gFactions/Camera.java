@@ -14,7 +14,9 @@ public class Camera {
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
 		p.sendMessage(ChatColor.DARK_AQUA + "Welcome to GenesisHub " + ChatColor.RED + " Factions" + ChatColor.DARK_AQUA + "!");
-		p.sendMessage(ChatColor.DARK_AQUA + "Let's get started!");
+		p.sendMessage(ChatColor.DARK_AQUA + "Before we begin, we are going to setup the tuturial. This may take up to 20 seconds.!");
+		p.sendMessage(ChatColor.DARK_AQUA + "During this time you will be teleported and you will be executing some commands!");
+		p.sendMessage(ChatColor.DARK_AQUA + "Done! Let's get started!");
 		p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
 		p.sendMessage(ChatColor.DARK_AQUA + "We'll be hovering here for a while.");
 		p.sendMessage(ChatColor.DARK_AQUA + "Sit back and enjoy the ride!");
