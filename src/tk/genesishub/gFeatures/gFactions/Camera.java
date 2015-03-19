@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 
 public class Camera {
 	public void Tutorial(Player p){
+		p.hidePlayer(p);
 		World world = Bukkit.getServer().getWorld("Factions1.8.3");
 		Location loc = new Location(world, -95, 71, 51);
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
@@ -16,5 +17,6 @@ public class Camera {
 		p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
 		p.sendMessage(ChatColor.DARK_AQUA + "We'll be hovering here for a while.");
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+		p.showPlayer(p);
 	}
 }
