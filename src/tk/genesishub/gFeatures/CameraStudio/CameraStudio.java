@@ -22,7 +22,7 @@ import org.bukkit.entity.Player;
 
 public class CameraStudio
 {
-  private HashMap<Player, List<Location>> points = new HashMap<>();
+  private HashMap<Player, List<Location>> points = new HashMap();
   private HashSet<Player> stopping = new HashSet<Player>();
   private HashSet<Player> travelling = new HashSet<Player>();
   private static String prefix = ChatColor.AQUA + "[" + ChatColor.DARK_AQUA + "CP" + ChatColor.AQUA + "CameraStudio] " + ChatColor.GREEN;
@@ -63,9 +63,9 @@ public class CameraStudio
         args = newArgs;
         if (subcmd.equalsIgnoreCase("p"))
         {
-          List<Location> locs = (List<Location>)this.points.get(player);
+          List<Location> locs = (List)this.points.get(player);
           if (locs == null) {
-            locs = new ArrayList<Location>();
+            locs = new ArrayList();
           }
           locs.add(player.getLocation());
           this.points.put(player, locs);
@@ -76,9 +76,9 @@ public class CameraStudio
         }
         if (subcmd.equalsIgnoreCase("r"))
         {
-          List<Location> locs = (List<Location>)this.points.get(player);
+          List<Location> locs = (List)this.points.get(player);
           if (locs == null) {
-            locs = new ArrayList<Location>();
+            locs = new ArrayList();
           }
           if (args.length == 0)
           {
@@ -119,7 +119,7 @@ public class CameraStudio
         }
         if (subcmd.equalsIgnoreCase("list"))
         {
-          List<Location> locs = (List<Location>)this.points.get(player);
+          List<Location> locs = (List)this.points.get(player);
           if ((locs == null) || (locs.size() == 0))
           {
             player.sendMessage(prefix + ChatColor.RED + "You don't have any points set");
@@ -145,7 +145,7 @@ public class CameraStudio
             try
             {
               int pos = Integer.valueOf(args[0]).intValue();
-              List<Location> locs = (List<Location>)this.points.get(player);
+              List<Location> locs = (List)this.points.get(player);
               if ((locs != null) && (locs.size() >= pos))
               {
                 player.teleport((Location)locs.get(pos - 1));
@@ -208,31 +208,31 @@ public class CameraStudio
               
               int time = (cal.get(12) * 60 + cal.get(13)) * 20;
               
-              List<Location> locs = (List<Location>)this.points.get(player);
+              List<Location> locs = (List)this.points.get(player);
               if ((locs == null) || (locs.size() <= 1))
               {
                 player.sendMessage(prefix + ChatColor.RED + "Not enough points set");
                 return true;
               }
-              List<Double> diffs = new ArrayList<Double>();
-              List<Integer> travelTimes = new ArrayList<Integer>();
+              List<Double> diffs = new ArrayList();
+              List<Integer> travelTimes = new ArrayList();
+              Location nst;
               
               double totalDiff = 0.0D;
               for (int i = 0; i < locs.size() - 1; i++)
               {
                 Location s = (Location)locs.get(i);
-                
-                Location n = (Location)locs.get(i + 1);
-                double diff = positionDifference(s, n);
+               nst = (Location)locs.get(i + 1);
+                double diff = positionDifference(s, nst);
                 totalDiff += diff;
                 diffs.add(Double.valueOf(diff));
               }
-              for (Location n = (Location) diffs.iterator(); ((Iterator<Double>) n).hasNext();)
+              for (Iterator<Double> ns = diffs.iterator(); ns.hasNext();)
               {
-                double d = ((Double)((Iterator<Double>) n).next()).doubleValue();
+                double d = ((Double)ns.next()).doubleValue();
                 travelTimes.add(Integer.valueOf((int)(d / totalDiff * time)));
               }
-              final List<Location> tps = new ArrayList<Location>();
+              final List<Location> tps = new ArrayList();
               
               World w = player.getWorld();
               for (int i = 0; i < locs.size() - 1; i++)
@@ -285,7 +285,7 @@ public class CameraStudio
                       player.teleport((Location)tps.get(this.ticks));
                       if (!CameraStudio.this.stopping.contains(player))
                       {
-                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), this, 1L);
+                       Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), this, 1L);
                       }
                       else
                       {

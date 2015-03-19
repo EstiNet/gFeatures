@@ -47,7 +47,7 @@ public class Enabler {
 		GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 		GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
 		GenesisScorePlugin.setPluginState(PluginState.DISABLE);
-		CameraStudioPlugin.setPluginState(PluginState.DISABLE);
+		CameraStudioPlugin.setPluginState(PluginState.ENABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
