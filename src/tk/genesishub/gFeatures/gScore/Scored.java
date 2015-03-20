@@ -8,8 +8,6 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
-
 import com.earth2me.essentials.api.Economy;
 import com.earth2me.essentials.api.UserDoesNotExistException;
 
@@ -21,10 +19,9 @@ public class Scored {
 	public Scoreboard Initialize(Player p) throws IllegalStateException, UserDoesNotExistException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Team team = board.registerNewTeam("GenesisHub");
 		Objective objective = board.registerNewObjective("test", "dummy");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "_GenesisHub_");
+		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _GenesisHub_  ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(9);
 		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().length)); //Get a fake offline player
@@ -42,7 +39,7 @@ public class Scored {
 		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "GenesisHub!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!"}; 
 		Score score9 = objective.getScore(ChatColor.LIGHT_PURPLE + str[(int) Math.floor(Math.random() * 14)]);
 		score9.setScore(2);
-		Score score10 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Hey " + p.getName() + "!");
+		Score score10 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Hi " + p.getName() + "!");
 		score10.setScore(1);
 		return board;
 	}

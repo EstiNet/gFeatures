@@ -3,8 +3,6 @@ package tk.genesishub.gFeatures.gWarsSuite;
 import java.io.File;
 import java.io.IOException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
@@ -17,7 +15,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 /*
@@ -53,10 +50,6 @@ public class JoinManager{
     			Bukkit.getLogger().info(ChatColor.GOLD + "Player is in vehicle. Setting health to 0");
     		}
             boolean b = sr.playerExists(p.getUniqueId().toString());
-    		DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-     		DocumentBuilder docBuilder;
-    			docBuilder = docFactory.newDocumentBuilder();
-    		Document doc = docBuilder.parse(f);
     		if(!(b)){
     			fm.createaNode(p);
     		}

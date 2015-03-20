@@ -1,17 +1,10 @@
 package tk.genesishub.gFeatures.gFactions;
 
-import java.util.Iterator;
-
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-
 import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.mewin.WGRegionEvents.events.RegionLeaveEvent;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 /*
 gFeatures

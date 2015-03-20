@@ -119,6 +119,7 @@ public class Connection {
         }
 		return false;
 	}
+	@SuppressWarnings("unused")
 	public boolean tableExists(String url, String user, String password) throws SQLException{
 		java.sql.Connection con = null;
         java.sql.Statement st = null;

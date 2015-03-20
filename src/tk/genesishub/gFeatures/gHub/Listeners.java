@@ -1,5 +1,9 @@
 package tk.genesishub.gFeatures.gHub;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Effect;
+import org.bukkit.event.player.PlayerJoinEvent;
+
 /*
 gFeatures
 https://github.com/Seshpenguin/gFeatures
@@ -20,5 +24,16 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Listeners {
-
+	public void onEnable(){
+		
+	}
+	public void onDisable(){
+		
+	}
+	@SuppressWarnings("deprecation")
+	public void onPlayerJoin(PlayerJoinEvent event){
+		event.getPlayer().playEffect(event.getPlayer().getLocation(), Effect.RECORD_PLAY, 2262);
+		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Now playing: Vexento-Pixel Party");
+		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Make sure you get the resource pack!");
+	}
 }

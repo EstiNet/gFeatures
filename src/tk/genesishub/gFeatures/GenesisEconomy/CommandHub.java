@@ -15,7 +15,7 @@ public class CommandHub {
 	CheckConfig cc = new CheckConfig();
 	Connection c = new Connection();
 	Economy eco = new Economy();
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unused" })
 	public void Intitiate(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException {
 		String URL, Username, Password, Address, Port, Tablename;
 		Password = cc.getPassword();

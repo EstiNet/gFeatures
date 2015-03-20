@@ -9,9 +9,6 @@ import org.bukkit.entity.Player;
 
 import com.earth2me.essentials.api.UserDoesNotExistException;
 
-import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
-import tk.genesishub.gFeatures.PluginManage.PluginState;
-
 public class MoneyManager {
 	Connection c = new Connection();
 	CheckConfig cc = new CheckConfig();
@@ -50,7 +47,6 @@ public class MoneyManager {
 	}
 	public List<String> clupicTop(){
 		List<String> rs = new ArrayList<>();
-		List<String> player = new ArrayList<>();
 		rs = c.ConnectReturn(URL, Username, Password, "select * from Peoples;");
 		return rs;
 	}

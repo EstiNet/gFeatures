@@ -19,6 +19,7 @@ import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
+import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
 import com.mewin.WGRegionEvents.events.RegionEnterEvent;
@@ -48,6 +49,7 @@ public class ListenersHub {
 	tk.genesishub.gFeatures.gDestroyCritical.Listeners gDestroy = new tk.genesishub.gFeatures.gDestroyCritical.Listeners();
 	tk.genesishub.gFeatures.gScore.Listeners gScore = new tk.genesishub.gFeatures.gScore.Listeners();
 	tk.genesishub.gFeatures.gFactions.Listeners gFactions = new tk.genesishub.gFeatures.gFactions.Listeners();
+	tk.genesishub.gFeatures.gHub.Listeners gHub = new tk.genesishub.gFeatures.gHub.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
 	static PlayerMoveEvent playermove;
@@ -80,6 +82,9 @@ public class ListenersHub {
 			}
 			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
 				gScore.onPlayerJoin(playerjoin);
+			}
+			if(gHubPlugin.getState().equals(PluginState.ENABLE)){
+				gHub.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
