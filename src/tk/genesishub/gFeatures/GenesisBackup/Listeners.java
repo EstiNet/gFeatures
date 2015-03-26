@@ -35,6 +35,7 @@ public class Listeners {
 		Bukkit.getLogger().info("Disabled plugin GenesisBackup!");
 	}
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		
+		CommandHub ch = new CommandHub();
+		ch.CommandInitiate(sender, cmd, label, args);
 	}
 }

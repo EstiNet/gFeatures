@@ -39,7 +39,7 @@ public class Scored {
 		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "GenesisHub!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!"}; 
 		Score score9 = objective.getScore(ChatColor.LIGHT_PURPLE + str[(int) Math.floor(Math.random() * 14)]);
 		score9.setScore(2);
-		Score score10 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName());
+		Score score10 = objective.getScore(ChatColor.DARK_AQUA + p.getName());
 		score10.setScore(1);
 		return board;
 	}
