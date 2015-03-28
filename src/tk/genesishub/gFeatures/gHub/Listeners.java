@@ -38,7 +38,7 @@ public class Listeners {
         	@SuppressWarnings("deprecation")
 			public void run(){
         		Location loc = new Location(Bukkit.getServer().getWorld("GenesisHub"), -2036, 168, 1963);
-        		event.getPlayer().playEffect(event.getPlayer().getLocation(), Effect.RECORD_PLAY, Material.RECORD_7.getId());
+        		event.getPlayer().playEffect(loc, Effect.RECORD_PLAY, Material.RECORD_7.getId());
         		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Now playing: Vexento-Pixel Party");
         		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Make sure you get the resource pack!");
            }
