@@ -30,5 +30,4 @@ command /optimize:
 every 3 minute:
     broadcast "[&aGenesis&bEssentials&r] Optimizing Server Performance..."
     execute console command "storm chunk"
-    execute console command "killall hostile"
     broadcast "&l&c[&aGenesis&bEssentials&c]&r Complete!"
