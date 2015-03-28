@@ -167,11 +167,6 @@ public class Listeners extends JavaPlugin implements Listener{
     	ListenersHub.playercommand = event;
     	lh.PlayerCommandEvent();
     }
-    @EventHandler
-    public void onRegionEnter(RegionEnterEvent event){
-    	ListenersHub.playerregionenter = event;
-    	lh.PlayerEnterRegionEvent();
-    }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	CommandCentral cc = new CommandCentral();

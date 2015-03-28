@@ -3,8 +3,6 @@ package tk.genesishub.gFeatures.gFactions;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import com.mewin.WGRegionEvents.events.RegionEnterEvent;
-import com.mewin.WGRegionEvents.events.RegionLeaveEvent;
 
 /*
 gFeatures
@@ -27,7 +25,6 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Listeners {
 	JoinManager jm = new JoinManager();
-	PreventAutoClaim pac = new PreventAutoClaim();
 	public void onEnable(){
 		Bukkit.getLogger().info("gFactions initialized! Yay!");
 	}
@@ -41,12 +38,5 @@ public class Listeners {
 		if(Const.atSpawn.contains(event.getPlayer())){
 			
 		}
-	}
-	public void PlayerEnterRegionEvent(RegionEnterEvent event){
-		Const.atSpawn.add(event.getPlayer().getName());
-		//pac.Initialize(event);
-	}
-	public void PlayerLeaveRegionEvent(RegionLeaveEvent event){
-		Const.atSpawn.remove(event.getPlayer().getName());
 	}
 }

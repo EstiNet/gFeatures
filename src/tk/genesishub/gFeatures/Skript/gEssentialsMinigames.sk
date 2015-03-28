@@ -18,12 +18,6 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 	
-on login:
-	chance of 15%:
-		give a cake to the player
-		wait a tick
-		send "&l&c[&aGenesis&bEssentials&c]&r You are lucky today! Have a free cake!" to the player
-	
 
 command /icanhasge:
 	description: Seecret Command!

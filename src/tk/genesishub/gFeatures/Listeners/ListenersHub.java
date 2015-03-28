@@ -1,6 +1,5 @@
 package tk.genesishub.gFeatures.Listeners;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -18,11 +17,9 @@ import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
-import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
-import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 /*
 gFeatures
@@ -61,7 +58,6 @@ public class ListenersHub {
 	static BlockBreakEvent blockbreak;
 	static AsyncPlayerChatEvent playerchat;
 	static PlayerCommandPreprocessEvent playercommand;
-	static RegionEnterEvent playerregionenter;
 	
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	
@@ -198,12 +194,6 @@ public class ListenersHub {
 		}
 		if(GenesisAccessPlugin.getState().equals(PluginState.ENABLE)){
 			GenesisAccess.PlayerCommandEvent(playercommand);
-		}
-	}
-	protected void PlayerEnterRegionEvent(){
-		inTo();
-		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
-			gFactions.PlayerEnterRegionEvent(playerregionenter);
 		}
 	}
 	private void inTo(){
