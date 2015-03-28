@@ -34,7 +34,6 @@ import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Skript.Skripts;
 import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
 
-import com.mewin.WGRegionEvents.events.RegionEnterEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
