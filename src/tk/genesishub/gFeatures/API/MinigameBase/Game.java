@@ -11,6 +11,7 @@ public class Game {
 	public static String gamename;
 	public static List<Player> players = new ArrayList<>();
 	public static int requiredplayers;
+	public static List<Teams> teams = new ArrayList<>();
 	public static Arena arena;
 	
 	public static String startmessage;
@@ -33,6 +34,15 @@ public class Game {
 	}
 	public void setCurrentArena(Arena arenas){
 		arena = arenas;
+	}
+	public void addTeam(Teams team){
+		teams.add(team);
+	}
+	public void removeTeam(Teams team){
+		teams.remove(team);
+	}
+	public Teams getTeam(int index){
+		return teams.get(index);
 	}
 	public boolean checkStart(){
 		if(players.size() >= requiredplayers){
