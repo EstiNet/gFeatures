@@ -106,6 +106,9 @@ public class ListenersHub {
 			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
 				gScore.onPlayerLeave(playerquit);
 			}
+			if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+				HideAndSeek.onPlayerQuit(playerquit);
+			}
 		} catch (Exception e) {
 			
 			e.printStackTrace();

@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.HideAndSeek;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import tk.genesishub.gFeatures.API.MinigameBase.Arena;
 import tk.genesishub.gFeatures.API.MinigameBase.Game;
@@ -27,7 +28,9 @@ public class Listeners {
 	}
 	public void onPlayerJoin(PlayerJoinEvent event){
 		hideandseek.addPlayer(event.getPlayer());
+		hideandseek.checkStart();
+	}
+	public void onPlayerQuit(PlayerQuitEvent event){
 		
 	}
-	
 }

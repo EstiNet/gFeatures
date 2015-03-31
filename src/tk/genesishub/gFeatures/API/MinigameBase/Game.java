@@ -3,6 +3,7 @@ package tk.genesishub.gFeatures.API.MinigameBase;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class Game {
@@ -10,6 +11,7 @@ public class Game {
 	public static String gamename;
 	public static List<Player> players = new ArrayList<>();
 	public static int requiredplayers;
+	public static Arena arena;
 	
 	public static String startmessage;
 	
@@ -29,12 +31,23 @@ public class Game {
 	public void removePlayer(Player player){
 		players.remove(player);
 	}
-	public void checkStart(){
+	public void setCurrentArena(Arena arenas){
+		arena = arenas;
+	}
+	public boolean checkStart(){
 		if(players.size() >= requiredplayers){
 			setState(true);
+			startGame();
+			return true;
+		}
+		else{
+			return false;
 		}
 	}
 	public void setStartMessage(String str){
 		startmessage = str;
+	}
+	public void startGame(){
+		Bukkit.getServer().broadcastMessage(startmessage);
 	}
 }
