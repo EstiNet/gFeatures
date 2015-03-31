@@ -6,6 +6,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import tk.genesishub.gFeatures.API.MinigameBase.Arena;
 import tk.genesishub.gFeatures.API.MinigameBase.Game;
+import tk.genesishub.gFeatures.API.MinigameBase.Resource;
 import tk.genesishub.gFeatures.API.MinigameBase.Teams;
 
 public class Listeners {
@@ -13,16 +14,20 @@ public class Listeners {
 	Teams finder;
 	Arena currentarena;
 	Game hideandseek;
+	Resource resource;
 	public void onEnable(){
 		Bukkit.getLogger().info("HideAndSeek enabled. What's up?");
 		hider = new Teams(ChatColor.DARK_AQUA + "Hider");
 		finder = new Teams(ChatColor.GRAY + "Finder");
-		hideandseek = new Game("HideAndSeek");
+		hideandseek = new Game("HideAndSeek", 2);
+		resource = (Resource) hideandseek;
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("HideAndSeek disabled. Bye!");
 	}
 	public void onPlayerJoin(PlayerJoinEvent event){
+		hideandseek.addPlayer(event.getPlayer());
 		
 	}
+	
 }

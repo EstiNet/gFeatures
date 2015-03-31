@@ -7,7 +7,7 @@ import java.util.List;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-public class Arena {
+public class Arena{
 	
 	public static String name;
 	public static HashMap<String, Location> spawns = new HashMap<>();

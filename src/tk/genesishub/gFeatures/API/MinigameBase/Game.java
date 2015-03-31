@@ -6,14 +6,17 @@ import java.util.List;
 import org.bukkit.entity.Player;
 
 public class Game {
-	public static boolean state;
+	public static boolean state = false;
 	public static String gamename;
 	public static List<Player> players = new ArrayList<>();
+	public static int requiredplayers;
 	
-	public Game(String name){
+	public static String startmessage;
+	
+	public Game(String name, int requiredplayer){
 		gamename = name;
+		requiredplayers = requiredplayer;
 	}
-	
 	public void setName(String str){
 		gamename = str;
 	}
@@ -25,5 +28,13 @@ public class Game {
 	}
 	public void removePlayer(Player player){
 		players.remove(player);
+	}
+	public void checkStart(){
+		if(players.size() >= requiredplayers){
+			setState(true);
+		}
+	}
+	public void setStartMessage(String str){
+		startmessage = str;
 	}
 }
