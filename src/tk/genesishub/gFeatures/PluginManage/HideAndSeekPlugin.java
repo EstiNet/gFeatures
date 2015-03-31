@@ -1,13 +1,13 @@
 package tk.genesishub.gFeatures.PluginManage;
 
-public class CameraStudioPlugin {
-	static PluginState state;
+public class HideAndSeekPlugin {
+	public static PluginState state;
 	static double version;
-	public CameraStudioPlugin(){}
-	public CameraStudioPlugin(PluginState state1){
-			state = state1;
+	public HideAndSeekPlugin(){}
+	public HideAndSeekPlugin(PluginState state1){
+			HideAndSeekPlugin.state = state1;
 	}
-	public CameraStudioPlugin(double version1){
+	public HideAndSeekPlugin(double version1){
 		version = version1;
 	}
 	static public void setPluginState(PluginState pluginstate){
@@ -20,6 +20,6 @@ public class CameraStudioPlugin {
 		return version;
 	}
 	static public PluginState getState(){
-		return state;
+		return HideAndSeekPlugin.state;
 	}
 }

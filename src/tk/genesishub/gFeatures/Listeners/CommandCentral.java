@@ -2,7 +2,9 @@ package tk.genesishub.gFeatures.Listeners;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+
 import tk.genesishub.gFeatures.Commands.GenesisEconomyCore;
+import tk.genesishub.gFeatures.Commands.HideAndSeek;
 import tk.genesishub.gFeatures.Commands.gFactionsCore;
 import tk.genesishub.gFeatures.Commands.gFeatureCore;
 import tk.genesishub.gFeatures.Commands.gWarsSuiteCore;
@@ -31,10 +33,12 @@ public class CommandCentral {
 	gWarsSuiteCore gwc = new gWarsSuiteCore();
 	GenesisEconomyCore gec = new GenesisEconomyCore();
 	gFactionsCore gfac = new gFactionsCore();
+	HideAndSeek has = new HideAndSeek();
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
 		gfc.CommandSwitch(sender, cmd, label, args);
 		gwc.CommandSwitch(sender, cmd, label, args);
 		gec.CommandSwitch(sender, cmd, label, args);
+		has.CommandSwitch(sender, cmd, label, args);
 		gfac.CommandSwitch(sender, cmd, label, args);
 	}
 }

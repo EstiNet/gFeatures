@@ -10,6 +10,7 @@ import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -50,6 +51,7 @@ public class gFeaturesFileManager {
 	File gEconomy = new File("plugins/gFeatures/gEconomy");
 	File gBackup = new File("plugins/gFeatures/gBackup");
 	File gScore = new File("plugins/gFeatures/gScore");
+	File HideAndSeek = new File("plugins/gFeatures/HideAndSeek");
 	public void exists() throws IOException{
 		try{
 		if(!(main.isDirectory())){
@@ -97,6 +99,11 @@ public class gFeaturesFileManager {
 			Bukkit.getLogger().info("Seems like it's the first time you ran GenesisScore...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
+		if(!(HideAndSeek.isDirectory()) && HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+			HideAndSeek.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran HideAndSeek...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
 		if(!(f.exists())){
 			f.createNewFile();
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
@@ -113,7 +120,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.GenesisEconomy");
 			yamlFile.createSection("Config.Plugins.GenesisBackup");
 			yamlFile.createSection("Config.Plugins.gScore");
-            //yamlFile.createSection("Config.Plugins.CameraStudio");
+            yamlFile.createSection("Config.Plugins.HideAndSeek");
 			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
@@ -140,7 +147,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.GenesisEconomy", "false");
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 			yamlFile.set("Config.Plugins.gScore", "false");
-            //yamlFile.set("Config.Plugins.CameraStudio", "false");
+            yamlFile.set("Config.Plugins.HideAndSeek", "false");
 			//Skript value
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");

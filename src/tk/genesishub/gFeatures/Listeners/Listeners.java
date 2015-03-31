@@ -21,11 +21,11 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import tk.genesishub.gFeatures.PluginManage.CameraStudioPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -211,8 +211,8 @@ public class Listeners extends JavaPlugin implements Listener{
 		if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
 			GenesisScorePlugin.setPluginState(PluginState.DISABLE);
 		}
-		if(CameraStudioPlugin.getState().equals(PluginState.ENABLE)){
-			CameraStudioPlugin.setPluginState(PluginState.DISABLE);
+		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+			HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);

@@ -10,6 +10,7 @@ import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -51,6 +52,7 @@ public class YAMLInitialize {
 	gWarsSuitePlugin gwsp = new gWarsSuitePlugin();
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
+	HideAndSeekPlugin gasp = new HideAndSeekPlugin();
 	public void Enabler() throws IOException{
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f); 
 		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
@@ -102,10 +104,10 @@ public class YAMLInitialize {
 			GenesisScorePlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded gScore.");
 		}
-		/*if(yamlFile.get("Config.Plugins.CameraStudio").equals("true")){
-			GenesisScorePlugin.setPluginState(PluginState.ENABLE);
-			Bukkit.getLogger().info("Loaded CameraStudio.");
-		}*/
+		if(yamlFile.get("Config.Plugins.HideAndSeek").equals("true")){
+			HideAndSeekPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded HideAndSeek.");
+		}
 		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
 			sm.Enable(Skripts.gEssentialsHub);
 			Bukkit.getLogger().info("Loaded gEssentialsHub.");

@@ -5,6 +5,7 @@ import java.io.IOException;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -63,6 +64,9 @@ public class Disabler {
 			GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 			tk.genesishub.gFeatures.GenesisEconomy.Listeners listeners = new tk.genesishub.gFeatures.GenesisEconomy.Listeners();
 			listeners.onDisable();
+		}
+		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+			HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);

@@ -52,8 +52,8 @@ public class PluginManager {
 		if(getPluginState(Plugins.gScore).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gScore);
 		}
-		if(getPluginState(Plugins.CameraStudio).equals(PluginState.ENABLE)){
-			plugins.add(Plugins.CameraStudio);
+		if(getPluginState(Plugins.HideAndSeek).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.HideAndSeek);
 		}
 		return plugins;
 	}
@@ -86,8 +86,8 @@ public class PluginManager {
 		if(getPluginState(Plugins.gScore).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gScore);
 		}
-		if(getPluginState(Plugins.CameraStudio).equals(PluginState.DISABLE)){
-			plugins.add(Plugins.CameraStudio);
+		if(getPluginState(Plugins.HideAndSeek).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.HideAndSeek);
 		}
 		return plugins;
 	}
@@ -121,8 +121,8 @@ public class PluginManager {
 		case gScore:
 			ps = GenesisScorePlugin.getState();
 			break;
-		case CameraStudio:
-			ps = CameraStudioPlugin.getState();
+		case HideAndSeek:
+			ps = HideAndSeekPlugin.getState();
 			break;
 		case UnknownPlugin:
 			break;

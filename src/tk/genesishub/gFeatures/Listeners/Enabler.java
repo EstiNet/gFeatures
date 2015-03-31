@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
-import tk.genesishub.gFeatures.PluginManage.CameraStudioPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
@@ -47,7 +47,7 @@ public class Enabler {
 		GenesisEconomyPlugin.setPluginState(PluginState.DISABLE);
 		GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
 		GenesisScorePlugin.setPluginState(PluginState.DISABLE);
-		CameraStudioPlugin.setPluginState(PluginState.ENABLE);
+		HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
@@ -58,7 +58,8 @@ public class Enabler {
 			Listeners.onEnable();
 		}
 		if(gHubPlugin.getState().equals(PluginState.ENABLE)){
-			
+			tk.genesishub.gFeatures.gHub.Listeners Listeners = new tk.genesishub.gFeatures.gHub.Listeners();
+			Listeners.onEnable();
 		}
 		if(gFactionsPlugin.getState().equals(PluginState.ENABLE)){
 			
@@ -82,6 +83,9 @@ public class Enabler {
 		if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gScore.Listeners listeners = new tk.genesishub.gFeatures.gScore.Listeners();
 			listeners.onEnable();
+		}
+		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+			
 		}
 	}
 }
