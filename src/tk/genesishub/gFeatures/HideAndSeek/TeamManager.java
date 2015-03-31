@@ -6,9 +6,6 @@ import tk.genesishub.gFeatures.API.MinigameBase.Teams;
 
 public class TeamManager {
 	tk.genesishub.gFeatures.HideAndSeek.Listeners Listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
-	public void joinTeam(Player player){
-		
-	}
 	public void onJoinTeam(Player player, Teams team) throws Exception{
 		if(team.equals(Listeners.hideandseek.getTeam(0))){
 			Listeners.hideandseek.getTeam(0).addPlayer(player);
