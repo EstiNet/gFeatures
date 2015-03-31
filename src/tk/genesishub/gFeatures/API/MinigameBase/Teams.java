@@ -7,11 +7,19 @@ import org.bukkit.entity.Player;
 
 public class Teams {
 	public static List<Player> players = new ArrayList<>();
+	public static String teamname;
+	
+	public Teams(String name){
+		teamname = name;
+	}
 	
 	public void addPlayer(Player p){
 		players.add(p);
 	}
 	public void removePlayer(Player p){
 		players.remove(p);
+	}
+	public void setName(String name){
+		teamname = name;
 	}
 }
