@@ -85,7 +85,8 @@ public class Enabler {
 			listeners.onEnable();
 		}
 		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
-			
+			tk.genesishub.gFeatures.HideAndSeek.Listeners listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+			listeners.onEnable();
 		}
 	}
 }

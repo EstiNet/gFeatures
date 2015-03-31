@@ -67,6 +67,8 @@ public class Disabler {
 		}
 		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
 			HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
+			tk.genesishub.gFeatures.HideAndSeek.Listeners listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+			listeners.onDisable();
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);
