@@ -15,6 +15,7 @@ import tk.genesishub.gFeatures.GenesisAccess.Main;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisScorePlugin;
+import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
@@ -47,6 +48,7 @@ public class ListenersHub {
 	tk.genesishub.gFeatures.gScore.Listeners gScore = new tk.genesishub.gFeatures.gScore.Listeners();
 	tk.genesishub.gFeatures.gFactions.Listeners gFactions = new tk.genesishub.gFeatures.gFactions.Listeners();
 	tk.genesishub.gFeatures.gHub.Listeners gHub = new tk.genesishub.gFeatures.gHub.Listeners();
+	tk.genesishub.gFeatures.HideAndSeek.Listeners HideAndSeek = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
 	static PlayerMoveEvent playermove;
@@ -81,6 +83,9 @@ public class ListenersHub {
 			}
 			if(gHubPlugin.getState().equals(PluginState.ENABLE)){
 				gHub.onPlayerJoin(playerjoin);
+			}
+			if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+				HideAndSeek.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
