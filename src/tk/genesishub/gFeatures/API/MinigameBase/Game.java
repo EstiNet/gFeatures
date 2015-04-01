@@ -41,6 +41,14 @@ public class Game {
 	public void removeTeam(Teams team){
 		teams.remove(team);
 	}
+	public Teams getTeam(String name){
+		for(Teams team : teams){
+			if(team.getName().equals(name)){
+				return team;
+			}
+		}
+		return null;
+	}
 	public Teams getTeam(int index){
 		return teams.get(index);
 	}

@@ -23,10 +23,16 @@ public class Teams {
 	public void removePlayer(Player p){
 		players.remove(p);
 	}
+	public List<Player> getPlayers(){
+		return players;
+	}
 	public void setName(String name){
 		teamname = name;
 	}
 	public int length(){
 		return players.size();
+	}
+	public String getName(){
+		return teamname;
 	}
 }

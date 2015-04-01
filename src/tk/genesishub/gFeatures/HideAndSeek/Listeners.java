@@ -32,24 +32,6 @@ public class Listeners {
 	public void onPlayerJoin(PlayerJoinEvent event){
 		hideandseek.addPlayer(event.getPlayer());
 	}
-	public void onJoinTeam(Player player, Teams team) throws Exception{
-		if(team.equals(hider)){
-			hider.addPlayer(player);
-			if(checkStartTwo()){
-			hideandseek.checkStart();
-			}
-		}
-		else if(team.equals(finder)){
-			finder.addPlayer(player);
-			if(checkStartTwo()){
-				hideandseek.checkStart();
-			}
-		}
-		else{
-			Exception exception = new Exception();;
-			throw exception;
-		}
-	}
 	public void onPlayerQuit(PlayerQuitEvent event){
 		hideandseek.removePlayer(event.getPlayer());
 	}
