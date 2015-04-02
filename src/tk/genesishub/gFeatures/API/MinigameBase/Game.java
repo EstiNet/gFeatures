@@ -13,6 +13,7 @@ public class Game {
 	public static int requiredplayers;
 	public static List<Teams> teams = new ArrayList<>();
 	public static Arena arena;
+	public static int timebeforestart;
 	
 	public static String startmessage;
 	
@@ -40,6 +41,12 @@ public class Game {
 	}
 	public void removeTeam(Teams team){
 		teams.remove(team);
+	}
+	public int getTimeBeforeStart(){
+		return timebeforestart;
+	}
+	public void setTimeBeforeStart(int time){
+		timebeforestart = time;
 	}
 	public Teams getTeam(String name){
 		for(Teams team : teams){
