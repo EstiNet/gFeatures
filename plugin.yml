@@ -11,8 +11,12 @@ commands:
    GenesisBackup:
      description: gBackup core command.
      aliases: [gBackup, GenesisBackup, gb]
-     permission: gFeatures.command.gFeatures
+     permission: gFeatures.command.gBackup
      usage: Syntax error! Do /gBackup help for help.
+   gMusic:
+     description: gMusic core command.
+     aliases: [play, song, music]
+     usage: Syntax error! Do /gMusic help for help.
    clupic:
       description: Core command for clupic!
       usage: Syntax error! Do /clupic help for help.
