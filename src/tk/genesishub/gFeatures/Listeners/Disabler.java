@@ -10,6 +10,7 @@ import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Skript.Skripts;
 import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
@@ -68,6 +69,11 @@ public class Disabler {
 		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
 			HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
 			tk.genesishub.gFeatures.HideAndSeek.Listeners listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+			listeners.onDisable();
+		}
+		if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
+			gMusicPlugin.setPluginState(PluginState.DISABLE);
+			tk.genesishub.gFeatures.gMusic.Listeners listeners = new tk.genesishub.gFeatures.gMusic.Listeners();
 			listeners.onDisable();
 		}
 		sm.Disable(Skripts.gEssentialsHub);

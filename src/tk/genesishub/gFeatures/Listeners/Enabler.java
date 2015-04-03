@@ -15,6 +15,7 @@ import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFeaturePlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
 /*
@@ -48,6 +49,7 @@ public class Enabler {
 		GenesisBackupPlugin.setPluginState(PluginState.DISABLE);
 		GenesisScorePlugin.setPluginState(PluginState.DISABLE);
 		HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
+		gMusicPlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
@@ -86,6 +88,10 @@ public class Enabler {
 		}
 		if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.HideAndSeek.Listeners listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+			listeners.onEnable();
+		}
+		if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.gMusic.Listeners listeners = new tk.genesishub.gFeatures.gMusic.Listeners();
 			listeners.onEnable();
 		}
 	}

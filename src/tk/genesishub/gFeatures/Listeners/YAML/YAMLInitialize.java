@@ -15,6 +15,7 @@ import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Presets.gDestroyPreset;
 import tk.genesishub.gFeatures.Presets.gFactionsPreset;
@@ -53,6 +54,7 @@ public class YAMLInitialize {
 	gDestroyCriticalPlugin gdcp = new gDestroyCriticalPlugin();
 	GenesisAccessPlugin gap = new GenesisAccessPlugin();
 	HideAndSeekPlugin gasp = new HideAndSeekPlugin();
+	gMusicPlugin gmp = new gMusicPlugin();
 	public void Enabler() throws IOException{
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f); 
 		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
@@ -107,6 +109,10 @@ public class YAMLInitialize {
 		if(yamlFile.get("Config.Plugins.HideAndSeek").equals("true")){
 			HideAndSeekPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded HideAndSeek.");
+		}
+		if(yamlFile.get("Config.Plugins.gMusic").equals("true")){
+			gMusicPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gMusic.");
 		}
 		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
 			sm.Enable(Skripts.gEssentialsHub);
