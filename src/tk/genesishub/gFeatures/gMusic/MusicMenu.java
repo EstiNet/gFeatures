@@ -125,7 +125,7 @@ public class MusicMenu {
     }
 	public InventoryAPI vexento(final Player p){
 		try{
-		InventoryAPI menu = new InventoryAPI("Artist: Vexento", 18, new InventoryAPI.OptionClickEventHandler() {
+		InventoryAPI menu = new InventoryAPI("Artist: Vexento", 27, new InventoryAPI.OptionClickEventHandler() {
 	        @SuppressWarnings("deprecation")
 			@Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
@@ -174,31 +174,31 @@ public class MusicMenu {
 		           event.getPlayer().closeInventory();
 		      }
 	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
-	            	p.playSound(p.getLocation(), "records.ward", 50, 1);
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
 		           event.getPlayer().closeInventory();
 		      }
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
     .setOption(0, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Carl Espen-Silent Storm (Vexento Remix)")
-    .setOption(1, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Kime & Vexento - Climb")
-    .setOption(2, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Lana Del Rey - Summertime Sadness (Vexento Remix)")
-    .setOption(3, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Lucas King - The Last Leaf Falls (Vexento Remix)")
-	.setOption(4, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Owl City - Meteor Shower (Vexento Remix)")
-	.setOption(5, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Tenmon - Distant Everyday Memories (Vexento Remix)")
-	.setOption(6, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Tep No - It's Alright (Vexento Remix)")
-	.setOption(7, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Vexento - Adrenaline")
-	.setOption(8, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Vexento - Affectus")
-	.setOption(9, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Vexento - Amor (Original Mix)")
+    .setOption(1, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"Kime & Vexento - Climb")
+    .setOption(2, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"Lana Del Rey - Summertime Sadness (Vexento Remix)")
+    .setOption(3, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"Lucas King - The Last Leaf Falls (Vexento Remix)")
+	.setOption(4, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"Owl City - Meteor Shower (Vexento Remix)")
+	.setOption(5, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"Tenmon - Distant Everyday Memories (Vexento Remix)")
+	.setOption(6, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"Tep No - It's Alright (Vexento Remix)")
+	.setOption(7, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"Vexento - Adrenaline")
+	.setOption(8, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"Vexento - Affectus")
+	.setOption(9, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"Vexento - Amor (Original Mix)")
 	.setOption(10, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Vexento - Anesthesia")
-	.setOption(11, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"Vexento - Another Life (100%)")
-	.setOption(12, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(13, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(14, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(15, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(16, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(17, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
-	.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward");
+	.setOption(11, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"Vexento - Another Life (100%)")
+	.setOption(12, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"ward")
+	.setOption(13, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"ward")
+	.setOption(14, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"ward")
+	.setOption(15, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
+	.setOption(16, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
+	.setOption(17, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
+	.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward");
 	return menu;
 	}catch(Exception e){
 		e.printStackTrace();
