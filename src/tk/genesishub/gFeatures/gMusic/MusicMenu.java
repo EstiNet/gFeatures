@@ -125,7 +125,7 @@ public class MusicMenu {
     }
 	public InventoryAPI vexento(final Player p){
 		try{
-		InventoryAPI menu = new InventoryAPI("Artist: Vexento", 27, new InventoryAPI.OptionClickEventHandler() {
+		InventoryAPI menu = new InventoryAPI("Artist: Vexento", 63, new InventoryAPI.OptionClickEventHandler() {
 	        @SuppressWarnings("deprecation")
 			@Override
 	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
@@ -177,6 +177,174 @@ public class MusicMenu {
 	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
 		           event.getPlayer().closeInventory();
 		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Attention Deficit")){
+	            	p.playSound(p.getLocation(), "Vexento - Attention Deficit", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Buckle Up")){
+	            	p.playSound(p.getLocation(), "Vexento - Buckle Up", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Capurganá")){
+	            	p.playSound(p.getLocation(), "Vexento - Capurganá", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Corallium")){
+	            	p.playSound(p.getLocation(), "Vexento - Corallium", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Echo")){
+	            	p.playSound(p.getLocation(), "Vexento - Echo", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Empty")){
+	            	p.playSound(p.getLocation(), "Vexento - Empty", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Game Over")){
+	            	p.playSound(p.getLocation(), "Vexento - Game Over", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Glow")){
+	            	p.playSound(p.getLocation(), "Vexento - Glow", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Go")){
+	            	p.playSound(p.getLocation(), "Vexento - Go", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Good Old Memories (ChillStep)")){
+	            	p.playSound(p.getLocation(), "Vexento - Good Old Memories (ChillStep)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Just go for it")){
+	            	p.playSound(p.getLocation(), "Vexento - Just go for it", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Killing Machine")){
+	            	p.playSound(p.getLocation(), "Vexento - Killing Machine", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Lights")){
+	            	p.playSound(p.getLocation(), "Vexento - Lights", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Lonely Star (Full Track))")){
+	            	p.playSound(p.getLocation(), "Vexento - Lonely Star (Full Track)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Magenta")){
+	            	p.playSound(p.getLocation(), "Vexento - Magenta", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Mario's Cake (Full version)")){
+	            	p.playSound(p.getLocation(), "Vexento - Mario's Cake (Full version)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Masked Heroes")){
+	            	p.playSound(p.getLocation(), "Vexento - Masked Heroes", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Never Give Up")){
+	            	p.playSound(p.getLocation(), "Vexento - Never Give Up", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - New Colours")){
+	            	p.playSound(p.getLocation(), "Vexento - New Colours", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Occupy")){
+	            	p.playSound(p.getLocation(), "Vexento - Occupy", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Particles")){
+	            	p.playSound(p.getLocation(), "Vexento - Particles", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Pegasus")){
+	            	p.playSound(p.getLocation(), "Vexento - Pegasus", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Another Life (100%)")){
+	            	p.playSound(p.getLocation(), "Vexento - Another Life (100%)", 50, 1);
+		           event.getPlayer().closeInventory();
+		      }
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
@@ -198,7 +366,49 @@ public class MusicMenu {
 	.setOption(15, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
 	.setOption(16, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
 	.setOption(17, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
-	.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward");
+	.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward")
+		.setOption(18, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"ward");
 	return menu;
 	}catch(Exception e){
 		e.printStackTrace();
