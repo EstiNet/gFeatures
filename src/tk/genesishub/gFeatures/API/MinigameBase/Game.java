@@ -1,9 +1,11 @@
 package tk.genesishub.gFeatures.API.MinigameBase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
 public class Game {
@@ -14,6 +16,7 @@ public class Game {
 	public static List<Teams> teams = new ArrayList<>();
 	public static Arena arena;
 	public static int timebeforestart;
+	public static HashMap<String, List<Material>> kits = new HashMap<>();
 	
 	public static String startmessage;
 	
@@ -27,6 +30,7 @@ public class Game {
 	public void setState(boolean stat){
 		state = stat;
 	}
+	
 	public void addPlayer(Player player){
 		players.add(player);
 	}
@@ -75,4 +79,5 @@ public class Game {
 	public void startGame(){
 		Bukkit.getServer().broadcastMessage(startmessage);
 	}
+	public void KitSelector(){}
 }

@@ -121,6 +121,7 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.GenesisBackup");
 			yamlFile.createSection("Config.Plugins.gScore");
             yamlFile.createSection("Config.Plugins.HideAndSeek");
+            yamlFile.createSection("Config.Plugins.gMusic");
 			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
@@ -148,6 +149,7 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.GenesisBackup", "false");
 			yamlFile.set("Config.Plugins.gScore", "false");
             yamlFile.set("Config.Plugins.HideAndSeek", "false");
+            yamlFile.set("Config.Plugins.gMusic", "false");
 			//Skript value
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");

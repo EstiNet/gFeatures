@@ -55,6 +55,9 @@ public class PluginManager {
 		if(getPluginState(Plugins.HideAndSeek).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.HideAndSeek);
 		}
+		if(getPluginState(Plugins.gMusic).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.gMusic);
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -88,6 +91,9 @@ public class PluginManager {
 		}
 		if(getPluginState(Plugins.HideAndSeek).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.HideAndSeek);
+		}
+		if(getPluginState(Plugins.gMusic).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gMusic);
 		}
 		return plugins;
 	}
@@ -124,6 +130,8 @@ public class PluginManager {
 		case HideAndSeek:
 			ps = HideAndSeekPlugin.getState();
 			break;
+		case gMusic:
+			ps = gMusicPlugin.getState();
 		case UnknownPlugin:
 			break;
 		default:
