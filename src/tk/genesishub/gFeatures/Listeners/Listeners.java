@@ -59,8 +59,8 @@ https://github.com/Seshpenguin/gFeatures
 
 public class Listeners extends JavaPlugin implements Listener{
 	SkriptManager sm = new SkriptManager();
-	String EnteredKey = "Hi!";
-	String ProductKey = "gFE-69a-123-abc";
+	String EnteredKey = "gFE-69a-123-abc"; // This will be the product key the player entered in the config.
+	String ProductKey = "gFE-69a-123-abc"; // This will be replaced with a webserver that verifies the product key.
 	
 	ListenersHub lh = new ListenersHub();
 	
@@ -87,13 +87,18 @@ public class Listeners extends JavaPlugin implements Listener{
         
         if (Bukkit.getPluginManager().getPlugin("Skript") != null) {
         	// put all code related to Skript here!
-        	getLogger().info("[gFeatures] Skript is detected on the server! Skript Add-Ons will function!");
+        	getLogger().info("[gFeatures] Skript is detected on the server! gFeatures Skript Add-Ons will be enabled!!");
+        } else {
+        	getLogger().info("[gFeatures] ERROR: Skript is NOT detected on the server! gFeatures Skript Add-Ons will disabled!");
         }
-        
+        w
         //Product Key System
         if (EnteredKey.equals(ProductKey)){
         	//To-Do
         	getLogger().info("[gFeatures] Product Key Verified!");	
+        } else {
+        	getLogger().info("[gFeatures] WARNING: THIS COPY OF GFEATURES IS NOT GENUINE! PLEASE CONTACT GENESISHUB AT: admin@genesishub.net");
+        	getLogger().info("[gFeatures] gFeatures will continue to load a unverifed copy...");
         }
         
         getLogger().info("[gFeatures] gFeatures has started.");
@@ -102,7 +107,9 @@ public class Listeners extends JavaPlugin implements Listener{
  
     @Override
     public void onDisable() { //What to do on server unload/reload
+    getLogger().info("~--------------------------------------------------------------------------------~");
        getLogger().info("[gFeatures] gFeatures is turning off...!");  
+       getLogger().info("~--------------------------------------------------------------------------------~");
        try {
 		Initialize();
 	} catch (IOException e) {
