@@ -115,41 +115,6 @@ public class MusicMenu {
 	            	p.playSound(p.getLocation(), "records.ward", 50, 1);
 		           event.getPlayer().closeInventory();
 		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"menu")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.menu", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"game")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"creative")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game.creative", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"end")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game.end", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"dragon")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game.end.dragon", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"credits")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game.end.credits", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"nether")){
-	            	inTo(p);
-	            	p.playSound(p.getLocation(), "music.game.nether", 50, 1);
-		           event.getPlayer().closeInventory();
-		      }
 	            }
 	            event.setWillClose(true);
 	        }
@@ -165,14 +130,7 @@ public class MusicMenu {
 	.setOption(8, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"stal", ChatColor.WHITE+"Record Stal")
 	.setOption(9, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"strad", ChatColor.WHITE+"Record Strad")
 	.setOption(10, new ItemStack(Material.RECORD_11, 1), ChatColor.GOLD+"wait", ChatColor.WHITE+"Record Wait")
-	.setOption(11, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward", ChatColor.WHITE+"Record Ward")
-	.setOption(12, new ItemStack(Material.RECORD_3, 1), ChatColor.GOLD+"menu", ChatColor.WHITE+"Menu music.")
-	.setOption(13, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"game", ChatColor.WHITE+"Game music.")
-	.setOption(14, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"creative", ChatColor.WHITE+"Creative music.")
-	.setOption(15, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"end", ChatColor.WHITE+"End music.")
-	.setOption(16, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"dragon", ChatColor.WHITE+"Dragon music.")
-	.setOption(17, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"credits", ChatColor.WHITE+"Credits music.")
-	.setOption(18, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"nether", ChatColor.WHITE+"Nether music.");
+	.setOption(11, new ItemStack(Material.RECORD_12, 1), ChatColor.GOLD+"ward", ChatColor.WHITE+"Record Ward");
 	return menu;
 	}catch(Exception e){
 		e.printStackTrace();

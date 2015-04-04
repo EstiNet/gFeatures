@@ -19,6 +19,7 @@ import tk.genesishub.gFeatures.PluginManage.HideAndSeekPlugin;
 import tk.genesishub.gFeatures.PluginManage.PluginState;
 import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
+import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
@@ -49,6 +50,7 @@ public class ListenersHub {
 	tk.genesishub.gFeatures.gFactions.Listeners gFactions = new tk.genesishub.gFeatures.gFactions.Listeners();
 	tk.genesishub.gFeatures.gHub.Listeners gHub = new tk.genesishub.gFeatures.gHub.Listeners();
 	tk.genesishub.gFeatures.HideAndSeek.Listeners HideAndSeek = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+	tk.genesishub.gFeatures.gMusic.Listeners gMusic = new tk.genesishub.gFeatures.gMusic.Listeners();
 	static PlayerJoinEvent playerjoin;
 	static PlayerQuitEvent playerquit;
 	static PlayerMoveEvent playermove;
@@ -86,6 +88,9 @@ public class ListenersHub {
 			}
 			if(HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
 				HideAndSeek.onPlayerJoin(playerjoin);
+			}
+			if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
+				gMusic.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
