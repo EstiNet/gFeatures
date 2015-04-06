@@ -80,9 +80,6 @@ public class ListenersHub {
 			if(GenesisEconomyPlugin.getState().equals(PluginState.ENABLE)){
 				gEconomy.onPlayerJoin(playerjoin);
 			}
-			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
-				gScore.onPlayerJoin(playerjoin);
-			}
 			if(gHubPlugin.getState().equals(PluginState.ENABLE)){
 				gHub.onPlayerJoin(playerjoin);
 			}
@@ -91,6 +88,9 @@ public class ListenersHub {
 			}
 			if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
 				gMusic.onPlayerJoin(playerjoin);
+			}
+			if(GenesisScorePlugin.getState().equals(PluginState.ENABLE)){
+				gScore.onPlayerJoin(playerjoin);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

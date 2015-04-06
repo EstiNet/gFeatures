@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 public class CommandCenter {
 	@SuppressWarnings("deprecation")
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws Exception{
+		if(cmd.getName().equalsIgnoreCase("music") || cmd.getName().equalsIgnoreCase("play") || cmd.getName().equalsIgnoreCase("song") || cmd.getName().equalsIgnoreCase("gmusic")){
 		if(!(sender instanceof Player)){
 			Bukkit.getLogger().info("Players only!");
 		}
@@ -25,11 +26,12 @@ public class CommandCenter {
 			else if (args[0].equalsIgnoreCase("stop")){
 				((Player) sender).playEffect(((Player) sender).getLocation(), Effect.RECORD_PLAY,
                         (short) 0);
-                sender.sendMessage(ChatColor.RED + "Stopping any music.... (It's experimental and might not work.");
+                sender.sendMessage(ChatColor.RED + "Stopping any music.... (It's experimental and might not work).");
 			}
 			else{
 				sender.sendMessage(ChatColor.AQUA + "/music");
 			}
 		}
+	}
 	}
 }
