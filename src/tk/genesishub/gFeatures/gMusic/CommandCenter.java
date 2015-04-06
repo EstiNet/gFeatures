@@ -5,7 +5,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class CommandCenter {
@@ -26,10 +25,10 @@ public class CommandCenter {
 			else if (args[0].equalsIgnoreCase("stop")){
 				((Player) sender).playEffect(((Player) sender).getLocation(), Effect.RECORD_PLAY,
                         (short) 0);
-                sender.sendMessage(ChatColor.RED + "Stopping any music....");
+                sender.sendMessage(ChatColor.RED + "Stopping any music.... (It's experimental and might not work.");
 			}
 			else{
-				sender.sendMessage(ChatColor.AQUA + "/music or /music stop");
+				sender.sendMessage(ChatColor.AQUA + "/music");
 			}
 		}
 	}
