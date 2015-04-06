@@ -23,6 +23,8 @@ public class Listeners {
         		p.sendMessage(ChatColor.DARK_AQUA+"DISCLAIMER:");
         		p.sendMessage(ChatColor.DARK_AQUA+"We haven't found a way to actually stop the music.");
         		p.sendMessage(ChatColor.DARK_AQUA+"Don't play a song while another is playing or else they will play at the same time.");
+        		p.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "For all songs other than the minecraft ones, you'll need a resource pack.");
+        		p.sendMessage(ChatColor.GOLD + "https://www.dropbox.com/s/cguhado3piwo9fb/GenesisMusic.zip?dl=1");
             }
          }, 20L);
 	}

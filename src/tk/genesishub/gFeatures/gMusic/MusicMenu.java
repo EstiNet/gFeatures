@@ -39,8 +39,8 @@ public class MusicMenu {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
-    .setOption(0, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"Minecraft", ChatColor.WHITE+"Your classic everyday C418 music!")
-    .setOption(1, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"Vexento", ChatColor.WHITE+"A great electro artist!")
+    .setOption(0, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"Minecraft", ChatColor.WHITE+"Your classic everyday minecraft music!")
+    .setOption(1, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"Vexento", ChatColor.WHITE+"A great electro artist! RESOURCE PACK REQUIRED!")
     .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"More coming soon!", ChatColor.WHITE+"More! More! More!");
 	return menu;
 	}catch(Exception e){
