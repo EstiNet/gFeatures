@@ -91,7 +91,6 @@ public class Listeners extends JavaPlugin implements Listener{
         } else {
         	getLogger().info("[gFeatures] ERROR: Skript is NOT detected on the server! gFeatures Skript Add-Ons will disabled!");
         }
-        w
         //Product Key System
         if (EnteredKey.equals(ProductKey)){
         	//To-Do
