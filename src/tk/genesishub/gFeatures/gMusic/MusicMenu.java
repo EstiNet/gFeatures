@@ -214,9 +214,9 @@ public class MusicMenu {
 	            	p.playSound(p.getLocation(), "Vexento - Buckle Up", 50, 1);
 		           event.getPlayer().closeInventory();
 		      }
-	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Capurganá")){
+	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Capurgana")){
 	            	inTo(p);
-	            	p.playSound(p.getLocation(), "Vexento - Capurganá", 50, 1);
+	            	p.playSound(p.getLocation(), "Vexento - Capurgana", 50, 1);
 		           event.getPlayer().closeInventory();
 		      }
 	            else if(event.getName().equals(ChatColor.GOLD+"Vexento - Corallium")){
