@@ -1,5 +1,6 @@
 package tk.genesishub.gFeatures.Listeners;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -37,6 +38,9 @@ public class CommandCentral {
 	HideAndSeek has = new HideAndSeek();
 	gMusicCore gmc = new gMusicCore();
 	public void CommandInitiate(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
+		if(cmd.getName().equalsIgnoreCase("plugins") || cmd.getName().equalsIgnoreCase("pl")){
+			sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
+		}
 		gfc.CommandSwitch(sender, cmd, label, args);
 		gwc.CommandSwitch(sender, cmd, label, args);
 		gec.CommandSwitch(sender, cmd, label, args);
