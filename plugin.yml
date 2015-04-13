@@ -17,6 +17,9 @@ commands:
      description: gMusic core command.
      aliases: [play, song, music]
      usage: Syntax error! Do /gMusic help for help.
+   plugins:
+     description: Shows the plugins on the server.
+     aliases: [pl, plugin]
    clupic:
       description: Core command for clupic!
       usage: Syntax error! Do /clupic help for help.
