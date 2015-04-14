@@ -52,6 +52,7 @@ public class gFeaturesFileManager {
 	File gBackup = new File("plugins/gFeatures/gBackup");
 	File gScore = new File("plugins/gFeatures/gScore");
 	File HideAndSeek = new File("plugins/gFeatures/HideAndSeek");
+	File gUtilities = new File("plugins/gFeatures/gUtilities");
 	public void exists() throws IOException{
 		try{
 		if(!(main.isDirectory())){
@@ -104,6 +105,11 @@ public class gFeaturesFileManager {
 			Bukkit.getLogger().info("Seems like it's the first time you ran HideAndSeek...");
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 		}
+		if(!(gUtilities.isDirectory()) && HideAndSeekPlugin.getState().equals(PluginState.ENABLE)){
+			gUtilities.mkdir();
+			Bukkit.getLogger().info("Seems like it's the first time you ran HideAndSeek...");
+			Bukkit.getLogger().info("Successfully added plugin data folders!");
+		}
 		if(!(f.exists())){
 			f.createNewFile();
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
@@ -122,6 +128,8 @@ public class gFeaturesFileManager {
 			yamlFile.createSection("Config.Plugins.gScore");
             yamlFile.createSection("Config.Plugins.HideAndSeek");
             yamlFile.createSection("Config.Plugins.gMusic");
+            yamlFile.createSection("Config.Plugins.gUtilities");
+            yamlFile.createSection("Config.Plugins.CTF");
 			//Presets
 			yamlFile.createSection("Config.Presets.gWars");
 			yamlFile.createSection("Config.Presets.gDestroy");
@@ -150,6 +158,8 @@ public class gFeaturesFileManager {
 			yamlFile.set("Config.Plugins.gScore", "false");
             yamlFile.set("Config.Plugins.HideAndSeek", "false");
             yamlFile.set("Config.Plugins.gMusic", "false");
+            yamlFile.set("Config.Plugins.gUtilities", "false");
+            yamlFile.set("Config.Plugins.CTF", "false");
 			//Skript value
 			yamlFile.set("Config.Skript.gEssentialsHub", "false");
 			yamlFile.set("Config.Skript.gEssentialsMinigames", "false");

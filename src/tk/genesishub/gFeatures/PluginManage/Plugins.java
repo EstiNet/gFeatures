@@ -23,7 +23,7 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public enum Plugins {
-	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, GenesisEconomy, GenesisBackup, gScore, HideAndSeek, gMusic, UnknownPlugin;
+	gWarsSuite, gFactions, gFeatures, gDestroyCritical, gHub, GenesisAccess, GenesisEconomy, GenesisBackup, gScore, HideAndSeek, gMusic, gUtilities, CTF, UnknownPlugin;
 	public static String toString(Plugins plugin){
 		String str = "Unknown Plugin";
 		switch(plugin){
@@ -59,6 +59,10 @@ public enum Plugins {
 			break;
 		case gMusic:
 			str = "gMusic";
+		case gUtilities:
+			str = "gUtilities";
+		case CTF:
+			str = "CTF";
 		case UnknownPlugin:
 			break;
 		default:
@@ -101,6 +105,10 @@ public enum Plugins {
 			break;
 		case "gMusic":
 			plugin = gMusic;
+		case "gUtilities":
+			plugin = gUtilities;
+		case "CTF":
+			plugin = CTF;
 			break;
 		}
 		return plugin;
@@ -118,6 +126,8 @@ public enum Plugins {
 		list.add(gScore);
 		list.add(HideAndSeek);
 		list.add(gMusic);
+		list.add(gUtilities);
+		list.add(CTF);
 		return list;
 	}
 }

@@ -58,6 +58,12 @@ public class PluginManager {
 		if(getPluginState(Plugins.gMusic).equals(PluginState.ENABLE)){
 			plugins.add(Plugins.gMusic);
 		}
+		if(getPluginState(Plugins.CTF).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.CTF);
+		}
+		if(getPluginState(Plugins.gUtilities).equals(PluginState.ENABLE)){
+			plugins.add(Plugins.gUtilities);
+		}
 		return plugins;
 	}
 	public List<Plugins> getDisabledPlugins(){
@@ -94,6 +100,12 @@ public class PluginManager {
 		}
 		if(getPluginState(Plugins.gMusic).equals(PluginState.DISABLE)){
 			plugins.add(Plugins.gMusic);
+		}
+		if(getPluginState(Plugins.gUtilities).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.gUtilities);
+		}
+		if(getPluginState(Plugins.CTF).equals(PluginState.DISABLE)){
+			plugins.add(Plugins.CTF);
 		}
 		return plugins;
 	}
@@ -132,6 +144,10 @@ public class PluginManager {
 			break;
 		case gMusic:
 			ps = gMusicPlugin.getState();
+		case CTF:
+			ps = CTFPlugin.getState();
+		case gUtilities:
+			ps = gUtilitiesPlugin.getState();
 		case UnknownPlugin:
 			break;
 		default:

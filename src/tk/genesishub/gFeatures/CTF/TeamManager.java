@@ -1,11 +1,11 @@
-package tk.genesishub.gFeatures.HideAndSeek;
+package tk.genesishub.gFeatures.CTF;
 
 import org.bukkit.entity.Player;
 
 import tk.genesishub.gFeatures.API.MinigameBase.Teams;
 
 public class TeamManager {
-	tk.genesishub.gFeatures.HideAndSeek.Listeners Listeners = new tk.genesishub.gFeatures.HideAndSeek.Listeners();
+	tk.genesishub.gFeatures.CTF.Listeners Listeners = new tk.genesishub.gFeatures.CTF.Listeners();
 	public void onJoinTeam(Player player, Teams team) throws Exception{
 		if(team.equals(Listeners.hideandseek.getTeam(0))){
 			Listeners.hideandseek.getTeam(0).addPlayer(player);

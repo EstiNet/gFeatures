@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import tk.genesishub.gFeatures.Listeners.YAML.YAMLInitialize;
 import tk.genesishub.gFeatures.Listeners.YAML.gFeaturesFileManager;
+import tk.genesishub.gFeatures.PluginManage.CTFPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
@@ -16,6 +17,7 @@ import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFeaturePlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
+import tk.genesishub.gFeatures.PluginManage.gUtilitiesPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 
 /*
@@ -50,6 +52,8 @@ public class Enabler {
 		GenesisScorePlugin.setPluginState(PluginState.DISABLE);
 		HideAndSeekPlugin.setPluginState(PluginState.DISABLE);
 		gMusicPlugin.setPluginState(PluginState.DISABLE);
+		gUtilitiesPlugin.setPluginState(PluginState.DISABLE);
+		CTFPlugin.setPluginState(PluginState.DISABLE);
 		YAMLInitialize ymli = new YAMLInitialize();
 		gFeaturesFileManager gffm = new gFeaturesFileManager();
 		gffm.exists();
@@ -92,6 +96,13 @@ public class Enabler {
 		}
 		if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
 			tk.genesishub.gFeatures.gMusic.Listeners listeners = new tk.genesishub.gFeatures.gMusic.Listeners();
+			listeners.onEnable();
+		}
+		if(gUtilitiesPlugin.getState().equals(PluginState.ENABLE)){
+
+		}
+		if(CTFPlugin.getState().equals(PluginState.ENABLE)){
+			tk.genesishub.gFeatures.CTF.Listeners listeners = new tk.genesishub.gFeatures.CTF.Listeners();
 			listeners.onEnable();
 		}
 	}

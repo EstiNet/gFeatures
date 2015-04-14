@@ -2,6 +2,7 @@ package tk.genesishub.gFeatures.Listeners;
 
 import java.io.IOException;
 
+import tk.genesishub.gFeatures.PluginManage.CTFPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
@@ -74,6 +75,11 @@ public class Disabler {
 		if(gMusicPlugin.getState().equals(PluginState.ENABLE)){
 			gMusicPlugin.setPluginState(PluginState.DISABLE);
 			tk.genesishub.gFeatures.gMusic.Listeners listeners = new tk.genesishub.gFeatures.gMusic.Listeners();
+			listeners.onDisable();
+		}
+		if(CTFPlugin.getState().equals(PluginState.ENABLE)){
+			CTFPlugin.setPluginState(PluginState.DISABLE);
+			tk.genesishub.gFeatures.CTF.Listeners listeners = new tk.genesishub.gFeatures.CTF.Listeners();
 			listeners.onDisable();
 		}
 		sm.Disable(Skripts.gEssentialsHub);

@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import tk.genesishub.gFeatures.PluginManage.CTFPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
@@ -16,6 +17,7 @@ import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
+import tk.genesishub.gFeatures.PluginManage.gUtilitiesPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Presets.gDestroyPreset;
 import tk.genesishub.gFeatures.Presets.gFactionsPreset;
@@ -113,6 +115,14 @@ public class YAMLInitialize {
 		if(yamlFile.get("Config.Plugins.gMusic").equals("true")){
 			gMusicPlugin.setPluginState(PluginState.ENABLE);
 			Bukkit.getLogger().info("Loaded gMusic.");
+		}
+		if(yamlFile.get("Config.Plugins.gUtilities").equals("true")){
+			gUtilitiesPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded gUtilities.");
+		}
+		if(yamlFile.get("Config.Plugins.CTF").equals("true")){
+			CTFPlugin.setPluginState(PluginState.ENABLE);
+			Bukkit.getLogger().info("Loaded CTF.");
 		}
 		if(yamlFile.get("Config.Skript.gEssentialsHub").equals("true")){
 			sm.Enable(Skripts.gEssentialsHub);

@@ -21,6 +21,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import tk.genesishub.gFeatures.PluginManage.CTFPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisAccessPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisBackupPlugin;
 import tk.genesishub.gFeatures.PluginManage.GenesisEconomyPlugin;
@@ -31,6 +32,7 @@ import tk.genesishub.gFeatures.PluginManage.gDestroyCriticalPlugin;
 import tk.genesishub.gFeatures.PluginManage.gFactionsPlugin;
 import tk.genesishub.gFeatures.PluginManage.gHubPlugin;
 import tk.genesishub.gFeatures.PluginManage.gMusicPlugin;
+import tk.genesishub.gFeatures.PluginManage.gUtilitiesPlugin;
 import tk.genesishub.gFeatures.PluginManage.gWarsSuitePlugin;
 import tk.genesishub.gFeatures.Skript.Skripts;
 import tk.genesishub.gFeatures.Skript.Java.SkriptManager;
@@ -226,6 +228,12 @@ public class Listeners extends JavaPlugin implements Listener{
 			gMusicPlugin.setPluginState(PluginState.DISABLE);
 			tk.genesishub.gFeatures.gMusic.Listeners listeners = new tk.genesishub.gFeatures.gMusic.Listeners();
 			listeners.onDisable();
+		}
+		if(gUtilitiesPlugin.getState().equals(PluginState.ENABLE)){
+			gUtilitiesPlugin.setPluginState(PluginState.DISABLE);
+		}
+		if(CTFPlugin.getState().equals(PluginState.ENABLE)){
+			CTFPlugin.setPluginState(PluginState.DISABLE);
 		}
 		sm.Disable(Skripts.gEssentialsHub);
 		sm.Disable(Skripts.gEssentialsMinigames);
