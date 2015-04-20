@@ -32,7 +32,7 @@ public class Listeners {
 		Bukkit.getLogger().info("gFactions is now off! :(");
 	}
 	public void onPlayerJoin(PlayerJoinEvent event){
-		//jm.Initialize(event);
+		jm.Initialize(event);
 	}
 	public void onCommandPre(PlayerCommandPreprocessEvent event){
 		if(Const.atSpawn.contains(event.getPlayer())){
