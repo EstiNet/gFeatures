@@ -13,7 +13,7 @@ public class YML {
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.gBroadcast");
 			//Plugins
-			yamlFile.createSection("Config.Plugins.gWarsSuite");
+			yamlFile.createSection("Config.gBroadcast.Enable");
 			yamlFile.createSection("Config.Plugins.gHub");
 			yamlFile.createSection("Config.Plugins.gFactions");
 			yamlFile.createSection("Config.Plugins.GenesisAccess");
@@ -26,7 +26,7 @@ public class YML {
             yamlFile.createSection("Config.Plugins.gUtilities");
             yamlFile.createSection("Config.Plugins.CTF");
 			//Plugins value
-			yamlFile.set("Config.Presets.gWars", "false");
+			yamlFile.set("Config.gBroadcast.Enable", "false");
 			yamlFile.set("Config.Presets.gDestroy", "false");
 			yamlFile.set("Config.Presets.gHub", "false");
 			yamlFile.set("Config.Presets.gFactions", "false");
