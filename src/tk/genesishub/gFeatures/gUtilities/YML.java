@@ -14,22 +14,11 @@ public class YML {
 			yamlFile.createSection("Config.gBroadcast");
 			//Plugins
 			yamlFile.createSection("Config.gBroadcast.Enable");
-			yamlFile.createSection("Config.Plugins.gHub");
-			yamlFile.createSection("Config.Plugins.gFactions");
-			yamlFile.createSection("Config.Plugins.GenesisAccess");
-			yamlFile.createSection("Config.Plugins.gDestroyCritical");
-			yamlFile.createSection("Config.Plugins.GenesisEconomy");
-			yamlFile.createSection("Config.Plugins.GenesisBackup");
-			yamlFile.createSection("Config.Plugins.gScore");
-            yamlFile.createSection("Config.Plugins.HideAndSeek");
-            yamlFile.createSection("Config.Plugins.gMusic");
-            yamlFile.createSection("Config.Plugins.gUtilities");
-            yamlFile.createSection("Config.Plugins.CTF");
+			yamlFile.createSection("Config.gBroadcast.TickDelay");
+			yamlFile.createSection("Config.gBroadcast.Messages");
 			//Plugins value
 			yamlFile.set("Config.gBroadcast.Enable", "false");
-			yamlFile.set("Config.Presets.gDestroy", "false");
-			yamlFile.set("Config.Presets.gHub", "false");
-			yamlFile.set("Config.Presets.gFactions", "false");
+			yamlFile.set("Config.gBroadcast.TickDelay", "2000");
 			yamlFile.save(f);
 			Bukkit.getLogger().info("Successfully added plugin data folders!");
 	}
