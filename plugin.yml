@@ -188,11 +188,6 @@ commands:
       usage:
       permission: gWarsSuite.arenatp
       permission-message: You don't have <permission>
-   island:
-      description: Technical Command.
-      usage:
-      permission: gWarsSuite.arenatp
-      permission-message: You don't have <permission>
    tutorial:
       description: Technical Command.
       usage:
