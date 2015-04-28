@@ -1,0 +1,88 @@
+/* 
+    Document   : orange
+    Created on : Jul 6, 2014, 2:28:39 AM
+    Author     : Bilal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+a,a:visited {
+  color: #83CBDC;
+}
+a:hover{
+    color: #57A9BD;
+}
+.primary-color{ color: #83CBDC;}
+#site-cta .site-cta .fa.hover{
+    background: #83CBDC;    
+}
+a.button-primary {
+    background-color: #83CBDC;
+    color: #ffffff;
+}
+.button-primary:hover,
+.button-primary:focus,
+.button-primary:active,
+.button-primary.active,
+.open .dropdown-toggle.button-primary {
+  background-color: #57A9BD;
+}
+fieldset[disabled] .button-primary.active {
+  background-color: #83CBDC;
+}
+
+#main-heading,
+#secondary-heading{
+    background: #83CBDC;
+    color: #fff;
+}
+.button-primary .badge {
+  color: #83CBDC;
+}
+.button-link {
+  color: #83CBDC;
+}
+.sc-primary-color{ color: #83CBDC;}
+.sc-primary-border{ border-color: #83CBDC;}
+.site-branding .search-bar .search-field:focus{
+    border-bottom: 1px solid #83CBDC;
+}
+.icon404{
+    color: #83CBDC;
+}
+.nav-menu > li a:hover{
+    color: #83CBDC;
+}
+.scroll-top:hover{
+    border-color: #83CBDC;
+}
+
+ul.social-icons li a:hover{
+    background: #83CBDC;
+}
+.smartcat_team_member:hover h4{
+    color: #83CBDC;
+    
+}
+.smartcat_team_member:hover img{
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+#site-toolbar .row .social-bar a:hover{
+    background: #83CBDC;
+}
+#site-navigation.main-navigation li a:hover,
+#site-navigation.main-navigation li.current_page_item a{
+    color: #83CBDC;
+}
+#site-cta .site-cta .fa{
+    border: 2px solid #83CBDC;
+    color: #83CBDC;
+}
+@media(max-width: 600px){
+    .nav-menu > li.current_page_item a{
+        color: #83CBDC;
+    }      
+}
+

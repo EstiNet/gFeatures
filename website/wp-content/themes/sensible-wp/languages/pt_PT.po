@@ -1,0 +1,1411 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gridsby v1.0.21\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-03-21 16:59:44+0000\n"
+"Last-Translator: robbie <contact@modernthemes.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: 404.php:17
+#@ gridsby
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Opa! Essa página não pode ser encontrada."
+
+#: 404.php:21
+#@ gridsby
+msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
+msgstr "Parece que nada foi encontrado neste local. Talvez tente um dos links abaixo ou uma busca?"
+
+#: archive.php:29
+#: inc/template-tags.php:147
+#, php-format
+#@ gridsby
+msgid "Author: %s"
+msgstr "Autor: %s"
+
+#: archive.php:32
+#: inc/template-tags.php:153
+#, php-format
+#@ gridsby
+msgid "Day: %s"
+msgstr "Dia: %s"
+
+#: archive.php:35
+#: inc/template-tags.php:151
+#, php-format
+#@ gridsby
+msgid "Month: %s"
+msgstr "Mês: %s"
+
+#: archive.php:35
+#: inc/template-tags.php:151
+#@ gridsby
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:38
+#: inc/template-tags.php:149
+#, php-format
+#@ gridsby
+msgid "Year: %s"
+msgstr "Ano: %s"
+
+#: archive.php:38
+#: inc/template-tags.php:149
+#@ gridsby
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: archive.php:41
+#@ gridsby
+msgid "Asides"
+msgstr "Apartes"
+
+#: archive.php:44
+#@ gridsby
+msgid "Galleries"
+msgstr "Galerias"
+
+#: archive.php:47
+#@ gridsby
+msgid "Images"
+msgstr "Imagens"
+
+#: archive.php:50
+#@ gridsby
+msgid "Videos"
+msgstr "Vídeos"
+
+#: archive.php:53
+#@ gridsby
+msgid "Quotes"
+msgstr "Cotações"
+
+#: archive.php:56
+#@ gridsby
+msgid "Links"
+msgstr "Links"
+
+#: archive.php:59
+#@ gridsby
+msgid "Statuses"
+msgstr "Status"
+
+#: archive.php:62
+#@ gridsby
+msgid "Audios"
+msgstr "Áudios"
+
+#: archive.php:65
+#@ gridsby
+msgid "Chats"
+msgstr "Bate-papos"
+
+#: archive.php:68
+#: inc/template-tags.php:181
+#@ gridsby
+msgid "Archives"
+msgstr "Archives"
+
+#: comments.php:28
+#, php-format
+#@ gridsby
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:35
+#: comments.php:52
+#@ gridsby
+msgid "Comment navigation"
+msgstr "Navegação de comentário"
+
+#: comments.php:36
+#: comments.php:53
+#@ gridsby
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentários mais antigos"
+
+#: comments.php:37
+#: comments.php:54
+#@ gridsby
+msgid "Newer Comments &rarr;"
+msgstr "Comentários mais recentes &rarr;"
+
+#: comments.php:64
+#@ gridsby
+msgid "Comments are closed."
+msgstr "Comentários estão fechados."
+
+#: content-none.php:14
+#@ gridsby
+msgid "Nothing Found"
+msgstr "Nada foi encontrado"
+
+#: content-none.php:20
+#, php-format
+#@ gridsby
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:24
+#@ gridsby
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Desculpa, mas nada comparado a seus termos de pesquisa. Por favor, tente novamente com algumas palavras-chave diferente."
+
+#: content-none.php:29
+#@ gridsby
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: content-page.php:19
+#: content-single.php:25
+#: content.php:35
+#@ gridsby
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: content-page.php:26
+#: inc/template-tags.php:126
+#@ gridsby
+msgid "Edit"
+msgstr "Editar"
+
+#. translators: %s: Name of current post
+#: content.php:27
+#, php-format
+#@ gridsby
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content.php:29
+#@ {bug-detected}
+msgid "<span class=\"screen-reader-text\">\""
+msgstr ""
+
+#: content.php:45
+#: inc/customizer.php:898
+#@ gridsby
+msgid "Read More"
+msgstr "Leia mais"
+
+#: footer.php:121
+#, php-format
+#@ gridsby
+msgid "Theme: %1$s by %2$s"
+msgstr ""
+
+#: functions.php:57
+#@ gridsby
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+#: functions.php:101
+#@ gridsby
+msgid "Sidebar"
+msgstr "Barra lateral"
+
+#: functions.php:111
+#@ gridsby
+msgid "Home Widget"
+msgstr "Widget para casa"
+
+#: functions.php:113
+#@ gridsby
+msgid "The widget area for your home page."
+msgstr "A área de widget para sua home page."
+
+#: header.php:38
+#@ gridsby
+msgid "Skip to content"
+msgstr "Pular para o conteúdo"
+
+#: header.php:41
+#@ gridsby
+msgid "Close Menu"
+msgstr "Fechar Menu"
+
+#: header.php:53
+#@ gridsby
+msgid "145"
+msgstr ""
+
+#: header.php:65
+#@ gridsby
+msgid "Menu"
+msgstr "Menu"
+
+#: inc/customizer.php:25
+#@ gridsby
+msgid "Gridsby Pro"
+msgstr "Gridsby Pro"
+
+#: inc/customizer.php:27
+#@ gridsby
+msgid "Want to sell your photos? Need a little bit more customization for Gridsby? If you want to see what additional features <a href=\"http://modernthemes.net/wordpress-themes/gridsby-pro/\" target=\"_blank\">Gridsby Pro</a> has, check them all out right <a href=\"http://modernthemes.net/wordpress-themes/gridsby-pro/\" target=\"_blank\">here</a>. Gridsby Pro is only $15!</br></br>We do all we can do to make all our themes free for you. While we enjoy it, and it makes us happy to help out, a little appreciation can help us to keep theming.</strong><br/><br/> Please help support our mission and continued development with a donation of $5, $10, $20, or if you are feeling really kind $100..<br/><br/> <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7LMGYAZW9C5GE\" target=\"_blank\" rel=\"nofollow\"><img class=\"\" src=\"https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif\" alt=\"Make a donation to ModernThemes\" /></a>"
+msgstr ""
+
+#: inc/customizer.php:49
+#@ gridsby
+msgid "Google Fonts"
+msgstr "Fontes do Google"
+
+#: inc/customizer.php:99
+#@ gridsby
+msgid "Select your desired font for the headings. Open Sans is the default Heading font."
+msgstr "Selecione a fonte desejada para os títulos. Sans aberto é a fonte de cabeçalho padrão."
+
+#: inc/customizer.php:116
+#@ gridsby
+msgid "Select your desired font for the body. Open Sans is the default Body font."
+msgstr "Selecione a fonte desejada para o corpo. Sans aberto é a fonte padrão do corpo."
+
+#: inc/customizer.php:129
+#@ gridsby
+msgid "Text Color"
+msgstr "Cor do texto"
+
+#: inc/customizer.php:141
+#@ gridsby
+msgid "Link Color"
+msgstr "Cor do link"
+
+#: inc/customizer.php:153
+#@ gridsby
+msgid "Hover Color"
+msgstr "Cor hover"
+
+#: inc/customizer.php:165
+#@ gridsby
+msgid "Site Title Color"
+msgstr "Cor do título de site"
+
+#: inc/customizer.php:177
+#@ gridsby
+msgid "Theme Color"
+msgstr "Cor do tema"
+
+#: inc/customizer.php:189
+#@ gridsby
+msgid "Blockquote Text"
+msgstr "Blockquote texto"
+
+#: inc/customizer.php:201
+#@ gridsby
+msgid "Blockquote Accent Color"
+msgstr "Cor de acento blockquote"
+
+#: inc/customizer.php:213
+#@ gridsby
+msgid "Page Navigation Background Color"
+msgstr "Cor de fundo de navegação de página"
+
+#: inc/customizer.php:225
+#@ gridsby
+msgid "Page Navigation Link Color"
+msgstr "Cor de Link de navegação de página"
+
+#: inc/customizer.php:237
+#@ gridsby
+msgid "Page Navigation Border Color"
+msgstr "Cor de borda de navegação de página"
+
+#: inc/customizer.php:246
+#@ gridsby
+msgid "Logo and Icons"
+msgstr "Logotipo e ícones"
+
+#: inc/customizer.php:248
+#@ gridsby
+msgid "Upload a logo to replace the default site name and description in the header. Also, upload your site favicon and Apple Icons."
+msgstr "Fazer upload de um logotipo para substituir o nome do site padrão e a descrição no cabeçalho. Além disso, carregar seu site favicon e ícones da Apple."
+
+#: inc/customizer.php:256
+#@ gridsby
+msgid "Logo"
+msgstr "Logotipo"
+
+#: inc/customizer.php:275
+#@ gridsby
+msgid "Change the width of the Logo in PX."
+msgstr "Altere a largura do logotipo no PX."
+
+#: inc/customizer.php:276
+#@ gridsby
+msgid "Only enter numeric value"
+msgstr "Apenas digite o valor numérico"
+
+#: inc/customizer.php:292
+#@ gridsby
+msgid "Upload your favicon (16x16 pixels)"
+msgstr "Carregar seu favicon (16 x 16 pixels)"
+
+#: inc/customizer.php:313
+#@ gridsby
+msgid "Upload your Apple Touch Icon (144x144 pixels)"
+msgstr "Carregar seu ícone Touch Apple (144 x 144 pixels)"
+
+#: inc/customizer.php:334
+#@ gridsby
+msgid "Upload your Apple Touch Icon (114x114 pixels)"
+msgstr "Carregar seu ícone Touch Apple (114 x 114 pixels)"
+
+#: inc/customizer.php:355
+#@ gridsby
+msgid "Upload your Apple Touch Icon (72x72 pixels)"
+msgstr "Carregar seu ícone Touch Apple (72 x 72 pixels)"
+
+#: inc/customizer.php:376
+#@ gridsby
+msgid "Upload your Apple Touch Icon (57x57 pixels)"
+msgstr "Carregar seu ícone Touch Apple (57 x 57 pixels)"
+
+#: inc/customizer.php:390
+#@ gridsby
+msgid "Social Media Section"
+msgstr "Seção de meios de comunicação social"
+
+#: inc/customizer.php:391
+#@ gridsby
+msgid "Edit your home page social media icons"
+msgstr "Editar ícones de mídias sociais sua página inicial"
+
+#: inc/customizer.php:396
+#@ gridsby
+msgid "Social Media Icons"
+msgstr "Ícones de mídias sociais"
+
+#: inc/customizer.php:411
+#@ gridsby
+msgid "Hide Header Social Section"
+msgstr "Ocultar o seção de cabeçalho Social"
+
+#: inc/customizer.php:426
+#@ gridsby
+msgid "Hide Footer Social Section"
+msgstr "Ocultar a seção de rodapé Social"
+
+#: inc/customizer.php:438
+#@ gridsby
+msgid "Social Icon Color"
+msgstr "Cor do ícone social"
+
+#: inc/customizer.php:450
+#@ gridsby
+msgid "Social Icon Hover Color"
+msgstr "Ícone social Hover cor"
+
+#: inc/customizer.php:463
+#@ gridsby
+msgid "Facebook URL:"
+msgstr "Facebook URL:"
+
+#: inc/customizer.php:476
+#@ gridsby
+msgid "Twitter URL:"
+msgstr ""
+
+#: inc/customizer.php:489
+#@ gridsby
+msgid "LinkedIn URL:"
+msgstr ""
+
+#: inc/customizer.php:502
+#@ gridsby
+msgid "Google Plus URL:"
+msgstr ""
+
+#: inc/customizer.php:515
+#@ gridsby
+msgid "Instagram URL:"
+msgstr ""
+
+#: inc/customizer.php:528
+#@ gridsby
+msgid "Flickr URL:"
+msgstr ""
+
+#: inc/customizer.php:541
+#@ gridsby
+msgid "Pinterest URL:"
+msgstr ""
+
+#: inc/customizer.php:554
+#@ gridsby
+msgid "YouTube URL:"
+msgstr ""
+
+#: inc/customizer.php:567
+#@ gridsby
+msgid "Vimeo URL:"
+msgstr ""
+
+#: inc/customizer.php:580
+#@ gridsby
+msgid "Tumblr URL:"
+msgstr ""
+
+#: inc/customizer.php:593
+#@ gridsby
+msgid "Dribbble URL:"
+msgstr ""
+
+#: inc/customizer.php:606
+#@ gridsby
+msgid "RSS URL:"
+msgstr ""
+
+#: inc/customizer.php:617
+#: inc/customizer.php:623
+#@ gridsby
+msgid "Home Section"
+msgstr "Seção casa"
+
+#: inc/customizer.php:618
+#@ gridsby
+msgid "Edit your home page settings"
+msgstr "Editar suas configurações de página inicial"
+
+#: inc/customizer.php:625
+#@ gridsby
+msgid "Customize your Gridsby home page."
+msgstr "Personalize sua página inicial do Gridsby."
+
+#: inc/customizer.php:639
+#@ gridsby
+msgid "Hide Gallery Section"
+msgstr "Seção Galeria de ocultar"
+
+#: inc/customizer.php:654
+#@ gridsby
+msgid "Hide Blog Section"
+msgstr "Ocultar a seção de Blog"
+
+#: inc/customizer.php:666
+#@ gridsby
+msgid "View More Button Text"
+msgstr "Ver mais texto de botão"
+
+#: inc/customizer.php:679
+#@ gridsby
+msgid "Gallery Button URL"
+msgstr "Galeria botão URL"
+
+#: inc/customizer.php:693
+#@ gridsby
+msgid "Blog Title"
+msgstr "Título do blog"
+
+#: inc/customizer.php:704
+#: inc/customizer.php:710
+#@ gridsby
+msgid "Home Widget Section"
+msgstr "Seção de Widget para casa"
+
+#: inc/customizer.php:705
+#@ gridsby
+msgid "Edit your home page widget settings"
+msgstr "Editar suas configurações de página inicial widget"
+
+#: inc/customizer.php:712
+#@ gridsby
+msgid "Customize the home widget area. The main body of the widget area can be edited under the Widgets section."
+msgstr "Personalize a área de widget para casa. O corpo principal da área do widget pode ser editado sob a seção de Widgets."
+
+#: inc/customizer.php:726
+#@ gridsby
+msgid "Hide Widget Section"
+msgstr "Ocultar Widget seção"
+
+#: inc/customizer.php:756
+#@ gridsby
+msgid "Background Image"
+msgstr "Imagem de fundo"
+
+#: inc/customizer.php:769
+#@ gridsby
+msgid "Widget Button Text"
+msgstr "Texto do botão"
+
+#: inc/customizer.php:782
+#@ gridsby
+msgid "Widget Button Page Link"
+msgstr "Widget botão página Link"
+
+#: inc/customizer.php:797
+#@ gridsby
+msgid "External URL Option"
+msgstr "Opção de URL externa"
+
+#: inc/customizer.php:798
+#@ gridsby
+msgid "If you use an external URL, leave the Widget Button Link above empty. Must include http:// before any URL."
+msgstr "Se você usar um URL externo, deixe o Link do botão Widget acima de vazio. Deve incluir http:// antes de qualquer URL."
+
+#: inc/customizer.php:806
+#@ gridsby
+msgid "Footer"
+msgstr "Rodapé"
+
+#: inc/customizer.php:808
+#@ gridsby
+msgid "Customize your footer area"
+msgstr "Personalizar sua área de rodapé"
+
+#: inc/customizer.php:818
+#@ gridsby
+msgid "Footer Phone Number"
+msgstr "Número de telefone de rodapé"
+
+#: inc/customizer.php:831
+#@ gridsby
+msgid "Footer Email"
+msgstr "E-mail do rodapé"
+
+#: inc/customizer.php:844
+#@ gridsby
+msgid "Footer Byline Text"
+msgstr "Texto de rodapé Byline"
+
+#: inc/customizer.php:852
+#@ gridsby
+msgid "Blog Layout"
+msgstr "Layout do blog"
+
+#: inc/customizer.php:854
+#@ gridsby
+msgid "Change how gridsby displays posts"
+msgstr "Alterar como gridsby exibe mensagens"
+
+#: inc/customizer.php:863
+#@ gridsby
+msgid "Post content"
+msgstr "Postar conteúdo"
+
+#: inc/customizer.php:885
+#@ gridsby
+msgid "Excerpt length"
+msgstr "Comprimento do trecho"
+
+#: inc/customizer.php:886
+#@ gridsby
+msgid "Choose your excerpt length here. Default: 30 words"
+msgstr "Escolha seu comprimento do trecho aqui. Padrão: 30 palavras"
+
+#: inc/customizer.php:903
+#@ gridsby
+msgid "Read More Text"
+msgstr "Leia o texto mais"
+
+#: inc/extras.php:52
+#, php-format
+#@ gridsby
+msgid "Page %s"
+msgstr "Página %s"
+
+#: inc/template-tags.php:23
+#@ gridsby
+msgid "Posts navigation"
+msgstr "Navegação de Posts"
+
+#: inc/template-tags.php:27
+#@ gridsby
+msgid "Older posts"
+msgstr "Posts mais antigos"
+
+#: inc/template-tags.php:31
+#@ gridsby
+msgid "Newer posts"
+msgstr "Posts mais recentes"
+
+#: inc/template-tags.php:56
+#@ gridsby
+msgid "Post navigation"
+msgstr "Navegação de post"
+
+#: inc/template-tags.php:86
+#, php-format
+#@ gridsby
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Postado em %s"
+
+#: inc/template-tags.php:91
+#, php-format
+#@ gridsby
+msgctxt "post author"
+msgid "by %s"
+msgstr "por %s"
+
+#. translators: used between list items, there is a space after the comma
+#: inc/template-tags.php:108
+#: inc/template-tags.php:114
+#@ gridsby
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:110
+#, php-format
+#@ gridsby
+msgid "Posted in %1$s"
+msgstr "Postado em %1$s"
+
+#: inc/template-tags.php:116
+#, php-format
+#@ gridsby
+msgid "Tagged %1$s"
+msgstr "Tagged %1$s"
+
+#: inc/template-tags.php:122
+#@ gridsby
+msgid "Leave a comment"
+msgstr "Deixe um comentário"
+
+#: inc/template-tags.php:122
+#@ gridsby
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-tags.php:122
+#@ gridsby
+msgid "% Comments"
+msgstr "% Comentários"
+
+#: inc/template-tags.php:143
+#, php-format
+#@ gridsby
+msgid "Category: %s"
+msgstr "Categoria: %s"
+
+#: inc/template-tags.php:145
+#, php-format
+#@ gridsby
+msgid "Tag: %s"
+msgstr "Tag: %s"
+
+#: inc/template-tags.php:153
+#@ gridsby
+msgctxt "daily archives date format"
+msgid "F j, Y"
+msgstr ""
+
+#: inc/template-tags.php:156
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Asides"
+msgstr "Apartes"
+
+#: inc/template-tags.php:158
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Galleries"
+msgstr "Galerias"
+
+#: inc/template-tags.php:160
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Images"
+msgstr "Imagens"
+
+#: inc/template-tags.php:162
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Videos"
+msgstr "Vídeos"
+
+#: inc/template-tags.php:164
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Quotes"
+msgstr "Cotações"
+
+#: inc/template-tags.php:166
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Links"
+msgstr "Links"
+
+#: inc/template-tags.php:168
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Statuses"
+msgstr "Status"
+
+#: inc/template-tags.php:170
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr "Áudio"
+
+#: inc/template-tags.php:172
+#@ gridsby
+msgctxt "post format archive title"
+msgid "Chats"
+msgstr "Bate-papos"
+
+#: inc/template-tags.php:175
+#, php-format
+#@ gridsby
+msgid "Archives: %s"
+msgstr "Arquivos: %s"
+
+#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
+#: inc/template-tags.php:179
+#, php-format
+#@ gridsby
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:321
+#@ tgmpa
+msgid "Install Required Plugins"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:323
+#@ tgmpa
+msgid "Install Plugins"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:325
+#, php-format
+#@ tgmpa
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:327
+#@ tgmpa
+msgid "Something went wrong."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:329
+#, php-format
+#@ gridsby
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Este tema requer o seguinte plugin: %1$s."
+msgstr[1] "Este tema requer os seguintes plugins: %1$s."
+
+#: panel/class-tgm-plugin-activation.php:331
+#, php-format
+#@ gridsby
+msgid "First time using Modern Themes? We recommend certain plugins if you desire additional functionality (like %1$s)."
+msgid_plural "First time using Modern Themes? We recommend certain plugins if you desire additional functionality (like %1$s)."
+msgstr[0] "Primeira vez usando temas modernos? Nós recomendamos certos plugins, se você deseja funcionalidade adicional (como %1$s)."
+msgstr[1] "Primeira vez usando temas modernos? Nós recomendamos certos plugins, se você deseja funcionalidade adicional (como %1$s)."
+
+#: panel/class-tgm-plugin-activation.php:333
+#, php-format
+#@ gridsby
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] "Desculpe, mas você não tem as permissões corretas para instalar o plug-in %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter o plug-in instalado."
+msgstr[1] "Desculpe, mas você não tem as permissões corretas para instalar os plugins de %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter os plugins instalados."
+
+#: panel/class-tgm-plugin-activation.php:335
+#, php-format
+#@ gridsby
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "O seguinte necessário plugin é inativo no momento: %1$s."
+msgstr[1] "O seguinte exigido plugins estão atualmente inativos: %1$s."
+
+#: panel/class-tgm-plugin-activation.php:337
+#, php-format
+#@ gridsby
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "O seguinte recomendado plugin é inativo no momento: %1$s."
+msgstr[1] "O seguinte recomendado plugins estão atualmente inativos: %1$s."
+
+#: panel/class-tgm-plugin-activation.php:339
+#, php-format
+#@ gridsby
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgstr[0] "Desculpe, mas você não tem as permissões corretas para ativar o plugin %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter o plugin ativado."
+msgstr[1] "Desculpe, mas você não tem as permissões corretas para ativar os plugins de %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter os plugins ativados."
+
+#: panel/class-tgm-plugin-activation.php:341
+#, php-format
+#@ gridsby
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] "O seguinte plugin precisa ser atualizado para a versão mais recente para garantir a máxima compatibilidade com este tema: %1$s."
+msgstr[1] "Os seguintes plugins precisa ser atualizado para a versão mais recente para garantir a máxima compatibilidade com este tema: %1$s."
+
+#: panel/class-tgm-plugin-activation.php:343
+#, php-format
+#@ gridsby
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] "Desculpe, mas você não tem as permissões corretas para atualizar o plugin %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter o plugin atualizado."
+msgstr[1] "Desculpe, mas você não tem as permissões corretas para atualizar os plugins de %s. Entrar em contato com o administrador do site para obter ajuda sobre como obter os plugins atualizados."
+
+#: panel/class-tgm-plugin-activation.php:345
+#@ gridsby
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Começar a instalar o plugin"
+msgstr[1] "Começar a instalar plugins"
+
+#: panel/class-tgm-plugin-activation.php:347
+#@ gridsby
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Começar a ativar o plugin"
+msgstr[1] "Comece ativando plugins"
+
+#: panel/class-tgm-plugin-activation.php:349
+#@ tgmpa
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:351
+#@ tgmpa
+msgid "Return to the dashboard"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:353
+#: panel/class-tgm-plugin-activation.php:3891
+#@ tgmpa
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:357
+#, php-format
+#@ tgmpa
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:359
+#@ tgmpa
+msgid "Dismiss this notice"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:1069
+#: panel/class-tgm-plugin-activation.php:4325
+#@ tgmpa
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2339
+#@ tgmpa
+msgid "Private Repository"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2345
+#@ tgmpa
+msgid "Pre-Packaged"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2355
+#@ tgmpa
+msgid "WordPress Repository"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2361
+#@ tgmpa
+msgid "Required"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2361
+#@ tgmpa
+msgid "Recommended"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2367
+#@ tgmpa
+msgid "Not Installed"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2371
+#@ tgmpa
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2581
+#: panel/class-tgm-plugin-activation.php:2797
+#@ tgmpa
+msgid "Install"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2625
+#: panel/class-tgm-plugin-activation.php:2799
+#@ tgmpa
+msgid "Activate"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2723
+#, php-format
+#@ tgmpa
+msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2755
+#@ tgmpa
+msgid "Plugin"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2757
+#@ tgmpa
+msgid "Source"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2759
+#@ tgmpa
+msgid "Type"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:2761
+#@ tgmpa
+msgid "Status"
+msgstr ""
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: panel/class-tgm-plugin-activation.php:3273
+#: panel/class-tgm-plugin-activation.php:355
+#@ tgmpa
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: panel/class-tgm-plugin-activation.php:3857
+#@ tgmpa
+msgid "Install package not available."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3859
+#, php-format
+#@ tgmpa
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3861
+#@ tgmpa
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3863
+#@ tgmpa
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3865
+#@ tgmpa
+msgid "Plugin install failed."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3867
+#@ tgmpa
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:3889
+#@ tgmpa
+msgid "Plugin activation failed."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4117
+#@ tgmpa
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4119
+#, php-format
+#@ tgmpa
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4119
+#: panel/class-tgm-plugin-activation.php:4137
+#@ tgmpa
+msgid "Show Details"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4119
+#: panel/class-tgm-plugin-activation.php:4137
+#@ tgmpa
+msgid "Hide Details"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4121
+#@ tgmpa
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4123
+#, php-format
+#@ tgmpa
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4131
+#@ tgmpa
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4133
+#, php-format
+#@ tgmpa
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4135
+#, php-format
+#@ tgmpa
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4137
+#, php-format
+#@ tgmpa
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4139
+#@ tgmpa
+msgid "All installations have been completed."
+msgstr ""
+
+#: panel/class-tgm-plugin-activation.php:4141
+#, php-format
+#@ tgmpa
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: panel/gridsby-admin_page.php:205
+#@ gridsby
+msgid "Gridsby Theme Details"
+msgstr "Detalhes do tema Gridsby"
+
+#: panel/gridsby-admin_page.php:210
+#@ gridsby
+msgid "Thank you for using Gridsby!"
+msgstr "Obrigado por usar Gridsby!"
+
+#: panel/gridsby-admin_page.php:214
+#@ gridsby
+msgid "Gridsby Theme Setup"
+msgstr "Configuração de tema Gridsby"
+
+#: panel/gridsby-admin_page.php:218
+#@ gridsby
+msgid "We created a quick theme setup video to help you get started with Gridsby. Watch the video with the link below"
+msgstr "Criamos uma instalação de tema rápido vídeo para ajudá-lo a começar com Gridsby. Assista ao vídeo com o link abaixo"
+
+#: panel/gridsby-admin_page.php:222
+#@ gridsby
+msgid "View Video"
+msgstr "Veja o vídeo"
+
+#: panel/gridsby-admin_page.php:226
+#@ gridsby
+msgid "Documentation"
+msgstr "Documentação"
+
+#: panel/gridsby-admin_page.php:230
+#@ gridsby
+msgid "Check out our Gridsby documentation to learn how to use Gridsby and for tutorials on theme functions. Click the link below."
+msgstr "Verifique nossa documentação Gridsby para aprender como usar o Gridsby e para tutoriais sobre funções do tema. Clique no link abaixo."
+
+#: panel/gridsby-admin_page.php:234
+#@ gridsby
+msgid "Read Docs"
+msgstr "Leia os documentos"
+
+#: panel/gridsby-admin_page.php:238
+#@ gridsby
+msgid "About ModernThemes"
+msgstr "Sobre ModernThemes"
+
+#: panel/gridsby-admin_page.php:242
+#@ gridsby
+msgid "Want to learn more about ModernThemes? Let us help you at modernthemes.net."
+msgstr "Quer saber mais sobre ModernThemes? Deixe-nos ajudá-lo em modernthemes.net."
+
+#: panel/gridsby-admin_page.php:246
+#@ gridsby
+msgid "About Us"
+msgstr "Quem somos"
+
+#: panel/gridsby-admin_page.php:250
+#@ gridsby
+msgid "Want more features? Go Pro."
+msgstr "Quer mais recursos? Ir Pro."
+
+#: panel/gridsby-admin_page.php:254
+#@ gridsby
+msgid "Sell Your Photos"
+msgstr "Vender suas fotos"
+
+#: panel/gridsby-admin_page.php:258
+#@ gridsby
+msgid "Make your website a powerful eCommerce machine. Gridsby Pro includes Easy Digital Downloads to turn photos into profit."
+msgstr "Fazer uma máquina poderosa de eCommerce para o seu site. Gridsby Pro inclui fácil Digital Downloads para transformar fotos em lucro."
+
+#: panel/gridsby-admin_page.php:262
+#@ gridsby
+msgid "More Theme Options"
+msgstr "Mais opções de tema"
+
+#: panel/gridsby-admin_page.php:266
+#@ gridsby
+msgid "Control more options and aspects of your website including scroll animations and hover effects for your photos."
+msgstr "Controle mais opções e aspectos do seu site, incluindo animações de rolagem e focalizar efeitos para suas fotos."
+
+#: panel/gridsby-admin_page.php:270
+#@ gridsby
+msgid "Home Gallery Options"
+msgstr "Opções Home Galeria"
+
+#: panel/gridsby-admin_page.php:274
+#@ gridsby
+msgid "Control the number of photos in your home page gallery. You can put up to 200 photos right on your front page for greater visbility."
+msgstr "Controle o número de fotos em sua galeria de página inicial. Você pode colocar até 200 fotos em sua página dianteira para maior visbility."
+
+#: panel/gridsby-admin_page.php:278
+#@ gridsby
+msgid "Footer Widget Areas"
+msgstr "Áreas de Widget de rodapé"
+
+#: panel/gridsby-admin_page.php:282
+#@ gridsby
+msgid "Want more content for your footer? Gridsby Pro has three footer widget areas to populate with any content you want."
+msgstr "Quer mais conteúdo para o seu rodapé? Gridsby Pro tem três áreas de widget de rodapé para preencher com qualquer conteúdo que você quer."
+
+#: panel/gridsby-admin_page.php:286
+#@ gridsby
+msgid "More Sidebars"
+msgstr "Mais barras laterais"
+
+#: panel/gridsby-admin_page.php:290
+#@ gridsby
+msgid "Sometimes you need different sidebars for different pages. We got you covered, offering up to 5 different sidebars."
+msgstr "Às vezes você precisa laterais diferentes para diferentes páginas. Nós temos o, oferecendo até 5 barras laterais diferentes."
+
+#: panel/gridsby-admin_page.php:294
+#@ gridsby
+msgid "Access an additional 65 Google fonts with Gridsby Pro right in the back-end of the WordPress customizer."
+msgstr "Acesse uma fontes adicionais de Google 65 com direito Gridsby Pro no back-end do personalizador do WordPress."
+
+#: panel/gridsby-admin_page.php:298
+#@ gridsby
+msgid "PSD Files"
+msgstr "Arquivos PSD"
+
+#: panel/gridsby-admin_page.php:302
+#@ gridsby
+msgid "Premium versions include PSD files. Preview your own content or showcase a customized version for your clients."
+msgstr "As versões Premium incluem arquivos PSD. Visualizar o seu próprio conteúdo ou mostrar uma versão personalizada para seus clientes."
+
+#: panel/gridsby-admin_page.php:306
+#@ gridsby
+msgid "Free Support"
+msgstr "Suporte gratuito"
+
+#: panel/gridsby-admin_page.php:310
+#@ gridsby
+msgid "Call on us to help you out. Premium themes come with free support that goes directly to our support staff."
+msgstr "Nos chame para ajudá-lo. Temas premium vem com suporte gratuito que vai diretamente para nossa equipe de suporte."
+
+#: panel/gridsby-admin_page.php:314
+#@ gridsby
+msgid "View Pro Version"
+msgstr "Ver versão Pro"
+
+#: panel/gridsby-admin_page.php:318
+#@ gridsby
+msgid "Want more themes? Check out our collections."
+msgstr "Quer mais temas? Confira nossas coleções."
+
+#: panel/gridsby-admin_page.php:322
+#@ gridsby
+msgid "Blog & Magazine"
+msgstr "Blog & Magazine"
+
+#: panel/gridsby-admin_page.php:326
+#@ gridsby
+msgid "Business"
+msgstr "Negócios"
+
+#: panel/gridsby-admin_page.php:330
+#@ gridsby
+msgid "Creative & Portfolio"
+msgstr "Creative & portfólio"
+
+#: panel/gridsby-admin_page.php:334
+#@ gridsby
+msgid "eCommerce"
+msgstr "eCommerce"
+
+#: panel/gridsby-admin_page.php:338
+#@ gridsby
+msgid "Education"
+msgstr "Educação"
+
+#: panel/gridsby-admin_page.php:342
+#@ gridsby
+msgid "Fitness & Sports"
+msgstr "Esportes de fitness &"
+
+#: panel/gridsby-admin_page.php:346
+#@ gridsby
+msgid "Food & Restaurant"
+msgstr "Restaurante de comida &"
+
+#: panel/gridsby-admin_page.php:350
+#@ gridsby
+msgid "Health & Beauty"
+msgstr "Saúde beleza &"
+
+#: panel/gridsby-admin_page.php:354
+#@ gridsby
+msgid "Hotel"
+msgstr "Hotel"
+
+#: panel/gridsby-admin_page.php:358
+#@ gridsby
+msgid "Medical"
+msgstr "Médica"
+
+#: panel/gridsby-admin_page.php:362
+#@ gridsby
+msgid "Music"
+msgstr "Música"
+
+#: panel/gridsby-admin_page.php:366
+#@ gridsby
+msgid "Photography"
+msgstr "Fotografia"
+
+#: panel/gridsby-admin_page.php:370
+#@ gridsby
+msgid "Real Estate"
+msgstr "Imóveis"
+
+#: panel/gridsby-admin_page.php:374
+#@ gridsby
+msgid "Travel"
+msgstr "Viagens"
+
+#: panel/gridsby-admin_page.php:378
+#@ gridsby
+msgid "One Page"
+msgstr "Uma página"
+
+#: panel/gridsby-admin_page.php:382
+#@ gridsby
+msgid "Niche Markets"
+msgstr "Nichos de mercado"
+
+#: search.php:18
+#, php-format
+#@ gridsby
+msgid "Search Results for: %s"
+msgstr "Resultados de busca para: %s"
+
+#: widgets/contact-info.php:13
+#@ gridsby
+msgid "Display your contact info"
+msgstr "Exibir suas informações de contato"
+
+#: widgets/contact-info.php:15
+#@ gridsby
+msgid "MT: Contact Info Widget"
+msgstr "MT: Informações de contato Widget"
+
+#: widgets/contact-info.php:53
+#: widgets/video-widget.php:49
+#@ gridsby
+msgid "Title"
+msgstr "Título"
+
+#: widgets/contact-info.php:61
+#@ gridsby
+msgid "Enter your address"
+msgstr "Digite seu endereço de"
+
+#: widgets/contact-info.php:67
+#@ gridsby
+msgid "Enter your phone number"
+msgstr "Digite o seu número de telefone"
+
+#: widgets/contact-info.php:73
+#@ gridsby
+msgid "Enter your email address"
+msgstr "Digite seu endereço de e-mail"
+
+#: widgets/contact-info.php:171
+#@ gridsby
+msgid "Contact info"
+msgstr "Informação de contato"
+
+#: widgets/contact-info.php:195
+#@ gridsby
+msgid "Address: "
+msgstr "Endereço: "
+
+#: widgets/contact-info.php:205
+#@ gridsby
+msgid "Phone: "
+msgstr "Telefone: "
+
+#: widgets/contact-info.php:215
+#@ gridsby
+msgid "Email: "
+msgstr "Email: "
+
+#: widgets/video-widget.php:13
+#@ gridsby
+msgid "Video for your sidebar."
+msgstr "Vídeo da barra lateral."
+
+#: widgets/video-widget.php:15
+#@ gridsby
+msgid "MT: Video Widget"
+msgstr "MT: Vídeo Widget"
+
+#: widgets/video-widget.php:57
+#@ gridsby
+msgid "Paste the URL of the video (only from a network that supports oEmbed, like Youtube, Vimeo etc.):"
+msgstr "Cole a URL do vídeo (só a partir de uma rede que suporta oEmbed, como Youtube, Vimeo, etc.):"
+
+#: widgets/video-widget.php:151
+#@ gridsby
+msgid "Video"
+msgstr "Vídeo"
+
+#: inc/customizer.php:738
+#@ gridsby
+msgid "Select to display your posts in ascending or descending order."
+msgstr "Selecione para exibir suas mensagens em ordem crescente ou decrescente."
+
+#: inc/customizer.php:744
+#@ gridsby
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: inc/customizer.php:745
+#@ gridsby
+msgid "Descending"
+msgstr "Decrescente"
+

@@ -1,0 +1,5 @@
+Changelog
+
+2 Mar 2014 - 1.06
+--------------------------------------
+- compatibility with the new Page Builder by Site Origin;

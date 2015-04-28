@@ -1,0 +1,440 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Honma\n"
+"POT-Creation-Date: 2015-03-01 20:02+0200\n"
+"PO-Revision-Date: 2015-03-01 20:03+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:16
+msgid "Not found"
+msgstr ""
+
+#: 404.php:17
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr ""
+
+#: archive.php:17
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: archive.php:19
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: archive.php:21
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: archive.php:23
+msgid "Archives"
+msgstr ""
+
+#: archive.php:30 category.php:20 front-page.php:21 index.php:19 search.php:19
+#: tag.php:20
+msgid "Previous Posts"
+msgstr ""
+
+#: archive.php:31 category.php:21 front-page.php:22 index.php:20 search.php:20
+#: tag.php:21
+msgid "Next posts"
+msgstr ""
+
+#: category.php:15
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: comments.php:12
+msgid "Comments are currently closed."
+msgstr ""
+
+#: content-home.php:147 content-posts.php:13 single.php:18
+msgid "By"
+msgstr ""
+
+#: content-home.php:148 content-posts.php:15
+msgid "Read More"
+msgstr ""
+
+#: content-posts.php:13 single.php:18
+msgid "Category"
+msgstr ""
+
+#: footer.php:17 options.php:87 sidebar.php:14
+msgid "Recent Posts"
+msgstr ""
+
+#: footer.php:29 sidebar.php:26
+msgid "Tag Cloud"
+msgstr ""
+
+#: footer.php:41 sidebar.php:20
+msgid "Pages"
+msgstr ""
+
+#: footer.php:53 sidebar.php:32
+msgid "Categories"
+msgstr ""
+
+#: front-page.php:16 index.php:14
+msgid "Blog"
+msgstr ""
+
+#: functions.php:17
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:55
+msgid "Sidebar Widget Area"
+msgstr ""
+
+#: functions.php:57
+msgid "The sidebar widget area"
+msgstr ""
+
+#: functions.php:64
+msgid "Footer Widget Area 1"
+msgstr ""
+
+#: functions.php:66
+msgid "The footer widget area 1"
+msgstr ""
+
+#: functions.php:73
+msgid "Footer Widget Area 2"
+msgstr ""
+
+#: functions.php:75
+msgid "The footer widget area 2"
+msgstr ""
+
+#: functions.php:82
+msgid "Footer Widget Area 3"
+msgstr ""
+
+#: functions.php:84
+msgid "The footer widget area 3"
+msgstr ""
+
+#: functions.php:91
+msgid "Footer Widget Area 4"
+msgstr ""
+
+#: functions.php:93
+msgid "The footer widget area 4"
+msgstr ""
+
+#: functions.php:138
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:168
+msgid "Theme created by <a href=\""
+msgstr ""
+
+#: header.php:33
+msgid "Menu"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:91
+#: inc/includes/class-options-framework-admin.php:92
+msgid "Theme Options"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:190
+msgid "Upgrade to Pro version!"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:191
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:192
+msgid "Demo"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:193
+msgid "If you need assistance, please do not hesitate to"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:193
+msgid "contact us"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:206
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:236
+msgid "Default options restored."
+msgstr ""
+
+#: inc/includes/class-options-framework-admin.php:290
+msgid "Options saved."
+msgstr ""
+
+#: inc/includes/class-options-media-uploader.php:62
+msgid "No file chosen"
+msgstr ""
+
+#: inc/includes/class-options-media-uploader.php:65
+#: inc/includes/class-options-media-uploader.php:118
+msgid "Upload"
+msgstr ""
+
+#: inc/includes/class-options-media-uploader.php:67
+#: inc/includes/class-options-media-uploader.php:119
+msgid "Remove"
+msgstr ""
+
+#: inc/includes/class-options-media-uploader.php:70
+msgid "Upgrade your version of WordPress for full media support."
+msgstr ""
+
+#: inc/includes/class-options-media-uploader.php:94
+msgid "View File"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:316
+msgid "No Repeat"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:317
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:318
+msgid "Repeat Vertically"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:319
+msgid "Repeat All"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:331
+msgid "Top Left"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:332
+msgid "Top Center"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:333
+msgid "Top Right"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:334
+msgid "Middle Left"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:335
+msgid "Middle Center"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:336
+msgid "Middle Right"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:337
+msgid "Bottom Left"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:338
+msgid "Bottom Center"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:339
+msgid "Bottom Right"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:351
+msgid "Scroll Normally"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:352
+msgid "Fixed in Place"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:424
+msgid "Normal"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:425
+msgid "Italic"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:426
+msgid "Bold"
+msgstr ""
+
+#: inc/includes/class-options-sanitization.php:427
+msgid "Bold Italic"
+msgstr ""
+
+#: options.php:36
+msgid "General Settings"
+msgstr ""
+
+#: options.php:37
+msgid "Header Logo Text"
+msgstr ""
+
+#: options.php:38
+msgid "Header Logo Text 2"
+msgstr ""
+
+#: options.php:39
+msgid "Header Logo Image"
+msgstr ""
+
+#: options.php:40
+msgid "Fav Icon URL"
+msgstr ""
+
+#: options.php:41
+msgid "Web Clip Icon URL"
+msgstr ""
+
+#: options.php:42
+msgid "Footer copyright text left"
+msgstr ""
+
+#: options.php:46
+msgid "Home Page"
+msgstr ""
+
+#: options.php:48
+msgid "Header Image"
+msgstr ""
+
+#: options.php:50
+msgid "Top Title 1"
+msgstr ""
+
+#: options.php:51
+msgid "Top Title 2"
+msgstr ""
+
+#: options.php:52
+msgid "Top Subtitle"
+msgstr ""
+
+#: options.php:54
+msgid "Bar Box Title"
+msgstr ""
+
+#: options.php:55
+msgid "Bar Box Button Text"
+msgstr ""
+
+#: options.php:56
+msgid "Bar Box Button Link"
+msgstr ""
+
+#: options.php:58
+msgid "4 Box Title"
+msgstr ""
+
+#: options.php:60
+msgid "Box 1 Title"
+msgstr ""
+
+#: options.php:61
+msgid "Box 1 Description"
+msgstr ""
+
+#: options.php:62
+msgid "Box 1 Link"
+msgstr ""
+
+#: options.php:63
+msgid "Box 1 Image"
+msgstr ""
+
+#: options.php:63 options.php:68 options.php:73 options.php:78
+msgid "Recommended image sizes 255 X 255"
+msgstr ""
+
+#: options.php:65
+msgid "Box 2 Title"
+msgstr ""
+
+#: options.php:66
+msgid "Box 2 Description"
+msgstr ""
+
+#: options.php:67
+msgid "Box 2 Link"
+msgstr ""
+
+#: options.php:68
+msgid "Box 2 Image"
+msgstr ""
+
+#: options.php:70
+msgid "Box 3 Title"
+msgstr ""
+
+#: options.php:71
+msgid "Box 3 Description"
+msgstr ""
+
+#: options.php:72
+msgid "Box 3 Link"
+msgstr ""
+
+#: options.php:73
+msgid "Box 3 Image"
+msgstr ""
+
+#: options.php:75
+msgid "Box 4 Title"
+msgstr ""
+
+#: options.php:76
+msgid "Box 4 Description"
+msgstr ""
+
+#: options.php:77
+msgid "Box 4 Link"
+msgstr ""
+
+#: options.php:78
+msgid "Box 4 Image"
+msgstr ""
+
+#: options.php:80
+msgid "Bar 2 Box Title"
+msgstr ""
+
+#: options.php:81
+msgid "Bar 2 Box Button Text"
+msgstr ""
+
+#: options.php:82
+msgid "Bar 2 Box Button Link"
+msgstr ""
+
+#: search.php:14
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: tag.php:15
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""

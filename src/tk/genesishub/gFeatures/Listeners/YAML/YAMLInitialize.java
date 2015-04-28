@@ -59,7 +59,6 @@ public class YAMLInitialize {
 	gMusicPlugin gmp = new gMusicPlugin();
 	public void Enabler() throws IOException{
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f); 
-		Bukkit.getLogger().info((String) yamlFile.get("Config.Presets.gWars"));
 		if(yamlFile.get("Config.Presets.gWars").equals("true")){
 			gwp.Initialize();
 			Bukkit.getLogger().info("Loaded gWars preset.");

@@ -1,0 +1,1589 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sensiblewp\n"
+"POT-Creation-Date: 2015-04-15 21:37-0500\n"
+"PO-Revision-Date: 2015-04-15 21:37-0500\n"
+"Last-Translator: \n"
+"Language-Team: modernthemes\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/admin/Desktop/sensiblewp\n"
+
+#: /Users/admin/Desktop/sensiblewp/404.php:13
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/404.php:27
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/404.php:35
+msgid "Most Used Categories"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/404.php:52
+#, php-format
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:29
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:143
+#, php-format
+msgid "Author: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:32
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:149
+#, php-format
+msgid "Day: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:35
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:147
+#, php-format
+msgid "Month: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:38
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:145
+#, php-format
+msgid "Year: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:41
+msgid "Asides"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:44
+msgid "Galleries"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:47
+msgid "Images"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:50
+msgid "Videos"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:53
+msgid "Quotes"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:56
+msgid "Links"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:59
+msgid "Statuses"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:62
+msgid "Audios"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:65
+msgid "Chats"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/archive.php:68
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:177
+msgid "Archives"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/comments.php:35
+#: /Users/admin/Desktop/sensiblewp/comments.php:52
+msgid "Comment navigation"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/comments.php:36
+#: /Users/admin/Desktop/sensiblewp/comments.php:53
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/comments.php:37
+#: /Users/admin/Desktop/sensiblewp/comments.php:54
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/comments.php:64
+msgid "Comments are closed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-none.php:19
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-none.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-page.php:15
+#: /Users/admin/Desktop/sensiblewp/content-single.php:13
+#: /Users/admin/Desktop/sensiblewp/content.php:41
+msgid "Pages:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content-page.php:22
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:122
+msgid "Edit"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/content.php:33
+#: /Users/admin/Desktop/sensiblewp/content.php:35
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/footer.php:138
+msgid "fa-map-marker"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/footer.php:159
+msgid "fa-mobile"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/footer.php:180
+msgid "fa-envelope-o"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/footer.php:209
+#, php-format
+msgid "Theme: %1$s by %2$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/functions.php:54
+msgid "Primary Menu"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/functions.php:81
+msgid "Sidebar"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/functions.php:91
+msgid "Home Widget"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/functions.php:93
+msgid "The widget area for your home page."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/header.php:37
+msgid "Skip to content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/header.php:47
+msgid "200"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/header.php:64
+msgid "<i class=\"fa fa-bars\"></i> Menu"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/header.php:74
+msgid "Menu"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/index.php:20
+msgid "Blog"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/single.php:37
+msgid "Posted by, "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/single.php:38
+msgid "on "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:25
+msgid "Sensible Pro"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:27
+msgid ""
+"Need a little more Sensible? If you want to see what additional features <a "
+"href=\"http://modernthemes.net/wordpress-themes/sensible-pro/\" target="
+"\"_blank\">Sensible Pro</a> has, check them all out right <a href=\"http://"
+"modernthemes.net/wordpress-themes/sensible-pro/\" target=\"_blank\">here</a>."
+"</br></br>We do all we can do to make all our themes free for you. While we "
+"enjoy it, and it makes us happy to help out, a little appreciation can help "
+"us to keep theming.</strong><br/><br/> Please help support our mission and "
+"continued development with a donation of $5, $10, $20, or if you are feeling "
+"really kind $100..<br/><br/> <a href=\"https://www.paypal.com/cgi-bin/webscr?"
+"cmd=_s-xclick&hosted_button_id=7LMGYAZW9C5GE\" target=\"_blank\" rel="
+"\"nofollow\"><img class=\"\" src=\"https://www.paypal.com/en_US/i/btn/"
+"btn_donate_LG.gif\" alt=\"Make a donation to ModernThemes\" /></a>"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:49
+msgid "Google Fonts"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:97
+msgid ""
+"Select your desired font for the headings. Open Sans is the default Heading "
+"font."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:112
+msgid ""
+"Select your desired font for the body. Open Sans is the default Body font."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:124
+msgid "Text Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:136
+msgid "Link Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:148
+msgid "Hover Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:160
+msgid "Theme Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:172
+msgid "Theme Hover Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:184
+msgid "Site Title Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:196
+msgid "Blockquote Background"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:208
+msgid "Blockquote Accent Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:220
+msgid "Entry Title Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:233
+msgid "Navigation Link Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:245
+msgid "Navigation Link Hover Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:257
+msgid "Menu Drop Down Link Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:265
+msgid "Animations"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:267
+msgid "We can make things fly across the screen."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:281
+msgid "Check this box if you want to disable the animations."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:288
+msgid "Logo and Icons"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:290
+msgid ""
+"Upload a logo to replace the default site name and description in the "
+"header. Also, upload your site favicon and Apple Icons."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:298
+msgid "Logo"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:311
+msgid "Change the width of the Logo in PX."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:312
+msgid "Only enter numeric value"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:331
+msgid "Upload your favicon (16x16 pixels)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:351
+msgid "Upload your Apple Touch Icon (144x144 pixels)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:371
+msgid "Upload your Apple Touch Icon (114x114 pixels)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:391
+msgid "Upload your Apple Touch Icon (72x72 pixels)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:411
+msgid "Upload your Apple Touch Icon (57x57 pixels)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:420
+msgid "Home Hero Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:422
+msgid "Edit your Home Page Hero"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:434
+msgid "Hide Hero"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:446
+msgid "Hero Image"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:460
+msgid "Hero Heading"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:474
+msgid "Hero Button Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:487
+msgid "Hero Button URL"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:499
+msgid "Home Social Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:500
+msgid "Edit your home page social media icons"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:511
+msgid "External URL Option"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:512
+msgid ""
+"If you use an external URL, leave the Widget Button Link above empty. Must "
+"include http:// before any URL."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:520
+msgid "Social Media Icons"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:535
+msgid "Hide Home Social Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:547
+msgid "Socials Heading"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:560
+msgid "Social Icon Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:572
+msgid "Social Icon Hover Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:585
+msgid "Facebook URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:598
+msgid "Twitter URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:611
+msgid "LinkedIn URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:624
+msgid "Google Plus URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:637
+msgid "Instagram URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:650
+msgid "Flickr URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:663
+msgid "Pinterest URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:676
+msgid "YouTube URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:689
+msgid "Vimeo URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:702
+msgid "Tumblr URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:715
+msgid "Dribbble URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:728
+msgid "RSS URL:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:739
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:745
+msgid "Home Intro Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:740
+msgid "Edit your home page intro settings"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:747
+msgid "Edit your home page Intro section content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:762
+msgid "Hide Home Intro Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:774
+msgid "Intro Title Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:787
+msgid "Intro Text Box"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:799
+msgid "Home Services Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:800
+msgid "Edit your home page Services settings."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:805
+msgid "Home Services Content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:807
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2018
+msgid "Edit your home page Services content."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:821
+msgid "Hide Services Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:834
+msgid "Services Title Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:848
+msgid "Services Button Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:861
+msgid "Service Button URL"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:876
+msgid "Number of services to display"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:890
+msgid "Services Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:892
+msgid ""
+"Edit your home page services box 1. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:906
+msgid "Hide Service Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:918
+msgid "Service Icon 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:931
+msgid "Service Title 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:944
+msgid "Service Text Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:953
+msgid "Services Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:955
+msgid ""
+"Edit your home page services box 2. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:969
+msgid "Hide Service Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:981
+msgid "Service Icon 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:994
+msgid "Service Title 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1007
+msgid "Service Text Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1016
+msgid "Services Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1018
+msgid ""
+"Edit your home page services box 3. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1032
+msgid "Hide Service Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1044
+msgid "Service Icon 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1057
+msgid "Service Title 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1070
+msgid "Service Text Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1082
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1088
+msgid "Home Blog Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1083
+msgid "Edit your home page blog settings"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1090
+msgid "Edit your home page Blog section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1103
+msgid "Hide Blog Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1115
+msgid "Blog Title Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1127
+msgid "Blog Call-to-Action"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1138
+msgid "Home Team Member Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1139
+msgid "Edit your home page team member settings"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1144
+msgid "Home Team Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1146
+msgid "Edit your home page Team section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1159
+msgid "Hide Team Section Content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1171
+msgid "Team Title Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1190
+msgid "Team Member Button Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1203
+msgid "Team Member Button URL"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1217
+msgid "Number of team members to display"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1231
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2268
+msgid "Team Member 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1233
+msgid "Edit your Team Member 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1247
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2284
+msgid "Hide Member Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1258
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2295
+msgid "Team Member Image 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1271
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2308
+msgid "Team Member Name 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1284
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2321
+msgid "Team Member Text Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1298
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2335
+msgid "Team Member Facebook 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1311
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2348
+msgid "Team Member Twitter 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1324
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2361
+msgid "Team Member LinkedIn 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1337
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2374
+msgid "Team Member Google 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1350
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2387
+msgid "Team Member Email 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1358
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2395
+msgid "Team Member 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1360
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2397
+msgid "Edit your Team Member 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1374
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2411
+msgid "Hide Member Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1385
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2422
+msgid "Team Member Image 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1398
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2435
+msgid "Team Member Name 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1411
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2448
+msgid "Team Member Text Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1425
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2462
+msgid "Team Member Facebook 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1438
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2475
+msgid "Team Member Twitter 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1451
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2488
+msgid "Team Member LinkedIn 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1464
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2501
+msgid "Team Member Google 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1477
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2514
+msgid "Team Member Email 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1485
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2522
+msgid "Team Member 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1487
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2524
+msgid "Edit your Team Member 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1501
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2538
+msgid "Hide Member Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1512
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2549
+msgid "Team Member Image 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1525
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2562
+msgid "Team Member Name 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1538
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2575
+msgid "Team Member Text Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1552
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2589
+msgid "Team Member Facebook 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1565
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2602
+msgid "Team Member Twitter 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1578
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2615
+msgid "Team Member LinkedIn 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1591
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2628
+msgid "Team Member Google 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1604
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2641
+msgid "Team Member Email 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1615
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1621
+msgid "Home Widget Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1616
+msgid ""
+"Edit your home page widget settings. The main body of the widget area can be "
+"edited under the Widgets section below."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1623
+msgid ""
+"Customize the home widget area. The main body of the widget area can be "
+"edited under the Widgets section below."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1634
+msgid "Number of Widget Columns"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1635
+msgid ""
+"Select the number of widget columns to use. 1 Column will take up the entire "
+"widget area, while 4 columns will give space to use 4 widgets for content."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1641
+msgid "1 Column"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1642
+msgid "2 Columns"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1643
+msgid "3 Columns"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1644
+msgid "4 Columns"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1655
+msgid "Background Image"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1668
+msgid ""
+"Choose from any of <a href=\"http://fortawesome.github.io/Font-Awesome/"
+"cheatsheet/\" target=\"_blank\">these icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1669
+msgid "Widget Icon"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1685
+msgid "Hide Widget Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1697
+msgid "Widget Button Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1710
+msgid "Widget Button URL"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1722
+msgid "Footer Options"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1723
+msgid "Edit your footer options"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1728
+msgid "Footer"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1730
+msgid "Customize your footer area"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1744
+msgid "Hide Footer Top Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1759
+msgid "Hide Footer Social Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1771
+msgid "Footer Social Heading"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1785
+msgid "Footer Title Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1798
+msgid "First Icon"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1811
+msgid "Footer First Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1824
+msgid "Footer First Column"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1838
+msgid "Second Icon"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1851
+msgid "Footer Second Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1864
+msgid "Footer Second Column"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1878
+msgid "Third Icon"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1891
+msgid "Footer Third Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1904
+msgid "Footer Third Column"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1918
+msgid "Footer Byline Text"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1930
+msgid "Footer Background Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1942
+msgid "Footer Text Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1954
+msgid "Footer Link Color"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1962
+msgid "Layout"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1964
+msgid "Change how Sensible displays posts"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1973
+msgid "Post content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1995
+msgid "Excerpt length"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:1996
+msgid "Choose your excerpt length here. Default: 30 words"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2010
+msgid "Services Page Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2011
+msgid "Edit your Services page settings."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2016
+msgid "Services Page Content"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2029
+msgid "Number of services to display on your page"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2043
+msgid "Services Page Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2045
+msgid ""
+"Edit your services page box 1. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2059
+msgid "Hide Service Page Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2071
+msgid "Service Page Icon 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2084
+msgid "Service Page Title 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2097
+msgid "Service Page Text Box 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2106
+msgid "Services Page Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2108
+msgid ""
+"Edit your services page box 2. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2122
+msgid "Hide Service Page Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2134
+msgid "Service Page Icon 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2147
+msgid "Service Page Title 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2160
+msgid "Service Page Text Box 2"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2169
+msgid "Services Page Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2171
+msgid ""
+"Edit your services page box 3. Choose from any of <a href=\"http://"
+"fortawesome.github.io/Font-Awesome/cheatsheet/\" target=\"_blank\">these "
+"icons</a>. Example: \"fa-arrow-right\"."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2185
+msgid "Hide Service Page Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2197
+msgid "Service Page Icon 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2210
+msgid "Service Page Title 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2223
+msgid "Service Page Text Box 3"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2235
+msgid "Team Member Page Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2236
+msgid "Edit your team member page settings."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2241
+msgid "Team Page Section"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2243
+msgid "Edit your Team page section."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2254
+msgid "Number of team members to display on Team Page"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/customizer.php:2270
+msgid "Edit your page - Team Member 1"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/extras.php:52
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:21
+msgid "Posts navigation"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:25
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:29
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:52
+msgid "Post navigation"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:104
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:110
+msgid ", "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:106
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:112
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:118
+msgid "Leave a comment"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:118
+msgid "1 Comment"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:118
+msgid "% Comments"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:139
+#, php-format
+msgid "Category: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:141
+#, php-format
+msgid "Tag: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:171
+#, php-format
+msgid "Archives: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/inc/template-tags.php:175
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:321
+msgid "Install Required Plugins"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:323
+msgid "Install Plugins"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:325
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:327
+msgid "Something went wrong."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:349
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:351
+msgid "Return to the dashboard"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:353
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3891
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:355
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:357
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:359
+msgid "Dismiss this notice"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:1069
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4325
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2339
+msgid "Private Repository"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2345
+msgid "Pre-Packaged"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2355
+msgid "WordPress Repository"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2361
+msgid "Required"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2361
+msgid "Recommended"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2367
+msgid "Not Installed"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2371
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2581
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2797
+msgid "Install"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2625
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2799
+msgid "Activate"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2723
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2755
+msgid "Plugin"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2757
+msgid "Source"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2759
+msgid "Type"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:2761
+msgid "Status"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3857
+msgid "Install package not available."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3859
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3861
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3863
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3865
+msgid "Plugin install failed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3867
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:3889
+msgid "Plugin activation failed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4117
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4119
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4119
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4137
+msgid "Show Details"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4119
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4137
+msgid "Hide Details"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4121
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4123
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4131
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4133
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4135
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4137
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4139
+msgid "All installations have been completed."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/class-tgm-plugin-activation.php:4141
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:201
+msgid "Sensible Theme Details"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:206
+msgid "Thank you for using Sensible!"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:210
+msgid "Sensible Theme Setup"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:214
+msgid ""
+"We created a quick theme setup video to help you get started with Sensible. "
+"Watch the video with the link below."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:218
+msgid "View Video"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:222
+msgid "Documentation"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:226
+msgid ""
+"Check out our Sensible Documentation to learn how to use Sensible and for "
+"tutorials on theme functions. Click the link below."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:230
+msgid "Read Docs"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:234
+msgid "About ModernThemes"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:238
+msgid ""
+"Want more to learn more about ModernThemes? Let us help you at www."
+"modernthemes.net."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:242
+msgid "About Us"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:246
+msgid "Want more features? Go Pro."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:250
+msgid "More Theme Options"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:254
+msgid ""
+"Control more options and aspects of your website including slider settings, "
+"Service Icon Links, and uploading video."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:258
+msgid "Home Page Slider"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:262
+msgid ""
+"Add multiple slides to your home page with Sensible Pro. Create slides from "
+"your Posts and customize the settings in the Theme Customizer. "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:266
+msgid "Home Templates + Sections"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:270
+msgid ""
+"Add information with sections for a contact form, skill bars, and details "
+"spinner. Includes home page templates for Full-Screen Slider and Video "
+"Banner."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:274
+msgid "WooCommerce"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:278
+msgid ""
+"Turn your website into a powerful eCommerce machine. Sensible Pro is fully "
+"compatible with WooCommerce."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:282
+msgid "More Sidebars"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:286
+msgid ""
+"Sometimes you need different sidebars for different pages. We got you "
+"covered, offering up to 5 different sidebars."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:290
+msgid ""
+"Access an additional 65 Google fonts with Sensible Pro right in the "
+"WordPress customizer."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:294
+msgid "PSD Files"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:298
+msgid ""
+"Premium versions include PSD files. Preview your own content or showcase a "
+"customized version for your clients."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:302
+msgid "Free Support"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:306
+msgid ""
+"Call on us to help you out. Premium themes come with free support that goes "
+"directly to our support staff."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/panel/sensiblewp-admin_page.php:310
+msgid "View Pro Version"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:12
+msgid "Display your contact info"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:14
+msgid "MT: Contact Info Widget"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:52
+#: /Users/admin/Desktop/sensiblewp/widgets/video-widget.php:49
+msgid "Title"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:60
+msgid "Enter your address"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:66
+msgid "Enter your phone number"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:72
+msgid "Enter your email address"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:170
+msgid "Contact info"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:194
+msgid "Address: "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:204
+msgid "Phone: "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/contact-info.php:214
+msgid "Email: "
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/video-widget.php:13
+msgid "Video for your sidebar."
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/video-widget.php:15
+msgid "MT: Video Widget"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/video-widget.php:57
+msgid ""
+"Paste the URL of the video (only from a network that supports oEmbed, like "
+"Youtube, Vimeo etc.):"
+msgstr ""
+
+#: /Users/admin/Desktop/sensiblewp/widgets/video-widget.php:151
+msgid "Video"
+msgstr ""

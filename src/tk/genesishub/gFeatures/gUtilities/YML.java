@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class YML {
-	File f = new File("plugins/gFeatures/gUtilities");
+	File f = new File("plugins/gFeatures/gUtilities/Config.yml");
 	public void create() throws IOException{
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			yamlFile.createSection("Config");

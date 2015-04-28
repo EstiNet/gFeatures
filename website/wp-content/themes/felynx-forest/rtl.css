@@ -1,0 +1,40 @@
+/*
+Theme Name: Felynx Forest
+Description: Adds support for languages written in a Right To Left (RTL) direction.
+
+*/
+body { direction: rtl; unicode-bidi: embed; }
+
+.the-content > *:first-child::first-letter { float: right; margin-right: 0; margin-left: 0.1em; }
+
+#comments .comment-author .avatar { border-radius: 32px; left: auto; right: 8px; }
+#comments .comment-author .fn { margin-left: 0; margin-right: 48px; }
+#comments .comment-metadata { float: left; margin-left: 1em; margin-right: 0; }
+#comments .comment-metadata a:hover:after { left: -40px; right: auto; }
+#comments .comment-form label i { left: auto; right: 0; }
+
+#nav .brand.has-menu { float: right; }
+#nav .menu { float: left; }
+#nav .menu .sub-menu { left: auto; right: 0; }
+#nav .menu .sub-menu .sub-menu { padding-left: 0; padding-right: 1em; }
+#nav .menu .sub-menu .sub-menu a:before { left: auto; right: 0; }
+#nav .menu > .menu-item:last-child .sub-menu { left: 0; right: auto; }
+
+#main .nav-links li i { -webkit-transform: scale(-1, 1); -ms-transform: scale(-1, 1); transform: scale(-1, 1); }
+#main .nav-links li.next { left: 0; right: auto; }
+#main .nav-links li.next a { float: left; margin-right: auto; margin-left: 20px; }
+#main .nav-links li.next a:hover { border-radius: 0 3px 3px 0; margin-left: 0; }
+#main .nav-links li.next span { float: left; margin-left: -2px; margin-right: auto; padding-left: 0; padding-right: 80px; }
+#main .nav-links li.prev { left: auto; right: 0; }
+#main .nav-links li.prev a { float: right; margin-right: 20px; margin-left: auto; }
+#main .nav-links li.prev a:hover { border-radius: 3px 0 0 3px; margin-right: 0; }
+#main .nav-links li.prev span { float: right; margin-right: -2px; margin-left: auto; padding-left: 0; padding-right: 80px; }
+#main .post-metadata .post-tags { float: left; }
+#main .sticky .post-entry:before { left: 24px; right: auto; }
+
+#sharing .permalink i { left: auto; right: 0; }
+
+#footer .author { margin-left: 0; margin-right: 8%; }
+#footer .links { margin-left: 10px; margin-right: -10px; }
+#footer .social { float: left; margin-left: 0; margin-right: 8%; }
+#footer .widget_search .search-submit { border-radius: 3px 0 0 3px; left: 0; right: auto; }

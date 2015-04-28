@@ -1,0 +1,48 @@
+== Changelog ==
+
+= 1.1.0 - 05.04.2015
+- Add support WooCommerce
+- Some fixes and minor changes
+
+= 1.0.9 - 19.03.2015
+- Fixed bug support 'title_tag' on WordPress 4.1
+- Fixed, changed and updated
+
+= 1.0.8 - 23.01.2015
+- Changed screenshot image
+
+= 1.0.7 - 20.01.2015
+- Fixed set the content width based
+- Minor changed style.css, editor-style and readme.txt
+
+= 1.0.6 - 10.01.2015
+- Add 'title-tag' support
+- Add editor-style
+- Minor changed function Register Google fonts for Theme
+- Fixed, changed and updated other functional and style
+
+= 1.0.5 - 08.01.2015
+- Fixed, minor changed style.css
+- Changed Theme URL
+
+= 1.0.4 - 23.12.2014
+- Fixed, minor changed and updated
+- Removed built-in infinite scroll
+- Add Ready plugin Jetpack (infinite scroll and another)
+- Add Soundcloud icon (socialmedia icons menu)
+- Changed screenshot image
+
+= 1.0.3 - 18.12.2014
+- Fixed, changed and updated
+
+= 1.0.2 - 11.12.2014
+- Fixed, changed and updated
+- Changed and updated screenshot image
+
+= 1.0.1 - 31.10.2014
+- Changed and updated style.css, readme.txt, functions.php
+- Removed option Disabled slideshow gallery (Theme Options page)
+- Change the output functions shortcode gallery
+- Changed and updated Contextual Help
+
+= 1.0 - 7.10.2014 - Initial release
