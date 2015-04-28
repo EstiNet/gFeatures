@@ -1,5 +1,7 @@
 package tk.genesishub.gFeatures.gUtilities.FeatureManager;
 
-public class Library {
+import org.bukkit.event.player.PlayerJoinEvent;
 
+public class Library {
+	public void onPlayerJoin(PlayerJoinEvent event){}
 }
