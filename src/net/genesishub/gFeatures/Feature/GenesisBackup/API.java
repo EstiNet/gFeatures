@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.GenesisBackup;
+package net.genesishub.gFeatures.Feature.GenesisBackup;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.GenesisEconomy;
+package net.genesishub.gFeatures.Feature.GenesisEconomy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

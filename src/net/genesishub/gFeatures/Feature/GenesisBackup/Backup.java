@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.GenesisBackup;
+package net.genesishub.gFeatures.Feature.GenesisBackup;
 
 public class Backup {
 

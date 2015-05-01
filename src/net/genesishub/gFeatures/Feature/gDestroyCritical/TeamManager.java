@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gDestroyCritical;
+package net.genesishub.gFeatures.Feature.gDestroyCritical;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;

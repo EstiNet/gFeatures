@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gDestroyCritical;
+package net.genesishub.gFeatures.Feature.gDestroyCritical;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

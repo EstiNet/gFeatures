@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.GenesisEconomy;
+package net.genesishub.gFeatures.Feature.GenesisEconomy;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;

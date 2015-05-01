@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.GenesisAccess;
+package net.genesishub.gFeatures.Feature.GenesisAccess;
 
 import java.io.BufferedWriter;
 import java.io.File;
