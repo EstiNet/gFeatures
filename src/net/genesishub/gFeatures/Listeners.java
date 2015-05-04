@@ -19,9 +19,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import tk.genesishub.gFeatures.Listeners.CommandCentral;
-import tk.genesishub.gFeatures.Listeners.ListenersHub;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 public class Listeners extends JavaPlugin implements Listener{
@@ -31,6 +28,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	Enabler enable = new Enabler();
 	Disabler disable = new Disabler();
 	Library library = new Library();
+	CommandLibrary commands = new CommandLibrary();
 	
 	public void onEnable(){
 	    pm.registerEvents(this, this);
@@ -97,7 +95,7 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
-    	
+    	commands.Commands(sender, cmd, label, args);
         return true;
     }
 }

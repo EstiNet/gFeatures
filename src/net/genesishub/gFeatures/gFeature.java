@@ -4,6 +4,8 @@ public class gFeature {
 	private static String name;
 	private static float version;
 	private static FeatureState state;
+	private static String commandlabel;
+	
 	public gFeature(String featurename, float featureversion){
 		name = featurename;
 		version = featureversion;
@@ -18,6 +20,11 @@ public class gFeature {
 	}
 	public void setState(FeatureState states){
 		state = states;
+		return;
+	}
+	public void setCommandLabel(String label){
+		commandlabel = label;
+		return;
 	}
 	public String getName(){
 		return name;
@@ -27,5 +34,8 @@ public class gFeature {
 	}
 	public FeatureState getState(){
 		return state;
+	}
+	public String getCommandLabel(){
+		return commandlabel;
 	}
 }
