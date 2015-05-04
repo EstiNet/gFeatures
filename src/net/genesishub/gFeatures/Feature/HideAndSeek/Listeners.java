@@ -5,10 +5,10 @@ import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import tk.genesishub.gFeatures.API.MinigameBase.Arena;
-import tk.genesishub.gFeatures.API.MinigameBase.Game;
-import tk.genesishub.gFeatures.API.MinigameBase.Resource;
-import tk.genesishub.gFeatures.API.MinigameBase.Teams;
+import net.genesishub.gFeatures.API.Minigame.Arena;
+import net.genesishub.gFeatures.API.Minigame.Game;
+import net.genesishub.gFeatures.API.Minigame.Resource;
+import net.genesishub.gFeatures.API.Minigame.Teams;
 
 public class Listeners {
 	Teams hider;

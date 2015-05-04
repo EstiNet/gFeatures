@@ -2,7 +2,7 @@ package net.genesishub.gFeatures.Feature.CTF;
 
 import org.bukkit.entity.Player;
 
-import tk.genesishub.gFeatures.API.MinigameBase.Teams;
+import net.genesishub.gFeatures.API.Minigame.Teams;
 
 public class TeamManager {
 	net.genesishub.gFeatures.Feature.CTF.Listeners Listeners = new net.genesishub.gFeatures.Feature.CTF.Listeners();
