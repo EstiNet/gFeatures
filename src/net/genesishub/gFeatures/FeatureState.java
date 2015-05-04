@@ -1,5 +1,5 @@
 package net.genesishub.gFeatures;
 
-public class FeatureState {
-
+public enum FeatureState {
+	ENABLE, DISABLE
 }
