@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import tk.genesishub.gFeatures.API.MinigameBase.Teams;
 
 public class TeamManager {
-	tk.genesishub.gFeatures.CTF.Listeners Listeners = new tk.genesishub.gFeatures.CTF.Listeners();
+	net.genesishub.gFeatures.Feature.CTF.Listeners Listeners = new net.genesishub.gFeatures.Feature.CTF.Listeners();
 	public void onJoinTeam(Player player, Teams team) throws Exception{
 		if(team.equals(Listeners.hideandseek.getTeam(0))){
 			Listeners.hideandseek.getTeam(0).addPlayer(player);

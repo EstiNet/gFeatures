@@ -1,5 +1,5 @@
 package net.genesishub.gFeatures;
 
-public class Features {
+public enum Features {
 
 }
