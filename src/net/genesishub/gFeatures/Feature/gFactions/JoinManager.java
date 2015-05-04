@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gFactions;
+package net.genesishub.gFeatures.Feature.gFactions;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 

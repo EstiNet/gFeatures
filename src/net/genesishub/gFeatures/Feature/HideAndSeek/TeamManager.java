@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.HideAndSeek;
+package net.genesishub.gFeatures.Feature.HideAndSeek;
 
 import org.bukkit.entity.Player;
 

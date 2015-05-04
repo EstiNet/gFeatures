@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gScore;
+package net.genesishub.gFeatures.Feature.gScore;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

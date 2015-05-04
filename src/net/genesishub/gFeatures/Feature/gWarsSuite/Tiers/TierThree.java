@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gWarsSuite.Tiers;
+package net.genesishub.gFeatures.Feature.gWarsSuite.Tiers;
 
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;

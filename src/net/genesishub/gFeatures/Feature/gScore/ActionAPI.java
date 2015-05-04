@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gScore;
+package net.genesishub.gFeatures.Feature.gScore;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

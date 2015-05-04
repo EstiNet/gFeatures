@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuite;
 
 import java.io.IOException;
 

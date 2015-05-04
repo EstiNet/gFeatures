@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.gScore;
+package net.genesishub.gFeatures.Feature.gScore;
 
 public class Radio {
 

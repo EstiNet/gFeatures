@@ -1,4 +1,4 @@
-package tk.genesishub.gFeatures.Skript.Java;
+package net.genesishub.gFeatures.Plus.Skript;
 
 import java.io.BufferedWriter;
 import java.io.File;
