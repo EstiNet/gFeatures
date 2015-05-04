@@ -46,7 +46,7 @@ public class SkriptManager {
 	public void Enable(Skripts s) throws IOException{
 		try{
 		Bukkit.getLogger().info(s.toString());
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/tk/genesishub/gFeatures/Skript/" + s.toString() + ".sk"));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Plus/Skript/" + s.toString() + ".sk"));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
