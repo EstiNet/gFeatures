@@ -1,9 +1,11 @@
 package net.genesishub.gFeatures.Configuration;
 
 import java.io.File;
+import java.util.List;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Features;
+import net.genesishub.gFeatures.gFeature;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -21,7 +23,7 @@ public class SetupConfig {
 		if(!(yamlFile.contains("Config.Plugins"))){
 		yamlFile.createSection("Config.Plugins");
 		}
-		for(configuration.getFeatures() : gFeature feature){
+		for(features : gFeature feature){
 			
 		}
 	}
