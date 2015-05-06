@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures;
 
+import net.genesishub.gFeatures.Configuration.SetupConfig;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -37,6 +39,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info(ChatColor.GOLD + "[gFeatures] This gFeatures installation is running core: " + version);
 		getLogger().info(ChatColor.GOLD + "[gFeatures] Turning on Features...");
 		enable.onEnable();
+		SetupConfig.setup();
 		getLogger().info(ChatColor.GOLD + "[gFeatures] Complete!");
 		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
 	}
