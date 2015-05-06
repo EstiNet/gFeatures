@@ -4,4 +4,7 @@ import net.genesishub.gFeatures.Configuration.MainConfig;
 
 public class Basic {
 	public static MainConfig config = new MainConfig();
+	public static MainConfig getConfig(){
+		return config;
+	}
 }
