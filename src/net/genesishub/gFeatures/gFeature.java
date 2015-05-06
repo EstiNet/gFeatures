@@ -2,19 +2,19 @@ package net.genesishub.gFeatures;
 
 public class gFeature {
 	private static String name;
-	private static float version;
+	private static double version;
 	private static FeatureState state;
 	private static String commandlabel;
 	
-	public gFeature(String featurename, float featureversion){
+	public gFeature(String featurename, double d){
 		name = featurename;
-		version = featureversion;
+		version = d;
 	}
 	public void setName(String featurename){
 		name = featurename;
 		return;
 	}
-	public void setVersion(float featureversion){
+	public void setVersion(double featureversion){
 		version = featureversion;
 		return;
 	}
@@ -29,7 +29,7 @@ public class gFeature {
 	public String getName(){
 		return name;
 	}
-	public float getVersion(){
+	public double getVersion(){
 		return version;
 	}
 	public FeatureState getState(){

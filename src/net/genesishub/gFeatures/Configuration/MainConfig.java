@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.Features;
 import net.genesishub.gFeatures.gFeature;
 
 public class MainConfig {

@@ -23,7 +23,7 @@ public class Config {
 		if(!(f.exists())){
 			try {
 				f.createNewFile();
-			} catch (IOException e) {k
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			Bukkit.getLogger().info(ChatColor.GOLD + "[gFeatures] " + message);
