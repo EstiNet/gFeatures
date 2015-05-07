@@ -33,6 +33,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	Library library = new Library();
 	CommandLibrary commands = new CommandLibrary();
 	
+	@Override
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
@@ -45,6 +46,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info(ChatColor.GOLD + "[gFeatures] Complete!");
 		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
 	}
+	@Override
 	public void onDisable(){
 		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
 		getLogger().info(ChatColor.GOLD + "[gFeatures] gFeatures disabled!");

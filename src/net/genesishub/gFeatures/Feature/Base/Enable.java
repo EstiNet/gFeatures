@@ -12,5 +12,8 @@ public class Enable extends Enabler{
 		if(Basic.getFeature("Base").getState().equals(FeatureState.ENABLE)){
 		Bukkit.getLogger().info("Base Plugin enabled!");
 		}
+		else{
+			Bukkit.getLogger().info("Test");
+		}
 	}
 }
