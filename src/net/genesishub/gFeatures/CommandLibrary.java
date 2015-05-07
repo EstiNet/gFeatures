@@ -25,8 +25,8 @@ public class CommandLibrary {
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){}
 	
-	public boolean Check(String check, String command) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + check));
+	public boolean Check(String filename, String command) throws IOException{
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
