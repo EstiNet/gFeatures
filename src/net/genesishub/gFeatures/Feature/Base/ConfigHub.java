@@ -6,5 +6,6 @@ public class ConfigHub {
 	Config config = new Config();
 	public void setupConfig(){
 		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
+		
 	}
 }
