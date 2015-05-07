@@ -3,7 +3,6 @@ package net.genesishub.gFeatures;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
@@ -36,25 +35,25 @@ public class Listeners extends JavaPlugin implements Listener{
 	@Override
 	public void onEnable(){
 	    pm.registerEvents(this, this);
-		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
-		getLogger().info(ChatColor.GOLD + "[gFeatures] gFeatures enabled!");
-		getLogger().info(ChatColor.GOLD + "[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info(ChatColor.GOLD + "[gFeatures] Turning on Features...");
+		getLogger().info("_________________________________________________________________________");
+		getLogger().info("[gFeatures] gFeatures enabled!");
+		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
+		getLogger().info("[gFeatures] Turning on Features...");
 		enable.onEnable();
 		SetupConfig.setup();
 		LoadConfig.load();
-		getLogger().info(ChatColor.GOLD + "[gFeatures] Complete!");
-		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
+		getLogger().info("[gFeatures] Complete!");
+		getLogger().info("_________________________________________________________________________");
 	}
 	@Override
 	public void onDisable(){
-		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
-		getLogger().info(ChatColor.GOLD + "[gFeatures] gFeatures disabled!");
-		getLogger().info(ChatColor.GOLD + "[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info(ChatColor.GOLD + "[gFeatures] Turning off Features...");
+		getLogger().info("_________________________________________________________________________");
+		getLogger().info("[gFeatures] gFeatures disabled!");
+		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
+		getLogger().info("[gFeatures] Turning off Features...");
 		disable.onDisable();
-		getLogger().info(ChatColor.GOLD + "[gFeatures] Complete!");
-		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
+		getLogger().info("[gFeatures] Complete!");
+		getLogger().info("_________________________________________________________________________");
 	}
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
