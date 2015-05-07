@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures;
 
+import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
 import org.bukkit.ChatColor;
@@ -40,6 +41,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info(ChatColor.GOLD + "[gFeatures] Turning on Features...");
 		enable.onEnable();
 		SetupConfig.setup();
+		LoadConfig.load();
 		getLogger().info(ChatColor.GOLD + "[gFeatures] Complete!");
 		getLogger().info(ChatColor.AQUA + "_________________________________________________________________________");
 	}

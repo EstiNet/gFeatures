@@ -11,8 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public class SetupConfig {
 	static Config config = new Config();
 	static File f = new File("plugins/gFeatures/Config.yml");
-	static MainConfig configuration = Basic.getConfig();
-	static List<gFeature> features = configuration.getFeatures();
+	static List<gFeature> features = Basic.getFeatures();
 	public static void setup(){
 		config.createFile("plugins/gFeatures/Config.yml", "Setup the gFeatures config for use!");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
