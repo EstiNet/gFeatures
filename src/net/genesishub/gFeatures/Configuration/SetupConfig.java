@@ -24,6 +24,7 @@ public class SetupConfig {
 		for(gFeature feature : features){
 			if(!(yamlFile.contains("Config.Plugins." + feature.getName()))){
 				yamlFile.createSection("Config.Plugins." + feature.getName());
+				yamlFile.set("Config.Plugins." + feature.getName() , "false");
 			}
 		}
 		if(!(yamlFile.contains("Config.Plus"))){

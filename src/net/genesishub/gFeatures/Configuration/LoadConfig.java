@@ -11,10 +11,9 @@ import net.genesishub.gFeatures.gFeature;
 public class LoadConfig {
 	static Config config = new Config();
 	static File f = new File("plugins/gFeatures/Config.yml");
-	static MainConfig configuration = Basic.getConfig();
-	static List<gFeature> features = configuration.getFeatures();
+	static List<gFeature> features = Basic.getFeatures();
 	public static void load(){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		 
+		
 	}
 }
