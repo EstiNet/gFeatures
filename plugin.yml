@@ -1,5 +1,5 @@
 name: gFeatures
-main: tk.genesishub.gFeatures.Listeners.Listeners
+main: net.genesishub.gFeatures.Listeners
 version: 1.0
 load: STARTUP
 commands:
@@ -13,6 +13,10 @@ commands:
      aliases: [gBackup, GenesisBackup, gb]
      permission: gFeatures.command.gBackup
      usage: Syntax error! Do /gBackup help for help.
+   test:
+     description: Test.
+     permission: gFeatures.command.Test
+     usage: Meh.
    gMusic:
      description: gMusic core command.
      aliases: [play, song, music]
