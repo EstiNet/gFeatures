@@ -1,5 +1,5 @@
 package net.genesishub.gFeatures;
 
-public enum Extension {
+public class Extension {
 
 }

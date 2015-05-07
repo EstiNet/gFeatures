@@ -18,6 +18,22 @@ public class Basic {
 	public static void removeExtension(Extension extend){
 		features.remove(extend);
 	}
+	public static gFeature getFeature(String name){
+		for(gFeature feature : features){
+			if(feature.getName().equalsIgnoreCase(name)){
+				return feature;
+			}
+		}
+		return null;
+	}
+	public static Extension getExtension(String name){
+		for(Extension extend : extensions){
+			if(extend.getName().equalsIgnoreCase(name)){
+				return extend;
+			}
+		}
+		return null;
+	}
 	public static List<gFeature> getFeatures(){
 		return features;
 	}
