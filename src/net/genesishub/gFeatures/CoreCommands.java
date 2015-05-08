@@ -1,16 +1,14 @@
 package net.genesishub.gFeatures;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import net.genesishub.gFeatures.Configuration.LoadConfig;
+import net.genesishub.gFeatures.Configuration.SetupConfig;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-
-import tk.genesishub.gFeatures.PluginManage.PluginManager;
-import tk.genesishub.gFeatures.PluginManage.PluginState;
-import tk.genesishub.gFeatures.PluginManage.Plugins;
 
 public class CoreCommands{
 	CommandLibrary cl = new CommandLibrary();
@@ -23,32 +21,70 @@ public class CoreCommands{
 				else if(args.length == 1){
 					switch(args[0]){
 					case "version":
-						sender.sendMessage(ChatColor.GRAY + "gFeatures Version 1.0.1");
+						sender.sendMessage(ChatColor.GRAY + "gFeatures Version " + Listeners.version);
 						break;
 					case "help":
 						sender.sendMessage(ChatColor.GRAY + "------Help------");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the plugin version.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all plugins with their states also.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures pluginstate <Plugin> : Gets the state of the plugin.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the version.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states also.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
 					case "list":
-						PluginManager pm = new PluginManager();
-						List<Plugins> enabled = new ArrayList<>();
-						List<Plugins> all = new ArrayList<>();
-						enabled = pm.getEnabledPlugins();
-						all = pm.getDisabledPlugins();
-						sender.sendMessage(ChatColor.GRAY + "Plugins:");
+						List<gFeature> features = Basic.getFeatures();
+						List<Extension> extensions = Basic.getExtensions();
+						sender.sendMessage(ChatColor.GRAY + "Features:");
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
-						for(int i = 0; i<enabled.size(); i++){
-							sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(enabled.get(i)));
+						for(gFeature feature : features){
+							if(feature.getState().equals(FeatureState.ENABLE)){
+							sender.sendMessage(ChatColor.GRAY + "-" + feature.getName());
+							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
-						for(int i = 0; i<all.size(); i++){
-							sender.sendMessage(ChatColor.GRAY + "-" + Plugins.toString(all.get(i)));
+						for(gFeature feature : features){
+							if(feature.getState().equals(FeatureState.DISABLE)){
+							sender.sendMessage(ChatColor.GRAY + "-" + feature.getName());
+							}
+						}
+						sender.sendMessage(ChatColor.GRAY + "Extensions:");
+						sender.sendMessage(ChatColor.GRAY + "Enabled:");
+						for(Extension extension : extensions){
+							if(extension.getState().equals(FeatureState.ENABLE)){
+								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
+							}
+						}
+						for(Extension extension : extensions){
+							if(extension.getState().equals(FeatureState.DISABLE)){
+								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
+							}
 						}
 						break;
-					case "pluginstate":
-						sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures pluginstate <Plugin>");
+					case "featurestate":
+						sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures featurestate <Plugin>");
+						break;
+					case "reload":
+						Enabler enable = new Enabler();
+						Disabler disable = new Disabler();
+						Setup setup = new Setup();
+						Bukkit.getLogger().info("_________________________________________________________________________");
+						Bukkit.getLogger().info("[gFeatures] gFeatures disabled!");
+						Bukkit.getLogger().info("[gFeatures] This gFeatures installation is running core: " + Listeners.version);
+						Bukkit.getLogger().info("[gFeatures] Turning off Features...");
+						disable.onDisable();
+						Bukkit.getLogger().info("[gFeatures] Complete!");
+						Bukkit.getLogger().info("_________________________________________________________________________");
+						Bukkit.getLogger().info("_________________________________________________________________________");
+						Bukkit.getLogger().info("[gFeatures] gFeatures enabled!");
+						Bukkit.getLogger().info("[gFeatures] This gFeatures installation is running core: " + Listeners.version);
+						Bukkit.getLogger().info("[gFeatures] Turning on Features...");
+						setup.onSetup();
+						SetupConfig.setup();
+						LoadConfig.load();
+						enable.onEnable();
+						Bukkit.getLogger().info("[gFeatures] Complete!");
+						Bukkit.getLogger().info("_________________________________________________________________________");
+						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
+						break;
 					default:
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
 						break;
@@ -56,10 +92,9 @@ public class CoreCommands{
 				}
 				else if(args.length == 2){
 					switch(args[0]){
-					case "pluginstate":
-						PluginManager pm = new PluginManager();
-						PluginState ps = pm.getPluginState(Plugins.toPlugins(args[1]));
-						sender.sendMessage(ChatColor.GRAY + "Plugin " + args[1] + " state is " + ps.toString());
+					case "featurestate":
+						gFeature feature = Basic.getFeature(args[1]);
+						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
 						break;
 					default:
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
