@@ -9,4 +9,7 @@ public class Configure{
 		Basic.addFeature(base);
 		ch.setupConfig();
 	}
+	public void onSetup2(){
+		
+	}
 }

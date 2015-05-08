@@ -1,6 +1,7 @@
 package net.genesishub.gFeatures.Configuration;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import net.genesishub.gFeatures.Basic;
@@ -32,6 +33,11 @@ public class SetupConfig {
 		}
 		if(!(yamlFile.contains("Config.Plus.Skript"))){
 			yamlFile.createSection("Config.Plus.Skript");
+		}
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
