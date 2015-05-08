@@ -4,7 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.CommandLibrary;
+import net.genesishub.gFeatures.FeatureState;
 
 public class CommandHub{
 	
@@ -16,9 +18,9 @@ public class CommandHub{
 				if(cmd.getName().equalsIgnoreCase("test")){
 					Bukkit.getLogger().info("Test!");
 				}
-			}
-			else{
-				Bukkit.getLogger().info("GenesisHub has never heard of this command. Do /help for help.");
+				if(Basic.getFeature("Base").getState().equals(FeatureState.DISABLE)){
+					Bukkit.getLogger().info("GenesisHub has never heard of this command. Do /help for help.");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

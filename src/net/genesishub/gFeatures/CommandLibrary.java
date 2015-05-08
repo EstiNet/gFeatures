@@ -29,6 +29,8 @@ public class CommandLibrary {
 		for(gFeature feature : features){
 			feature.commandTrigger(sender, cmd, label, args);
 		}
+		CoreCommands cc = new CoreCommands();
+		cc.onCommand(sender, cmd, label, args);
 	}
 	
 	public boolean Check(String filename, String command) throws IOException{
