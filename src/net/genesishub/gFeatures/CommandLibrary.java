@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
@@ -23,7 +24,12 @@ public class CommandLibrary {
 		}
 	}
 	
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){}
+	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		List<gFeature> features = Basic.getFeatures();
+		for(gFeature feature : features){
+			feature.commandTrigger(sender, cmd, label, args);
+		}
+	}
 	
 	public boolean Check(String filename, String command) throws IOException{
 		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + filename));
