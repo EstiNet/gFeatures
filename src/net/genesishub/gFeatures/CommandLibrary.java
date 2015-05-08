@@ -38,7 +38,7 @@ public class CommandLibrary {
 		String theString = writer.toString();
 		String[] lines = theString.split("\n");
 		for(int i = 0; i < lines.length; i++){
-			if(lines[i].equals(command)){
+			if(lines[i].equalsIgnoreCase(command)){
 				return true;
 			}
 		}
