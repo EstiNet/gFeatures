@@ -1,5 +1,9 @@
 package net.genesishub.gFeatures;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.event.Event;
+
 public class gFeature {
 	private static String name;
 	private static double version;
@@ -38,4 +42,8 @@ public class gFeature {
 	public String getCommandLabel(){
 		return commandlabel;
 	}
+	public void enable(){}
+	public void disable(){}
+	public void eventTrigger(Event event){}
+	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
 }

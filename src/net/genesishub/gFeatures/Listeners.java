@@ -24,7 +24,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final double version = 2.0;
+	public static final double version = 2.1;
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();

@@ -6,11 +6,13 @@ import org.bukkit.command.CommandSender;
 
 import net.genesishub.gFeatures.CommandLibrary;
 
-public class CommandHub extends CommandLibrary{
-	@Override
+public class CommandHub{
+	
+	CommandLibrary cl = new CommandLibrary();
+	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		try {
-			if(Check("Base", cmd.getName())){
+			if(cl.Check("Base", cmd.getName())){
 				if(cmd.getName().equalsIgnoreCase("test")){
 					Bukkit.getLogger().info("Test!");
 				}
