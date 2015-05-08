@@ -52,6 +52,7 @@ public class CoreCommands{
 								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
 							}
 						}
+						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(Extension extension : extensions){
 							if(extension.getState().equals(FeatureState.DISABLE)){
 								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
@@ -85,7 +86,9 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
 						break;
 					default:
+						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+						}
 						break;
 					}
 				}
@@ -96,7 +99,9 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
 						break;
 					default:
-						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
+							sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+						}
 						break;
 					}
 				}
