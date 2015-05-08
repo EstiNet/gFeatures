@@ -31,6 +31,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	Disabler disable = new Disabler();
 	Library library = new Library();
 	CommandLibrary commands = new CommandLibrary();
+	Setup setup = new Setup();
 	
 	@Override
 	public void onEnable(){
@@ -39,6 +40,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info("[gFeatures] gFeatures enabled!");
 		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
 		getLogger().info("[gFeatures] Turning on Features...");
+		setup.onSetup();
 		enable.onEnable();
 		SetupConfig.setup();
 		LoadConfig.load();
