@@ -28,8 +28,17 @@ public class CommandLibrary {
 		List<gFeature> features = Basic.getFeatures();
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
-			feature.commandTrigger(sender, cmd, label, args);
+				try {
+					if(Check(feature.getName(), cmd.getName())){
+						feature.commandTrigger(sender, cmd, label, args);
+					}
+				} catch (Exception e) {}
 			}
+			try {
+				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
+					Bukkit.getLogger().info("GenesisHub has never heard of this command. Do /help for help.");
+				}
+			} catch (Exception e) {}
 		}
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);
