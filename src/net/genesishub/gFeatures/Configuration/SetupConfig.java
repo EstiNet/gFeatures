@@ -14,6 +14,7 @@ public class SetupConfig {
 	static File f = new File("plugins/gFeatures/Config.yml");
 	static List<gFeature> features = Basic.getFeatures();
 	public static void setup(){
+		config.createDirectory("plugins/gFeatures", "Setup the gFeatures directory for use!");
 		config.createFile("plugins/gFeatures/Config.yml", "Setup the gFeatures config for use!");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		if(!(yamlFile.contains("Config"))){
@@ -28,11 +29,11 @@ public class SetupConfig {
 				yamlFile.set("Config.Plugins." + feature.getName() , "false");
 			}
 		}
-		if(!(yamlFile.contains("Config.Plus"))){
-			yamlFile.createSection("Config.Plus");
+		if(!(yamlFile.contains("Config.Extensions"))){
+			yamlFile.createSection("Config.Extensions");
 		}
-		if(!(yamlFile.contains("Config.Plus.Skript"))){
-			yamlFile.createSection("Config.Plus.Skript");
+		if(!(yamlFile.contains("Config.Extensions.Skript"))){
+			yamlFile.createSection("Config.Extensions.Skript");
 		}
 		try {
 			yamlFile.save(f);

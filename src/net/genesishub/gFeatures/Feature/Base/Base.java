@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import net.genesishub.gFeatures.FeatureState;
+import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
 
 public class Base extends gFeature{
@@ -18,27 +18,22 @@ public class Base extends gFeature{
 	}
 	@Override
 	public void enable(){
-		if(this.getState().equals(FeatureState.ENABLE)){
-			Enable.onEnable();
-		}
+		Enable.onEnable();
 	}
 	@Override
 	public void disable(){
-		if(this.getState().equals(FeatureState.ENABLE)){
-			Disable.onDisable();
-		}
+		Disable.onDisable();
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		if(this.getState().equals(FeatureState.ENABLE) && event.getEventName().equalsIgnoreCase("playerjoinevent")){
+		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
 	}
-	public void onPlayerJoin(PlayerJoinEvent event){}
+	@Retrieval
+	public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-		if(this.getState().equals(FeatureState.ENABLE)){
 			ch.onCommand(sender, cmd, label, args);
-		}
 	}
 }

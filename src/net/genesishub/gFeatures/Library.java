@@ -55,11 +55,12 @@ public class Library {
 		for(gFeature feature : features){
 			try {
 				if(!(feature.getClass().getDeclaredMethod(methodname).equals(null))){
+					if(feature.getState().equals(FeatureState.ENABLE)){
 					feature.eventTrigger(event);
+					}
 				}
-			} catch (NoSuchMethodException e) {
-			} catch (SecurityException e) {
-			}
+			} catch (NoSuchMethodException e) {} 
+			catch (SecurityException e) {}
 		}
     }
 }

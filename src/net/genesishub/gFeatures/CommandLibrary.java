@@ -27,7 +27,9 @@ public class CommandLibrary {
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		List<gFeature> features = Basic.getFeatures();
 		for(gFeature feature : features){
+			if(feature.getState().equals(FeatureState.ENABLE)){
 			feature.commandTrigger(sender, cmd, label, args);
+			}
 		}
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);

@@ -15,7 +15,9 @@ public class CoreCommands{
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		try {
 				if(args.length == 0){
-					sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+					if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
+						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+					}
 				}
 				else if(args.length == 1){
 					switch(args[0]){
