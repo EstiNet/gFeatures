@@ -31,9 +31,9 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class Main {
-	File f = new File("GenesisAccess/chat.txt");
+	File f = new File("plugins/gFeatures/GenesisAccess/chat.txt");
     public void onEnable() { //What to do on server load/reload
-        Bukkit.getLogger().info("GenesisAccess 1.0 is enabled. All clear for take off!");
+        Bukkit.getLogger().info("GenesisAccess 1.3 is enabled. All clear for take off!");
         int num = 0;
         boolean b = false;
     	while(b == false){
