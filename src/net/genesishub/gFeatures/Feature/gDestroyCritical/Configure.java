@@ -5,7 +5,7 @@ import net.genesishub.gFeatures.Configs;
 
 public class Configure {
 	@Configs
-	public void onSetup(){
+	public static void onSetup(){
 		gDestroyCritical base = new gDestroyCritical("gDestroyCritical", 1.0);
 		Basic.addFeature(base);
 	}

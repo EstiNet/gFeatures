@@ -1,32 +1,64 @@
 package net.genesishub.gFeatures;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
-
-import org.bukkit.Bukkit;
+import net.genesishub.gFeatures.Feature.Base.Configure;
 
 public class Setup {
 	Configs config;
-	@SuppressWarnings({ })
-	public void onSetup(){
-		Package[] packs = Package.getPackages();
+	public void onSetup() {
+		Configure.onSetup();
+		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
+		/*Package[] packs = Package.getPackages();
+		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
 			if(pac.getName().startsWith("net.genesishub.gFeatures")){
+				Bukkit.getLogger().info("Start");
+				Class[] classes;
+				try {
+					classes = getClasses(pac.getName());
+				
+				for(Class classd : classes){
+					Bukkit.getLogger().info(classd.getName());
+				for (Method method : classd.getMethods())
+				{
+					Bukkit.getLogger().info(method.getName());
+				    if (method.isAnnotationPresent(Configs.class))
+				    {
+				    	try {
+							method.invoke(null, null);
+						} catch (IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+				    }
+				}
+				}
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/*
 				Bukkit.getLogger().info(pac.getName());
-				Annotation[] ann = pac.getDeclaredAnnotations();
+				Annotation[] ann = pac.getAnnotations();
 				for(Annotation annt : ann){
+					Bukkit.getLogger().info(annt.toString());
 					if(annt.equals(Configs.class)){
 						Method[] method = annt.getClass().getMethods();
 						for(Method meth : method){
 							Annotation[] annts = meth.getAnnotations();
+							Bukkit.getLogger().info(meth.getName());
 								for(Annotation ants : annts){
+									Bukkit.getLogger().info(ants.toString());
 									if(ants.equals(Configs.class)){
 										try {
 											meth.invoke(null, null);
@@ -71,7 +103,7 @@ public class Setup {
 				e1.printStackTrace();
 			}*/
 	}
-	@SuppressWarnings("rawtypes")
+	/*@SuppressWarnings("rawtypes")
 	private static Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		assert classLoader != null;
@@ -104,5 +136,5 @@ public class Setup {
 			}
 		}
 		return classes;
-		}
+		}*/
 }

@@ -5,7 +5,7 @@ import net.genesishub.gFeatures.Configs;
 
 public class Configure {
 	@Configs
-	public void onSetup(){
+	public static void onSetup(){
 		CTF ctf = new CTF("CTF", 1.0);
 		Basic.addFeature(ctf);
 	}
