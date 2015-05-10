@@ -2,30 +2,63 @@ package net.genesishub.gFeatures;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+
 public class Setup {
 	Configs config;
-	@SuppressWarnings({ "static-access", "rawtypes" })
+	@SuppressWarnings({ })
 	public void onSetup(){
-		Package pack = Package.getPackage("net.genesishub.gFeatures.Feature");
-		Package[] packs = pack.getPackages();
+		Package[] packs = Package.getPackages();
 		for(Package pac : packs){
-			try {
-				Class[] classes = getClasses(pac.getName());
-			
+			if(pac.getName().startsWith("net.genesishub.gFeatures")){
+				Bukkit.getLogger().info(pac.getName());
+				Annotation[] ann = pac.getDeclaredAnnotations();
+				for(Annotation annt : ann){
+					if(annt.equals(Configs.class)){
+						Method[] method = annt.getClass().getMethods();
+						for(Method meth : method){
+							Annotation[] annts = meth.getAnnotations();
+								for(Annotation ants : annts){
+									if(ants.equals(Configs.class)){
+										try {
+											meth.invoke(null, null);
+										} catch (IllegalAccessException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										} catch (IllegalArgumentException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										} catch (InvocationTargetException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+									}
+								}
+						}
+					}
+				}
+			}
+		}
+			/*try {
+				Class[] classes = getClasses("net.genesishub.gFeatures.Feature.Base");
 			for(Class classs : classes){
 				Method[] methods = classs.getClass().getMethods();
-
+				Bukkit.getLogger().info(classs.getName());
 			 	for (Method method : methods) {
 				 Configs annos = method.getAnnotation(Configs.class);
+				 Bukkit.getLogger().info(method.getName());
             			if (annos != null) {
                 			try {
                 				method.invoke(classs);
+                				Bukkit.getLogger().info("FOUND!");
                 			} catch (Exception e) {
                    				e.printStackTrace();
                 			}
@@ -36,8 +69,7 @@ public class Setup {
 				e1.printStackTrace();
 			} catch (IOException e1) {
 				e1.printStackTrace();
-			}
-		}
+			}*/
 	}
 	@SuppressWarnings("rawtypes")
 	private static Class[] getClasses(String packageName) throws ClassNotFoundException, IOException {
