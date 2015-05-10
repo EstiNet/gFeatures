@@ -9,6 +9,7 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.GenesisBackup.Configure.onSetup();
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
