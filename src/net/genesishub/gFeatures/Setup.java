@@ -6,6 +6,7 @@ public class Setup {
 	Configs config;
 	public void onSetup() {
 		Configure.onSetup();
+		//Well, unfortunate part of the API :(
 		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
@@ -13,6 +14,10 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gFactions.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gHub.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gMusic.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gScore.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
