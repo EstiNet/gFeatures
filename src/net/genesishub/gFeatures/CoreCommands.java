@@ -38,26 +38,26 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.ENABLE)){
-							sender.sendMessage(ChatColor.GRAY + "-" + feature.getName());
+							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.DISABLE)){
-							sender.sendMessage(ChatColor.GRAY + "-" + feature.getName());
+							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Extensions:");
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(Extension extension : extensions){
 							if(extension.getState().equals(FeatureState.ENABLE)){
-								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
+								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(Extension extension : extensions){
 							if(extension.getState().equals(FeatureState.DISABLE)){
-								sender.sendMessage(ChatColor.GRAY + "-" + extension.getName());
+								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName());
 							}
 						}
 						break;
