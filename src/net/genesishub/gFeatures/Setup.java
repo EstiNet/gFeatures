@@ -16,7 +16,7 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.gHub.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gMusic.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gScore.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
+		//net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");

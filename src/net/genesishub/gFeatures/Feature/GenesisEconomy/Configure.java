@@ -10,6 +10,6 @@ public class Configure {
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", 1.0);
 		Basic.addFeature(base);
 		Config con = new Config();
-		con.createDirectory("plugins/gFeatures/GenesisEconomy", "Created economy directory!");
+		con.createDirectory("plugins/gFeatures/gEconomy", "Created economy directory!");
 	}
 }
