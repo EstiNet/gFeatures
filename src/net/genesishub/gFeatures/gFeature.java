@@ -5,10 +5,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 
 public class gFeature {
-	private static String name;
-	private static double version;
-	private static FeatureState state;
-	private static String commandlabel;
+	private String name;
+	private double version;
+	private FeatureState state;
+	private String commandlabel;
 	
 	public gFeature(String featurename, double d){
 		name = featurename;
