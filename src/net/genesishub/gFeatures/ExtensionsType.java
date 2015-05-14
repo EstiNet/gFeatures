@@ -1,5 +1,5 @@
 package net.genesishub.gFeatures;
 
 public enum ExtensionsType {
-	Skript,Other
+	Skript, Utility, Other
 }

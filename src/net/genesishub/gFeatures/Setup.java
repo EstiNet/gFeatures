@@ -38,6 +38,13 @@ public class Setup {
 		net.genesishub.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
 		net.genesishub.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
 		
+		/*
+		 * Initialize your Utilities here.
+		 * Make sure that you have your onSetup() setup
+		 * to add to the Basic class. :D
+		*/
+		
+		net.genesishub.gFeatures.Utility.gBroadcast.Configure.onSetup();
 		
 		//Ignore below. -_- Package Crawler attempt.
 		
