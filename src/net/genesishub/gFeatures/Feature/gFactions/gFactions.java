@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class gFactions extends gFeature{
 	Listeners listeners = new Listeners();
-	public gFactions(String featurename, double d) {
+	public gFactions(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

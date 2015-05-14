@@ -6,7 +6,7 @@ import net.genesishub.gFeatures.Configs;
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gFactions base = new gFactions("gFactions", 1.0);
+		gFactions base = new gFactions("gFactions", "1.0.1");
 		Basic.addFeature(base);
 	}
 }

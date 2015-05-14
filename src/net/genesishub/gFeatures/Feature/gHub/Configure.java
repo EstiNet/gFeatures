@@ -6,7 +6,7 @@ import net.genesishub.gFeatures.Configs;
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gHub base = new gHub("gHub", 1.0);
+		gHub base = new gHub("gHub", "1.0.0");
 		Basic.addFeature(base);
 	}
 }

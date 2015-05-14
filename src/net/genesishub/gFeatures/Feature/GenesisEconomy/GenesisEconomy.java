@@ -17,7 +17,7 @@ public class GenesisEconomy extends gFeature{
 	
 	net.genesishub.gFeatures.Feature.GenesisEconomy.Listeners listeners = new net.genesishub.gFeatures.Feature.GenesisEconomy.Listeners();
 	
-	public GenesisEconomy(String featurename, double d) {
+	public GenesisEconomy(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

@@ -13,7 +13,7 @@ public class Base extends gFeature{
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
 	
-	public Base(String featurename, double d) {
+	public Base(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

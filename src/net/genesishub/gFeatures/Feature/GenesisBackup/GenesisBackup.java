@@ -12,7 +12,7 @@ public class GenesisBackup extends gFeature{
 	
 	net.genesishub.gFeatures.Feature.GenesisBackup.Listeners listeners = new net.genesishub.gFeatures.Feature.GenesisBackup.Listeners();
 	
-	public GenesisBackup(String featurename, double d) {
+	public GenesisBackup(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

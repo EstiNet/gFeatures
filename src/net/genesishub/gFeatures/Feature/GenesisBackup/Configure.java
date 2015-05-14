@@ -6,7 +6,7 @@ import net.genesishub.gFeatures.Configs;
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		GenesisBackup base = new GenesisBackup("GenesisBackup", 1.0);
+		GenesisBackup base = new GenesisBackup("GenesisBackup", "1.0.0");
 		Basic.addFeature(base);
 	}
 }

@@ -6,11 +6,11 @@ import org.bukkit.event.Event;
 
 public class gFeature {
 	private String name;
-	private double version;
+	private String version;
 	private FeatureState state;
 	private String commandlabel;
 	
-	public gFeature(String featurename, double d){
+	public gFeature(String featurename, String d){
 		name = featurename;
 		version = d;
 	}
@@ -18,7 +18,7 @@ public class gFeature {
 		name = featurename;
 		return;
 	}
-	public void setVersion(double featureversion){
+	public void setVersion(String featureversion){
 		version = featureversion;
 		return;
 	}
@@ -33,7 +33,7 @@ public class gFeature {
 	public String getName(){
 		return name;
 	}
-	public double getVersion(){
+	public String getVersion(){
 		return version;
 	}
 	public FeatureState getState(){

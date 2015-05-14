@@ -7,7 +7,7 @@ public class Configure {
 	static ConfigHub ch = new ConfigHub();
 	@Configs
 	public static void onSetup(){
-		GenesisAccess genesisaccess = new GenesisAccess("GenesisAccess", 1.3);
+		GenesisAccess genesisaccess = new GenesisAccess("GenesisAccess", "1.3.0");
 		Basic.addFeature(genesisaccess);
 		ch.setupConfig();
 	}

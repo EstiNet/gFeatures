@@ -14,7 +14,7 @@ public class gDestroyCritical extends gFeature{
 
 	net.genesishub.gFeatures.Feature.gDestroyCritical.Listeners listeners = new net.genesishub.gFeatures.Feature.gDestroyCritical.Listeners();
 	
-	public gDestroyCritical(String featurename, double d) {
+	public gDestroyCritical(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

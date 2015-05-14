@@ -10,7 +10,7 @@ import net.genesishub.gFeatures.gFeature;
 
 public class gHub extends gFeature{
 	Listeners listeners = new Listeners();
-	public gHub(String featurename, double d) {
+	public gHub(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

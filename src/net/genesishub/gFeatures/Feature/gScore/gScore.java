@@ -15,7 +15,7 @@ public class gScore extends gFeature{
 	
 	Listeners listeners = new Listeners();
 	
-	public gScore(String featurename, double d) {
+	public gScore(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

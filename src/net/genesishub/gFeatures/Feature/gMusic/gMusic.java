@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class gMusic extends gFeature{
 	Listeners listeners = new Listeners();
 	CommandCenter cc = new CommandCenter();
-	public gMusic(String featurename, double d) {
+	public gMusic(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

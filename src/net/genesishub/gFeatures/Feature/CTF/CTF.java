@@ -13,7 +13,7 @@ public class CTF extends gFeature{
 	
 	net.genesishub.gFeatures.Feature.CTF.Listeners listeners = new net.genesishub.gFeatures.Feature.CTF.Listeners();
 	
-	public CTF(String featurename, double d) {
+	public CTF(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

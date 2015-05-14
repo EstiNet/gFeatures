@@ -14,7 +14,7 @@ public class GenesisAccess extends gFeature{
 	
 	net.genesishub.gFeatures.Feature.GenesisAccess.Main main = new net.genesishub.gFeatures.Feature.GenesisAccess.Main();
 	
-	public GenesisAccess(String featurename, double d) {
+	public GenesisAccess(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
