@@ -1,13 +1,13 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.Base;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configs;
 
-public class Configure {
+public class Configure{
 	static ConfigHub ch = new ConfigHub();
 	@Configs
 	public static void onSetup(){
-		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.0.0");
+		Base base = new Base("Base", "1.0.0");
 		Basic.addFeature(base);
 		ch.setupConfig();
 	}
