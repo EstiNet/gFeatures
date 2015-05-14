@@ -6,7 +6,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 
 public class Basic {
-	private static List<gFeature> features = new ArrayList<>();
+	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	public static void addFeature(gFeature feature){
 		features.add(feature);
