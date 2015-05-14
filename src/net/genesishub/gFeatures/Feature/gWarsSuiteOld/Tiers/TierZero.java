@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Tiers;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld.Tiers;
 
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -30,17 +30,19 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 
-public class TierTwo {
+public class TierZero {
 	Constants cons = new Constants();
 	StatsRetrieve sr = new StatsRetrieve();
 	KitManagerSecondary kmh = new KitManagerSecondary();
 	public void Initialize(CommandSender sender, String value){
 		ItemStack ammo = new ItemStack(Material.MELON_SEEDS,32);
 		Player player = (Player)sender;
-		if((sr.getKills(player.getName()))<10){
-			sender.sendMessage("You don't have enough kills! 10 kills is required for Tier 2 weapons.");
+		if((sr.getKills(player.getName()))<0){
+			sender.sendMessage("You don't have enough kills! 0 kills is required for Tier 0 weapons.");
 		}
-		else if(Constants.gunin.contains(player.getName())){}
+		else if(Constants.gunin.contains(player.getName())){
+			
+		}
 		else{
 		player.getInventory().addItem(ammo);
 		player.getInventory().remove(Material.CHEST);
@@ -63,23 +65,27 @@ public class TierTwo {
 	}
 	public void Sniper(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "SilSil69");
+		kmh.gunKitsSetup(player, "Sniper");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void Shotgun(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "SPAS");
+		kmh.gunKitsSetup(player, "Shotgun");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void Special(CommandSender sender){
 		Player player = (Player)sender;
-		Constants.gunin.add(player.getName());
-		kmh.gunKitsSetup(player, "Flamethrower");
+		ItemStack legging = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
+		ItemStack chest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
+		ItemStack boot = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
+		player.getInventory().setLeggings(legging);
+		player.getInventory().setChestplate(chest);
+		player.getInventory().setBoots(boot);
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void AutoRifle(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "AK47-Black Edition");
+		kmh.gunKitsSetup(player, "Auto-Rifle");
 		kmh.gunKitsSetup(player, "Python");
 	}
 }

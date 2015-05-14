@@ -1,10 +1,12 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Tiers;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld.Tiers;
 
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+//import org.bukkit.potion.PotionEffectType;
+
 import org.bukkit.potion.PotionEffectType;
 
 import tk.genesishub.gFeatures.gWarsSuite.Constants;
@@ -30,15 +32,15 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 
-public class TierThree {
+public class TierFour {
 	Constants cons = new Constants();
 	StatsRetrieve sr = new StatsRetrieve();
 	KitManagerSecondary kmh = new KitManagerSecondary();
 	public void Initialize(CommandSender sender, String value){
 		ItemStack ammo = new ItemStack(Material.MELON_SEEDS,32);
 		Player player = (Player)sender;
-		if((sr.getKills(player.getName()))<25){
-			sender.sendMessage("You don't have enough kills! 25 kills is required for Tier 3 weapons.");
+		if((sr.getKills(player.getName()))<50){
+			sender.sendMessage("You don't have enough kills! 50 kills is required for Tier 4 weapons.");
 		}
 		else if(Constants.gunin.contains(player.getName())){
 			

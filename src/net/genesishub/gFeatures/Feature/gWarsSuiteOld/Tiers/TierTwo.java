@@ -1,12 +1,10 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Tiers;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld.Tiers;
 
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
-//import org.bukkit.potion.PotionEffectType;
-
 import org.bukkit.potion.PotionEffectType;
 
 import tk.genesishub.gFeatures.gWarsSuite.Constants;
@@ -32,19 +30,17 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 
-public class TierFour {
+public class TierTwo {
 	Constants cons = new Constants();
 	StatsRetrieve sr = new StatsRetrieve();
 	KitManagerSecondary kmh = new KitManagerSecondary();
 	public void Initialize(CommandSender sender, String value){
 		ItemStack ammo = new ItemStack(Material.MELON_SEEDS,32);
 		Player player = (Player)sender;
-		if((sr.getKills(player.getName()))<50){
-			sender.sendMessage("You don't have enough kills! 50 kills is required for Tier 4 weapons.");
+		if((sr.getKills(player.getName()))<10){
+			sender.sendMessage("You don't have enough kills! 10 kills is required for Tier 2 weapons.");
 		}
-		else if(Constants.gunin.contains(player.getName())){
-			
-		}
+		else if(Constants.gunin.contains(player.getName())){}
 		else{
 		player.getInventory().addItem(ammo);
 		player.getInventory().remove(Material.CHEST);
@@ -67,31 +63,23 @@ public class TierFour {
 	}
 	public void Sniper(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Sniper");
+		kmh.gunKitsSetup(player, "SilSil69");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void Shotgun(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Shotgun");
+		kmh.gunKitsSetup(player, "SPAS");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void Special(CommandSender sender){
 		Player player = (Player)sender;
-		ItemStack helm = new ItemStack(Material.CHAINMAIL_HELMET, 1);
-		ItemStack legging = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
-		ItemStack chest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
-		ItemStack boot = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
 		Constants.gunin.add(player.getName());
-		player.addPotionEffect((new PotionEffect(PotionEffectType.ABSORPTION, 100 ,	100)));
-		player.getInventory().addItem(helm);
-		player.getInventory().addItem(legging);
-		player.getInventory().addItem(chest);
-		player.getInventory().addItem(boot);
+		kmh.gunKitsSetup(player, "Flamethrower");
 		kmh.gunKitsSetup(player, "Python");
 	}
 	public void AutoRifle(CommandSender sender){
 		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Auto-Rifle");
+		kmh.gunKitsSetup(player, "AK47-Black Edition");
 		kmh.gunKitsSetup(player, "Python");
 	}
 }

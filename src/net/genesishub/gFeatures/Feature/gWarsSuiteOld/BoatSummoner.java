@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -26,7 +26,7 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 
-public class AntiAircraftSummoner {
+public class BoatSummoner {
 	public void BoatSummon(Player p){
 		boolean bool = false;
 		World world = Bukkit.getServer().getWorld("gWars");
@@ -40,9 +40,9 @@ public class AntiAircraftSummoner {
 			for(int iter = 212; iter<=238; iter++){
 				if(x == i && z == iter){
 					int rand = (int) Math.ceil(Math.random()*4);
-						world.spawnEntity(orange[rand], EntityType.MINECART);
+						world.spawnEntity(orange[rand], EntityType.BOAT);
 						bool = true;
-						p.sendMessage(ChatColor.BOLD+"An Anti-Aircraft Gun has been summoned near your area!");
+						p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 						p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 					}
 				}
@@ -51,9 +51,9 @@ public class AntiAircraftSummoner {
 				for(int iter = 93; iter<=120; iter++){
 					if(x == i && z == iter){
 						int rand = (int) Math.ceil(Math.random()*4);
-							world.spawnEntity(blue[rand], EntityType.MINECART);
+							world.spawnEntity(blue[rand], EntityType.BOAT);
 							bool = true;
-							p.sendMessage(ChatColor.BOLD+"An Anti-Aircraft Gun has been summoned near your area!");
+							p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 							p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 						}
 					}
@@ -62,9 +62,9 @@ public class AntiAircraftSummoner {
 				for(int iter = 433; iter<=443; iter++){
 					if(x == i && z == iter){
 						int rand = (int) Math.ceil(Math.random()*4);
-							world.spawnEntity(island[rand], EntityType.MINECART);
+							world.spawnEntity(island[rand], EntityType.BOAT);
 							bool = true;
-							p.sendMessage(ChatColor.BOLD+"An Anti-Aircraft Gun has been summoned near your area!");
+							p.sendMessage(ChatColor.BOLD+"A boat has been summoned near your area!");
 							p.sendMessage(ChatColor.BOLD+"Please wait 10 seconds before summoning another vehicle.");
 						}
 					}
