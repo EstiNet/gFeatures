@@ -44,6 +44,9 @@ public class Listeners extends JavaPlugin implements Listener{
 		SetupConfig.setup();
 		LoadConfig.load();
 		enable.onEnable();
+		for(gFeature feature : Basic.getFeatures()){
+			getLogger().info(feature.getName());
+		}
 		getLogger().info("[gFeatures] Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
