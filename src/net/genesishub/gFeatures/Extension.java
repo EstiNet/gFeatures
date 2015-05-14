@@ -1,11 +1,11 @@
 package net.genesishub.gFeatures;
 
 public class Extension {
-	private static String name;
-	private static double version;
-	private static FeatureState state;
+	private String name;
+	private String version;
+	private FeatureState state;
 	
-	public Extension(String featurename, double d){
+	public Extension(String featurename, String d){
 		name = featurename;
 		version = d;
 	}
@@ -13,7 +13,7 @@ public class Extension {
 		name = featurename;
 		return;
 	}
-	public void setVersion(double featureversion){
+	public void setVersion(String featureversion){
 		version = featureversion;
 		return;
 	}
@@ -24,7 +24,7 @@ public class Extension {
 	public String getName(){
 		return name;
 	}
-	public double getVersion(){
+	public String getVersion(){
 		return version;
 	}
 	public FeatureState getState(){

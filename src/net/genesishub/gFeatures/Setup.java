@@ -7,6 +7,12 @@ public class Setup {
 	public void onSetup() {
 		Configure.onSetup();
 		//Well, unfortunate part of the API :(
+		
+		/*
+		 * Initialize your plugins here.
+		 * Make sure that you have your onSetup() setup
+		 * to add to the Basic class. :D
+		*/
 		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
@@ -16,8 +22,26 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.gHub.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gMusic.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gScore.Configure.onSetup();
-		//net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
+		
+		/*
+		 * Initialize your Skripts here.
+		 * Make sure that you have your onSetup() setup
+		 * to add to the Basic class. :D
+		*/
+		
+		net.genesishub.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
+		net.genesishub.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
+		net.genesishub.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
+		net.genesishub.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
+		net.genesishub.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
+		net.genesishub.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
+		
+		
+		
+		
+		
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
