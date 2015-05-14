@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

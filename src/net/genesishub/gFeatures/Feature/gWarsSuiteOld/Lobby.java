@@ -1,16 +1,14 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -33,33 +31,28 @@ https://github.com/Seshpenguin/gFeatures
    limitations under the License.
 */
 
-public class LobbyTeleport {
-	Lobby lobby = new Lobby();
-	public void Initalize(PlayerMoveEvent event){
-		Player player = event.getPlayer();
-		CommandSender sender = (CommandSender)player;
+public class Lobby {
+	Constants cons = new Constants();
+	public void LobbyInitiate(final CommandSender sender, Command cmd, String label, String[] args, String value){
+		Player player = (Player)sender;
 		World world = Bukkit.getServer().getWorld("gWars");
-		Location loc = event.getPlayer().getLocation();
-		int x = (int) loc.getX();
-		int z = (int) loc.getZ();
-		if(x == 134 && z == 291){
-			//airfield
-			lobby.Initiate(421, 5, 201, 89.998, 1.95, 570, 5, 131, 269.849, -0.3, event.getPlayer(), (CommandSender)event.getPlayer());
-		}
-		else if(x == 125 && z == 287){
-			//underground
-			lobby.Initiate(422, 2, 225, 89.545, 6.45, 569, 2, 107, 271.795, -12.45, event.getPlayer(), (CommandSender)event.getPlayer());
-		}
-		else if(x == 125 && z == 282){
-			//mainfloor
-			lobby.Initiate(433, 5, 225, 89.545, 6.45, 557, 5, 107, 271.795, -12.45, event.getPlayer(), (CommandSender)event.getPlayer());
-		}
-		else if(x == 125 && z == 277){
-			//turrets
-			lobby.Initiate(426, 15, 225, 89.545, 6.45, 555, 15, 107, 89.545, -6.45, event.getPlayer(), (CommandSender)event.getPlayer());
-		}
-		else if(x == 134 && z == 273){
-			//town
+		switch(value){
+		case "airfield": 
+			Initiate(421, 5, 201, 89.998, 1.95, 575, 1, 131, 269.849, -0.3, (Player)sender, sender);
+			break;
+		case "underground": 
+			Initiate(422, 2, 225, 89.545, 6.45, 569, 2, 107, 271.795, -12.45, (Player)sender, sender);
+			break;
+		case "mainfloor": 
+			Initiate(433, 5, 225, 89.545, 6.45, 557, 5, 107, 271.795, -12.45, (Player)sender, sender);
+			break;
+		case "turrets": 
+			Initiate(426, 15, 225, 89.545, 6.45, 555, 15, 107, 89.545, -6.45, (Player)sender, sender);
+			break;
+		case "spawn": 
+			Initiate(134, 11, 277, 89.545, 6.45, 134, 53, 282, 89.545, -6.45, (Player)sender, sender, "THIS IS A STRING");
+			break;
+		case "town": 
 			ItemStack chest = new ItemStack(Material.CHEST, 1);
             ItemMeta im = chest.getItemMeta();
             im.setDisplayName(ChatColor.AQUA + "Game Menu");
@@ -113,9 +106,8 @@ public class LobbyTeleport {
 	    		}
 	    		}
 	    		}
-		}
-		else if(x ==  143 && z == 282){
-			//island
+			break;
+		case "island":
 			if(Constants.arena.contains(player.getName())){
 	    		sender.sendMessage("You are in the arena!");
 	    		}
@@ -133,7 +125,7 @@ public class LobbyTeleport {
 	    		player.getLocation().setPitch((float) -2.1);
 	    		ItemStack chest1 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im1 = chest1.getItemMeta();
-	            im1.setDisplayName(Color.AQUA + "Game Menu");
+	            im1.setDisplayName(ChatColor.AQUA + "Game Menu");
 	            chest1.setItemMeta(im1);
 	    		player.getInventory().addItem(chest1);
 	    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
@@ -159,7 +151,7 @@ public class LobbyTeleport {
 	        	player.getLocation().setPitch((float) -2.1);
 	        	ItemStack chest2 = new ItemStack(Material.CHEST, 1);
 	            ItemMeta im2 = chest2.getItemMeta();
-	            im2.setDisplayName(ChatColor.AQUA + "Game Menu");
+	            im2.setDisplayName(ChatColor.AQUA + "Select Gun");
 	            chest2.setItemMeta(im2);
 	        	player.getInventory().addItem(chest2);
 	        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
@@ -172,24 +164,77 @@ public class LobbyTeleport {
 	    		sender.sendMessage("Your team didn't capture the island yet!");
 	    		}
 	    		}
-	    	}
+	    		}
+			break;
 		}
 	}
-	public Player getNearest(Player p, Double range) {
-        double distance = Double.POSITIVE_INFINITY; // To make sure the first
-        TeamManager tm = new TeamManager();                           // player checked is closest
-        Player target = p;
-        for (Entity e : p.getNearbyEntities(range, range, range)) {
-            if (!(e instanceof Player))
-                continue;
-            double distanceto = p.getLocation().distance(e.getLocation());
-            if (distanceto > distance)
-                continue;
-            distance = distanceto;
-            if(tm.getTeam(((Player) e).getName()).equals(ChatColor.BLUE + "blue")){
-            	target = (Player) e;
-            }
-        }
-        return target;
-    }
+	public void Initiate(int ox, int oy, int oz, double oyaw, double opitch, int bx, int by, int bz, double byaw, double bpitch, Player player, CommandSender sender){
+		ItemStack chest = new ItemStack(Material.CHEST, 1);
+        ItemMeta im = chest.getItemMeta();
+        im.setDisplayName(ChatColor.AQUA + "Game Menu");
+        chest.setItemMeta(im);
+		if(Constants.arena.contains(player.getName())){
+    		sender.sendMessage("You are in the arena!");
+    		}
+    		else{
+    		if(Constants.ot.contains(player.getName())){
+    		Constants.arena.add(player.getName());
+    		double x1 = ox;
+    		double y1 = oy;
+    		double z1 = oz;
+    		Location e = new Location(player.getWorld(), x1, y1, z1);
+    		player.teleport(e);
+    		player.getLocation().setYaw((float) oyaw);
+    		player.getLocation().setPitch((float) opitch);
+    		player.getInventory().addItem(chest);
+    		ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
+    		}
+    		else if(Constants.bt.contains(player.getName())){
+    		Constants.arena.add(player.getName());
+    		double x1 = bx;
+        	double y1 = by;
+        	double z1 = bz;
+        	Location e = new Location(player.getWorld(), x1, y1, z1);
+        	player.teleport(e);
+        	player.getLocation().setYaw((float) byaw);
+        	player.getLocation().setPitch((float) bpitch);
+        	player.getInventory().addItem(chest);
+        	ItemStack compass = new ItemStack(Material.COMPASS, 1);
+            ItemMeta im1 = compass.getItemMeta();
+            im1.setDisplayName(ChatColor.GOLD + "Player Finder");
+            compass.setItemMeta(im1);
+            player.getInventory().addItem(compass);
+    		}
+    	}
+	}
+	// IF NO ARENA ADD
+	public void Initiate(int ox, int oy, int oz, double oyaw, double opitch, int bx, int by, int bz, double byaw, double bpitch, Player player, CommandSender sender, String nothing){
+		if(Constants.arena.contains(player.getName())){
+    		sender.sendMessage("You are in the arena!");
+    		}
+    		else{
+    		if(Constants.ot.contains(player.getName())){
+    		double x1 = ox;
+    		double y1 = oy;
+    		double z1 = oz;
+    		Location e = new Location(player.getWorld(), x1, y1, z1);
+    		player.teleport(e);
+    		player.getLocation().setYaw((float) oyaw);
+    		player.getLocation().setPitch((float) opitch);
+    		}
+    		else if(Constants.bt.contains(player.getName())){
+    		double x1 = bx;
+        	double y1 = by;
+        	double z1 = bz;
+        	Location e = new Location(player.getWorld(), x1, y1, z1);
+        	player.teleport(e);
+        	player.getLocation().setYaw((float) byaw);
+        	player.getLocation().setPitch((float) bpitch);
+    		}
+    	}
+	}
 }

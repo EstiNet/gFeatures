@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuiteOld;
 
 import java.io.File;
 
