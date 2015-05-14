@@ -3,11 +3,14 @@ package net.genesishub.gFeatures;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+
 public class Basic {
 	private static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	public static void addFeature(gFeature feature){
 		features.add(feature);
+		Bukkit.getLogger().info(feature.getName());
 	}
 	public static void addExtension(Extension extend){
 		extensions.add(extend);
