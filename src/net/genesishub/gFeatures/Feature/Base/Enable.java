@@ -7,11 +7,6 @@ import net.genesishub.gFeatures.FeatureState;
 
 public class Enable{
 	public static void onEnable(){
-		if(Basic.getFeature("Base").getState().equals(FeatureState.ENABLE)){
 		Bukkit.getLogger().info("Base Plugin enabled!");
-		}
-		else{
-			Bukkit.getLogger().info("Test");
-		}
 	}
 }
