@@ -4,10 +4,12 @@ public class Extension {
 	private String name;
 	private String version;
 	private FeatureState state;
+	private ExtensionsType type;
 	
-	public Extension(String featurename, String d){
+	public Extension(String featurename, String d, ExtensionsType ex){
 		name = featurename;
 		version = d;
+		type = ex;
 	}
 	public void setName(String featurename){
 		name = featurename;
@@ -21,6 +23,10 @@ public class Extension {
 		state = states;
 		return;
 	}
+	public void setType(ExtensionsType ex){
+		type = ex;
+		return;
+	}
 	public String getName(){
 		return name;
 	}
@@ -29,5 +35,8 @@ public class Extension {
 	}
 	public FeatureState getState(){
 		return state;
+	}
+	public ExtensionsType getType(){
+		return type;
 	}
 }

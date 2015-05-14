@@ -7,15 +7,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
-
 import net.genesishub.gFeatures.Extension;
 
 import org.apache.commons.io.IOUtils;
-import org.bukkit.Bukkit;
-
-import tk.genesishub.gFeatures.Skript.Skripts;
 
 /*
 gFeatures
@@ -37,14 +31,6 @@ https://github.com/Seshpenguin/gFeatures
 */
 
 public class SkriptManager {
-	public List<String> getList(){
-		List<String> list = new ArrayList<>();
-		List<Skripts> list2 = Skripts.getList();
-		for(Skripts s : list2){
-			list.add(s.toString());
-		}
-		return list;
-	}
 	public void Enable(Extension s, String packages) throws IOException{
 		try{
 		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Plus/Skript/" + packages + "/"+ s.getName() + ".sk"));
@@ -58,7 +44,7 @@ public class SkriptManager {
 		bw.close();
 		}catch(Exception E){}
 	}
-	public void Disable(Skripts s){
+	public void Disable(Extension s){
 		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
 		if(f.exists()){
 		f.delete();
