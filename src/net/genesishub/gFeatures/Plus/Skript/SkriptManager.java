@@ -10,6 +10,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.Extension;
+
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 
@@ -43,10 +45,9 @@ public class SkriptManager {
 		}
 		return list;
 	}
-	public void Enable(Skripts s) throws IOException{
+	public void Enable(Extension s, String packages) throws IOException{
 		try{
-		Bukkit.getLogger().info(s.toString());
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Plus/Skript/" + s.toString() + ".sk"));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Plus/Skript/" + packages + "/"+ s.getName() + ".sk"));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
