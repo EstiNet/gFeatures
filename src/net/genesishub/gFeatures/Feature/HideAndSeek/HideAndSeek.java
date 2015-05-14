@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class HideAndSeek extends gFeature{
 	Listeners listeners = new Listeners();
-	public HideAndSeek(String featurename, double d) {
+	public HideAndSeek(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

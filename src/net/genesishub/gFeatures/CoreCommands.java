@@ -27,7 +27,7 @@ public class CoreCommands{
 					case "help":
 						sender.sendMessage(ChatColor.GRAY + "------Help------");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the version.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states also.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
@@ -38,26 +38,26 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.ENABLE)){
-							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName());
+							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.DISABLE)){
-							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName());
+							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Extensions:");
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(Extension extension : extensions){
 							if(extension.getState().equals(FeatureState.ENABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName());
+								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(Extension extension : extensions){
 							if(extension.getState().equals(FeatureState.DISABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName());
+								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
 							}
 						}
 						break;

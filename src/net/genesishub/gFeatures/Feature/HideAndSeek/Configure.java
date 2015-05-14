@@ -6,7 +6,7 @@ import net.genesishub.gFeatures.Configs;
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		HideAndSeek base = new HideAndSeek("HideAndSeek", 1.0);
+		HideAndSeek base = new HideAndSeek("HideAndSeek", "1.0.0");
 		Basic.addFeature(base);
 	}
 }
