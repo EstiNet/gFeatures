@@ -37,6 +37,10 @@ public class gPlayer {
 	public void setName(String names){
 		name = names;
 	}
+	public void setValue(String valuename, String value){
+		values.remove(valuename);
+		values.put(valuename, value);
+	}
 	public void addValue(String valuename, String value){
 		values.put(valuename, value);
 	}
@@ -46,5 +50,7 @@ public class gPlayer {
 	public void removeValue(String valuename){
 		values.remove(valuename);
 	}
-	
+	public String getValue(String valuename){
+		return values.get(valuename);
+	}
 }
