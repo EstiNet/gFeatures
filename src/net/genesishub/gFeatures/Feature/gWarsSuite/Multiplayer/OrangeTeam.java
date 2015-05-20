@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
 
 import java.util.ArrayList;
 import java.util.List;
