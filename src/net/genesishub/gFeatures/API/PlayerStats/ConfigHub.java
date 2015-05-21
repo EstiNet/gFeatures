@@ -37,6 +37,7 @@ public class ConfigHub {
 		for(String play : player){
 			players.add(new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play)));
 		}
+		Basic.setgPlayers(players);
 		try {
 			yamlFile.save(f);
 		} catch (IOException e) {
@@ -57,6 +58,15 @@ public class ConfigHub {
 				yamlFile.set("Players." + p.getUniqueId() + "." + value, playersections.get(value));
 			}
 		}
+		try{
+		gPlayer player = Basic.getgPlayer(p.getName());
+		Basic.removegPlayer(player);
+		player.setPlayer(p);
+		Basic.addgPlayer(player);
+		} catch (Exception e){
+			Basic.addgPlayer(new gPlayer(p));
+		}
+		
 		try {
 			yamlFile.save(f);
 		} catch (IOException e) {

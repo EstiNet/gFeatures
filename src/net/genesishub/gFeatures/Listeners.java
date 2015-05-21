@@ -46,6 +46,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		SetupConfig.setup();
 		LoadConfig.load();
 		enable.onEnable();
+		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		ch.setupConfig();
 		ch.loadConfig();
 		getLogger().info("[gFeatures] Complete!");

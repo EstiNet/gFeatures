@@ -9,7 +9,7 @@ import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 public class Basic {
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
-	private static HashMap<String, String> playersections;
+	private static HashMap<String, String> playersections = new HashMap<>();
 	private static List<gPlayer> playerstats = new ArrayList<>();
 	public static void addFeature(gFeature feature){
 		features.add(feature);
@@ -70,5 +70,8 @@ public class Basic {
 	}
 	public static List<gPlayer> getgPlayers(){
 		return playerstats;
+	}
+	public static void setgPlayers(List<gPlayer> pl){
+		playerstats = pl;
 	}
 }

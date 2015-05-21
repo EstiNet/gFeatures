@@ -8,7 +8,7 @@ public class gPlayer {
 	private Player player;
 	private String uuid;
 	private String name;
-	private HashMap<String, String> values;
+	private HashMap<String, String> values = new HashMap<>();
 	public gPlayer(Player players){
 		player = players;
 		uuid = players.getUniqueId().toString();
