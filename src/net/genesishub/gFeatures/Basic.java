@@ -20,7 +20,9 @@ public class Basic {
 	public static void addPlayerSection(String sectionname, String defaultvalue){
 		playersections.put(sectionname, defaultvalue);
 	}
-	public
+	public static void addgPlayer(gPlayer player){
+		playerstats.add(player);
+	}
 	public static void removeFeature(gFeature feature){
 		features.remove(feature);
 	}
@@ -29,6 +31,9 @@ public class Basic {
 	}
 	public static void removePlayerSection(String sectionname, String defaultvalue){
 		playersections.remove(sectionname);
+	}
+	public static void removegPlayer(gPlayer player){
+		playerstats.remove(player);
 	}
 	public static gFeature getFeature(String name){
 		for(gFeature feature : features){
@@ -46,6 +51,14 @@ public class Basic {
 		}
 		return null;
 	}
+	public static gPlayer getgPlayer(String name){
+		for(gPlayer player : playerstats){
+			if(player.getName().equalsIgnoreCase(name)){
+				return player;
+			}
+		}
+		return null;
+	}
 	public static List<gFeature> getFeatures(){
 		return features;
 	}
@@ -54,5 +67,8 @@ public class Basic {
 	}
 	public static HashMap<String, String> getPlayerSections(){
 		return playersections;
+	}
+	public static List<gPlayer> getgPlayers(){
+		return playerstats;
 	}
 }
