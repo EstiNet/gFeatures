@@ -14,6 +14,10 @@ public class gPlayer {
 		uuid = players.getUniqueId().toString();
 		name = player.getName();
 	}
+	public gPlayer(String UUID, String names){
+		uuid = UUID;
+		name = names;
+	}
 	public Player getPlayer(){
 		return player;
 	}

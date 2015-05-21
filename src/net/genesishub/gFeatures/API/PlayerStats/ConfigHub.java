@@ -2,7 +2,9 @@ package net.genesishub.gFeatures.API.PlayerStats;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
@@ -29,15 +31,25 @@ public class ConfigHub {
 		}
 	}
 	public void loadConfig(){
-		
+		List<gPlayer> players = new ArrayList<>();
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		List<String> player = yamlFile.getStringList("Players");
+		for(String play : player){
+			players.add(new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play)));
+		}
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void addPlayerSection(Player p){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		if(!(yamlFile.contains("Players." + p.getUniqueId()))){
 			yamlFile.createSection("Players." + p.getUniqueId());
 		}
-		if(!(yamlFile.contains("Players." + p.getUniqueId() + "." + p.getName()))){
-			yamlFile.createSection("Players." + p.getUniqueId() + "." + p.getName());
+		if(!(yamlFile.contains("Players." + p.getUniqueId() + ".Name." + p.getName()))){
+			yamlFile.createSection("Players." + p.getUniqueId() + ".Name." + p.getName());
 		}
 		for(String value : playersections.keySet()){
 			if(!(yamlFile.contains("Players." + p.getUniqueId() + "." + value))){
