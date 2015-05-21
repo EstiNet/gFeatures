@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures;
 
+import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -32,6 +33,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	Library library = new Library();
 	CommandLibrary commands = new CommandLibrary();
 	Setup setup = new Setup();
+	ConfigHub ch = new ConfigHub();
 	
 	@Override
 	public void onEnable(){
@@ -44,6 +46,8 @@ public class Listeners extends JavaPlugin implements Listener{
 		SetupConfig.setup();
 		LoadConfig.load();
 		enable.onEnable();
+		ch.setupConfig();
+		ch.loadConfig();
 		getLogger().info("[gFeatures] Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
@@ -60,6 +64,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
     	library.onPlayerJoin(event);
+    	ch.addPlayerSection(event.getPlayer());
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){

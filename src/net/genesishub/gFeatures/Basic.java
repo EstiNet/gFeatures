@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
+
 public class Basic {
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	private static HashMap<String, String> playersections;
+	private static List<gPlayer> playerstats = new ArrayList<>();
 	public static void addFeature(gFeature feature){
 		features.add(feature);
 	}
@@ -17,6 +20,7 @@ public class Basic {
 	public static void addPlayerSection(String sectionname, String defaultvalue){
 		playersections.put(sectionname, defaultvalue);
 	}
+	public
 	public static void removeFeature(gFeature feature){
 		features.remove(feature);
 	}
