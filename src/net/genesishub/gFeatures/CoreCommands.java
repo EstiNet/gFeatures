@@ -2,6 +2,7 @@ package net.genesishub.gFeatures;
 
 import java.util.List;
 
+import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -83,6 +84,10 @@ public class CoreCommands{
 						SetupConfig.setup();
 						LoadConfig.load();
 						enable.onEnable();
+						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
+						ConfigHub ch = new ConfigHub();
+						ch.setupConfig();
+						ch.loadConfig();
 						Bukkit.getLogger().info("[gFeatures] Complete!");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
