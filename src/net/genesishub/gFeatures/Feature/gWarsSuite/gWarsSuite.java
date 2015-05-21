@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class gWarsSuite extends gFeature{
 	
@@ -29,9 +30,14 @@ public class gWarsSuite extends gFeature{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerQuit((PlayerQuitEvent)event);
+		}
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
+	@Retrieval
+	public void onPlayerQuit(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

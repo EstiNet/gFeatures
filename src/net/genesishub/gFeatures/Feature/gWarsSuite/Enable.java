@@ -10,5 +10,6 @@ public class Enable {
 		Basic.addPlayerSection("gWars", "");
 		Basic.addPlayerSection("gWars.Kills", "0");
 		Basic.addPlayerSection("gWars.Deaths", "0");
+		Basic.addPlayerSection("gWars.Mode", "NONE");
 	}
 }
