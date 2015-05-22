@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 
 /*
 gFeatures
-https://github.com/Seshpenguin/gFeatures
+https://github.com/GenesisHub/gFeatures
 
-   Copyright 2015 DolphinBox
+   Copyright 2015 GenesisHub
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -36,8 +36,7 @@ public class TeamManager {
      	}
 			return "No team";
      }
-	 @SuppressWarnings("deprecation")
-	public void TeamSwitchInitiate(final CommandSender sender, Command cmd, String label, String[] args){
+	 public void TeamSwitchInitiate(final CommandSender sender, Command cmd, String label, String[] args){
 		 Player player = (Player)sender;
 		 if(Constants.ot.contains(sender.getName()) && Constants.ot.size() > Constants.bt.size()){
 				Bukkit.getServer().broadcastMessage(ChatColor.GRAY+player.getName()+ " has switched to the "+ ChatColor.BLUE +"blue"+ ChatColor.GRAY +" team!");
