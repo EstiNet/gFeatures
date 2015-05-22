@@ -3,11 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="C:/minecraft_server.jar"/>
-	<classpathentry kind="lib" path="C:/Skript.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Skript.jar!/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="C:/CrackShot.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/C:/CrackShot.jar!/"/>
@@ -15,6 +10,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
 	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/worldguard.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
