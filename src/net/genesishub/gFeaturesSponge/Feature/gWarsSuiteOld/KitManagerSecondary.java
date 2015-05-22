@@ -7,9 +7,9 @@ import com.shampaggon.crackshot.CSUtility;
 
 /*
 gFeatures
-https://github.com/Seshpenguin/gFeatures
+https://github.com/GenesisHub/gFeatures
 
-   Copyright 2015 DolphinBox
+   Copyright 2015 GenesisHub
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 /*
 gFeatures
-https://github.com/Seshpenguin/gFeatures
+https://github.com/GenesisHub/gFeatures
 
-   Copyright 2015 DolphinBox
+   Copyright 2015 GenesisHub
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -33,6 +33,8 @@ https://github.com/Seshpenguin/gFeatures
 public class Main {
 	File f = new File("plugins/gFeatures/GenesisAccess/chat.txt");
     public void onEnable() { //What to do on server load/reload
+    	ConfigHub ch = new ConfigHub();
+    	ch.setupConfig();
         Bukkit.getLogger().info("GenesisAccess 1.3 is enabled. All clear for take off!");
         int num = 0;
         boolean b = false;

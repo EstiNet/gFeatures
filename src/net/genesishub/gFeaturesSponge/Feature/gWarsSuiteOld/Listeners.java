@@ -6,11 +6,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -22,6 +19,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.xml.sax.SAXException;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
+
 /*
    gWarsSuite2 Version 7.4
    Bukkit Plugin by the GenesisHub Team
@@ -38,8 +36,26 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
  */
+
+/*
+gFeatures
+https://github.com/GenesisHub/gFeatures
+
+   Copyright 2015 GenesisHub
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 
 public class Listeners{
 	Summon summon = new Summon();

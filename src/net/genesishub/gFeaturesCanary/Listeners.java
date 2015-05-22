@@ -1,5 +1,6 @@
-package net.genesishub.gFeaturesCanary;
+package net.genesishub.gFeatures;
 
+import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -23,8 +24,27 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
+/*
+gFeatures
+https://github.com/GenesisHub/gFeatures
+
+   Copyright 2015 GenesisHub
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.2.2";
+	public static final String version = "2.3.2";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -32,18 +52,22 @@ public class Listeners extends JavaPlugin implements Listener{
 	Library library = new Library();
 	CommandLibrary commands = new CommandLibrary();
 	Setup setup = new Setup();
+	ConfigHub ch = new ConfigHub();
 	
 	@Override
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] gFeatures-Canary enabled!");
+		getLogger().info("[gFeatures] gFeatures enabled!");
 		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
 		getLogger().info("[gFeatures] Turning on Features...");
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
 		enable.onEnable();
+		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
+		ch.setupConfig();
+		ch.loadConfig();
 		getLogger().info("[gFeatures] Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
@@ -60,6 +84,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
     	library.onPlayerJoin(event);
+    	ch.addPlayerSection(event.getPlayer());
+    	Basic.getgPlayer(event.getPlayer().getName()).setPlayer(event.getPlayer());
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
