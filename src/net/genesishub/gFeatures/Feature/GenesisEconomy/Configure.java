@@ -28,7 +28,5 @@ public class Configure {
 	public static void onSetup(){
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.0.7");
 		Basic.addFeature(base);
-		Config con = new Config();
-		con.createDirectory("plugins/gFeatures/gEconomy", "Created economy directory!");
 	}
 }

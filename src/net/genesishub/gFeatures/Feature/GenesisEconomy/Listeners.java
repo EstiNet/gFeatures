@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.GenesisEconomy;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import net.genesishub.gFeatures.Configuration.Config;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -35,6 +37,8 @@ public class Listeners {
 		Bukkit.getLogger().info("GenesisEconomy enabled. You're good to go!");
 		Enabled e = new Enabled();
 		e.Initialize();
+		Config con = new Config();
+		con.createDirectory("plugins/gFeatures/gEconomy", "Created economy directory!");
 	}
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");

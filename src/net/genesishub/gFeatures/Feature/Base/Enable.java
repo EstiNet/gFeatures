@@ -22,7 +22,9 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Enable{
+	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
 		Bukkit.getLogger().info("Base Plugin enabled!");
+		ch.setupConfig();
 	}
 }

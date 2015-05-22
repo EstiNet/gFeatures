@@ -33,6 +33,8 @@ https://github.com/GenesisHub/gFeatures
 public class Main {
 	File f = new File("plugins/gFeatures/GenesisAccess/chat.txt");
     public void onEnable() { //What to do on server load/reload
+    	ConfigHub ch = new ConfigHub();
+    	ch.setupConfig();
         Bukkit.getLogger().info("GenesisAccess 1.3 is enabled. All clear for take off!");
         int num = 0;
         boolean b = false;

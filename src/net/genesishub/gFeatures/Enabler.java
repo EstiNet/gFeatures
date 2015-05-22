@@ -3,6 +3,8 @@ package net.genesishub.gFeatures;
 import java.io.IOException;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+
 import net.genesishub.gFeatures.Plus.Skript.SkriptManager;
 
 public class Enabler {
@@ -18,6 +20,7 @@ public class Enabler {
 			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Skript)){
 				SkriptManager sm = new SkriptManager();
 				try {
+					Bukkit.getLogger().info(extension.getName() + " is ENABLED.");
 					sm.Enable(extension, extension.getName());
 				} catch (IOException e) {
 					e.printStackTrace();

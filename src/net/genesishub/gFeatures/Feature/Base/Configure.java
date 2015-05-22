@@ -23,11 +23,9 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Configure{
-	static ConfigHub ch = new ConfigHub();
 	@Configs
 	public static void onSetup(){
 		Base base = new Base("Base", "1.0.0");
 		Basic.addFeature(base);
-		ch.setupConfig();
 	}
 }
