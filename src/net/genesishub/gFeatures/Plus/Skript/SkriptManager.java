@@ -37,7 +37,7 @@ public class SkriptManager {
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
-		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
+		File f = new File("plugins/Skript/scripts/" + s.getName() + ".sk");
 		f.createNewFile();
 		BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
 		bw.write(theString);
@@ -45,7 +45,7 @@ public class SkriptManager {
 		}catch(Exception E){}
 	}
 	public void Disable(Extension s){
-		File f = new File("plugins/Skript/scripts/" + s.toString() + ".sk");
+		File f = new File("plugins/Skript/scripts/" + s.getName() + ".sk");
 		if(f.exists()){
 		f.delete();
 		}

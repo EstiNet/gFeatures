@@ -25,5 +25,6 @@ public class ConfigHub {
 	Config config = new Config();
 	public void setupConfig(){
 		config.createDirectory("plugins/gFeatures/gWarsSuite", "gWarsSuite plugin directory set!");
+		config.createFile("plugins/gFeatures/gWarsSuite/Config.yml", "gWarsSuite plugin config set!");
 	}
 }
