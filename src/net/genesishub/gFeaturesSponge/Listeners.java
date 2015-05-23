@@ -1,8 +1,8 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
-import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
-import net.genesishub.gFeatures.Configuration.LoadConfig;
-import net.genesishub.gFeatures.Configuration.SetupConfig;
+import net.genesishub.gFeaturesSponge.API.PlayerStats.ConfigHub;
+import net.genesishub.gFeaturesSponge.Configuration.LoadConfig;
+import net.genesishub.gFeaturesSponge.Configuration.SetupConfig;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,6 +21,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.spongepowered.api.plugin.Plugin;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -43,6 +44,7 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
+@Plugin(id = "gFeatures", name = "gFeatures", version = "2.3.2")
 public class Listeners extends JavaPlugin implements Listener{
 	public static final String version = "2.3.2";
 	

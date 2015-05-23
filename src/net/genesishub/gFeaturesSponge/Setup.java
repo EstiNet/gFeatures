@@ -1,6 +1,6 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
-import net.genesishub.gFeatures.Feature.Base.Configure;
+import net.genesishub.gFeaturesSponge.Feature.Base.Configure;
 
 /*
 gFeatures
@@ -32,38 +32,24 @@ public class Setup {
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		*/
-		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisBackup.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gFactions.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gHub.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gMusic.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gScore.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
-		
-		/*
-		 * Initialize your Skripts here.
-		 * Make sure that you have your onSetup() setup
-		 * to add to the Basic class. :D
-		*/
-		
-		net.genesishub.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
-		
+		net.genesishub.gFeaturesSponge.Feature.CTF.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gDestroyCritical.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.GenesisAccess.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.GenesisBackup.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.GenesisEconomy.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gFactions.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gHub.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gMusic.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gScore.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.gWarsSuite.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Feature.HideAndSeek.Configure.onSetup();
 		/*
 		 * Initialize your Utilities here.
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		*/
 		
-		net.genesishub.gFeatures.Utility.gBroadcast.Configure.onSetup();
+		net.genesishub.gFeaturesSponge.Utility.gBroadcast.Configure.onSetup();
 		
 		//Ignore below. -_- Package Crawler attempt.
 		
@@ -71,7 +57,7 @@ public class Setup {
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
-			if(pac.getName().startsWith("net.genesishub.gFeatures")){
+			if(pac.getName().startsWith("net.genesishub.gFeaturesSponge")){
 				Bukkit.getLogger().info("Start");
 				Class[] classes;
 				try {
@@ -139,7 +125,7 @@ public class Setup {
 			}
 		}
 			/*try {
-				Class[] classes = getClasses("net.genesishub.gFeatures.Feature.Base");
+				Class[] classes = getClasses("net.genesishub.gFeaturesSponge.Feature.Base");
 			for(Class classs : classes){
 				Method[] methods = classs.getClass().getMethods();
 				Bukkit.getLogger().info(classs.getName());

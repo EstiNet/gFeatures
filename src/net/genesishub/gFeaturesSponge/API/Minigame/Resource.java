@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.API.Minigame;
+package net.genesishub.gFeaturesSponge.API.Minigame;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

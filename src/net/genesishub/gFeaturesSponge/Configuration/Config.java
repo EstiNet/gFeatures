@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Configuration;
+package net.genesishub.gFeaturesSponge.Configuration;
 
 import java.io.File;
 import java.io.IOException;

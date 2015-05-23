@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.API.Minigame;
+package net.genesishub.gFeaturesSponge.API.Minigame;
 
 import java.util.ArrayList;
 import java.util.List;

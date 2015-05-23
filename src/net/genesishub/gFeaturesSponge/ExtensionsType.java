@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
 /*
 gFeatures
@@ -20,5 +20,5 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public enum ExtensionsType {
-	Skript, Utility, Other
+	Utility, Other
 }

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.API.PlayerStats;
+package net.genesishub.gFeaturesSponge.API.PlayerStats;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configuration.Config;
+import net.genesishub.gFeaturesSponge.Basic;
+import net.genesishub.gFeaturesSponge.Configuration.Config;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;

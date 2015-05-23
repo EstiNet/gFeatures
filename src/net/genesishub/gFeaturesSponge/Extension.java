@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
 /*
 gFeatures

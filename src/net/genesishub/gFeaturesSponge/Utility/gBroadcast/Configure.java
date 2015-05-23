@@ -1,9 +1,9 @@
-package net.genesishub.gFeatures.Utility.gBroadcast;
+package net.genesishub.gFeaturesSponge.Utility.gBroadcast;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
+import net.genesishub.gFeaturesSponge.Basic;
+import net.genesishub.gFeaturesSponge.Configs;
+import net.genesishub.gFeaturesSponge.Extension;
+import net.genesishub.gFeaturesSponge.ExtensionsType;
 
 /*
 gFeatures

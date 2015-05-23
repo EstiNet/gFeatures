@@ -1,10 +1,10 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
 import java.util.List;
 
-import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
-import net.genesishub.gFeatures.Configuration.LoadConfig;
-import net.genesishub.gFeatures.Configuration.SetupConfig;
+import net.genesishub.gFeaturesSponge.API.PlayerStats.ConfigHub;
+import net.genesishub.gFeaturesSponge.Configuration.LoadConfig;
+import net.genesishub.gFeaturesSponge.Configuration.SetupConfig;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

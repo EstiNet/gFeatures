@@ -10,5 +10,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
 	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/sponge-1.8-1371-2.1DEV-455.jar"/>
+	<classpathentry kind="lib" path="C:/guava-18.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

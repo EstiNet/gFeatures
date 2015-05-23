@@ -1,13 +1,13 @@
-package net.genesishub.gFeatures.Configuration;
+package net.genesishub.gFeaturesSponge.Configuration;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
-import net.genesishub.gFeatures.gFeature;
+import net.genesishub.gFeaturesSponge.Basic;
+import net.genesishub.gFeaturesSponge.Extension;
+import net.genesishub.gFeaturesSponge.ExtensionsType;
+import net.genesishub.gFeaturesSponge.gFeature;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 

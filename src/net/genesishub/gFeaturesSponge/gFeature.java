@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.API.PlayerStats;
+package net.genesishub.gFeaturesSponge.API.PlayerStats;
 
 import java.util.HashMap;
 

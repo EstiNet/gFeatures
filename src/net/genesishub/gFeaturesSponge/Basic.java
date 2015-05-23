@@ -1,10 +1,10 @@
-package net.genesishub.gFeatures;
+package net.genesishub.gFeaturesSponge;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
+import net.genesishub.gFeaturesSponge.API.PlayerStats.gPlayer;
 
 /*
 gFeatures
