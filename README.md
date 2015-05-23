@@ -11,5 +11,6 @@ with a nice clean JavaFX GUI!
 #Team
 - _InDev_ (also known as aguy867 in older commits) Did 99% of the actual work.
 - Seshpenguin -> Original founder of GenesisHub. Did stuff
+ NO
 - mrsquid360 -> Team member
 - RYANNOOB28 -> Team member
