@@ -20,5 +20,5 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public enum ExtensionsType {
-	Utility, Other
+	Utility, Other, File
 }
