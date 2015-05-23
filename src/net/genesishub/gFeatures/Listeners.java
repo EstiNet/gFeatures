@@ -44,7 +44,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.3.3";
+	public static final String version = "2.3.4";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -58,9 +58,9 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] Initalizing gFeatures Core");
-		getLogger().info("[gFeatures] This server is running gFeatures Core Version: " + version);
-		getLogger().info("[gFeatures] Starting modules...");
+		getLogger().info("Initalizing gFeatures.");
+		getLogger().info("This server is running gFeatures Core Version: " + version);
+		getLogger().info("Starting intialization of Features and Extensions...");
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
@@ -68,17 +68,17 @@ public class Listeners extends JavaPlugin implements Listener{
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		ch.setupConfig();
 		ch.loadConfig();
-		getLogger().info("[gFeatures] Complete! Continuing Server startup routine...");
+		getLogger().info(" Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
 	@Override
 	public void onDisable(){
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] Stopping gFeatures Core!");
-		getLogger().info("[gFeatures] This server is running gFeatures Core Version: " + version);
-		getLogger().info("[gFeatures] Turning off modules...");
+		getLogger().info("Stopping gFeatures Core!");
+		getLogger().info("This server is running gFeatures Core Version: " + version);
+		getLogger().info("Turning off modules...");
 		disable.onDisable();
-		getLogger().info("[gFeatures] Complete!");
+		getLogger().info("Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
 	@EventHandler
