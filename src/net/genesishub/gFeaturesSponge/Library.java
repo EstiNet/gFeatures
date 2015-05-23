@@ -2,17 +2,23 @@ package net.genesishub.gFeaturesSponge;
 
 import java.util.List;
 
-import org.bukkit.event.Event;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
+
+
+
+
+
+
+
+
+
+import org.spongepowered.api.event.Event;
+import org.spongepowered.api.event.block.BlockBreakEvent;
+import org.spongepowered.api.event.entity.player.PlayerDeathEvent;
+import org.spongepowered.api.event.entity.player.PlayerInteractEvent;
+import org.spongepowered.api.event.entity.player.PlayerJoinEvent;
+import org.spongepowered.api.event.entity.player.PlayerMoveEvent;
+import org.spongepowered.api.event.entity.player.PlayerQuitEvent;
+import org.spongepowered.api.event.entity.player.PlayerRespawnEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -54,9 +60,9 @@ public class Library {
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
     	check("onEntityDamageByEntity", event);
     }
-    public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
+    /*public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
     	check("onWeaponDamageEntity", event);
-    }
+    }*/
     public void onPlayerInteract(PlayerInteractEvent event){
     	check("onPlayerInteract", event);
     }
