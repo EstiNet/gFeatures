@@ -15,14 +15,15 @@ All the packages under "tk.genesishub.*" was part of gFeatures 1.0, and is Obsol
 gFeatures 2.0 is under "net.genesishub.*" and is currently in active development.
 
 ## Team
-- Seshpenguin -> Original founder of GenesisHub. CEO DolphinBox& IT
-- _InDev_ (also known as aguy867 in older commits) -> Main Developer & Co-CEO DolphinBox
+- _InDev_ (also known as aguy867 in older commits) -> Main Developer & CEO GenesisHub
+- Seshpenguin -> CEO of Dolphinbox. Did stuff
 - mrsquid360 -> Team member
 - RYANNOOB28 -> Team member
 
 ## Copyright
-GenesisHub and gFeatures are property of DolphinBox.
+GenesisHub and gFeatures are property of GenesisHub.
 
-© 2015 DolphinBox - All Rights Reserved.
+© 2015 GenesisHub & DolphinBox - All Rights Reserved.
 
+http://genesishub.net/
 http://dolphinbox.net/
