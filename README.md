@@ -11,6 +11,7 @@ The gFeatures Universal Binary allows gFeatures to run on Bukkit-Compatible, Spo
 
 ## Notes
 All the packages under "tk.genesishub.*" was part of gFeatures 1.0, and is Obsolete.
+
 gFeatures 2.0 is under "net.genesishub.*" and is currently in active development.
 
 ## Team
