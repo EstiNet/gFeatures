@@ -22,5 +22,7 @@ gFeatures 2.0 is under "net.genesishub.*" and is currently in active development
 
 ## Copyright
 GenesisHub and gFeatures are property of DolphinBox.
-(c) 2015 DolphinBox - All Rights Reserved.
+
+© 2015 DolphinBox - All Rights Reserved.
+
 http://dolphinbox.net/
