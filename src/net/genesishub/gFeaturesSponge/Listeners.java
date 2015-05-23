@@ -4,25 +4,21 @@ import net.genesishub.gFeaturesSponge.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeaturesSponge.Configuration.LoadConfig;
 import net.genesishub.gFeaturesSponge.Configuration.SetupConfig;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.slf4j.Logger;
+import org.spongepowered.api.Game;
+import org.spongepowered.api.event.Subscribe;
+import org.spongepowered.api.event.block.BlockBreakEvent;
+import org.spongepowered.api.event.entity.player.PlayerDeathEvent;
+import org.spongepowered.api.event.entity.player.PlayerInteractEvent;
+import org.spongepowered.api.event.entity.player.PlayerJoinEvent;
+import org.spongepowered.api.event.entity.player.PlayerMoveEvent;
+import org.spongepowered.api.event.entity.player.PlayerQuitEvent;
+import org.spongepowered.api.event.entity.player.PlayerRespawnEvent;
+import org.spongepowered.api.event.state.PreInitializationEvent;
+import org.spongepowered.api.event.state.ServerStoppingEvent;
 import org.spongepowered.api.plugin.Plugin;
 
+import com.google.inject.Inject;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -45,10 +41,14 @@ https://github.com/GenesisHub/gFeatures
 */
 
 @Plugin(id = "gFeatures", name = "gFeatures", version = "2.3.2")
-public class Listeners extends JavaPlugin implements Listener{
+public class Listeners{
 	public static final String version = "2.3.2";
 	
-	PluginManager pm = getServer().getPluginManager();
+	@Inject
+	Game game;
+    @Inject
+	Logger logger;
+	
 	Enabler enable = new Enabler();
 	Disabler disable = new Disabler();
 	Library library = new Library();
@@ -56,13 +56,12 @@ public class Listeners extends JavaPlugin implements Listener{
 	Setup setup = new Setup();
 	ConfigHub ch = new ConfigHub();
 	
-	@Override
-	public void onEnable(){
-	    pm.registerEvents(this, this);
-		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] gFeatures enabled!");
-		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info("[gFeatures] Turning on Features...");
+	@Subscribe
+	public void onEnable(PreInitializationEvent event){
+	    logger.info("_________________________________________________________________________");
+		logger.info("[gFeatures] gFeatures enabled!");
+		logger.info("[gFeatures] This gFeatures installation is running core: " + version);
+		logger.info("[gFeatures] Turning on Features...");
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
@@ -70,62 +69,62 @@ public class Listeners extends JavaPlugin implements Listener{
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		ch.setupConfig();
 		ch.loadConfig();
-		getLogger().info("[gFeatures] Complete!");
-		getLogger().info("_________________________________________________________________________");
+		logger.info("[gFeatures] Complete!");
+		logger.info("_________________________________________________________________________");
 	}
-	@Override
-	public void onDisable(){
-		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] gFeatures disabled!");
-		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info("[gFeatures] Turning off Features...");
+	@Subscribe
+	public void onDisable(ServerStoppingEvent event){
+		logger.info("_________________________________________________________________________");
+		logger.info("[gFeatures] gFeatures disabled!");
+		logger.info("[gFeatures] This gFeatures installation is running core: " + version);
+		logger.info("[gFeatures] Turning off Features...");
 		disable.onDisable();
-		getLogger().info("[gFeatures] Complete!");
-		getLogger().info("_________________________________________________________________________");
+		logger.info("[gFeatures] Complete!");
+		logger.info("_________________________________________________________________________");
 	}
-	@EventHandler
+	@Subscribe
     public void onPlayerJoin(PlayerJoinEvent event){
     	library.onPlayerJoin(event);
     	ch.addPlayerSection(event.getPlayer());
     	Basic.getgPlayer(event.getPlayer().getName()).setPlayer(event.getPlayer());
     }
-    @EventHandler
+    @Subscribe
     public void onPlayerLeave(PlayerQuitEvent event){
     	library.onPlayerLeave(event);
     }
-    @EventHandler
+    @Subscribe
     public void onPlayerMove(PlayerMoveEvent event){
     	library.onPlayerMove(event);
     }
-    @EventHandler(priority=EventPriority.HIGHEST)
+    @Subscribe
     public void onPlayerRespawn(PlayerRespawnEvent event){
     	library.onPlayerRespawn(event);
     }
-    @EventHandler
+    @Subscribe
     public void onDeath(PlayerDeathEvent event){
     	library.onPlayerDeath(event);
     }
-    @EventHandler
+    @Subscribe
     public void onHit(EntityDamageByEntityEvent event) {
     	library.onEntityDamageByEntity(event);
     }
-    @EventHandler
+    /*@Subscribe
     public void onHit1(WeaponDamageEntityEvent event) {
         library.onWeaponDamageEntity(event);
-    }
-    @EventHandler
+    }*/
+    @Subscribe
     public void PlayerInteract(PlayerInteractEvent event){
         library.onPlayerInteract(event);
     }
-    @EventHandler
+    @Subscribe
     public void PlayerBreakBlock(BlockBreakEvent event){
     	library.onPlayerBreakBlock(event);
     }
-    @EventHandler
-    public void PlayerChatEvent(AsyncPlayerChatEvent event){
+    @Subscribe
+    public void PlayerChatEvent(PlayerChatEvent event){
     	library.onPlayerChat(event);
     }
-    @EventHandler
+    @Subscribe
     public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
     	library.onPlayerCommand(event);
     }
