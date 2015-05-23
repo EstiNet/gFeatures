@@ -44,7 +44,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.3.2";
+	public static final String version = "2.3.3";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -58,9 +58,9 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] gFeatures enabled!");
-		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info("[gFeatures] Turning on Features...");
+		getLogger().info("[gFeatures] Initalizing gFeatures Core");
+		getLogger().info("[gFeatures] This server is running gFeatures Core Version: " + version);
+		getLogger().info("[gFeatures] Starting modules...");
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
@@ -68,15 +68,15 @@ public class Listeners extends JavaPlugin implements Listener{
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		ch.setupConfig();
 		ch.loadConfig();
-		getLogger().info("[gFeatures] Complete!");
+		getLogger().info("[gFeatures] Complete! Continuing Server startup routine...");
 		getLogger().info("_________________________________________________________________________");
 	}
 	@Override
 	public void onDisable(){
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("[gFeatures] gFeatures disabled!");
-		getLogger().info("[gFeatures] This gFeatures installation is running core: " + version);
-		getLogger().info("[gFeatures] Turning off Features...");
+		getLogger().info("[gFeatures] Stopping gFeatures Core!");
+		getLogger().info("[gFeatures] This server is running gFeatures Core Version: " + version);
+		getLogger().info("[gFeatures] Turning off modules...");
 		disable.onDisable();
 		getLogger().info("[gFeatures] Complete!");
 		getLogger().info("_________________________________________________________________________");
