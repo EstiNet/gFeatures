@@ -93,6 +93,12 @@ public class CoreCommands{
 						Bukkit.getLogger().info("[gFeatures] This gFeatures installation is running core: " + Listeners.version);
 						Bukkit.getLogger().info("[gFeatures] Turning off Features...");
 						disable.onDisable();
+						for(gFeature feat : Basic.getFeatures()){
+							Basic.removeFeature(feat);
+						}
+						for(Extension ext : Basic.getExtensions()){
+							Basic.removeExtension(ext);
+						}
 						Bukkit.getLogger().info("[gFeatures] Complete!");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("_________________________________________________________________________");
