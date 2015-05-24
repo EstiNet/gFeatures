@@ -41,10 +41,11 @@ public class LoadConfig {
 			if((yamlFile.get("Config.Plugins." + feature.getName()).equals("true"))){
 				feature.setState(FeatureState.ENABLE);
 				Bukkit.getLogger().info(feature.getName());
+				Bukkit.getLogger().info(feature.getState().toString());
 			}
 			else{
 				feature.setState(FeatureState.DISABLE);
-				Bukkit.getLogger().info(feature.getName());
+				Bukkit.getLogger().info(feature.getName() + "dis");
 			}
 		}
 		for(Extension extend : extensions){
