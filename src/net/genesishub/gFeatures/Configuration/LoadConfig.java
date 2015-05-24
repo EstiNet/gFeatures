@@ -1,6 +1,7 @@
 package net.genesishub.gFeatures.Configuration;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -37,16 +38,16 @@ public class LoadConfig {
 	static List<Extension> extensions = Basic.getExtensions();
 	public static void load(){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		List<gFeature> featur = new ArrayList<>();
+		List<Extension> extension = new ArrayList<>();
 		for(gFeature feature : features){
 			if((yamlFile.get("Config.Plugins." + feature.getName()).equals("true"))){
 				feature.setState(FeatureState.ENABLE);
-				Bukkit.getLogger().info(feature.getName());
-				Bukkit.getLogger().info(feature.getState().toString());
 			}
 			else{
 				feature.setState(FeatureState.DISABLE);
-				Bukkit.getLogger().info(feature.getName() + "dis");
 			}
+			featur.add(feature);
 		}
 		for(Extension extend : extensions){
 			if((yamlFile.get("Config.Extensions."+ extend.getType().toString() + "." + extend.getName()).equals("true"))){
@@ -55,6 +56,9 @@ public class LoadConfig {
 			else{
 				extend.setState(FeatureState.DISABLE);
 			}
+			extension.add(extend);
 		}
+		Basic.setFeatures(featur);
+		Basic.setExtensions(extension);
 	}
 }
