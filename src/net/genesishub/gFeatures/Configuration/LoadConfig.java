@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Configuration;
 import java.io.File;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.genesishub.gFeatures.Basic;
@@ -39,9 +40,11 @@ public class LoadConfig {
 		for(gFeature feature : features){
 			if((yamlFile.get("Config.Plugins." + feature.getName()).equals("true"))){
 				feature.setState(FeatureState.ENABLE);
+				Bukkit.getLogger().info(feature.getName());
 			}
 			else{
 				feature.setState(FeatureState.DISABLE);
+				Bukkit.getLogger().info(feature.getName());
 			}
 		}
 		for(Extension extend : extensions){

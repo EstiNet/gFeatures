@@ -29,6 +29,5 @@ public class Configure{
 	public static void onSetup(){
 		Base base = new Base("Base", "1.2.5");
 		Basic.addFeature(base);
-		Bukkit.getLogger().info("HI");
 	}
 }
