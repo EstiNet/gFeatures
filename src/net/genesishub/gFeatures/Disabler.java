@@ -36,11 +36,7 @@ public class Disabler {
 		for(Extension extension : extensions){
 			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Skript)){
 				SkriptManager sm = new SkriptManager();
-				try {
-					sm.Enable(extension, extension.getName());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				sm.Disable(extension);
 			}
 		}
 		Basic.resetFeatures();

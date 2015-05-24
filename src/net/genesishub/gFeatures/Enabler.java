@@ -31,6 +31,7 @@ public class Enabler {
 		List<gFeature> features = Basic.getFeatures();
 		List<Extension> extensions = Basic.getExtensions();
 		for(gFeature feature : features){
+			Bukkit.getLogger().info(feature.getName());
 			if(feature.getState().equals(FeatureState.ENABLE)){
 			feature.enable();
 			}
