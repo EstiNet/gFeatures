@@ -95,4 +95,12 @@ public class Basic {
 	public static void setgPlayers(List<gPlayer> pl){
 		playerstats = pl;
 	}
+	public static void resetFeatures(){
+		List<gFeature> feature = new ArrayList<>();
+		features = feature;
+	}
+	public static void resetExtensions(){
+		List<Extension> extend = new ArrayList<>();
+		extensions = extend;
+	}
 }

@@ -43,11 +43,7 @@ public class Disabler {
 				}
 			}
 		}
-		for(gFeature feat : features){
-			//Basic.removeFeature(feat);
-		}
-		for(Extension ext : extensions){
-			//Basic.removeExtension(ext);
-		}
+		Basic.resetFeatures();
+		Basic.resetExtensions();
 	}
 }
