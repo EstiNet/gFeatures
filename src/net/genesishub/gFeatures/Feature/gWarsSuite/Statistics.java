@@ -65,4 +65,10 @@ public class Statistics {
 		Basic.addgPlayer(gplayer);
 		return;
 	}
+	public void setMode(Player p, gWarsMode mode){
+		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		gplayer.setValue("gWars.Mode", mode.toString());
+		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
+		Basic.addgPlayer(gplayer);
+	}
 }
