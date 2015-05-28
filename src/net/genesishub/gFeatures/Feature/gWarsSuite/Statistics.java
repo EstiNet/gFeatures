@@ -31,6 +31,20 @@ public class Statistics {
 	public int getDeaths(Player p){
 		return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
 	}
+	public gWarsMode getMode(Player p){
+		switch(Basic.getgPlayer(p.getName()).getValue("gWars.Mode")){
+			case "NONE":
+				return gWarsMode.NONE;
+			case "MAINMENU": 
+				return gWarsMode.MAINMENU;
+			case "TEAM":
+				return gWarsMode.TEAM;
+			case "CAMPAIGN":
+				return gWarsMode.CAMPAIGN;
+			default:
+				return gWarsMode.NONE;
+		}
+	}
 	public void addKill(Player p){
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
 		kill += 1;

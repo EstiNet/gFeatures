@@ -6,4 +6,7 @@ public class Inventory {
 	public void prevent(InventoryOpenEvent event){
 		event.setCancelled(true);
 	}
+	public void interact(){
+		
+	}
 }

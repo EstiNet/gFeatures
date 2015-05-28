@@ -1,11 +1,11 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
-import net.genesishub.gFeatures.Basic;
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -30,6 +30,8 @@ https://github.com/GenesisHub/gFeatures
 
 public class EventHub {
 	Join mm = new Join();
+	Statistics stats = new Statistics();
+	Inventory inv = new Inventory();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		mm.start(event);
 	}
@@ -38,7 +40,15 @@ public class EventHub {
 		//MAKE SURE YOU RESET MODE
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
-		if(Basic.getgPlayer(event.getPlayer().getName()).getValue("gWars.Mode").equals(gWarsMode.MAINMENU.toString())){
+		if(stats.equals(gWarsMode.MAINMENU)){
+			inv.prevent(event);
+		}
+	}
+	public void onPlayerInteract(PlayerInteractEvent event){
+		if(stats.equals(gWarsMode.MAINMENU)){
+			
+		}
+		else if(stats.equals(gWarsMode.TEAM)){
 			
 		}
 	}

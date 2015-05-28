@@ -6,6 +6,8 @@ import net.genesishub.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -52,7 +54,16 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			eh.onPlayerQuit((PlayerQuitEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("inventoryopenevent")){
+			eh.onPlayerOpenInventory((InventoryOpenEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
+			eh.onPlayerOpenInventory((PlayerInteractEvent)event);
+		}
 	}
+	@Override
+	@Retrieval
+	public void onPlayerInteract(){}
 	@Override
 	@Retrieval
 	public void onPlayerJoin(){}
