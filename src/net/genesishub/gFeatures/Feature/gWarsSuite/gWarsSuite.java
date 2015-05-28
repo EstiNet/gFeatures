@@ -58,7 +58,7 @@ public class gWarsSuite extends gFeature{
 			eh.onPlayerOpenInventory((InventoryOpenEvent)event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
-			eh.onPlayerOpenInventory((PlayerInteractEvent)event);
+			eh.onPlayerInteract((PlayerInteractEvent)event);
 		}
 	}
 	@Override

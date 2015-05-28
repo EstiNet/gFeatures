@@ -1,7 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Listeners;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 
@@ -17,7 +16,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 public strictfp class Join {
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
-		ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Listeners.version);
+		ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
 		//TODO Player cinematic
 		Basic.getgPlayer(event.getPlayer().getName()).setValue("gWars.Mode", "MAINMENU");
 		Player p = event.getPlayer();

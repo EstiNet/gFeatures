@@ -37,7 +37,7 @@ public class EventHub {
 	}
 	public void onPlayerQuit(PlayerQuitEvent event){
 		Player p = event.getPlayer();
-		//MAKE SURE YOU RESET MODE
+		stats.setMode(p, gWarsMode.NONE);
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.equals(gWarsMode.MAINMENU)){
