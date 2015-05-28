@@ -53,10 +53,15 @@ public class gWarsSuite extends gFeature{
 			eh.onPlayerQuit((PlayerQuitEvent)event);
 		}
 	}
+	@Override
 	@Retrieval
 	public void onPlayerJoin(){}
+	@Override
 	@Retrieval
-	public void onPlayerQuit(){}
+	public void onPlayerLeave(){}
+	@Override
+	@Retrieval
+	public void onPlayerOpenInventory(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

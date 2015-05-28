@@ -3,6 +3,19 @@ package net.genesishub.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
+
+import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
@@ -65,4 +78,16 @@ public class gFeature {
 	public void disable(){}
 	public void eventTrigger(Event event){}
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
+	public void onPlayerJoin(){}
+	public void onPlayerLeave(){}
+    public void onPlayerMove(){}
+    public void onPlayerRespawn(){}
+    public void onPlayerDeath(){}
+    public void onEntityDamageByEntity() {}
+    public void onWeaponDamageEntity() {}
+    public void onPlayerInteract(){}
+    public void onPlayerBreakBlock(){}
+    public void onPlayerChat(){}
+    public void onPlayerCommand(){}
+    public void onPlayerOpenInventory(){}
 }

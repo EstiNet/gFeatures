@@ -15,8 +15,8 @@ import org.bukkit.inventory.meta.SkullMeta;
 public strictfp class Join {
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
-		//TODO PLAYER TELEPORT THINGY
-		Basic.Basic.getgPlayer(event.getPlayer().getName()).setValue("gWars.Mode", "MAINMENU");
+		//TODO Player cinematic
+		Basic.getgPlayer(event.getPlayer().getName()).setValue("gWars.Mode", "MAINMENU");
 		Player p = event.getPlayer();
 		p.teleport(Constants.spawnonjoin);
 		for (Player players : Bukkit.getOnlinePlayers()){
@@ -25,7 +25,7 @@ public strictfp class Join {
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
-		p.getInventory().setItem(0, item1);;
+		p.getInventory().setItem(0, item1);
 	}
 	@SuppressWarnings("deprecation")
 	public void end(Player p){

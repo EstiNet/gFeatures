@@ -1,9 +1,11 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -34,5 +36,10 @@ public class EventHub {
 	public void onPlayerQuit(PlayerQuitEvent event){
 		Player p = event.getPlayer();
 		//MAKE SURE YOU RESET MODE
+	}
+	public void onPlayerOpenInventory(InventoryOpenEvent event){
+		if(Basic.getgPlayer(event.getPlayer().getName()).getValue("gWars.Mode").equals(gWarsMode.MAINMENU.toString())){
+			
+		}
 	}
 }

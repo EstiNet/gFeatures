@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -126,6 +127,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
     	library.onPlayerCommand(event);
+    }
+    @EventHandler
+    public void PlayerInventoryEvent(InventoryOpenEvent event){
+    	library.onPlayerOpenInventory(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
