@@ -5,7 +5,7 @@ import net.genesishub.gFeatures.Basic;
 import org.bukkit.Bukkit;
 
 public class Enable {
-	public static void onEnable(){
+	public void onEnable(){
 		Bukkit.getLogger().info("Statistics enabled! What's up?");
 		Basic.addPlayerSection("Statistics", "");
 		Basic.addPlayerSection("Statistics.LoginCount", "0");

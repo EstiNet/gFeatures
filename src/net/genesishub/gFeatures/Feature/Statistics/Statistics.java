@@ -11,17 +11,19 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class Statistics extends gFeature{
 	
 	EventHub eh = new EventHub();
+	Enable enable = new Enable();
+	Disable disable = new Disable();
 	
 	public Statistics(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
 	public void enable(){
-		Enable.onEnable();
+		enable.onEnable();
 	}
 	@Override
 	public void disable(){
-		Disable.onDisable();
+		disable.onDisable();
 	}
 	@Override
 	public void eventTrigger(Event event) {

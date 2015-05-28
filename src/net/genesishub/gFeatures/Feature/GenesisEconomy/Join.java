@@ -35,6 +35,5 @@ public class Join {
 				"SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n"+
 				") LIMIT 1;\n"
 			);
-		Bukkit.getLogger().info("QUERY COMPLETED>");
 	}
 }

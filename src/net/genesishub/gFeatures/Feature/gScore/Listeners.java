@@ -45,18 +45,11 @@ public class Listeners {
         		try {
 					event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				} catch (IllegalStateException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				} catch (UserDoesNotExistException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
            }
         }, 100L);
-		Bukkit.getLogger().info("Scoreboard initiated.");
 	}
 	@SuppressWarnings("deprecation")
 	public void onPlayerLeave(PlayerQuitEvent event) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
