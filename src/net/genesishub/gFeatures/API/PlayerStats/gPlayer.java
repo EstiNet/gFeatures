@@ -27,6 +27,7 @@ public class gPlayer {
 	private Player player;
 	private String uuid;
 	private String name;
+	private ConfigHub ch = new ConfigHub();
 	private HashMap<String, String> values = new HashMap<>();
 	public gPlayer(Player players){
 		player = players;
@@ -63,17 +64,22 @@ public class gPlayer {
 	public void setValue(String valuename, String value){
 		values.remove(valuename);
 		values.put(valuename, value);
+		ch.flushPlayer(this);
 	}
 	public void addValue(String valuename, String value){
 		values.put(valuename, value);
+		ch.flushPlayer(this);
 	}
 	public void removeValue(String valuename, String value){
 		values.remove(valuename, value);
+		ch.flushPlayer(this);
 	}
 	public void removeValue(String valuename){
 		values.remove(valuename);
+		ch.flushPlayer(this);
 	}
 	public String getValue(String valuename){
+		ch.flushPlayer(this);
 		return values.get(valuename);
 	}
 }

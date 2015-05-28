@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -25,8 +27,9 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class EventHub {
+	Join mm = new Join();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
+		mm.start(event);
 	}
 	public void onPlayerQuit(PlayerQuitEvent event){
 		Player p = event.getPlayer();

@@ -92,4 +92,18 @@ public class ConfigHub {
 			e.printStackTrace();
 		}
 	}
+	public void flushPlayer(gPlayer player){
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		for(String value : player.getValues().keySet()){
+			if(!(yamlFile.contains("Players." + player.getUUID() + "." + value))){
+				yamlFile.createSection("Players." + player.getUUID() + "." + value);
+			}
+			yamlFile.set("Players." + player.getUUID() + "." + value, player.getValues().get(value));
+		}
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

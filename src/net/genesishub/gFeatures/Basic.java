@@ -101,6 +101,9 @@ public class Basic {
 	public static void setExtensions(List<Extension> pl){
 		extensions = pl;
 	}
+	public static void setgPlayer(gPlayer originalplayer, gPlayer newplayer){
+		playerstats.set(playerstats.indexOf(originalplayer), newplayer);
+	}
 	public static void resetFeatures(){
 		List<gFeature> feature = new ArrayList<>();
 		features = feature;
