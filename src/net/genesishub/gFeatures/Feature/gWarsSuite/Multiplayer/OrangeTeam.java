@@ -27,16 +27,16 @@ https://github.com/GenesisHub/gFeatures
 public class OrangeTeam {
 	private final String town = "Kloyne";
 	private static List<Player> ot = new ArrayList<>();
-	public void addPlayer(Player p){
+	public static void addPlayer(Player p){
 		ot.add(p);
 	}
-	public void removePlayer(Player p){
+	public static void removePlayer(Player p){
 		ot.remove(p);
 	}
-	public void setList(List<Player> list){
+	public static void setList(List<Player> list){
 		ot = list;
 	}
-	public List<Player> getList(){
+	public static List<Player> getList(){
 		return ot;
 	}
 	public String getTownName(){

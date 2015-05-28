@@ -27,13 +27,13 @@ https://github.com/GenesisHub/gFeatures
 public class BlueTeam {
 	private final String town = "Innisfil";
 	private static List<Player> bt = new ArrayList<>();
-	public void addPlayer(Player p){
+	public static void addPlayer(Player p){
 		bt.add(p);
 	}
-	public void removePlayer(Player p){
+	public static void removePlayer(Player p){
 		bt.remove(p);
 	}
-	public void setList(List<Player> list){
+	public static void setList(List<Player> list){
 		bt = list;
 	}
 	public List<Player> getList(){

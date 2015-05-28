@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite;
 
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -38,6 +39,7 @@ public class EventHub {
 	public void onPlayerQuit(PlayerQuitEvent event){
 		Player p = event.getPlayer();
 		stats.setMode(p, gWarsMode.NONE);
+		BlueTeam.removePlayer(event.getPlayer());
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.equals(gWarsMode.MAINMENU)){

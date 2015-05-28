@@ -1,7 +1,5 @@
 package net.genesishub.gFeatures.Feature.Base;
 
-import org.bukkit.Bukkit;
-
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configs;
 
