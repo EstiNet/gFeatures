@@ -25,6 +25,7 @@ public strictfp class Join {
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
+		item1.setItemMeta(item1meta);
 		p.getInventory().setItem(0, item1);
 	}
 	@SuppressWarnings("deprecation")
