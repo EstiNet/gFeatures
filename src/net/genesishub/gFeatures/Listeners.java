@@ -45,7 +45,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.4.1";
+	public static final String version = "2.4.2";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -84,9 +84,9 @@ public class Listeners extends JavaPlugin implements Listener{
 	}
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-    	library.onPlayerJoin(event);
-    	ch.addPlayerSection(event.getPlayer());
+		ch.addPlayerSection(event.getPlayer());
     	Basic.getgPlayer(event.getPlayer().getName()).setPlayer(event.getPlayer());
+    	library.onPlayerJoin(event);
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){

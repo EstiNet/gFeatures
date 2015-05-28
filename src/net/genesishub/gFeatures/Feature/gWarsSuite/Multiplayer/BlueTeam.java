@@ -36,7 +36,7 @@ public class BlueTeam {
 	public static void setList(List<Player> list){
 		bt = list;
 	}
-	public List<Player> getList(){
+	public static List<Player> getList(){
 		return bt;
 	}
 	public String getTownName(){

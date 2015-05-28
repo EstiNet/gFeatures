@@ -73,9 +73,7 @@ public class ConfigHub {
 			yamlFile.createSection("Players." + p.getUniqueId() + ".Name." + p.getName());
 		}
 		for(String value : playersections.keySet()){
-			Bukkit.getLogger().info(value);
 			if(!(yamlFile.contains("Players." + p.getUniqueId() + "." + value))){
-				Bukkit.getLogger().info("HI");
 				yamlFile.createSection("Players." + p.getUniqueId() + "." + value);
 				yamlFile.set("Players." + p.getUniqueId() + "." + value, playersections.get(value));
 			}
