@@ -20,5 +20,5 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public enum gWarsMode {
-	CAMPAIGN, TEAM, MAINMENU, NONE
+	CAMPAIGN, TEAM, MAINMENU, GUNMENU, SPAWNMENU, NONE
 }

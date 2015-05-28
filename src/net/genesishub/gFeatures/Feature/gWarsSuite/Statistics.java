@@ -41,6 +41,10 @@ public class Statistics {
 				return gWarsMode.TEAM;
 			case "CAMPAIGN":
 				return gWarsMode.CAMPAIGN;
+			case "GUNMENU":
+				return gWarsMode.GUNMENU;
+			case "SPAWNMENU":
+				return gWarsMode.SPAWNMENU;
 			default:
 				return gWarsMode.NONE;
 		}
