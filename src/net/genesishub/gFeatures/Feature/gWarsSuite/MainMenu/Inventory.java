@@ -1,6 +1,8 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,6 +15,8 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class Inventory {
 	ItemStack item1, item2;
+	Statistics stats = new Statistics();
+	GunMenu gm = new GunMenu();
 	public Inventory(){
 		ItemStack items = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) items.getItemMeta();
@@ -35,6 +39,8 @@ public class Inventory {
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
 				ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
+				stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
+				gm.setup(event.getPlayer());
 			}
 		}
 	}
