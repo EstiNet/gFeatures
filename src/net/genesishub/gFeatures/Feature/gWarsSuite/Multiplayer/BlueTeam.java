@@ -25,6 +25,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class BlueTeam {
+	private final String town = "Innisfil";
 	private static List<Player> bt = new ArrayList<>();
 	public void addPlayer(Player p){
 		bt.add(p);
@@ -37,5 +38,8 @@ public class BlueTeam {
 	}
 	public List<Player> getList(){
 		return bt;
+	}
+	public String getTownName(){
+		return town;
 	}
 }

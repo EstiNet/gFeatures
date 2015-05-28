@@ -22,11 +22,19 @@ public strictfp class Join {
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }
+		
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
 		item1.setItemMeta(item1meta);
+		
+		ItemStack item2 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+		SkullMeta item2meta = (SkullMeta) item2.getItemMeta();
+		item2meta.setDisplayName(ChatColor.GOLD + "Multiplayer");
+		item2.setItemMeta(item2meta);
+		
 		p.getInventory().setItem(0, item1);
+		p.getInventory().setItem(1, item2);
 	}
 	@SuppressWarnings("deprecation")
 	public void end(Player p){

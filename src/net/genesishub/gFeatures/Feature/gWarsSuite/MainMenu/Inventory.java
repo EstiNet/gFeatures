@@ -17,6 +17,11 @@ public class Inventory {
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
 		items.setItemMeta(item1meta);
 		item1 = items;
+		
+		item2 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+		SkullMeta item2meta = (SkullMeta) item2.getItemMeta();
+		item2meta.setDisplayName(ChatColor.GOLD + "Multiplayer");
+		item2.setItemMeta(item2meta);
 	}
 	public void prevent(InventoryOpenEvent event){
 		event.setCancelled(true);
@@ -24,6 +29,9 @@ public class Inventory {
 	public void interact(PlayerInteractEvent event){
 		if((event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_AIR))){
 			if(event.getPlayer().getItemInHand().equals(item1)){
+				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
+			}
+			else if(event.getPlayer().getItemInHand().equals(item2)){
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 		}
