@@ -10,7 +10,6 @@ import java.util.Set;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -56,7 +55,7 @@ public class ConfigHub {
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		Set<String> player = yamlFile.getConfigurationSection("Players").getKeys(false);
 		for(String play : player){
-				gPlayer gp = new gPlayer(play, yamlFile.getString("Players." + play + ".Name." + play));
+				gPlayer gp = new gPlayer(play, yamlFile.get("Players." + play + ".Name." + play).toString());
 				Set<String> playervalues = yamlFile.getConfigurationSection("Players." + play).getKeys(true);
 				for(String pl : playervalues){
 					gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
@@ -92,7 +91,6 @@ public class ConfigHub {
 		} catch (Exception e){
 			Basic.addgPlayer(new gPlayer(p));
 		}
-		
 		try {
 			yamlFile.save(f);
 		} catch (IOException e) {
