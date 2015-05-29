@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
@@ -53,14 +54,17 @@ public class ConfigHub {
 	public void loadConfig(){
 		List<gPlayer> players = new ArrayList<>();
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		List<String> player = yamlFile.getStringList("Players");
+		Set<String> player = yamlFile.getConfigurationSection("Players").getKeys(true);
+		Bukkit.getLogger().info("Hey");
 		for(String play : player){
-			gPlayer gp = new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play));
-			List<String> playervalues = yamlFile.getStringList("Players." + play);
-			for(String pl : playervalues){
-				gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
-			}
-			players.add(gp);
+				Bukkit.getLogger().info(play);
+				gPlayer gp = new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play));
+				Set<String> playervalues = yamlFile.getConfigurationSection("Players." + play).getKeys(true);
+				for(String pl : playervalues){
+					Bukkit.getLogger().info(pl);
+					gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
+				}
+				players.add(gp);
 		}
 		Basic.setgPlayers(players);
 		try {
