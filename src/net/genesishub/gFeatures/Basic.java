@@ -74,6 +74,7 @@ public class Basic {
 	}
 	public static gPlayer getgPlayer(String name){
 		for(gPlayer player : playerstats){
+			Bukkit.getLogger().info(player.getName());
 			if(player.getName().equalsIgnoreCase(name)){
 				return player;
 			}
