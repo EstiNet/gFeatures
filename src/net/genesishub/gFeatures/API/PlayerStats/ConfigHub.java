@@ -54,11 +54,10 @@ public class ConfigHub {
 	public void loadConfig(){
 		List<gPlayer> players = new ArrayList<>();
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		Set<String> player = yamlFile.getConfigurationSection("Players").getKeys(true);
-		Bukkit.getLogger().info("Hey");
+		Set<String> player = yamlFile.getConfigurationSection("Players").getKeys(false);
 		for(String play : player){
 				Bukkit.getLogger().info(play);
-				gPlayer gp = new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play));
+				gPlayer gp = new gPlayer(play, yamlFile.getString("Players." + play + ".Name." + play));
 				Set<String> playervalues = yamlFile.getConfigurationSection("Players." + play).getKeys(true);
 				for(String pl : playervalues){
 					Bukkit.getLogger().info(pl);
