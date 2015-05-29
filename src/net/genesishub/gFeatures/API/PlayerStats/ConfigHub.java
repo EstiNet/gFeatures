@@ -77,8 +77,9 @@ public class ConfigHub {
 		if(!(yamlFile.contains("Players." + p.getUniqueId()))){
 			yamlFile.createSection("Players." + p.getUniqueId());
 		}
-		if(!(yamlFile.contains("Players." + p.getUniqueId() + ".Name." + p.getName()))){
-			yamlFile.createSection("Players." + p.getUniqueId() + ".Name." + p.getName());
+		if(!(yamlFile.contains("Players." + p.getUniqueId() + ".Name"))){
+			yamlFile.createSection("Players." + p.getUniqueId() + ".Name");
+			yamlFile.set("Players." + p.getUniqueId() + ".Name", p.getName());
 		}
 		for(String value : playersections.keySet()){
 			if(!(yamlFile.contains("Players." + p.getUniqueId() + "." + value))){
