@@ -55,7 +55,12 @@ public class ConfigHub {
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		List<String> player = yamlFile.getStringList("Players");
 		for(String play : player){
-			players.add(new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play)));
+			gPlayer gp = new gPlayer(yamlFile.getName(), yamlFile.getString("Players." + play + ".Name." + play));
+			List<String> playervalues = yamlFile.getStringList("Players." + play);
+			for(String pl : playervalues){
+				gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
+			}
+			players.add(gp);
 		}
 		Basic.setgPlayers(players);
 		try {
