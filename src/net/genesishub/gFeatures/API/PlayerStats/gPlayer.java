@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.API.PlayerStats;
 
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /*
@@ -68,7 +69,7 @@ public class gPlayer {
 	}
 	public void addValue(String valuename, String value){
 		values.put(valuename, value);
-		ch.flushPlayer(this);
+		//ch.flushPlayer(this);
 	}
 	public void removeValue(String valuename, String value){
 		values.remove(valuename, value);

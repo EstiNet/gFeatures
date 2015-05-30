@@ -9,12 +9,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class EventHub {
 	public void onPlayerJoin(PlayerJoinEvent event){
 		gPlayer player = Basic.getgPlayer(event.getPlayer().getName());
-		String value = Basic.getgPlayer(event.getPlayer().getName()).getValue("Setup");
-		Bukkit.getLogger().info(value);
+		String value = Basic.getgPlayer(event.getPlayer().getName()).getValue("Statistics.LoginCount");
 		int count = Integer.parseInt(value);
-		String finalvalue = Integer.toString(count++);
+		String finalvalue = Integer.toString(count += 1);
+		Bukkit.getLogger().info(finalvalue);
 		player.setValue("Statistics.LoginCount", finalvalue);
+		Bukkit.getLogger().info(player.getValue("Statistics.LoginCount"));//TODO
 		Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getName()), player);
-		Bukkit.getLogger().info("set");
 	}
 }

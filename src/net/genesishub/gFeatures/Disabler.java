@@ -1,6 +1,5 @@
 package net.genesishub.gFeatures;
 
-import java.io.IOException;
 import java.util.List;
 
 import net.genesishub.gFeatures.Plus.Skript.SkriptManager;

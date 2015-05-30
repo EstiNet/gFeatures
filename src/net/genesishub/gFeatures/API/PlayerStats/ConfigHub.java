@@ -10,7 +10,6 @@ import java.util.Set;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -56,14 +55,12 @@ public class ConfigHub {
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		Set<String> player = yamlFile.getConfigurationSection("Players").getKeys(false);
 		for(String play : player){
-				//TODO EVERYTHING
-				gPlayer gp = new gPlayer(play,
-						yamlFile.get("Players." + play + ".Name").toString());
-				Set<String> playervalues = yamlFile.getConfigurationSection("Players." + play).getKeys(true);
-				for(String pl : playervalues){
-					gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
-				}
-				players.add(gp);
+			gPlayer gp = new gPlayer(play, yamlFile.get("Players." + play + ".Name").toString());
+			Set<String> playervalues = yamlFile.getConfigurationSection("Players." + play).getKeys(true);
+			for(String pl : playervalues){
+				gp.addValue(pl, yamlFile.get("Players." + play + "." + pl).toString());
+			}
+			players.add(gp);
 		}
 		Basic.setgPlayers(players);
 		try {
@@ -102,6 +99,7 @@ public class ConfigHub {
 		}
 	}
 	public void flushPlayer(gPlayer player){
+		loadConfig();
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		for(String value : player.getValues().keySet()){
 			if(!(yamlFile.contains("Players." + player.getUUID() + "." + value))){

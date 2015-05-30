@@ -84,7 +84,6 @@ public class Listeners extends JavaPlugin implements Listener{
 	}
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-		getLogger().info(event.getPlayer().getName());
 		ch.addPlayerSection(event.getPlayer(), event.getPlayer().getName());
     	Basic.getgPlayer(event.getPlayer().getName()).setPlayer(event.getPlayer());
     	library.onPlayerJoin(event);
