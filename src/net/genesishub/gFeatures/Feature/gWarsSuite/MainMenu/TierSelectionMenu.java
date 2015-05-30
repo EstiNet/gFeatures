@@ -4,8 +4,11 @@ import net.genesishub.gFeatures.API.Inventory.InventoryAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.*;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.FourTier;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.OneTier;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ThreeTier;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.TwoTier;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ZeroTier;
 
 import org.bukkit.Bukkit;
@@ -142,7 +145,8 @@ public class TierSelectionMenu {
 	}
 	public InventoryAPI TierOneInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
-	        @Override
+	        @SuppressWarnings("unchecked")
+			@Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
@@ -168,20 +172,21 @@ public class TierSelectionMenu {
 	}
 	public InventoryAPI TierTwoInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
-	        @Override
+	        @SuppressWarnings("unchecked")
+			@Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-sniper");
+	        		tier.sort(TwoTier.SNIPER, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-auto-rifle");
+	        		tier.sort(TwoTier.AUTORIFLE, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-shotgun");
+	        		tier.sort(TwoTier.SHOTGUN, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier2-special");
+	        		tier.sort(TwoTier.SPECIAL, p);
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -194,20 +199,21 @@ public class TierSelectionMenu {
 	}
 	public InventoryAPI TierThreeInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
-	        @Override
+	        @SuppressWarnings("unchecked")
+			@Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-sniper");
+	        		tier.sort(ThreeTier.SNIPER, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-auto-rifle");
+	        		tier.sort(ThreeTier.AUTORIFLE, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-shotgun");
+	        		tier.sort(ThreeTier.SHOTGUN, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier3-special");
+	        		tier.sort(ThreeTier.SPECIAL, p);
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -220,20 +226,21 @@ public class TierSelectionMenu {
 	}
 	public InventoryAPI TierFourInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
-	        @Override
+	        @SuppressWarnings("unchecked")
+			@Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-sniper");
+	        		tier.sort(FourTier.SNIPER, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-auto-rifle");
+	        		tier.sort(FourTier.AUTORIFLE, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-shotgun");
+	        		tier.sort(FourTier.SHOTGUN, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier4-special");
+	        		tier.sort(FourTier.SPECIAL, p);
 	        	}
 	            event.setWillClose(true);
 	        }
