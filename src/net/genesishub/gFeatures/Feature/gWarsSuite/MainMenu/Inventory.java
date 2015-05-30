@@ -38,7 +38,7 @@ public class Inventory {
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
+				ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
 				stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
 				gm.setup(event.getPlayer());
 			}

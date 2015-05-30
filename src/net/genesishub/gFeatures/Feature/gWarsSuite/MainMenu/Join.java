@@ -16,10 +16,11 @@ import org.bukkit.inventory.meta.SkullMeta;
 public strictfp class Join {
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
-		//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
+		ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
 		//TODO Player cinematic
 		Basic.getgPlayer(event.getPlayer().getName()).setValue("gWars.Mode", "MAINMENU");
 		Player p = event.getPlayer();
+		//for(: p.getInventory().)//TODO WOrking on clearing inv
 		p.teleport(Constants.spawnonjoin);
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);

@@ -27,7 +27,7 @@ public class ActionAPI {
 	 public static boolean works = true;
 	  public static String nmsver;
 	  
-	  public static void sendActionBar(Player player, String message)
+	  public static void sendActionBard(Player player, String message)
 	  {
 	    try
 	    {
@@ -64,4 +64,11 @@ public class ActionAPI {
 	      works = false;
 	    }
 	  }
+	  public static void sendActionBar(Player p, String msg)
+      {
+        String s = ChatColor.translateAlternateColorCodes('&', msg);
+        IChatBaseComponent icbc = ChatSerializer.a("{\"text\": \"" + s + "\"}");
+        PacketPlayOutChat bar = new PacketPlayOutChat(icbc, (byte)2);
+        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(bar);
+      }
 }
