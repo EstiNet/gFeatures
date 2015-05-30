@@ -2,6 +2,8 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
@@ -31,6 +33,7 @@ public class Inventory {
 		event.setCancelled(true);
 	}
 	public void interact(PlayerInteractEvent event){
+		Bukkit.getLogger().info("H3");
 		if((event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_AIR))){
 			if(event.getPlayer().getItemInHand().equals(item1)){
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");

@@ -5,6 +5,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -50,6 +51,7 @@ public class EventHub {
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(stats.equals(gWarsMode.MAINMENU) || stats.equals(gWarsMode.GUNMENU) || stats.equals(gWarsMode.TEAMMENU) || stats.equals(gWarsMode.SPAWNMENU)){
+			Bukkit.getLogger().info("HI");
 			interact.intialize(event);
 		}
 		else if(stats.equals(gWarsMode.TEAM)){

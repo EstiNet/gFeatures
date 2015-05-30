@@ -7,6 +7,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public strictfp class Join {
+public class Join {
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
 		//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
@@ -23,7 +24,12 @@ public strictfp class Join {
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
-		p.teleport(Constants.spawnonjoin);
+		//p.teleport(Constants.spawnonjoin);
+		double x = Constants.spawnonjoin.getX();//insert x
+        double y = Constants.spawnonjoin.getX();//insert y
+        double z = Constants.spawnonjoin.getX();//insert z
+        Location e = new Location(p.getWorld(), x, y, z);
+        p.teleport(e);
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }
