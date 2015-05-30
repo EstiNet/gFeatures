@@ -3,7 +3,6 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 import net.genesishub.gFeatures.API.Inventory.InventoryAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.*;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.FourTier;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.OneTier;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ThreeTier;
@@ -14,8 +13,6 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ZeroTi
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -42,6 +39,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class TierSelectionMenu {
 	Statistics s = new Statistics();
+	@SuppressWarnings("rawtypes")
 	Tier tier = new Tier();
 	public void Initialize(PlayerInteractEvent event){
 		if(s.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
