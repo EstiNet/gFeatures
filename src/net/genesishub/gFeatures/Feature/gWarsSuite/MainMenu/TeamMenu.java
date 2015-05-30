@@ -88,8 +88,8 @@ public class TeamMenu {
 		}
 	}
 	public void finals(Player p){
-		ActionAPI.sendActionBar(p, ChatColor.AQUA + "Please select a kit.");
+		//ActionAPI.sendActionBar(p, ChatColor.AQUA + "Please select a kit.");
 		stats.setMode(p, gWarsMode.GUNMENU);
 		gm.setup(p);
-	}                              
+	}
 }

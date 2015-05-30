@@ -10,6 +10,7 @@ public class Interaction {
 	Statistics stats = new Statistics();
 	Inventory inv = new Inventory();
 	TeamMenu tm = new TeamMenu();
+	GunMenu gm = new GunMenu();
 	public void intialize(PlayerInteractEvent event){
 		Player p = event.getPlayer();
 		if(stats.getMode(p).equals(gWarsMode.MAINMENU)){
@@ -17,6 +18,12 @@ public class Interaction {
 		}
 		else if(stats.getMode(p).equals(gWarsMode.TEAMMENU)){
 			tm.interact(event);
+		}
+		else if(stats.getMode(p).equals(gWarsMode.GUNMENU)){
+			gm.interaction(event);
+		}
+		else if(stats.getMode(p).equals(gWarsMode.SPAWNMENU)){
+			
 		}
 	}
 }
