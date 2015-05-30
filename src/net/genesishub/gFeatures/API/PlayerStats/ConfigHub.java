@@ -72,14 +72,14 @@ public class ConfigHub {
 			e.printStackTrace();
 		}
 	}
-	public void addPlayerSection(Player p){
+	public void addPlayerSection(Player p, String name){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		if(!(yamlFile.contains("Players." + p.getUniqueId()))){
 			yamlFile.createSection("Players." + p.getUniqueId());
 		}
 		if(!(yamlFile.contains("Players." + p.getUniqueId() + ".Name"))){
 			yamlFile.createSection("Players." + p.getUniqueId() + ".Name");
-			yamlFile.set("Players." + p.getUniqueId() + ".Name", p.getName());
+			yamlFile.set("Players." + p.getUniqueId() + ".Name", name);
 		}
 		for(String value : playersections.keySet()){
 			if(!(yamlFile.contains("Players." + p.getUniqueId() + "." + value))){
