@@ -1,97 +1,34 @@
-package net.genesishub.gFeatures.Feature.gWarsSuiteOld.Tiers;
+package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 
-import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-//import org.bukkit.potion.PotionEffectType;
-
-import org.bukkit.potion.PotionEffectType;
-
-import tk.genesishub.gFeatures.gWarsSuite.Constants;
-import tk.genesishub.gFeatures.gWarsSuite.KitManagerSecondary;
-import tk.genesishub.gFeatures.gWarsSuite.StatsRetrieve;
-
-/*
-gFeatures
-https://github.com/GenesisHub/gFeatures
-
-   Copyright 2015 GenesisHub
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
 
 public class TierFour {
-	Constants cons = new Constants();
-	StatsRetrieve sr = new StatsRetrieve();
-	KitManagerSecondary kmh = new KitManagerSecondary();
-	public void Initialize(CommandSender sender, String value){
-		ItemStack ammo = new ItemStack(Material.MELON_SEEDS,32);
-		Player player = (Player)sender;
-		if((sr.getKills(player.getName()))<50){
-			sender.sendMessage("You don't have enough kills! 50 kills is required for Tier 4 weapons.");
-		}
-		else if(Constants.gunin.contains(player.getName())){
-			
-		}
-		else{
-		player.getInventory().addItem(ammo);
-		player.getInventory().remove(Material.CHEST);
-		Constants.gunin.add(player.getName());
+	public void initialize(String value, Player p){
 		switch(value){
-		case "sniper":
-			Sniper(sender);
+		case "AUTORIFLE":
+			autorifle(p);
 			break;
-		case "shotgun":
-			Shotgun(sender);
+		case "SHOTGUN":
+			shotgun(p);
 			break;
-		case "autorifle":
-			AutoRifle(sender);
+		case "SNIPER":
+			sniper(p);
 			break;
-		case "special":
-			Special(sender);
+		case "SPECIAL": 
+			special(p);
 			break;
 		}
-		}	
 	}
-	public void Sniper(CommandSender sender){
-		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Sniper");
-		kmh.gunKitsSetup(player, "Python");
+	public void autorifle(Player p){
+		
 	}
-	public void Shotgun(CommandSender sender){
-		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Shotgun");
-		kmh.gunKitsSetup(player, "Python");
+	public void shotgun(Player p){
+		
 	}
-	public void Special(CommandSender sender){
-		Player player = (Player)sender;
-		ItemStack helm = new ItemStack(Material.CHAINMAIL_HELMET, 1);
-		ItemStack legging = new ItemStack(Material.CHAINMAIL_LEGGINGS, 1);
-		ItemStack chest = new ItemStack(Material.CHAINMAIL_CHESTPLATE, 1);
-		ItemStack boot = new ItemStack(Material.CHAINMAIL_BOOTS, 1);
-		Constants.gunin.add(player.getName());
-		player.addPotionEffect((new PotionEffect(PotionEffectType.ABSORPTION, 100 ,	100)));
-		player.getInventory().addItem(helm);
-		player.getInventory().addItem(legging);
-		player.getInventory().addItem(chest);
-		player.getInventory().addItem(boot);
-		kmh.gunKitsSetup(player, "Python");
+	public void sniper(Player p){
+		
 	}
-	public void AutoRifle(CommandSender sender){
-		Player player = (Player)sender;
-		kmh.gunKitsSetup(player, "Auto-Rifle");
-		kmh.gunKitsSetup(player, "Python");
+	public void special(Player p){
+		
 	}
 }
