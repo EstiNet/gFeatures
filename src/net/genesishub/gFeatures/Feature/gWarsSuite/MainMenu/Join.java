@@ -1,6 +1,7 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.Basic;
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 
@@ -20,7 +21,8 @@ public strictfp class Join {
 		//TODO Player cinematic
 		Basic.getgPlayer(event.getPlayer().getName()).setValue("gWars.Mode", "MAINMENU");
 		Player p = event.getPlayer();
-		//for(: p.getInventory().)//TODO WOrking on clearing inv
+		ClearInventory ci = new ClearInventory();
+		ci.clearInv(event.getPlayer());
 		p.teleport(Constants.spawnonjoin);
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
