@@ -16,12 +16,15 @@ public class Interaction {
 		Player p = event.getPlayer();
 		if(stats.getMode(p).equals(gWarsMode.MAINMENU)){
 			inv.interact(event);
+			Bukkit.getLogger().info("MainMenu Interact");
 		}
 		else if(stats.getMode(p).equals(gWarsMode.TEAMMENU)){
 			tm.interact(event);
+			Bukkit.getLogger().info("TeamMenu Interact");
 		}
 		else if(stats.getMode(p).equals(gWarsMode.GUNMENU)){
 			gm.interaction(event);
+			Bukkit.getLogger().info("GunMenu Interact");
 		}
 		else if(stats.getMode(p).equals(gWarsMode.SPAWNMENU)){
 			

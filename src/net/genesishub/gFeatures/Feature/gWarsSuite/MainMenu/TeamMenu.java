@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
@@ -18,10 +19,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class TeamMenu {
 	GunMenu gm = new GunMenu();
 	Statistics stats = new Statistics();
+	ClearInventory ci = new ClearInventory();
 	public void initialize(Player p){
+		ci.clearInv(p);
+		
 		ItemStack item1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
 		ItemMeta item1meta = (ItemMeta) item1.getItemMeta();
-		item1meta.setDisplayName(ChatColor.GOLD + "Kloyne(Orange)");
+		item1meta.setDisplayName(ChatColor.GOLD + "Kloyne (Orange) Players: " + OrangeTeam.size());
 		item1.setItemMeta(item1meta);
 		
 		ItemStack item2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 3);
@@ -31,7 +35,7 @@ public class TeamMenu {
 		
 		ItemStack item3 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
 		ItemMeta item3meta = (ItemMeta) item3.getItemMeta();
-		item3meta.setDisplayName(ChatColor.DARK_AQUA + "Random");
+		item3meta.setDisplayName("Random");
 		item3.setItemMeta(item3meta);
 		
 		p.getInventory().setItem(0, item1);
@@ -42,7 +46,7 @@ public class TeamMenu {
 		Bukkit.getLogger().info("Clicked");
 		ItemStack item1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 3);
 		ItemMeta item1meta = (ItemMeta) item1.getItemMeta();
-		item1meta.setDisplayName(ChatColor.GOLD + "Kloyne(Orange)");
+		item1meta.setDisplayName(ChatColor.GOLD + "Kloyne (Orange) Players: " + OrangeTeam.size());
 		item1.setItemMeta(item1meta);
 		
 		ItemStack item2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);

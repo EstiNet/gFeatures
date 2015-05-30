@@ -4,6 +4,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -43,6 +44,7 @@ public class EventHub {
 		Player p = event.getPlayer();
 		stats.setMode(p, gWarsMode.NONE);
 		BlueTeam.removePlayer(event.getPlayer());
+		OrangeTeam.removePlayer(event.getPlayer());
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
