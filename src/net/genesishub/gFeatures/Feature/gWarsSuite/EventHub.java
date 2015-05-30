@@ -45,16 +45,15 @@ public class EventHub {
 		BlueTeam.removePlayer(event.getPlayer());
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
-		if(stats.equals(gWarsMode.MAINMENU) || stats.equals(gWarsMode.GUNMENU) || stats.equals(gWarsMode.TEAMMENU) || stats.equals(gWarsMode.SPAWNMENU)){
+		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			inv.prevent(event);
 		}
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
-		if(stats.equals(gWarsMode.MAINMENU) || stats.equals(gWarsMode.GUNMENU) || stats.equals(gWarsMode.TEAMMENU) || stats.equals(gWarsMode.SPAWNMENU)){
-			Bukkit.getLogger().info("HI");
+		if(stats.getMode(event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			interact.intialize(event);
 		}
-		else if(stats.equals(gWarsMode.TEAM)){
+		else if(stats.getMode(event.getPlayer()).equals(gWarsMode.TEAM)){
 			
 		}
 	}

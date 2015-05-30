@@ -39,7 +39,7 @@ public class Inventory {
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
+				//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
 				TeamMenu tm = new TeamMenu();
 				tm.initialize(event.getPlayer());
 			}
