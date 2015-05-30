@@ -7,7 +7,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
@@ -24,16 +24,11 @@ public class Join {
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
-		//p.teleport(Constants.spawnonjoin);
-		double x = Constants.spawnonjoin.getX();//insert x
-        double y = Constants.spawnonjoin.getX();//insert y
-        double z = Constants.spawnonjoin.getX();//insert z
-        Location e = new Location(p.getWorld(), x, y, z);
-        p.teleport(e);
+		p.teleport(Constants.spawnonjoin);
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }
-		
+		p.setGameMode(GameMode.ADVENTURE);
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
