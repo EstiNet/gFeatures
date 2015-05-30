@@ -69,6 +69,7 @@ public class TeamMenu {
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 				else{
+					BlueTeam.addPlayer(event.getPlayer());
 					ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
 					stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
 					gm.setup(event.getPlayer());
