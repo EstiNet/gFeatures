@@ -1,24 +1,19 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers;
 
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierZero;
+import org.bukkit.entity.Player;
+
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.*;
 
 public class Tier <T>{
 	TierZero tz = new TierZero();
-	public Tier(T tier){
+	TierOne to = new TierOne();
+	TierTwo tt = new TierTwo();
+	TierThree tth = new TierThree();
+	TierFour tf = new TierFour();
+	public Tier(T tier, Player p){
 		if(tier.getClass().getName().equalsIgnoreCase("ZeroTier")){
 			ZeroTier zt = (ZeroTier) tier;
-			if(zt.equals(ZeroTier.AUTORIFLE)){
-				
-			}
-			else if(zt.equals(ZeroTier.SHOTGUN)){
-				
-			}
-			else if(zt.equals(ZeroTier.SNIPER)){
-				
-			}
-			else if(zt.equals(ZeroTier.SPECIAL)){
-				
-			}
+			tz.initialize(zt.toString(), p);
 		}
 		else if(tier.getClass().getName().equalsIgnoreCase("OneTier")){
 			
