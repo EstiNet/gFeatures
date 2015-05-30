@@ -1,5 +1,9 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
+import net.genesishub.gFeatures.API.Inventory.InventoryAPI;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -30,34 +34,16 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class TierSelectionMenu {
+	Statistics s = new Statistics();
 	public void Initialize(PlayerInteractEvent event){
-		if(!(Constants.gunin.contains(event.getPlayer().getName())) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
+		if(s.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
 			InventoryAPI menu = makeInventory(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
-			Bukkit.getLogger().info("HI");
 		}
-	}
-	public InventoryAPI test(Player p){
-		StatsRetrieve sr = new StatsRetrieve();
-		InventoryAPI menu = new InventoryAPI("My Fancy Menu", 9, new InventoryAPI.OptionClickEventHandler() {
-            @Override
-            public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-                event.getPlayer().sendMessage("You have chosen " + event.getName());
-                event.setWillClose(true);
-            }
-        }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
-		.setOption(1, new ItemStack(Material.IRON_BLOCK, 1), ChatColor.AQUA + "Tier 0", ChatColor.GOLD+"Weapons here cost 0 kills.")
-	    .setOption(2, new ItemStack(Material.GOLD_BLOCK, 1), ChatColor.AQUA+"Tier 1", ChatColor.GOLD+"Weapons here cost 5 kills.")
-	    .setOption(3, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.AQUA+"Tier 2", ChatColor.GOLD+"Weapons here cost 10 kills.")
-	    .setOption(4, new ItemStack(Material.DIAMOND_BLOCK, 1), "Tier 3", ChatColor.GOLD+"Weapons here cost 25 kills.")
-	    .setOption(5, new ItemStack(Material.EMERALD_BLOCK, 1), "Tier 4", ChatColor.GOLD+"Weapons here cost 50 kills.")
-		.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GREEN+"You have " + Integer.toString(sr.getKills(p.getName())) + " kills.");
-		return menu;
 	}
 	public InventoryAPI makeInventory(final Player p){
 		try{
-		StatsRetrieve sr = new StatsRetrieve();
 		final BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
 		InventoryAPI menu = new InventoryAPI("Select Tier", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
@@ -115,7 +101,7 @@ public class TierSelectionMenu {
     .setOption(2, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.AQUA+"Tier 2", ChatColor.GOLD+"Weapons here cost 10 kills.")
     .setOption(3, new ItemStack(Material.DIAMOND_BLOCK, 1), ChatColor.AQUA+"Tier 3", ChatColor.GOLD+"Weapons here cost 25 kills.")
     .setOption(4, new ItemStack(Material.EMERALD_BLOCK, 1), ChatColor.AQUA+"Tier 4", ChatColor.GOLD+"Weapons here cost 50 kills.")
-	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GREEN+"You have " + sr.getKills(p.getName()) + " kills.");
+	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GREEN+"You have " + s.getKills(p) + " kills.");
 	return menu;
 	}catch(Exception e){
 		e.printStackTrace();
