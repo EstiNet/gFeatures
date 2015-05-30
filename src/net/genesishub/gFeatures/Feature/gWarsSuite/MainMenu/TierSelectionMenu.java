@@ -3,6 +3,10 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 import net.genesishub.gFeatures.API.Inventory.InventoryAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.*;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.OneTier;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ZeroTier;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -35,6 +39,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class TierSelectionMenu {
 	Statistics s = new Statistics();
+	Tier tier = new Tier();
 	public void Initialize(PlayerInteractEvent event){
 		if(s.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
 			InventoryAPI menu = makeInventory(event.getPlayer());
@@ -58,7 +63,7 @@ public class TierSelectionMenu {
 	                }, 9L);
 	            }
 	            else if(event.getName().equals(ChatColor.AQUA+"Tier 1")){
-	            	final InventoryAPI menu1 = TierOneInventory();
+	            	final InventoryAPI menu1 = TierOneInventory(p);
 	            	event.getPlayer().closeInventory();
 	                scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
@@ -67,7 +72,7 @@ public class TierSelectionMenu {
 	                }, 9L);
 	            }
 	            else if(event.getName().equals(ChatColor.AQUA+"Tier 2")){
-	            	final InventoryAPI menu2 = TierTwoInventory();
+	            	final InventoryAPI menu2 = TierTwoInventory(p);
 	            	event.getPlayer().closeInventory();
 	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
@@ -76,7 +81,7 @@ public class TierSelectionMenu {
 	                }, 9L);
 	            }
 	            	else if(event.getName().equals(ChatColor.AQUA+"Tier 3")){
-	            	final InventoryAPI menu3 = TierThreeInventory();
+	            	final InventoryAPI menu3 = TierThreeInventory(p);
 	            	event.getPlayer().closeInventory();
 	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
@@ -85,7 +90,7 @@ public class TierSelectionMenu {
 	                }, 9L);
 	        	}
 	            	else if(event.getName().equals(ChatColor.AQUA+"Tier 4")){
-	            	final InventoryAPI menu4 = TierFourInventory();
+	            	final InventoryAPI menu4 = TierFourInventory(p);
 	            	event.getPlayer().closeInventory();
 	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
@@ -109,25 +114,22 @@ public class TierSelectionMenu {
 		return null;
     }
 	public InventoryAPI TierZeroInventory(Player p){
-		final KitManagerHub kmh = new KitManagerHub();
-		final Command cmd = null;
-		final String label = "";
-		final String[] args = {"hi"};
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
-	        @Override
+	        @SuppressWarnings("unchecked")
+			@Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-sniper");
+	        		tier.sort(ZeroTier.SNIPER, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-auto-rifle");
+	        		tier.sort(ZeroTier.AUTORIFLE, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-shotgun");
+	        		tier.sort(ZeroTier.SHOTGUN, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier0-special");
+	        		tier.sort(ZeroTier.SPECIAL, p);
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -138,26 +140,22 @@ public class TierSelectionMenu {
 	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
 	}
-	public InventoryAPI TierOneInventory(){
-		final KitManagerHub kmh = new KitManagerHub();
-		final Command cmd = null;
-		final String label = "";
-		final String[] args = {"hi"};
+	public InventoryAPI TierOneInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 	        	String chosen = event.getName();
 	        	if(chosen.equals(ChatColor.DARK_AQUA+"Sniper")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-sniper");
+	        		tier.sort(OneTier.SNIPER, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Auto Rifle")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-auto-rifle");
+	        		tier.sort(OneTier.AUTORIFLE, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Shotgun")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-shotgun");
+	        		tier.sort(OneTier.SHOTGUN, p);
 	        	}
 	        	else if(chosen.equals(ChatColor.DARK_AQUA+"Special")){
-	        		kmh.Organize((CommandSender)event.getPlayer(), cmd, label, args, "tier1-special");
+	        		tier.sort(OneTier.SPECIAL, p);
 	        	}
 	            event.setWillClose(true);
 	        }
@@ -168,11 +166,7 @@ public class TierSelectionMenu {
 	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"Bazooka");
 	return menu;
 	}
-	public InventoryAPI TierTwoInventory(){
-		final KitManagerHub kmh = new KitManagerHub();
-		final Command cmd = null;
-		final String label = "";
-		final String[] args = {"hi"};
+	public InventoryAPI TierTwoInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
@@ -198,11 +192,7 @@ public class TierSelectionMenu {
 	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"Flamethrower");
 	return menu;
 	}
-	public InventoryAPI TierThreeInventory(){
-		final KitManagerHub kmh = new KitManagerHub();
-		final Command cmd = null;
-		final String label = "";
-		final String[] args = {"hi"};
+	public InventoryAPI TierThreeInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
@@ -228,11 +218,7 @@ public class TierSelectionMenu {
 	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
 	}
-	public InventoryAPI TierFourInventory(){
-		final KitManagerHub kmh = new KitManagerHub();
-		final Command cmd = null;
-		final String label = "";
-		final String[] args = {"hi"};
+	public InventoryAPI TierFourInventory(Player p){
 		InventoryAPI menu = new InventoryAPI("Select Type", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
 	        public void onOptionClick(InventoryAPI.OptionClickEvent event) {
