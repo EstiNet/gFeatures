@@ -33,6 +33,9 @@ public class BlueTeam {
 	public static void removePlayer(Player p){
 		bt.remove(p);
 	}
+	public static int size(){
+		return bt.size();
+	}
 	public static void setList(List<Player> list){
 		bt = list;
 	}

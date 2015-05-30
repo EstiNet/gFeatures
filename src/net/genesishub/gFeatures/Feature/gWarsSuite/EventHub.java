@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
@@ -33,6 +34,7 @@ public class EventHub {
 	Join mm = new Join();
 	Statistics stats = new Statistics();
 	Inventory inv = new Inventory();
+	Interaction interact = new Interaction();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		mm.start(event);
 	}
@@ -47,8 +49,8 @@ public class EventHub {
 		}
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
-		if(stats.equals(gWarsMode.MAINMENU)){
-			
+		if(stats.equals(gWarsMode.MAINMENU) || stats.equals(gWarsMode.GUNMENU) || stats.equals(gWarsMode.TEAMMENU) || stats.equals(gWarsMode.SPAWNMENU)){
+			interact.intialize(event);
 		}
 		else if(stats.equals(gWarsMode.TEAM)){
 			

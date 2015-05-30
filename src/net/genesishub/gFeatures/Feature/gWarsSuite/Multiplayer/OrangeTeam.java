@@ -33,6 +33,9 @@ public class OrangeTeam {
 	public static void removePlayer(Player p){
 		ot.remove(p);
 	}
+	public static int size(){
+		return ot.size();
+	}
 	public static void setList(List<Player> list){
 		ot = list;
 	}
