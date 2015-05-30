@@ -1,6 +1,6 @@
 package net.genesishub.gFeatures;
 
-import net.genesishub.gFeatures.Feature.Base.Configure;
+import net.dolphinbox.gFeatures.gParticles.Configure;
 
 /*
 gFeatures

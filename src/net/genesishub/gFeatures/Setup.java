@@ -1,6 +1,6 @@
 package net.genesishub.gFeatures;
 
-import net.genesishub.gFeatures.Feature.Base.Configure;
+import net.dolphinbox.gFeatures.gParticles.Configure;
 
 /*
 gFeatures
@@ -44,6 +44,7 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.Statistics.Configure.onSetup();
+		net.dolphinbox.gFeatures.gParticles.Configure.onSetup();
 		
 		/*
 		 * Initialize your Skripts here.
