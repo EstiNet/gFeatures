@@ -2,8 +2,6 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
-import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
@@ -38,9 +36,9 @@ public class Inventory {
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
-				stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
-				gm.setup(event.getPlayer());
+				ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
+				TeamMenu tm = new TeamMenu();
+				tm.initialize(event.getPlayer());
 			}
 		}
 	}

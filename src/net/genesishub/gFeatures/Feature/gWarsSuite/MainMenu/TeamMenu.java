@@ -59,9 +59,9 @@ public class TeamMenu {
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 				else{
-					ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
-					stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
-					gm.setup(event.getPlayer());
+					OrangeTeam.addPlayer(event.getPlayer());
+					finals(event.getPlayer());
+					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
 				}
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
@@ -70,15 +70,26 @@ public class TeamMenu {
 				}
 				else{
 					BlueTeam.addPlayer(event.getPlayer());
-					ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a kit.");
-					stats.setMode(event.getPlayer(), gWarsMode.GUNMENU);
-					gm.setup(event.getPlayer());
+					finals(event.getPlayer());
+					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY);
 				}
 			}
 			else if(event.getPlayer().getItemInHand().equals(item3)){
-				
+				if(OrangeTeam.size() <= BlueTeam.size()){
+					OrangeTeam.addPlayer(event.getPlayer());
+					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
+				}
+				else{
+					BlueTeam.addPlayer(event.getPlayer());
+					finals(event.getPlayer());
+					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY);
+				}
 			}
 		}
 	}
-	                               
+	public void finals(Player p){
+		ActionAPI.sendActionBar(p, ChatColor.AQUA + "Please select a kit.");
+		stats.setMode(p, gWarsMode.GUNMENU);
+		gm.setup(p);
+	}                              
 }

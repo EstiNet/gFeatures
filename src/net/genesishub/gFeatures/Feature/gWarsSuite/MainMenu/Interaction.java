@@ -8,10 +8,15 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Interaction {
 	Statistics stats = new Statistics();
+	Inventory inv = new Inventory();
+	TeamMenu tm = new TeamMenu();
 	public void intialize(PlayerInteractEvent event){
 		Player p = event.getPlayer();
 		if(stats.getMode(p).equals(gWarsMode.MAINMENU)){
-			
+			inv.interact(event);
+		}
+		else if(stats.getMode(p).equals(gWarsMode.TEAMMENU)){
+			tm.interact(event);
 		}
 	}
 }
