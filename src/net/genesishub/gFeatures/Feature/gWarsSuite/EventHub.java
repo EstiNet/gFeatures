@@ -44,7 +44,7 @@ public class EventHub {
 		BlueTeam.removePlayer(event.getPlayer());
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
-		if(stats.equals(gWarsMode.MAINMENU)){
+		if(stats.equals(gWarsMode.MAINMENU) || stats.equals(gWarsMode.GUNMENU) || stats.equals(gWarsMode.TEAMMENU) || stats.equals(gWarsMode.SPAWNMENU)){
 			inv.prevent(event);
 		}
 	}
