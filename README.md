@@ -2,7 +2,7 @@
 GenesisHub's Main custom Plugins.
 
 ##Version
-gFeatures Core/API: 2.3.3
+gFeatures Core/API: 2.4.9
 
 ## Info
 gFeatures is a plugin for Bukkit/Spigot, Sponge, and CanaryMod. Our goal is to provide a modular system to power the backend of servers.
