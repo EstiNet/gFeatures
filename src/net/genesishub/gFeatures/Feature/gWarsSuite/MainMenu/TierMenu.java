@@ -3,13 +3,10 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.genesishub.gFeatures.API.Inventory.InventoryGUI;
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
-import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Tiers.*;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,8 +16,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class TierMenu {
 	Statistics s = new Statistics();
+	ClearInventory ci = new ClearInventory();
+	ActionAPI aapi = new ActionAPI();
 	
-	ItemStack tierzero, tierone, tiertwo, tierthree, tierfour, kills;
+	ItemStack tierzero, tierone, tiertwo, tierthree, tierfour, sniper, shotgun, special, autorifle, kills;
 	
 	public TierMenu(Player p){
 		tierzero = createItem(Material.IRON_BLOCK, ChatColor.AQUA + "Tier 0", ChatColor.GOLD + "Weapons in this tier costs 0 kills.");
@@ -30,6 +29,10 @@ public class TierMenu {
 		tierfour = createItem(Material.EMERALD_BLOCK, ChatColor.AQUA + "Tier 4", ChatColor.GOLD + "Weapons in this tier costs 50 kills.");
 		kills = createItem(Material.EMERALD, ChatColor.GREEN + "You have " + s.getKills(p) + " kills.", ChatColor.GOLD + " Play more to unlock more!");
 		
+		sniper = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
+		autorifle = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
 	}
 	
 	public void setup(Player p){
@@ -68,14 +71,37 @@ public class TierMenu {
 	
 	public void interact(PlayerInteractEvent event){
 		if(event.getPlayer().getItemInHand().equals(tierzero)){
-			Tier tier = new Tier();
-			tier.sort(TierZero., p);
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			tier(0 ,event.getPlayer());
 		}
 		else if(event.getPlayer().getItemInHand().equals(tierone)){
-			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
-			TeamMenu tm = new TeamMenu();
-			stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
-			tm.initialize(event.getPlayer());
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			tier(1,event.getPlayer());
+		}
+		else if(event.getPlayer().getItemInHand().equals(tiertwo)){
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			tier(2,event.getPlayer());
+		}
+		else if(event.getPlayer().getItemInHand().equals(tierthree)){
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			tier(3,event.getPlayer());
+		}
+		else if(event.getPlayer().getItemInHand().equals(tierfour)){
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			tier(4,event.getPlayer());
+		}
+	}
+	
+	public void tier(int tier, Player p){
+		ci.clearInv(p);
+		switch(tier){
+		case 0:
+			p.getInventory().setItem(0, sniper);
+			p.getInventory().setItem(1, shotgun);
+			p.getInventory().setItem(2, autorifle);
+			p.getInventory().setItem(3, special);
+			break;
+		
 		}
 	}
 }
