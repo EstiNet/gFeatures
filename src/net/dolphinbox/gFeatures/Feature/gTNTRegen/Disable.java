@@ -1,4 +1,4 @@
-package net.dolphinbox.gFeatures.gParticles;
+package net.dolphinbox.gFeatures.Feature.gTNTRegen;
 
 import org.bukkit.Bukkit;
 
@@ -21,10 +21,8 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class Enable{
-	static ConfigHub ch = new ConfigHub();
-	public static void onEnable(){
-		Bukkit.getLogger().info("Base Plugin enabled!");
-		ch.setupConfig();
+public class Disable{
+	public static void onDisable(){
+		Bukkit.getLogger().info("[gTNTRegen] gTNTRegen is being disabled...");
 	}
 }

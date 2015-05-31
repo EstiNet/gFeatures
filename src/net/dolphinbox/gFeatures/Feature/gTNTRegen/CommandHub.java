@@ -1,6 +1,8 @@
-package net.dolphinbox.gFeatures.gParticles;
+package net.dolphinbox.gFeatures.Feature.gTNTRegen;
 
-import net.genesishub.gFeatures.Configuration.Config;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 /*
 gFeatures
@@ -21,9 +23,11 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class ConfigHub {
-	Config config = new Config();
-	public void setupConfig(){
-		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
+public class CommandHub{
+	
+	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		if(cmd.getName().equalsIgnoreCase("test")){
+			Bukkit.getLogger().info("Test!");
+		}
 	}
 }

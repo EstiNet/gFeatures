@@ -1,8 +1,14 @@
-package net.dolphinbox.gFeatures.gParticles;
+package net.dolphinbox.gFeatures.Feature.gTNTRegen;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.genesishub.gFeatures.Retrieval;
@@ -12,7 +18,7 @@ import net.genesishub.gFeatures.gFeature;
 gFeatures
 https://github.com/GenesisHub/gFeatures
 
-   Copyright 2015 GenesisHub & DolphinBox
+   Copyright 2015 GenesisHub
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -27,12 +33,12 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class gParticles extends gFeature{
+public class gTNTRegen extends gFeature{
 	
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
 	
-	public gParticles(String featurename, String d) {
+	public gTNTRegen(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
@@ -50,10 +56,30 @@ public class gParticles extends gFeature{
 		}
 	}
 	@Retrieval
-	@Override
 	public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
 	}
+	
+    @EventHandler
+    public void onEntityExplode(EntityExplodeEvent e) {
+            for (Block b : e.blockList()) {
+                    final BlockState state = b.getState();
+                   
+                    b.setType(Material.AIR); // Stop item drops from spawning.
+                   
+                    int delay = 20;
+                   
+                    if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
+                            delay += 1;
+                    }
+                   
+                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                            public void run() {
+                                    state.update(true, false);
+                            }
+                    }, delay);
+            }
+    }
 }

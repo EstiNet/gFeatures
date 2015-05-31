@@ -1,7 +1,6 @@
-package net.dolphinbox.gFeatures.gParticles;
+package net.dolphinbox.gFeatures.Feature.gTNTRegen;
 
-import org.bukkit.Bukkit;
-import org.bukkit.event.player.PlayerJoinEvent;
+import net.genesishub.gFeatures.Configuration.Config;
 
 /*
 gFeatures
@@ -22,8 +21,9 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
-	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
+public class ConfigHub {
+	Config config = new Config();
+	public void setupConfig(){
+		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
 	}
 }

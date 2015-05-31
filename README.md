@@ -1,4 +1,4 @@
-# gFeatures
+# gFeatures2
 GenesisHub's Main custom Plugins.
 
 ##Version
@@ -12,7 +12,7 @@ The gFeatures Universal Binary allows gFeatures to run on Bukkit-Compatible, Spo
 ## Notes
 All the packages under "tk.genesishub.*" was part of gFeatures 1.0, and is Obsolete.
 
-gFeatures 2.0 is under "net.genesishub.*" & "net.dolphinbox.*" and is currently in active development.
+gFeatures2 is under "net.genesishub.*" & "net.dolphinbox.*" and is currently in active development.
 
 ## Team
 - _InDev_ / Devin Lin (also known as aguy867 in older commits) -> Main Developer & CEO GenesisHub
