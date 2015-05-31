@@ -30,8 +30,8 @@ public class TierMenu {
 	    .setItem(2, tiertwo, new TierTwo())
 	    .setItem(3, tierthree, new TierThree())
 	    .setItem(4, tierfour, new TierFour())
-		.setItem(8, kills, null);    //^                                  
-        //.openInventory(Bukkit.getPlayer("nverdier");  
+		.setItem(8, kills, null)
+        .openInventory(p);  
 	}
 	
 	public ItemStack createItem(Material material, String name, String ... lore){

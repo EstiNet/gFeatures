@@ -27,7 +27,6 @@ public class GunMenu {
         
 	}
 	public void interaction(PlayerInteractEvent event){
-		TierSelectionMenu tsm = new TierSelectionMenu();
-		tsm.Initialize(event);
+		TierMenu tm = new TierMenu(event.getPlayer());
 	}
 }
