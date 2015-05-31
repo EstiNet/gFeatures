@@ -28,11 +28,11 @@ public class Join {
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
 		p.teleport(Constants.spawnonjoin);
-		for(Player sp : Bukkit.getOnlinePlayers()){
+		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
 				p.hidePlayer(sp);
 			}
-		}
+		}*/
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }
