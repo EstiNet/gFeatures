@@ -1,7 +1,5 @@
 package net.genesishub.gFeatures;
 
-import net.dolphinbox.gFeatures.gParticles.Configure;
-
 /*
 gFeatures
 https://github.com/GenesisHub/gFeatures
@@ -24,7 +22,6 @@ https://github.com/GenesisHub/gFeatures
 public class Setup {
 	Configs config;
 	public void onSetup() {
-		Configure.onSetup();
 		//Well, unfortunate part of the API :(
 		
 		/*
@@ -32,6 +29,8 @@ public class Setup {
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		*/
+		
+		net.genesishub.gFeatures.Feature.Base.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
