@@ -6,8 +6,6 @@ import java.util.List;
 import net.genesishub.gFeatures.API.Inventory.InventoryGUI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Tiers.*;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -29,12 +27,11 @@ public class TierMenu {
 		new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Cool&cInventory", 1)                                             
 		.setItem(0, tierzero, new TierZero())
 	    .setItem(1, tierone, new TierOne())
-	    .setItem(2, new ItemStack(Material.LAPIS_BLOCK, 1), ChatColor.AQUA+"Tier 2", ChatColor.GOLD+"Weapons here cost 10 kills.")
-	    .setItem(3, new ItemStack(Material.DIAMOND_BLOCK, 1), ChatColor.AQUA+"Tier 3", ChatColor.GOLD+"Weapons here cost 25 kills.")
-	    .setItem(4, new ItemStack(Material.EMERALD_BLOCK, 1), ChatColor.AQUA+"Tier 4", ChatColor.GOLD+"Weapons here cost 50 kills.")
-		.setItem(8, new ItemStack(Material.EMERALD, 1), ChatColor.GREEN+"You have " + s.getKills(p) + " kills.");    //^
-        .setOpenAction(new OpenAction())                                        
-        .openInventory(Bukkit.getPlayer("nverdier");  
+	    .setItem(2, tiertwo, new TierTwo())
+	    .setItem(3, tierthree, new TierThree())
+	    .setItem(4, tierfour, new TierFour())
+		.setItem(8, kills, null);    //^                                  
+        //.openInventory(Bukkit.getPlayer("nverdier");  
 	}
 	
 	public ItemStack createItem(Material material, String name, String ... lore){
