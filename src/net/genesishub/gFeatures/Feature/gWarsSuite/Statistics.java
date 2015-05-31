@@ -26,10 +26,12 @@ https://github.com/GenesisHub/gFeatures
 
 public class Statistics {
 	public int getKills(Player p){
-		return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
+		return 20;
+		//return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
 	}
 	public int getDeaths(Player p){
-		return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
+		return 20;
+		//return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
 	}
 	public gWarsMode getMode(Player p){
 		return Constants.mode.get(p);

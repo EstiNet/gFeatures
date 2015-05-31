@@ -43,7 +43,7 @@ public class Scored {
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _GenesisHub_  ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(9);
-		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().length)); //Get a fake offline player
+		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
 		score3.setScore(8);
 		Score score = objective.getScore(ChatColor.GREEN + "Clupic:"); //Get a fake offline player
 		score.setScore(7);

@@ -74,8 +74,7 @@ public class ArenaSetup{
 	public void gameEnd(){
 	    	 Bukkit.getServer().broadcastMessage("The match has ended! Stats are currently being processed...");
 	    	 for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-	     		Player[] pops = Bukkit.getServer().getOnlinePlayers();
-	     		for(Player player : pops) {
+	     		for(Player player : Bukkit.getServer().getOnlinePlayers()) {
 	     			player.teleport(cons.spectate);
 	     			cons.Acceptance.remove(player.getName());
 	     			player.setGameMode(GameMode.SPECTATOR);
@@ -87,8 +86,7 @@ public class ArenaSetup{
 	            Bukkit.getServer().broadcastMessage("The leaderboard stats are:");
 	            //LEADERBOARD STUFF HERE
 	            for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-		     		Player[] pops = Bukkit.getServer().getOnlinePlayers();
-		     		for(Player player : pops) {
+		     		for(Player player : Bukkit.getServer().getOnlinePlayers()) {
 		     			player.teleport(cons.lobby);
 		     			player.setGameMode(GameMode.SURVIVAL);
 		     			cons.Acceptance.remove(player.getName());

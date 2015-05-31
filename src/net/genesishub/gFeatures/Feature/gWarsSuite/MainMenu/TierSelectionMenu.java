@@ -47,6 +47,7 @@ public class TierSelectionMenu {
 			InventoryAPI menu = makeInventory(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
+			Bukkit.getLogger().info("HEY2");
 		}
 	}
 	public InventoryAPI makeInventory(final Player p){

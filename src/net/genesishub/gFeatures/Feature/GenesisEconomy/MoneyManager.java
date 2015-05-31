@@ -108,9 +108,8 @@ public class MoneyManager {
 	}
 	@SuppressWarnings("deprecation")
 	public boolean playerOnline(String name){
-		Player[] s = Bukkit.getOnlinePlayers();
-		for(Player p : s){
-			if(p.getName().equals(s)){
+		for(Player p : Bukkit.getOnlinePlayers()){
+			if(p.getName().equals(name)){
 				return true;
 			}
 		}

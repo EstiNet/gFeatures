@@ -36,8 +36,7 @@ public class Listeners {
 	}
 	@SuppressWarnings("deprecation")
 	public void onPlayerJoin(final PlayerJoinEvent event) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
-		Player[] p = Bukkit.getServer().getOnlinePlayers();
-		for(Player ps : p){
+		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
 			ps.setScoreboard(s.Initialize(ps));
 		}
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -53,8 +52,7 @@ public class Listeners {
 	}
 	@SuppressWarnings("deprecation")
 	public void onPlayerLeave(PlayerQuitEvent event) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
-		Player[] p = Bukkit.getServer().getOnlinePlayers();
-		for(Player ps : p){
+		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
 			ps.setScoreboard(s.Initialize(ps));
 		}
 	}

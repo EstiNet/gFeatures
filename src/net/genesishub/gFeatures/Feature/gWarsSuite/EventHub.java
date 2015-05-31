@@ -38,6 +38,7 @@ public class EventHub {
 	Inventory inv = new Inventory();
 	Interaction interact = new Interaction();
 	public void onPlayerJoin(PlayerJoinEvent event){
+		Bukkit.getLogger().info("Join");
 		mm.start(event);
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
 	}
@@ -53,6 +54,7 @@ public class EventHub {
 		}
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
+		Bukkit.getLogger().info(stats.getMode(event.getPlayer()).toString());
 		if(stats.getMode(event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			interact.intialize(event);
 		}

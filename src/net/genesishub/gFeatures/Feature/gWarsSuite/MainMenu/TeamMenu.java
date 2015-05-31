@@ -11,7 +11,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -21,7 +20,7 @@ public class TeamMenu {
 	Statistics stats = new Statistics();
 	ClearInventory ci = new ClearInventory();
 	
-	ItemStack item1, item2, item3;
+	ItemStack item1, item2;
 	
 	public TeamMenu(){
 		item1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
@@ -33,11 +32,6 @@ public class TeamMenu {
 		ItemMeta item2meta = (ItemMeta) item2.getItemMeta();
 		item2meta.setDisplayName(ChatColor.DARK_AQUA + "Innisfil (Blue) Players: " + BlueTeam.size());
 		item2.setItemMeta(item2meta);
-		
-		item3 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
-		ItemMeta item3meta = (ItemMeta) item3.getItemMeta();
-		item3meta.setDisplayName(ChatColor.WHITE + "Random");
-		item3.setItemMeta(item3meta);
 	}
 	
 	public void initialize(Player p){
@@ -48,46 +42,29 @@ public class TeamMenu {
         	public void run(){
         		p.getInventory().setItem(0, item1);
         		p.getInventory().setItem(1, item2);
-        		p.getInventory().setItem(2, item3);	
         	}
         }, 20L);
 		
 	}
 	public void interact(PlayerInteractEvent event){
-		Bukkit.getLogger().info("Clicked");
 			if(event.getPlayer().getItemInHand().equals(item1)){
-				Bukkit.getLogger().info("ClickedOrange");
 				if(OrangeTeam.size() > BlueTeam.size()){
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 				else{
-					Bukkit.getLogger().info("Clicked");
 					OrangeTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
 				}
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				Bukkit.getLogger().info("ClickedBlue");
 				if(OrangeTeam.size() < BlueTeam.size()){
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 				else{
 					BlueTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY);
-				}
-			}
-			else if(event.getPlayer().getItemInHand().equals(item3)){
-				Bukkit.getLogger().info("ClickedRandom");
-				if(OrangeTeam.size() <= BlueTeam.size()){
-					OrangeTeam.addPlayer(event.getPlayer());
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
-				}
-				else{
-					BlueTeam.addPlayer(event.getPlayer());
-					finals(event.getPlayer());
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY);
+					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY);
 				}
 			}
 	}
