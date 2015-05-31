@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
+import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 
@@ -13,6 +14,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class Inventory {
 	ItemStack item1, item2;
+	ActionAPI aapi = new ActionAPI();
 	Statistics stats = new Statistics();
 	GunMenu gm = new GunMenu();
 	public Inventory(){
@@ -35,7 +37,7 @@ public class Inventory {
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
+				aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
 				TeamMenu tm = new TeamMenu();
 				stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
 				tm.initialize(event.getPlayer());

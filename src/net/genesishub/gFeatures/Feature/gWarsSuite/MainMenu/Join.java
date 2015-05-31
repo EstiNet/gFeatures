@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
+import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
@@ -15,9 +16,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public class Join {
+	ActionAPI aapi = new ActionAPI();
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
-		//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
+		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
 		//TODO Player cinematic
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
