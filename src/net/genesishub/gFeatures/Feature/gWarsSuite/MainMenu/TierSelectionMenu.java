@@ -43,6 +43,7 @@ public class TierSelectionMenu {
 	Tier tier = new Tier();
 	public void Initialize(PlayerInteractEvent event){
 		if(s.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
+			Bukkit.getLogger().info("HEY");
 			InventoryAPI menu = makeInventory(event.getPlayer());
 			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());

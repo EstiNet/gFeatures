@@ -36,7 +36,7 @@ public class TeamMenu {
 		
 		item3 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 0);
 		ItemMeta item3meta = (ItemMeta) item3.getItemMeta();
-		item3meta.setDisplayName("Random");
+		item3meta.setDisplayName(ChatColor.WHITE + "Random");
 		item3.setItemMeta(item3meta);
 	}
 	

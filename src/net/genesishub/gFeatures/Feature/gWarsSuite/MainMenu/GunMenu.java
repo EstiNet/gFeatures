@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -17,8 +18,13 @@ public class GunMenu {
         ItemMeta im = chest.getItemMeta();
         im.setDisplayName(ChatColor.AQUA + "Select Gun");
         chest.setItemMeta(im);
-        p.getInventory().setHeldItemSlot(0);
-        p.getInventory().setItemInHand(chest);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		p.getInventory().setHeldItemSlot(0);
+        		p.getInventory().setItemInHand(chest);	
+        	}
+        }, 20L);
+        
 	}
 	public void interaction(PlayerInteractEvent event){
 		TierSelectionMenu tsm = new TierSelectionMenu();
