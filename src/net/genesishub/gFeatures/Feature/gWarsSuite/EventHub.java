@@ -8,10 +8,13 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
@@ -54,12 +57,17 @@ public class EventHub {
 		}
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
-		Bukkit.getLogger().info(stats.getMode(event.getPlayer()).toString());
 		if(stats.getMode(event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			interact.intialize(event);
 		}
 		else if(stats.getMode(event.getPlayer()).equals(gWarsMode.TEAM)){
 			
 		}
+	}
+	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		
+	}
+	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
+		
 	}
 }

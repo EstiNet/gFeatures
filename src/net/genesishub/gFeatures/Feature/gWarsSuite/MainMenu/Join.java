@@ -4,6 +4,8 @@ import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,6 +19,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class Join {
 	ActionAPI aapi = new ActionAPI();
+	Statistics stats = new Statistics();
 	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
 		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
@@ -25,8 +28,10 @@ public class Join {
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
 		p.teleport(Constants.spawnonjoin);
-		for(){
-			
+		for(Player sp : Bukkit.getOnlinePlayers()){
+			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
+				p.hidePlayer(sp);
+			}
 		}
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);

@@ -7,10 +7,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
@@ -61,6 +64,12 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
 			eh.onPlayerInteract((PlayerInteractEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("entitydamagebyentityevent")){
+			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
+			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -74,6 +83,12 @@ public class gWarsSuite extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerOpenInventory(){}
+	@Override
+	@Retrieval
+	public void onEntityDamageByEntity(){}
+	@Override
+	@Retrieval
+	public void onWeaponDamageEntity(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
