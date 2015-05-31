@@ -43,11 +43,8 @@ public class TierSelectionMenu {
 	Tier tier = new Tier();
 	public void Initialize(PlayerInteractEvent event){
 		if(s.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) && event.getPlayer().getItemInHand().getType() == Material.CHEST){
-			Bukkit.getLogger().info("HEY");
 			InventoryAPI menu = makeInventory(event.getPlayer());
-			Bukkit.getServer().getLogger().info(event.getPlayer().getName());
 			menu.open(event.getPlayer());
-			Bukkit.getLogger().info("HEY2");
 		}
 	}
 	public InventoryAPI makeInventory(final Player p){
@@ -110,7 +107,7 @@ public class TierSelectionMenu {
     .setOption(3, new ItemStack(Material.DIAMOND_BLOCK, 1), ChatColor.AQUA+"Tier 3", ChatColor.GOLD+"Weapons here cost 25 kills.")
     .setOption(4, new ItemStack(Material.EMERALD_BLOCK, 1), ChatColor.AQUA+"Tier 4", ChatColor.GOLD+"Weapons here cost 50 kills.")
 	.setOption(8, new ItemStack(Material.EMERALD, 1), ChatColor.GREEN+"You have " + s.getKills(p) + " kills.");
-	return menu;
+		return menu;
 	}catch(Exception e){
 		e.printStackTrace();
 	}

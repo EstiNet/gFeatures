@@ -19,6 +19,7 @@ public class TeamMenu {
 	GunMenu gm = new GunMenu();
 	Statistics stats = new Statistics();
 	ClearInventory ci = new ClearInventory();
+	ActionAPI aapi = new ActionAPI();
 	
 	ItemStack item1, item2;
 	
@@ -36,7 +37,6 @@ public class TeamMenu {
 	
 	public void initialize(Player p){
 		ci.clearInv(p);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "clear "+ p.getName());
 		
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
@@ -69,7 +69,7 @@ public class TeamMenu {
 			}
 	}
 	public void finals(Player p){
-		//ActionAPI.sendActionBar(p, ChatColor.AQUA + "Please select a kit.");
+		aapi.sendActionbar(p, ChatColor.AQUA + "Please select a kit.");
 		stats.setMode(p, gWarsMode.GUNMENU);
 		gm.setup(p);
 	}
