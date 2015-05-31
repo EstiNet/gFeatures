@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -33,13 +34,13 @@ public class Inventory {
 		event.setCancelled(true);
 	}
 	public void interact(PlayerInteractEvent event){
-		Bukkit.getLogger().info("Interaction");
 			if(event.getPlayer().getItemInHand().equals(item1)){
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
 				//ActionAPI.sendActionBar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
 				TeamMenu tm = new TeamMenu();
+				stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
 				tm.initialize(event.getPlayer());
 			}
 	}

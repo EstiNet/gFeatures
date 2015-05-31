@@ -22,6 +22,7 @@ public class TeamMenu {
 	ClearInventory ci = new ClearInventory();
 	public void initialize(Player p){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "clear "+ p.getName());
 		
 		ItemStack item1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
 		ItemMeta item1meta = (ItemMeta) item1.getItemMeta();
@@ -59,7 +60,6 @@ public class TeamMenu {
 		item3meta.setDisplayName(ChatColor.DARK_AQUA + "Random");
 		item3.setItemMeta(item3meta);
 		
-		if((event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_AIR))){
 			if(event.getPlayer().getItemInHand().equals(item1)){
 				if(OrangeTeam.size() > BlueTeam.size()){
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
@@ -91,7 +91,6 @@ public class TeamMenu {
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY);
 				}
 			}
-		}
 	}
 	public void finals(Player p){
 		//ActionAPI.sendActionBar(p, ChatColor.AQUA + "Please select a kit.");
