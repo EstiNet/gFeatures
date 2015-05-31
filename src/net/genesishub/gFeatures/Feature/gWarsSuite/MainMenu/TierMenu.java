@@ -5,33 +5,52 @@ import java.util.List;
 
 import net.genesishub.gFeatures.API.Inventory.InventoryGUI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Tiers.*;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class TierMenu {
 	Statistics s = new Statistics();
+	
+	ItemStack tierzero, tierone, tiertwo, tierthree, tierfour, kills;
+	
 	public TierMenu(Player p){
+		tierzero = createItem(Material.IRON_BLOCK, ChatColor.AQUA + "Tier 0", ChatColor.GOLD + "Weapons in this tier costs 0 kills.");
+		tierone = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Tier 1", ChatColor.GOLD + "Weapons in this tier costs 5 kills.");
+		tiertwo = createItem(Material.LAPIS_BLOCK, ChatColor.AQUA + "Tier 2", ChatColor.GOLD + "Weapons in this tier costs 10 kills.");
+		tierthree = createItem(Material.DIAMOND_BLOCK, ChatColor.AQUA + "Tier 3", ChatColor.GOLD + "Weapons in this tier costs 25 kills.");
+		tierfour = createItem(Material.EMERALD_BLOCK, ChatColor.AQUA + "Tier 4", ChatColor.GOLD + "Weapons in this tier costs 50 kills.");
+		kills = createItem(Material.EMERALD, ChatColor.GREEN + "You have " + s.getKills(p) + " kills.", ChatColor.GOLD + " Play more to unlock more!");
 		
-		ItemStack tierzero = createItem(Material.IRON_BLOCK, ChatColor.AQUA + "Tier 0", ChatColor.GOLD + "Weapons in this tier costs 0 kills.");
-		ItemStack tierone = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Tier 1", ChatColor.GOLD + "Weapons in this tier costs 5 kills.");
-		ItemStack tiertwo = createItem(Material.LAPIS_BLOCK, ChatColor.AQUA + "Tier 2", ChatColor.GOLD + "Weapons in this tier costs 10 kills.");
-		ItemStack tierthree = createItem(Material.DIAMOND_BLOCK, ChatColor.AQUA + "Tier 3", ChatColor.GOLD + "Weapons in this tier costs 25 kills.");
-		ItemStack tierfour = createItem(Material.EMERALD_BLOCK, ChatColor.AQUA + "Tier 4", ChatColor.GOLD + "Weapons in this tier costs 50 kills.");
-		ItemStack kills = createItem(Material.EMERALD, ChatColor.GREEN + "You have " + s.getKills(p) + " kills.", ChatColor.GOLD + " Play more to unlock more!");
+	}
+	
+	public void setup(Player p){
 		
-		new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Gun Menu", 1)                                             
+		p.getInventory().setItem(0, tierzero);
+		p.getInventory().setItem(1, tierone);
+		p.getInventory().setItem(2, tiertwo);
+		p.getInventory().setItem(3, tierthree);
+		p.getInventory().setItem(4, tierfour);
+		p.getInventory().setItem(8, kills);
+		
+		/*InventoryGUI igui = new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Gun Menu", 1)                                             
 		.setItem(0, tierzero, new TierZero())
 	    .setItem(1, tierone, new TierOne())
 	    .setItem(2, tiertwo, new TierTwo())
 	    .setItem(3, tierthree, new TierThree())
 	    .setItem(4, tierfour, new TierFour())
 		.setItem(8, kills, null)
+		.setOpenAction(new OpenAction("HI"))
         .openInventory(p);  
+		igui.openInventory(p);*/
 	}
 	
 	public ItemStack createItem(Material material, String name, String ... lore){
@@ -45,5 +64,18 @@ public class TierMenu {
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+	
+	public void interact(PlayerInteractEvent event){
+		if(event.getPlayer().getItemInHand().equals(tierzero)){
+			Tier tier = new Tier();
+			tier.sort(TierZero., p);
+		}
+		else if(event.getPlayer().getItemInHand().equals(tierone)){
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
+			TeamMenu tm = new TeamMenu();
+			stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
+			tm.initialize(event.getPlayer());
+		}
 	}
 }
