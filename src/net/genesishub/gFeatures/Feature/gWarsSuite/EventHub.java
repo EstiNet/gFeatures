@@ -41,7 +41,6 @@ public class EventHub {
 	Inventory inv = new Inventory();
 	Interaction interact = new Interaction();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Join");
 		mm.start(event);
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
 	}
@@ -65,9 +64,13 @@ public class EventHub {
 		}
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		
+		if(event.getDamager() instanceof Player && event.getEntity() instanceof Player){
+			
+		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
-		
+		if(event.getDamager() instanceof Player && event.getVictim() instanceof Player){
+			
+		}
 	}
 }
