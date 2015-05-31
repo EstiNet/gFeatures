@@ -39,6 +39,14 @@ public class OrangeTeam {
 	public static void setList(List<Player> list){
 		ot = list;
 	}
+	public static boolean hasPlayer(Player p){
+		for(Player player : ot){
+			if(p.equals(player)){
+				return true;
+			}
+		}
+		return false;
+	}
 	public static List<Player> getList(){
 		return ot;
 	}

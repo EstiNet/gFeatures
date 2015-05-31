@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 /*
@@ -33,8 +34,8 @@ public class Statistics {
 		return 20;
 		//return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
 	}
-	public gWarsMode getMode(Player p){
-		return Constants.mode.get(p);
+	public gWarsMode getMode(Entity entity){
+		return Constants.mode.get(entity);
 	}
 	public void addKill(Player p){
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));

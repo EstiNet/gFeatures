@@ -39,6 +39,14 @@ public class BlueTeam {
 	public static void setList(List<Player> list){
 		bt = list;
 	}
+	public static boolean hasPlayer(Player p){
+		for(Player player : bt){
+			if(p.equals(player)){
+				return true;
+			}
+		}
+		return false;
+	}
 	public static List<Player> getList(){
 		return bt;
 	}

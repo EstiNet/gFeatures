@@ -1,17 +1,14 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
-
-import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
-public class Damage {
-	Statistics stats = new Statistics();
+public class MenuDamage {
 	public void onEntityDamage(EntityDamageByEntityEvent event){
-		if(event.getDamager())
+		event.setCancelled(true);
 	}
 	public void onWeaponDamage(WeaponDamageEntityEvent event){
-		
+		event.setCancelled(true);
 	}
 }

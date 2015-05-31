@@ -6,7 +6,6 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -65,7 +64,9 @@ public class EventHub {
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getDamager() instanceof Player && event.getEntity() instanceof Player){
-			
+			if(stats.getMode((Player)event.getDamager()).equals(gWarsMode.MAINMENU) || stats.getMode((Player) event.getDamager()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getDamager()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getDamager()).equals(gWarsMode.SPAWNMENU)){
+				
+			}
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
