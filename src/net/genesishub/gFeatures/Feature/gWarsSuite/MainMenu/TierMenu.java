@@ -24,7 +24,7 @@ public class TierMenu {
 		ItemStack tierfour = createItem(Material.EMERALD_BLOCK, ChatColor.AQUA + "Tier 4", ChatColor.GOLD + "Weapons in this tier costs 50 kills.");
 		ItemStack kills = createItem(Material.EMERALD, ChatColor.GREEN + "You have " + s.getKills(p) + " kills.", ChatColor.GOLD + " Play more to unlock more!");
 		
-		new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Cool&cInventory", 1)                                             
+		new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Gun Menu", 1)                                             
 		.setItem(0, tierzero, new TierZero())
 	    .setItem(1, tierone, new TierOne())
 	    .setItem(2, tiertwo, new TierTwo())

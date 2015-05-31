@@ -25,6 +25,9 @@ public class Join {
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
 		p.teleport(Constants.spawnonjoin);
+		for(){
+			
+		}
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }
