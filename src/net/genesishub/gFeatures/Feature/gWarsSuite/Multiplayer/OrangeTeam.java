@@ -41,7 +41,7 @@ public class OrangeTeam {
 	}
 	public static boolean hasPlayer(Player p){
 		for(Player player : ot){
-			if(p.equals(player)){
+			if(p.getName().equals(player.getName())){
 				return true;
 			}
 		}

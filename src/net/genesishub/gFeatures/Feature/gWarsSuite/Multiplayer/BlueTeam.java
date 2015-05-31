@@ -41,7 +41,7 @@ public class BlueTeam {
 	}
 	public static boolean hasPlayer(Player p){
 		for(Player player : bt){
-			if(p.equals(player)){
+			if(p.getName().equals(player.getName())){
 				return true;
 			}
 		}
