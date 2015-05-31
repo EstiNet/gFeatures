@@ -32,22 +32,7 @@ public class Statistics {
 		return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
 	}
 	public gWarsMode getMode(Player p){
-		switch(Basic.getgPlayer(p.getName()).getValue("gWars.Mode")){
-			case "NONE":
-				return gWarsMode.NONE;
-			case "MAINMENU": 
-				return gWarsMode.MAINMENU;
-			case "TEAM":
-				return gWarsMode.TEAM;
-			case "CAMPAIGN":
-				return gWarsMode.CAMPAIGN;
-			case "GUNMENU":
-				return gWarsMode.GUNMENU;
-			case "SPAWNMENU":
-				return gWarsMode.SPAWNMENU;
-			default:
-				return gWarsMode.NONE;
-		}
+		return Constants.mode.get(p);
 	}
 	public void addKill(Player p){
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
@@ -84,9 +69,15 @@ public class Statistics {
 		return;
 	}
 	public void setMode(Player p, gWarsMode mode){
-		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		/*gPlayer gplayer = Basic.getgPlayer(p.getName());
 		gplayer.setValue("gWars.Mode", mode.toString());
 		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
-		Basic.addgPlayer(gplayer);
+		Basic.addgPlayer(gplayer);*/
+		for(gWarsMode m : gWarsMode.values()){
+			if(m.equals(mode)){
+				Constants.mode.remove(p);
+				Constants.mode.put(p, mode);
+			}
+		}
 	}
 }
