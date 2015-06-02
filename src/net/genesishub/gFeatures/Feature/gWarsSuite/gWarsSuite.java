@@ -8,6 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
@@ -74,6 +75,9 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playeritemheldevent")){
 			eh.onPlayerItemHeld((PlayerItemHeldEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
+			eh.onInventoryClick((InventoryClickEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -96,6 +100,9 @@ public class gWarsSuite extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerItemHeld(){}
+	@Override
+	@Retrieval
+	public void onInventoryClick(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

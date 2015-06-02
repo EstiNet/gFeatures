@@ -23,6 +23,7 @@ public class TierMenu {
 	sniper2, shotgun2, special2, autorifle2, sniper3, shotgun3, special3, autorifle3, sniper4, shotgun4, special4, autorifle4, cancel, kills;
 	
 	List<String> dump = new ArrayList<>();
+	List<ItemStack> all = new ArrayList<>();
 	
 	public TierMenu(Player p){
 		cancel = createItem(Material.BARRIER, ChatColor.RED + "Back");
@@ -58,6 +59,28 @@ public class TierMenu {
 		shotgun4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
 		autorifle4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "m16-Elite");
+		
+		all.add(sniper);
+		all.add(shotgun);
+		all.add(special);
+		all.add(autorifle);
+		all.add(sniper1);
+		all.add(shotgun1);
+		all.add(special1);
+		all.add(autorifle1);
+		all.add(sniper2);
+		all.add(shotgun3);
+		all.add(special2);
+		all.add(autorifle2);
+		all.add(sniper3);
+		all.add(shotgun3);
+		all.add(special3);
+		all.add(autorifle3);
+		all.add(sniper4);
+		all.add(shotgun4);
+		all.add(special4);
+		all.add(autorifle4);
+		all.add(cancel);
 	}
 	
 	public void setup(Player p){
@@ -114,6 +137,9 @@ public class TierMenu {
 		else if(event.getPlayer().getItemInHand().equals(tierfour)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 50 kills for this tier.");
 			tier(4,event.getPlayer());
+		}
+		else{
+			//TODO FOR LOOP FOR THE ITEMS TO SEND TO TIERS
 		}
 	}
 	

@@ -11,6 +11,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
@@ -94,6 +95,11 @@ public class EventHub {
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU)){
 			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getItemInHand().getItemMeta().getLore().get(0));
+		}
+	}
+	public void onInventoryClick(InventoryClickEvent event){
+		if(stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.SPAWNMENU)){
+			event.setCancelled(true);
 		}
 	}
 }

@@ -21,6 +21,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -135,7 +136,11 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void PlayerHeldItemEvent(PlayerItemHeldEvent event){
-    	
+    	library.onPlayerItemHeld(event);
+    }
+    @EventHandler
+    public void InventoryClickEvent(InventoryClickEvent event){
+    	library.onInventoryClick(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

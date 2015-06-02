@@ -91,4 +91,5 @@ public class gFeature {
     public void onPlayerCommand(){}
     public void onPlayerOpenInventory(){}
     public void onPlayerItemHeld(){}
+    public void onInventoryClick(){}
 }
