@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -72,6 +73,9 @@ public class Library {
     }
     public void onPlayerOpenInventory(InventoryOpenEvent event){
     	check("onPlayerOpenInventory", event);
+    }
+    public void onPlayerItemHeld(PlayerItemHeldEvent event){
+    	check("onPlayerItemHeld", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

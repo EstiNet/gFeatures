@@ -16,6 +16,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -45,7 +46,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.4.9";
+	public static final String version = "2.4.10";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -131,6 +132,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void PlayerInventoryEvent(InventoryOpenEvent event){
     	library.onPlayerOpenInventory(event);
+    }
+    @EventHandler
+    public void PlayerHeldItemEvent(PlayerItemHeldEvent event){
+    	
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
