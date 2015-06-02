@@ -2,7 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 
 import org.bukkit.entity.Player;
 
-public class TierZero {
+public class TierZero extends TierMenu{
 	public void initialize(String value, Player p){
 		switch(value){
 		case "AUTORIFLE":
@@ -29,6 +29,10 @@ public class TierZero {
 		
 	}
 	public void special(Player p){
+		
+	}
+	
+	public void interact(PlayerInteractEvent event){
 		
 	}
 }

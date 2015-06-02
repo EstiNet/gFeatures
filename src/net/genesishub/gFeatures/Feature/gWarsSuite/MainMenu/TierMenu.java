@@ -45,19 +45,19 @@ public class TierMenu {
 		autorifle1 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "m16");
 		
 		sniper2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SilSil69");
-		shotgun2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "");
+		shotgun2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS Regular");
 		special2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Flamethrower");
-		autorifle2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		autorifle2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "AK47 Silver");
 
-		sniper3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
-		shotgun3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
-		special3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
-		autorifle3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		sniper3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SR-25");
+		shotgun3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "FN-TPS");
+		special3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Assassin");
+		autorifle3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Beretta ARX100");
 		
-		sniper4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
-		shotgun4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
-		special4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
-		autorifle4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		sniper4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Heckler and Koch MP-4");
+		shotgun4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
+		special4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
+		autorifle4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "m16-Elite");
 	}
 	
 	public void setup(Player p){
@@ -100,19 +100,19 @@ public class TierMenu {
 			tier(0 ,event.getPlayer());
 		}
 		else if(event.getPlayer().getItemInHand().equals(tierone)){
-			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 5 kills for this tier.");
 			tier(1,event.getPlayer());
 		}
 		else if(event.getPlayer().getItemInHand().equals(tiertwo)){
-			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 10 kills for this tier.");
 			tier(2,event.getPlayer());
 		}
 		else if(event.getPlayer().getItemInHand().equals(tierthree)){
-			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 25 kills for this tier.");
 			tier(3,event.getPlayer());
 		}
 		else if(event.getPlayer().getItemInHand().equals(tierfour)){
-			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
+			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 50 kills for this tier.");
 			tier(4,event.getPlayer());
 		}
 	}
@@ -125,9 +125,36 @@ public class TierMenu {
 			p.getInventory().setItem(1, shotgun);
 			p.getInventory().setItem(2, autorifle);
 			p.getInventory().setItem(3, special);
+			p.getInventory().setItem(8, cancel);
 			break;
 		case 1:
 			p.getInventory().setItem(0, sniper1);
+			p.getInventory().setItem(1, shotgun1);
+			p.getInventory().setItem(2, autorifle1);
+			p.getInventory().setItem(3, special1);
+			p.getInventory().setItem(8, cancel);
+			break;
+		case 2:
+			p.getInventory().setItem(0, sniper2);
+			p.getInventory().setItem(1, shotgun2);
+			p.getInventory().setItem(2, autorifle2);
+			p.getInventory().setItem(3, special2);
+			p.getInventory().setItem(8, cancel);
+			break;
+		case 3:
+			p.getInventory().setItem(0, sniper3);
+			p.getInventory().setItem(1, shotgun3);
+			p.getInventory().setItem(2, autorifle3);
+			p.getInventory().setItem(3, special3);
+			p.getInventory().setItem(8, cancel);
+			break;
+		case 4:
+			p.getInventory().setItem(0, sniper4);
+			p.getInventory().setItem(1, shotgun4);
+			p.getInventory().setItem(2, autorifle4);
+			p.getInventory().setItem(3, special4);
+			p.getInventory().setItem(8, cancel);
+			break;
 		}
 	}
 }

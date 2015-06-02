@@ -2,7 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 
 import org.bukkit.entity.Player;
 
-public class TierOne {
+public class TierOne extends TierMenu{
 	public void initialize(String value, Player p){
 		switch(value){
 		case "AUTORIFLE":
