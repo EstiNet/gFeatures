@@ -5,6 +5,9 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.TierMenu;
 import org.bukkit.entity.Player;
 
 public class TierFour extends TierMenu{
+	public TierFour(Player p) {
+		super(p);
+	}
 	public void initialize(String value, Player p){
 		switch(value){
 		case "AUTORIFLE":
