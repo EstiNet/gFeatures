@@ -1,15 +1,19 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -39,6 +43,7 @@ public class EventHub {
 	Statistics stats = new Statistics();
 	Inventory inv = new Inventory();
 	Interaction interact = new Interaction();
+	ActionAPI aapi = new ActionAPI();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		mm.start(event);
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
@@ -64,14 +69,31 @@ public class EventHub {
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getDamager() instanceof Player && event.getEntity() instanceof Player){
-			if(stats.getMode((Player)event.getDamager()).equals(gWarsMode.MAINMENU) || stats.getMode((Player) event.getDamager()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getDamager()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getDamager()).equals(gWarsMode.SPAWNMENU)){
-				
+			if(stats.getMode((Player)event.getEntity()).equals(gWarsMode.MAINMENU) || stats.getMode((Player) event.getEntity()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getEntity()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getEntity()).equals(gWarsMode.SPAWNMENU)){
+				MenuDamage d = new MenuDamage();
+				d.onEntityDamage(event);
+			}
+			else if(stats.getMode(event.getDamager()).equals(gWarsMode.TEAM)){
+				Damage d = new Damage();
+				d.onEntityDamage(event);
 			}
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
 		if(event.getDamager() instanceof Player && event.getVictim() instanceof Player){
-			
+			if(stats.getMode((Player)event.getVictim()).equals(gWarsMode.MAINMENU) || stats.getMode((Player) event.getVictim()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getVictim()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getVictim()).equals(gWarsMode.SPAWNMENU)){
+				MenuDamage d = new MenuDamage();
+				d.onWeaponDamage(event);
+			}
+			else if(stats.getMode(event.getDamager()).equals(gWarsMode.TEAM)){
+				Damage d = new Damage();
+				d.onWeaponDamage(event);
+			}
+		}
+	}
+	public void onPlayerItemHeld(PlayerItemHeldEvent event){
+		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU)){
+			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getItemInHand().getItemMeta().getLore().get(0));
 		}
 	}
 }

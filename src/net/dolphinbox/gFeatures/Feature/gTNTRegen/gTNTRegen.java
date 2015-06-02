@@ -55,6 +55,7 @@ public class gTNTRegen extends gFeature{
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
 	}
+	@Override
 	@Retrieval
 	public void onPlayerJoin(){}
 	@Override

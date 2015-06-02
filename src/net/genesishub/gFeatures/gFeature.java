@@ -90,4 +90,5 @@ public class gFeature {
     public void onPlayerChat(){}
     public void onPlayerCommand(){}
     public void onPlayerOpenInventory(){}
+    public void onPlayerItemHeld(){}
 }
