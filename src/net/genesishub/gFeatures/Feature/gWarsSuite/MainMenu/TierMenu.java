@@ -19,9 +19,14 @@ public class TierMenu {
 	ClearInventory ci = new ClearInventory();
 	ActionAPI aapi = new ActionAPI();
 	
-	ItemStack tierzero, tierone, tiertwo, tierthree, tierfour, sniper, shotgun, special, autorifle, kills;
+	ItemStack tierzero, tierone, tiertwo, tierthree, tierfour, sniper, shotgun, special, autorifle, sniper1, shotgun1, special1, autorifle1, 
+	sniper2, shotgun2, special2, autorifle2, sniper3, shotgun3, special3, autorifle3, sniper4, shotgun4, special4, autorifle4, cancel, kills;
+	
+	List<String> dump = new ArrayList<>();
 	
 	public TierMenu(Player p){
+		cancel = createItem(Material.BARRIER, ChatColor.RED + "Back");
+		
 		tierzero = createItem(Material.IRON_BLOCK, ChatColor.AQUA + "Tier 0", ChatColor.GOLD + "Weapons in this tier costs 0 kills.");
 		tierone = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Tier 1", ChatColor.GOLD + "Weapons in this tier costs 5 kills.");
 		tiertwo = createItem(Material.LAPIS_BLOCK, ChatColor.AQUA + "Tier 2", ChatColor.GOLD + "Weapons in this tier costs 10 kills.");
@@ -33,6 +38,26 @@ public class TierMenu {
 		shotgun = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
 		special = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
 		autorifle = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		
+		sniper1 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun1 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special1 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
+		autorifle1 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		
+		sniper2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
+		autorifle2 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+
+		sniper3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
+		autorifle3 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		
+		sniper4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Special", ChatColor.GOLD + "Special");
+		autorifle4 = createItem(Material.GOLD_BLOCK, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
 	}
 	
 	public void setup(Player p){
@@ -101,7 +126,8 @@ public class TierMenu {
 			p.getInventory().setItem(2, autorifle);
 			p.getInventory().setItem(3, special);
 			break;
-		
+		case 1:
+			p.getInventory().setItem(0, sniper1);
 		}
 	}
 }
