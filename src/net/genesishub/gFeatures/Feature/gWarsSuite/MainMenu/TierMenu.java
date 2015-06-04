@@ -6,6 +6,11 @@ import java.util.List;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierFour;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierOne;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierThree;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierTwo;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierZero;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -84,6 +89,7 @@ public class TierMenu {
 	}
 	
 	public void setup(Player p){
+		ci.clearInv(p);
 		
 		p.getInventory().setItem(0, tierzero);
 		p.getInventory().setItem(1, tierone);
@@ -139,7 +145,31 @@ public class TierMenu {
 			tier(4,event.getPlayer());
 		}
 		else{
-			//TODO FOR LOOP FOR THE ITEMS TO SEND TO TIERS
+			for(ItemStack item : all){
+				if(item.equals(sniper) || item.equals(shotgun) || item.equals(special) || item.equals(autorifle)){
+					TierZero tz = new TierZero(event.getPlayer());
+					tz.interact(event);
+				}
+				else if(item.equals(sniper1) || item.equals(shotgun1) || item.equals(special1) || item.equals(autorifle1)){
+					TierOne to = new TierOne(event.getPlayer());
+					to.interact(event);
+				}
+				else if(item.equals(sniper2) || item.equals(shotgun2) || item.equals(special2) || item.equals(autorifle2)){
+					TierTwo to = new TierTwo(event.getPlayer());
+					to.interact(event);
+				}
+				else if(item.equals(sniper3) || item.equals(shotgun) || item.equals(special3) || item.equals(autorifle3)){
+					TierThree to = new TierThree(event.getPlayer());
+					to.interact(event);
+				}
+				else if(item.equals(sniper4) || item.equals(shotgun4) || item.equals(special4) || item.equals(autorifle4)){
+					TierFour to = new TierFour(event.getPlayer());
+					to.interact(event);
+				}
+				if(item.equals(cancel)){
+					setup(event.getPlayer());
+				}
+			}
 		}
 	}
 	
