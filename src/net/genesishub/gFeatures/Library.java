@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.event.Event;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -80,6 +81,9 @@ public class Library {
     }
     public void onInventoryClick(InventoryClickEvent event){
     	check("onInventoryClick", event);
+    }
+    public void onEntityExplode(EntityExplodeEvent event){
+    	check("onEntityExplode", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

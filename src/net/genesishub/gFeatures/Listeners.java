@@ -24,6 +24,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.entity.EntityExplodeEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -141,6 +142,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void InventoryClickEvent(InventoryClickEvent event){
     	library.onInventoryClick(event);
+    }
+    @EventHandler
+    public void EntityExplodeEvent(EntityExplodeEvent event){
+    	library.onEntityExplode(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

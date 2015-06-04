@@ -92,4 +92,5 @@ public class gFeature {
     public void onPlayerOpenInventory(){}
     public void onPlayerItemHeld(){}
     public void onInventoryClick(){}
+    public void onEntityExplode(){}
 }

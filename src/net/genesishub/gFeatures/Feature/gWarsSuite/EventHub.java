@@ -9,8 +9,13 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -102,4 +107,19 @@ public class EventHub {
 			event.setCancelled(true);
 		}
 	}
+	public void onEntityExplode(EntityExplodeEvent e) {
+        for (Block b : e.blockList()) {
+                final BlockState state = b.getState();
+                b.setType(Material.AIR);
+                int delay = 20;
+                if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
+                        delay += 1;
+                }
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                        public void run() {
+                                state.update(true, false);
+                        }
+                }, delay);
+        }
+}
 }
