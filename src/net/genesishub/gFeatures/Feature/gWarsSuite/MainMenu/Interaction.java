@@ -28,7 +28,8 @@ public class Interaction {
 			Bukkit.getLogger().info("GunMenu Interact");
 		}
 		else if(stats.getMode(p).equals(gWarsMode.SPAWNMENU)){
-			
+			SpawnMenu sm = new SpawnMenu(p);
+			sm.interact(event);
 		}
 	}
 }

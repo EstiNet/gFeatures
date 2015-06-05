@@ -32,5 +32,12 @@ public class Enable {
 		Basic.addPlayerSection("gWars.Mode", "NONE");
 		ConfigHub ch = new ConfigHub();
 		ch.setupConfig();
+		
+		/*
+		 * Intialize Points here.
+		 * 
+		 * */
+		
+		
 	}
 }
