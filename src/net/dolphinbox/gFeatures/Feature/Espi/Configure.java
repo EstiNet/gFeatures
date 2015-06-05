@@ -25,7 +25,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		Espi base = new Espi("Base", "1.2.5");
+		Espi base = new Espi("Espi", "1.0.0");
 		Basic.addFeature(base);
 	}
 }
