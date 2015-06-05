@@ -64,12 +64,12 @@ public class SpawnMenu {
 			if(p.getItemInHand().equals(mainbase)){
 				if(OrangeTeam.hasPlayer(p)){
 					p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Kloyne military base" + ChatColor.GRAY + ".");
-					Constants.spawndump.put(p, Constants.orangebase);
+					Constants.spawndump.put(p.getName(), Constants.orangebase);
 					finali();
 				}
 				else{
 					p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Innisfil military base" + ChatColor.GRAY + ".");
-					Constants.spawndump.put(p, Constants.bluebase);
+					Constants.spawndump.put(p.getName(), Constants.bluebase);
 					finali();
 				}
 			}
@@ -77,7 +77,7 @@ public class SpawnMenu {
 				if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.ORANGE)){
 					if(OrangeTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Bridge" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.bridge.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.bridge.getSpawn());
 						finali();
 					}
 					else{
@@ -87,7 +87,7 @@ public class SpawnMenu {
 				else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.BLUE)){
 					if(BlueTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Bridge" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.bridge.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.bridge.getSpawn());
 						finali();
 					}
 					else{
@@ -102,7 +102,7 @@ public class SpawnMenu {
 				if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.ORANGE)){
 					if(OrangeTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Innisfil Highway Exit" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.innisfilhighway.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.innisfilhighway.getSpawn());
 						finali();
 					}
 					else{
@@ -112,7 +112,7 @@ public class SpawnMenu {
 				else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.BLUE)){
 					if(BlueTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Innisfil Highway Exit" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.innisfilhighway.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.innisfilhighway.getSpawn());
 						finali();
 					}
 					else{
@@ -127,7 +127,7 @@ public class SpawnMenu {
 				if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.ORANGE)){
 					if(OrangeTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Kloyne Highway Exit" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.kloynehighway.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.kloynehighway.getSpawn());
 						finali();
 					}
 					else{
@@ -137,7 +137,7 @@ public class SpawnMenu {
 				else if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.BLUE)){
 					if(BlueTeam.hasPlayer(p)){
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Kloyne Highway Exit" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.kloynehighway.getSpawn());
+						Constants.spawndump.put(p.getName(), Constants.kloynehighway.getSpawn());
 						finali();
 					}
 					else{

@@ -59,6 +59,7 @@ public class EventHub {
 		stats.setMode(p, gWarsMode.NONE);
 		BlueTeam.removePlayer(event.getPlayer());
 		OrangeTeam.removePlayer(event.getPlayer());
+		Constants.spawndump.remove(p);
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
@@ -99,8 +100,7 @@ public class EventHub {
 	}
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU)){
-			Constants.loredump.put(event.getPlayer(), event.getPlayer().getItemInHand().getItemMeta().getLore().get(0));
-			aapi.sendActionbar(event.getPlayer(), Constants.loredump.get(event.getPlayer()));
+			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getPreviousSlot()).getItemMeta().getLore().get(0));
 		}
 	}
 	public void onInventoryClick(InventoryClickEvent event){
@@ -122,5 +122,5 @@ public class EventHub {
                         }
                 }, delay);
         }
-}
+	}
 }

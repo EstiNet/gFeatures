@@ -18,8 +18,7 @@ public class Constants {
 	public static Location multiplayerorangeteamlook = new Location(Bukkit.getServer().getWorld("gWars"), 636.0, 91.0, -96.0); //TODO
 	public static HashMap<Point, Team> multiplayerpossession = new HashMap<>();
 	public static HashMap<Player, gWarsMode> mode = new HashMap<>();
-	public static HashMap<Player, String> loredump = new HashMap<>();
-	public static HashMap<Player, Location> spawndump = new HashMap<>();
+	public static HashMap<String, Location> spawndump = new HashMap<>();
 	
 	public static Location orangebase = new Location(world, 666, 66, -91);
 	public static Location bluebase = new Location(world , 59, 66, 224);
