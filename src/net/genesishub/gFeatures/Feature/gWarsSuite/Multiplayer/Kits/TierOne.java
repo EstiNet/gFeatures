@@ -42,21 +42,25 @@ public class TierOne{
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "m16", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void shotgun(){
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Colt Model 1", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void sniper(){
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "ULR338", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void special(){
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Bazooka", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
@@ -84,5 +88,8 @@ public class TierOne{
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+	public void finali(){
+		
 	}
 }

@@ -5,11 +5,11 @@ import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
-import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
@@ -27,7 +27,8 @@ public class Join {
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
-		p.teleport(Constants.spawnonjoin);
+		Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
+		p.teleport(spawnonjoin);
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
 				p.hidePlayer(sp);

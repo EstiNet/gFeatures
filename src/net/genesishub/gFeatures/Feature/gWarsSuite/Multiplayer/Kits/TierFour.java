@@ -37,16 +37,16 @@ public class TierFour{
 		}
 	}
 	public void autorifle(){
-		
+		finali();
 	}
 	public void shotgun(){
-		
+		finali();
 	}
 	public void sniper(){
-		
+		finali();
 	}
 	public void special(){
-		
+		finali();
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
@@ -74,5 +74,8 @@ public class TierFour{
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+	public void finali(){
+		
 	}
 }

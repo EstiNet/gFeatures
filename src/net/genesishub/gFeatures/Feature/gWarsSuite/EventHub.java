@@ -51,8 +51,8 @@ public class EventHub {
 	Interaction interact = new Interaction();
 	ActionAPI aapi = new ActionAPI();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		mm.start(event);
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
+		mm.start(event);
 	}
 	public void onPlayerQuit(PlayerQuitEvent event){
 		Player p = event.getPlayer();

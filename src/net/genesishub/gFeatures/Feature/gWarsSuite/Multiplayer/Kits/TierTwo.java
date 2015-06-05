@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,6 +16,7 @@ import com.shampaggon.crackshot.CSUtility;
 
 public class TierTwo{
 	Player p;
+	ClearInventory ci = new ClearInventory();
 	ItemStack sniper2, shotgun2, special2, autorifle2;
 	public TierTwo(Player player) {
 		p = player;
@@ -39,24 +42,32 @@ public class TierTwo{
 		}
 	}
 	public void autorifle(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "AK47-Silver", 1);
 		cs.giveWeapon(p, "Python", 1);	
+		finali();
 	}
 	public void shotgun(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "SPAS", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void sniper(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "SilSil69", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void special(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Flamethrower", 1);
 		cs.giveWeapon(p, "Python", 1);
+		finali();
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
@@ -84,5 +95,8 @@ public class TierTwo{
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+	public void finali(){
+		
 	}
 }

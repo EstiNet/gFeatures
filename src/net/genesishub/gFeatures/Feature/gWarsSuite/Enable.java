@@ -46,7 +46,7 @@ public class Enable {
 		Constants.multiplayerpossession.put(Constants.kloynehighway, Team.ORANGE);
 		Constants.multiplayerpossession.put(Constants.bridge, Team.NEUTRAL);
 		
-		for(Point point : Constants.multiplayerpossession.keySet()){
+		/*for(Point point : Constants.multiplayerpossession.keySet()){
 			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){
 				point.setBlue();
 			}
@@ -56,6 +56,6 @@ public class Enable {
 			else if(Constants.multiplayerpossession.get(point).equals(Team.NEUTRAL)){
 				point.setNeutral();
 			}
-		}
+		}*/
 	}
 }

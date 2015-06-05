@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.shampaggon.crackshot.CSUtility;
 
 public class TierZero{
+	ClearInventory ci = new ClearInventory();
 	Player p;
 	ItemStack sniper, shotgun, special, autorifle;
 	public TierZero(Player player) {
@@ -41,24 +44,32 @@ public class TierZero{
 		}
 	}
 	public void autorifle(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
     	cs.giveWeapon(p, "Auto-Rifle", 1);
     	cs.giveWeapon(p, "Python", 1);
+    	finali();
 	}
 	public void shotgun(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
     	cs.giveWeapon(p, "Shotgun", 1);
     	cs.giveWeapon(p, "Python", 1);
+    	finali();
 	}
 	public void sniper(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
     	cs.giveWeapon(p, "Sniper", 1);
     	cs.giveWeapon(p, "Python", 1);
+    	finali();
 	}
 	public void special(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
     	cs.giveWeapon(p, "Shotgun", 1);
     	cs.giveWeapon(p, "Python", 1);
+    	finali();
 	}
 	
 	public void interact(PlayerInteractEvent event){
@@ -87,5 +98,8 @@ public class TierZero{
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+	public void finali(){
+		
 	}
 }
