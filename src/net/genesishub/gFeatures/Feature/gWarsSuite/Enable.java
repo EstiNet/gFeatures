@@ -1,8 +1,12 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 
 import net.genesishub.gFeatures.Basic;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 /*
 gFeatures
@@ -38,6 +42,20 @@ public class Enable {
 		 * 
 		 * */
 		
+		Constants.multiplayerpossession.put(Constants.innisfilhighway, Team.BLUE);
+		Constants.multiplayerpossession.put(Constants.kloynehighway, Team.ORANGE);
+		Constants.multiplayerpossession.put(Constants.bridge, Team.NEUTRAL);
 		
+		for(Point point : Constants.multiplayerpossession.keySet()){
+			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){
+				point.setBlue();
+			}
+			else if(Constants.multiplayerpossession.get(point).equals(Team.ORANGE)){
+				point.setOrange();
+			}
+			else if(Constants.multiplayerpossession.get(point).equals(Team.NEUTRAL)){
+				point.setNeutral();
+			}
+		}
 	}
 }

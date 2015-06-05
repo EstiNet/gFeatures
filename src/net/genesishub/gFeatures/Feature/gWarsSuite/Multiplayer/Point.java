@@ -9,10 +9,11 @@ import org.bukkit.block.Block;
 
 public class Point {
 	private String name;
+	private Location spawnlocation;
 	private List<Location> location = new ArrayList<>();
-	private Team currentteam;
-	public Point(String nam, Location upper, Location lower){
+	public Point(String nam, Location upper, Location lower, Location spawn){
 		name = nam;
+		spawnlocation = spawn;
 		location.add(upper);
 		World world = upper.getWorld();
 		if(upper.getBlockX() < lower.getBlockX()){
@@ -48,6 +49,9 @@ public class Point {
 	public String getName(){
 		return name;
 	}
+	public Location getSpawn(){
+		return spawnlocation;
+	}
 	@SuppressWarnings("deprecation")
 	public void setOrange(){
 		List<Block> blocks = new ArrayList<>();
@@ -66,6 +70,16 @@ public class Point {
 		}
 		for(Block block : blocks){
 			block.setData((byte)3);
+		}
+	}
+	@SuppressWarnings("deprecation")
+	public void setNeutral(){
+		List<Block> blocks = new ArrayList<>();
+		for(Location loc : location){
+			blocks.add(loc.getBlock());
+		}
+		for(Block block : blocks){
+			block.setData((byte)0);
 		}
 	}
 }
