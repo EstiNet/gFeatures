@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.*;
 
 public class Tier <T>{
-	TierZero tz = new TierZero();
+	/*TierZero tz = new TierZero();
 	TierOne to = new TierOne();
 	TierTwo tt = new TierTwo();
 	TierThree tth = new TierThree();
@@ -31,5 +31,5 @@ public class Tier <T>{
 			FourTier zt = (FourTier) tier;
 			tf.initialize(zt.toString(), p);
 		}
-	}
+	}*/
 }

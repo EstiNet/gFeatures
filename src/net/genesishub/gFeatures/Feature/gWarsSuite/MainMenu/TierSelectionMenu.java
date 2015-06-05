@@ -38,7 +38,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class TierSelectionMenu {
-	Statistics s = new Statistics();
+	/*Statistics s = new Statistics();
 	@SuppressWarnings("rawtypes")
 	Tier tier = new Tier();
 	public void Initialize(PlayerInteractEvent event){
@@ -247,5 +247,5 @@ public class TierSelectionMenu {
     .setOption(3, new ItemStack(Material.WOOD_SPADE, 1), ChatColor.DARK_AQUA+"Shotgun", ChatColor.WHITE+"Classic Shotgun.")
 	.setOption(4, new ItemStack(Material.WOOD_SWORD, 1), ChatColor.DARK_AQUA+"Special", ChatColor.WHITE+"More health, less damage.");
 	return menu;
-	}
+	}*/
 }

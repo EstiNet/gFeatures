@@ -16,7 +16,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class TeamMenu {
-	GunMenu gm = new GunMenu();
 	Statistics stats = new Statistics();
 	ClearInventory ci = new ClearInventory();
 	ActionAPI aapi = new ActionAPI();
@@ -69,8 +68,9 @@ public class TeamMenu {
 			}
 	}
 	public void finals(Player p){
-		aapi.sendActionbar(p, ChatColor.AQUA + "Please select a kit.");
-		stats.setMode(p, gWarsMode.GUNMENU);
-		gm.setup(p);
+		aapi.sendActionbar(p, ChatColor.AQUA + "Please select a place to spawn.");
+		stats.setMode(p, gWarsMode.SPAWNMENU);
+		SpawnMenu gm = new SpawnMenu(p);
+		gm.intialize();
 	}
 }
