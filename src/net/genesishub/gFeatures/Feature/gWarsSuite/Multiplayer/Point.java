@@ -10,7 +10,7 @@ import org.bukkit.block.Block;
 public class Point {
 	private String name;
 	private List<Location> location = new ArrayList<>();
-	//private Team;//TODO set it up
+	private Team currentteam;
 	public Point(String nam, Location upper, Location lower){
 		name = nam;
 		location.add(upper);
@@ -58,6 +58,7 @@ public class Point {
 			block.setData((byte)1);
 		}
 	}
+	@SuppressWarnings("deprecation")
 	public void setBlue(){
 		List<Block> blocks = new ArrayList<>();
 		for(Location loc : location){
