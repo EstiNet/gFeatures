@@ -63,6 +63,9 @@ public class gTNTRegen extends gFeature{
 			ch.onCommand(sender, cmd, label, args);
 	}
 	
+	/*
+	 * Main TNT Regen Login
+	 */
     @EventHandler
     public void onEntityExplode(EntityExplodeEvent e) {
             for (Block b : e.blockList()) {

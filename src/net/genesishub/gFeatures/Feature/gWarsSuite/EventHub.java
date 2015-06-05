@@ -108,11 +108,14 @@ public class EventHub {
 			event.setCancelled(true);
 		}
 	}
+	/*
+	 * Code from gTNTRegen. Main Regen login
+	 */
 	public void onEntityExplode(EntityExplodeEvent e) {
         for (Block b : e.blockList()) {
                 final BlockState state = b.getState();
                 b.setType(Material.AIR);
-                int delay = 20;
+                int delay = 20; //Delay before blocks are regenerated.
                 if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
                         delay += 1;
                 }
