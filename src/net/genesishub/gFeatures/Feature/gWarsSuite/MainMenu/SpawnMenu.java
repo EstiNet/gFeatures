@@ -5,6 +5,8 @@ import java.util.List;
 
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
+import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
@@ -19,6 +21,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class SpawnMenu {
 	Player p;
 	ClearInventory ci = new ClearInventory();
+	Statistics stats = new Statistics();
 	ItemStack teamspawn, capturespawn, mainbase, innisfilhighwayexit, kloynehighwayexit, bridge, cancel;
 	public SpawnMenu(Player player){
 		p = player;
@@ -95,28 +98,53 @@ public class SpawnMenu {
 					p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is " + ChatColor.WHITE + " Neutral" + ChatColor.GRAY + ".");
 				}
 			}
-			else if(p.getItemInHand().equals(bridge)){
-				if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.ORANGE)){
+			else if(p.getItemInHand().equals(innisfilhighwayexit)){
+				if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.ORANGE)){
 					if(OrangeTeam.hasPlayer(p)){
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Bridge" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.bridge.getSpawn());
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Innisfil Highway Exit" + ChatColor.GRAY + ".");
+						Constants.spawndump.put(p, Constants.innisfilhighway.getSpawn());
 						finali();
 					}
 					else{
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
 					}
 				}
-				else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.BLUE)){
+				else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.BLUE)){
 					if(BlueTeam.hasPlayer(p)){
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Bridge" + ChatColor.GRAY + ".");
-						Constants.spawndump.put(p, Constants.bridge.getSpawn());
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Innisfil Highway Exit" + ChatColor.GRAY + ".");
+						Constants.spawndump.put(p, Constants.innisfilhighway.getSpawn());
 						finali();
 					}
 					else{
 						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Kloyne" + ChatColor.GRAY + ".");
 					}
 				}
-				else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.NEUTRAL)){
+				else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.NEUTRAL)){
+					p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is " + ChatColor.WHITE + " Neutral" + ChatColor.GRAY + ".");
+				}
+			}
+			else if(p.getItemInHand().equals(kloynehighwayexit)){
+				if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.ORANGE)){
+					if(OrangeTeam.hasPlayer(p)){
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.GOLD + " Kloyne Highway Exit" + ChatColor.GRAY + ".");
+						Constants.spawndump.put(p, Constants.kloynehighway.getSpawn());
+						finali();
+					}
+					else{
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
+					}
+				}
+				else if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.BLUE)){
+					if(BlueTeam.hasPlayer(p)){
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Spawn place will be the " + ChatColor.DARK_AQUA + " Kloyne Highway Exit" + ChatColor.GRAY + ".");
+						Constants.spawndump.put(p, Constants.kloynehighway.getSpawn());
+						finali();
+					}
+					else{
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Kloyne" + ChatColor.GRAY + ".");
+					}
+				}
+				else if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.NEUTRAL)){
 					p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is " + ChatColor.WHITE + " Neutral" + ChatColor.GRAY + ".");
 				}
 			}
@@ -137,7 +165,9 @@ public class SpawnMenu {
 		p.getInventory().setItem(8, cancel);
 	}
 	private void finali(){
-		
+		stats.setMode(p, gWarsMode.GUNMENU);
+		GunMenu gm = new GunMenu();
+		gm.setup(p);
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);
