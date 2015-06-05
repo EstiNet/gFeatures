@@ -5,6 +5,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
@@ -22,6 +23,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -125,5 +127,12 @@ public class EventHub {
                         }
                 }, delay);
         }
+	}
+	public void onPlayerRespawn(PlayerRespawnEvent event){
+		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
+			stats.setMode(event.getPlayer(), gWarsMode.SPAWNMENU);
+			SpawnMenu sm = new SpawnMenu(event.getPlayer());
+			sm.intialize();
+		}
 	}
 }

@@ -3,19 +3,18 @@ package net.genesishub.gFeatures.Feature.gWarsSuite;
 import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -83,6 +82,9 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
 			eh.onEntityExplode((EntityExplodeEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerrespawnevent")){
+			eh.onPlayerRespawn((PlayerRespawnEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -111,6 +113,9 @@ public class gWarsSuite extends gFeature{
 	@Override
 	@Retrieval
 	public void onEntityExplode(){}
+	@Override
+	@Retrieval
+	public void onPlayerRespawn(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

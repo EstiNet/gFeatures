@@ -3,7 +3,6 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 
 import org.bukkit.Bukkit;
@@ -29,6 +28,7 @@ public class Join {
 		ci.clearInv(event.getPlayer());
 		Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
 		p.teleport(spawnonjoin);
+		p.playSound(p.getLocation(), "Kime & Vexento - Climb (Fixed)", 500, 1);
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
 				p.hidePlayer(sp);
