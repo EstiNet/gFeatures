@@ -16,6 +16,6 @@ public class GunMenu {
 	}
 	public void interaction(PlayerInteractEvent event){
 		TierMenu tm = new TierMenu(event.getPlayer());
-		tm.setup(event.getPlayer());
+		tm.interact(event);
 	}
 }
