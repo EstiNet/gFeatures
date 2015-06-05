@@ -16,7 +16,11 @@ public class Damage {
 			Bukkit.getLogger().info("Damage averted.");
 		}
 		else{
-			//TODO Check if player is dead and add kill + death
+			if(event.getEntity().isDead()){
+				//TODO Check if player is dead and add kill + death
+				event.setCancelled(true);
+				
+			}
 		}
 	}
 	public void onWeaponDamage(WeaponDamageEntityEvent event){

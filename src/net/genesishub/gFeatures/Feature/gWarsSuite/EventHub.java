@@ -112,7 +112,7 @@ public class EventHub {
         for (Block b : e.blockList()) {
                 final BlockState state = b.getState();
                 b.setType(Material.AIR);
-                int delay = 20;
+                int delay = 100;
                 if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
                         delay += 1;
                 }

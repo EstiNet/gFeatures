@@ -81,7 +81,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Kloyne" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.BLUE)){
@@ -91,7 +91,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Kloyne" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Innisfil" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.NEUTRAL)){
@@ -106,7 +106,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Kloyne" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.BLUE)){
@@ -116,7 +116,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Kloyne" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Innisfil" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.NEUTRAL)){
@@ -131,7 +131,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Kloyne" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.BLUE)){
@@ -141,7 +141,7 @@ public class SpawnMenu {
 						finali();
 					}
 					else{
-						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.GOLD + " Kloyne" + ChatColor.GRAY + ".");
+						p.sendMessage(ChatColor.GRAY + "[Spawn] Can't spawn there! The point is captured by" + ChatColor.DARK_AQUA + " Innisfil" + ChatColor.GRAY + ".");
 					}
 				}
 				else if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.NEUTRAL)){
