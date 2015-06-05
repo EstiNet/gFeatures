@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class TierFour{
+	ClearInventory ci = new ClearInventory();
 	Player p;
 	ItemStack sniper4, shotgun4, special4, autorifle4;
 	public TierFour(Player player) {
@@ -37,15 +40,19 @@ public class TierFour{
 		}
 	}
 	public void autorifle(){
+		ci.clearInv(p);
 		finali();
 	}
 	public void shotgun(){
+		ci.clearInv(p);
 		finali();
 	}
 	public void sniper(){
+		ci.clearInv(p);
 		finali();
 	}
 	public void special(){
+		ci.clearInv(p);
 		finali();
 	}
 	public void interact(PlayerInteractEvent event){

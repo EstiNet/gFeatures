@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,6 +16,7 @@ import com.shampaggon.crackshot.CSUtility;
 
 public class TierOne{
 	Player p;
+	ClearInventory ci = new ClearInventory();
 	ItemStack sniper1, shotgun1, special1, autorifle1;
 	public TierOne(Player player) {
 		p  = player;
@@ -39,24 +42,28 @@ public class TierOne{
 		}
 	}
 	public void autorifle(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "m16", 1);
 		cs.giveWeapon(p, "Python", 1);
 		finali();
 	}
 	public void shotgun(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Colt Model 1", 1);
 		cs.giveWeapon(p, "Python", 1);
 		finali();
 	}
 	public void sniper(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "ULR338", 1);
 		cs.giveWeapon(p, "Python", 1);
 		finali();
 	}
 	public void special(){
+		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Bazooka", 1);
 		cs.giveWeapon(p, "Python", 1);
