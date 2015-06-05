@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
+import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Finish;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -97,6 +98,7 @@ public class TierOne{
 		return item;
 	}
 	public void finali(){
-		
+		Finish finish = new Finish();
+		finish.intialize(p);
 	}
 }
