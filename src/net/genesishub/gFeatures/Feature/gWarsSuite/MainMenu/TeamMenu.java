@@ -47,24 +47,14 @@ public class TeamMenu {
 	}
 	public void interact(PlayerInteractEvent event){
 			if(event.getPlayer().getItemInHand().equals(item1)){
-				if(OrangeTeam.size() > BlueTeam.size()){
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
-				}
-				else{
 					OrangeTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
-				}
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
-				if(OrangeTeam.size() < BlueTeam.size()){
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY + " because the teams will be unfair!");
-				}
-				else{
 					BlueTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY);
-				}
 			}
 	}
 	public void finals(Player p){

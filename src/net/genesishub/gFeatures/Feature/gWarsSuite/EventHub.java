@@ -8,6 +8,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
@@ -75,7 +76,8 @@ public class EventHub {
 			interact.intialize(event);
 		}
 		else if(stats.getMode(event.getPlayer()).equals(gWarsMode.TEAM)){
-			
+			Interact interact = new Interact();
+			interact.initialize(event);
 		}
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){

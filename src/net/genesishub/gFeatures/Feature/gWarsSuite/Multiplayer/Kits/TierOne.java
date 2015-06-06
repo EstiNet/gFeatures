@@ -18,13 +18,18 @@ import com.shampaggon.crackshot.CSUtility;
 public class TierOne{
 	Player p;
 	ClearInventory ci = new ClearInventory();
-	ItemStack sniper1, shotgun1, special1, autorifle1;
+	ItemStack sniper1, shotgun1, special1, autorifle1, ammo;
 	public TierOne(Player player) {
 		p  = player;
 		sniper1 = createItem(Material.STONE_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "ULR338");
 		shotgun1 = createItem(Material.STONE_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Colt Model 1");
 		special1 = createItem(Material.STONE_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Rocket Launcher");
 		autorifle1 = createItem(Material.STONE_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16");
+		
+		ammo = new ItemStack(Material.MELON_SEEDS, 16);
+		ItemMeta meta = ammo.getItemMeta();
+		meta.setDisplayName(ChatColor.GOLD + "Ammo");
+		ammo.setItemMeta(meta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -98,6 +103,7 @@ public class TierOne{
 		return item;
 	}
 	public void finali(){
+		p.getInventory().setItem(8, ammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}

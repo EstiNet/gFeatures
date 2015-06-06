@@ -18,7 +18,7 @@ import com.shampaggon.crackshot.CSUtility;
 public class TierZero{
 	ClearInventory ci = new ClearInventory();
 	Player p;
-	ItemStack sniper, shotgun, special, autorifle;
+	ItemStack sniper, shotgun, special, autorifle, ammo;
 	public TierZero(Player player) {
 		p = player;
 		
@@ -26,7 +26,10 @@ public class TierZero{
 		shotgun = createItem(Material.WOOD_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
 		special = createItem(Material.WOOD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Armoured");
 		autorifle = createItem(Material.WOOD_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Auto-Rifle");
-		
+		ammo = new ItemStack(Material.MELON_SEEDS, 16);
+		ItemMeta meta = ammo.getItemMeta();
+		meta.setDisplayName(ChatColor.GOLD + "Ammo");
+		ammo.setItemMeta(meta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -101,6 +104,7 @@ public class TierZero{
 		return item;
 	}
 	public void finali(){
+		p.getInventory().setItem(8, ammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}

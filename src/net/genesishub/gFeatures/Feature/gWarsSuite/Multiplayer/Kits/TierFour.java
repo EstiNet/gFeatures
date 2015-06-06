@@ -16,13 +16,18 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class TierFour{
 	ClearInventory ci = new ClearInventory();
 	Player p;
-	ItemStack sniper4, shotgun4, special4, autorifle4;
+	ItemStack sniper4, shotgun4, special4, autorifle4, ammo;
 	public TierFour(Player player) {
 		p = player;
 		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Heckler and Koch MP-4");
 		shotgun4 = createItem(Material.DIAMOND_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.DIAMOND_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
 		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16-Elite");
+		
+		ammo = new ItemStack(Material.MELON_SEEDS, 16);
+		ItemMeta meta = ammo.getItemMeta();
+		meta.setDisplayName(ChatColor.GOLD + "Ammo");
+		ammo.setItemMeta(meta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -84,6 +89,7 @@ public class TierFour{
 		return item;
 	}
 	public void finali(){
+		p.getInventory().setItem(8, ammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}
