@@ -130,10 +130,8 @@ public class EventHub {
                 }, delay);
         }
 	}
-	@EventHandler
-	public void onFoodLevelChange(FoodLevelChangeEvent event)
-	{
-	event.setFoodLevel(20);
+	public void onFoodLevelChange(FoodLevelChangeEvent event){
+	event.setCancelled(true);
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
