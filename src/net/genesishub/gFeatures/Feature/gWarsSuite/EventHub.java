@@ -15,8 +15,10 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -127,6 +129,11 @@ public class EventHub {
                         }
                 }, delay);
         }
+	}
+	@EventHandler
+	public void onFoodLevelChange(FoodLevelChangeEvent event)
+	{
+	event.setFoodLevel(20);
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
