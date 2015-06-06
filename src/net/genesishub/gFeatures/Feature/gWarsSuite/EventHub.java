@@ -103,7 +103,7 @@ public class EventHub {
 		}
 	}
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
-		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU)){
+		if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
 			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getPreviousSlot()).getItemMeta().getLore().get(0));
 		}
 	}
@@ -112,9 +112,6 @@ public class EventHub {
 			event.setCancelled(true);
 		}
 	}
-	/*
-	 * Code from gTNTRegen. Main Regen login
-	 */
 	public void onEntityExplode(EntityExplodeEvent e) {
         for (Block b : e.blockList()) {
                 final BlockState state = b.getState();
