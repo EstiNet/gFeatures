@@ -86,7 +86,7 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerrespawnevent")){
 			eh.onPlayerRespawn((PlayerRespawnEvent) event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("foodlevelchangevent")){
+		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
 			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
 		}
 	}

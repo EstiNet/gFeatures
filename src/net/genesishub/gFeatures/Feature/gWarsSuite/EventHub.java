@@ -15,6 +15,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -118,7 +119,7 @@ public class EventHub {
         for (Block b : e.blockList()) {
                 final BlockState state = b.getState();
                 b.setType(Material.AIR);
-                int delay = 20; //Delay before blocks are regenerated.
+                int delay = 100; //Delay before blocks are regenerated.
                 if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
                         delay += 1;
                 }

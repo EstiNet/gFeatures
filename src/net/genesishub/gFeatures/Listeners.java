@@ -147,6 +147,10 @@ public class Listeners extends JavaPlugin implements Listener{
     public void EntityExplodeEvent(EntityExplodeEvent event){
     	library.onEntityExplode(event);
     }
+    @EventHandler
+    public void FoodLevelChangeEvent(org.bukkit.event.entity.FoodLevelChangeEvent event){
+    	library.onFoodLevelChange(event);
+    }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	commands.Commands(sender, cmd, label, args);
