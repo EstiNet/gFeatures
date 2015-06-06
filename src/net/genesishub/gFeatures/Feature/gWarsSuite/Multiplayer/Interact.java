@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Interact {
 	public void initialize(PlayerInteractEvent event){
+		try{
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -56))){//Orange
 			int random = (int) Math.ceil(Math.random() * 4);
@@ -47,6 +48,8 @@ public class Interact {
 				break;
 			}
 			event.setCancelled(true);
+		}
+		}catch(Exception e){
 		}
 	}
 }
