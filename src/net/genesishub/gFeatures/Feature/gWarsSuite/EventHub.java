@@ -17,6 +17,7 @@ import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -134,5 +135,8 @@ public class EventHub {
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());
 			sm.intialize();
 		}
+	}
+	public void onFoodLevelChange(FoodLevelChangeEvent event) {
+		event.setCancelled(true);
 	}
 }
