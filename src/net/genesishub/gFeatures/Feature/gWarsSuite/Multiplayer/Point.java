@@ -82,4 +82,12 @@ public class Point {
 			block.setData((byte)0);
 		}
 	}
+	public boolean isInLocation(Location loc){
+		for(Location locs : location){
+			if(locs.getBlockX() == loc.getBlockX() && locs.getBlockZ() == loc.getBlockZ()){
+				return true;
+			}
+		}
+		return false;
+	}
 }

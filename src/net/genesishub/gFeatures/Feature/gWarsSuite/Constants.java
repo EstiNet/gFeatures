@@ -1,6 +1,8 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
@@ -22,6 +24,10 @@ public class Constants {
 	
 	public static Location orangebase = new Location(world, 666, 66, -91);
 	public static Location bluebase = new Location(world , 59, 66, 224);
+	
+	public static List<String> fighterjets = new ArrayList<>();
+	public static List<String> bombers = new ArrayList<>();
+	public static List<String> tank = new ArrayList<>();
 	
 	public static Point innisfilhighway = new Point("Innisfil Highway", new Location(world, 42, 60, 80), new Location(world, 44, 60, 78), new Location(world, 43, 61, 80));
 	public static Point kloynehighway = new Point("Kloyne Highway", new Location(world, 514, 60, -74), new Location(world, 512, 60, -76), new Location(world, 514, 61, -75));

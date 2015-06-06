@@ -25,8 +25,10 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.vehicle.VehicleUpdateEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -138,5 +140,10 @@ public class EventHub {
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		event.setCancelled(true);
+	}
+	public void onPlayerMove(PlayerMoveEvent event){
+		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
+			
+		}
 	}
 }
