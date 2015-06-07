@@ -72,9 +72,9 @@ public class Basic {
 		}
 		return null;
 	}
-	public static gPlayer getgPlayer(String name){
+	public static gPlayer getgPlayer(String uuid){
 		for(gPlayer player : playerstats){
-			if(player.getName().equalsIgnoreCase(name)){
+			if(player.getUUID().equalsIgnoreCase(uuid)){
 				return player;
 			}
 		}

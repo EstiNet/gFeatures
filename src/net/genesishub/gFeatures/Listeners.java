@@ -1,6 +1,7 @@
 package net.genesishub.gFeatures;
 
 import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
+import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -48,7 +49,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.4.10";
+	public static final String version = "2.5.0";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -56,7 +57,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	Library library = new Library();
 	CommandLibrary commands = new CommandLibrary();
 	Setup setup = new Setup();
-	ConfigHub ch = new ConfigHub();
+	Load load = new Load();
+	net.genesishub.gFeatures.API.PlayerStats.Setup setups = new net.genesishub.gFeatures.API.PlayerStats.Setup();
 	
 	@Override
 	public void onEnable(){
@@ -70,8 +72,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		LoadConfig.load();
 		enable.onEnable();
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
-		ch.setupConfig();
-		ch.loadConfig();
+		load.load();
 		getLogger().info(" Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
@@ -87,8 +88,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	}
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-		ch.addPlayerSection(event.getPlayer(), event.getPlayer().getName());
-    	Basic.getgPlayer(event.getPlayer().getName()).setPlayer(event.getPlayer());
+		setups.checkPlayer(event.getPlayer());
     	library.onPlayerJoin(event);
     }
     @EventHandler

@@ -3,6 +3,7 @@ package net.genesishub.gFeatures;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
+import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -88,13 +89,13 @@ public class CoreCommands{
 						Enabler enable = new Enabler();
 						Disabler disable = new Disabler();
 						Setup setup = new Setup();
-						ConfigHub ch = new ConfigHub();
+						Load load = new Load();
 						Bukkit.getLogger().info("_________________________________________________________________________");
-						Bukkit.getLogger().info("[gFeatures] gFeatures disabled!");
-						Bukkit.getLogger().info("[gFeatures] This gFeatures installation is running core: " + Listeners.version);
-						Bukkit.getLogger().info("[gFeatures] Turning off Features...");
+						Bukkit.getLogger().info("Stopping gFeatures Core!");
+						Bukkit.getLogger().info("This server is running gFeatures Core Version: " + Listeners.version);
+						Bukkit.getLogger().info("Turning off Features and Extensions...");
 						disable.onDisable();
-						Bukkit.getLogger().info("[gFeatures] Complete!");
+						Bukkit.getLogger().info("Complete!");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("Initalizing gFeatures.");
@@ -105,8 +106,7 @@ public class CoreCommands{
 						LoadConfig.load();
 						enable.onEnable();
 						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
-						ch.setupConfig();
-						ch.loadConfig();
+						load.load();
 						Bukkit.getLogger().info(" Complete!");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
