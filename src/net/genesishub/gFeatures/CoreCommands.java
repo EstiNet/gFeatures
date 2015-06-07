@@ -2,7 +2,6 @@ package net.genesishub.gFeatures;
 
 import java.util.List;
 
-import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;

@@ -1,6 +1,5 @@
 package net.genesishub.gFeatures;
 
-import net.genesishub.gFeatures.API.PlayerStats.ConfigHub;
 import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
@@ -49,7 +48,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.5.0";
+	public static final String version = "2.5.1";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();

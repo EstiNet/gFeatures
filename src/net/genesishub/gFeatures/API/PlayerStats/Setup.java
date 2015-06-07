@@ -15,10 +15,19 @@ public class Setup {
 		File f = new File("plugins/gFeatures/Players/" + p.getUniqueId().toString() + ".yml");
 		if(!f.exists()){
 			config.createFile(f.getPath(), "Made player directory!");
+			
 			gPlayer gp = new gPlayer(p);
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+			yamlFile.createSection("Config");
 			for(String str : Basic.getPlayerSections().keySet()){
-				if(yamlFile.get("Config." + str).equals(null)){
+				try{
+				if(yamlFile.get("Config." + str).equals(null)){//TODO try and catch for null
+					yamlFile.createSection("Config." + str);
+					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					gp.addValue(str, yamlFile.get("Config." + str).toString());
+				}
+				}
+				catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
@@ -38,7 +47,13 @@ public class Setup {
 				gp.setValue(str, yamlFile.get("Config." + str).toString());
 			}
 			for(String str : Basic.getPlayerSections().keySet()){
+				try{
 				if(yamlFile.get("Config." + str).equals(null)){
+					yamlFile.createSection("Config." + str);
+					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					gp.addValue(str, yamlFile.get("Config." + str).toString());
+				}
+				}catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
