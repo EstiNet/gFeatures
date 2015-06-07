@@ -9,6 +9,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
@@ -143,7 +144,8 @@ public class EventHub {
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
-			
+			Move move = new Move();
+			move.initialize(event);
 		}
 	}
 }
