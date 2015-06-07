@@ -15,7 +15,7 @@ public class Load {
 		config.createDirectory("plugins/gFeatures/Players", "Players directory created!");
 		for(File file : f.listFiles()){
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(file);
-			gPlayer gp = new gPlayer(yamlFile.get("Config.UUID").toString() , yamlFile.get("Config.Name").toString());
+			gPlayer gp = new gPlayer(yamlFile.get("Config.UUID").toString(), yamlFile.get("Config.Name").toString());
 			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(false)){
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
 			}
