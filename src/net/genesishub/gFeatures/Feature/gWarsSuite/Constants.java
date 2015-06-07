@@ -31,5 +31,5 @@ public class Constants {
 	
 	public static Point innisfilhighway = new Point("Innisfil Highway", new Location(world, 42, 60, 80), new Location(world, 44, 60, 78), new Location(world, 43, 61, 80));
 	public static Point kloynehighway = new Point("Kloyne Highway", new Location(world, 514, 60, -74), new Location(world, 512, 60, -76), new Location(world, 514, 61, -75));
-	public static Point bridge = new Point("Bridge", new Location(world, 42, 60, 80), new Location(world, 44, 60, 78), new Location(world, 514, 61, -75)); //TODO location
+	public static Point bridge = new Point("Bridge", new Location(world, 354, 85, -139), new Location(world, 351, 85, -141), new Location(world, 353, 86, -141)); 
 }

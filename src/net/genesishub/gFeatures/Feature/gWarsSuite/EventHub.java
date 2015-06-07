@@ -11,6 +11,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -59,6 +60,8 @@ public class EventHub {
 	Interaction interact = new Interaction();
 	ActionAPI aapi = new ActionAPI();
 	public void onPlayerJoin(PlayerJoinEvent event){
+		Source s = new Source();
+		s.flushAll();
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
 		mm.start(event);
 	}

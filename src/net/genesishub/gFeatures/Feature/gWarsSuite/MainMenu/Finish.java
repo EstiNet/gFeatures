@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 public class Finish {
 	Statistics stats = new Statistics();
@@ -16,5 +17,7 @@ public class Finish {
 		join.end(p);
 		p.teleport(new Location(Bukkit.getServer().getWorld("gWars"), Constants.spawndump.get(p.getName()).getX(), Constants.spawndump.get(p.getName()).getY(), Constants.spawndump.get(p.getName()).getZ()));
 		Constants.spawndump.remove(p);
+		Source s = new Source();
+		s.flushAll();
 	}
 }

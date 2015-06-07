@@ -2,7 +2,10 @@ package net.genesishub.gFeatures.Feature.gWarsSuite;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
@@ -82,5 +85,14 @@ public class Statistics {
 				Constants.mode.put(p, mode);
 			}
 		}
+	}
+	public String getStringTeam(Player p){
+		if(OrangeTeam.hasPlayer(p)){
+			return ChatColor.GOLD + "Kloyne";
+		}
+		else if(BlueTeam.hasPlayer(p)){
+			return ChatColor.DARK_AQUA + "Innisfil";
+		}
+		return ChatColor.WHITE + "Not in game.";
 	}
 }
