@@ -14,7 +14,6 @@ public class Interaction {
 	GunMenu gm = new GunMenu();
 	public void intialize(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		Bukkit.getLogger().info(stats.getMode(p).toString());
 		if(stats.getMode(p).equals(gWarsMode.MAINMENU)){
 			inv.interact(event);
 		}

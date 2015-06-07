@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.util.List;
+
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
@@ -15,6 +17,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
@@ -111,9 +114,9 @@ public class EventHub {
 		}
 	}
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
-		if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
+		/*if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
 			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getPreviousSlot()).getItemMeta().getLore().get(0));
-		}
+		}*/
 	}
 	public void onInventoryClick(InventoryClickEvent event){
 		if(stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.SPAWNMENU)){
@@ -121,6 +124,21 @@ public class EventHub {
 		}
 	}
 	public void onEntityExplode(EntityExplodeEvent e) {
+		List<Block> blocks = e.blockList();
+		 
+		for (Block b : blocks){
+		b.getDrops().clear();
+		}
+		/*Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                 for (Block block : e.blockList()){
+                	 World world = block.getWorld();
+                	 world.getBlockAt(block.getLocation()).setType(block.getType());
+                	 world.getBlockAt(block.getLocation()).setData(block.getData());
+                 }   
+            }
+		}, 100L);
+		
         for (Block b : e.blockList()) {
                 final BlockState state = b.getState();
                 b.setType(Material.AIR);
@@ -131,9 +149,10 @@ public class EventHub {
                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
                         public void run() {
                                 state.update(true, false);
+                                state.update();
                         }
                 }, delay);
-        }
+        }*/
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){

@@ -20,44 +20,44 @@ public class Source {
 		Objective objective = board.registerNewObjective("test", "dummy");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + " _gWars_ ");
-		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "Kills:"); //Get a fake offline player
-		score2.setScore(9);
+		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:"); //Get a fake offline player
+		score2.setScore(10);
 		Score score3 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); //Get a fake offline player
-		score3.setScore(8);
-		Score score = objective.getScore(ChatColor.DARK_AQUA + "Deaths:"); //Get a fake offline player
-		score.setScore(7);
+		score3.setScore(9);
+		Score score = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Deaths:"); //Get a fake offline player
+		score.setScore(8);
 		Score score5 = objective.getScore(ChatColor.AQUA + "" + stats.getDeaths(p)); //Get a fake offline player
-		score5.setScore(6);
-		Score score1 = objective.getScore(ChatColor.GRAY + "Current team:");
-		score1.setScore(5);
+		score5.setScore(7);
+		Score score1 = objective.getScore(ChatColor.GRAY + "" + ChatColor.BOLD + "Current team:");
+		score1.setScore(6);
 		Score score7 = objective.getScore(ChatColor.AQUA + "" + stats.getStringTeam(p)); //Get a fake offline player
-		score7.setScore(4);
-		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "Points:");
-		score8.setScore(3);
+		score7.setScore(5);
+		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Points:");
+		score8.setScore(4);
 		if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.BLUE)){
-		Score score9 = objective.getScore(ChatColor.DARK_AQUA + "Bridge");
-		score9.setScore(2);
+			Score score9 = objective.getScore(ChatColor.DARK_AQUA + "Bridge");
+			score9.setScore(3);
 		}
 		else if(Constants.multiplayerpossession.get(Constants.bridge).equals(Team.ORANGE)){
 			Score score9 = objective.getScore(ChatColor.GOLD + "Bridge");
-			score9.setScore(2);
+			score9.setScore(3);
 		}
 		else{
 			Score score9 = objective.getScore(ChatColor.WHITE + "Bridge");
-			score9.setScore(2);
+			score9.setScore(3);
 		}
 		
 		if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.BLUE)){
 			Score score9 = objective.getScore(ChatColor.DARK_AQUA + "Innisfil Highway Exit");
-			score9.setScore(1);
+			score9.setScore(2);
 		}
 		else if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.ORANGE)){
 			Score score9 = objective.getScore(ChatColor.GOLD + "Innisfil Highway Exit");
-			score9.setScore(1);
+			score9.setScore(2);
 		}
 		else{
 			Score score9 = objective.getScore(ChatColor.WHITE + "Innisfil Highway Exit");
-			score9.setScore(1);
+			score9.setScore(2);
 		}
 		
 		if(Constants.multiplayerpossession.get(Constants.kloynehighway).equals(Team.BLUE)){
