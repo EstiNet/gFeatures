@@ -19,12 +19,21 @@ public class Setup {
 			gPlayer gp = new gPlayer(p);
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			yamlFile.createSection("Config");
+			yamlFile.createSection("Config.Name");
+			yamlFile.set("Config.Name", p.getName());
+			yamlFile.set("Config.UUID", p.getUniqueId().toString());
 			for(String str : Basic.getPlayerSections().keySet()){
 				try{
-				if(yamlFile.get("Config." + str).equals(null)){//TODO try and catch for null
+				if(yamlFile.get("Config." + str).equals(null)){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					if(!str.contains(".")){
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
+					}
+					else{
+						
+						
+					}
 				}
 				}
 				catch(Exception e){
@@ -71,6 +80,7 @@ public class Setup {
 	public void flushPlayer(gPlayer p){
 		File f = new File("plugins/gFeatures/Players/" + p.getUUID().toString() + ".yml");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		yamlFile.set("Config.Name", p.getName());
 		for(String str : p.getValues().keySet()){
 			if(yamlFile.get("Config." + str).equals(null)){
 				yamlFile.createSection("Config." + str);

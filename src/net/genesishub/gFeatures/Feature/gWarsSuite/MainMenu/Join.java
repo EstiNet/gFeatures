@@ -19,7 +19,6 @@ import org.bukkit.inventory.meta.SkullMeta;
 public class Join {
 	ActionAPI aapi = new ActionAPI();
 	Statistics stats = new Statistics();
-	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
 		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
 		//TODO Player cinematic
@@ -52,7 +51,6 @@ public class Join {
 		p.getInventory().setItem(0, item1);
 		p.getInventory().setItem(1, item2);
 	}
-	@SuppressWarnings("deprecation")
 	public void end(Player p){
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.showPlayer(p);

@@ -15,13 +15,8 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -33,8 +28,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.event.vehicle.VehicleUpdateEvent;
-
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -129,30 +122,6 @@ public class EventHub {
 		for (Block b : blocks){
 		b.getDrops().clear();
 		}
-		/*Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                 for (Block block : e.blockList()){
-                	 World world = block.getWorld();
-                	 world.getBlockAt(block.getLocation()).setType(block.getType());
-                	 world.getBlockAt(block.getLocation()).setData(block.getData());
-                 }   
-            }
-		}, 100L);
-		
-        for (Block b : e.blockList()) {
-                final BlockState state = b.getState();
-                b.setType(Material.AIR);
-                int delay = 100; //Delay before blocks are regenerated.
-                if ((b.getType() == Material.SAND) || (b.getType() == Material.GRAVEL)) {
-                        delay += 1;
-                }
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                        public void run() {
-                                state.update(true, false);
-                                state.update();
-                        }
-                }, delay);
-        }*/
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){

@@ -5,6 +5,7 @@ import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -31,17 +32,20 @@ https://github.com/GenesisHub/gFeatures
 public class Statistics {
 	public int getKills(Player p){
 		return 20;
-		//return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
+		/*for(String str : Basic.getgPlayer(p.getUniqueId().toString()).getValues().keySet()){
+			Bukkit.getLogger().info(str + " from " + Basic.getgPlayer(p.getUniqueId().toString()).getValues().get(str));
+		}
+		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));*/
 	}
 	public int getDeaths(Player p){
 		return 20;
-		//return Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
+		//return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
 	}
 	public gWarsMode getMode(Entity entity){
 		return Constants.mode.get(entity);
 	}
 	public void addKill(Player p){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Kills"));
+		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
 		kill += 1;
 		gPlayer gplayer = Basic.getgPlayer(p.getName());
 		gplayer.setValue("gWars.Kills", Integer.toString(kill));
@@ -50,7 +54,7 @@ public class Statistics {
 		return;
 	}
 	public void addDeaths(Player p){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getName()).getValue("gWars.Deaths"));
+		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
 		kill += 1;
 		gPlayer gplayer = Basic.getgPlayer(p.getName());
 		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
@@ -60,17 +64,17 @@ public class Statistics {
 	}
 	public void setKills(Player p, int value){
 		int kill = value;
-		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
 		gplayer.setValue("gWars.Kills", Integer.toString(kill));
-		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
+		Basic.removegPlayer(Basic.getgPlayer(p.getUniqueId().toString()));
 		Basic.addgPlayer(gplayer);
 		return;
 	}
 	public void setDeaths(Player p, int value){
 		int kill = value;
-		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
 		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
-		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
+		Basic.removegPlayer(Basic.getgPlayer(p.getUniqueId().toString()));
 		Basic.addgPlayer(gplayer);
 		return;
 	}

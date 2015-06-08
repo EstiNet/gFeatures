@@ -69,7 +69,6 @@ public class gPlayer {
 	}
 	public void addValue(String valuename, String value){
 		values.put(valuename, value);
-		//ch.flushPlayer(this);
 	}
 	public void removeValue(String valuename, String value){
 		values.remove(valuename, value);
@@ -80,7 +79,6 @@ public class gPlayer {
 		setup.flushPlayer(this);
 	}
 	public String getValue(String valuename){
-		setup.flushPlayer(this);
 		return values.get(valuename);
 	}
 }
