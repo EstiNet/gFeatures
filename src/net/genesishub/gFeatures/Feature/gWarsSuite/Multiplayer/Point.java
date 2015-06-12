@@ -1,6 +1,7 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Location;
@@ -100,10 +101,32 @@ public class Point {
 			return;
 		}
 		else{
-			List<CaptureState> cs = capturestate.values();
+			List<CaptureState> cs = new ArrayList<CaptureState>(Arrays.asList(CaptureState.values()));
+			for(CaptureState css : cs){
+				if(css.equals(capturestate)){
+					int ordinal = css.ordinal();
+					cs.get(ordinal += 1);
+					convert();
+				}
+			}
 		}
 	}
 	public void upBlue(){
+		if(capturestate.equals(CaptureState.blue)){
+			return;
+		}
+		else{
+			List<CaptureState> cs = new ArrayList<CaptureState>(Arrays.asList(CaptureState.values()));
+			for(CaptureState css : cs){
+				if(css.equals(capturestate)){
+					int ordinal = css.ordinal();
+					cs.get(ordinal -= 1);
+					convert();
+				}
+			}
+		}
+	}
+	public void convert(){
 		
 	}
 }
