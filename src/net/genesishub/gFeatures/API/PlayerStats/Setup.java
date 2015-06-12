@@ -88,11 +88,14 @@ public class Setup {
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		yamlFile.set("Config.Name", p.getName());
 		for(String str : p.getValues().keySet()){
-			if(yamlFile.get("Config." + str).equals(null)){
+			try{
+			if(yamlFile.get("Config." + str).equals(null)){}
+			}
+			catch(Exception e){
 				yamlFile.createSection("Config." + str);
 				yamlFile.set("Config." + str, p.getValue(str));
 			}
-			yamlFile.set("Config." + str, p.getValue(str));
+				yamlFile.set("Config." + str, p.getValue(str));
+			}
 		}
 	}
-}

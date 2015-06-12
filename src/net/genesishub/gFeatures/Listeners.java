@@ -48,7 +48,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.5.1";
+	public static final String version = "2.5.2";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
