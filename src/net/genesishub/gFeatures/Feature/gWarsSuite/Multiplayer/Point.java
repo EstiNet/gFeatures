@@ -10,8 +10,10 @@ import org.bukkit.block.Block;
 public class Point {
 	private String name;
 	private Location spawnlocation;
+	private CaptureState capturestate;
 	private List<Location> location = new ArrayList<>();
-	public Point(String nam, Location upper, Location lower, Location spawn){
+	public Point(String nam, Location upper, Location lower, Location spawn, CaptureState cs){
+		capturestate = cs;
 		name = nam;
 		spawnlocation = spawn;
 		location.add(upper);
@@ -52,6 +54,9 @@ public class Point {
 	public Location getSpawn(){
 		return spawnlocation;
 	}
+	public CaptureState getCaptureState(){
+		return capturestate;
+	}
 	@SuppressWarnings("deprecation")
 	public void setOrange(){
 		List<Block> blocks = new ArrayList<>();
@@ -89,5 +94,16 @@ public class Point {
 			}
 		}
 		return false;
+	}
+	public void upOrange(){
+		if(capturestate.equals(CaptureState.orange)){
+			return;
+		}
+		else{
+			List<CaptureState> cs = capturestate.values();
+		}
+	}
+	public void upBlue(){
+		
 	}
 }
