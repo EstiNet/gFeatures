@@ -16,18 +16,22 @@ public class Load {
 		for(File file : f.listFiles()){
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(file);
 			gPlayer gp = new gPlayer(yamlFile.get("Config.UUID").toString(), yamlFile.get("Config.Name").toString());
-			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(false)){
+			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(true)){
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
 			}
 			for(String str : Basic.getPlayerSections().keySet()){
-				if(yamlFile.get("Config." + str).equals(null)){
+				try{
+					if(yamlFile.get("Config." + str).equals(null)){
+					}
+				}
+				catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
 			}
 			try {
-				yamlFile.save(f);
+				yamlFile.save(file);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

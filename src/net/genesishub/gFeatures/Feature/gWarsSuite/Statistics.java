@@ -31,15 +31,13 @@ https://github.com/GenesisHub/gFeatures
 
 public class Statistics {
 	public int getKills(Player p){
-		return 20;
-		/*for(String str : Basic.getgPlayer(p.getUniqueId().toString()).getValues().keySet()){
+		for(String str : Basic.getgPlayer(p.getUniqueId().toString()).getValues().keySet()){
 			Bukkit.getLogger().info(str + " from " + Basic.getgPlayer(p.getUniqueId().toString()).getValues().get(str));
 		}
-		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));*/
+		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
 	}
 	public int getDeaths(Player p){
-		return 20;
-		//return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
+		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
 	}
 	public gWarsMode getMode(Entity entity){
 		return Constants.mode.get(entity);

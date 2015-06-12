@@ -6,6 +6,7 @@ import java.io.IOException;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -14,7 +15,7 @@ public class Setup {
 		Config config = new Config();
 		File f = new File("plugins/gFeatures/Players/" + p.getUniqueId().toString() + ".yml");
 		if(!f.exists()){
-			config.createFile(f.getPath(), "Made player directory!");
+			config.createFile("plugins/gFeatures/Players/" + p.getUniqueId().toString() + ".yml", "Made player directory!");
 			
 			gPlayer gp = new gPlayer(p);
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
@@ -24,22 +25,27 @@ public class Setup {
 			yamlFile.set("Config.UUID", p.getUniqueId().toString());
 			for(String str : Basic.getPlayerSections().keySet()){
 				try{
-				if(yamlFile.get("Config." + str).equals(null)){
+					if(yamlFile.get("Config." + str).equals(null)){
+						//NOT NEEDED BLOCK
+					}
+				}
+				catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					if(!str.contains(".")){
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 					}
 					else{
-						
-						
+						String[] strs = str.split(".");
+						for(String st : strs){
+						Bukkit.getLogger().info(st);
+						}//TODO DEPRECATE
+						String build = "Config.";
+						for(String st: strs){
+							build.concat(st);
+						}
+						gp.addValue(str, yamlFile.get(build).toString());
 					}
-				}
-				}
-				catch(Exception e){
-					yamlFile.createSection("Config." + str);
-					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
-					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
 			}
 			Basic.addgPlayer(gp);

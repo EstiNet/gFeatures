@@ -106,7 +106,7 @@ public class Point {
 				if(css.equals(capturestate)){
 					int ordinal = css.ordinal();
 					cs.get(ordinal += 1);
-					convert();
+					convert(Direction.UP);
 				}
 			}
 		}
@@ -121,12 +121,37 @@ public class Point {
 				if(css.equals(capturestate)){
 					int ordinal = css.ordinal();
 					cs.get(ordinal -= 1);
-					convert();
+					convert(Direction.DOWN);
 				}
 			}
 		}
 	}
-	public void convert(){
-		
+	public void convert(Direction d){
+		switch(capturestate){
+		case blue:
+			break;
+		case blue1:
+			break;
+		case blue2:
+			break;
+		case blue3:
+			break;
+		case white:
+			break;
+		case white1:
+			break;
+		case white2:
+			break;
+		case white3:
+			break;
+		case orange:
+			break;
+		case orange1:
+			break;
+		case orange2:
+			break;
+		case orange3:
+			break;
+		}
 	}
 }
