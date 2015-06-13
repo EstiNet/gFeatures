@@ -31,9 +31,6 @@ https://github.com/GenesisHub/gFeatures
 
 public class Statistics {
 	public int getKills(Player p){
-		for(String str : Basic.getgPlayer(p.getUniqueId().toString()).getValues().keySet()){
-			Bukkit.getLogger().info(str + " from " + Basic.getgPlayer(p.getUniqueId().toString()).getValues().get(str));
-		}
 		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
 	}
 	public int getDeaths(Player p){

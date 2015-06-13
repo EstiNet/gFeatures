@@ -21,9 +21,9 @@ public class Source {
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + " _gWars_ ");
 		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:"); //Get a fake offline player
-		score2.setScore(10);//TODO 
-		Score score3 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); //Get a fake offline player
-		score3.setScore(9);
+		score2.setScore(10);
+		Score score69 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); //Get a fake offline player
+		score69.setScore(9);
 		Score score = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Deaths:"); //Get a fake offline player
 		score.setScore(8);
 		Score score5 = objective.getScore(ChatColor.AQUA + "" + stats.getDeaths(p)); //Get a fake offline player
@@ -46,7 +46,6 @@ public class Source {
 			Score score9 = objective.getScore(ChatColor.WHITE + "Bridge");
 			score9.setScore(3);
 		}
-		
 		if(Constants.multiplayerpossession.get(Constants.innisfilhighway).equals(Team.BLUE)){
 			Score score9 = objective.getScore(ChatColor.DARK_AQUA + "Innisfil Highway Exit");
 			score9.setScore(2);

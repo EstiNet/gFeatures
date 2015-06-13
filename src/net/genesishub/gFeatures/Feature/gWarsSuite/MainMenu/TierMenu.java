@@ -153,11 +153,17 @@ public class TierMenu {
 			TierOne to = new TierOne(event.getPlayer());
 			to.interact(event);
 			}
+			else{
+				aww(event.getPlayer(), "5");
+			}
 		}
 		else if(event.getPlayer().getItemInHand().equals(sniper2) || event.getPlayer().getItemInHand().equals(shotgun2) || event.getPlayer().getItemInHand().equals(special2) || event.getPlayer().getItemInHand().equals(autorifle2)){
 			if(s.getKills(event.getPlayer()) >= 10){
 			TierTwo to = new TierTwo(event.getPlayer());
 			to.interact(event);
+			}
+			else{
+				aww(event.getPlayer(), "10");
 			}
 		}
 		else if(event.getPlayer().getItemInHand().equals(sniper3) || event.getPlayer().getItemInHand().equals(shotgun) || event.getPlayer().getItemInHand().equals(special3) || event.getPlayer().getItemInHand().equals(autorifle3)){
@@ -165,11 +171,17 @@ public class TierMenu {
 			TierThree to = new TierThree(event.getPlayer());
 			to.interact(event);
 			}
+			else{
+				aww(event.getPlayer(), "25");
+			}
 		}
 		else if(event.getPlayer().getItemInHand().equals(sniper4) || event.getPlayer().getItemInHand().equals(shotgun4) || event.getPlayer().getItemInHand().equals(special4) || event.getPlayer().getItemInHand().equals(autorifle4)){
 			if(s.getKills(event.getPlayer()) >= 50){
 			TierFour to = new TierFour(event.getPlayer());
 			to.interact(event);
+			}
+			else{
+				aww(event.getPlayer(), "50");
 			}
 		}
 		else if(event.getPlayer().getItemInHand().equals(cancel)){
@@ -216,5 +228,8 @@ public class TierMenu {
 			p.getInventory().setItem(8, cancel);
 			break;
 		}
+	}
+	public void aww(Player p, String message){
+		p.sendMessage(ChatColor.GRAY + "[Guns] Awww... You don't have enough kills! " + ChatColor.WHITE + "" + message + " kills are required for this tier!");
 	}
 }
