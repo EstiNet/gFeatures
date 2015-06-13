@@ -17,9 +17,8 @@ public class Damage {
 		}
 		else{
 			if(event.getEntity().isDead()){
-				//TODO Check if player is dead and add kill + death
-				event.setCancelled(true);
-				
+				stats.addDeaths((Player)event.getEntity());
+				stats.addKill((Player)event.getDamager());
 			}
 		}
 	}
@@ -29,7 +28,10 @@ public class Damage {
 			Bukkit.getLogger().info("Damage averted.");
 		}
 		else{
-			//TODO Check if player is dead and add kill + death
+			if(event.getVictim().isDead()){
+				stats.addDeaths((Player)event.getVictim());
+				stats.addKill((Player)event.getDamager());
+			}
 		}
 	}
 }

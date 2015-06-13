@@ -20,17 +20,17 @@ public class Source {
 		Objective objective = board.registerNewObjective("Kills", "Stuff");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + " _gWars_ ");
-		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:"); //Get a fake offline player
+		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:");
 		score2.setScore(10);
-		Score score69 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); //Get a fake offline player
+		Score score69 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); 
 		score69.setScore(9);
-		Score score = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Deaths:"); //Get a fake offline player
+		Score score = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Deaths:");
 		score.setScore(8);
-		Score score5 = objective.getScore(ChatColor.AQUA + "" + stats.getDeaths(p)); //Get a fake offline player
+		Score score5 = objective.getScore(ChatColor.AQUA + "" + stats.getDeaths(p));
 		score5.setScore(7);
 		Score score1 = objective.getScore(ChatColor.GRAY + "" + ChatColor.BOLD + "Current team:");
 		score1.setScore(6);
-		Score score7 = objective.getScore(ChatColor.AQUA + "" + stats.getStringTeam(p)); //Get a fake offline player
+		Score score7 = objective.getScore(ChatColor.AQUA + "" + stats.getStringTeam(p));
 		score7.setScore(5);
 		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Points:");
 		score8.setScore(4);
