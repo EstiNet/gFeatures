@@ -55,7 +55,7 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
-					Bukkit.getLogger().info("GenesisHub has never heard of this command. Do /help for help.");
+					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
 				}
 			} catch (Exception e) {}
 		}

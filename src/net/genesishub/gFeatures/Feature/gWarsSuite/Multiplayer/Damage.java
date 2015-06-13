@@ -23,8 +23,8 @@ public class Damage {
 			int health = (int) d.getHealth();
 			double damage = event.getDamage();
 			if(health - damage <= 0){
-				stats.addDeaths((Player)event.getEntity());
-				stats.addKill((Player)event.getDamager());
+				stats.addDeaths((Player)event.getEntity(), 1);
+				stats.addKill((Player)event.getDamager(), 1);
 				s.flushAll();
 				Bukkit.getLogger().info("Done.");
 			}
@@ -41,8 +41,8 @@ public class Damage {
 			int health = (int) d.getHealth();
 			double damage = event.getDamage();
 			if(health - damage <= 0){
-				stats.addDeaths((Player)event.getVictim());
-				stats.addKill((Player)event.getDamager());
+				stats.addDeaths((Player)event.getVictim(), 1);
+				stats.addKill((Player)event.getDamager(), 1);
 				s.flushAll();
 				Bukkit.getLogger().info("Done.");
 			}
