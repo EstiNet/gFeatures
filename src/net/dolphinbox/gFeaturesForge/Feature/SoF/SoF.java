@@ -1,6 +1,11 @@
 package net.dolphinbox.gFeaturesForge.Feature.SoF;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 /*
 
 Forge Mod for Project Codename:SoF
@@ -25,4 +30,21 @@ https://github.com/GenesisHub/gFeatures
 @Mod(modid="SoF", name="Codename:SoF", version="0.1-DEV")
 public class SoF {
 	
+	@Instance("SoF")
+	public static SoF Instance;
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event){
+		
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent event){
+		
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event){
+		
+	}
 }
