@@ -72,5 +72,6 @@ public class GenesisEconomy extends gFeature{
 			} catch (UserDoesNotExistException e) {
 				e.printStackTrace();
 			}
+			catch(Exception e){}
 	}
 }

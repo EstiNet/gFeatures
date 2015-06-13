@@ -29,7 +29,11 @@ public class Disabler {
 		List<Extension> extensions = Basic.getExtensions();
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
-			feature.disable();
+				try{
+					feature.disable();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 		for(Extension extension : extensions){

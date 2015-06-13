@@ -32,7 +32,12 @@ public class Enabler {
 		List<Extension> extensions = Basic.getExtensions();
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
-			feature.enable();
+				try{
+					feature.enable();
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 		for(Extension extension : extensions){

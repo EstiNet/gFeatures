@@ -29,7 +29,6 @@ public class Setup {
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		*/
-		
 		net.genesishub.gFeatures.Feature.Base.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();

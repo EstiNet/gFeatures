@@ -27,6 +27,10 @@ public class Join {
 		ci.clearInv(event.getPlayer());
 		Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
 		p.teleport(spawnonjoin);
+		p.setGameMode(GameMode.ADVENTURE);
+		
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
+		
 		p.setWalkSpeed((float) 0.5);
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
@@ -36,7 +40,6 @@ public class Join {
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }*///TODO NEED IT LATER MAYBE
-		p.setGameMode(GameMode.ADVENTURE);
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");

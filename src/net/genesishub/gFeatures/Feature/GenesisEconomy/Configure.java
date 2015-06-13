@@ -2,7 +2,6 @@ package net.genesishub.gFeatures.Feature.GenesisEconomy;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Configuration.Config;
 
 /*
 gFeatures

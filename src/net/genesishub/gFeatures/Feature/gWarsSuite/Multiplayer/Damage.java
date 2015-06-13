@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
@@ -17,7 +18,11 @@ public class Damage {
 			Bukkit.getLogger().info("Damage averted.");
 		}
 		else{
-			if(event.getEntity().isDead()){
+			Player death = (Player) event.getEntity();
+			Damageable d = (Damageable) death;
+			int health = (int) d.getHealth();
+			double damage = event.getDamage();
+			if(health - damage <= 0){
 				stats.addDeaths((Player)event.getEntity());
 				stats.addKill((Player)event.getDamager());
 				s.flushAll();
@@ -31,7 +36,11 @@ public class Damage {
 			Bukkit.getLogger().info("Damage averted.");
 		}
 		else{
-			if(event.getVictim().isDead()){
+			Player death = (Player) event.getVictim();
+			Damageable d = (Damageable) death;
+			int health = (int) d.getHealth();
+			double damage = event.getDamage();
+			if(health - damage <= 0){
 				stats.addDeaths((Player)event.getVictim());
 				stats.addKill((Player)event.getDamager());
 				s.flushAll();
