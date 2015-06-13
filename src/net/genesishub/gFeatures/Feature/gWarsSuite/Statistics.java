@@ -42,18 +42,18 @@ public class Statistics {
 	public void addKill(Player p){
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
 		kill += 1;
-		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
 		gplayer.setValue("gWars.Kills", Integer.toString(kill));
-		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
+		Basic.removegPlayer(Basic.getgPlayer(p.getUniqueId().toString()));
 		Basic.addgPlayer(gplayer);
 		return;
 	}
 	public void addDeaths(Player p){
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
 		kill += 1;
-		gPlayer gplayer = Basic.getgPlayer(p.getName());
+		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
 		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
-		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
+		Basic.removegPlayer(Basic.getgPlayer(p.getUniqueId().toString()));
 		Basic.addgPlayer(gplayer);
 		return;
 	}
@@ -74,10 +74,6 @@ public class Statistics {
 		return;
 	}
 	public void setMode(Player p, gWarsMode mode){
-		/*gPlayer gplayer = Basic.getgPlayer(p.getName());
-		gplayer.setValue("gWars.Mode", mode.toString());
-		Basic.removegPlayer(Basic.getgPlayer(p.getName()));
-		Basic.addgPlayer(gplayer);*/
 		for(gWarsMode m : gWarsMode.values()){
 			if(m.equals(mode)){
 				Constants.mode.remove(p);

@@ -13,7 +13,7 @@ public class Interact {
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -56))){//Orange
 			int random = (int) Math.ceil(Math.random() * 4);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "fighter jet" + ChatColor.GRAY + ".");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
 			switch(random){
 			case 1:
 				world.spawnEntity(new Location(world, 651, 61, -54), EntityType.MINECART);
@@ -30,9 +30,9 @@ public class Interact {
 			}
 			event.setCancelled(true);
 		}
-		else if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 24, 61, 216))){//Orange
+		else if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 24, 61, 216))){//Blue
 			int random = (int) Math.ceil(Math.random() * 4);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "fighter jet" + ChatColor.GRAY + ".");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
 			switch(random){
 			case 1:
 				world.spawnEntity(new Location(world, 22, 61, 210), EntityType.MINECART);
@@ -50,6 +50,7 @@ public class Interact {
 			event.setCancelled(true);
 		}
 		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 }

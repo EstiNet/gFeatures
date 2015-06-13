@@ -91,9 +91,9 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
 			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
+		/*else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
 			eh.onPlayerMove((PlayerMoveEvent) event);
-		}
+		}*/
 		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
 			eh.onPlayerDeath((PlayerDeathEvent) event);
 		}

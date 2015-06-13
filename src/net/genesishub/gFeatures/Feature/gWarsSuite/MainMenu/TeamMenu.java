@@ -42,7 +42,7 @@ public class TeamMenu {
         		p.getInventory().setItem(0, item1);
         		p.getInventory().setItem(1, item2);
         	}
-        }, 20L);
+        }, 2L);
 		
 	}
 	public void interact(PlayerInteractEvent event){
