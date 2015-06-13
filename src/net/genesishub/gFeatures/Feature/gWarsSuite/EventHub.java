@@ -142,7 +142,7 @@ public class EventHub {
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
-		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
+		if(stats.getMode(((Player) event).getPlayer()).equals(gWarsMode.TEAM)){
 			
 		}
 	}
