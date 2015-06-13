@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/Essentials-2.x-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="C:/sponge-1.8-1371-2.1DEV-455.jar"/>
 	<classpathentry kind="lib" path="C:/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/forge-1.7.10-10.13.4.1448-1.7.10-universal.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
