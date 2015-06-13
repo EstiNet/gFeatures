@@ -54,7 +54,7 @@ public class Join {
         	public void run(){
         		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
         	}
-        }, 100L);
+        }, 200L);
 		
 	}
 	public void end(Player p){
