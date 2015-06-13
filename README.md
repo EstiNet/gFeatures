@@ -7,7 +7,9 @@ gFeatures Core/API: 2.4.9
 ## Info
 gFeatures is a plugin for Bukkit/Spigot, Sponge, and CanaryMod. Our goal is to provide a modular system to power the backend of servers.
 gFeatures allows easier than before manageability, with a JavaFX GUI (WIP).
-The gFeatures Universal Binary allows gFeatures to run on Bukkit-Compatible, Sponge, and Canary servers.
+The gFeatures Universal Binary allows gFeatures to run on Bukkit-Compatible, Sponge, and Canary servers. It also has support for Forge, both server and client.
+
+The Universal Binary works on the following platforms: Spigot, Forge(Client)
 
 ## Notes
 All the packages under "tk.genesishub.*" was part of gFeatures 1.0, and is Obsolete.
