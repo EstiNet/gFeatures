@@ -1,8 +1,11 @@
 package net.dolphinbox.gFeaturesForge.Feature.SoF;
 
+import net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.IProxy;
+import net.dolphinbox.gFeaturesForge.Feature.SoF.reference.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -27,11 +30,14 @@ https://github.com/GenesisHub/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-@Mod(modid="SoF", name="Codename:SoF", version="0.3-DEV")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class SoF {
 	
-	@Instance("SoF")
+	@Instance(Reference.MOD_ID)
 	public static SoF Instance;
+	
+	@SidedProxy(clientSide = "net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.ClientProxy", serverSide = "net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.ServerProxy")
+	public static IProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
