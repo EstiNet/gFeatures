@@ -79,8 +79,12 @@ public class Setup {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			gp.setPlayer(p);
-			Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gp);
+			if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){
+				Basic.addgPlayer(gp);
+			}
+			else{
+				Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gp);
+			}
 		}
 	}
 	public void flushPlayer(gPlayer p){
