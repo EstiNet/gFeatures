@@ -17,11 +17,11 @@ public class Source {
 	public void setup(Player p){
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
-		Objective objective = board.registerNewObjective("test", "dummy");
+		Objective objective = board.registerNewObjective("Kills", "Stuff");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + " _gWars_ ");
-		//Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:"); //Get a fake offline player
-		//score2.setScore(10);
+		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Kills:"); //Get a fake offline player
+		score2.setScore(10);
 		Score score69 = objective.getScore(ChatColor.AQUA + "" + stats.getKills(p)); //Get a fake offline player
 		score69.setScore(9);
 		Score score = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Deaths:"); //Get a fake offline player
