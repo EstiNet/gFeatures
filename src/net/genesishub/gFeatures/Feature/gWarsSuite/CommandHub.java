@@ -1,6 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
-import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -26,7 +26,12 @@ https://github.com/GenesisHub/gFeatures
 public class CommandHub {
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("gWars")){
-			
+			if(args.length == 0){
+				sender.sendMessage(ChatColor.GRAY + "Do /gWars help");
+			}
+			else if(args.length == 1){
+				
+			}
 		}
 	}
 }
