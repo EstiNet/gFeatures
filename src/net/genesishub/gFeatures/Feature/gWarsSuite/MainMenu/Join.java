@@ -28,7 +28,6 @@ public class Join {
 		Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
 		p.teleport(spawnonjoin);
 		p.setWalkSpeed((float) 0.5);
-		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
 				p.hidePlayer(sp);
@@ -50,6 +49,13 @@ public class Join {
 		
 		p.getInventory().setItem(0, item1);
 		p.getInventory().setItem(1, item2);
+		
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
+        	}
+        }, 100L);
+		
 	}
 	public void end(Player p){
 		for (Player players : Bukkit.getOnlinePlayers()){
