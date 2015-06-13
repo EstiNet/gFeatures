@@ -9,6 +9,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 public class Damage {
+	Source s = new Source();
 	Statistics stats = new Statistics();
 	public void onEntityDamage(EntityDamageByEntityEvent event){
 		if((OrangeTeam.hasPlayer((Player) event.getDamager()) &&  OrangeTeam.hasPlayer((Player) event.getEntity())) || (BlueTeam.hasPlayer((Player) event.getDamager()) &&  BlueTeam.hasPlayer((Player) event.getEntity()))){
@@ -19,6 +20,8 @@ public class Damage {
 			if(event.getEntity().isDead()){
 				stats.addDeaths((Player)event.getEntity());
 				stats.addKill((Player)event.getDamager());
+				s.flushAll();
+				Bukkit.getLogger().info("Done.");
 			}
 		}
 	}
@@ -31,6 +34,8 @@ public class Damage {
 			if(event.getVictim().isDead()){
 				stats.addDeaths((Player)event.getVictim());
 				stats.addKill((Player)event.getDamager());
+				s.flushAll();
+				Bukkit.getLogger().info("Done.");
 			}
 		}
 	}

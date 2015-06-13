@@ -50,11 +50,15 @@ public class TeamMenu {
 					OrangeTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY);
+					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+					event.getPlayer().getInventory().setHelmet(wool);
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
 					BlueTeam.addPlayer(event.getPlayer());
 					finals(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY);
+					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+					event.getPlayer().getInventory().setHelmet(wool);
 			}
 	}
 	public void finals(Player p){

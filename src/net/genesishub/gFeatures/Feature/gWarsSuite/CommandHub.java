@@ -25,8 +25,8 @@ https://github.com/GenesisHub/gFeatures
 
 public class CommandHub {
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("test")){
-			Bukkit.getLogger().info("Test!");
+		if(cmd.getName().equalsIgnoreCase("gWars")){
+			
 		}
 	}
 }

@@ -15,6 +15,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -29,6 +30,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -130,6 +132,14 @@ public class EventHub {
 			stats.setMode(event.getPlayer(), gWarsMode.SPAWNMENU);
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());
 			sm.intialize();
+			if(BlueTeam.hasPlayer(event.getPlayer())){
+				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+				event.getPlayer().getInventory().setHelmet(wool);
+			}
+			else if(OrangeTeam.hasPlayer(event.getPlayer())){
+				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+				event.getPlayer().getInventory().setHelmet(wool);
+			}
 		}
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
