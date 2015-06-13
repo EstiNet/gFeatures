@@ -36,12 +36,12 @@ public class SoF {
 	@Instance(Reference.MOD_ID)
 	public static SoF Instance;
 	
-	@SidedProxy(clientSide = "net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.ClientProxy", serverSide = "net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.ServerProxy")
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.CLIENT_PROXY_CLASS)
 	public static IProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-			
+		
 	}
 	
 	@EventHandler
