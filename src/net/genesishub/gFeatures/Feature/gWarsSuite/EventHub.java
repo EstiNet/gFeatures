@@ -20,6 +20,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -28,6 +29,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
@@ -137,6 +139,11 @@ public class EventHub {
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
 			Move move = new Move();
 			move.initialize(event);
+		}
+	}
+	public void onPlayerDeath(PlayerDeathEvent event){
+		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
+			
 		}
 	}
 }

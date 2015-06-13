@@ -9,6 +9,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -93,6 +94,9 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
 			eh.onPlayerMove((PlayerMoveEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
+			eh.onPlayerDeath((PlayerDeathEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -130,6 +134,9 @@ public class gWarsSuite extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerMove(){}
+	@Override
+	@Retrieval
+	public void onPlayerDeath(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
