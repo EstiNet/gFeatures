@@ -59,14 +59,16 @@ public class CommandLibrary {
 				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
 					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
 				}
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);
 	}
 	
 	public boolean Check(String filename, String command) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + filename + "/"));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("\\net\\genesishub\\gFeatures\\Feature\\Commands\\" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
