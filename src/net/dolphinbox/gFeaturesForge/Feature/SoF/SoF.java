@@ -27,7 +27,7 @@ https://github.com/GenesisHub/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-@Mod(modid="SoF", name="Codename:SoF", version="0.1-DEV")
+@Mod(modid="SoF", name="Codename:SoF", version="0.3-DEV")
 public class SoF {
 	
 	@Instance("SoF")
