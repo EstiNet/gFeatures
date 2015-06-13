@@ -50,7 +50,6 @@ public class Interact {
 			event.setCancelled(true);
 		}
 		}catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 }
