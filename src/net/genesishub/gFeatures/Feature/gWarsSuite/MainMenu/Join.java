@@ -56,18 +56,19 @@ public class Join {
 		p.getInventory().setItem(0, item1);
 		p.getInventory().setItem(1, item2);
 		
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
-        	}
-        }, 10L);
+		
 		
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamemode 2 "+ p.getName());
         	}
-        }, 200L);
+        }, 20L);
 		
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
+        	}
+        }, 200L);
 	}
 	public void end(Player p){
 		for (Player players : Bukkit.getOnlinePlayers()){

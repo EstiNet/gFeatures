@@ -3,6 +3,7 @@ package net.genesishub.gFeatures;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.PlayerStats.Load;
+import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -50,6 +51,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the version.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
 					case "list":
@@ -111,6 +113,12 @@ public class CoreCommands{
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
 						break;
+					case "flush":
+						for(gPlayer gp : Basic.getgPlayers()){
+							net.genesishub.gFeatures.API.PlayerStats.Setup s = new net.genesishub.gFeatures.API.PlayerStats.Setup();
+							s.flushPlayer(gp);
+						}
+						sender.sendMessage(ChatColor.GRAY + "Player flush complete.");
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");

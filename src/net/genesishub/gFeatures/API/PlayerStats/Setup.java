@@ -24,29 +24,10 @@ public class Setup {
 			yamlFile.set("Config.Name", p.getName());
 			yamlFile.set("Config.UUID", p.getUniqueId().toString());
 			for(String str : Basic.getPlayerSections().keySet()){
-				try{
-					if(yamlFile.get("Config." + str).equals(null)){
-						//NOT NEEDED BLOCK
-					}
-				}
-				catch(Exception e){
-					yamlFile.createSection("Config." + str);
-					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
-					if(!str.contains(".")){
-					gp.addValue(str, yamlFile.get("Config." + str).toString());
-					}
-					else{
-						String[] strs = str.split(".");
-						for(String st : strs){
-						Bukkit.getLogger().info(st);
-						}//TODO DEPRECATE
-						String build = "Config.";
-						for(String st: strs){
-							build.concat(st);
-						}
-						gp.addValue(str, yamlFile.get(build).toString());
-					}
-				}
+				yamlFile.createSection("Config." + str);
+				yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+				gp.addValue(str, yamlFile.get("Config." + str).toString());
+				Bukkit.getLogger().info(str + " " + yamlFile.get("Config." + str).toString());
 			}
 			Basic.addgPlayer(gp);
 			try {
@@ -79,12 +60,13 @@ public class Setup {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){
+			try{
+				if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){
+				}
+			}catch(Exception e){
 				Basic.addgPlayer(gp);
 			}
-			else{
-				Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gp);
-			}
+			Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gp);
 		}
 	}
 	public void flushPlayer(gPlayer p){
@@ -100,6 +82,7 @@ public class Setup {
 				yamlFile.set("Config." + str, p.getValue(str));
 			}
 				yamlFile.set("Config." + str, p.getValue(str));
+				Bukkit.getLogger().info("Config." + str + "   " + p.getValue(str));
 			}
 		}
 	}
