@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 import net.genesishub.gFeatures.Retrieval;
@@ -87,6 +88,8 @@ public class gHub extends gFeature{
 	public void onPlayerMove(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-			//When there's stuff
+		if(cmd.getName().equalsIgnoreCase("spawn")){
+			
+		}
 	}
 }

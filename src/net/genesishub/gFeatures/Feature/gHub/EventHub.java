@@ -80,7 +80,6 @@ public class EventHub {
 	public void onEntityDamage(EntityDamageEvent event){
 		event.setCancelled(true);
 	}
-	
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);
 		List<String> lores = new ArrayList<>();
