@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.genesishub.gFeatures.API.PlayerStats.Setup;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 
 /*
@@ -26,6 +27,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Basic {
+	static Setup setup = new Setup();
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();
@@ -101,6 +103,7 @@ public class Basic {
 	}
 	public static void setgPlayer(gPlayer originalplayer, gPlayer newplayer){
 		playerstats.set(playerstats.indexOf(originalplayer), newplayer);
+		setup.flushPlayer(newplayer);
 	}
 	public static void resetFeatures(){
 		List<gFeature> feature = new ArrayList<>();

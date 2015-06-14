@@ -19,5 +19,7 @@ public class Finish {
 		Constants.spawndump.remove(p);
 		Source s = new Source();
 		s.flushAll();
+		
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
 	}
 }

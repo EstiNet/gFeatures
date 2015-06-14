@@ -31,9 +31,9 @@ public class Enable {
 	public static void onEnable(){
 		Bukkit.getLogger().info("[gFeatures-gWarsSuite]gWarsSuite enabled! Running core version: " + Basic.getFeature("gWarsSuite").getVersion() + "!");
 		Basic.addPlayerSection("gWars", "");
-		Basic.addPlayerSection("gWars.Kills", "0");
-		Basic.addPlayerSection("gWars.Deaths", "0");
 		Basic.addPlayerSection("gWars.Mode", "NONE");
+		Basic.addPlayerSection("gWars.Kills", "1");
+		Basic.addPlayerSection("gWars.Deaths", "0");
 		ConfigHub ch = new ConfigHub();
 		ch.setupConfig();
 		
