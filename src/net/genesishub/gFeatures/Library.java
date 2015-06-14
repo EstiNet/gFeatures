@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.event.Event;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -96,6 +97,9 @@ public class Library {
     }
     public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
     	check("onPlayerToggleFlight", event);
+    }
+    public void onEntityDamage(EntityDamageEvent event){
+    	check("onEntityDamage", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

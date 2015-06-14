@@ -3,12 +3,12 @@ package net.genesishub.gFeatures.Feature.gHub;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -20,6 +20,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class EventHub {
 	ItemStack navigator, stacker, hider, additions, settings;
+	HidePlayers hp = new HidePlayers();
 	
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
@@ -46,6 +47,10 @@ public class EventHub {
 		case WATCH:
 			break;
 		case SULPHUR:
+			hp.hide(event.getPlayer());
+			break;
+		case REDSTONE:
+			hp.show(event.getPlayer());
 			break;
 		case CHEST:
 			break;
@@ -72,6 +77,10 @@ public class EventHub {
 	public void onInventoryClick(InventoryClickEvent event){
 		event.setCancelled(true);
 	}
+	public void onEntityDamage(EntityDamageEvent event){
+		event.setCancelled(true);
+	}
+	
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);
 		List<String> lores = new ArrayList<>();

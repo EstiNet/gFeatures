@@ -21,6 +21,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.plugin.PluginManager;
@@ -158,6 +159,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void PlayerToggleFlightEvent(PlayerToggleFlightEvent event){
     	library.onPlayerToggleFlight(event);
+    }
+    @EventHandler
+    public void EntityDamageEvent(EntityDamageEvent event){
+    	library.onEntityDamage(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

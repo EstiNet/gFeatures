@@ -3,19 +3,6 @@ package net.genesishub.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
-
-import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
@@ -96,4 +83,5 @@ public class gFeature {
     public void onFoodLevelChange(){}
     public void onPlayerDrop(){}
     public void onPlayerToggleFlight(){}
+    public void onEntityDamage(){}
 }
