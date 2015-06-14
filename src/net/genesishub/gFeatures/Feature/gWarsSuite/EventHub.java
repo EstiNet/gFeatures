@@ -10,11 +10,13 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -99,12 +101,12 @@ public class EventHub {
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
-		if(event.getDamager() instanceof Player && event.getVictim() instanceof Player){
+		if(event.getPlayer() instanceof Player && event.getVictim() instanceof Player){
 			if(stats.getMode((Player)event.getVictim()).equals(gWarsMode.MAINMENU) || stats.getMode((Player) event.getVictim()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getVictim()).equals(gWarsMode.TEAMMENU) || stats.getMode(event.getVictim()).equals(gWarsMode.SPAWNMENU)){
 				MenuDamage d = new MenuDamage();
 				d.onWeaponDamage(event);
 			}
-			else if(stats.getMode(event.getDamager()).equals(gWarsMode.TEAM)){
+			else if(stats.getMode(event.getVictim()).equals(gWarsMode.TEAM)){
 				Damage d = new Damage();
 				d.onWeaponDamage(event);
 			}

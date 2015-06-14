@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
 
-public class Death {
+import org.bukkit.event.entity.PlayerDeathEvent;
 
+public class Death {
 }
