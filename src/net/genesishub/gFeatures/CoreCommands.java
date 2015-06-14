@@ -33,6 +33,7 @@ https://github.com/GenesisHub/gFeatures
 public class CoreCommands{
 	CommandLibrary cl = new CommandLibrary();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 		try {
 				if(args.length == 0){
 					if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
@@ -132,6 +133,7 @@ public class CoreCommands{
 				}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
 		}
 	}
 }
