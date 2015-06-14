@@ -48,10 +48,8 @@ public class CommandLibrary {
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
 				try {
-					Bukkit.getLogger().info(feature.getName() + " " + cmd.getName() + " /net/genesishub/gFeatures/Feature/Commands/" + feature.getName());
 					if(Check(feature.getName(), cmd.getName())){
 						feature.commandTrigger(sender, cmd, label, args);
-						Bukkit.getLogger().info("Wut.");//TODO
 					}
 				} catch (Exception e) {}
 			}
@@ -60,7 +58,6 @@ public class CommandLibrary {
 					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 		CoreCommands cc = new CoreCommands();
@@ -68,7 +65,7 @@ public class CommandLibrary {
 	}
 	
 	public boolean Check(String filename, String command) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("\\net\\genesishub\\gFeatures\\Feature\\Commands\\" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
