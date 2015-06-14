@@ -95,4 +95,5 @@ public class gFeature {
     public void onEntityExplode(){}
     public void onFoodLevelChange(){}
     public void onPlayerDrop(){}
+    public void onPlayerToggleFlight(){}
 }

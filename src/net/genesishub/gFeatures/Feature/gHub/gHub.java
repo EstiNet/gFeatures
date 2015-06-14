@@ -3,8 +3,11 @@ package net.genesishub.gFeatures.Feature.gHub;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
@@ -50,6 +53,15 @@ public class gHub extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
+			eh.onPlayerInteract((PlayerInteractEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
+			eh.onInventoryClick((InventoryClickEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playertoggleflightevent")){
+			eh.onPlayerToggleFlight((PlayerToggleFlightEvent)event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -57,6 +69,15 @@ public class gHub extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerDrop(){}
+	@Override
+	@Retrieval
+	public void onPlayerInteract(){}
+	@Override
+	@Retrieval
+	public void onInventoryClick(){}
+	@Override
+	@Retrieval
+	public void onPlayerToggleFlight(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When there's stuff

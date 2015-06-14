@@ -155,6 +155,10 @@ public class Listeners extends JavaPlugin implements Listener{
     public void PlayerDropItemEvent(PlayerDropItemEvent event){
     	library.onPlayerDrop(event);
     }
+    @EventHandler
+    public void PlayerToggleFlightEvent(PlayerToggleFlightEvent event){
+    	library.onPlayerToggleFlight(event);
+    }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	commands.Commands(sender, cmd, label, args);
