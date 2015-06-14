@@ -45,7 +45,6 @@ public class Listeners {
 					event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
 				} catch (IllegalArgumentException e) {
 				} catch (IllegalStateException e) {
-				} catch (UserDoesNotExistException e) {
 				}
            }
         }, 100L);

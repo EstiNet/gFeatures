@@ -67,7 +67,7 @@ public class EventHub {
 	      event.setCancelled(true);
 	      player.setAllowFlight(false);
 	      player.setFlying(false);
-	      player.setVelocity(player.getLocation().getDirection().multiply(1.6D).setY(1.0D));
+	      player.setVelocity(player.getLocation().getDirection().multiply(2D).setY(1.3D));
 	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.BAT_TAKEOFF, 1.0F, -5.0F);
 	    }
 	}
