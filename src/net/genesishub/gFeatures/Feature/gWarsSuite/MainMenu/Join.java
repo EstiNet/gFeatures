@@ -30,9 +30,10 @@ public class Join {
 		p.setGameMode(GameMode.ADVENTURE);
 		
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamemode 2 "+ p.getName());
+		
 		
 		p.setWalkSpeed((float) 0.5);
+		
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
 			if(stats.getMode(sp).equals(gWarsMode.MAINMENU) ||  stats.getMode(sp).equals(gWarsMode.GUNMENU) || stats.getMode(sp).equals(gWarsMode.SPAWNMENU) || stats.getMode(sp).equals(gWarsMode.TEAMMENU)){
 				p.hidePlayer(sp);
@@ -41,6 +42,7 @@ public class Join {
 		for (Player players : Bukkit.getOnlinePlayers()){
             players.hidePlayer(p);
         }*///TODO NEED IT LATER MAYBE
+		
 		ItemStack item1 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
 		SkullMeta item1meta = (SkullMeta) item1.getItemMeta();
 		item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
@@ -57,6 +59,12 @@ public class Join {
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		p.playSound(p.getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
+        	}
+        }, 10L);
+		
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamemode 2 "+ p.getName());
         	}
         }, 200L);
 		

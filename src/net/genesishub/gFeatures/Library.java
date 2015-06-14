@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -88,6 +89,9 @@ public class Library {
     }
     public void onFoodLevelChange(FoodLevelChangeEvent event){
     	check("onFoodLevelChange", event);
+    }
+    public void onPlayerDrop(PlayerDropItemEvent event){
+    	check("onPlayerDrop", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

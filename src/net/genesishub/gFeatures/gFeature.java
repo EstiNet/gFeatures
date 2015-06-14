@@ -94,4 +94,5 @@ public class gFeature {
     public void onInventoryClick(){}
     public void onEntityExplode(){}
     public void onFoodLevelChange(){}
+    public void onPlayerDrop(){}
 }

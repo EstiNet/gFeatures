@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Feature.gHub;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.genesishub.gFeatures.Retrieval;
@@ -29,6 +30,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class gHub extends gFeature{
 	Listeners listeners = new Listeners();
+	EventHub eh = new EventHub();
 	public gHub(String featurename, String d) {
 		super(featurename, d);
 	}
@@ -43,11 +45,18 @@ public class gHub extends gFeature{
 	@Override
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			listeners.onPlayerJoin((PlayerJoinEvent)event);
+			eh.onPlayerJoin((PlayerJoinEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
+			eh.onPlayerDrop((PlayerDropItemEvent)event);
 		}
 	}
+	@Override
 	@Retrieval
 	public void onPlayerJoin(){}
+	@Override
+	@Retrieval
+	public void onPlayerDrop(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When there's stuff
