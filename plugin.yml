@@ -24,6 +24,7 @@ commands:
    gWars:
      description: gWars core command.
      aliases: [play, song, music]
+     permission: gWars
      usage: Syntax error! Do /gWars help.
    plugins:
      description: Shows the plugins on the server.

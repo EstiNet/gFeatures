@@ -30,6 +30,7 @@ public class Join {
 		p.setGameMode(GameMode.ADVENTURE);
 		
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "gamemode 2 "+ p.getName());
 		
 		p.setWalkSpeed((float) 0.5);
 		/*for(Player sp : Bukkit.getOnlinePlayers()){
