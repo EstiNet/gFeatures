@@ -2,6 +2,7 @@ package net.genesishub.gFeatures;
 
 import java.util.List;
 
+import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Plus.Skript.SkriptManager;
 
 /*
@@ -41,6 +42,10 @@ public class Disabler {
 				SkriptManager sm = new SkriptManager();
 				sm.Disable(extension);
 			}
+		}
+		for(gPlayer gp : Basic.getgPlayers()){
+			net.genesishub.gFeatures.API.PlayerStats.Setup setup = new net.genesishub.gFeatures.API.PlayerStats.Setup();
+			setup.flushPlayer(gp);
 		}
 		Basic.resetFeatures();
 		Basic.resetExtensions();

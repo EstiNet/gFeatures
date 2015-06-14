@@ -51,7 +51,6 @@ public class Statistics {
 		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
 		kill += num;
 		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		Bukkit.getLogger().info("Set " + p.getName() + "'s deaths to " + kill);
 		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
 		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
 		return;

@@ -27,7 +27,6 @@ public class Setup {
 				yamlFile.createSection("Config." + str);
 				yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
-				Bukkit.getLogger().info(str + " " + yamlFile.get("Config." + str).toString());
 			}
 			Basic.addgPlayer(gp);
 			try {
@@ -82,7 +81,11 @@ public class Setup {
 				yamlFile.set("Config." + str, p.getValue(str));
 			}
 				yamlFile.set("Config." + str, p.getValue(str));
-				Bukkit.getLogger().info("Config." + str + "   " + p.getValue(str));
 			}
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		}
 	}
