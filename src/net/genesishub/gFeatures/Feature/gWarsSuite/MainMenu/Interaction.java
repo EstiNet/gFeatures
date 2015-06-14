@@ -15,16 +15,20 @@ public class Interaction {
 		Player p = event.getPlayer();
 		if(stats.getMode(p).equals(gWarsMode.MAINMENU)){
 			inv.interact(event);
+			event.setCancelled(true);
 		}
 		else if(stats.getMode(p).equals(gWarsMode.TEAMMENU)){
 			tm.interact(event);
+			event.setCancelled(true);
 		}
 		else if(stats.getMode(p).equals(gWarsMode.GUNMENU)){
 			gm.interaction(event);
+			event.setCancelled(true);
 		}
 		else if(stats.getMode(p).equals(gWarsMode.SPAWNMENU)){
 			SpawnMenu sm = new SpawnMenu(p);
 			sm.interact(event);
+			event.setCancelled(true);
 		}
 	}
 }
