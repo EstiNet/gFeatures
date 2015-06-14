@@ -3,14 +3,17 @@ package net.genesishub.gFeatures.Feature.gHub;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -53,7 +56,18 @@ public class EventHub {
 		}
 	}
 	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
-		//TODO ADD EVENT
+		Player player = event.getPlayer();
+	    if ((player.getGameMode() != GameMode.CREATIVE))
+	    {
+	      event.setCancelled(true);
+	      player.setAllowFlight(false);
+	      player.setFlying(false);
+	      player.setVelocity(player.getLocation().getDirection().multiply(1.6D).setY(1.0D));
+	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.BAT_TAKEOFF, 1.0F, -5.0F);
+	    }
+	}
+	public void onPlayerMove(PlayerMoveEvent event){
+		event.getPlayer().setAllowFlight(true);
 	}
 	public void onInventoryClick(InventoryClickEvent event){
 		event.setCancelled(true);
