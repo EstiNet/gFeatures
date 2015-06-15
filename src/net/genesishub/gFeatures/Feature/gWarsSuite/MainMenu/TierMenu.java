@@ -98,16 +98,6 @@ public class TierMenu {
 		p.getInventory().setItem(4, tierfour);
 		p.getInventory().setItem(8, kills);
 		
-		/*InventoryGUI igui = new InventoryGUI(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), "&9Gun Menu", 1)                                             
-		.setItem(0, tierzero, new TierZero())
-	    .setItem(1, tierone, new TierOne())
-	    .setItem(2, tiertwo, new TierTwo())
-	    .setItem(3, tierthree, new TierThree())
-	    .setItem(4, tierfour, new TierFour())
-		.setItem(8, kills, null)
-		.setOpenAction(new OpenAction("HI"))
-        .openInventory(p);  
-		igui.openInventory(p);*/
 	}
 	
 	public ItemStack createItem(Material material, String name, String ... lore){

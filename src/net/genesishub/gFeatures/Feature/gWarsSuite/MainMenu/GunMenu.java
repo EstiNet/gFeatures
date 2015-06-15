@@ -11,7 +11,7 @@ public class GunMenu {
         	public void run(){
         		tm.setup(p);
         	}
-        }, 20L);
+        }, 5L);
         
 	}
 	public void interaction(PlayerInteractEvent event){

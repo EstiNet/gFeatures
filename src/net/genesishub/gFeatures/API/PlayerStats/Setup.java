@@ -6,7 +6,6 @@ import java.io.IOException;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
