@@ -42,7 +42,7 @@ public class SoF {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		System.out.println("[SoF][Info] Starting Project Codename:SoF...");
+		System.out.println("[SoF][Info] Starting Project Codename:SoF with gFeatures...");
 		System.out.println("[SoF][Info] Begining Pre Initialization stage...");
 		System.out.println("[SoF][Info] Loading Config file...");
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
@@ -59,7 +59,9 @@ public class SoF {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
-		System.out.println("[SoF][Info] Starting Post Initoalization stage...");
+		System.out.println("[SoF][Info] Starting Post Initialization stage...");
+		System.out.println("[SoF][Info] SoF Version: " + Reference.VERSION);
+		System.out.println("[SoF][Info] gFeatures Version: " + net.genesishub.gFeatures.Listeners.version);
 		System.out.println("[SoF][Info] Finished Post Initialization stage!");
 	}
 }

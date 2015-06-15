@@ -14,7 +14,7 @@ public class ConfigurationHandler {
 			configuration.load();
 			
 			//Read value from the config file
-			configValue = configuration.get(Configuration.CATEGORY_GENERAL, "configValue", true, "This is a test value.").getBoolean(true);
+			configValue = configuration.get("SoF", "configValue", true, "This is a test value.").getBoolean(true);
 		}catch (Exception e){
 			//Catch any errors in reading/loading the config
 		}finally{
