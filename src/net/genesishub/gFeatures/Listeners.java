@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures;
 
+import net.dolphinbox.gFeaturesForge.Feature.SoF.utility.LogHelper;
 import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
@@ -65,7 +66,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("Initalizing gFeatures.");
+		LogHelper.info("Initalizing gFeatures."); //Testing gFeatures Forge Utilitys (And how it can be used in the bukkit side of gFeatures). This is the LogHelper Utility that makes using l4j easy.
 		getLogger().info("This server is running gFeatures Core Version: " + version);
 		getLogger().info("Starting intialization of Features and Extensions...");
 		setup.onSetup();
