@@ -1,5 +1,6 @@
 package net.dolphinbox.gFeaturesForge.Feature.SoF;
 
+import net.dolphinbox.gFeaturesForge.Feature.SoF.configuration.ConfigurationHandler;
 import net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.IProxy;
 import net.dolphinbox.gFeaturesForge.Feature.SoF.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -41,16 +42,24 @@ public class SoF {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		
+		System.out.println("[SoF][Info] Starting Project Codename:SoF...");
+		System.out.println("[SoF][Info] Begining Pre Initialization stage...");
+		System.out.println("[SoF][Info] Loading Config file...");
+		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		System.out.println("[SoF][Info] Config File Loaded!");
+		System.out.println("[SoF][Info] Finished Pre Initialization stage.");
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+		System.out.println("[SoF][Info] Starting Initalization stage...");
 		
+		System.out.println("[SoF][Info] Finished Initalization stage!");
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
-		
+		System.out.println("[SoF][Info] Starting Post Initoalization stage...");
+		System.out.println("[SoF][Info] Finished Post Initialization stage!");
 	}
 }
