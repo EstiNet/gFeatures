@@ -3,6 +3,7 @@ package net.dolphinbox.gFeaturesForge.Feature.SoF;
 import net.dolphinbox.gFeaturesForge.Feature.SoF.configuration.ConfigurationHandler;
 import net.dolphinbox.gFeaturesForge.Feature.SoF.proxy.IProxy;
 import net.dolphinbox.gFeaturesForge.Feature.SoF.reference.Reference;
+import net.dolphinbox.gFeaturesForge.Feature.SoF.utility.LogHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -42,26 +43,25 @@ public class SoF {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		System.out.println("[SoF][Info] Starting Project Codename:SoF with gFeatures...");
-		System.out.println("[SoF][Info] Begining Pre Initialization stage...");
-		System.out.println("[SoF][Info] Loading Config file...");
+		LogHelper.info("Starting Project Codename:SoF with gFeatures...");
+		LogHelper.info("Begining Pre Initialization stage...");
+		LogHelper.info("Loading Config file...");
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-		System.out.println("[SoF][Info] Config File Loaded!");
-		System.out.println("[SoF][Info] Finished Pre Initialization stage.");
+		LogHelper.info("Config File Loaded!");
+		LogHelper.info("Finished Pre Initialization stage.");
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
-		System.out.println("[SoF][Info] Starting Initalization stage...");
-		
-		System.out.println("[SoF][Info] Finished Initalization stage!");
+		LogHelper.info("Starting Initalization stage...");
+		LogHelper.info("Finished Initalization stage!");
 	}
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
-		System.out.println("[SoF][Info] Starting Post Initialization stage...");
-		System.out.println("[SoF][Info] SoF Version: " + Reference.VERSION);
-		System.out.println("[SoF][Info] gFeatures Version: " + net.genesishub.gFeatures.Listeners.version);
-		System.out.println("[SoF][Info] Finished Post Initialization stage!");
+		LogHelper.info("Starting Post Initialization stage...");
+		LogHelper.info("SoF Version: " + Reference.VERSION);
+		LogHelper.info("gFeatures Version: " + net.genesishub.gFeatures.Listeners.version);
+		LogHelper.info("Finished Post Initialization stage!");
 	}
 }

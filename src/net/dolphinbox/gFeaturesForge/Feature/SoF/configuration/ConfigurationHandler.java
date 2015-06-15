@@ -2,6 +2,7 @@ package net.dolphinbox.gFeaturesForge.Feature.SoF.configuration;
 
 import java.io.File;
 
+import net.dolphinbox.gFeaturesForge.Feature.SoF.utility.LogHelper;
 import net.minecraftforge.common.config.Configuration;
 
 public class ConfigurationHandler {
@@ -22,6 +23,6 @@ public class ConfigurationHandler {
 			configuration.save();
 		}
 		
-		System.out.println("[Debug] Value of configValue:" + configValue);
+		LogHelper.debug("[Debug] Value of configValue:" + configValue);
 	}
 }
