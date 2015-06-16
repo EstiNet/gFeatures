@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="C:/guava-18.0.jar"/>
 	<classpathentry kind="lib" path="C:/forge-1.7.10-10.13.4.1448-1.7.10-universal.jar"/>
 	<classpathentry kind="lib" path="C:/Vault.jar"/>
+	<classpathentry kind="lib" path="C:/1.7.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
