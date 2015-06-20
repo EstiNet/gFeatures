@@ -27,7 +27,7 @@ public class Finish {
 		Source s = new Source();
 		s.flushAll();
 		ItemStack compass = createItem(Material.COMPASS, ChatColor.AQUA + "Compass");
-		p.getInventory().setItem(8, compass);
+		p.getInventory().setItem(7, compass);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){

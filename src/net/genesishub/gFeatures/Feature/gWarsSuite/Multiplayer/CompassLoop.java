@@ -21,6 +21,7 @@ public class CompassLoop {
 	}
 	public void updatePlayer(Player p){
 		for(ItemStack st : p.getInventory().getContents()){
+			try{
 			if(st.getType().equals(Material.COMPASS)){
 				p.getInventory().remove(st);
 				Player playerget = getNearest(p, 2000.0);
@@ -29,6 +30,10 @@ public class CompassLoop {
 				im.setDisplayName(ChatColor.AQUA + "Compass: " + ChatColor.GOLD + "" + playerget.getName());
 				st.setItemMeta(im);
 				p.getInventory().addItem(st);
+			}
+			}
+			catch(Exception e){
+				continue;
 			}
 		}
 	}
