@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
 
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -50,10 +51,10 @@ public class CompassLoop {
                 continue;
             }
             distance = distanceto;
-            if(stats.getTeam((Player) e).equals(Team.BLUE) && stats.getTeam((Player) e).equals(Team.ORANGE)){
+            if(stats.getTeam((Player) e).equals(Team.BLUE) && stats.getTeam(p).equals(Team.ORANGE)){
             	target = (Player) e;
             }
-            else if(stats.getTeam((Player) e).equals(Team.ORANGE) && stats.getTeam((Player) e).equals(Team.BLUE)){
+            else if(stats.getTeam(p).equals(Team.ORANGE) && stats.getTeam((Player) e).equals(Team.BLUE)){
             	target = (Player) e;
             }
         }
