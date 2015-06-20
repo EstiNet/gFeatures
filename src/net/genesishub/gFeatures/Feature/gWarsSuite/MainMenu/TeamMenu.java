@@ -53,7 +53,6 @@ public class TeamMenu {
 					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 					event.getPlayer().getInventory().setHelmet(wool);
 					finals(event.getPlayer());
-					Bukkit.getLogger().info("Orange");
 				}else{
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
@@ -65,13 +64,11 @@ public class TeamMenu {
 					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 					event.getPlayer().getInventory().setHelmet(wool);
 					finals(event.getPlayer());
-					Bukkit.getLogger().info("Blue");
 				}
 				else{
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Innisfil" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 			}
-			Bukkit.getLogger().info("Nop for some reason.");
 	}
 	public void finals(Player p){
 		aapi.sendActionbar(p, ChatColor.AQUA + "Please select a place to spawn.");

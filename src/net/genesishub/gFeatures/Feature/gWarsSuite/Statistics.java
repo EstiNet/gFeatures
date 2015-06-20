@@ -4,6 +4,7 @@ import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -91,6 +92,17 @@ public class Statistics {
 				Constants.mode.remove(p);
 				Constants.mode.put(p, mode);
 			}
+		}
+	}
+	public Team getTeam(Player p){
+		if(OrangeTeam.hasPlayer(p)){
+			return Team.ORANGE;
+		}
+		else if(BlueTeam.hasPlayer(p)){
+			return Team.BLUE;
+		}
+		else{
+			return Team.NEUTRAL;
 		}
 	}
 	public String getStringTeam(Player p){
