@@ -19,7 +19,6 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -30,13 +29,15 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
+import com.earth2me.essentials.api.Economy;
+import com.earth2me.essentials.api.UserDoesNotExistException;
+
 import tk.genesishub.gFeatures.GenesisEconomy.MoneyManager;
 
 public class Scored {
 	MoneyManager mm = new MoneyManager();
-	public static Economy econ = null;
 	@SuppressWarnings("deprecation")
-	public Scoreboard Initialize(Player p) throws IllegalStateException{
+	public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException, UserDoesNotExistException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
 		Objective objective = board.registerNewObjective("test", "dummy");
@@ -52,7 +53,7 @@ public class Scored {
 		score5.setScore(6);
 		Score score1 = objective.getScore(ChatColor.AQUA + "Dollars:");
 		score1.setScore(5);
-		Score score7 = objective.getScore(ChatColor.AQUA + "" + econ.format(econ.getBalance(p.getName()))); //Get a fake offline player
+		Score score7 = objective.getScore(ChatColor.AQUA + "" + Economy.format(Economy.getMoney(p.getName()))); //Get a fake offline player
 		score7.setScore(4);
 		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "Random Word:");
 		score8.setScore(3);
