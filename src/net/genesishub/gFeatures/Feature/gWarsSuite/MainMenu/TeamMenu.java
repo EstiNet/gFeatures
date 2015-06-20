@@ -52,6 +52,7 @@ public class TeamMenu {
 					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 					event.getPlayer().getInventory().setHelmet(wool);
 					finals(event.getPlayer());
+					Bukkit.getLogger().info("Orange");
 			}
 			else if(event.getPlayer().getItemInHand().equals(item2)){
 					BlueTeam.addPlayer(event.getPlayer());
@@ -59,7 +60,9 @@ public class TeamMenu {
 					ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 					event.getPlayer().getInventory().setHelmet(wool);
 					finals(event.getPlayer());
+					Bukkit.getLogger().info("Blue");
 			}
+			Bukkit.getLogger().info("Nop for some reason.");
 	}
 	public void finals(Player p){
 		aapi.sendActionbar(p, ChatColor.AQUA + "Please select a place to spawn.");
