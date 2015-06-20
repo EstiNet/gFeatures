@@ -24,7 +24,7 @@ public class CompassLoop {
 			try{
 			if(st.getType().equals(Material.COMPASS)){
 				p.getInventory().remove(st);
-				Player playerget = getNearest(p, 2000.0);
+				Player playerget = getNearest(p, 1000.0);
 				p.setCompassTarget(playerget.getLocation());
 				ItemMeta im = st.getItemMeta();
 				im.setDisplayName(ChatColor.AQUA + "Compass: " + ChatColor.GOLD + "" + playerget.getName());
