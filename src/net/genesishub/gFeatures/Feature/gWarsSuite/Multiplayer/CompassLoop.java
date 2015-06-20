@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class CompassLoop {
+	static Player target;
 	Statistics stats = new Statistics();
 	public void updateAll(){
 		for(Player p : BlueTeam.getList()){
@@ -25,7 +26,7 @@ public class CompassLoop {
 			try{
 			if(st.getType().equals(Material.COMPASS)){
 				p.getInventory().remove(st);
-				Player playerget = getNearest(p, 30.0);
+				Player playerget = getNearest(p, 800.0);
 				p.setCompassTarget(playerget.getLocation());
 				ItemMeta im = st.getItemMeta();
 				im.setDisplayName(ChatColor.AQUA + "Compass: " + ChatColor.GOLD + "" + playerget.getName());
@@ -41,7 +42,8 @@ public class CompassLoop {
 	public Player getNearest(Player p, Double range) {
         double distance = Double.POSITIVE_INFINITY; // To make sure the first
                                                     // player checked is closest
-        Player target = p;
+        target = p;
+        Bukkit.getLogger().info("____"+ p.getName());
         for (Entity e : p.getNearbyEntities(range, range, range)) {
             if (!(e instanceof Player)){
                 continue;
@@ -51,13 +53,17 @@ public class CompassLoop {
                 continue;
             }
             distance = distanceto;
+            Bukkit.getLogger().info("Iters");
             if(stats.getTeam((Player) e).equals(Team.BLUE) && stats.getTeam(p).equals(Team.ORANGE)){
             	target = (Player) e;
+            	Bukkit.getLogger().info("Iter1");
             }
             else if(stats.getTeam(p).equals(Team.ORANGE) && stats.getTeam((Player) e).equals(Team.BLUE)){
             	target = (Player) e;
+            	Bukkit.getLogger().info("Iter2");
             }
         }
+        Bukkit.getLogger().info(target.getName());
         return target;
     }
 }
