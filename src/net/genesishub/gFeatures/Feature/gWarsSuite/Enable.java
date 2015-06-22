@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 
 import net.genesishub.gFeatures.Basic;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
@@ -45,6 +46,13 @@ public class Enable {
 		Constants.multiplayerpossession.put(Constants.innisfilhighway, Team.BLUE);
 		Constants.multiplayerpossession.put(Constants.kloynehighway, Team.ORANGE);
 		Constants.multiplayerpossession.put(Constants.bridge, Team.NEUTRAL);
+		
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		CompassLoop cl = new CompassLoop();
+        		cl.updateAll();
+        	}
+        }, 40L, 40L);
 		
 		/*for(Point point : Constants.multiplayerpossession.keySet()){
 			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){

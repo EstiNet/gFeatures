@@ -25,7 +25,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.4.3");
+		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.4.7");
 		Basic.addFeature(base);
 	}
 }
