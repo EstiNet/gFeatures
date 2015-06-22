@@ -27,7 +27,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		Extension gCrates = new Extension("gEssentialsHub", "0.7-ALPHA", ExtensionsType.Skript);
+		Extension gCrates = new Extension("gEssentialsHub", "0.8-Production", ExtensionsType.Skript);
 		Basic.addExtension(gCrates);
 	}
 }
