@@ -1,0 +1,2236 @@
+# gMMO - By Adorra, copied by Seshpenguin who got sued by Adorra. Original Code by Adorra.
+# gFeatures Addon
+# skMMO: v1.8.1 (Base version for gMMO)
+# gMMO:  0.1-ALPHA
+# --------------------------------------------------
+options:
+			#-----------------------------------------------------------------------#
+			#	       andorra101's	                                 	#
+			#                       _   ___  _____  ________                        #
+			#		       | |  |  \/  |  \/  |  _  |	    	 	#
+			#	            ___| | _| \  / | \  / | | | |	    	 	#
+			#	           / __| |/ / |\/| | |\/| | | | |      	 		#
+			#	           \__ \   <| |  | | |  | \ \_/ /	  	   	#
+			#		   |___/_|\_\_|  |_|_|  |_/\___/ v1.8	    		#
+			#    		     'For the Skript RPG Lover.'	      		#
+			#-----------------------------------------------------------------------#
+
+#				        Based on mcMMO. by gmcferrin and friends.
+#                                  mcMMO: http://dev.bukkit.org/bukkit-plugins/mcmmo/   
+                      
+#						------[]CHANGELOG 1.8[]------
+
+# 					+ Added Swords	
+# 					*Made UUIDs Optional.
+# 					*Implemented Silk-Touch for Mining/Excavation.
+#					+ Added a Converter for UUID -> Player
+#					*Added Acrobatics, Swords, & Repair/Salvage to Converter(s)
+#					*Cleaned up the Code, as Well as Organized it. A lot.
+#					+ Added Counter Attack (Passive Ability, Swords).
+#					+ Added Bleed (Passive Ability, Swords).
+#					+ Added Serrated Strikes
+#					+ Added Level Caps.
+#					*Cleaned up Block Check to remove checks on Break.
+#					*Made Block Check only check for blocks that are for Abilities. 
+ 
+#						----[]TABLE OF CONTENTS[]----
+#					                                   ______		
+# 					1. Options ---------------------- |   64 |
+# 					2. Mining ----------------------- |  192 |
+#					   	a. Super Breaker -------- |  314 |
+# 					3. Woodcutting------------------- |  406 |
+#					   	a. Leaf Blower -----------|  449 |
+#					   	b. Tree Feller ---------- |  459 |
+# 					4. Excavation ------------------- |  526 |
+#					  	a. Treasure Hunter ------ |  551 |
+#					  	b. Giga Drill ----------- |  799 |
+# 					5. Acrobatics ------------------- |  858 |
+#					   	a. Roll ----------------- |  872 |
+#					   	b. Graceful Landing ----- |  872 |
+#					   	c. Dodge ---------------- |  889 |
+# 					6. Repair------------------------ |  904 |
+#					   	a. Repair Info Table ---- |  904 |
+#					   	b. Arcane Forging ------- | 1226 |
+# 					7. Salvage ---------------------- | 1269 |
+# 					8. Swords ----------------------- | 1307 |
+#						a. Bleed ---------------- | 1331 |
+#						b. Counter Attack ------- | 1344 |
+#						c. Serrated Strikes ----- | 1357 |
+#					9. Block Check ------------------ | 1416 |
+# 					10. Commands -------------------- | 1429 |
+# 					11. UUIDs Converter(s) ---------- | 1702 |
+#					   	a. UUIDs -> Player ------ | 1704 |
+#					  	b. Player -> UUIDs ------ | 1842 |
+# 					12. Variables ------------------- | 1977 |
+#					13. Resources ------------------- | 2102 |
+#									  |______|
+
+			#-----------------------------------------------------------------------#
+			# 1.			    ==[]OPTIONS[]==				#
+			#-----------------------------------------------------------------------#
+
+# 						     --[]UUIDs[]--
+
+#			Rather than having variables saved as {skmmo::<player>}, UUIDs will 
+#			save as {skmmo::<uuid of player>} There is an Automatic Player -> UUID 
+#			and UUID -> player converter. UUIDs will allow players to make flawless
+#			name changes without losing their skMMO stats. UUID-Autokick will autokick
+#			players when UUIDS is changed. highly recommended use, as it could break stats
+#			especially if changed while players online.
+
+	UUIDs: false
+	UUID-Autokick: true
+#                                                   --[]MINING[]--
+
+#			The Mining Ability allows players to Mine for a chance of double drops.
+#			Mining, Part of the core 4 (Mining, Woodcutting, Excavation, Acrobatics)
+#			Is heavily recommended on Towny, Faction, and Prison Servers. Also may
+#			Apply for anything with large amounts of mining necessary. This Ability
+#			Comes with one Skill Currently. (Super Breaker) Super Breaker allows the
+#			Player to break blocks much faster than normal (One hit, May be changed
+#			in the future.) Disabiling this Ability will remove Super Breaker and
+#			Double drops on breaking ores. Also disables the Mining Leveling System.
+
+	Mining Ability: true
+	Mining Level Cap: 1000
+#	     >>> Note: Setting Level Cap to '0' is Unlimited!
+
+#						 --[]WOODCUTTING[]--
+
+#			The Woodcutting ability allows players to chop down trees for a chance
+#			of double drops. Woodcutting is a part of the core 4 (Mining, Woodcutting, 
+#			Excavation, Acrobatics) and is heavily recommended on Towny, Faction, and
+#			Prison servers. Also may apply for anything with large amounts of chopping
+#			down trees. Woodcutting comes with 2 Skills. (Tree Feller & Leaf Blower)
+#			Tree Feller allows the player to chop down a tree just by cutting at the base
+#			It is a skill with a cooldown and damages the player's axe higher than normal.
+#			Leaf Blower allows the player to clear out leaves when cutting down wood. Note:
+#			This ability is passive and unlocks for the player at a default level 100.
+#			Disabling this ability will disable Tree Feller, Leaf Blower and the chance of
+#			Double drops on breaking wood. Also Disables the Woodcutting Levelling system.
+
+	Woodcutting Ability: true
+	Woodcutting Level Cap: 1000
+
+#                                                --[]EXCAVATION[]--
+
+#			The Excavation Ability allows the player to dig for treasures and chance for
+#			Double drops. Excavation is a part of the Core 4 (Mining, Woodcutting, Acrobatics,
+#			Excavation) and is heavily recommended on Towny, Faction, Modded-Survival and 
+#			Prison Servers. Also may apply for anything with large amounts of excavating or
+#			Treasure finding ;) Excavation comes with 2 skills (Treasure Hunter & Giga Drill)
+#			Giga Drill allows player to dig extremly fast, has a cooldown. Treasure Hunter
+#			Allows the player to search for treasures while digging, making excavation a bit
+#			More fun. Different levels and xp rewards for finding treasure are all changeable.
+#			Disabling this ability will disable Giga Drill and Treasure hunter, as well as the
+#			Excavation Leveling System.
+
+	Excavation Ability: true
+	Excavation Level Cap: 1000
+
+
+# 						 --[]ACROBATICS[]--
+
+#			The Acrobatics Ability allows the player to have a chance of Dodging, rolling,
+#			or gracefully landing attacks. Acrobatics is apart of the core 4 (Mining,
+#			Woodcutting, Excavation, Acrobatics) and is heavily recommended on just about
+#			any server using the falling mechanics (RPGs, Minigames, etc.) Acrobatics comes
+#			with 3 skills, (Dodge, Graceful Landing, Roll) Dodge allows the player to dodge
+#			any attack or damage cause. Graceful Landing allows the player to sneak when 
+#			they fall for a chance of reduced damage. (at a low height). Roll, allows the
+#			player to just have a chance of reducing or even depleting fall damage. Disabling
+#			acrobatics will disable Roll, Graceful Landing, and Dodge. As well as the Acrobatics
+#			Leveling System.
+
+	Acrobatics Ability: true
+	Acrobatics Level Cap: 1000
+
+# 						   --[]REPAIR[]--
+
+#			The Repair ability allows the player to 'repair' tools, armor, weapons, etc. Repair
+#			Can be customised with Custom weapons and tools, (See Repair) Repair is heavily
+#			Recomended on RPG servers as it brings a custom 'forging' to the table. Repair has
+#			2 Skills, (Master Forgery & Arcane Forging) Master Forgery allows the player to
+#			increase the amount of repair each repair. While Arcane Forging adds some ground
+#			to the mix and makes a tier system for levelling, reducing, and destroying Enchants.
+#			This skill hooks into salvage and disabling it will also disable salvage. Disabling
+#			Will also disable the Arcane Forging as well as Master Forgery and the Repair Leveling
+#			System. 
+
+	Repair Ability: true
+	Repair Level Cap: 1000
+
+# 						   --[]SALVAGE[]--
+
+# 			The Child Skill Salvage is currently in alpha as it is still just apart of Repair. it
+# 			will be this way until Fishing (Its other parent) is added.
+
+	Salvage Ability: true
+
+#						   --[]SWORDS[]--
+
+# 			The swords ability allows the player to obtain advatanges over other players and mobs.
+#			Swords currently comes with 2 Passive Abilities and 1 Ability. Bleed and Counter Attack
+#			and Serrated Strikes. Bleed allows the Attacker to 'cut' the victim and let them 'bleed'
+#			for a ahort while. Counter attack has the chance of dealing half of the damage done to
+#			the victim back to the attacker. and Serrated Strikes allows the attacker to deal an 
+#			extra 25% damage as well as apply a stronger 'bleed' to the victim. Swords is recommended
+#			on any server using Mob Arena, Factions, or Survival in general. Note that levelling Swords
+#			on players is disabled and may become optional in the future. Disabling this ability will
+#			disable Serrated Strikes, Counter Attack, Bleed and the Swords Levelling System.
+
+	Swords Ability: true
+	Swords Level Cap: 1000
+
+#					       --[]LEVELUP MESSAGE[]--
+# 			This option will allow you to customize the message players see when they level up.
+#			NOTE: *skill* is the Skill/Ability, *total* is the player's level in that Skill.
+#			*This is the Default mcMMO Message.
+
+	level.up message: &e*skill* skill increased by 1. Total (*total*)
+
+# PVP SKILLS
+# 	>> Don't touch these if you don't know what these are. 
+
+	multiplier.friendly: 1
+	multiplier.tier1: 2
+	multiplier.tier2: 3
+	multiplier.tier3: 4
+	multiplier.tier4: 8
+
+			#-----------------------------------------------------------------------#
+			# 2.			    ==[]Mining[]==				#
+			#-----------------------------------------------------------------------#
+options:
+# MINING
+	cooldown.superbreaker: 2 minutes
+	mining.stone.reward: 10
+	mining.mossycobblestone.reward: 40
+	mining.netherrack.reward: 10
+	mining.sandstone.reward: 10
+	mining.glowstone.reward: 30
+	mining.redstone.reward: 50
+	mining.endstone.reward: 50
+	mining.obsidian.reward: 50
+	mining.iron.reward: 80
+	mining.quartz.reward: 80
+	mining.gold.reward: 120
+	mining.lapis.reward: 130
+	mining.diamond.reward: 250
+	mining.emerald.reward: 330
+	mining.levelup.amount: 20
+on mine:
+	if {@Mining Ability} is true:
+		if {skmmo::blocklog::%location of event-block%} isn't set:
+			event-block is stone:
+				if player is holding a pickaxe:
+					add {@mining.stone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of stone at event-block
+						else:
+							drop 1 of cobblestone at event-block
+			event-block is mossy cobblestone:
+				if player is holding a pickaxe:
+					add {@mining.mossycobblestone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of mossy cobblestone at event-block
+			event-block is netherrack:
+				if player is holding a pickaxe:
+					add {@mining.netherrack.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of netherrack at event-block
+			event-block is sandstone:
+				if player is holding a pickaxe:
+					add {@mining.sandstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of sandstone at event-block
+			event-block is glowstone:
+				if player is holding a pickaxe:
+					add {@mining.glowstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if the player's tool is enchanted with silk touch:
+							drop 1 of glowstone at event-block
+						else:
+							drop 4 of glowstone dust at event-block
+			event-block is redstone ore:
+				if player is holding a pickaxe:
+					add {@mining.redstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of redstone ore at event-block
+						else:
+							drop 4 of redstone at event-block
+			event-block is end stone:
+				if player is holding a pickaxe:
+					add {@mining.endstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of end stone at event-block
+			event-block is obsidian:
+				if player is holding a pickaxe:
+					add {@mining.obsidian.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of obsidian at event-block
+			event-block is iron ore:
+				if player is holding a pickaxe:
+					add {@mining.iron.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of iron ore at event-block
+			event-block is nether quartz ore:
+				if player is holding a pickaxe:
+					add {@mining.quartz.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of nether quartz ore at event-block
+						else:
+							drop 4 of nether quartz at event-block
+			event-block is gold ore:
+				if player is holding a pickaxe:
+					add {@mining.gold.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						drop 1 of gold ore at event-block
+			event-block is lapis ore:
+				if player is holding a pickaxe:
+					add {@mining.lapis.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of lapis ore at event-block
+						else:
+							drop 4 of lapis at event-block
+			event-block is diamond ore:
+				if player is holding a pickaxe:
+					add {@mining.diamond.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of diamond ore at event-block
+						else:
+							drop 1 of diamond at event-block
+			event-block is emerald ore:
+				if player is holding a pickaxe:
+					add {@mining.emerald.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::mining::skills::double}%:
+						if player's tool is enchanted with silk touch:
+							drop 1 of emerald ore at event-block
+						else:
+							drop 1 of emerald at event-block
+			make console execute command "skmmo check %player% Mining"
+
+		#-------------------------------------------------------#
+		# A.		   --SUPERBREAKER--			#
+		#-------------------------------------------------------#
+on right click:
+	if {@Mining Ability} is true:
+		player is holding a pickaxe:
+			if clicked block is iron block or gold block:
+				stop
+			else:
+				if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} is false:
+					set {_difference} to difference between {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldowner} and now
+					if {_difference} is less than {@cooldown.superbreaker}:
+						set {_difference} to difference between {@cooldown.superbreaker} and {_difference}
+						send "&cYou are too tired to use this ability. &e(%{_difference}%)"
+						if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldownmsg} is false:
+							set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldownmsg} to true
+							wait {_difference}
+							send "&aYour &eSuper Breaker &ais Refreshed!"
+							set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldownmsg} to false
+					else:
+						send "&a** YOU RAISE YOUR PICKAXE **"
+						set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} to true
+						wait 1 seconds
+						if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} is false:
+							send "&7** YOU LOWER YOUR PICKAXE **"
+							set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} to false
+
+on left click:
+	if {@Mining Ability} is true:
+		player is holding a pickaxe:
+			if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} is true:
+				set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} to false
+				set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} to true
+				send "&a&l*** Super-Breaker Activated ***"
+				set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldowner} to now
+				wait {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::durability}
+				send "&7&l*** Super-Breaker Deactivated ***"
+				set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} to false
+
+on left click:
+	if {@Mining Ability} is true:
+		player is holding a pickaxe:
+			if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} is true:
+				if clicked block is stone or redstone ore or gold ore or lapis ore or iron ore or diamond ore or emerald ore or glowstone or obsidian or end stone or nether quartz ore or netherrack or mossy cobblestone or sandstone:
+					if {skmmo::blocklog::%location of event-block%} isn't set:
+						if clicked block is stone:
+							drop 1 of cobblestone at clicked block
+							add {@mining.stone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is netherrack:
+							drop 1 of netherrack at clicked block
+							add {@mining.netherrack.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is sandstone:
+							drop 1 of sandstone at clicked block
+							add {@mining.sandstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is mossy cobblestone:
+							drop 1 of mossy cobblestone at clicked block
+							add {@mining.mossycobblestone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is gold ore:
+							drop 1 of gold ore at clicked block
+							add {@mining.gold.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is glowstone:
+							drop 4 of glowstone dust at clicked block
+							add {@mining.glowstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is lapis ore:
+							drop 4 of lapis at clicked block
+							add {@mining.lapis.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is redstone ore:
+							drop 5 of redstone dust at clicked block
+							add {@mining.redstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is emerald ore:
+							drop 1 of emerald at clicked block
+							add {@mining.emerald.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is diamond ore:
+							drop 1 of diamond at clicked block
+							add {@mining.diamond.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is iron ore:
+							drop 1 of iron ore at clicked block
+							add {@mining.iron.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is obsidian:
+							if player is holding a diamond pickaxe:
+								drop 1 of obsidian at clicked block
+								add {@mining.obsidian.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+							else:
+								stop
+						if clicked block is end stone:
+							drop 1 of end stone at clicked block
+							add {@mining.endstone.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						if clicked block is nether quartz ore:
+							drop 4 of nether quartz at clicked block
+							add {@mining.quartz.reward} to {skmmo::%{skmmoVar.%player%}%::mining::xp}
+						set clicked block to air
+						make console execute command "skmmo check %player% Mining"
+			#-----------------------------------------------------------------------#
+			# 3.			    ==[]WOODCUTTING[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	cooldown.treefeller: 2 minutes
+	woodcutting.oak.reward: 25
+	woodcutting.birch.reward: 30
+	woodcutting.darkoak.reward: 30
+	woodcutting.jungle.reward: 40
+	woodcutting.acacia.reward: 30
+	woodcutting.spruce.reward: 30
+	woodcutting.levelup.amount: 20
+
+on mine:
+	if {@Woodcutting Ability} is true:
+		if {skmmo::blocklog::%location of event-block%} isn't set:
+			player is holding an axe:
+				event-block is oak log:
+					add {@woodcutting.oak.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of oak log at event-block
+				event-block is spruce log:
+					add {@woodcutting.spruce.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of spruce log at event-block
+				event-block is birch log:
+					add {@woodcutting.birch.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of birch log at event-block
+				event-block is jungle log:
+					add {@woodcutting.jungle.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of jungle log at event-block
+				event-block is dark oak log:
+					add {@woodcutting.darkoak.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of dark oak log at event-block
+				event-block is acacia log:
+					add {@woodcutting.acacia.reward} to {skmmo::%{skmmoVar.%player%}%::woodcutting::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%:
+						drop 1 of acacia log at event-block
+				make console execute command "skmmo check Woodcutting %player%"
+
+		#-------------------------------------------------------#
+		# A.			--LEAF BLOWER--			#
+		#-------------------------------------------------------#
+on break of log:
+	if player is holding an axe:
+		if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower} is true:
+			loop blocks in radius 2 around event-block:
+				if loop-block is leaves:
+					wait 1 tick
+					set loop-block to air
+		#-------------------------------------------------------#
+		# B.			--TREE FELLER--			#
+		#-------------------------------------------------------#
+
+# Special thanks to guruflex for letting me use his Tree Feller.
+# I was scared of this one XD
+
+on right click:
+	if {@Woodcutting Ability} is true:
+		player is holding a axe:
+			if clicked block is iron block or gold block :
+				stop
+			else:
+				if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} is false:
+					set {_difference} to difference between {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldowner} and now
+					if {_difference} is less than {@cooldown.treefeller}:
+						set {_difference} to difference between {@cooldown.treefeller} and {_difference}
+						send "&cYou are too tired to use this ability. &e(%{_difference}%)"
+						if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldownmsg} is false:
+							set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldownmsg} to true
+							wait {_difference}
+							send "&aYour &eTree Feller &ais Refreshed!"
+							set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldownmsg} to false
+					else:
+						send "&a** YOU RAISE YOUR AXE **"
+						set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} to true
+						wait 1 seconds
+						if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::use} is false:
+							send "&7** YOU LOWER YOUR AXE **"
+							set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} to false
+
+on left click:
+	if {@Woodcutting Ability} is true:
+		player is holding a axe:
+			if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} is true:
+				set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} to false
+				set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::use} to true
+				send "&a&l*** Tree-Feller Activated ***"
+				wait {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::durability}
+				send "&7&l*** Tree-Feller Deactivated ***"
+				set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::use} to false
+				set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldowner} to now
+on break of wood:
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::use} is true:
+		player is holding axe
+		loop blocks upwards:
+			loop-block is wood
+			add 1 to {_tool}
+			loop blocks in radius 2 around loop-block:
+				if loop-block-2 is leaves:
+					set {_tree} to true
+					set the loop-block-2 to air
+		{_tree} is true
+		loop blocks upwards:
+			if loop-block is wood:
+				drop the loop-block-1 at event-block
+				set the loop-block-1 to air
+			loop blocks in radius 4 around loop-block:
+				if loop-block-2 is wood:
+					drop the loop-block-2 at event-block
+					set the loop-block-2 to air
+					set {_tree} to false
+					damage player's tool by {_tool}
+					wait 1 tick
+					set {_tool} to 0
+
+
+			#-----------------------------------------------------------------------#
+			# 4.			    ==[]EXCAVATION[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	cooldown.gigadrill: 2 minutes
+	excavation.levelup.amount: 200
+	excavation.all.reward: 20
+on mine:
+	if {@Excavation Ability} is true:
+		if {skmmo::blocklog::%location of event-block%} isn't set:
+			player is holding a shovel:
+				event-block is grass or mycelium or dirt or gravel or sand or clay block or soul sand:
+					add {@excavation.all.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					chance of {skmmo::%{skmmoVar.%player%}%::excavation::skills::double}%:
+						if the player's tool is enchanted with silk touch:
+							drop 1 of event-block at event-block
+						else:
+							if event-block is dirt or mycelium or grass:
+								drop 1 of dirt at event-block
+							if event-block is sand or soul sand or gravel:
+								drop 1 of event-block at event-block
+							if event-block is clay block:
+								drop 4 of clay at event-block
+					make console execute command "skmmo check %player% Excavation"
+
+		#-------------------------------------------------------#
+		# A.		  --TREASURE HUNTER--			#
+		#-------------------------------------------------------#
+options:
+	level.goldmusicdisc: 250
+	excavation.goldmusicdisc.reward: 3000
+	level.greenmusicdisc: 250
+	excavation.greenmusicdisc.reward: 3000 
+	level.nametag: 250
+	excavation.nametag.reward: 3000
+	level.diamonds: 350
+	excavation.diamonds.reward: 1000
+	level.cake: 750
+	excavation.cake.reward: 3000
+	level.netherquartz: 850
+	excavation.netherquartz.reward: 3000
+	level.glowstone: 25
+	excavation.glowstone.reward: 80
+	level.map: 25
+	excavation.map.reward: 200
+	level.gunpowder: 75
+	excavation.gunpowder.reward: 30
+	level.slimeball: 150
+	excavation.slimeball.reward: 10
+	level.bone: 175
+	excavation.bone.reward: 30
+	level.eggs: 250
+	excavation.eggs.reward: 100
+	level.apple: 250
+	excavation.apple.reward: 100
+	level.string: 250
+	excavation.string.reward: 200
+	level.cocoabeans: 350
+	excavation.cocoabeans.reward: 90
+	level.mushrooms: 500
+	excavation.mushrooms.reward: 80
+	level.bucket: 500
+	excavation.bucket.reward: 100
+	level.clock: 500
+	excavation.clock.reward: 100
+	level.soulsand: 650
+	excavation.soulsand.reward: 80
+	level.cobweb: 500
+	excavation.cobweb.reward: 100
+	level.cake: 750
+	excavation.cake.reward: 3000
+	level.netherrack: 850
+	excavation.netherrack.reward: 3000
+	level.netherquartz: 850
+	excavation.netherquartz.reward: 3000
+
+on mine:
+	if {@Excavation Ability} is true:
+		player is holding a shovel:
+			if player's tool is enchanted with silk touch:
+				stop
+			if event-block is grass or mycelium or dirt or gravel or clay block or sand or soul sand:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.diamonds}:
+					chance of 0.25%:
+						drop 1 of diamond at event-block
+						add {@excavation.diamonds.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.goldmusicdisc}:
+					chance of 0.05%:
+						drop 1 of gold music disc at event-block
+						add {@excavation.goldmusicdisc.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.greenmusicdisc}:
+					chance of 0.05%:
+						drop 1 of green music disc at event-block
+						add {@excavation.greenmusicdisc.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.nametag}:
+					chance of 1%:
+						drop 1 of name tag at event-block
+						add {@excavation.nametag.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cake}:
+					chance of 0.05%:
+						drop 1 of cake at event-block	
+						add {@excavation.cake.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.netherquartz}:
+					chance of 0.05%:
+						drop 1 of nether quartz at event-block	
+						add {@excavation.netherquartz.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+			if event-block is grass or mycelium or dirt or sand:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.glowstone}:
+					chance of 5%:
+						drop 1 of glowstone at event-block
+						add {@excavation.glowstone.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+			if event-block is grass or mycelium:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.apple}:
+					chance of 0.1%:
+						drop 1 of apple at event-block
+						add {@excavation.apple.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+			if event-block is grass or mycelium or dirt:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cocoabeans}:
+					chance of 1.33%:
+						drop 1 of cocoa beans at event-block
+						add {@excavation.cocoabeans.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+			if event-block is sand or mycelium or dirt:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.mushrooms}:
+					chance of 0.5%:
+						drop 1 of red mushroom or brown mushroom at event-block	
+						add {@excavation.mushrooms.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+			if event-block is grass:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.eggs}:
+					chance of 1%:
+						drop 1 of egg at event-block	
+						add {@excavation.eggs.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+			if event-block is clay block:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.map}:
+					chance of 2%:
+						drop 1 of map at event-block
+						add {@excavation.map.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.slimeball}:
+					chance of 1%:
+						drop 1 of slimeball at event-block
+						add {@excavation.slimeball.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}						
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.string}:
+					chance of 5%:
+						drop 1 of string at event-block
+						add {@excavation.string.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.bucket}:
+					chance of 0.1%:
+						drop 1 of bucket at event-block
+						add {@excavation.bucket.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.clock}:
+					chance of 0.1%:
+						drop 1 of clock at event-block
+						add {@excavation.clock.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cobweb}:
+					chance of 5%:
+						drop 1 of cobweb at event-block
+						add {@excavation.cobweb.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+			if event-block is gravel:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.gunpowder}:
+					chance of 10%:
+						drop 1 of gunpowder at event-block
+						add {@excavation.gunpowder.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.bone}:
+					chance of 10%:
+						drop 1 of bone at event-block
+						add {@excavation.bone.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.netherrack}:
+					chance of 0.5%:
+						drop 1 of netherrack at event-block
+						add {@excavation.netherrack.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+			if event-block is sand:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.soulsand}:
+					chance of 0.5%:
+						drop 1 of soul sand at event-block	
+						add {@excavation.soulsand.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+			make console execute command "skmmo check %player% Excavation"
+on left click:
+	if {@Excavation Ability} is true:
+		if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} is true:
+			player is holding a shovel:
+				if event-block is grass or mycelium or dirt or gravel or clay block or sand or soul sand:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.diamonds}:
+						chance of 0.5%:
+							drop 1 of diamond at event-block
+							add {@excavation.diamonds.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.goldmusicdisc}:
+						chance of 0.1%:
+							drop 1 of gold music disc at event-block
+							add {@excavation.goldmusicdisc.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.greenmusicdisc}:
+						chance of 0.1%:
+							drop 1 of green music disc at event-block
+							add {@excavation.greenmusicdisc.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.nametag}:
+						chance of 2%:
+							drop 1 of name tag at event-block
+							add {@excavation.nametag.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cake}:
+						chance of 0.1%:
+							drop 1 of cake at event-block	
+							add {@excavation.cake.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.netherquartz}:
+						chance of 0.1%:
+							drop 1 of nether quartz at event-block	
+							add {@excavation.netherquartz.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+				if event-block is grass or mycelium or dirt or sand:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.glowstone}:
+						chance of 10%:
+							drop 1 of glowstone at event-block
+							add {@excavation.glowstone.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if event-block is grass or mycelium:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.apple}:
+						chance of 0.2%:
+							drop 1 of apple at event-block
+							add {@excavation.apple.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+				if event-block is grass or mycelium or dirt:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cocoabeans}:
+						chance of 2.66%:
+							drop 1 of cocoa beans at event-block
+							add {@excavation.cocoabeans.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+				if event-block is sand or mycelium or dirt:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.mushrooms}:
+						chance of 1%:
+							drop 1 of red mushroom or brown mushroom at event-block	
+							add {@excavation.mushrooms.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}				
+				if event-block is grass:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.eggs}:
+						chance of 2%:
+							drop 1 of egg at event-block	
+							add {@excavation.eggs.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}			
+				if event-block is clay block:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.map}:
+						chance of 4%:
+							drop 1 of map at event-block
+							add {@excavation.map.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}					
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.slimeball}:
+						chance of 2%:
+							drop 1 of slimeball at event-block
+							add {@excavation.slimeball.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}						
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.string}:
+						chance of 10%:
+							drop 1 of string at event-block
+							add {@excavation.string.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.bucket}:
+						chance of 0.2%:
+							drop 1 of bucket at event-block
+							add {@excavation.bucket.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.clock}:
+						chance of 0.2%:
+							drop 1 of clock at event-block
+							add {@excavation.clock.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.cobweb}:
+						chance of 10%:
+							drop 1 of cobweb at event-block
+							add {@excavation.cobweb.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if event-block is gravel:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.gunpowder}:
+						chance of 20%:
+							drop 1 of gunpowder at event-block
+							add {@excavation.gunpowder.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.bone}:
+						chance of 20%:
+							drop 1 of bone at event-block
+							add {@excavation.bone.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.netherrack}:
+						chance of 1%:
+							drop 1 of netherrack at event-block
+							add {@excavation.netherrack.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				if event-block is sand:
+					if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} is more than or equal to {@level.soulsand}:
+						chance of 1%:
+							drop 1 of soul sand at event-block	
+							add {@excavation.soulsand.reward} to {skmmo::%{skmmoVar.%player%}%::excavation::xp}
+				make console execute command "skmmo check %player% Excavation"
+		#-------------------------------------------------------#
+		# B.		    --GIGA DRILL--			#
+		#-------------------------------------------------------#
+on right click:
+	if {@Excavation Ability} is true:
+		player is holding a shovel:
+			if clicked block is iron block or gold block:
+				stop
+			else:
+				if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} is false:
+					set {_difference} to difference between {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldowner} and now
+					if {_difference} is less than {@cooldown.gigadrill}:
+						set {_difference} to difference between {@cooldown.gigadrill} and {_difference}
+						send "&cYou are too tired to use this ability. &e(%{_difference}%)"
+						if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldownmsg} is false:
+							set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldownmsg} to true
+							wait {_difference}
+							send "&aYour &eGiga Drill &ais Refreshed!"
+							set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldownmsg} to false
+					else:
+						send "&a** YOU RAISE YOUR SHOVEL **"
+						set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} to true
+						wait 1 seconds
+						if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} is false:
+							send "&7** YOU LOWER YOUR SHOVEL **"
+							set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} to false
+on left click:
+	if {@Excavation Ability} is true:
+		player is holding a shovel:
+			if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} is true:
+				set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} to false
+				set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} to true
+				send "&a&l*** Giga Drill Activated ***"
+				wait {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::durability}
+				send "&7&l*** Giga Drill Deactivated ***"
+				set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} to false
+				set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldowner} to now
+on left click:
+	if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} is true:
+		player is holding a shovel:
+			clicked block is grass or mycelium or dirt or gravel or sand or clay block or soul sand:
+				if clicked block is grass or mycelium or dirt:
+					drop 1 of dirt at clicked block
+				if clicked block is sand or gravel or soul sand:
+					drop 1 of clicked block at clicked block
+				if clicked block is clay block:
+					drop 4 of clay at clicked block
+				set clicked block to air
+				add {@excavation.all.reward} to {skmmo::%player%::excavation::xp}
+				chance of {skmmo::%{skmmoVar.%player%}%::excavation::skills::double}%:
+					if clicked block is grass or mycelium or dirt:
+						drop 2 of dirt at clicked block
+					if clicked block is sand or gravel or soul sand:
+						drop 2 of event-block at clicked block
+					if clicked block is clay block:
+						drop 6 of clay at clicked block
+				make console execute command "skmmo check %player% Excavation"	
+
+	
+			#-----------------------------------------------------------------------#
+			# 5.			    ==[]ACROBATICS[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	acrobatics.damage.reward: 180
+	acrobatics.levelup.amount: 20
+on damage:
+	damage cause is fall:
+		victim is a player
+		if {@Acrobatics Ability} is true:
+			set {_acroDamage} to the damage
+			set {_acroDamage} to {_acroDamage} * {@acrobatics.damage.reward}
+			add {_acroDamage} to {skmmo::%{skmmoVar.%victim%}%::acrobatics::xp}
+			make console execute command "skmmo check %victim% Acrobatics"
+		#-------------------------------------------------------#
+		# A.	       --GRACEFUL LANDING/ROLL--		#
+		#-------------------------------------------------------#
+on damage:
+	victim is a player
+	damage cause is fall:
+		if {@Acrobatics Ability} is true:
+			damage is less than 10:
+				chance of {skmmo::%{skmmoVar.%victim%}%::acrobatics::skills::gracefullanding::chance}%:
+					cancel event
+					send "**GRACEFUL LANDING**" to victim
+					stop
+			else:
+				chance of {skmmo::%{skmmoVar.%victim%}%::acrobatics::skills::roll::chance}%:
+					cancel event
+					send "**ROLL**" to victim
+					stop
+		#-------------------------------------------------------#
+		# B.			--DODGE--			#
+		#-------------------------------------------------------#
+				chance of {skmmo::%{skmmoVar.%victim%}%::acrobatics::skills::dodge::chance}%:
+					send "**DODGE**" to victim
+					set damage to damage * 0.5
+					stop
+on damage:
+	victim is a player
+	damage isn't caused by fall:
+		if {@Acrobatics Ability} is true:
+			chance of {skmmo::%{skmmoVar.%victim%}%::acrobatics::skills::dodge::chance}%:
+				send "**DODGE**" to victim
+				set damage to damage * 0.5
+
+			#-----------------------------------------------------------------------#
+			# 6.			    ==[]REPAIR[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	repair.levelup.amount: 20
+	repair.skill.arcaneforging: true
+	level.unlock.diamonds: 50
+
+on place iron block:
+	if {@Repair Ability} is true:
+		send "&cYou've placed an &fAnvil&c! Used to repair tools and armor!"
+on place gold block:
+	if {@Repair Ability} is true:
+		if {@Salvage Ability} is true:
+			send "&cYou've placed a &6Salvage Block&c! Used to salvage tools and armor!"
+
+on right click on iron block or gold block:
+	cancel event
+	if {@Repair Ability} is true:
+		set {_repDur} to damage of tool of player
+		if {_repDur} is 0:
+			if player's tool isn't a hoe or a sword or a shovel or an axe or a pickaxe or boots or leggings or a chestplate or a helmet or a fishing rod or shears or a bow:
+				stop
+			else:
+				if clicked block is iron block:
+					send "This item has full durability"
+					stop 
+		else:
+# Adding items with durability is simple, repRep is the amount the tool will be repaired, RepTool is the name of the tool (for future reference)
+# While RepMat is the material needed to repair, and repMul is the multiplier for rewarding experience points.
+	#IRON TOOLS
+			if player's tool isn't a hoe or a sword or a shovel or an axe or a pickaxe or boots or leggings or a chestplate or a helmet or a fishing rod or shears or a bow:
+				stop
+			if player's tool is an iron sword:
+				set {_repRep} to 126
+				set {_repTool} to "Iron Sword"
+				set {_repMat} to Iron Ingot
+				set {_repMul} to 7
+
+		#-You can also make custom (Repairable) Items this way.
+#				if the player's tool is named "Bane of Dragons":
+#					set {_repRep} to 63
+#					set {_repTool} to "Bane of Dragons"
+#					set {_repMat} to Golden Nugget named "Dragon's Tooth"
+#					set {_repMul} to 8
+		#-Be careful with the multiplier, it multiplies the amount repaired. (It can get high fast!)
+			
+			if player's tool is an iron shovel:
+				set {_repRep} to 251
+				set {_repTool} to "Iron Shovel"
+				set {_repMat} to iron ingot
+				set {_repMul} to 4
+			if player's tool is an iron axe:
+				set {_repRep} to 84
+				set {_repTool} to "Iron Axe"
+				set {_repMat} to iron ingot
+				set {_repMul} to 10
+			if player's tool is an iron pickaxe:
+				set {_repRep} to 84
+				set {_repTool} to "Iron Pickaxe"
+				set {_repMat} to iron ingot
+				set {_repMul} to 10
+			if player's tool is an iron hoe:
+				set {_repRep} to 126
+				set {_repTool} to "Iron Hoe"
+				set {_repMat} to iron ingot
+				set {_repMul} to 7
+	#GOLD TOOLS
+			if player's tool is an golden sword:
+				set {_repRep} to 17
+				set {_repTool} to "Golden Sword"
+				set {_repMat} to gold ingot
+				set {_repMul} to 54
+			if player's tool is an golden shovel:
+				set {_repRep} to 33
+				set {_repTool} to "Golden Shovel"
+				set {_repMat} to gold ingot
+				set {_repMul} to 27
+			if player's tool is an golden axe:
+				set {_repRep} to 11
+				set {_repTool} to "Golden Axe"
+				set {_repMat} to gold ingot
+				set {_repMul} to 80
+			if player's tool is an golden pickaxe:
+				set {_repRep} to 11
+				set {_repTool} to "Golden Pickaxe"
+				set {_repMat} to gold ingot
+				set {_repMul} to 80
+			if player's tool is an golden hoe:
+				set {_repRep} to 17
+				set {_repTool} to "Golden Hoe"
+				set {_repMat} to gold ingot
+				set {_repMul} to 60
+	#DIAMOND TOOLS
+			if player's tool is an diamond sword:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 731
+					set {_repTool} to "Diamond Sword"
+					set {_repMat} to diamond
+					set {_repMul} to 7
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Sword!"
+					stop
+			if player's tool is an diamond shovel:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 1562
+					set {_repTool} to "Diamond Shovel"
+					set {_repMat} to diamond
+					set {_repMul} to 4
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Shovel!"
+					stop
+			if player's tool is an diamond axe:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 521
+					set {_repTool} to "Diamond Axe"
+					set {_repMat} to diamond
+					set {_repMul} to 10
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Axe!"
+					stop
+			if player's tool is an diamond pickaxe:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 521
+					set {_repTool} to "Diamond Pickaxe"
+					set {_repMat} to diamond
+					set {_repMul} to 10
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Pickaxe!"
+					stop
+			if player's tool is an diamond hoe:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 731
+					set {_repTool} to "Diamond Hoe"
+					set {_repMat} to diamond
+					set {_repMul} to 7
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Hoe!"
+					stop
+	#STONE TOOLS
+			if player's tool is an stone sword:
+				set {_repRep} to 66
+				set {_repTool} to "Stone Sword"
+				set {_repMat} to stone
+				set {_repMul} to 1
+			if player's tool is an stone shovel:
+				set {_repRep} to 132
+				set {_repTool} to "Stone Shovel"
+				set {_repMat} to stone
+				set {_repMul} to 1
+			if player's tool is an stone axe:
+				set {_repRep} to 44
+				set {_repTool} to "Stone Axe"
+				set {_repMat} to stone
+				set {_repMul} to 1
+			if player's tool is an stone pickaxe:
+				set {_repRep} to 44
+				set {_repTool} to "Stone Pickaxe"
+				set {_repMat} to stone
+				set {_repMul} to 1
+			if player's tool is an stone hoe:
+				set {_repRep} to 66
+				set {_repTool} to "Stone Hoe"
+				set {_repMat} to stone
+				set {_repMul} to 1
+	#Wood Tools
+			if player's tool is an wooden sword:
+				set {_repRep} to 30
+				set {_repTool} to "Wooden Sword"
+				set {_repMat} to wood
+				set {_repMul} to 1
+			if player's tool is an wooden shovel:
+				set {_repRep} to 60
+				set {_repTool} to "Wooden Shovel"
+				set {_repMat} to wood
+				set {_repMul} to 1
+			if player's tool is an wooden axe:
+				set {_repRep} to 20
+				set {_repTool} to "Wooden Axe"
+				set {_repMat} to wood
+				set {_repMul} to 1
+			if player's tool is an wooden pickaxe:
+				set {_repRep} to 20
+				set {_repTool} to "Wooden Pickaxe"
+				set {_repMat} to wood
+				set {_repMul} to 1
+			if player's tool is an wooden hoe:
+				set {_repRep} to 30
+				set {_repTool} to "Wooden Hoe"
+				set {_repMat} to wood
+				set {_repMul} to 1
+
+	# Leather Armor
+			if player's tool is an leather chestplate:
+				set {_repRep} to 11
+				set {_repTool} to "Leather Chestplate"
+				set {_repMat} to leather
+				set {_repMul} to 1
+			if player's tool is an leather helmet:
+				set {_repRep} to 12
+				set {_repTool} to "Leather Helmet"
+				set {_repMat} to leather
+				set {_repMul} to 1
+			if player's tool is an leather leggings:
+				set {_repRep} to 11
+				set {_repTool} to "Leather Leggings"
+				set {_repMat} to leather
+				set {_repMul} to 1
+			if player's tool is an leather boots:
+				set {_repRep} to 17
+				set {_repTool} to "Leather Boots"
+				set {_repMat} to leather 
+				set {_repMul} to 1
+	# Iron Armor
+			if player's tool is an iron helmet:
+				set {_repRep} to 33
+				set {_repTool} to "Iron Helmet"
+				set {_repMat} to iron ingot
+				set {_repMul} to 20
+			if player's tool is an iron chestplate:
+				set {_repRep} to 30
+				set {_repTool} to "Iron Chestplate"
+				set {_repMat} to iron ingot
+				set {_repMul} to 20
+			if player's tool is an iron leggings:
+				set {_repRep} to 33
+				set {_repTool} to "Iron Leggings"
+				set {_repMat} to iron ingot
+				set {_repMul} to 20
+			if player's tool is an iron boots:
+				set {_repRep} to 49
+				set {_repTool} to "Iron Boots"
+				set {_repMat} to iron ingot
+				set {_repMul} to 20
+	# Gold Armor
+			if player's tool is an golden helmet:
+				set {_repRep} to 16
+				set {_repTool} to "Golden Helmet"
+				set {_repMat} to gold ingot
+				set {_repMul} to 40
+			if player's tool is an golden chestplate:
+				set {_repRep} to 15
+				set {_repTool} to "Golden Chestplate"
+				set {_repMat} to gold ingot
+				set {_repMul} to 40
+			if player's tool is an golden leggings:
+				set {_repRep} to 15
+				set {_repTool} to "Golden Leggings"
+				set {_repMat} to gold ingot
+				set {_repMul} to 40
+			if player's tool is an golden boots:
+				set {_repRep} to 23
+				set {_repTool} to "Golden Boots"
+				set {_repMat} to gold ingot
+				set {_repMul} to 40
+
+	# Diamond Armor
+			if player's tool is an diamond helmet:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 73
+					set {_repTool} to "Diamond Helmet"
+					set {_repMat} to diamond
+					set {_repMul} to 60
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Helmet!"
+					stop
+			if player's tool is an diamond chestplate:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 66
+					set {_repTool} to "Diamond Chestplate"
+					set {_repMat} to diamond
+					set {_repMul} to 60
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Chestplate!"
+					stop
+			if player's tool is an diamond leggings:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 71
+					set {_repTool} to "Diamond Leggings"
+					set {_repMat} to diamond
+					set {_repMul} to 60
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Leggings!"
+					stop
+			if player's tool is an diamond boots:
+				if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} is true:
+					set {_repRep} to 107
+					set {_repTool} to "Diamond Boots"
+					set {_repMat} to diamond
+					set {_repMul} to 60
+				else:
+					send "&cYou Must be Level 50+ to Repair your Diamond Boots!"
+					stop
+			if player's tool is an fishing rod:
+				set {_repRep} to 32
+				set {_repTool} to "Fishing Rod"
+				set {_repMat} to string
+				set {_repMul} to 1
+
+			if player's tool is shears:
+				set {_repRep} to 119
+				set {_repTool} to "Shears"
+				set {_repMat} to iron ingot
+				set {_repMul} to 1
+
+			if player's tool is a bow:
+				set {_repRep} to 128
+				set {_repTool} to "Wooden Bow"
+				set {_repMat} to string
+				set {_repMul} to 1
+			clicked block is iron block
+			if player has 1 of {_repMat}:
+				set {_repRep} to {_repRep} * {skmmo::%{skmmoVar.%player%}%::repair::skills::mastery}
+				set {_repRep} to round({_repRep})
+				if {_repDur} is less than 0:
+					set {_repDur} to 0
+				set {_repRew} to damage of tool of player
+				set {_repRew} to {_repRew} - {_repDur}
+				set {_repRew} to {_repRew} * {_repMul}
+				set damage of tool of player to {_repDur}
+				add {_repRew} to {skmmo::%{skmmoVar.%player%}%::repair::xp}
+				remove 1 of {_repMat} from the player
+		#-------------------------------------------------------#
+		# A.		   --ARCANCE FORGING--			#
+		#-------------------------------------------------------#
+				{@repair.skill.arcaneforging} is true
+				if the player's tool is enchanted:
+					if {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level} is 0:
+						disenchant the player's tool
+						send "&cYour %{_repTool}% became dull during repair."
+					else:
+						loop {enchantments::*}:
+							if the player's tool is enchanted with loop-value:
+								if the player's tool is enchanted with "%loop-value% 5" parsed as enchantment type:
+									set {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} to 5
+								if the player's tool is enchanted with "%loop-value% 4" parsed as enchantment type:
+									set {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} to 4
+								if the player's tool is enchanted with "%loop-value% 3" parsed as enchantment type:
+									set {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} to 3
+								if the player's tool is enchanted with "%loop-value% 2" parsed as enchantment type:
+									set {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} to 2
+								if the player's tool is enchanted with "%loop-value% 1" parsed as enchantment type:
+									set {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} to 1
+								chance of {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::chance}%:
+									delete {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%}
+									stop
+								chance of {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::downgrade}%:
+									remove 1 from {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%}
+									if {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} is 0:
+										delete {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%}
+						disenchant the player's tool
+						loop {enchantments::*}:
+							if {skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%} is set:
+								enchant the player's tool with "%loop-value% %{skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%}%" parsed as enchantment type
+								delete 	{skmmo::%{skmmoVar.%player%}%::repair::enchant::%loop-value%}
+
+
+						send "&cYour %{_repTool}% has dulled during repair."
+						make console execute command "skmmo check %player% Repair"
+				else:
+					send "You've Repaired your %{_repTool}%!"
+					make console execute command "skmmo check %player% Repair"
+			else:
+				send "&cYou need more %{_repMat}%(s)!"
+
+			#-----------------------------------------------------------------------#
+			# 7.			    ==[]SALVAGE[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	level.salvage.use: 600
+
+on right click on gold block:
+	{@Repair Ability} is true
+	if {@Salvage Ability} is true:
+		player's tool is a hoe or a sword or a shovel or an axe or a pickaxe or boots or leggings or a chestplate or a helmet or a fishing rod or shears or a bow
+		if {skmmo::%{skmmoVar.%player%}%::repair::level::level} is more than or equal to {@level.salvage.use}:
+			set {_repDur} to damage of tool of player
+			if {_repDur} is 0:
+
+	#Yes. This does pull from variables from Repair.
+	#In a few updates I'll make it much less confusing 
+
+				send "&eSalvaging your %{_repTool}%"
+				if player's tool is a sword or a sword:
+					drop 2 of {_repMat} at the clicked block
+				if player's tool is an pickaxe or an axe:
+					drop 3 of {_repMat} at the clicked block
+				if player's tool is an shovel:
+					drop 1 of {_repMat} at the clicked block
+				if player's tool is an helmet:
+					drop 5 of {_repMat} at the clicked block
+				if player's tool is an chestplate:
+					drop 8 of {_repMat} at the clicked block
+				if player's tool is an leggings:
+					drop 7 of {_repMat} at the clicked block
+				if player's tool is an boots:
+					drop 4 of {_repMat} at the clicked block
+				set the player's tool to air			
+			else:
+				send "&cYour tool must be at full durability to repair."
+		else:
+			send "&cYou need to be level {@level.salvage.use}+ in Repair!"
+
+			#-----------------------------------------------------------------------#
+			# 8.			    ==[]SWORDS[]==				#
+			#-----------------------------------------------------------------------#
+options:
+	cooldown.serratedstrikes: 2 minutes
+	swords.levelup.amount: 20
+on death:
+	attacker is a player
+	victim isn't a player
+	attacker is holding a sword
+	if {@Swords Ability} is true:
+		set {_health} to 75
+		if victim is ender dragon or wither:
+			set {_health} to {_health} * {@multiplier.tier4}
+		if victim is creeper or enderman:
+			set {_health} to {_health} * {@multiplier.tier3}
+		if victim is spider or silverfish or blaze or skeleton or ghast or zombie pigman or wither skeleton:
+			set {_health} to {_health} * {@multiplier.tier2}
+		if victim is magma cube or iron golem or slime or zombie or cave spider:
+			set {_health} to {_health} * {@multiplier.tier1}
+		else:
+			set  {_health} to {_health} * {@multiplier.friendly}
+		add {_health} to {skmmo::%{skmmoVar.%attacker%}%::swords::xp}
+		make console execute command "skmmo check %attacker% Swords"
+		#-------------------------------------------------------#
+		# A.		      --BLEEDING--			#
+		#-------------------------------------------------------#
+on damage:
+	attacker is a player
+	attacker is holding a sword
+	chance of {skmmo::%{skmmoVar.%attacker%}%::swords::skills::bleed::chance}%:
+		send "&c**YOU'RE BLEEDING OUT**" to victim
+		send "&a**%victim% IS BLEEDING OUT**" to attacker
+		set {skmmo::%{skmmoVar.%victim%}%::swords::bleeding} to true
+		wait {skmmo::%{skmmoVar.%attacker%}%::swords::skills::bleed::duration}
+		set {skmmo::%{skmmoVar.%victim%}%::swords::bleeding} to false
+		send "&a**YOU STOPPED THE BLEEDING**" to victim
+		#-------------------------------------------------------#
+		# B.		   --COUNTER ATTACK--			#
+		#-------------------------------------------------------#
+on damage:
+	victim is a player
+	if victim is defending:
+		chance of {skmmo::%{skmmoVar.%victim%}%::swords::skills::counterattack::chance}%:
+			if victim's health is more than 1:
+				set {_CountAtt} to the damage
+				set {_CountAtt} to {_CountAtt} / 2
+				damage the attacker by {_CountAtt}
+				send "&c**COUNTER ATTACK**" to attacker
+				send "&a**COUNTER ATTACK**" to victim
+		#-------------------------------------------------------#
+		# C.		  --SERRATED STRIKES--			#
+		#-------------------------------------------------------#
+on right click:
+	if {@Swords Ability} is true:
+		player is holding a sword:
+			if clicked block is iron block or gold block:
+				stop
+			else:
+				if {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} is false:
+					set {_difference} to difference between {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::cooldowner} and now
+					if {_difference} is less than {@cooldown.serratedstrikes}:
+						set {_difference} to difference between {@cooldown.serratedstrikes} and {_difference}
+						send "&cYou are too tired to use this ability. &e(%{_difference}%)"
+						if {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::cooldownmsg} is false:
+							set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::cooldownmsg} to true
+							wait {_difference}
+							send "&aYour &eSerrated Strikes &ais Refreshed!"
+							set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::cooldownmsg} to false
+					else:
+						send "&a** YOU RAISE YOUR SWORD **"
+						set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} to true
+						wait 1 seconds
+						if {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::use} is false:
+							send "&7** YOU LOWER YOUR SWORD **"
+							set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} to false
+
+on left click:
+	if {@Swords Ability} is true:
+		player is holding a sword:
+			if {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} is true:
+				set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} to false
+				set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::use} to true
+				send "&a&l*** Serrated Strikes Activated ***"
+				set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::cooldowner} to now
+				wait {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::duration}
+				send "&7&l*** Serrated Strikes Deactivated ***"
+				set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::use} to false
+on damage:
+	attacker is a player
+	attacker is holding a sword
+	if {skmmo::%{skmmoVar.%attacker%}%::swords::skills::serratedstrikes::use} is true:
+		set {_damage} to the damage * 1.25
+		damage the victim by {_damage}
+		if {skmmo::%{skmmoVar.%victim%}%::swords::bleeding} is false:
+			set {skmmo::%{skmmoVar.%victim%}%::swords::bleeding} to true
+			send "&c**YOU'RE BLEEDING OUT**" to victim
+			send "&a**%victim% IS BLEEDING OUT**" to attacker
+			wait 9 seconds
+			send "&7**YOU'VE STOPPED THE BLEEDING**" to victim
+			set {skmmo::%{skmmoVar.%victim%}%::swords::bleeding} to false
+
+every second:
+	loop all players:
+		if {skmmo::%{skmmoVar.%loop-player%}%::swords::bleeding} is true:
+			damage loop-player by 0.5
+
+on death of player:
+	if {skmmo::%{skmmoVar.%player%}%::swords::bleeding} is true:
+		set {skmmo::%{skmmoVar.%player%}%::swords::bleeding} to false
+			#-----------------------------------------------------------------------#
+			# 9.			    ==[]BLOCK CHECK[]==				#
+			#-----------------------------------------------------------------------#
+
+on place:
+	if event-block is stone or netherrack or cobblestone or emerald ore or diamond ore or gold ore or iron ore or coal ore or redstone ore or lapis ore or mossy cobblestone or obsidian or end stone or log or grass or dirt or clay or sand or gravel or mycelium or soul sand or glowstone or sandstone or nether quartz ore: 
+		set {skmmo::blocklog::%location of event-block%} to true
+
+on break:
+	if {skmmo::blocklog::%location of event-block%} is set:
+		delete {skmmo::blocklog::%location of event-block%}
+
+			#-----------------------------------------------------------------------#
+			# 10.			    ==[]COMMANDS[]==				#
+			#-----------------------------------------------------------------------#
+command /levelup <text> <player>:
+	trigger:
+		if sender is console:
+			set {_levelmessage} to "{@level.up message}"
+			replace all "*skill*" in {_levelmessage} with arg 1
+			replace all "*total*" in {_levelmessage} with "%{skmmo::%{skmmoVar.%arg 2%}%::%arg 1%::level::level}%"
+			send "%{_levelmessage}%" to arg 2
+command /mining:
+	trigger:
+		if {@Mining Ability} is true:
+			send "&c-----[]&aMining&c[]-----"
+			send "&8XP GAIN: &fMining Stone & Ore"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::mining::level::level}% &3XP&e(&6%{skmmo::%{skmmoVar.%player%}%::mining::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::mining::level::amount}%&e)"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Super Breaker (ABILITY): &aSpeed+, Triple Drop Chance"
+			send "&3Double Drops: &aDouble the normal loot"
+			send "&c-----[]&aYour Stats&c[]-----"
+			send "&cDouble Drop Chance: &e%{skmmo::%{skmmoVar.%player%}%::mining::skills::double}%"
+			send "&cSuper Breaker Length: &e%{skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::durability}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Mining) &cis disabled."
+command /woodcutting:
+	trigger:
+		if {@Woodcutting Ability} is true:	
+			send "&c-----[]&aWoodcutting&c[]-----"
+			send "&8XP GAIN: &fCutting down trees"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::woodcutting::level::level}% &3XP&e(&6%{skmmo::%{skmmoVar.%player%}%::woodcutting::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::woodcutting::level::amount}%&e)"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Tree Feller (ABILITY): &aMake trees explode"
+			send "&3Leaf Blower: &aBlow Away Leaves"
+			send "&3Double Drops: &aDouble the Normal Loot"
+			send "&c-----[]&aYour Stats&c[]-----"
+			send "%{skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower::msg}%"
+			send "&cDouble Drop Chance: &e%{skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double}%"
+			send "&cTree Feller Length: &e%{skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::durability}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Woodcutting) &cis disabled."
+command /excavation:
+	trigger:
+		if {@Excavation Ability} is true:
+			send "&c-----[]&aExcavation&c[]-----"
+			send "&8XP GAIN: &fDigging and finding treasures"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::excavation::level::level}% &3XP&e(&6%{skmmo::%{skmmoVar.%player%}%::excavation::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::excavation::level::amount}%&e)"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Giga Drill Breaker (ABILITY): &a3x Drop Rate, 3x XP, +Speed"
+			send "&3Treasure Hunter: &aAbility to dig for treasure"
+			send "&3Double Drops: &aDouble the normal Loot."
+			send "&c-----[]&aYour Stats&c[]-----"
+			send "&cGiga Drill Breaker Length: &e%{skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::durability}%"
+			send "&cDouble Drop Chance: &e%{skmmo::%{skmmoVar.%player%}%::excavation::skills::double}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Excavation) &cis disabled."
+command /acrobatics:
+	trigger:
+		if {@Acrobatics Ability} is true:	
+			send "&c-----[]&aAcrobatics&c[]-----"
+			send "&8XP GAIN: &fFalling"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::acrobatics::level::level}% &3XP&e(&6%{skmmo::%{skmmoVar.%player%}%::acrobatics::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::acrobatics::level::amount}%&e)"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Roll: &aReduces or Negates fall damage"
+			send "&3Graceful Roll: &aTwice as effective as normal Roll"
+			send "&3Dodge: &aReduces Damage by Half"
+			send "&c-----[]&aYour Stats&c[]-----"
+			send "&cRoll Chance: &e%{skmmo::%{skmmoVar.%player%}%::acrobatics::skills::roll::chance}%"
+			send "&cGraceful Roll Chance: &e%{skmmo::%{skmmoVar.%player%}%::acrobatics::skills::gracefullanding::chance}%"
+			send "&cDodge Chance: &e%{skmmo::%{skmmoVar.%player%}%::acrobatics::skills::dodge::chance}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Acrobatics) &cis disabled."
+command /repair:
+	trigger:
+		if {@Repair Ability} is true: 
+			send "&c-----[]&aRepair&c[]-----"
+			send "&8XP GAIN: &fRepairing"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::repair::level::level}% &3XP&e(&6%{skmmo::%{skmmoVar.%player%}%::repair::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::repair::level::amount}%&e)"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Repair: &aRepair Tools & Armor"
+			send "&3Repair Mastery: &aIncreased repair Amount"
+			send "&3Diamond Repair (50+ SKILL): Repaid Diamond Tools and Armor"
+			send "&3Arcane Forging: &aRepair magic items"
+			send "&c-----[]&cYour Stats&c[]-----"
+			send "&cRepair Mastery: &eExtra %{skmmo::%{skmmoVar.%player%}%::repair::skills::mastery}% durability restored"
+			send "&cArcane Forging: &eRank %{skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level}%/8"
+			send "&7AF Destroy Rate: &e%{skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::chance}%"
+			send "&7AF Downgrade Chance: &e%{skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::downgrade}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Repair) &cis disabled."
+command /swords:
+	trigger:
+		if {@Swords Ability} is true: 
+			send "&c-----[]&aSwords&c[]-----"
+			send "&8XP GAIN: &fAttacking Monsters"
+			send "&8LVL: &a%{skmmo::%{skmmoVar.%player%}%::swords::level::level}% &3XP&6(&6%{skmmo::%{skmmoVar.%player%}%::swords::xp}%&e/&6%{skmmo::%{skmmoVar.%player%}%::swords::level::amount}%&e))"
+			send "&c-----[]&aEffects&c[]-----"
+			send "&3Counter Attack: &aReflect 50 Percent of Damage while blocking"
+			send "&3Serrated Strikes (ABILITY): &a25 Percent DMG AoE, Bleed+ AoE"
+			send "&3Serrated Strikes Bleed+: &a5 Tick Bleed"
+			send "&3Bleed &aApply a bleed DoT"
+			send "&c-----[]&aYour Stats&c[]-----"
+			send "&cCounter Attack Chance: &e%{skmmo::%{skmmoVar.%player%}%::swords::skills::counterattack::chance}%"
+			send "&cBleed Length: &e%{skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::duration}%"
+			send "&cBleed Chance: &e%{skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::chance}%"
+			send "&cSerrated Strikes Length: &e%{skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::duration}%"
+		else:
+			send "&7[&6skMMO&7] &cThis Ability &o(Swords) &cis disabled."
+command /skmmo [<text>] [<player>] [<text>]:
+	permission: skmmo.reset
+	trigger:
+		if arg 1 is set:
+			if arg 1 is "reset":
+				if arg 2 is set:
+					send "&aResetting %arg 2%'s skMMO."
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::durability} to 1 Second
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::toggle} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::use} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::cooldowner} to now
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::cooldownmsg} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::double} to 0.01
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::leafblower::msg} to "&7LOCKED UNTIL LEVEL 100+ SKILL (LEAF BLOWER)"
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::leafblower} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::treefeller::durability} to 1 second
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::treefeller::toggle} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::treefeller::use} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::treefeller::cooldowner} to now
+					set {skmmo::%{skmmoVar.%arg 2%}%::wooductting::skills::treefeller::cooldownmsg} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::double} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::durability} to 1 second
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::toggle} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::use} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::cooldowner} to now
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::cooldownmsg} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::double} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::roll::chance} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::gracefullanding::chance} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::dodge::chance} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::repair::diamond} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::mastery} to 1
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 100
+					set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::xp} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::level::level} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::level::amount} to 1020
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::bleed::duration} to 1 second
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::bleed::chance} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::counterattack::chance} to 0
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::duration} to 2 seconds
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::cooldowner} to now
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::cooldownmsg} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::toggle} to false
+					set {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::use} to false
+					wait 1 tick
+					send "&aSuccessfully reset %arg 2%'s skMMO stats."
+					if {@UUIDs} is true:
+						send "&7&o--* %uuid of arg 2%." 
+			if arg 1 is "check":
+				if arg 2 is set:
+					if arg 3 is set:
+						if sender is console:
+							if {skmmo::cap::%arg 3%} is set:
+								if {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::level::level} is equal to {skmmo::cap::%arg 3%}:
+									set {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::xp} to 0
+									stop
+							if {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::xp} is more than or equal to {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::level::amount}:
+								add 1 to {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::level::level}
+								remove {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::level::amount} from {skmmo::%{skmmoVar.%arg 2%}%::%arg 3%::xp}
+								make console execute command "/levelup %arg 3% %arg 2%"
+								if arg 3 is "Mining":
+									add {@mining.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::mining::level::amount}
+									add 0.02 second to {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::superbreaker::durability}
+									if {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::double} is less than 100:
+										add 0.04 to {skmmo::%{skmmoVar.%arg 2%}%::mining::skills::double}
+								if arg 3 is "Woodcutting":
+									add {@woodcutting.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::level::amount}
+									if {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::double} is less than 100:
+										add 0.1 to {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::double}
+									add 0.02 second to {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::treefeller::durability}
+									if {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::level::level} is more than 100:
+										if {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::leafblower} is false:
+											set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::leafblower} to true
+											set {skmmo::%{skmmoVar.%arg 2%}%::woodcutting::skills::leafblower::msg} to "&aLEAF BLOWER: UNLOCKED"
+								if arg 3 is "Excavation":
+									add {@excavation.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::excavation::level::amount}
+									if {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::double} is less than 100:
+										add 0.1 to {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::double}
+									add 0.02 second to {skmmo::%{skmmoVar.%arg 2%}%::excavation::skills::gigadrill::durability}
+								if arg 3 is "Acrobatics":
+									add {@acrobatics.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::level::amount}
+									if {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::roll::chance} is less than 100:
+										add 0.1 to {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::roll::chance}
+									if {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::gracefullanding::chance} is less than 100:
+										add 0.2 to {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::gracefullanding::chance}
+									if {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::dodge::chance} is less than 100:
+										add 0.025 to {skmmo::%{skmmoVar.%arg 2%}%::acrobatics::skills::dodge::chance}
+								if arg 3 is "Repair":
+									add {@repair.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::repair::level::amount}
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is {@level.unlock.diamonds}:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::repair::diamond} to true
+									else:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::repair::diamond} to false
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 125:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 1
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 90
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 100
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 250:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 2
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 70
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 50
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 375:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 3
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 60
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 40
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 500:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 4
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 60
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 30
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 625:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 5
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 50
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 75
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 750:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 6
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 50
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 25
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 875:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 7
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 40
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 15
+									if {skmmo::%{skmmoVar.%arg 2%}%::repair::level::level} is more than or equal to 1000:
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level} to 8
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::chance} to 60
+										set {skmmo::%{skmmoVar.%arg 2%}%::repair::skills::arcaneforging::level::downgrade} to 10
+								if arg 3 is "Swords":
+									add {@swords.levelup.amount} to {skmmo::%{skmmoVar.%arg 2%}%::swords::level::amount}
+									add 0.02 seconds to {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::serratedstrikes::duration}
+									if {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::bleed::chance} is less than 75:
+										add 0.1 to {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::bleed::chance}
+									if {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::counterattack::chance} is less than 30:
+										add 0.05 to {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::counterattack::chance}
+									if {skmmo::%{skmmoVar.%arg 2%}% ::swords::skills::bleed::duration} is less than 6 seconds:
+										add 0.006 seconds to {skmmo::%{skmmoVar.%arg 2%}%::swords::skills::bleed::duration}
+						else:		
+							send "&cThis can only be executed from console."
+					else:
+						send "[skMMO] Not Enough Arguments."
+				else:
+					send "[skMMO] Not Enough Arguments."
+			arg 1 is "help" or "?":
+				send "&c=======[]&a&lskMMO&c[]========"
+				send " "
+# TODO: (No-Arg Menu Thing)
+		else:
+			send "&c=======[]&a&lskMMO&c[]========"
+
+# TODO: (Help Commands)
+
+			#-----------------------------------------------------------------------#
+			# 11.			   ==[]UUID CONVERTER[]==			#
+			#-----------------------------------------------------------------------#
+on join:
+	if {@UUIDs} is true:
+		if {skmmo::%player%::mining::xp} is set:
+			set {skmmo::%uuid of player%::mining::xp} to {skmmo::%player%::mining::xp}
+			delete {skmmo::%player%::mining::xp}
+		if {skmmo::%player%::mining::level::level} is set:
+			set {skmmo::%uuid of player%::mining::level::level} to {skmmo::%player%::mining::level::level}
+			delete {skmmo::%player%::mining::level::level}
+		if {skmmo::%player%::mining::level::amount} is set:
+			set {skmmo::%uuid of player%::mining::level::amount} to {skmmo::%player%::mining::level::amount}
+			delete {skmmo::%player%::mining::level::amount}
+		if {skmmo::%player%::mining::skills::superbreaker::durability} is set:
+			set {skmmo::%uuid of player%::mining::skills::superbreaker::durability} to {skmmo::%player%::mining::skills::superbreaker::durability}
+			delete {skmmo::%player%::mining::skills::superbreaker::durability}
+		if {skmmo::%player%::mining::skills::superbreaker::use} is set:
+			delete {skmmo::%player%::mining::skills::superbreaker::use}
+		if {skmmo::%player%::mining::skills::double} is set:
+			set {skmmo::%uuid of player%::mining::skills::double} to {skmmo::%player%::mining::skills::double}
+			delete {skmmo::%player%::mining::skills::double}
+
+		if {skmmo::%player%::woodcutting::skills::double} is set:
+			set {skmmo::%uuid of player%::woodcutting::skills::double} to {skmmo::%player%::woodcutting::skills::double}
+			delete {skmmo::%player%::woodcutting::skills::double}
+		if {skmmo::%player%::woodcutting::level::level} is set:
+			set {skmmo::%uuid of player%::woodcutting::level::level} to {skmmo::%player%::woodcutting::level::level}
+			delete {skmmo::%player%::woodcutting::level::level}
+		if {skmmo::%player%::woodcutting::xp} is set:
+			set {skmmo::%uuid of player%::woodcutting::xp} to {skmmo::%player%::woodcutting::xp}
+			delete {skmmo::%player%::woodcutting::xp}
+		if {skmmo::%player%::woodcutting::skills::leafblower::msg} is set:
+			set {skmmo::%uuid of player%::woodcutting::skills::leafblower::msg} to {skmmo::%player%::woodcutting::skills::leafblower::msg}
+			delete {skmmo::%player%::woodcutting::skills::leafblower::msg}
+		if {skmmo::%player%::woodcutting::level::amount} is set:
+			set {skmmo::%uuid of player%::woodcutting::level::amount} to {skmmo::%player%::woodcutting::level::amount}
+			delete {skmmo::%player%::woodcutting::level::amount}
+		if {skmmo::%player%::woodcutting::skills::leafblower} is set:
+			set {skmmo::%uuid of player%::woodcutting::skills::leafblower} to {skmmo::%player%::woodcutting::skills::leafblower}
+			delete {skmmo::%player%::woodcutting::skills::leafblower}
+		if {skmmo::%player%::woodcutting::skills::treefeller::use} is set:
+			delete {skmmo::%player%::woodcutting::skills::treefeller::use}
+		if {skmmo::%player%::woodcutting::skills::treefeller::durability} is set:
+			set {skmmo::%uuid of player%::woodcutting::skills::treefeller::durability} to {skmmo::%player%::woodcutting::skills::treefeller::durability}
+			delete {skmmo::%player%::woodcutting::skills::treefeller::durability}
+		if {skmmo::%player%::woodcutting::skills::treefeller::toggle} is set:
+			set {skmmo::%uuid of player%::woodcutting::skills::treefeller::toggle} to {skmmo::%player%::woodcutting::skills::treefeller::toggle}
+			delete {skmmo::%player%::woodcutting::skills::treefeller::toggle}
+
+		if {skmmo::%player%::excavation::xp} is set:
+			set {skmmo::%uuid of player%::excavation::xp} to {skmmo::%player%::excavation::xp}
+			delete {skmmo::%player%::excavation::xp}
+		if {skmmo::%player%::excavation::level::level} is set:
+			set {skmmo::%uuid of player%::excavation::level::level} to {skmmo::%player%::excavation::level::level}
+			delete {skmmo::%player%::excavation::level::level}
+		if {skmmo::%player%::excavation::level::amount} is set:
+			set {skmmo::%uuid of player%::excavation::level::amount} to {skmmo::%player%::excavation::level::amount}
+			delete {skmmo::%player%::excavation::level::amount}
+		if {skmmo::%player%::excavation::skills::gigadrill::durability} is set:
+			set {skmmo::%uuid of player%::excavation::skills::gigadrill::durability} to {skmmo::%player%::excavation::skills::gigadrill::durability}
+			delete {skmmo::%player%::excavation::skills::gigadrill::durability}
+		if {skmmo::%player%::excavation::skills::gigadrill::use} is set:
+			delete {skmmo::%player%::excavation::skills::gigadrill::use}
+		if {skmmo::%player%::excavation::skills::double} is set:
+			set {skmmo::%uuid of player%::excavation::skills::double} to {skmmo::%player%::excavation::skills::double}
+			delete {skmmo::%player%::excavation::skills::double}
+
+		if {skmmo::%player%::acrobatics::xp} is set:
+			set {skmmo::%uuid of player%::acrobatics::xp} to {skmmo::%player%::acrobatics::xp}
+			delete {skmmo::%player%::acrobatics::xp}
+		if {skmmo::%player%::acrobatics::level::level} is set:
+			set {skmmo::%uuid of player%::acrobatics::level::level} to {skmmo::%player%::acrobatics::level::level}
+			delete {skmmo::%player%::acrobatics::level::level}
+		if {skmmo::%player%::acrobatics::level::amount} is set:
+			set {skmmo::%uuid of player%::acrobatics::level::amount} to {skmmo::%player%::acrobatics::level::amount}
+			delete {skmmo::%player%::acrobatics::level::amount}
+		if {skmmo::%player%::acrobatics::skills::roll::chance} is set:
+			set {skmmo::%uuid of player%::acrobatics::skills::roll::chance} to {skmmo::%player%::acrobatics::skills::roll::chance}
+			delete {skmmo::%player%::acrobatics::skills::roll::chance}
+		if {skmmo::%player%::acrobatics::skills::gracefullanding::chance} is set:
+			set {skmmo::%uuid of player%::acrobatics::skills::gracefullanding::chance} to {skmmo::%player%::acrobatics::skills::gracefullanding::chance}
+			delete {skmmo::%player%::acrobatics::skills::gracefullanding::chance}
+		if {skmmo::%player%::acrobatics::skills::dodge::chance} is set:
+			set {skmmo::%uuid of player%::acrobatics::skills::dodge::chance} to {skmmo::%player%::acrobatics::skills::dodge::chance}
+			delete {skmmo::%player%::acrobatics::skills::dodge::chance}
+
+		if {skmmo::%player%::repair::xp} is set:
+			set {skmmo::%uuid of player%::repair::xp} to {skmmo::%player%::repair::xp}
+			delete {skmmo::%player%::repair::xp}
+		if {skmmo::%player%::repair::level::level} is set:
+			set {skmmo::%uuid of player%::repair::level::level} to {skmmo::%player%::repair::level::level}
+			delete {skmmo::%player%::repair::level::level}
+		if {skmmo::%player%::repair::level::amount} is set:
+			set {skmmo::%uuid of player%::repair::level::amount} to {skmmo::%player%::repair::level::amount}
+			delete {skmmo::%player%::repair::level::amount}
+		if {skmmo::%player%::repair::skills::arcaneforging::level} is set:
+			set {skmmo::%uuid of player%::repair::skills::arcaneforging::level} to {skmmo::%player%::repair::skills::arcaneforging::level}
+			delete {skmmo::%player%::repair::skills::arcaneforging::level}
+		if {skmmo::%player%::repair::skills::repair::diamond} is set:
+			set {skmmo::%uuid of player%::repair::skills::repair::diamond} to {skmmo::%player%::repair::skills::repair::diamond}
+			delete {skmmo::%player%::repair::skills::repair::diamond}
+		if {skmmo::%player%::repair::skills::arcaneforging::level::chance} is set:
+			set {skmmo::%uuid of player%::repair::skills::arcaneforging::level::chance} to {skmmo::%player%::repair::skills::arcaneforging::level::chance}
+			delete {skmmo::%player%::repair::skills::arcaneforging::level::chance}
+		if {skmmo::%player%::repair::skills::arcaneforging::level::downgrade} is set:
+			set {skmmo::%uuid of player%::repair::skills::arcaneforging::level::downgrade} to {skmmo::%player%::repair::skills::arcaneforging::level::downgrade}
+			delete {skmmo::%player%::repair::skills::arcaneforging::level::downgrade}
+		if {skmmo::%player%::repair::skills::mastery} is set:
+			set {skmmo::%uuid of player%::repair::skills::mastery} to {skmmo::%player%::repair::skills::mastery}
+			delete {skmmo::%player%::repair::skills::mastery}
+
+		if {skmmo::%player%::swords::xp} is set:
+			set {skmmo::%uuid of player%::swords::xp} to {skmmo::%player%::swords::xp}
+			delete {skmmo::%player%::swords::xp}
+		if {skmmo::%player%::swords::level::level} is set:
+			set {skmmo::%uuid of player%::swords::level::level} to {skmmo::%player%::swords::level::level}
+			delete {skmmo::%player%::swords::level::level}
+		if {skmmo::%player%::swords::level::amount} is set:
+			set {skmmo::%uuid of player%::swords::level::amount} to {skmmo::%player%::swords::level::amount}
+			delete {skmmo::%player%::swords::level::amount}
+		if {skmmo::%player%::swords::skills::bleed::duration} is set:
+			set {skmmo::%uuid of player%::swords::skills::bleed::duration} to {skmmo::%player%::swords::skills::bleed::duration}
+			delete {skmmo::%player%::swords::skills::bleed::duration}
+		if {skmmo::%player%::swords::skills::bleed::tier} is set:
+			set {skmmo::%uuid of player%::swords::skills::bleed::tier} to {skmmo::%player%::swords::skills::bleed::tier}
+			delete {skmmo::%player%::swords::skills::bleed::tier}
+		if {skmmo::%player%::swords::skills::bleed::chance} is set:
+			set {skmmo::%uuid of player%::swords::skills::bleed::chance} to {skmmo::%player%::swords::skills::bleed::chance}
+			delete {skmmo::%player%::swords::skills::bleed::chance}
+		if {skmmo::%player%::swords::skills::counterattack::chance} is set:
+			set {skmmo::%uuid of player%::swords::skills::counterattack::chance} to {skmmo::%player%::swords::skills::counterattack::chance}
+			delete {skmmo::%player%::swords::skills::counterattack::chance}
+		if {skmmo::%player%::swords::skills::strikes::duration} is set:
+			set {skmmo::%uuid of player%::swords::skills::strikes::duration} to {skmmo::%player%::swords::skills::strikes::duration}
+			delete {skmmo::%player%::swords::skills::strikes::duration}
+		if {skmmo::%player%::swords::skills::serratedstrikes::toggle} is set:
+			set {skmmo::%uuid of player%::swords::skills::serratedstrikes::toggle} to {skmmo::%player%::swords::skills::serratedstrikes::toggle}
+			delete {skmmo::%player%::swords::skills::serratedstrikes::toggle}
+		if {skmmo::%player%::swords::skills::serratedstrikes::use} is set:
+			set {skmmo::%uuid of player%::swords::skills::serratedstrikes::toggle} to {skmmo::%player%::swords::skills::serratedstrikes::toggle}
+			delete {skmmo::%player%::swords::skills::serratedstrikes::toggle}
+	if {@UUIDs} is false:
+
+		if {skmmo::%uuid of player%::mining::xp} is set:
+			set {skmmo::%player%::mining::xp} to {skmmo::%uuid of player%::mining::xp}
+			delete {skmmo::%uuid of player%::mining::xp}
+		if {skmmo::%uuid of player%::mining::level::level} is set:
+			set {skmmo::%player%::mining::level::level} to {skmmo::%uuid of player%::mining::level::level}
+			delete {skmmo::%uuid of player%::mining::level::level}
+		if {skmmo::%uuid of player%::mining::level::amount} is set:
+			set {skmmo::%player%::mining::level::amount} to {skmmo::%uuid of player%::mining::level::amount}
+			delete {skmmo::%uuid of player%::mining::level::amount}
+		if {skmmo::%uuid of player%::mining::skills::superbreaker::durability} is set:
+			set {skmmo::%player%::mining::skills::superbreaker::durability} to {skmmo::%uuid of player%::mining::skills::superbreaker::durability}
+			delete {skmmo::%uuid of player%::mining::skills::superbreaker::durability}
+		if {skmmo::%uuid of player%::mining::skills::superbreaker::use} is set:
+			delete {skmmo::%uuid of player%::mining::skills::superbreaker::use}
+		if {skmmo::%uuid of player%::mining::skills::double} is set:
+			set {skmmo::%player%::mining::skills::double} to {skmmo::%uuid of player%::mining::skills::double}
+			delete {skmmo::%uuid of player%::mining::skills::double}
+
+		if {skmmo::%uuid of player%::woodcutting::skills::double} is set:
+			set {skmmo::%player%::woodcutting::skills::double} to {skmmo::%uuid of player%::woodcutting::skills::double}
+			delete {skmmo::%uuid of player%::woodcutting::skills::double}
+		if {skmmo::%uuid of player%::woodcutting::level::level} is set:
+			set {skmmo::%player%::woodcutting::level::level} to {skmmo::%uuid of player%::woodcutting::level::level}
+			delete {skmmo::%uuid of player%::woodcutting::level::level}
+		if {skmmo::%uuid of player%::woodcutting::xp} is set:
+			set {skmmo::%player%::woodcutting::xp} to {skmmo::%uuid of player%::woodcutting::xp}
+			delete {skmmo::%uuid of player%::woodcutting::xp}
+		if {skmmo::%uuid of player%::woodcutting::skills::leafblower::msg} is set:
+			set {skmmo::%player%::woodcutting::skills::leafblower::msg} to {skmmo::%uuid of player%::woodcutting::skills::leafblower::msg}
+			delete {skmmo::%uuid of player%::woodcutting::skills::leafblower::msg}
+		if {skmmo::%uuid of player%::woodcutting::level::amount} is set:
+			set {skmmo::%player%::woodcutting::level::amount} to {skmmo::%uuid of player%::woodcutting::level::amount}
+			delete {skmmo::%uuid of player%::woodcutting::level::amount}
+		if {skmmo::%uuid of player%::woodcutting::skills::leafblower} is set:
+			set {skmmo::%player%::woodcutting::skills::leafblower} to {skmmo::%uuid of player%::woodcutting::skills::leafblower}
+			delete {skmmo::%player%::woodcutting::skills::leafblower}
+		if {skmmo::%uuid of player%::woodcutting::skills::treefeller::use} is set:
+			delete {skmmo::%uuid of player%::woodcutting::skills::treefeller::use}
+		if {skmmo::%uuid of player%::woodcutting::skills::treefeller::durability} is set:
+			set {skmmo::%player%::woodcutting::skills::treefeller::durability} to {skmmo::%uuid of player%::woodcutting::skills::treefeller::durability}
+			delete {skmmo::%uuid of player%::woodcutting::skills::treefeller::durability}
+		if {skmmo::%uuid of player%::woodcutting::skills::treefeller::toggle} is set:
+			set {skmmo::%player%::woodcutting::skills::treefeller::toggle} to {skmmo::%uuid of player%::woodcutting::skills::treefeller::toggle}
+			delete {skmmo::%uuid of player%::woodcutting::skills::treefeller::toggle}
+
+		if {skmmo::%uuid of player%::excavation::xp} is set:
+			set {skmmo::%player%::excavation::xp} to {skmmo::%uuid of player%::excavation::xp}
+			delete {skmmo::%uuid of player%::excavation::xp}
+		if {skmmo::%uuid of player%::excavation::level::level} is set:
+			set {skmmo::%player%::excavation::level::level} to {skmmo::%uuid of player%::excavation::level::level}
+			delete {skmmo::%uuid of player%::excavation::level::level}
+		if {skmmo::%uuid of player%::excavation::level::amount} is set:
+			set {skmmo::%player%::excavation::level::amount} to {skmmo::%uuid of player%::excavation::level::amount}
+			delete {skmmo::%uuid of player%::excavation::level::amount}
+		if {skmmo::%uuid of player%::excavation::skills::gigadrill::durability} is set:
+			set {skmmo::%player%::excavation::skills::gigadrill::durability} to {skmmo::%uuid of player%::excavation::skills::gigadrill::durability}
+			delete {skmmo::%uuid of player%::excavation::skills::gigadrill::durability}
+		if {skmmo::%uuid of player%::excavation::skills::gigadrill::use} is set:
+			delete {skmmo::%uuid of player%::excavation::skills::gigadrill::use}
+		if {skmmo::%uuid of player%::excavation::skills::double} is set:
+			set {skmmo::%player%::excavation::skills::double} to {skmmo::%uuid of player%::excavation::skills::double}
+			delete {skmmo::uuid of %player%::excavation::skills::double}
+
+		if {skmmo::%uuid of player%::acrobatics::xp} is set:
+			set {skmmo::%player%::acrobatics::xp} to {skmmo::%uuid of player%::acrobatics::xp}
+			delete {skmmo::%uuid of player%::acrobatics::xp}
+		if {skmmo::%uuid of player%::acrobatics::level::level} is set:
+			set {skmmo::%player%::acrobatics::level::level} to {skmmo::%uuid of player%::acrobatics::level::level}
+			delete {skmmo::%uuid of player%::acrobatics::level::level}
+		if {skmmo::%uuid of player%::acrobatics::level::amount} is set:
+			set {skmmo::%player%::acrobatics::level::amount} to {skmmo::%uuid of player%::acrobatics::level::amount}
+			delete {skmmo::%uuid of player%::acrobatics::level::amount}
+		if {skmmo::%uuid of player%::acrobatics::skills::roll::chance} is set:
+			set {skmmo::%player%::acrobatics::skills::roll::chance} to {skmmo::%uuid of player%::acrobatics::skills::roll::chance}
+			delete {skmmo::%uuid of player%::acrobatics::skills::roll::chance}
+		if {skmmo::%uuid of player%::acrobatics::skills::gracefullanding::chance} is set:
+			set {skmmo::%player%::acrobatics::skills::gracefullanding::chance} to {skmmo::%uuid of player%::acrobatics::skills::gracefullanding::chance}
+			delete {skmmo::%uuid of player%::acrobatics::skills::gracefullanding::chance}
+		if {skmmo::%uuid of player%::acrobatics::skills::dodge::chance} is set:
+			set {skmmo::%player%::acrobatics::skills::dodge::chance} to {skmmo::%uuid of player%::acrobatics::skills::dodge::chance}
+			delete {skmmo::%uuid of player%::acrobatics::skills::dodge::chance}
+
+		if {skmmo::%uuid of player%::repair::xp} is set:
+			set {skmmo::%player%::repair::xp} to {skmmo::%uuid of player%::repair::xp}
+			delete {skmmo::%uuid of player%::repair::xp}
+		if {skmmo::%uuid of player%::repair::level::level} is set:
+			set {skmmo::%player%::repair::level::level} to {skmmo::%uuid of player%::repair::level::level}
+			delete {skmmo::%uuid of player%::repair::level::level}
+		if {skmmo::%uuid of player%::repair::level::amount} is set:
+			set {skmmo::%player%::repair::level::amount} to {skmmo::%uuid of player%::repair::level::amount}
+			delete {skmmo::%uuid of player%::repair::level::amount}
+		if {skmmo::%uuid of player%::repair::skills::arcaneforging::level} is set:
+			set {skmmo::%player%::repair::skills::arcaneforging::level} to {skmmo::%uuid of player%::repair::skills::arcaneforging::level}
+			delete {skmmo::%uuid of player%::repair::skills::arcaneforging::level}
+		if {skmmo::%uuid of player%::repair::skills::repair::diamond} is set:
+			set {skmmo::%player%::repair::skills::repair::diamond} to {skmmo::%uuid of player%::repair::skills::repair::diamond}
+			delete {skmmo::%uuid of player%::repair::skills::repair::diamond}
+		if {skmmo::%uuid of player%::repair::skills::arcaneforging::level::chance} is set:
+			set {skmmo::%player%::repair::skills::arcaneforging::level::chance} to {skmmo::%uuid of player%::repair::skills::arcaneforging::level::chance}
+			delete {skmmo::%uuid of player%::repair::skills::arcaneforging::level::chance}
+		if {skmmo::%uuid of player%::repair::skills::arcaneforging::level::downgrade} is set:
+			set {skmmo::%player%::repair::skills::arcaneforging::level::downgrade} to {skmmo::%uuid of player%::repair::skills::arcaneforging::level::downgrade}
+			delete {skmmo::%player%::repair::skills::arcaneforging::level::downgrade}
+		if {skmmo::%uuid of player%::repair::skills::mastery} is set:
+			set {skmmo::%player%::repair::skills::mastery} to {skmmo::%uuid of player%::repair::skills::mastery}
+			delete {skmmo::%uuid of player%::repair::skills::mastery}
+
+		if {skmmo::%uuid of player%::swords::xp} is set:
+			set {skmmo::%player%::swords::xp} to {skmmo::%uuid of player%::swords::xp}
+			delete {skmmo::%uuid of player%::swords::xp}
+		if {skmmo::%uuid of player%::swords::level::level} is set:
+			set {skmmo::%player%::swords::level::level} to {skmmo::%uuid of player%::swords::level::level}
+			delete {skmmo::%uuid of player%::swords::level::level}
+		if {skmmo::%uuid of player%::swords::level::amount} is set:
+			set {skmmo::%player%::swords::level::amount} to {skmmo::%uuid of player%::swords::level::amount}
+			delete {skmmo::%uuid of player%::swords::level::amount}
+		if {skmmo::%uuid of player%::swords::skills::bleed::duration} is set:
+			set {skmmo::%player%::swords::skills::bleed::duration} to {skmmo::%uuid of player%::swords::skills::bleed::duration}
+			delete {skmmo::%uuid of player%::swords::skills::bleed::duration}
+		if {skmmo::%uuid of player%::swords::skills::bleed::tier} is set:
+			set {skmmo::%player%::swords::skills::bleed::tier} to {skmmo::%uuid of player%::swords::skills::bleed::tier}
+			delete {skmmo::%uuid of player%::swords::skills::bleed::tier}
+		if {skmmo::%uuid of player%::swords::skills::bleed::chance} is set:
+			set {skmmo::%player%::swords::skills::bleed::chance} to {skmmo::%uuid of player%::swords::skills::bleed::chance}
+			delete {skmmo::%uuid of player%::swords::skills::bleed::chance}
+		if {skmmo::%uuid of player%::swords::skills::counterattack::chance} is set:
+			set {skmmo::%player%::swords::skills::counterattack::chance} to {skmmo::%uuid of player%::swords::skills::counterattack::chance}
+			delete {skmmo::%uuid of player%::swords::skills::counterattack::chance}
+		if {skmmo::%uuid of player%::swords::skills::strikes::duration} is set:
+			set {skmmo::%player%::swords::skills::strikes::duration} to {skmmo::%uuid of player%::swords::skills::strikes::duration}
+			delete {skmmo::%uuid of player%::swords::skills::strikes::duration}
+
+			#-----------------------------------------------------------------------#
+			# 12.			    ==[]VARIABLES[]==				#
+			#-----------------------------------------------------------------------#
+on join:
+	if {@UUIDs} is true:
+		set {skmmoVar.%player%} to the uuid of the player
+	if {@UUIDs} is false:
+		set {skmmoVar.%player%} to the player
+
+	if {skmmo::%{skmmoVar.%player%}%::mining::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::mining::level::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::mining::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::durability} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::durability} to 1 Second
+	if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} to false
+	set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} to false
+	if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use} is set:
+		delete {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::use}
+	if {skmmo::%{skmmoVar.%player%}%::mining::skills::double} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::skills::double} to 0.01
+	set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldownmsg} to false
+	if {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldowner} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::cooldowner} to now
+	set {skmmo::%{skmmoVar.%player%}%::mining::skills::superbreaker::toggle} to false
+
+
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::double} to 0
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::level::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower::msg} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower::msg} to "&7LOCKED UNTIL LEVEL 100+ SKILL (LEAF BLOWER)"
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::leafblower} to false
+	set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldownmsg} to false
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldowner} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::cooldowner} to now
+	set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} to false
+	set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::use} to false
+	if {skmmo::%player%::woodcutting::skills::treefeller::use} is set:
+		delete {skmmo::%player%::woodcutting::skills::treefeller::use}
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::durability} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::durability} to 1 second
+	if {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::woodcutting::skills::treefeller::toggle} to false
+
+
+	if {skmmo::%{skmmoVar.%player%}%::excavation::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::excavation::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::excavation::level::level} isn't set:
+		set {skmmo::%player%::excavation::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::excavation::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::excavation::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::durability} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::durability} to 1 second
+	set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::use} to false
+	if {skmmo::%player%::excavation::skills::gigadrill::use} is set:
+		delete {skmmo::%player%::excavation::skills::gigadrill::use}
+	if {skmmo::%{skmmoVar.%player%}%::excavation::skills::double} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::excavation::skills::double} to 0
+	set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldownmsg} to false
+	if {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldowner} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::cooldowner} to now
+	set {skmmo::%{skmmoVar.%player%}%::excavation::skills::gigadrill::toggle} to false
+
+
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::level::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::roll::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::roll::chance} to 0
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::gracefullanding::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::gracefullanding::chance} to 0
+	if {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::dodge::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::acrobatics::skills::dodge::chance} to 0
+
+	if {skmmo::%{skmmoVar.%player%}%::repair::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::repair::level::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::repair::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::skills::repair::diamond} to false
+	if {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::chance} to 100
+	if {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::downgrade} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::skills::arcaneforging::level::downgrade} to 0
+	if {skmmo::%{skmmoVar.%player%}%::repair::skills::mastery} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::repair::skills::mastery} to 1
+
+
+	if {skmmo::%{skmmoVar.%player%}%::swords::xp} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::xp} to 0
+	if {skmmo::%{skmmoVar.%player%}%::swords::level::level} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::level::level} to 0
+	if {skmmo::%{skmmoVar.%player%}%::swords::level::amount} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::level::amount} to 1020
+	if {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::duration} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::duration} to 1 second
+	if {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::tier} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::tier} to 0
+	if {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::skills::bleed::chance} to 0
+	if {skmmo::%{skmmoVar.%player%}%::swords::skills::counterattack::chance} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::skills::counterattack::chance} to 0
+	if {skmmo::%{skmmoVar.%player%}%::swords::skills::strikes::duration} isn't set:
+		set {skmmo::%{skmmoVar.%player%}%::swords::skills::strikes::duration} to 2 seconds
+	set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::toggle} to false
+	set {skmmo::%{skmmoVar.%player%}%::swords::skills::serratedstrikes::use} to false
+	set {skmmo::%{skmmoVar.%player%}%::swords::bleeding} to false
+
+			#-----------------------------------------------------------------------#
+			# 13.			    ==[]RESOURCES[]==				#
+			#-----------------------------------------------------------------------#
+
+on script load:
+	set {enchantments::1} to protection
+	set {enchantments::2} to fire protection
+	set {enchantments::3} to feather falling
+	set {enchantments::4} to blast protection
+	set {enchantments::5} to projectile protection
+	set {enchantments::6} to respiration
+	set {enchantments::7} to aqua affinity
+	set {enchantments::8} to thorns
+
+	set {enchantments::16} to sharpness
+	set {enchantments::17} to smite
+	set {enchantments::18} to bane of arthropods
+	set {enchantments::19} to knockback
+	set {enchantments::20} to fire aspect
+	set {enchantments::21} to looting
+
+	set {enchantments::32} to efficiency
+	set {enchantments::33} to silk touch
+	set {enchantments::34} to unbreaking
+	set {enchantments::35} to fortune
+
+	set {enchantments::48} to power
+	set {enchantments::49} to punch
+	set {enchantments::50} to flame
+	set {enchantments::51} to infinity
+
+	set {enchantments::61} to luck of the sea
+	set {enchantments::62} to lure
+	
+	set {skmmo::cap::Mining} to {@Mining Level Cap}
+	if {@Mining Level Cap} is 0:
+		delete {skmmo::cap::Mining}
+	set {skmmo::cap::Woodcutting} to {@Woodcutting Level Cap}
+	if {@Woodcutting Level Cap} is 0:
+		delete {skmmo::cap::Woodcutting}
+	set {skmmo::cap::Excavation} to {@Excavation Level Cap}
+	if {@Excavation Level Cap} is 0:
+		delete {skmmo::cap::Excavation}
+	set {skmmo::cap::Acrobatics} to {@Acrobatics Level Cap}
+	if {@Acrobatics Level Cap} is 0:
+		delete {skmmo::cap::Acrobatics}
+	set {skmmo::cap::Repair} to {@Repair Level Cap}
+	if {@Repair Level Cap} is 0:
+		delete {skmmo::cap::Repair}
+	set {skmmo::cap::Swords} to {@Swords Level Cap}
+	if {@Swords Level Cap} is 0:
+		delete {skmmo::cap::Swords}
+		
+
+	if {skmmo::uuid} is set:
+		if {skmmo::uuid} isn't {@UUIDs}:
+			if {@UUID-Autokick} is true:
+				broadcast "&cA Variable Element of skMMO has been changed."
+				broadcast "&7&oYou Will be Automatically Kicked in &45 seconds&7..."
+				wait 1 second
+				broadcast "&c4..."
+				wait 1 second
+				broadcast "&63..."
+				wait 1 second
+				broadcast "&e2..."
+				wait 1 second
+				broadcast "&a1..."
+				wait 1 second
+				set {skmmo::uuid} to {@UUIDs}
+				loop all players:
+					kick loop-player due to "&c&l[skMMO] You may Rejoin Now."
+			else:
+				broadcast "&cA Variable change has been made. It is recommended to relog otherwise skMMO stats WILL break!"
+	else:
+		set {skmmo::uuid} to {@UUIDs}
+
+#	{skmmo::<PLAYER/UUID>::mining::xp} = 0
+#	{skmmo::<PLAYER/UUID>::mining::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::mining::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::mining::skills::superbreaker::toggle} = false
+#	{skmmo::<PLAYER/UUID>::mining::skills::superbreaker::durability} = 1 Second
+#	{skmmo::<PLAYER/UUID>::mining::skills::superbreaker::use} = false
+#	{skmmo::<PLAYER/UUID>::mining::skills::double} = 0.01
+
+#	{skmmo::<PLAYER/UUID>::woodcutting::xp} = 0
+#	{skmmo::<PLAYER/UUID>::woodcutting::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::woodcutting::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::treefeller::durability} = 1 second
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::treefeller::use} = false
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::treefeller::cooldowntime} = 360
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::treefeller::cooldown} = 0
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::treefeller::toggle} = false
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::leafblower::msg} = "&cLEAF BLOWER: LOCKED UNTIL LEVEL 100"
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::leafblower} = false
+#	{skmmo::<PLAYER/UUID>::woodcutting::skills::double} = 0
+
+#	{skmmo::<PLAYER/UUID>::excavation::xp} = 0
+#	{skmmo::<PLAYER/UUID>::excavation::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::excavation::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::excavation::skills::gigadrill::durability} = 1 second
+#	{skmmo::<PLAYER/UUID>::excavation::skills::gigadrill::cooldowntime} = 180
+#	{skmmo::<PLAYER/UUID>::excavation::skills::gigadrill::cooldown} = 0
+#	{skmmo::<PLAYER/UUID>::excavation::skills::gigadrill::use} = false
+#	{skmmo::<PLAYER/UUID>::excavation::skills::double} = 0
+
+#	{skmmo::<PLAYER/UUID>::acrobatics::xp} = 0
+#	{skmmo::<PLAYER/UUID>::acrobatics::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::acrobatics::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::acrobatics::skills::roll::chance} = 0
+#	{skmmo::<PLAYER/UUID>::acrobatics::skills::gracefullanding::chance} = 0
+#	{skmmo::<PLAYER/UUID>::acrobatics::skills::dodge::chance} = 0
+
+#	{skmmo::<PLAYER/UUID>::repair::xp} = 0
+#	{skmmo::<PLAYER/UUID>::repair::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::repair::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::repair::skills::arcaneforging::level} = 0
+#	{skmmo::<PLAYER/UUID>::repair::skills::arcaneforging::level::chance} = 100
+#	{skmmo::<PLAYER/UUID>::repair::skills::arcaneforging::level::downgrade} = 0
+#	{skmmo::<PLAYER/UUID>::repair::skills::repair::diamond} = false
+#	{skmmo::<PLAYER/UUID>::repair::skills::mastery} = 1
+
+# 	{skmmo::<PLAYER/UUID>::swords::xp} = 0
+# 	{skmmo::<PLAYER/UUID>::swords::level::level} = 0
+#	{skmmo::<PLAYER/UUID>::swords::level::amount} = 1020
+#	{skmmo::<PLAYER/UUID>::swords::skills::bleed::duration} = 1 second
+#	{skmmo::<PLAYER/UUID>::swords::skills::bleed::chance} = 0
+#	{skmmo::<PLAYER/UUID>::swords::skills::counterattack::chance} = 0
+#	{skmmo::<PLAYER/UUID>::swords::skills::serratedstrikes::duration} = 2 seconds
+#	{skmmo::<PLAYER/UUID>::swords::skills::serratedstrikes::toggle} = false
+#	{skmmo::<PLAYER/UUID>::swords::skills::serratedstrikes::use} = false
