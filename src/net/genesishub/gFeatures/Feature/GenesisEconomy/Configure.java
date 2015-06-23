@@ -25,7 +25,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.0.7");
+		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.0.8");
 		Basic.addFeature(base);
 	}
 }
