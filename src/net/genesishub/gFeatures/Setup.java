@@ -42,7 +42,6 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.Statistics.Configure.onSetup();
-		net.dolphinbox.gFeatures.Feature.gTNTRegen.Configure.onSetup();
 		
 		/*
 		 * Initialize your Skripts here.
