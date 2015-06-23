@@ -58,7 +58,7 @@ public class CompassLoop {
             	target = (Player) e;
             	Bukkit.getLogger().info("Iter1");
             }
-            else if(stats.getTeam(p).equals(Team.ORANGE) && stats.getTeam((Player) e).equals(Team.BLUE)){
+            else if(stats.getTeam((Player) e).equals(Team.ORANGE) && stats.getTeam(p).equals(Team.BLUE)){
             	target = (Player) e;
             	Bukkit.getLogger().info("Iter2");
             }

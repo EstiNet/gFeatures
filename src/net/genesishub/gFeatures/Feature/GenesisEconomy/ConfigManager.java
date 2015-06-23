@@ -3,6 +3,8 @@ package net.genesishub.gFeatures.Feature.GenesisEconomy;
 import java.io.File;
 import java.io.IOException;
 
+import net.genesishub.gFeatures.Configuration.Config;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -28,6 +30,8 @@ https://github.com/GenesisHub/gFeatures
 public class ConfigManager {
 	File f = new File("plugins/gFeatures/gEconomy/Config.yml");
 	public boolean check() throws IOException{
+		Config c = new Config();
+		c.createDirectory("plugins/gFeatures/gEconomy", "gEconomy files created!");
 		if(!f.exists()){
 			Bukkit.getLogger().info("[gEconomy] Setting up configs....");
 			f.createNewFile();
