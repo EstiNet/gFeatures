@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.API.PlayerStats;
 import java.io.File;
 import java.io.IOException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.genesishub.gFeatures.Basic;
@@ -24,6 +25,7 @@ public class Load {
 					if(yamlFile.get("Config." + str).equals(null)){}
 				}
 				catch(Exception e){
+					Bukkit.getLogger().info("Found a patch! Will fix player " + yamlFile.get("Config." + str).toString());
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());

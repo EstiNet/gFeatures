@@ -80,11 +80,9 @@ public class EventHub {
 		File f = new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		yamlFile.set("Config.gWars.Kills", stats.getKills(event.getPlayer()));
-		if(f.isFile()){
-		Bukkit.getLogger().info("Set kills to " + stats.getKills(p));
-		}
 		try {
 			yamlFile.save(f);
+			Bukkit.getLogger().info("Saved");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
