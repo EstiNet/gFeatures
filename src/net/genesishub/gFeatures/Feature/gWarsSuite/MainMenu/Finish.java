@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Constants;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
 import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 import net.md_5.bungee.api.ChatColor;
 
@@ -29,6 +30,14 @@ public class Finish {
 		ItemStack compass = createItem(Material.COMPASS, ChatColor.AQUA + "Compass");
 		p.getInventory().setItem(7, compass);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
+		if(BlueTeam.hasPlayer(p)){
+			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 3, (byte)1);
+			p.getInventory().setHelmet(wool);
+		}
+		else{
+			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			p.getInventory().setHelmet(wool);
+		}
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);

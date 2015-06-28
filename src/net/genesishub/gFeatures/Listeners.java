@@ -51,7 +51,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.5.5";
+	public static final String version = "2.5.7";
 	
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
@@ -66,7 +66,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		LogHelper.info("Initalizing gFeatures."); //Testing gFeatures Forge Utilitys (And how it can be used in the bukkit side of gFeatures). This is the LogHelper Utility that makes using l4j easy.
+		getLogger().info("Initalizing gFeatures.");
 		getLogger().info("This server is running gFeatures Core Version: " + version);
 		getLogger().info("Starting intialization of Features and Extensions...");
 		setup.onSetup();

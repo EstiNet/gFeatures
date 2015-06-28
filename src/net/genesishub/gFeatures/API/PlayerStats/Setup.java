@@ -81,10 +81,22 @@ public class Setup {
 			}
 				yamlFile.set("Config." + str, p.getValue(str));
 			}
-		try {
-			yamlFile.save(f);
-		} catch (IOException e) {
-			e.printStackTrace();
+			try {
+				yamlFile.save(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+		public void smartFlush(gPlayer p, String valuename, String value){
+			File f = new File("plugins/gFeatures/Players/" + p.getUUID());
+			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+			
+			yamlFile.set("Config." + valuename, value);
+			
+			try {
+				yamlFile.save(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}

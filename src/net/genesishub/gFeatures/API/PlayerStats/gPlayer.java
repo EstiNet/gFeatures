@@ -1,8 +1,10 @@
 package net.genesishub.gFeatures.API.PlayerStats;
 
+import java.io.File;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 /*
@@ -65,8 +67,10 @@ public class gPlayer {
 	public void setValue(String valuename, String value){
 		values.remove(valuename);
 		values.put(valuename, value);
+		setup.smartFlush(this, valuename, value);
 		setup.flushPlayer(this);
 	}
+	@Deprecated
 	public void addValue(String valuename, String value){
 		values.put(valuename, value);
 	}
@@ -79,6 +83,11 @@ public class gPlayer {
 		setup.flushPlayer(this);
 	}
 	public String getValue(String valuename){
+		File f = new File("plugins/gFeatures/Players/" + uuid);
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		return yamlFile.get("Config." + valuename).toString();
+	}
+	public String getStrictValue(String valuename){
 		return values.get(valuename);
 	}
 }
