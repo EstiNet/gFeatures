@@ -82,7 +82,6 @@ public class EventHub {
 		yamlFile.set("Config.gWars.Kills", stats.getKills(event.getPlayer()));
 		try {
 			yamlFile.save(f);
-			Bukkit.getLogger().info("Saved");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

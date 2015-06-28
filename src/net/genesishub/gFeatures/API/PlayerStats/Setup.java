@@ -24,7 +24,6 @@ public class Setup {
 			yamlFile.set("Config.Name", p.getName());
 			yamlFile.set("Config.UUID", p.getUniqueId().toString());
 			for(String str : Basic.getPlayerSections().keySet()){
-				Bukkit.getLogger().info(str);
 				yamlFile.createSection("Config." + str);
 				yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
@@ -41,18 +40,15 @@ public class Setup {
 			gPlayer gp = Basic.getgPlayer(p.getUniqueId().toString());
 			
 			for(String str : Basic.getPlayerSections().keySet()){
-				Bukkit.getLogger().info(str);
 				try{
 				if(yamlFile.get("Config." + str).equals(null)){}
 				}catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
-					Bukkit.getLogger().info(str + " " + Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
 			}
 			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(true)){
-				Bukkit.getLogger().info("Get: " + str + " " + yamlFile.get("Config." + str));
 				gp.setValue(str, yamlFile.get("Config." + str).toString());
 			}
 			try {

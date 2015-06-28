@@ -26,7 +26,7 @@ public class CompassLoop {
 			try{
 			if(st.getType().equals(Material.COMPASS)){
 				p.getInventory().remove(st);
-				Player playerget = getNearest(p, 99.0);
+				Player playerget = getNearest(p, 50.0);
 				p.setCompassTarget(playerget.getLocation());
 				ItemMeta im = st.getItemMeta();
 				im.setDisplayName(ChatColor.AQUA + "Compass: " + ChatColor.GOLD + "" + playerget.getName());
@@ -53,14 +53,11 @@ public class CompassLoop {
                 continue;
             }
             distance = distanceto;
-            Bukkit.getLogger().info("Iters");
             if(stats.getTeam((Player) e).equals(Team.BLUE) && stats.getTeam(p).equals(Team.ORANGE)){
             	target = (Player) e;
-            	Bukkit.getLogger().info("Iter1");
             }
             else if(stats.getTeam((Player) e).equals(Team.ORANGE) && stats.getTeam(p).equals(Team.BLUE)){
             	target = (Player) e;
-            	Bukkit.getLogger().info("Iter2");
             }
         }
         Bukkit.getLogger().info(target.getName());
