@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
@@ -19,6 +21,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
@@ -74,6 +77,17 @@ public class EventHub {
 		BlueTeam.removePlayer(event.getPlayer());
 		OrangeTeam.removePlayer(event.getPlayer());
 		Constants.spawndump.remove(p);
+		File f = new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml");
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		yamlFile.set("Config.gWars.Kills", stats.getKills(event.getPlayer()));
+		if(f.isFile()){
+		Bukkit.getLogger().info("Set kills to " + stats.getKills(p));
+		}
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){

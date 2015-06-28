@@ -21,8 +21,7 @@ public class Load {
 			}
 			for(String str : Basic.getPlayerSections().keySet()){
 				try{
-					if(yamlFile.get("Config." + str).equals(null)){
-					}
+					if(yamlFile.get("Config." + str).equals(null)){}
 				}
 				catch(Exception e){
 					yamlFile.createSection("Config." + str);
