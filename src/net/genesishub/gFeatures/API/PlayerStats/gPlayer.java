@@ -68,7 +68,7 @@ public class gPlayer {
 		values.remove(valuename);
 		values.put(valuename, value);
 		setup.smartFlush(this, valuename, value);
-		setup.flushPlayer(this);
+		//setup.flushPlayer(this);
 	}
 	@Deprecated
 	public void addValue(String valuename, String value){
@@ -83,11 +83,16 @@ public class gPlayer {
 		setup.flushPlayer(this);
 	}
 	public String getValue(String valuename){
-		File f = new File("plugins/gFeatures/Players/" + uuid);
+		/*File f = new File("plugins/gFeatures/Players/" + uuid + ".yml");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		return yamlFile.get("Config." + valuename).toString();
+		return yamlFile.get("Config." + valuename).toString();*/
+		return values.get(valuename);
 	}
 	public String getStrictValue(String valuename){
 		return values.get(valuename);
+	}
+	public void clearCache(){
+		values = null;
+		values = new HashMap<>();
 	}
 }

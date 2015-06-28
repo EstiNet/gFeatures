@@ -95,6 +95,7 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
+    	setups.flushPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()));
     	library.onPlayerLeave(event);
     }
     @EventHandler

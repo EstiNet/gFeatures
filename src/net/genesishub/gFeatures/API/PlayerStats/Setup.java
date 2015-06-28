@@ -6,6 +6,7 @@ import java.io.IOException;
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configuration.Config;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -23,6 +24,7 @@ public class Setup {
 			yamlFile.set("Config.Name", p.getName());
 			yamlFile.set("Config.UUID", p.getUniqueId().toString());
 			for(String str : Basic.getPlayerSections().keySet()){
+				Bukkit.getLogger().info(str);
 				yamlFile.createSection("Config." + str);
 				yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
@@ -37,21 +39,21 @@ public class Setup {
 		else{
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			gPlayer gp = Basic.getgPlayer(p.getUniqueId().toString());
-			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(false)){
-				gp.setValue(str, yamlFile.get("Config." + str).toString());
-			}
+			
 			for(String str : Basic.getPlayerSections().keySet()){
+				Bukkit.getLogger().info(str);
 				try{
-				if(yamlFile.get("Config." + str).equals(null)){
-					yamlFile.createSection("Config." + str);
-					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
-					gp.addValue(str, yamlFile.get("Config." + str).toString());
-				}
+				if(yamlFile.get("Config." + str).equals(null)){}
 				}catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					Bukkit.getLogger().info(str + " " + Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
+			}
+			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(true)){
+				Bukkit.getLogger().info("Get: " + str + " " + yamlFile.get("Config." + str));
+				gp.setValue(str, yamlFile.get("Config." + str).toString());
 			}
 			try {
 				yamlFile.save(f);
@@ -59,8 +61,7 @@ public class Setup {
 				e.printStackTrace();
 			}
 			try{
-				if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){
-				}
+				if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){}
 			}catch(Exception e){
 				Basic.addgPlayer(gp);
 			}
@@ -88,7 +89,7 @@ public class Setup {
 			}
 		}
 		public void smartFlush(gPlayer p, String valuename, String value){
-			File f = new File("plugins/gFeatures/Players/" + p.getUUID());
+			File f = new File("plugins/gFeatures/Players/" + p.getUUID() + ".yml");
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			
 			yamlFile.set("Config." + valuename, value);
