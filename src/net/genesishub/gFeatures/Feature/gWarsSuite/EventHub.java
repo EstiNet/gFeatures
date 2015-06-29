@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
-import net.genesishub.gFeatures.Feature.GenesisEconomy.CheckConfig;
-import net.genesishub.gFeatures.Feature.GenesisEconomy.Connection;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Connection;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
@@ -71,10 +71,16 @@ public class EventHub {
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Connection c = new Connection();
 		CheckConfig cc = new CheckConfig();
-		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Peoples(Name, Kills, Deaths)\n"+
+		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Kills(Name, Kills)\n"+
 				"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
-				"SELECT Name FROM Peoples WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
+				"SELECT Name FROM Kills WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
+				") LIMIT 1;\n"
+			);
+		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Deaths(Name, Deaths)\n"+
+				"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT Name FROM Deaths WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
 				") LIMIT 1;\n"
 			);
 		Source s = new Source();

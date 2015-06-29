@@ -39,8 +39,8 @@ public class CommandHub {
 				if(args[0].equalsIgnoreCase("help")){
 					sender.sendMessage(ChatColor.GRAY + "[x] [x] Help [x] [x]");
 					sender.sendMessage(ChatColor.AQUA + "/gWars stats [Player] - Shows your stats or another player.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars kills [add/set/minus] [amount] [Player] - Sets a player's kills stat.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars deaths [add/set/minus] [amount] [Player] - Sets a player's deaths stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWars kills [amount] [Player] - Sets a player's kills stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWars deaths [amount] [Player] - Sets a player's deaths stat.");
 					sender.sendMessage(ChatColor.AQUA + "/gWars mode [value] [Player] - Sets a player's mode stat.");
 					sender.sendMessage(ChatColor.AQUA + "/gWars version - Shows the version. ");
 				}
@@ -100,91 +100,6 @@ public class CommandHub {
 					}
 						sender.sendMessage(ChatColor.RED + "An error occured with your input.");
 				}
-				else{
-					sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
-				}
-			}
-			else if(args.length == 3){
-				if(args[0].equalsIgnoreCase("kills")){
-				try{
-					int num = Integer.parseInt(args[2]);
-				for(Player p : Bukkit.getOnlinePlayers()){
-					if(p.getName().equalsIgnoreCase(args[3])){
-						if(args[1].equalsIgnoreCase("add")){
-							stats.addKill(p, num);
-						}
-						else if(args[1].equalsIgnoreCase("minus")){
-							stats.minusKill(p, num);
-						}
-						else if(args[1].equalsIgnoreCase("set")){
-							stats.setKills(p, num);
-						}
-						else{
-							sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
-						}
-					}
-				}
-					for(OfflinePlayer p : Bukkit.getOfflinePlayers()){
-						if(p.getName().equalsIgnoreCase(args[3])){
-							if(args[1].equalsIgnoreCase("add")){
-								stats.addKill((Player)p, num);
-							}
-							else if(args[1].equalsIgnoreCase("minus")){
-								stats.minusKill((Player)p, num);
-							}
-							else if(args[1].equalsIgnoreCase("set")){
-								stats.setKills((Player)p, num);
-							}
-							else{
-								sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
-							}
-						}
-					}
-				}
-				catch(Exception e){
-					sender.sendMessage(ChatColor.RED + "An error occured with your input.");
-				}
-				}
-				if(args[0].equalsIgnoreCase("deaths")){
-					try{
-						int num = Integer.parseInt(args[2]);
-					for(Player p : Bukkit.getOnlinePlayers()){
-						if(p.getName().equalsIgnoreCase(args[3])){
-							if(args[1].equalsIgnoreCase("add")){
-								stats.addDeaths(p, num);
-							}
-							else if(args[1].equalsIgnoreCase("minus")){
-								stats.minusDeaths(p, num);
-							}
-							else if(args[1].equalsIgnoreCase("set")){
-								stats.setDeaths(p, num);
-							}
-							else{
-								sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
-							}
-						}
-					}
-						for(OfflinePlayer p : Bukkit.getOfflinePlayers()){
-							if(p.getName().equalsIgnoreCase(args[3])){
-								if(args[1].equalsIgnoreCase("add")){
-									stats.addDeaths((Player)p, num);
-								}
-								else if(args[1].equalsIgnoreCase("minus")){
-									stats.minusDeaths((Player)p, num);
-								}
-								else if(args[1].equalsIgnoreCase("set")){
-									stats.setDeaths((Player)p, num);
-								}
-								else{
-									sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
-								}
-							}
-						}
-					}
-					catch(Exception e){
-						sender.sendMessage(ChatColor.RED + "An error occured with your input.");
-					}
-					}
 				else{
 					sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
 				}
