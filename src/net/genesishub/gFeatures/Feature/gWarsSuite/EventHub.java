@@ -159,12 +159,12 @@ public class EventHub {
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		event.setCancelled(true);
 	}
-	/*public void onPlayerMove(PlayerMoveEvent event){
+	public void onPlayerMove(PlayerMoveEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
 			Move move = new Move();
 			move.initialize(event);
 		}
-	}*/
+	}
 	public void onPlayerDeath(PlayerDeathEvent event){
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
