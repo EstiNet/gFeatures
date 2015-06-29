@@ -25,7 +25,7 @@ public class Load {
 					if(yamlFile.get("Config." + str).equals(null)){}
 				}
 				catch(Exception e){
-					Bukkit.getLogger().info("Found a patch! Will fix player " + yamlFile.get("Config." + str).toString());
+					Bukkit.getLogger().info("Found a problem with the file! Attempting to patch " + str);
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());

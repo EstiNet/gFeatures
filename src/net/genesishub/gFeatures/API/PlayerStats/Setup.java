@@ -45,6 +45,7 @@ public class Setup {
 				}catch(Exception e){
 					yamlFile.createSection("Config." + str);
 					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					Bukkit.getLogger().info("Adding " + str);
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
 			}

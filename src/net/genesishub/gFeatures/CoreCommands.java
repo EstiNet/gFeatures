@@ -52,6 +52,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
 					case "list":
@@ -119,6 +120,17 @@ public class CoreCommands{
 							s.flushPlayer(gp);
 						}
 						sender.sendMessage(ChatColor.GRAY + "Player flush complete.");
+						break;
+					case "debug":
+						if(Listeners.debug == true){
+							Listeners.debug = false;
+							sender.sendMessage(ChatColor.GRAY + "Turned off debugging.");
+						}
+						else{
+							Listeners.debug = true;
+							sender.sendMessage(ChatColor.GRAY + "Turned on debugging.");
+						}
+						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
