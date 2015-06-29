@@ -12,6 +12,7 @@ public class Enabling {
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
-		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Peoples(Name VARCHAR(200), Kills FLOAT, Deaths FLOAT) ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Kills(Name VARCHAR(200), Kills FLOAT) ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Deaths(Name VARCHAR(200), Deaths FLOAT) ENGINE=InnoDB;");
 	}
 }

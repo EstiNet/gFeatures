@@ -31,11 +31,11 @@ public class ConfigHub {
 	Config config = new Config();
 	Configuration con = new Configuration(true);
 	public void setupConfig(){
+		File f = new File("plugins/gFeatures/gWarsSuite/Config.yml");
+		boolean bool = !f.exists();
 		config.createDirectory("plugins/gFeatures/gWarsSuite", "gWarsSuite plugin directory set!");
 		config.createFile("plugins/gFeatures/gWarsSuite/Config.yml", "gWarsSuite plugin config set!");
-		
-		File f = new File("plugins/gFeatures/gWarsSuite/Config.yml");
-		
+		if(bool){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		yamlFile.createSection("Config");
 		yamlFile.createSection("Config.MySQL");
@@ -53,6 +53,7 @@ public class ConfigHub {
 			yamlFile.save(f);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
 		}
 		Enabling en = new Enabling();
 		en.start();

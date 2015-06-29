@@ -45,12 +45,12 @@ public class Statistics {
 	String URL = c.toURL(Port, Address, Tablename);
 	public int getKills(Player p){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Kills WHERE Name = '" + p.getUniqueId().toString() + "';");
 		return Integer.parseInt(rs.get(1));
 	}
 	public int getDeaths(Player p){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Deaths WHERE Name = '" + p.getUniqueId().toString() + "';");
 		return Integer.parseInt(rs.get(1));
 	}
 	public gWarsMode getMode(Entity entity){
@@ -58,37 +58,37 @@ public class Statistics {
 	}
 	public void addKill(Player p, int num){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Kills WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float nums = Float.parseFloat(rs.get(1));
 		float money = nums + num;
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Kills SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void addDeaths(Player p, int num){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Deaths WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float nums = Float.parseFloat(rs.get(1));
 		float money = nums + num;
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Deaths SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void minusKill(Player p, int num){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Kills WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float nums = Float.parseFloat(rs.get(1));
 		float money = nums - num;
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Kills SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void minusDeaths(Player p, int num){
 		List<String> rs = new ArrayList<>();
-		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Deaths WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float nums = Float.parseFloat(rs.get(1));
 		float money = nums - num;
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Deaths SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setKills(Player p, int value){
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Kills SET Kills = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setDeaths(Player p, int value){
-		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+		c.Connect(URL, Username, Password, "UPDATE Deaths SET Deaths = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setMode(Player p, gWarsMode mode){
 		for(gWarsMode m : gWarsMode.values()){
