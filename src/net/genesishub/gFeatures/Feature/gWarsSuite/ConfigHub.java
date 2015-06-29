@@ -1,6 +1,12 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.bukkit.configuration.file.YamlConfiguration;
+
 import net.genesishub.gFeatures.Configuration.Config;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Enabling;
 
 /*
 gFeatures
@@ -27,5 +33,29 @@ public class ConfigHub {
 	public void setupConfig(){
 		config.createDirectory("plugins/gFeatures/gWarsSuite", "gWarsSuite plugin directory set!");
 		config.createFile("plugins/gFeatures/gWarsSuite/Config.yml", "gWarsSuite plugin config set!");
+		
+		File f = new File("plugins/gFeatures/gWarsSuite/Config.yml");
+		
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+		yamlFile.createSection("Config");
+		yamlFile.createSection("Config.MySQL");
+		yamlFile.createSection("Config.MySQL.Address");
+		yamlFile.createSection("Config.MySQL.Port");
+		yamlFile.createSection("Config.MySQL.TableName");
+		yamlFile.createSection("Config.MySQL.Username");
+		yamlFile.createSection("Config.MySQL.Password");
+		yamlFile.set("Config.MySQL.Port", "3306");
+		yamlFile.set("Config.MySQL.Address", "localhost");
+		yamlFile.set("Config.MySQL.TableName", "gwars");
+		yamlFile.set("Config.MySQL.Username", "root");
+		yamlFile.set("Config.MySQL.Password", "pass123");
+		try {
+			yamlFile.save(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Enabling en = new Enabling();
+		en.start();
 	}
+	
 }

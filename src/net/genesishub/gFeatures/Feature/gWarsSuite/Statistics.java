@@ -1,12 +1,16 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Connection;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -31,60 +35,60 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Statistics {
+	Connection c = new Connection();
+	CheckConfig cc = new CheckConfig();
+	String Address = cc.getAddress();
+	String Port = cc.getPort();
+	String Tablename = cc.getTablename();
+	String Username = cc.getUsername();
+	String Password = cc.getPassword();
+	String URL = c.toURL(Port, Address, Tablename);
 	public int getKills(Player p){
-		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		return Integer.parseInt(rs.get(1));
 	}
 	public int getDeaths(Player p){
-		return Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		return Integer.parseInt(rs.get(1));
 	}
 	public gWarsMode getMode(Entity entity){
 		return Constants.mode.get(entity);
 	}
 	public void addKill(Player p, int num){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
-		kill += num;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Kills", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		float nums = Float.parseFloat(rs.get(1));
+		float money = nums + num;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void addDeaths(Player p, int num){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
-		kill += num;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		float nums = Float.parseFloat(rs.get(1));
+		float money = nums + num;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void minusKill(Player p, int num){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Kills"));
-		kill -= num;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Kills", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		float nums = Float.parseFloat(rs.get(1));
+		float money = nums - num;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void minusDeaths(Player p, int num){
-		int kill = Integer.parseInt(Basic.getgPlayer(p.getUniqueId().toString()).getValue("gWars.Deaths"));
-		kill -= num;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		List<String> rs = new ArrayList<>();
+		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Deaths FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		float nums = Float.parseFloat(rs.get(1));
+		float money = nums - num;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setKills(Player p, int value){
-		int kill = value;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Kills", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Kills = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setDeaths(Player p, int value){
-		int kill = value;
-		gPlayer gplayer = Basic.getgPlayer(p.getUniqueId().toString());
-		gplayer.setValue("gWars.Deaths", Integer.toString(kill));
-		Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gplayer);
-		return;
+		c.Connect(URL, Username, Password, "UPDATE Peoples SET Deaths = " + value + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public void setMode(Player p, gWarsMode mode){
 		for(gWarsMode m : gWarsMode.values()){

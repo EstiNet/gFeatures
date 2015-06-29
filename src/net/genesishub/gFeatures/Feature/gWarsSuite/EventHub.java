@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
+import net.genesishub.gFeatures.Feature.GenesisEconomy.CheckConfig;
+import net.genesishub.gFeatures.Feature.GenesisEconomy.Connection;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
@@ -19,6 +21,7 @@ import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -66,6 +69,14 @@ public class EventHub {
 	Interaction interact = new Interaction();
 	ActionAPI aapi = new ActionAPI();
 	public void onPlayerJoin(PlayerJoinEvent event){
+		Connection c = new Connection();
+		CheckConfig cc = new CheckConfig();
+		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Peoples(Name, Kills, Deaths)\n"+
+				"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT Name FROM Peoples WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
+				") LIMIT 1;\n"
+			);
 		Source s = new Source();
 		s.flushAll();
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
@@ -77,14 +88,6 @@ public class EventHub {
 		BlueTeam.removePlayer(event.getPlayer());
 		OrangeTeam.removePlayer(event.getPlayer());
 		Constants.spawndump.remove(p);
-		File f = new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml");
-		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		yamlFile.set("Config.gWars.Kills", stats.getKills(event.getPlayer()));
-		try {
-			yamlFile.save(f);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){

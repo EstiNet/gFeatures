@@ -43,7 +43,6 @@ public class CompassLoop {
         double distance = Double.POSITIVE_INFINITY; // To make sure the first
                                                     // player checked is closest
         target = p;
-        Bukkit.getLogger().info("____"+ p.getName());
         for (Entity e : p.getNearbyEntities(range, range, range)) {
             if (!(e instanceof Player)){
                 continue;
@@ -60,7 +59,6 @@ public class CompassLoop {
             	target = (Player) e;
             }
         }
-        Bukkit.getLogger().info(target.getName());
         return target;
     }
 }

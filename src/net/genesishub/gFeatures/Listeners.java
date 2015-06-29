@@ -2,6 +2,7 @@ package net.genesishub.gFeatures;
 
 import net.dolphinbox.gFeaturesForge.Feature.SoF.utility.LogHelper;
 import net.genesishub.gFeatures.API.PlayerStats.Load;
+import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
 import net.genesishub.gFeatures.Configuration.SetupConfig;
 
@@ -96,14 +97,18 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
-    	setups.flushPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()));
+    	gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
+    	for(String valuename : gp.getValues().keySet()){
+    		setups.smartFlush(gp, valuename, gp.getValue(valuename));
+    	}
+    	Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
     	library.onPlayerLeave(event);
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
     	library.onPlayerMove(event);
     }
-    @EventHandler(priority=EventPriority.HIGHEST)
+    @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event){
     	library.onPlayerRespawn(event);
     }
