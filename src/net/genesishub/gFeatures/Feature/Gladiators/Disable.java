@@ -1,7 +1,6 @@
 package net.genesishub.gFeatures.Feature.Gladiators;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
+import org.bukkit.Bukkit;
 
 /*
 gFeatures
@@ -22,10 +21,8 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class Configure{
-	@Configs
-	public static void onSetup(){
-		Gladiators base = new Gladiators("Gladiators", "1.0.0");
-		Basic.addFeature(base);
+public class Disable{
+	public static void onDisable(){
+		Bukkit.getLogger().info("Gladiators Disabled!");
 	}
 }
