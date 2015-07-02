@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.Grasslands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 /*
 gFeatures
@@ -24,6 +25,10 @@ https://github.com/GenesisHub/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
+		Enable.grasslands.addPlayer(event.getPlayer());
+		Enable.lobby.addPlayer(event.getPlayer());
+	}
+	public void onPlayerQuit(PlayerQuitEvent event){
+		
 	}
 }

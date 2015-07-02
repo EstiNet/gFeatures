@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Grasslands extends gFeature{
 	EventHub eh = new EventHub();
@@ -28,6 +29,9 @@ public class Grasslands extends gFeature{
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerQuit((PlayerQuitEvent)event);
 		}
 	}
 	@Retrieval
