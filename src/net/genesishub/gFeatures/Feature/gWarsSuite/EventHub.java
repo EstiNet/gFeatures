@@ -151,6 +151,8 @@ public class EventHub {
 		}
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
+		Source s = new Source();
+		s.flushAll();
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
 			stats.setMode(event.getPlayer(), gWarsMode.SPAWNMENU);
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());

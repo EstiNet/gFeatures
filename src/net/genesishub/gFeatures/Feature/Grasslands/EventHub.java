@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Gladiators;
+package net.genesishub.gFeatures.Feature.Grasslands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.Grasslands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

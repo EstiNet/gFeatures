@@ -1,6 +1,12 @@
-package net.genesishub.gFeatures.Feature.Gladiators;
+package net.genesishub.gFeatures.Feature.Grasslands;
+
+import net.genesishub.gFeatures.API.Minigame.Arena;
+import net.genesishub.gFeatures.API.Minigame.Game;
+import net.genesishub.gFeatures.API.Minigame.Resource;
+import net.genesishub.gFeatures.API.Minigame.Teams;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 
 /*
 gFeatures
@@ -22,7 +28,21 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Enable{
-	public static void onEnable(){
-		Bukkit.getLogger().info("Gladiators enabled!");
+	static Teams hider;
+	static Teams finder;
+	static Teams lobby;
+	static Arena currentarena;
+	static Game grasslands;
+	static Resource resource;
+	public void onEnable(){
+		Bukkit.getLogger().info("Grasslands plugin enabled! Hi!");
+		hider = new Teams(ChatColor.DARK_AQUA + "Hider");
+		finder = new Teams(ChatColor.GOLD + "Finder");
+		finder = new Teams(ChatColor.GRAY + "Lobby");
+		grasslands = new Game("Grasslands", 1);
+		grasslands.addTeam(hider);
+		grasslands.addTeam(finder);
+		resource = new Resource();
+		resource.addMap(f, name, "Grasslands");
 	}
 }
