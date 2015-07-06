@@ -42,6 +42,9 @@ public class Setup {
 		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		net.genesishub.gFeatures.Feature.Statistics.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.Gladiators.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.Grasslands.Configure.onSetup();
+		net.genesishub.gFeatures.Feature.gRanks.Configure.onSetup();
 		
 		/*
 		 * Initialize your Skripts here.
