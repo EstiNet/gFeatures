@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gRanks;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configs;
@@ -25,7 +25,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		Base base = new Base("Base", "1.2.5");
+		gRanks base = new gRanks("gRanks", "1.0.0");
 		Basic.addFeature(base);
 	}
 }

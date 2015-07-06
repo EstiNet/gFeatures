@@ -1,6 +1,5 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gRanks;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -26,8 +25,8 @@ https://github.com/GenesisHub/gFeatures
 public class CommandHub{
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("test")){
-			Bukkit.getLogger().info("Test!");
+		if(cmd.getName().equalsIgnoreCase("gRanks")){
+			
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gRanks;
 
 import org.bukkit.Bukkit;
 
@@ -24,7 +24,7 @@ https://github.com/GenesisHub/gFeatures
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
-		Bukkit.getLogger().info("Base Plugin enabled!");
+		Bukkit.getLogger().info("gRanks Plugin enabled!");
 		ch.setupConfig();
 	}
 }

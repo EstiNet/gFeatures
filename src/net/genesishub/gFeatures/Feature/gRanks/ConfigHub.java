@@ -1,4 +1,10 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gRanks;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.genesishub.gFeatures.Configuration.Config;
 
@@ -22,8 +28,39 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class ConfigHub {
-	Config config = new Config();
+	File f = new File("plugins/gFeatures/gRanks/Config.yml");
 	public void setupConfig(){
-		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
+		Config c = new Config();
+		c.createDirectory("plugins/gFeatures/gRanks", "gEconomy files created!");
+		if(!f.exists()){
+			Bukkit.getLogger().info("[gRanks] Setting up configs....");
+			try {
+				f.createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+			yamlFile.createSection("Config");
+			yamlFile.createSection("Config.MySQL");
+			yamlFile.createSection("Config.MySQL.Address");
+			yamlFile.createSection("Config.MySQL.Port");
+			yamlFile.createSection("Config.MySQL.TableName");
+			yamlFile.createSection("Config.MySQL.Username");
+			yamlFile.createSection("Config.MySQL.Password");
+			yamlFile.createSection("Config.Trade");
+			yamlFile.createSection("Config.Trade.Rate");
+			yamlFile.set("Config.MySQL.Port", "3306");
+			yamlFile.set("Config.MySQL.Address", "localhost");
+			yamlFile.set("Config.MySQL.TableName", "geconomy");
+			yamlFile.set("Config.MySQL.Username", "root");
+			yamlFile.set("Config.MySQL.Password", "pass123");
+			yamlFile.set("Config.Trade.Rate", "100");
+			try {
+				yamlFile.save(f);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			Bukkit.getLogger().info("[gRanks] Successfully added config!");
+		}
 	}
 }

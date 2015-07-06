@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gRanks;
 
 import org.bukkit.Bukkit;
 
@@ -23,6 +23,6 @@ https://github.com/GenesisHub/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("Base Plugin Disabled!");
+		Bukkit.getLogger().info("gRanks Plugin Disabled!");
 	}
 }
