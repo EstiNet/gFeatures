@@ -49,7 +49,7 @@ public class ConfigHub {
 			yamlFile.createSection("Config.MySQL.Password");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
-			yamlFile.set("Config.MySQL.TableName", "geconomy");
+			yamlFile.set("Config.MySQL.TableName", "granks");
 			yamlFile.set("Config.MySQL.Username", "root");
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			try {
