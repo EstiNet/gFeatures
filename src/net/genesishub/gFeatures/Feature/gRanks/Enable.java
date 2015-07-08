@@ -26,5 +26,17 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("gRanks Plugin enabled!");
 		ch.setupConfig();
+		SQLConnect c = new SQLConnect();
+		Retrieve cc = new Retrieve();
+		String Address, Port, Tablename, Username, Password;
+		Address = cc.getAddress();
+		Port = cc.getPort();
+		Tablename = cc.getTablename();
+		Username = cc.getUsername();
+		Password = cc.getPassword();
+		String URL = c.toURL(Port, Address, Tablename);
+		c.checkOnline(URL, Username, Password);
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(UUID VARCHAR(200), Rank VARCHAR(200) ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(Name VARCHAR(200), Prefix VARCHAR(200) ENGINE=InnoDB;");
 	}
 }
