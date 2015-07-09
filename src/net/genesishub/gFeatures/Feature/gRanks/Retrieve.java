@@ -41,12 +41,6 @@ public class Retrieve {
 		}
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
-	public String getRate(){
-		if(yamlFile.get("Config.Trade.Rate") == null){
-			return "";
-		}
-		return yamlFile.get("Config.Trade.Rate").toString();
-	}
 	String Address = getAddress();
 	String Port = getPort();
 	String Tablename = getTablename();
@@ -55,7 +49,18 @@ public class Retrieve {
 	String URL = sqlc.toURL(Port, Address, Tablename);
 	public float getRank(Player p){
 		List<String> rs = new ArrayList<>();
-		rs = sqlc.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
+		rs = sqlc.ConnectReturn(URL, Username, Password, "SELECT UUID, Rank FROM People WHERE UUID = '" + p.getUniqueId().toString() + "';");
 		return Float.parseFloat(rs.get(1));
+	}
+	public void setRank(Rank rank, Player p){
+		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + p.getUniqueId().toString() + "';");
+	}
+	public void addRank(Rank rank){
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Ranks(Name, Prefix)\n"+
+				"SELECT * FROM (SELECT '" + rank.getName() + "', '" + rank.getPrefix() + "') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT Name FROM Ranks WHERE Name = '" + rank.getPrefix() + "'\n"+
+				") LIMIT 1;\n"
+			);
 	}
 }

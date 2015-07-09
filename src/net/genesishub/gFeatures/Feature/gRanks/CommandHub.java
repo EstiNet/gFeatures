@@ -1,5 +1,9 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
+import net.genesishub.gFeatures.Feature.gRanks.Commands.OneArg;
+import net.genesishub.gFeatures.Feature.gRanks.Commands.ThreeArg;
+import net.genesishub.gFeatures.Feature.gRanks.Commands.TwoArg;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -23,10 +27,20 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class CommandHub{
-	
+	OneArg oa = new OneArg();
+	TwoArg ta = new TwoArg();
+	ThreeArg tha = new ThreeArg();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("gRanks")){
-			
+			if(args.length == 1){
+				oa.onCommand(sender, cmd, label, args);
+			}
+			else if(args.length == 2){
+				ta.onCommand(sender, cmd, label, args);
+			}
+			else if(args.length == 3){
+				tha.onCommand(sender, cmd, label, args);
+			}
 		}
 	}
 }
