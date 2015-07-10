@@ -38,5 +38,14 @@ public class Enable{
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(UUID VARCHAR(200), Rank VARCHAR(200) ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(Name VARCHAR(200), Prefix VARCHAR(200) ENGINE=InnoDB;");
+		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks(Name, Prefix)").get(1));
+		//TODO Debug the loop condition if something is wrong :D
+		Basis.resetAll();
+		for(int iter = 0; iter>i; iter++){
+			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
+			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
+			Rank newrank = new Rank(name, prefix);
+			Basis.addRank(newrank);
+		}
 	}
 }

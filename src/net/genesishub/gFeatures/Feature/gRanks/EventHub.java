@@ -1,8 +1,6 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
