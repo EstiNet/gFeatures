@@ -28,6 +28,11 @@ public class TwoArg {
 			String rs = r.getRank(response.get(args[1]).toString());
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Player " + args[1] + " is " + rs);
 		}
+		else if(args[0].equalsIgnoreCase("delete")){
+			Rank newrank = new Rank(args[1], "");
+			r.deleteRank(newrank);
+			sender.sendMessage(ChatColor.GRAY + "[gRanks] Deleted rank " + args[1] + ".");
+		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
 		}

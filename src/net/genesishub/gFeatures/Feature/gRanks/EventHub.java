@@ -1,6 +1,8 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -23,7 +25,9 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class EventHub{
+	Retrieve r = new Retrieve();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
+		Player p = event.getPlayer();
+		p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
 	}
 }

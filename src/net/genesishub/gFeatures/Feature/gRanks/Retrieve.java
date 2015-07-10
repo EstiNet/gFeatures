@@ -71,4 +71,7 @@ public class Retrieve {
 				") LIMIT 1;\n"
 			);
 	}
+	public void deleteRank(Rank rank){
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks(Name, Prefix) WHERE Name = '" + rank.getName() + "';");
+	}
 }
