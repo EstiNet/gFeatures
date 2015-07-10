@@ -36,8 +36,8 @@ public class Enable{
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
-		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(UUID VARCHAR(200), Rank VARCHAR(200);");
-		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(Name VARCHAR(200), Prefix VARCHAR(200);");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(UUID VARCHAR(200), Rank VARCHAR(200))  ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(Name VARCHAR(200), Prefix VARCHAR(200))  ENGINE=InnoDB;");
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks(Name, Prefix)").get(1));
 		//TODO Debug the loop condition if something is wrong :D
 		Basis.resetAll();
