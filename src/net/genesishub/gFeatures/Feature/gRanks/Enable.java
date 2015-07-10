@@ -38,6 +38,7 @@ public class Enable{
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(UUID VARCHAR(200), Rank VARCHAR(200))  ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(Name VARCHAR(200), Prefix VARCHAR(200))  ENGINE=InnoDB;");
+		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		//TODO Debug the loop condition if something is wrong :D
 		Basis.resetAll();
@@ -46,6 +47,28 @@ public class Enable{
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
+		}
+		if(!Basis.isRank("Default")){
+			Rank r = new Rank("Default", "[Player]");
+			Retrieve rs = new Retrieve();
+			rs.addRank(r);
+			Basis.addRank(r);
+		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			if(!Basis.isRank("Default")){
+				Rank r = new Rank("Default", "[Player]");
+				Retrieve rs = new Retrieve();
+				rs.addRank(r);
+				Basis.addRank(r);
+			}
+		}
+		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
+		for(int iter = 0; iter>i; iter++){
+			String UUID = c.ConnectReturn(URL, Username, Password, "SELECT UUID FROM People WHERE id='" + iter + "'").get(1);
+			String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
+			Basis.getRank(rank).addPerson(UUID);
 		}
 	}
 }

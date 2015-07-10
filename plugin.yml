@@ -32,4 +32,8 @@ commands:
    clupic:
       description: Core command for clupic!
       usage: Syntax error! Do /clupic help for help.
+   gRanks:
+      description: Core command for gRanks!
+      permission: gFeatures.command.gRanks
+      usage: Syntax error! Do /clupic help for help.
 softdepend: [Skript, CrackShot, Factions]

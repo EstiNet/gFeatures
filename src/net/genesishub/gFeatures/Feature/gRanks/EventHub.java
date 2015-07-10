@@ -24,8 +24,20 @@ https://github.com/GenesisHub/gFeatures
 
 public class EventHub{
 	Retrieve r = new Retrieve();
+	SQLConnect sqlc = new SQLConnect();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
-		p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
+		sqlc.Connect(sqlc.toURL(r.getPort(), r.getAddress(), r.getTablename()), r.getUsername(), r.getPassword(), "INSERT INTO People(UUID, Rank)\n"+
+				"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n"+
+				") LIMIT 1;\n"
+			);
+		if(Basis.hasRank(p)){
+			p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
+		}
+		else{
+			r.setRank(Basis.getRank("Default"), p);
+		}
 	}
 }

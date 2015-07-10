@@ -25,7 +25,13 @@ public class TwoArg {
 				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
 				return;
 			}
+			try{
 			String rs = r.getRank(response.get(args[1]).toString());
+			}
+			catch(Exception e){
+				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
+				return;
+			}
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Player " + args[1] + " is " + rs);
 		}
 		else if(args[0].equalsIgnoreCase("delete")){

@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class Basis {
-	Retrieve r = new Retrieve();
+	static Retrieve r = new Retrieve();
 	SQLConnect c = new SQLConnect();
 	String Address = r.getAddress();
 	String Port = r.getPort();
@@ -58,5 +58,14 @@ public class Basis {
 		for(Player p : Bukkit.getOnlinePlayers()){
 			p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
 		}
+	}
+	public static boolean hasRank(Player p){
+		try{
+			r.getRank(p);
+		}
+		catch(Exception e){
+			return false;
+		}
+		return true;
 	}
 }

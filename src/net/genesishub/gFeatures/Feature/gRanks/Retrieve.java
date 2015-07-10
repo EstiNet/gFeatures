@@ -59,9 +59,11 @@ public class Retrieve {
 	}
 	public void setRank(Rank rank, Player p){
 		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + p.getUniqueId().toString() + "';");
+		Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
 	}
 	public void setRank(Rank rank, String UUID){
 		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + UUID + "';");
+		Basis.getRank(rank.getName()).addPerson(UUID);
 	}
 	public void addRank(Rank rank){
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Ranks(Name, Prefix)\n"+
@@ -70,8 +72,10 @@ public class Retrieve {
 				"SELECT Name FROM Ranks WHERE Name = '" + rank.getPrefix() + "'\n"+
 				") LIMIT 1;\n"
 			);
+		Basis.addRank(rank);
 	}
 	public void deleteRank(Rank rank){
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks(Name, Prefix) WHERE Name = '" + rank.getName() + "';");
+		Basis.removeRank(rank);
 	}
 }
