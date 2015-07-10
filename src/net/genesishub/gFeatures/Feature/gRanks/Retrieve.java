@@ -47,13 +47,21 @@ public class Retrieve {
 	String Username = getUsername();
 	String Password = getPassword();
 	String URL = sqlc.toURL(Port, Address, Tablename);
-	public float getRank(Player p){
+	public String getRank(Player p){
 		List<String> rs = new ArrayList<>();
 		rs = sqlc.ConnectReturn(URL, Username, Password, "SELECT UUID, Rank FROM People WHERE UUID = '" + p.getUniqueId().toString() + "';");
-		return Float.parseFloat(rs.get(1));
+		return rs.get(1);
+	}
+	public String getRank(String UUID){
+		List<String> rs = new ArrayList<>();
+		rs = sqlc.ConnectReturn(URL, Username, Password, "SELECT UUID, Rank FROM People WHERE UUID = '" + UUID + "';");
+		return rs.get(1);
 	}
 	public void setRank(Rank rank, Player p){
 		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + p.getUniqueId().toString() + "';");
+	}
+	public void setRank(Rank rank, String UUID){
+		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + UUID + "';");
 	}
 	public void addRank(Rank rank){
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Ranks(Name, Prefix)\n"+

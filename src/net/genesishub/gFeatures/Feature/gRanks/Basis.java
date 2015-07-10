@@ -14,7 +14,22 @@ public class Basis {
 	public static void removeRank(Rank rank){
 		ranks.remove(rank);
 	}
-	
+	public static Rank getRank(String rankname){
+		for(Rank r : ranks){
+			if(r.getName().equalsIgnoreCase(rankname)){
+				return r;
+			}
+		}
+		return null;
+	}
+	public static boolean isRank(String rankname){
+		for(Rank r : ranks){
+			if(r.getName().equalsIgnoreCase(rankname)){
+				return true;
+			}
+		}
+		return false;
+	}
 	public static void resetAll(){
 		ranks = new ArrayList<>();
 	}	
