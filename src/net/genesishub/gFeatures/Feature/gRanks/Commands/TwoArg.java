@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import net.genesishub.gFeatures.API.MojangAPI.UUIDFetcher;
-import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 
@@ -25,8 +24,9 @@ public class TwoArg {
 				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
 				return;
 			}
+			String rs;
 			try{
-			String rs = r.getRank(response.get(args[1]).toString());
+			rs = r.getRank(response.get(args[1]).toString());
 			}
 			catch(Exception e){
 				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");

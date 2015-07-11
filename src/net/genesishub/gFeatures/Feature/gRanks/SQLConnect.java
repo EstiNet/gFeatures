@@ -75,8 +75,13 @@ public class SQLConnect {
 	            result.beforeFirst();
 	            for(; !result.isLast();){
 	            result.next();
+	            try{
 	            array.add(result.getString(1));
 	            array.add(result.getString(2));
+	            }
+	            catch(Exception e){
+	            	array.add(result.getString(1));
+	            }
 	            }
 	            return array;
 	        } catch (SQLException ex) {

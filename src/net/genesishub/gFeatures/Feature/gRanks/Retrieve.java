@@ -58,11 +58,11 @@ public class Retrieve {
 		return rs.get(1);
 	}
 	public void setRank(Rank rank, Player p){
-		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + p.getUniqueId().toString() + "';");
+		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + p.getUniqueId().toString() + "';");
 		Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
 	}
 	public void setRank(Rank rank, String UUID){
-		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = " + rank.getName() + "\nWHERE UUID = '" + UUID + "';");
+		sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + UUID + "';");
 		Basis.getRank(rank.getName()).addPerson(UUID);
 	}
 	public void addRank(Rank rank){
@@ -75,7 +75,7 @@ public class Retrieve {
 		Basis.addRank(rank);
 	}
 	public void deleteRank(Rank rank){
-		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks(Name, Prefix) WHERE Name = '" + rank.getName() + "';");
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks WHERE Name = '" + rank.getName() + "';");
 		Basis.removeRank(rank);
 	}
 }

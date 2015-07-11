@@ -24,7 +24,7 @@ https://github.com/GenesisHub/gFeatures
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
-		Bukkit.getLogger().info("gRanks Plugin enabled!");
+		Bukkit.getLogger().info("[gRanks] Plugin enabled!");
 		ch.setupConfig();
 		SQLConnect c = new SQLConnect();
 		Retrieve cc = new Retrieve();
