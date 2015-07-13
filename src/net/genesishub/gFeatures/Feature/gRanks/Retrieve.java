@@ -76,6 +76,11 @@ public class Retrieve {
 	}
 	public void deleteRank(Rank rank){
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks WHERE Name = '" + rank.getName() + "';");
+		Rank people = Basis.getRank(rank.getName());
+		for(String uuid : people.getPersonList()){
+			sqlc.Connect(URL, Username, Password, "UPDATE People SET Rank = 'Default' \nWHERE UUID = '" + uuid + "';");
+			Basis.getRank("Default").addPerson(uuid);;
+		}
 		Basis.removeRank(rank);
 	}
 }
