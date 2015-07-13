@@ -55,9 +55,6 @@ public class Basis {
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
 		}
-		for(Player p : Bukkit.getOnlinePlayers()){
-			p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
-		}
 	}
 	public static boolean hasRank(Player p){
 		try{

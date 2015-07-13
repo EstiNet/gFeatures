@@ -23,6 +23,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
+	static LoopCheck lc = new LoopCheck();
 	public static void onEnable(){
 		Bukkit.getLogger().info("[gRanks] Plugin enabled!");
 		ch.setupConfig();
@@ -70,5 +71,6 @@ public class Enable{
 			String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
 			Basis.getRank(rank).addPerson(UUID);
 		}
+		lc.start();
 	}
 }

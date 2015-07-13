@@ -4,6 +4,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Commands.OneArg;
 import net.genesishub.gFeatures.Feature.gRanks.Commands.ThreeArg;
 import net.genesishub.gFeatures.Feature.gRanks.Commands.TwoArg;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -40,6 +41,9 @@ public class CommandHub{
 			}
 			else if(args.length == 3){
 				tha.onCommand(sender, cmd, label, args);
+			}
+			else{
+				sender.sendMessage(ChatColor.GRAY + "[gRanks] Do /gRanks help.");
 			}
 		}
 	}
