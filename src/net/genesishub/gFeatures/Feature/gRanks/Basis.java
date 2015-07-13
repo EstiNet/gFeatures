@@ -48,7 +48,7 @@ public class Basis {
 		p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
 	}
 	public void initializeQuery(){
-		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks(Name, Prefix)").get(1));
+		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		for(int iter = 0; iter>i; iter++){
 			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
