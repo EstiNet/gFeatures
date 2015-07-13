@@ -45,6 +45,8 @@ public class EventHub{
 		
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
-		event.getPlayer().setDisplayName(Basis.getRank(r.getRank(event.getPlayer())).getPrefix() + event.getPlayer().getDisplayName());
+		String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+		String name = prefix.replace('&', '§');
+		event.getPlayer().setDisplayName(name + event.getPlayer().getDisplayName());
 	}
 }
