@@ -29,9 +29,16 @@ public class gRanks extends gFeature{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
+			eh.onPlayerChat((AsyncPlayerChatEvent)event);
+		}
 	}
+	@Override
 	@Retrieval
 	public void onPlayerJoin(){}
+	@Override
+	@Retrieval
+	public void onPlayerChat(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

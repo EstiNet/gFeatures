@@ -58,7 +58,7 @@ public class Enable{
 		catch(Exception e){
 			e.printStackTrace();
 			if(!Basis.isRank("Default")){
-				Rank r = new Rank("Default", "[Player]");
+				Rank r = new Rank("Default", "[&Player]");
 				Retrieve rs = new Retrieve();
 				rs.addRank(r);
 				Basis.addRank(r);

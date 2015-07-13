@@ -1,9 +1,8 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -38,14 +37,14 @@ public class EventHub{
 				"SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n"+
 				") LIMIT 1;\n"
         				);
-        		if(Basis.hasRank(p)){
-        			p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
-        		}
-        		else{
+        		if(!Basis.hasRank(p)){
         			r.setRank(Basis.getRank("Default"), p);
         		}
         	}
         }, 40L);
 		
+	}
+	public void onPlayerChat(AsyncPlayerChatEvent event){
+		event.getPlayer().setDisplayName(Basis.getRank(r.getRank(event.getPlayer())).getPrefix() + event.getPlayer().getDisplayName());
 	}
 }
