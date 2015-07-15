@@ -66,7 +66,7 @@ public class Retrieve {
 		Basis.getRank(rank.getName()).addPerson(UUID);
 	}
 	public void addRank(Rank rank){
-		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Ranks(Name, Prefix)\n"+
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Ranks(id, Name, Prefix)\n"+
 				"SELECT * FROM (SELECT '" + rank.getName() + "', '" + rank.getPrefix() + "') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
 				"SELECT Name FROM Ranks WHERE Name = '" + rank.getPrefix() + "'\n"+
