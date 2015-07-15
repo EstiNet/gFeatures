@@ -44,7 +44,6 @@ public class Enable{
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		//TODO Debug the loop condition if something is wrong :D
-		Bukkit.getLogger().info("[gRanks] Loop: " + i);
 		Basis.resetAll();
 		for(int iter = 1; iter<=i; iter++){
 			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);

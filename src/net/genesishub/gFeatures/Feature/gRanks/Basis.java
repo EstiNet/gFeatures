@@ -82,9 +82,18 @@ public class Basis {
 		}
 		for(Player p : Bukkit.getOnlinePlayers()){
 			Basis.removePermissionsAttach(p.getUniqueId());
+			PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 			for(String perm : Basis.getRank(r.getRank(p)).getPerms()){
-				
+				boolean isittrue;
+				if(perm.contains("-")){
+					isittrue = false;
+				}
+				else{
+					isittrue = true;
+				}
+				pa.setPermission(perm, isittrue);
 			}
+			Basis.addPermissionAttach(p.getUniqueId(), pa);
 		}
 	}
 	public static boolean hasRank(Player p){

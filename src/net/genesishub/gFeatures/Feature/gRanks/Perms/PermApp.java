@@ -20,7 +20,7 @@ public class PermApp {
 			File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName());
 			try {
 				for(String permission : getPerms(f)){
-					Basis.getRank(r.getName()).addPerm(permission);;
+					Basis.getRank(r.getName()).addPerm(permission);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
