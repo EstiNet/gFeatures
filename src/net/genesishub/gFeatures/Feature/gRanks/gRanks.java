@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class gRanks extends gFeature{
 	EventHub eh = new EventHub();
@@ -32,6 +33,9 @@ public class gRanks extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
 			eh.onPlayerChat((AsyncPlayerChatEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("PlayerQuitEvent")){
+			eh.onPlayerLeave((PlayerQuitEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -39,6 +43,9 @@ public class gRanks extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerChat(){}
+	@Override
+	@Retrieval
+	public void onPlayerLeave(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
