@@ -42,7 +42,9 @@ public class EventHub{
         		}
         	}
         }, 40L);
-		
+		for(String perm : Basis.getRank(r.getRank(event.getPlayer())).getPerms()){
+			event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"), perm, true);
+		}
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();

@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
+import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
+
 import org.bukkit.Bukkit;
 
 /*
@@ -42,22 +44,13 @@ public class Enable{
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		//TODO Debug the loop condition if something is wrong :D
-		Bukkit.getLogger().info("Loop: " + i);
+		Bukkit.getLogger().info("[gRanks] Loop: " + i);
 		Basis.resetAll();
-		for(int iter = 0; iter<=i; iter++){
+		for(int iter = 1; iter<=i; iter++){
 			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
-			Bukkit.getLogger().info("Loop iter: " + iter);
-			Bukkit.getLogger().info("Name: " + name);
-			Bukkit.getLogger().info("Prefix: " + prefix);
-		}
-		if(!Basis.isRank("Default")){
-			Rank r = new Rank("Default", "[Player]");
-			Retrieve rs = new Retrieve();
-			rs.addRank(r);
-			Basis.addRank(r);
 		}
 		}
 		catch(Exception e){
@@ -69,12 +62,19 @@ public class Enable{
 				Basis.addRank(r);
 			}
 		}
+		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
-		for(int iter = 0; iter<=i; iter++){
+		for(int iter = 1; iter<=i; iter++){
 			String UUID = c.ConnectReturn(URL, Username, Password, "SELECT UUID FROM People WHERE id='" + iter + "'").get(1);
 			String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
 			Basis.getRank(rank).addPerson(UUID);
 		}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		lc.start();
+		Files f = new Files();
+		f.setupFiles();
 	}
 }

@@ -49,8 +49,7 @@ public class Basis {
 	}
 	public void initializeQuery(){
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
-		Bukkit.getLogger().info(Integer.toString(i));
-		for(int iter = 0; iter<=i; iter++){
+		for(int iter = 1; iter<=i; iter++){
 			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
 			Rank newrank = new Rank(name, prefix);
