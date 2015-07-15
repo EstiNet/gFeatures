@@ -53,6 +53,7 @@ public class EventHub{
 			else{
 				isittrue = true;
 			}
+			Bukkit.getLogger().info("Perm: " + perm + " is it true: " + Boolean.toString(isittrue));
 			pa.setPermission(perm, isittrue);
 		}
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
