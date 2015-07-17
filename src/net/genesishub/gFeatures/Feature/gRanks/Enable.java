@@ -41,11 +41,11 @@ public class Enable{
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, UUID VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
-		c.Connect(URL, Username, Password, "SELECT ROW_NUMBER()"+ 
-        "OVER (ORDER BY Name) AS Row," +
-        "Name, Prefix" +
+		c.ConnectReturn(URL, Username, Password, "SELECT ROW_NUMBER()"+ 
+        "OVER (ORDER BY Name) AS Row, " +
+        "Name, Prefix " +
         "FROM Ranks");
-		c.Connect(URL, Username, Password, "SELECT ROW_NUMBER()"+ 
+		c.ConnectReturn(URL, Username, Password, "SELECT ROW_NUMBER()"+ 
 		        "OVER (ORDER BY UUID) AS Row, " +
 		        "UUID, Rank " +
 		        "FROM People");
@@ -60,13 +60,13 @@ public class Enable{
 			"(SELECT ROW_NUMBER() " + 
     		"OVER (ORDER BY Name) AS Row, " +
         	"Name, Prefix " + 
-        	"FROM Ranks) AS EMP" +
+        	"FROM Ranks) AS EMP " +
         	"WHERE Row = " + iter + ";").get(1);
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
 					"(SELECT ROW_NUMBER() " + 
 		    		"OVER (ORDER BY Prefix) AS Row, " +
 		        	"Name, Prefix " + 
-		        	"FROM Ranks) AS EMP" +
+		        	"FROM Ranks) AS EMP " +
 		        	"WHERE Row = " + iter + ";").get(1);
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
@@ -90,13 +90,13 @@ public class Enable{
 					"(SELECT ROW_NUMBER() " + 
 		    		"OVER (ORDER BY UUID) AS Row, " +
 		        	"UUID, Rank " + 
-		        	"FROM People) AS EMP" +
+		        	"FROM People) AS EMP " +
 		        	"WHERE Row = " + iter + ";").get(1);
 			String rank = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
 					"(SELECT ROW_NUMBER() " + 
 				   	"OVER (ORDER BY Rank) AS Row, " +
 				   	"UUID, Rank " + 
-				    "FROM People) AS EMP" +
+				    "FROM People) AS EMP " +
 				    "WHERE Row = " + iter + ";").get(1);
 			Basis.getRank(rank).addPerson(UUID);
 		}
