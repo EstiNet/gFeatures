@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
+import java.util.List;
+
 import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
@@ -41,33 +43,17 @@ public class Enable{
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, UUID VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
-		c.ConnectReturn(URL, Username, Password, "SELECT ROW_NUMBER() "+ 
-        "OVER (ORDER BY Name) AS Row, " +
-        "Name, Prefix " +
-        "FROM Ranks");
-		c.ConnectReturn(URL, Username, Password, "SELECT ROW_NUMBER() "+ 
-		        "OVER (ORDER BY UUID) AS Row, " +
-		        "UUID, Rank " +
-		        "FROM People");
+		int cache = 0;
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
-		//TODO Debug the loop condition if something is wrong :D
 		Basis.resetAll();
+	
+		List<String> ranksdata = c.ConnectReturnRanks(URL, Username, Password, "SELECT * FROM Ranks;");
 		for(int iter = 1; iter<i; iter++){
-			//String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
-			//String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
-			String name = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
-			"(SELECT ROW_NUMBER() " + 
-    		"OVER (ORDER BY Name) AS Row, " +
-        	"Name, Prefix " + 
-        	"FROM Ranks) AS EMP " +
-        	"WHERE Row = '" + iter + "';").get(1);
-			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
-					"(SELECT ROW_NUMBER() " + 
-		    		"OVER (ORDER BY Prefix) AS Row, " +
-		        	"Name, Prefix " + 
-		        	"FROM Ranks) AS EMP " +
-		        	"WHERE Row = '" + iter + "';").get(1);
+			String name = ranksdata.get(cache);
+			cache += 1;
+			String prefix = ranksdata.get(cache);
+			cache += 1;
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
 		}
@@ -81,23 +67,15 @@ public class Enable{
 				Basis.addRank(r);
 			}
 		}
+		cache = 0;
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
+		List<String> peopledata = c.ConnectReturnPeople(URL, Username, Password, "SELECT * FROM Ranks;");
 		for(int iter = 1; iter<i; iter++){
-			//String UUID = c.ConnectReturn(URL, Username, Password, "SELECT UUID FROM People WHERE id='" + iter + "'").get(1);
-			//String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
-			String UUID = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
-					"(SELECT ROW_NUMBER() " + 
-		    		"OVER (ORDER BY UUID) AS Row, " +
-		        	"UUID, Rank " + 
-		        	"FROM People) AS EMP " +
-		        	"WHERE Row = '" + iter + "';").get(1);
-			String rank = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
-					"(SELECT ROW_NUMBER() " + 
-				   	"OVER (ORDER BY Rank) AS Row, " +
-				   	"UUID, Rank " + 
-				    "FROM People) AS EMP " +
-				    "WHERE Row = '" + iter + "';").get(1);
+			String UUID = peopledata.get(cache);
+			cache += 1;
+			String rank = peopledata.get(cache);
+			cache += 1;
 			Basis.getRank(rank).addPerson(UUID);
 		}
 		}

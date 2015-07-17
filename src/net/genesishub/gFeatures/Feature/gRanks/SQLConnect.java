@@ -103,7 +103,7 @@ public class SQLConnect {
 	        }
 			return null;
 		}
-		public List<String> ConnectReturn2(String url, String user, String password, String query){
+		public List<String> ConnectReturnRanks(String url, String user, String password, String query){
 			List<String> array = new ArrayList<>();
 			java.sql.Connection con = null;
 	        java.sql.Statement st = null;
@@ -114,11 +114,54 @@ public class SQLConnect {
 	            st = con.createStatement();
 	            result = st.executeQuery(query);
 	            result.beforeFirst();
+	            
 	            for(; !result.isLast();){
 	            result.next();
 	            try{
-	            array.add(result.getString(1));
-	            array.add(result.getString(2));
+	            		array.add(result.getString("Name"));
+	            		array.add(result.getString("Prefix"));
+	            }
+	            catch(Exception e){
+	            	array.add(result.getString(1));
+	            }
+	            }
+	            return array;
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        } finally {
+	            try {
+	                if (rs != null) {
+	                    rs.close();
+	                }
+	                if (st != null) {
+	                    st.close();
+	                }
+	                if (con != null) {
+	                    con.close();
+	                }
+	            } catch (SQLException ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+			return null;
+		}
+		public List<String> ConnectReturnPeople(String url, String user, String password, String query){
+			List<String> array = new ArrayList<>();
+			java.sql.Connection con = null;
+	        java.sql.Statement st = null;
+	        ResultSet rs = null;
+	        ResultSet result = null;
+	        try {
+	            con = DriverManager.getConnection(url, user, password);
+	            st = con.createStatement();
+	            result = st.executeQuery(query);
+	            result.beforeFirst();
+	            
+	            for(; !result.isLast();){
+	            result.next();
+	            try{
+	            		array.add(result.getString("UUID"));
+	            		array.add(result.getString("Rank"));
 	            }
 	            catch(Exception e){
 	            	array.add(result.getString(1));
