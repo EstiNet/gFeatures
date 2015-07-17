@@ -17,7 +17,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Rank;
 public class PermApp {
 	public void setupPerms(){
 		for(Rank r : Basis.getRanks()){
-			File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName());
+			File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt");
 			try {
 				for(String permission : getPerms(f)){
 					Basis.getRank(r.getName()).addPerm(permission);

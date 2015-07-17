@@ -11,7 +11,7 @@ public class Files {
 		Config c = new Config();
 		c.createDirectory("plugins/gFeatures/gRanks/perms", "Created Permissions folder!");
 		for(Rank r : Basis.getRanks()){
-			c.createFile("plugins/gFeatures/gRanks/perms/" + r.getName(), "Created permissions file for " + r.getName() + "!");
+			c.createFile("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt", "Created permissions file for " + r.getName() + "!");
 		}
 	}
 }

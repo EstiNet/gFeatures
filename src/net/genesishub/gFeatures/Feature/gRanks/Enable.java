@@ -49,29 +49,28 @@ public class Enable{
 		Basis.resetAll();
 	
 		List<String> ranksdata = c.ConnectReturnRanks(URL, Username, Password, "SELECT * FROM Ranks;");
-		for(int iter = 1; iter<i; iter++){
+		for(int iter = 0; iter<i; iter++){
 			String name = ranksdata.get(cache);
 			cache += 1;
 			String prefix = ranksdata.get(cache);
 			cache += 1;
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
+			Bukkit.getLogger().info("[gRanks] Adding rank " + name + " with prefix of " + prefix);
 		}
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			if(!Basis.isRank("Default")){
 				Rank r = new Rank("Default", "[&aPlayer&f]");
 				Retrieve rs = new Retrieve();
 				rs.addRank(r);
 				Basis.addRank(r);
-			}
 		}
 		cache = 0;
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
-		List<String> peopledata = c.ConnectReturnPeople(URL, Username, Password, "SELECT * FROM Ranks;");
-		for(int iter = 1; iter<i; iter++){
+		List<String> peopledata = c.ConnectReturnPeople(URL, Username, Password, "SELECT * FROM People;");
+		for(int iter = 0; iter<i; iter++){
 			String UUID = peopledata.get(cache);
 			cache += 1;
 			String rank = peopledata.get(cache);

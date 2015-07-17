@@ -59,9 +59,14 @@ public class EventHub{
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
+		try{
 		String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String name = prefix.replace('&', '§');
 		event.getPlayer().setDisplayName(name + event.getPlayer().getDisplayName());
+		}
+		catch(Exception e){
+			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
+		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
