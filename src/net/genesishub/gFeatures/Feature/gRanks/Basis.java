@@ -62,10 +62,11 @@ public class Basis {
 		p.setDisplayName(Basis.getRank(r.getRank(p)).getPrefix() + p.getName());
 	}
 	public void initializeQuery(){
+		Basis.resetAll();
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		int cache = 0;
 		List<String> ranksdata = c.ConnectReturnRanks(URL, Username, Password, "SELECT * FROM Ranks;");
-		for(int iter = 1; iter<i; iter++){
+		for(int iter = 0; iter<i; iter++){
 			String name = ranksdata.get(cache);
 			cache += 1;
 			String prefix = ranksdata.get(cache);
@@ -76,8 +77,8 @@ public class Basis {
 		cache = 0;
 		try{
 			int is = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
-			List<String> peopledata = c.ConnectReturnPeople(URL, Username, Password, "SELECT * FROM Ranks;");
-			for(int iter = 1; iter<is; iter++){
+			List<String> peopledata = c.ConnectReturnPeople(URL, Username, Password, "SELECT * FROM People;");
+			for(int iter = 0; iter<is; iter++){
 				String UUID = peopledata.get(cache);
 				cache += 1;
 				String rank = peopledata.get(cache);
