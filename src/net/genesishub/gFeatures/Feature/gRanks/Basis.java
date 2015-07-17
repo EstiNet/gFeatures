@@ -63,17 +63,52 @@ public class Basis {
 	}
 	public void initializeQuery(){
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
-		for(int iter = 1; iter<i; iter++){
+		/*for(int iter = 1; iter<i; iter++){
 			String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
 			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
+			Rank newrank = new Rank(name, prefix);
+			Basis.addRank(newrank);
+		}*/
+		for(int iter = 1; iter<i; iter++){
+			//String name = c.ConnectReturn(URL, Username, Password, "SELECT Name FROM Ranks WHERE id='" + iter + "'").get(1);
+			//String prefix = c.ConnectReturn(URL, Username, Password, "SELECT Prefix FROM Ranks WHERE id='" + iter + "'").get(1);
+			String name = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
+			"(SELECT ROW_NUMBER() " + 
+    		"OVER (ORDER BY Name) AS Row, " +
+        	"Name, Prefix " + 
+        	"FROM Ranks) AS EMP" +
+        	"WHERE Row = " + iter + ";").get(1);
+			String prefix = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
+					"(SELECT ROW_NUMBER() " + 
+		    		"OVER (ORDER BY Prefix) AS Row, " +
+		        	"Name, Prefix " + 
+		        	"FROM Ranks) AS EMP" +
+		        	"WHERE Row = " + iter + ";").get(1);
 			Rank newrank = new Rank(name, prefix);
 			Basis.addRank(newrank);
 		}
 		try{
 			int is = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
-			for(int iter = 1; iter<is; iter++){
+			/*for(int iter = 1; iter<is; iter++){
 				String UUID = c.ConnectReturn(URL, Username, Password, "SELECT UUID FROM People WHERE id='" + iter + "'").get(1);
 				String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
+				Basis.getRank(rank).addPerson(UUID);
+			}*/
+			for(int iter = 1; iter<is; iter++){
+				//String UUID = c.ConnectReturn(URL, Username, Password, "SELECT UUID FROM People WHERE id='" + iter + "'").get(1);
+				//String rank = c.ConnectReturn(URL, Username, Password, "SELECT Rank FROM People WHERE id='" + iter + "'").get(1);
+				String UUID = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
+						"(SELECT ROW_NUMBER() " + 
+			    		"OVER (ORDER BY UUID) AS Row, " +
+			        	"UUID, Rank " + 
+			        	"FROM People) AS EMP" +
+			        	"WHERE Row = " + iter + ";").get(1);
+				String rank = c.ConnectReturn(URL, Username, Password, "SELECT * FROM" +
+						"(SELECT ROW_NUMBER() " + 
+					   	"OVER (ORDER BY Rank) AS Row, " +
+					   	"UUID, Rank " + 
+					    "FROM People) AS EMP" +
+					    "WHERE Row = " + iter + ";").get(1);
 				Basis.getRank(rank).addPerson(UUID);
 			}
 		}
