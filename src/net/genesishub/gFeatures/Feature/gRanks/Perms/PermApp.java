@@ -26,6 +26,20 @@ public class PermApp {
 				e.printStackTrace();
 			}
 		}
+		for(Rank r : Basis.getRanks()){
+			try {
+				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/perms" + r.getName() + "inherit.txt"))){
+					try{
+						for(String perm : Basis.getRank(inherit).getPerms()){
+							r.addPerm(perm);
+						}
+					}
+					catch(Exception e){}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	public List<String> getPerms(File f) throws IOException{
 		List<String> permissions = new ArrayList<>();

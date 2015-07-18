@@ -20,6 +20,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks list - Lists the ranks.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks perms [Rank Name] - Lists the ranks.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks refresh - Refreshes the plugin.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks inherits [Rank Name] - Lists which ranks the rank inherits.");
 		}
 		else if(args[0].equalsIgnoreCase("list")){
 			sender.sendMessage(ChatColor.GRAY + "Ranks");

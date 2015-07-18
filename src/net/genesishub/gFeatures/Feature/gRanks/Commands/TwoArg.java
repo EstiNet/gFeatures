@@ -54,6 +54,9 @@ public class TwoArg {
 			}
 			
 		}
+		else if(args[0].equalsIgnoreCase("inherits")){
+			
+		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
 		}

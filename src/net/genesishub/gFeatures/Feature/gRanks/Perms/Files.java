@@ -13,6 +13,7 @@ public class Files {
 		c.createDirectory("plugins/gFeatures/gRanks/perms", "Created Permissions folder!");
 		for(Rank r : Basis.getRanks()){
 			c.createFile("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt", "Created permissions file for " + r.getName() + "!");
+			c.createFile("plugins/gFeatures/gRanks/perms/" + r.getName() + "inherit.txt", "Created inheritance file for " + r.getName() + "!");
 		}
 		pa.setupPerms();
 	}
