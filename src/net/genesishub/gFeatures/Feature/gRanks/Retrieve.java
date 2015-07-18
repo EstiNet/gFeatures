@@ -74,6 +74,20 @@ public class Retrieve {
 			);
 		Basis.addRank(rank);
 	}
+	public void addgPerm(String perm, String rankname){
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Perms(Perm, Rank)\n"+
+				"SELECT * FROM (SELECT '" + perm + "', '" + rankname + "') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT Perm FROM Perms WHERE Perm = '" + rankname + "'\n"+
+				") LIMIT 1;\n"
+			);
+		try{
+		Basis.getRank(rankname).addPerm(perm);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	public void deleteRank(Rank rank){
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Ranks WHERE Name = '" + rank.getName() + "';");
 		Rank people = Basis.getRank(rank.getName());
@@ -82,5 +96,14 @@ public class Retrieve {
 			Basis.getRank("Default").addPerson(uuid);;
 		}
 		Basis.removeRank(rank);
+	}
+	public void deletegPerm(String perm, String rankname){
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Perms WHERE Perm = '" + perm + "' Rank = '" + rankname + "';");
+		try{
+		Basis.getRank(rankname).removePerm(perm);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

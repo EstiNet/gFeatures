@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
+import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
@@ -92,8 +94,13 @@ public class Basis {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		GlobalPerm gp = new GlobalPerm();
+		gp.start();
+		
 		Files f = new Files();
 		f.setupFiles();
+		FileSync fs = new FileSync();
+		fs.start();
 		for(Player p : Bukkit.getOnlinePlayers()){
 			Basis.removePermissionsAttach(p.getUniqueId());
 			PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));

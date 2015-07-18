@@ -2,6 +2,8 @@ package net.genesishub.gFeatures.Feature.gRanks;
 
 import java.util.List;
 
+import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
+import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
@@ -43,6 +45,8 @@ public class Enable{
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, UUID VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Perms(id MEDIUMINT NOT NULL AUTO_INCREMENT, Perm VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Inherits(id MEDIUMINT NOT NULL AUTO_INCREMENT, Inherit VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
 		int cache = 0;
 		try{
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
@@ -81,8 +85,12 @@ public class Enable{
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		GlobalPerm gp = new GlobalPerm();
+		gp.start();
 		lc.start();
 		Files f = new Files();
 		f.setupFiles();
+		FileSync fs = new FileSync();
+		fs.start();
 	}
 }
