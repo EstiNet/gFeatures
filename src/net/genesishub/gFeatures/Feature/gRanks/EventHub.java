@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
 
 /*
@@ -46,6 +47,12 @@ public class EventHub{
         }, 40L);
 		PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 		for(String perm : Basis.getRank(r.getRank(event.getPlayer())).getPerms()){
+			if(perm.equals("'*'")){
+				for(Permission permsa : Bukkit.getPluginManager().getPermissions()){
+					pa.setPermission(permsa, true);
+				}
+			}
+			else{
 			boolean isittrue;
 			if(perm.contains("-")){
 				isittrue = false;
@@ -56,6 +63,7 @@ public class EventHub{
 			}
 			Bukkit.getLogger().info("Perm: " + perm + " is it true: " + Boolean.toString(isittrue));
 			pa.setPermission(perm, isittrue);
+			}
 		}
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
 	}

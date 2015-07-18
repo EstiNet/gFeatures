@@ -10,6 +10,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permissible;
+import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
 
 public class Basis {
@@ -97,6 +98,12 @@ public class Basis {
 			Basis.removePermissionsAttach(p.getUniqueId());
 			PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 			for(String perm : Basis.getRank(r.getRank(p)).getPerms()){
+				if(perm.equals("'*'")){
+					for(Permission permsa : Bukkit.getPluginManager().getPermissions()){
+						pa.setPermission(permsa, true);
+					}
+				}
+				else{
 				boolean isittrue;
 				if(perm.contains("-")){
 					isittrue = false;
@@ -106,6 +113,7 @@ public class Basis {
 					isittrue = true;
 				}
 				pa.setPermission(perm, isittrue);
+				}
 			}
 			Basis.addPermissionAttach(p.getUniqueId(), pa);
 		}
