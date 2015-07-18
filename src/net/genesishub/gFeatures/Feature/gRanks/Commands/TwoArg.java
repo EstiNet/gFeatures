@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import net.genesishub.gFeatures.API.MojangAPI.UUIDFetcher;
+import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 
@@ -38,6 +39,20 @@ public class TwoArg {
 			Rank newrank = new Rank(args[1], "");
 			r.deleteRank(newrank);
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Deleted rank " + args[1] + ".");
+		}
+		else if(args[0].equalsIgnoreCase("perms")){
+			try{
+			Rank rank = Basis.getRank(args[1]);
+			sender.sendMessage(ChatColor.GRAY + "Permissions for " + args[1]);
+			for(String perm : rank.getPerms()){
+				sender.sendMessage(ChatColor.GRAY + "- " + perm);
+			}
+			}
+			catch(Exception e){
+				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
+				return;
+			}
+			
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");

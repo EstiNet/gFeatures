@@ -18,6 +18,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks setprefix [Rank Name] [Rank Prefix]");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks delete [Rank Name]");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks list - Lists the ranks.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks perms [Rank Name] - Lists the ranks.");
 		}
 		else if(args[0].equalsIgnoreCase("list")){
 			sender.sendMessage(ChatColor.GRAY + "Ranks");
