@@ -28,9 +28,10 @@ public class PermApp {
 		}
 		for(Rank r : Basis.getRanks()){
 			try {
-				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/perms" + r.getName() + "inherit.txt"))){
+				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))){
 					try{
 						for(String perm : Basis.getRank(inherit).getPerms()){
+							r.addInherit(Basis.getRank(inherit));
 							r.addPerm(perm);
 						}
 					}

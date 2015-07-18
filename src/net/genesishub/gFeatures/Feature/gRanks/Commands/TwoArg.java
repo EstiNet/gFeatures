@@ -55,7 +55,17 @@ public class TwoArg {
 			
 		}
 		else if(args[0].equalsIgnoreCase("inherits")){
-			
+			try{
+				Rank ra = Basis.getRank(args[1]);
+				sender.sendMessage(ChatColor.GRAY + "Inherited Ranks:");
+				for(Rank inherit : ra.getInheritList()){
+					sender.sendMessage(ChatColor.GRAY + "- " + inherit.getName());
+				}
+			}
+			catch(Exception e){
+				sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
+				return;
+			}
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
