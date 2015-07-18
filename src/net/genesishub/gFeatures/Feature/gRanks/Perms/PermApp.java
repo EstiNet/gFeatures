@@ -36,7 +36,8 @@ public class PermApp {
 		String theString = writer.toString();
 		String[] lines = theString.split("\n");
 		for(int i = 0; i < lines.length; i++){
-			permissions.add(lines[i]);
+			String perm = lines[i].replace("\r", "");
+			permissions.add(perm);
 		}
 		return permissions;
 	}

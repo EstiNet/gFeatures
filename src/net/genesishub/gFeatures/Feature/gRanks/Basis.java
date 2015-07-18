@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permissible;
@@ -89,6 +91,8 @@ public class Basis {
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		Files f = new Files();
+		f.setupFiles();
 		for(Player p : Bukkit.getOnlinePlayers()){
 			Basis.removePermissionsAttach(p.getUniqueId());
 			PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
@@ -96,6 +100,7 @@ public class Basis {
 				boolean isittrue;
 				if(perm.contains("-")){
 					isittrue = false;
+					perm = perm.replace("-", "");
 				}
 				else{
 					isittrue = true;

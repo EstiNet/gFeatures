@@ -19,12 +19,18 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks delete [Rank Name]");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks list - Lists the ranks.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks perms [Rank Name] - Lists the ranks.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks refresh - Refreshes the plugin.");
 		}
 		else if(args[0].equalsIgnoreCase("list")){
 			sender.sendMessage(ChatColor.GRAY + "Ranks");
 			for(Rank rank : Basis.getRanks()){
 				sender.sendMessage(ChatColor.GRAY + "- " + rank.getName() + " with prefix of " + rank.getPrefix());
 			}
+		}
+		else if(args[0].equalsIgnoreCase("refresh")){
+			Basis b = new Basis();
+			b.initializeQuery();
+			sender.sendMessage(ChatColor.GRAY + "[gRanks] Plugin refreshed.");
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");

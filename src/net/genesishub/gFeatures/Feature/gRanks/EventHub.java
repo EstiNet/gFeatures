@@ -49,6 +49,7 @@ public class EventHub{
 			boolean isittrue;
 			if(perm.contains("-")){
 				isittrue = false;
+				perm = perm.replace("-", "");
 			}
 			else{
 				isittrue = true;
