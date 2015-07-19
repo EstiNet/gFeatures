@@ -78,11 +78,25 @@ public class Retrieve {
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Perms(Perm, Rank)\n"+
 				"SELECT * FROM (SELECT '" + perm + "', '" + rankname + "') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
-				"SELECT Perm FROM Perms WHERE Perm = '" + rankname + "'\n"+
+				"SELECT Perm FROM Perms WHERE Perm = '" + perm + "'\n"+
 				") LIMIT 1;\n"
 			);
 		try{
 		Basis.getRank(rankname).addPerm(perm);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public void addgInherit(String inherit, String rankname){
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Inherits(Inherit, Rank)\n"+
+				"SELECT * FROM (SELECT '" + inherit + "', '" + rankname + "') AS tmp\n"+
+				"WHERE NOT EXISTS (\n"+
+				"SELECT Inherit FROM Inherits WHERE Inherit = '" + rankname + "'\n"+
+				") LIMIT 1;\n"
+			);
+		try{
+		Basis.getRank(rankname).addInherit(Basis.getRank(inherit));
 		}
 		catch(Exception e){
 			e.printStackTrace();

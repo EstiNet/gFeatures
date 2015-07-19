@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Feature.gRanks;
 import java.util.List;
 
 import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
+import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalInherit;
 import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 
@@ -91,6 +92,8 @@ public class Enable{
 		f.setupFiles();
 		GlobalPerm gp = new GlobalPerm();
 		gp.start();
+		GlobalInherit gi = new GlobalInherit();
+		gi.start();
 		FileSync fs = new FileSync();
 		fs.start();
 	}

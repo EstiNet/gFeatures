@@ -11,14 +11,14 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
-
 import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 import net.genesishub.gFeatures.Feature.gRanks.SQLConnect;
 
-public class FileSync {
+import org.apache.commons.io.IOUtils;
+
+public class InheritSync {
 	SQLConnect c = new SQLConnect();
 	Retrieve cc = new Retrieve();
 	public void start(){
@@ -32,19 +32,19 @@ public class FileSync {
 		
 		int cache = 0;
 		try{
-			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Perms").get(1));
-			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Perms;");
+			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Inherits").get(1));
+			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Inherits;");
 			for(int iter = 0; iter<i; iter++){
-				String perm = permdata.get(cache);
+				String inherit = permdata.get(cache);
 				cache += 1;
 				String rank = permdata.get(cache);
 				cache += 1;
 				try{
-				File f = new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
+				File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt");
 				f.delete();
 				f.createNewFile();
 				BufferedWriter output = new BufferedWriter(new FileWriter(f, true));
-				output.write(perm + "\n");
+				output.write(inherit + "\n");
 				output.close();
 				}
 				catch(Exception e){
@@ -57,10 +57,16 @@ public class FileSync {
 			e.printStackTrace();
 		}
 		for(Rank rank : Basis.getRanks()){
-			File f = new File("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
+			File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
 			try {
-				for(String perm : getPerms(f)){
-					Basis.getRank(rank.getName()).addPerm(perm);
+				for(String inherit : getPerms(f)){
+					try{
+					Basis.getRank(rank.getName()).addInherit(Basis.getRank(inherit));
+					}
+					catch(Exception e){
+						e.printStackTrace();
+						continue;
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -75,12 +81,12 @@ public class FileSync {
 		Username = cc.getUsername();
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
-		c.Connect(URL, Username, Password, "TRUNCATE TABLE Perms;");
+		c.Connect(URL, Username, Password, "TRUNCATE TABLE Inherits;");
 		for(Rank rank : Basis.getRanks()){
-			File f = new File("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
+			File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
 			try {
-				for(String perm : getPerms(f)){
-					cc.addgPerm(perm, rank.getName());
+				for(String inherit : getPerms(f)){
+					cc.addgInherit(inherit, rank.getName());
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -101,4 +107,4 @@ public class FileSync {
 		}
 		return permissions;
 	}
-}	
+}

@@ -3,6 +3,7 @@ package net.genesishub.gFeatures.Feature.gRanks.Commands;
 import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
+import net.genesishub.gFeatures.Feature.gRanks.Global.InheritSync;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -38,6 +39,8 @@ public class OneArg {
 		else if(args[0].equalsIgnoreCase("push")){
 			FileSync fs = new FileSync();
 			fs.push();
+			InheritSync is = new InheritSync();
+			is.push();
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Your changes have been pushed.");
 		}
 		else{
