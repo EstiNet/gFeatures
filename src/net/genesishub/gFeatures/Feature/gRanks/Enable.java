@@ -85,11 +85,12 @@ public class Enable{
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		GlobalPerm gp = new GlobalPerm();
-		gp.start();
+		
 		lc.start();
 		Files f = new Files();
 		f.setupFiles();
+		GlobalPerm gp = new GlobalPerm();
+		gp.start();
 		FileSync fs = new FileSync();
 		fs.start();
 	}

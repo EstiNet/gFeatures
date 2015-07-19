@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.gRanks.Commands;
 
 import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
+import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -21,6 +22,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks perms [Rank Name] - Lists the ranks.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks refresh - Refreshes the plugin.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks inherits [Rank Name] - Lists which ranks the rank inherits.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks push - Pushes all local changes to Global nodes.");
 		}
 		else if(args[0].equalsIgnoreCase("list")){
 			sender.sendMessage(ChatColor.GRAY + "Ranks");
@@ -32,6 +34,11 @@ public class OneArg {
 			Basis b = new Basis();
 			b.initializeQuery();
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Plugin refreshed.");
+		}
+		else if(args[0].equalsIgnoreCase("push")){
+			FileSync fs = new FileSync();
+			fs.push();
+			sender.sendMessage(ChatColor.GRAY + "[gRanks] Your changes have been pushed.");
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
