@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.event.Event;
@@ -108,6 +109,23 @@ public class Library {
 				if(!(feature.getClass().getDeclaredMethod(methodname).equals(null))){
 					if(feature.getState().equals(FeatureState.ENABLE)){
 					feature.eventTrigger(event);
+					}
+				}
+			} catch (NoSuchMethodException e) {} 
+			catch (SecurityException e) {}
+		}
+		List<Extension> extensions = Basic.getExtensions();
+		List<gUtility> utilities = new ArrayList<>();
+		for(Extension ext : extensions){
+			if(ext.getType().equals(ExtensionsType.Utility)){
+				utilities.add((gUtility) ext);
+			}
+		}
+		for(gUtility utility : utilities){
+			try {
+				if(!(utility.getClass().getDeclaredMethod(methodname).equals(null))){
+					if(utility.getState().equals(FeatureState.ENABLE)){
+					utility.eventTrigger(event);
 					}
 				}
 			} catch (NoSuchMethodException e) {} 

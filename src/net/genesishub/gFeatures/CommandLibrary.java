@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -55,6 +56,28 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
+					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
+				}
+			} catch (Exception e) {
+			}
+		}
+		List<Extension> extensions = Basic.getExtensions();
+		List<gUtility> utilities = new ArrayList<>();
+		for(Extension ext : extensions){
+			if(ext.getType().equals(ExtensionsType.Utility)){
+				utilities.add((gUtility) ext);
+			}
+		}
+		for(gUtility uti : utilities){
+			if(uti.getState().equals(FeatureState.ENABLE)){
+				try {
+					if(Check(uti.getName(), cmd.getName())){
+						uti.commandTrigger(sender, cmd, label, args);
+					}
+				} catch (Exception e) {}
+			}
+			try {
+				if(Check(uti.getName(), cmd.getName()) && uti.getState().equals(FeatureState.DISABLE)){
 					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
 				}
 			} catch (Exception e) {
