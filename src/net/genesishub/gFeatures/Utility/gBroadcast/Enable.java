@@ -1,10 +1,6 @@
-package net.genesishub.gFeatures.Utility.gBroadcast;
+package net.genesishub.gFeatures.Feature.Base;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
-import net.genesishub.gFeatures.gUtility;
+import org.bukkit.Bukkit;
 
 /*
 gFeatures
@@ -25,10 +21,10 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class Configure {
-	@Configs
-	public static void onSetup(){
-		gUtility gBroadcast = new gUtility("gBroadcast", "1.0.0");
-		Basic.addExtension(gBroadcast);
+public class Enable{
+	static ConfigHub ch = new ConfigHub();
+	public static void onEnable(){
+		Bukkit.getLogger().info("Base Plugin enabled!");
+		ch.setupConfig();
 	}
 }

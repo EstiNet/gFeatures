@@ -1,10 +1,8 @@
-package net.genesishub.gFeatures.Utility.gBroadcast;
+package net.genesishub.gFeatures.Feature.Base;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
-import net.genesishub.gFeatures.gUtility;
+import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 
 /*
 gFeatures
@@ -25,10 +23,11 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class Configure {
-	@Configs
-	public static void onSetup(){
-		gUtility gBroadcast = new gUtility("gBroadcast", "1.0.0");
-		Basic.addExtension(gBroadcast);
+public class CommandHub{
+	
+	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		if(cmd.getName().equalsIgnoreCase("test")){
+			Bukkit.getLogger().info("Test!");
+		}
 	}
 }
