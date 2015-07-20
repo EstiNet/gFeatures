@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
 
 import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
@@ -34,6 +35,10 @@ public class FileSync {
 		int cache = 0;
 		try{
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Perms").get(1));
+			for(Rank rank : Basis.getRanks()){
+				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
+				pw.close();
+			}
 			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Perms;");
 			for(int iter = 0; iter<i; iter++){
 				String perm = permdata.get(cache);
@@ -41,8 +46,6 @@ public class FileSync {
 				String rank = permdata.get(cache);
 				cache += 1;
 				try{
-				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
-				pw.close();
 				BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt"), true));
 				output.write(perm + "\n");
 				output.close();

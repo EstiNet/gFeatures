@@ -19,6 +19,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 import net.genesishub.gFeatures.Feature.gRanks.SQLConnect;
 
 import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
 
 public class InheritSync {
 	SQLConnect c = new SQLConnect();
@@ -36,14 +37,16 @@ public class InheritSync {
 		try{
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Inherits").get(1));
 			List<String> permdata = c.ConnectReturnInherit(URL, Username, Password, "SELECT * FROM Inherits;");
+			for(Rank rank : Basis.getRanks()){
+				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt");
+				pw.close();
+			}
 			for(int iter = 0; iter<i; iter++){
 				String inherit = permdata.get(cache);
 				cache += 1;
 				String rank = permdata.get(cache);
 				cache += 1;
 				try{
-				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt");
-				pw.close();
 				BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt"), true));
 				output.write(inherit + "\n");
 				output.close();
