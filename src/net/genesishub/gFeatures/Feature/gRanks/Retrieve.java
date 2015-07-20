@@ -78,7 +78,7 @@ public class Retrieve {
 		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "INSERT INTO Perms(Perm, Rank)\n"+
 				"SELECT * FROM (SELECT '" + perm + "', '" + rankname + "') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
-				"SELECT Perm FROM Perms WHERE Perm = '" + perm + "'\n"+
+				"SELECT Perm FROM Perms WHERE Perm = '" + rankname + "'\n"+
 				") LIMIT 1;\n"
 			);
 		try{

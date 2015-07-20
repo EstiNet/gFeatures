@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -40,10 +41,9 @@ public class FileSync {
 				String rank = permdata.get(cache);
 				cache += 1;
 				try{
-				File f = new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
-				f.delete();
-				f.createNewFile();
-				BufferedWriter output = new BufferedWriter(new FileWriter(f, true));
+				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
+				pw.close();
+				BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt"), true));
 				output.write(perm + "\n");
 				output.close();
 				}
@@ -86,6 +86,7 @@ public class FileSync {
 				e.printStackTrace();
 			}
 		}
+		return;
 	}
 	public List<String> getPerms(File f) throws IOException{
 		List<String> permissions = new ArrayList<>();
