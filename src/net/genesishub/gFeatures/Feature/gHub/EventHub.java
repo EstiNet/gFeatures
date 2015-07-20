@@ -59,6 +59,7 @@ public class EventHub {
 		default:
 			break;
 		}
+		event.setCancelled(true);
 	}
 	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
 		Player player = event.getPlayer();

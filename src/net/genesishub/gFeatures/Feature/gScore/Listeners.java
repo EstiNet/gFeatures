@@ -5,8 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 /*
 gFeatures
 https://github.com/GenesisHub/gFeatures
@@ -35,31 +33,27 @@ public class Listeners {
 		Bukkit.getLogger().info("gScore is disabled! :(");
 	}
 	@SuppressWarnings("deprecation")
-	public void onPlayerJoin(final PlayerJoinEvent event) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void onPlayerJoin(final PlayerJoinEvent event) throws IllegalArgumentException, IllegalStateException{
 		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
 			ps.setScoreboard(s.Initialize(ps));
 		}
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
-        		try {
 					try {
 						event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
-					} catch (UserDoesNotExistException e) {
-						e.printStackTrace();
-					}
 				} catch (IllegalArgumentException e) {
 				} catch (IllegalStateException e) {
 				}
-           }
+        	}
         }, 100L);
 	}
 	@SuppressWarnings("deprecation")
-	public void onPlayerLeave(PlayerQuitEvent event) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void onPlayerLeave(PlayerQuitEvent event) throws IllegalArgumentException, IllegalStateException{
 		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
 			ps.setScoreboard(s.Initialize(ps));
 		}
 	}
-	public void set(Player p) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void set(Player p) throws IllegalArgumentException, IllegalStateException{
 		p.setScoreboard(s.Initialize(p));
 	}
 }

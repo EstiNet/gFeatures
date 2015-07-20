@@ -68,23 +68,9 @@ command /hub:
 		teleport player to {server.spawn.location}
 		play mob spawner flames at the player
 		message "&3&lWelcome back to the hub!"
-		
-	
-command /setmotd <text>:
-	permission: ge.setmotd
-	description: Sets message of the day
-	trigger:
-		message "&l&c[&aGenesis&bEssentials&c]&r Set the MOTD to '%argument%<reset>'"
-		set {motd} to argument
-
-command /motd:
-	description: Displays the message of the day
-	trigger:
-		message {motd}
 
 on join:
 	wait a tick
-	message {motd}
 	teleport player to {server.spawn.location}
 	play mob spawner flames at the player
 

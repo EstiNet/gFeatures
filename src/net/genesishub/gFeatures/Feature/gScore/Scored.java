@@ -29,15 +29,12 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
-import com.earth2me.essentials.api.Economy;
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 import tk.genesishub.gFeatures.GenesisEconomy.MoneyManager;
 
 public class Scored {
 	MoneyManager mm = new MoneyManager();
 	@SuppressWarnings("deprecation")
-	public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException, UserDoesNotExistException{
+	public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
 		Objective objective = board.registerNewObjective("test", "dummy");

@@ -9,8 +9,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 /*
 gFeatures
 https://github.com/GenesisHub/gFeatures
@@ -50,22 +48,14 @@ public class gScore extends gFeature{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			try {
 				listeners.onPlayerJoin((PlayerJoinEvent)event);
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (UserDoesNotExistException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			try {
 				listeners.onPlayerLeave((PlayerQuitEvent)event);
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (UserDoesNotExistException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

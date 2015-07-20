@@ -7,9 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
-
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
 
@@ -65,13 +62,8 @@ public class GenesisEconomy extends gFeature{
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			try {
 				listeners.onCommand(sender, cmd, label, args);
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (UserDoesNotExistException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			catch(Exception e){}
 	}
 }
