@@ -44,20 +44,13 @@ public class Scored {
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _GenesisHub_  ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
-		score2.setScore(9);
+		score2.setScore(7);
 		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
-		score3.setScore(8);
+		score3.setScore(6);
 		Score score = objective.getScore(ChatColor.GREEN + "Clupic:"); //Get a fake offline player
-		score.setScore(7);
+		score.setScore(5);
 		Score score5 = objective.getScore(ChatColor.GREEN + "" + Float.toString(mm.getMoney(p))); //Get a fake offline player
-		score5.setScore(6);
-		Score score1 = objective.getScore(ChatColor.AQUA + "Dollars:");
-		score1.setScore(5);
-		try{
-		Score score7 = objective.getScore(ChatColor.AQUA + "" + Economy.format(Economy.getMoney(p.getName()))); //Get a fake offline player
-		score7.setScore(4);
-		}
-		catch(Exception e){}
+		score5.setScore(4);
 		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "Random Word:");
 		score8.setScore(3);
 		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "GenesisHub!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!"}; 

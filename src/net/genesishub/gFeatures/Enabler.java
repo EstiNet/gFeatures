@@ -50,6 +50,10 @@ public class Enabler {
 					e.printStackTrace();
 				}
 			}
+			else if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)){
+				gUtility gu = (gUtility) extension;
+				gu.enable();
+			}
 		}
 	}
 }

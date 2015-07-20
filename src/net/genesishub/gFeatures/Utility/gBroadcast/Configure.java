@@ -2,8 +2,6 @@ package net.genesishub.gFeatures.Utility.gBroadcast;
 
 import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
 import net.genesishub.gFeatures.gUtility;
 
 /*
