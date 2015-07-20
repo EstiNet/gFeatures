@@ -68,6 +68,7 @@ public class Setup {
 		*/
 		
 		net.genesishub.gFeatures.Utility.gBroadcast.Configure.onSetup();
+		net.genesishub.gFeatures.Utility.gMotd.Configure.onSetup();
 		
 		//Ignore below. -_- Package Crawler attempt.
 		

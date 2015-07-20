@@ -28,7 +28,9 @@ public class gMotd extends gUtility{
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			PlayerJoinEvent events = (PlayerJoinEvent) event;
-			events.getPlayer().sendMessage(YMLSetter.getMotd());
+			String motd = YMLSetter.getMotd();
+			String motds = motd.replace("{PLAYER}", events.getPlayer().getName());
+			events.getPlayer().sendMessage(motds);
 		}
 	}
 	@Retrieval
