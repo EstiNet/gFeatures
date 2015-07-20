@@ -38,7 +38,7 @@ public class InheritSync {
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Inherits").get(1));
 			List<String> permdata = c.ConnectReturnInherit(URL, Username, Password, "SELECT * FROM Inherits;");
 			for(Rank rank : Basis.getRanks()){
-				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt");
+				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
 				pw.close();
 			}
 			for(int iter = 0; iter<i; iter++){
@@ -48,7 +48,8 @@ public class InheritSync {
 				cache += 1;
 				try{
 				BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt"), true));
-				output.write(inherit + "\n");
+				output.write(inherit);
+				output.newLine();
 				output.close();
 				}
 				catch(Exception e){

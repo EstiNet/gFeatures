@@ -25,7 +25,7 @@ https://github.com/GenesisHub/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		gRanks base = new gRanks("gRanks", "1.4.5");
+		gRanks base = new gRanks("gRanks", "1.4.6");
 		Basic.addFeature(base);
 	}
 }

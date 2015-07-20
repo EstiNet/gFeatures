@@ -36,7 +36,7 @@ public class FileSync {
 		try{
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Perms").get(1));
 			for(Rank rank : Basis.getRanks()){
-				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank + ".txt");
+				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
 				pw.close();
 			}
 			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Perms;");
@@ -47,7 +47,8 @@ public class FileSync {
 				cache += 1;
 				try{
 				BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt"), true));
-				output.write(perm + "\n");
+				output.write(perm);
+				output.newLine();
 				output.close();
 				}
 				catch(Exception e){
