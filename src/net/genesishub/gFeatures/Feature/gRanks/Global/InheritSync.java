@@ -33,7 +33,7 @@ public class InheritSync {
 		int cache = 0;
 		try{
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Inherits").get(1));
-			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Inherits;");
+			List<String> permdata = c.ConnectReturnInherit(URL, Username, Password, "SELECT * FROM Inherits;");
 			for(int iter = 0; iter<i; iter++){
 				String inherit = permdata.get(cache);
 				cache += 1;
