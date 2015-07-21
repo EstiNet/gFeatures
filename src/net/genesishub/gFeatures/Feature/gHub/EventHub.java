@@ -47,10 +47,10 @@ public class EventHub {
 		case WATCH:
 			break;
 		case SULPHUR:
-			hp.hide(event.getPlayer());
+			hp.show(event.getPlayer());
 			break;
 		case REDSTONE:
-			hp.show(event.getPlayer());
+			hp.hide(event.getPlayer());
 			break;
 		case CHEST:
 			break;
