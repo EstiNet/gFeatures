@@ -35,7 +35,7 @@ public class EventHub {
 		p.setGameMode(GameMode.ADVENTURE);
 		p.getInventory().setItem(0, navigator);
 		p.getInventory().setItem(1, stacker);
-		p.getInventory().setItem(2, navigator);
+		p.getInventory().setItem(2, hider);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
 	}

@@ -16,21 +16,21 @@ public class HidePlayers {
 		for(Player player : Bukkit.getOnlinePlayers()){
 			p.hidePlayer(player);
 		}
-		stacker = createItem(Material.REDSTONE, ChatColor.AQUA + "Stacker");
-		p.getInventory().setItem(1, stacker);
+		stacker = createItem(Material.REDSTONE, ChatColor.AQUA + "Show Players");
+		p.getInventory().setItem(p.getInventory().getHeldItemSlot(), stacker);
 	}
 	public void hide(Player p){
 		for(Player player : Bukkit.getOnlinePlayers()){
 			p.showPlayer(player);
 		}
-		stacker = createItem(Material.SULPHUR, ChatColor.AQUA + "Stacker");
+		stacker = createItem(Material.SULPHUR, ChatColor.AQUA + "Hide Players");
 		p.getInventory().setItem(1, stacker);
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);
 		List<String> lores = new ArrayList<>();
 		for(String lor : lore){
-		lores.add(lor);
+			lores.add(lor);
 		}
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(name);
