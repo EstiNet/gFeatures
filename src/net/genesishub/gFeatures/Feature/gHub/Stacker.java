@@ -14,4 +14,11 @@ public class Stacker {
 			p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker is now on!");
 		}
 	}
+	  public Player checkPassenger(Player p)
+	  {
+	    if ((p.getPassenger() != null) && ((p.getPassenger() instanceof Player))) {
+	      return (Player)p.getPassenger();
+	    }
+	    return (Player)p.getPassenger();
+	  }
 }

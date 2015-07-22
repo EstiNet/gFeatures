@@ -21,6 +21,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class EventHub {
 	ItemStack navigator, stacker, hider, additions, settings;
 	HidePlayers hp = new HidePlayers();
+	Stacker st = new Stacker();
 	
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
@@ -45,7 +46,7 @@ public class EventHub {
 	public void onPlayerInteract(PlayerInteractEvent event){
 		switch(event.getPlayer().getItemInHand().getType()){
 		case WATCH:
-			
+			st.event(event.getPlayer());
 			break;
 		case SULPHUR:
 			hp.show(event.getPlayer());
