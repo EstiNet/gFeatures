@@ -24,8 +24,8 @@ public class EventHub {
 	
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
-		hider = createItem(Material.WATCH, ChatColor.DARK_AQUA + "Hide Players");
-		stacker = createItem(Material.SULPHUR, ChatColor.AQUA + "Stacker");
+		hider = createItem(Material.WATCH, ChatColor.DARK_AQUA + "Stacker");
+		stacker = createItem(Material.SULPHUR, ChatColor.AQUA + "Hide Players");
 		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
 		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
 	}
@@ -45,6 +45,7 @@ public class EventHub {
 	public void onPlayerInteract(PlayerInteractEvent event){
 		switch(event.getPlayer().getItemInHand().getType()){
 		case WATCH:
+			
 			break;
 		case SULPHUR:
 			hp.show(event.getPlayer());
