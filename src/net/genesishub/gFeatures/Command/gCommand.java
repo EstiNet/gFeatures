@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 public class gCommand extends Command{
 	  private CommandExecutor exe = null;
 	  
-      protected gCommand(String name) {
+      public gCommand(String name) {
           super(name);
       }
 

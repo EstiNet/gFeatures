@@ -9,7 +9,7 @@ import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 
 public class RegisterCommand {
 	private static CommandMap cmap;
-	public void register(gCommand command, CommandExecutor executor){
+	public void register(CommandExecutor executor, String cmdname){
 	 try{
          if(Bukkit.getServer() instanceof CraftServer){
              final Field f = CraftServer.class.getDeclaredField("commandMap");
@@ -19,7 +19,8 @@ public class RegisterCommand {
      } catch (Exception e){
          e.printStackTrace();
      }
-     cmap.register("", command);
-     command.setExecutor(executor);
+	 gCommand gc = new gCommand(cmdname);
+     cmap.register("", gc);
+     gc.setExecutor(executor);
 	}
 }
