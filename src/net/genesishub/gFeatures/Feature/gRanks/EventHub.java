@@ -1,5 +1,7 @@
 package net.genesishub.gFeatures.Feature.gRanks;
 
+import net.genesishub.gFeatures.API.Logger.Debug;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -50,6 +52,8 @@ public class EventHub{
 			if(perm.equals("'*'")){
 				for(Permission permsa : Bukkit.getPluginManager().getPermissions()){
 					pa.setPermission(permsa, true);
+					pa.setPermission(perm, true);
+					Debug.print("Perm: " + permsa.getName() + " is it true: true");
 				}
 			}
 			else{
@@ -61,7 +65,7 @@ public class EventHub{
 			else{
 				isittrue = true;
 			}
-			Bukkit.getLogger().info("Perm: " + perm + " is it true: " + Boolean.toString(isittrue));
+			Debug.print("Perm: " + perm + " is it true: " + Boolean.toString(isittrue));
 			pa.setPermission(perm, isittrue);
 			}
 		}

@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 import net.genesishub.gFeatures.Listeners;
 
 public class Debug {
-	public void print(String str){
+	public static void print(String str){
 		if(Listeners.debug == true){
 			Bukkit.getLogger().info("[Debug] " + str);
 		} 
