@@ -44,11 +44,13 @@ public class gHub extends gFeature implements Events{
 	}
 	@Override
 	public void enable(){
-		listeners.onEnable();
+		Enable e = new Enable();
+		e.onEnable();
 	}
 	@Override
 	public void disable(){
-		listeners.onDisable();
+		Disable d = new Disable();
+		d.onDisable();
 	}
 	@Override
 	public void eventTrigger(Event event) {
