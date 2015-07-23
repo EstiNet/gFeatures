@@ -22,10 +22,18 @@ public class Rank {
 		people.add(UUID);
 	}
 	public void addPerm(String perm){
+		if(perm.equals("")){}
+		else if(perms.contains("")){}
+		else{
 		perms.add(perm);
+		}
 	}
 	public void addInherit(Rank inherit){
+		if(inherit.equals("")){}
+		else if(inherits.contains("")){}
+		else{
 		inherits.add(inherit);
+		}
 	}
 	public boolean removePerson(String UUID){
 		if(people.contains(UUID)){
