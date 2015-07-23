@@ -3,6 +3,7 @@ package net.genesishub.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class gUtility extends Extension{
 
@@ -32,4 +33,5 @@ public class gUtility extends Extension{
     public void onPlayerDrop(){}
     public void onPlayerToggleFlight(){}
     public void onEntityDamage(){}
+    public void onPlayerInteractEntity(){}
 }

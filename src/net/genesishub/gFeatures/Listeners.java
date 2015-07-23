@@ -52,7 +52,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.6.1";
+	public static final String version = "2.6.2";
 	public static boolean debug = false;
 	
 	PluginManager pm = getServer().getPluginManager();
@@ -171,6 +171,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void EntityDamageEvent(EntityDamageEvent event){
     	library.onEntityDamage(event);
+    }
+    @EventHandler
+    public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event){
+    	library.onPlayerInteractEntity(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -101,6 +102,9 @@ public class Library {
     }
     public void onEntityDamage(EntityDamageEvent event){
     	check("onEntityDamage", event);
+    }
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event){
+    	check("onPlayerInteractEntity", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

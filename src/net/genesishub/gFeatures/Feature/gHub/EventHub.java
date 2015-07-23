@@ -8,6 +8,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -45,6 +46,7 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
+		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 		switch(event.getPlayer().getItemInHand().getType()){
 		case WATCH:
 			st.event(event.getPlayer());
@@ -61,6 +63,7 @@ public class EventHub {
 			break;
 		default:
 			break;
+		}
 		}
 		event.setCancelled(true);
 	}

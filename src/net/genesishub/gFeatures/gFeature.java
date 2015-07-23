@@ -3,6 +3,7 @@ package net.genesishub.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 /*
 gFeatures
@@ -84,4 +85,5 @@ public class gFeature {
     public void onPlayerDrop(){}
     public void onPlayerToggleFlight(){}
     public void onEntityDamage(){}
+    public void onPlayerInteractEntity(){}
 }
