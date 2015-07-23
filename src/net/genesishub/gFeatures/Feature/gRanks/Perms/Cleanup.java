@@ -6,7 +6,7 @@ import java.util.List;
 import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 import net.genesishub.gFeatures.Feature.gRanks.SQLConnect;
 
-public class Cleanup {
+public class Cleanup implements Runnable{
 	SQLConnect c = new SQLConnect();
 	Retrieve cc = new Retrieve();
 	public void cleanAll(){
@@ -57,5 +57,9 @@ public class Cleanup {
 			cc.deletegInherit(inherit, inherits.get(inherit));
 			cc.addgInherit(inherit, inherits.get(inherit));
 		}
+	}
+	@Override
+	public void run() {
+		cleanAll();
 	}
 }
