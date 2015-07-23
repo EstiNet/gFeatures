@@ -27,12 +27,6 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Listeners {
-	public void onEnable(){
-		
-	}
-	public void onDisable(){
-		
-	}
 	public void onPlayerJoin(final PlayerJoinEvent event){
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	@SuppressWarnings("deprecation")

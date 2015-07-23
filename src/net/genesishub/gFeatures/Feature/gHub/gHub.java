@@ -3,13 +3,17 @@ package net.genesishub.gFeatures.Feature.gHub;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 
+import net.genesishub.gFeatures.Events;
 import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
 
@@ -32,7 +36,7 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class gHub extends gFeature{
+public class gHub extends gFeature implements Events{
 	Listeners listeners = new Listeners();
 	EventHub eh = new EventHub();
 	public gHub(String featurename, String d) {
@@ -69,6 +73,15 @@ public class gHub extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerinteractentityevent")){
+			eh.onPlayerInteractEntity((PlayerInteractEntityEvent) event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("entitydamagebyentityevent")){
+			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerLeave((PlayerQuitEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -91,6 +104,15 @@ public class gHub extends gFeature{
 	@Override
 	@Retrieval
 	public void onFoodLevelChange(){}
+	@Override
+	@Retrieval
+	public void onPlayerInteractEntity(){}
+	@Override
+	@Retrieval
+	public void onEntityDamageByEntity(){}
+	@Override
+	@Retrieval
+	public void onPlayerLeave(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){

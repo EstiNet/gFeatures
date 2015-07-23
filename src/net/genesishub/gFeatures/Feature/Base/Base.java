@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.genesishub.gFeatures.Events;
 import net.genesishub.gFeatures.Retrieval;
 import net.genesishub.gFeatures.gFeature;
 
@@ -27,7 +28,7 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-public class Base extends gFeature{
+public class Base extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();

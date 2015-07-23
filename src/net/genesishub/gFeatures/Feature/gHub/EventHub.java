@@ -3,19 +3,24 @@ package net.genesishub.gFeatures.Feature.gHub;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
+
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -41,6 +46,10 @@ public class EventHub {
 		p.getInventory().setItem(2, hider);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
+		Retrieve r = new Retrieve();
+		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+		String prefix = prefixs.replace('&', '§');
+		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + " " + prefix + "" + ChatColor.WHITE + p.getName());
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		event.setCancelled(true);
@@ -65,6 +74,7 @@ public class EventHub {
 			break;
 		}
 		}
+		st.onInteract(event);
 		event.setCancelled(true);
 	}
 	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
@@ -74,7 +84,7 @@ public class EventHub {
 	      event.setCancelled(true);
 	      player.setAllowFlight(false);
 	      player.setFlying(false);
-	      player.setVelocity(player.getLocation().getDirection().multiply(2D).setY(1.3D));
+	      player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
 	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.BAT_TAKEOFF, 1.0F, -5.0F);
 	    }
 	}
@@ -89,6 +99,18 @@ public class EventHub {
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		event.setCancelled(true);
+	}
+	public void onPlayerInteractEntity(PlayerInteractEntityEvent event){
+		st.onEntityInteract(event);
+	}
+	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		event.setCancelled(true);
+	}
+	public void onPlayerLeave(PlayerQuitEvent event){
+		Retrieve r = new Retrieve();
+		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+		String prefix = prefixs.replace('&', '§');
+		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);

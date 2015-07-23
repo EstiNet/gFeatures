@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
 public class Stacker {
@@ -25,7 +26,7 @@ public class Stacker {
 	    return (Player)p.getPassenger();
 	  }
 	  
-	  public Vector giveVektor(Location loc){
+	  public Vector giveVector(Location loc){
 	    double pitch = (loc.getPitch() + 90.0F) * 3.141592653589793D / 180.0D;
 	    double yaw = (loc.getYaw() + 90.0F) * 3.141592653589793D / 180.0D;
 	    
@@ -54,5 +55,20 @@ public class Stacker {
 	        else{
 	          p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker needs to be on!");
 	        }
+	  }
+	  public void onInteract(PlayerInteractEvent e)
+	  {
+	    Player p = e.getPlayer();
+	      if ((p.getPassenger() instanceof Player)) {
+	          Player pass = (Player)p.getPassenger();
+	            pass.leaveVehicle();
+	            Location loc = p.getLocation();
+	            int strength = 5;
+	            if (strength > 0) {
+	              pass.setVelocity(giveVector(loc).multiply(strength));
+	            } else if (strength < -1) {
+	              pass.teleport(loc);
+	            }
+	      }
 	  }
 }
