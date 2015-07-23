@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -84,6 +85,9 @@ public class gHub extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			eh.onPlayerLeave((PlayerQuitEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
+			eh.onEntityDamage((EntityDamageEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -115,6 +119,9 @@ public class gHub extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onPlayerLeave(){}
+	@Override
+	@Retrieval
+	public void onEntityDamage(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){

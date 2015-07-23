@@ -46,10 +46,15 @@ public class EventHub {
 		p.getInventory().setItem(2, hider);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
+		try{
 		Retrieve r = new Retrieve();
 		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String prefix = prefixs.replace('&', '§');
-		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + " " + prefix + "" + ChatColor.WHITE + p.getName());
+		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+		}
+		catch(Exception e){
+			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + p.getName());
+		}
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		event.setCancelled(true);
@@ -107,10 +112,15 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
+		try{
 		Retrieve r = new Retrieve();
 		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String prefix = prefixs.replace('&', '§');
-		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+		}
+		catch(Exception e){
+			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + event.getPlayer().getName());
+		}
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);

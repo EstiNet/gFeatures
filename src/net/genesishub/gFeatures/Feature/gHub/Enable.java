@@ -14,11 +14,11 @@ public class Enable {
 		rc.register(new Spawn(), "spawn");
 		gHubConfig ghc = new gHubConfig();
 		ghc.setup();
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+		/*Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		PreventFall pf = new PreventFall();
         		pf.check();
         	}
-        }, 40L, 40L);
+        }, 40L, 40L);*/
 	}
 }
