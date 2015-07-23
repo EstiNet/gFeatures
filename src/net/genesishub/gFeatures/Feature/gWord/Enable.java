@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.genesishub.gFeatures.Feature.gWord;
 
 import org.bukkit.Bukkit;
 
@@ -26,5 +26,7 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("[gWord] Enabled!");
 		ch.setupConfig();
+		API api = new API();
+		api.backup();
 	}
 }
