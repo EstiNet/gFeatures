@@ -8,7 +8,6 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 
 import net.genesishub.gFeatures.Retrieval;
@@ -67,6 +66,9 @@ public class gHub extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
 			eh.onPlayerMove((PlayerMoveEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
+			eh.onPlayerDrop((PlayerDropItemEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -86,6 +88,9 @@ public class gHub extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerMove(){}
+	@Override
+	@Retrieval
+	public void onFoodLevelChange(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){

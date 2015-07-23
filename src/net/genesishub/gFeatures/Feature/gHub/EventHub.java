@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -81,6 +82,9 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onEntityDamage(EntityDamageEvent event){
+		event.setCancelled(true);
+	}
+	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		event.setCancelled(true);
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
