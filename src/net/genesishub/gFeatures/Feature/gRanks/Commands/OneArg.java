@@ -4,6 +4,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
 import net.genesishub.gFeatures.Feature.gRanks.Global.InheritSync;
+import net.genesishub.gFeatures.Feature.gRanks.Perms.Cleanup;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -24,6 +25,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks refresh - Refreshes the plugin.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks inherits [Rank Name] - Lists which ranks the rank inherits.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks push - Pushes all local changes to Global nodes.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks cleanup - Cleansup the plugin files.");
 		}
 		else if(args[0].equalsIgnoreCase("list")){
 			sender.sendMessage(ChatColor.GRAY + "Ranks");
@@ -42,6 +44,11 @@ public class OneArg {
 			InheritSync is = new InheritSync();
 			is.push();
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Your changes have been pushed.");
+		}
+		else if(args[0].equalsIgnoreCase("cleanup")){
+			Thread th = new Thread(new Cleanup());
+    		th.start();
+			sender.sendMessage(ChatColor.GRAY + "[gRanks] Cleanup has started.");
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");

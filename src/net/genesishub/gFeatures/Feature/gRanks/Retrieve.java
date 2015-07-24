@@ -112,7 +112,7 @@ public class Retrieve {
 		Basis.removeRank(rank);
 	}
 	public void deletegPerm(String perm, String rankname){
-		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Perms WHERE Perm = '" + perm + "' Rank = '" + rankname + "';");
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Perms WHERE Perm = '" + perm + "' AND Rank = '" + rankname + "';");
 		try{
 		Basis.getRank(rankname).removePerm(perm);
 		}
@@ -121,7 +121,7 @@ public class Retrieve {
 		}
 	}
 	public void deletegInherit(String inherit, String rankname){
-		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Inherits WHERE Inherit = '" + inherit + "' Rank = '" + rankname + "';");
+		sqlc.Connect(sqlc.toURL(getPort(), getAddress(), getTablename()), getUsername(), getPassword(), "DELETE FROM Inherits WHERE Inherit = '" + inherit + "' AND Rank = '" + rankname + "';");
 		try{
 		Basis.getRank(rankname).removeInherit(Basis.getRank(rankname));
 		}

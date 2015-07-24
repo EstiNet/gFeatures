@@ -56,4 +56,9 @@ public class Base extends gFeature implements Events{
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
 	}
+	@Override
+	public void onWeatherChange() {
+		// TODO Auto-generated method stub
+		
+	}
 }

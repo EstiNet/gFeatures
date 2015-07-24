@@ -1,7 +1,5 @@
 package net.genesishub.gFeatures;
 
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-
 public interface Events {
 	public void onPlayerJoin();
 	public void onPlayerLeave();
@@ -23,4 +21,5 @@ public interface Events {
     public void onPlayerToggleFlight();
     public void onEntityDamage();
     public void onPlayerInteractEntity();
+    public void onWeatherChange();
 }

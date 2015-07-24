@@ -86,4 +86,5 @@ public class gFeature {
     public void onPlayerToggleFlight(){}
     public void onEntityDamage(){}
     public void onPlayerInteractEntity(){}
+    public void onWeatherChange(){}
 }

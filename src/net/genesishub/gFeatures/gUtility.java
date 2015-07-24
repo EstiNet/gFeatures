@@ -34,4 +34,5 @@ public class gUtility extends Extension{
     public void onPlayerToggleFlight(){}
     public void onEntityDamage(){}
     public void onPlayerInteractEntity(){}
+    public void onWeatherChange(){}
 }

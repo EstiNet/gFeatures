@@ -22,6 +22,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -74,6 +75,8 @@ public class EventHub {
 		case CHEST:
 			break;
 		case FURNACE:
+			Settings s = new Settings();
+			s.init(event.getPlayer());
 			break;
 		default:
 			break;
@@ -103,6 +106,8 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
+		Player p = (Player) event.getEntity();
+		p.setFoodLevel(20);
 		event.setCancelled(true);
 	}
 	public void onPlayerInteractEntity(PlayerInteractEntityEvent event){
@@ -111,15 +116,18 @@ public class EventHub {
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		event.setCancelled(true);
 	}
+	public void onWeatherChange(WeatherChangeEvent event){
+		
+	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		try{
 		Retrieve r = new Retrieve();
 		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String prefix = prefixs.replace('&', '§');
-		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 		catch(Exception e){
-			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + event.getPlayer().getName());
+			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){

@@ -1,5 +1,9 @@
 package net.genesishub.gFeatures.Feature.gHub;
 
-public class Settings {
+import org.bukkit.entity.Player;
 
+public class Settings {
+	public void init(Player p){
+		
+	}
 }

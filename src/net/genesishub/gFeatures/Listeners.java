@@ -26,6 +26,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.event.weather.WeatherEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.entity.EntityExplodeEvent;
@@ -175,6 +176,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event){
     	library.onPlayerInteractEntity(event);
+    }
+    @EventHandler
+    public void WeatherChangeEvent(org.bukkit.event.weather.WeatherChangeEvent event){
+    	library.onWeatherChange(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

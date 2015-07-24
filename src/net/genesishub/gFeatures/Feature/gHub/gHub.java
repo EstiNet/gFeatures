@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -13,6 +14,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.event.weather.WeatherEvent;
 
 import net.genesishub.gFeatures.Events;
 import net.genesishub.gFeatures.Retrieval;
@@ -85,8 +88,14 @@ public class gHub extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			eh.onPlayerLeave((PlayerQuitEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
+			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
+		}
 		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
 			eh.onEntityDamage((EntityDamageEvent) event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("weatherevent")){
+			eh.onWeatherChange((WeatherChangeEvent) event);
 		}
 	}
 	@Override
@@ -122,6 +131,9 @@ public class gHub extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onEntityDamage(){}
+	@Override
+	@Retrieval
+	public void onWeatherChange(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){
