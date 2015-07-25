@@ -94,7 +94,7 @@ public class gHub extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
 			eh.onEntityDamage((EntityDamageEvent) event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("weatherevent")){
+		else if(event.getEventName().equalsIgnoreCase("weatherchangeevent")){
 			eh.onWeatherChange((WeatherChangeEvent) event);
 		}
 	}

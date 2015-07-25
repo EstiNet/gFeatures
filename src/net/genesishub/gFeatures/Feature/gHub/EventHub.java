@@ -73,6 +73,7 @@ public class EventHub {
 			hp.hide(event.getPlayer());
 			break;
 		case CHEST:
+			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			break;
 		case FURNACE:
 			Settings s = new Settings();
@@ -117,7 +118,10 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onWeatherChange(WeatherChangeEvent event){
-		
+		boolean d = event.toWeatherState();
+		if(d){
+			event.setCancelled(true);
+		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		try{
