@@ -8,8 +8,13 @@ public class LoopCheck {
 	public void start(){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
-        		Basis b = new Basis();
-        		b.initializeQuery();
+        		Thread th = new Thread(new Runnable(){
+        			public void run(){
+        				Basis b = new Basis();
+        				b.initializeQuery();
+        			}
+        		});
+        		th.start();
         	}
         }, 1000L, 1000L);
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
