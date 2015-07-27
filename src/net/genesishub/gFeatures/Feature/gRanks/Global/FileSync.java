@@ -32,13 +32,12 @@ public class FileSync {
 		
 		int cache = 0;
 		try{
-			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Perms").get(1));
 			for(Rank rank : Basis.getRanks()){
 				PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
 				pw.close();
 			}
 			List<String> permdata = c.ConnectReturnPerm(URL, Username, Password, "SELECT * FROM Perms;");
-			for(int iter = 0; iter<i; iter++){
+			for(int iter = 0; iter<permdata.size(); iter++){
 				String perm = permdata.get(cache);
 				cache += 1;
 				String rank = permdata.get(cache);
