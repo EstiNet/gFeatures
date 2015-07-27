@@ -49,8 +49,6 @@ public class FileSync {
 				output.close();
 				}
 				catch(Exception e){
-					e.printStackTrace();
-					continue;
 				}
 			}
 		}

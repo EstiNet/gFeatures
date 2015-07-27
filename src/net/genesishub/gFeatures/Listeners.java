@@ -1,6 +1,5 @@
 package net.genesishub.gFeatures;
 
-import net.dolphinbox.gFeaturesForge.Feature.SoF.utility.LogHelper;
 import net.genesishub.gFeatures.API.PlayerStats.Load;
 import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
 import net.genesishub.gFeatures.Configuration.LoadConfig;
@@ -9,7 +8,6 @@ import net.genesishub.gFeatures.Configuration.SetupConfig;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -26,7 +24,6 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
-import org.bukkit.event.weather.WeatherEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.entity.EntityExplodeEvent;
