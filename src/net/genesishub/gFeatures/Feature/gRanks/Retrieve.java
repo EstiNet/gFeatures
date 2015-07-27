@@ -41,6 +41,12 @@ public class Retrieve {
 		}
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
+	public boolean getPexEnabled(){
+		if(yamlFile.get("Config.PEX.Support") == null){
+			return false;
+		}
+		return Boolean.parseBoolean(yamlFile.get("Config.PEX.Support").toString());
+	}
 	String Address = getAddress();
 	String Port = getPort();
 	String Tablename = getTablename();

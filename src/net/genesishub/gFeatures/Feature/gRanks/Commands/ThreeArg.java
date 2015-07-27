@@ -9,6 +9,7 @@ import net.genesishub.gFeatures.Feature.gRanks.Basis;
 import net.genesishub.gFeatures.Feature.gRanks.Rank;
 import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,9 @@ public class ThreeArg {
 				}
 				Rank rank = Basis.getRank(args[2]);
 				r.setRank(rank, response.get(args[1]).toString());
+				if(Basis.pexenabled){
+					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user "+ args[1] + " set " + args[2]);
+				}
 				sender.sendMessage(ChatColor.GRAY + "[gRanks] Set " + args[1] + "'s rank to " + args[2] + ".");
 			}
 		}

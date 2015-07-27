@@ -12,13 +12,13 @@ import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.Permissible;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
 
 public class Basis {
 	static HashMap<UUID,PermissionAttachment> permissions = new HashMap<>();
 	static Retrieve r = new Retrieve();
+	public static boolean pexenabled = false;
 	SQLConnect c = new SQLConnect();
 	String Address = r.getAddress();
 	String Port = r.getPort();

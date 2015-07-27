@@ -47,11 +47,13 @@ public class ConfigHub {
 			yamlFile.createSection("Config.MySQL.TableName");
 			yamlFile.createSection("Config.MySQL.Username");
 			yamlFile.createSection("Config.MySQL.Password");
+			yamlFile.createSection("Config.PEX.Support");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
 			yamlFile.set("Config.MySQL.TableName", "granks");
 			yamlFile.set("Config.MySQL.Username", "root");
 			yamlFile.set("Config.MySQL.Password", "pass123");
+			yamlFile.set("Config.PEX.Support", "false");
 			try {
 				yamlFile.save(f);
 			} catch (IOException e) {
