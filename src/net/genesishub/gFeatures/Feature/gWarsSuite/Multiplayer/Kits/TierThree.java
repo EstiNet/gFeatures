@@ -14,6 +14,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.shampaggon.crackshot.CSUtility;
+
 public class TierThree{
 	Player p;
 	ClearInventory ci = new ClearInventory();
@@ -53,6 +55,9 @@ public class TierThree{
 	}
 	public void autorifle(){
 		ci.clearInv(p);
+		CSUtility cs = new CSUtility();
+		cs.giveWeapon(p, "Beretta-ARX100", 1);
+		cs.giveWeapon(p, "Python", 1);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpackplus "+ p.getName());
     	jetpackammo = new ItemStack(Material.COAL, 3);
 		ItemMeta jmeta = jetpackammo.getItemMeta();

@@ -4,7 +4,7 @@ Sniper:
         Item_Type: 270
         Item_Lore: "&eSniper|&eClassic starter Sniper|&eAccurate but slow firing"
         Melee_Mode: false
-        Skip_Name_Check: true
+        Skip_Name_Check: false
         Sounds_Acquired: BAT_TAKEOFF-1-1-0
         Remove_Unused_Tag: false
         Hidden_From_List: false

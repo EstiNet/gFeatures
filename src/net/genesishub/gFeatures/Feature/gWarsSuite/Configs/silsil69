@@ -4,7 +4,7 @@ SilSil69:
         Item_Type: 285
         Item_Lore: "&SilSil69|&eTier 2 Sniper|&eAccurate and fast but lower damage than regular snipers"
         Melee_Mode: false
-        Skip_Name_Check: true
+        Skip_Name_Check: false
         Sounds_Acquired: BAT_TAKEOFF-1-1-0
         Remove_Unused_Tag: false
         Hidden_From_List: false

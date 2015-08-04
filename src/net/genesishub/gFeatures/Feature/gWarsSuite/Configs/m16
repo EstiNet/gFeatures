@@ -4,7 +4,7 @@ m16:
         Item_Type: 275
         Item_Lore: "&em16|&eTier 1 auto-rifle|&eReliable for close combat"
         Melee_Mode: false
-        Skip_Name_Check: true
+        Skip_Name_Check: false
         Sounds_Acquired: BAT_TAKEOFF-1-1-0
         Remove_Unused_Tag: false
         Hidden_From_List: false

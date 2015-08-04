@@ -44,6 +44,7 @@ public class CrackshotConfiguration {
 			MakeFile("sniper");
 			MakeFile("spas");
 			MakeFile("ulr338");
+			MakeFile("beretta-arx100");
 		}
 		else{
 			DeleteFile("ak47silver");
@@ -58,6 +59,7 @@ public class CrackshotConfiguration {
 			DeleteFile("sniper");
 			DeleteFile("spas");
 			DeleteFile("ulr338");
+			DeleteFile("beretta-arx100");
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
