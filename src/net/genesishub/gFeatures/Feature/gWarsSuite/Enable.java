@@ -1,10 +1,13 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
 import net.genesishub.gFeatures.Basic;
+import net.genesishub.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
@@ -54,6 +57,12 @@ public class Enable {
         	}
         }, 40L, 40L);
 		
+		CrackshotConfiguration cc = new CrackshotConfiguration();
+		try {
+			cc.Initialize(true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		/*for(Point point : Constants.multiplayerpossession.keySet()){
 			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){
 				point.setBlue();

@@ -1,5 +1,9 @@
 package net.genesishub.gFeatures.Feature.gWarsSuite;
 
+import java.io.IOException;
+
+import net.genesishub.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
+
 import org.bukkit.Bukkit;
 
 /*
@@ -24,5 +28,11 @@ https://github.com/GenesisHub/gFeatures
 public class Disable {
 	public static void onDisable(){
 		Bukkit.getLogger().info("[gFeatures-gWarsSuite] gWarsSuite disabling! Bye bye!");
+		CrackshotConfiguration cc = new CrackshotConfiguration();
+		try {
+			cc.Initialize(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

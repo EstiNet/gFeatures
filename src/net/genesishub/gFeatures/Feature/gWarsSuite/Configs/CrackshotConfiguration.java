@@ -32,7 +32,7 @@ https://github.com/GenesisHub/gFeatures
 public class CrackshotConfiguration {
 	public void Initialize(boolean state) throws IOException{
 		if(state == true){
-			MakeFile("ak47blackedition");
+			MakeFile("ak47silver");
 			MakeFile("autorifle");
 			MakeFile("bazooka");
 			MakeFile("coltmodel1");
@@ -46,7 +46,7 @@ public class CrackshotConfiguration {
 			MakeFile("ulr338");
 		}
 		else{
-			DeleteFile("ak47blackedition");
+			DeleteFile("ak47silver");
 			DeleteFile("autorifle");
 			DeleteFile("bazooka");
 			DeleteFile("coltmodel1");
@@ -61,7 +61,7 @@ public class CrackshotConfiguration {
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/gWarsSuite/Configs/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/gWarsSuite/Configs/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
