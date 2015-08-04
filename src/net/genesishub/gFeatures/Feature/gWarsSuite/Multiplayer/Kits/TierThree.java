@@ -6,6 +6,7 @@ import java.util.List;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Finish;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,7 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class TierThree{
 	Player p;
 	ClearInventory ci = new ClearInventory();
-	ItemStack sniper3, shotgun3, special3, autorifle3, ammo;
+	ItemStack sniper3, shotgun3, special3, autorifle3, ammo, jetpackammo;
 	public TierThree(Player player) {
 		p = player;
 		sniper3 = createItem(Material.IRON_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SR-25");
@@ -28,6 +29,11 @@ public class TierThree{
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GOLD + "Ammo");
 		ammo.setItemMeta(meta);
+		
+		jetpackammo = new ItemStack(Material.COAL, 1);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -47,18 +53,26 @@ public class TierThree{
 	}
 	public void autorifle(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpackplus "+ p.getName());
+    	jetpackammo = new ItemStack(Material.COAL, 3);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 		finali();
 	}
 	public void shotgun(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void sniper(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void special(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void interact(PlayerInteractEvent event){
@@ -90,6 +104,7 @@ public class TierThree{
 	}
 	public void finali(){
 		p.getInventory().setItem(8, ammo);
+		p.getInventory().setItem(6, jetpackammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}

@@ -6,6 +6,7 @@ import java.util.List;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Finish;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -18,7 +19,7 @@ import com.shampaggon.crackshot.CSUtility;
 public class TierOne{
 	Player p;
 	ClearInventory ci = new ClearInventory();
-	ItemStack sniper1, shotgun1, special1, autorifle1, ammo;
+	ItemStack sniper1, shotgun1, special1, autorifle1, ammo, jetpackammo;
 	public TierOne(Player player) {
 		p  = player;
 		sniper1 = createItem(Material.STONE_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "ULR338");
@@ -30,6 +31,11 @@ public class TierOne{
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GOLD + "Ammo");
 		ammo.setItemMeta(meta);
+		
+		jetpackammo = new ItemStack(Material.COAL, 1);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -52,6 +58,11 @@ public class TierOne{
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "m16", 1);
 		cs.giveWeapon(p, "Python", 1);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpackplus "+ p.getName());
+    	jetpackammo = new ItemStack(Material.COAL, 3);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 		finali();
 	}
 	public void shotgun(){
@@ -59,6 +70,7 @@ public class TierOne{
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Colt Model 1", 1);
 		cs.giveWeapon(p, "Python", 1);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void sniper(){
@@ -66,6 +78,7 @@ public class TierOne{
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "ULR338", 1);
 		cs.giveWeapon(p, "Python", 1);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void special(){
@@ -73,6 +86,7 @@ public class TierOne{
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "Bazooka", 1);
 		cs.giveWeapon(p, "Python", 1);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void interact(PlayerInteractEvent event){
@@ -104,6 +118,7 @@ public class TierOne{
 	}
 	public void finali(){
 		p.getInventory().setItem(8, ammo);
+		p.getInventory().setItem(6, jetpackammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}

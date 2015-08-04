@@ -6,6 +6,7 @@ import java.util.List;
 import net.genesishub.gFeatures.API.Inventory.ClearInventory;
 import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Finish;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,7 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class TierFour{
 	ClearInventory ci = new ClearInventory();
 	Player p;
-	ItemStack sniper4, shotgun4, special4, autorifle4, ammo;
+	ItemStack sniper4, shotgun4, special4, autorifle4, ammo, jetpackammo;
 	public TierFour(Player player) {
 		p = player;
 		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Heckler and Koch MP-4");
@@ -28,6 +29,11 @@ public class TierFour{
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GOLD + "Ammo");
 		ammo.setItemMeta(meta);
+		
+		jetpackammo = new ItemStack(Material.COAL, 1);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 	}
 	public void initialize(String value){
 		switch(value){
@@ -47,18 +53,26 @@ public class TierFour{
 	}
 	public void autorifle(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpackplus "+ p.getName());
+    	jetpackammo = new ItemStack(Material.COAL, 3);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 		finali();
 	}
 	public void shotgun(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void sniper(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void special(){
 		ci.clearInv(p);
+		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}
 	public void interact(PlayerInteractEvent event){
@@ -90,6 +104,7 @@ public class TierFour{
 	}
 	public void finali(){
 		p.getInventory().setItem(8, ammo);
+		p.getInventory().setItem(6, jetpackammo);
 		Finish finish = new Finish();
 		finish.intialize(p);
 	}
