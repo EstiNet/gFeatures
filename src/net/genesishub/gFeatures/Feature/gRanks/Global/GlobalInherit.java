@@ -36,7 +36,6 @@ public class GlobalInherit {
 			}
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 }

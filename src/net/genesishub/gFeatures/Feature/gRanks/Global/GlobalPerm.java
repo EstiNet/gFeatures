@@ -30,7 +30,6 @@ public class GlobalPerm {
 			}
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 }

@@ -4,6 +4,7 @@ import net.genesishub.gFeatures.API.Minigame.Arena;
 import net.genesishub.gFeatures.API.Minigame.Game;
 import net.genesishub.gFeatures.API.Minigame.Resource;
 import net.genesishub.gFeatures.API.Minigame.Teams;
+import net.genesishub.gFeatures.Configuration.Config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -35,6 +36,9 @@ public class Enable{
 	static Game grasslands;
 	static Resource resource;
 	public void onEnable(){
+		Config config = new Config();
+		config.createDirectory("plugins/gFeatures/Grasslands", "Created game directory!");
+		config.createDirectory("plugins/gFeatures/Grasslands/maps", "Created game maps directory!");
 		Bukkit.getLogger().info("Grasslands plugin enabled! Hi!");
 		hider = new Teams(ChatColor.DARK_AQUA + "Hider");
 		finder = new Teams(ChatColor.GOLD + "Finder");
@@ -43,6 +47,6 @@ public class Enable{
 		grasslands.addTeam(hider);
 		grasslands.addTeam(finder);
 		resource = new Resource();
-		resource.addMap(f, name, "Grasslands");
+		resource.addMap(f, "Grasslands");
 	}
 }
