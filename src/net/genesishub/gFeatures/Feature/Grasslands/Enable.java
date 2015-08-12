@@ -29,24 +29,23 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class Enable{
-	static Teams hider;
-	static Teams finder;
-	static Teams lobby;
-	static Arena currentarena;
-	static Game grasslands;
-	static Resource resource;
+	public static Teams hider = new Teams(ChatColor.DARK_AQUA + "Hider");
+	public static Teams finder;
+	public static Teams lobby;
+	public static Arena currentarena;
+	public static Game grasslands;
+	public static Resource resource;
 	public void onEnable(){
 		Config config = new Config();
 		config.createDirectory("plugins/gFeatures/Grasslands", "Created game directory!");
 		config.createDirectory("plugins/gFeatures/Grasslands/maps", "Created game maps directory!");
 		Bukkit.getLogger().info("Grasslands plugin enabled! Hi!");
-		hider = new Teams(ChatColor.DARK_AQUA + "Hider");
 		finder = new Teams(ChatColor.GOLD + "Finder");
-		finder = new Teams(ChatColor.GRAY + "Lobby");
+		lobby = new Teams(ChatColor.GRAY + "Lobby");
 		grasslands = new Game("Grasslands", 1);
 		grasslands.addTeam(hider);
 		grasslands.addTeam(finder);
 		resource = new Resource();
-		resource.addMap(f, "Grasslands");
+		//resource.addMap(f, "Grasslands");
 	}
 }
