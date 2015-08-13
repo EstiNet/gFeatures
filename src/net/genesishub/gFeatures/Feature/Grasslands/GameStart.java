@@ -2,6 +2,7 @@ package net.genesishub.gFeatures.Feature.Grasslands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 public class GameStart {
@@ -17,11 +18,10 @@ public class GameStart {
 		Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + "The game will be starting in 30 seconds.");
 		Thread thr = new Thread(new Runnable(){
 		public void run(){
-		for(int iter = 30; iter != 0; iter--){
-			Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + iter);
-			Bukkit.getLogger().info("Exp: " + Integer.toString(getExpLevel(iter)));
+		for(int iter = 30; iter != -1; iter--){
 			for(Player p : Bukkit.getServer().getOnlinePlayers()){
-	        	p.setExp(getExpLevel(iter));
+	        	p.setLevel(iter);
+	        	p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
 	        }
 	        try {
 				Thread.sleep(1000);
@@ -33,7 +33,7 @@ public class GameStart {
 		});
 		thr.start();
 		 for(Player p : Bukkit.getServer().getOnlinePlayers()){
-	        	p.setExp(0);
+	        	p.setLevel(0);
 	        }
 		}
 	public void checkLeave(){
