@@ -15,17 +15,27 @@ public class GameStart {
 	}
 	public void start(){
 		Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + "The game will be starting in 30 seconds.");
+		Thread thr = new Thread(new Runnable(){
+		public void run(){
 		for(int iter = 30; iter != 0; iter--){
-			final int doi = iter;
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-	        	public void run(){
-	        		for(Player p : Bukkit.getServer().getOnlinePlayers()){
-	        			p.setExp(getExpLevel(doi));
-	        		}
-	        	}
-	        }, 20L);
+			Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + iter);
+			Bukkit.getLogger().info("Exp: " + Integer.toString(getExpLevel(iter)));
+			for(Player p : Bukkit.getServer().getOnlinePlayers()){
+	        	p.setExp(getExpLevel(iter));
+	        }
+	        try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-	}
+		}
+		});
+		thr.start();
+		 for(Player p : Bukkit.getServer().getOnlinePlayers()){
+	        	p.setExp(0);
+	        }
+		}
 	public void checkLeave(){
 		if(Enable.lobby.getPlayers().size() >= 1){
 			Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + "Not enough players! The game will be stopped.");
