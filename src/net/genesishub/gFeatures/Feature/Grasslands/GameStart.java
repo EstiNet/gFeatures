@@ -32,9 +32,7 @@ public class GameStart {
 		}
 		});
 		thr.start();
-		 for(Player p : Bukkit.getServer().getOnlinePlayers()){
-	        	p.setLevel(0);
-	        }
+		
 		}
 	public void checkLeave(){
 		if(Enable.lobby.getPlayers().size() >= 1){
