@@ -25,9 +25,11 @@ https://github.com/GenesisHub/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Enable.grasslands.addPlayer(event.getPlayer());
-		Enable.lobby.addPlayer(event.getPlayer());
-		GameStart gs = new GameStart();
-		gs.check();
+		if(Basis.mode.equals(GrasslandsMode.Waiting)){
+			Enable.lobby.addPlayer(event.getPlayer());
+			GameStart gs = new GameStart();
+			gs.check();
+		}
 	}
 	public void onPlayerQuit(PlayerQuitEvent event){
 		GameStart gs = new GameStart();
