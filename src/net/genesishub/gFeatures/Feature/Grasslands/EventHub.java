@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.Grasslands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -25,14 +26,18 @@ https://github.com/GenesisHub/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Enable.grasslands.addPlayer(event.getPlayer());
-		if(Basis.mode.equals(GrasslandsMode.Waiting)){
+		if(Basis.mode.equals(GrasslandsMode.Waiting) || Basis.mode.equals(GrasslandsMode.Counting)){
 			Enable.lobby.addPlayer(event.getPlayer());
 			GameStart gs = new GameStart();
 			gs.check();
 		}
 	}
 	public void onPlayerQuit(PlayerQuitEvent event){
-		GameStart gs = new GameStart();
-		gs.checkLeave();
+		if(Basis.mode.equals(GrasslandsMode.Counting)){
+			if(Bukkit.getOnlinePlayers().size() == 2){
+				GameStart gs = new GameStart();
+				gs.checkLeave();
+			}
+		}
 	}
 }

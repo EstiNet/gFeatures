@@ -23,6 +23,6 @@ https://github.com/GenesisHub/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("Gladiators Disabled!");
+		Bukkit.getLogger().info("[Grasslands] Disabled!");
 	}
 }

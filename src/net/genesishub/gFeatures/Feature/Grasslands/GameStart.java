@@ -11,7 +11,7 @@ public class GameStart {
 	Countdown cd = new Countdown();
 	Thread thr = new Thread(new Runnable(){
 		public void run(){
-		for(int iter = 30; iter != -1; iter--){
+		for(int iter = 60; iter != -1; iter--){
 			for(Player p : Bukkit.getServer().getOnlinePlayers()){
 				p.setScoreboard(cd.get(p, iter));
 	        	p.setLevel(iter);
@@ -41,8 +41,6 @@ public class GameStart {
 		if(Enable.lobby.getPlayers().size() >= 1){
 			Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + "Not enough players! The countdown will stop.");
 			thr.interrupt();
-			GameStop gs = new GameStop();
-			gs.stopGame();
 		}
 	}
 }
