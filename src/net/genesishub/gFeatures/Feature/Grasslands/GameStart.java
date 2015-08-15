@@ -27,23 +27,26 @@ public class GameStart {
 		Bukkit.getServer().broadcastMessage("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]" + ChatColor.GOLD + "The game will be starting in 1 minute.");
          		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
          			public void run(){
-         					if(iter == 0){
+         					if(iter <= 0){
          						Bukkit.getScheduler().cancelTask(tasknum);
          						teleportPlayers();
          					}
+         					else{
 	                  		for(Player p : Bukkit.getServer().getOnlinePlayers()){
 	                  			p.setScoreboard(cd.get(p, iter));
 	                  			p.setLevel(iter);
 	                  			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
 	                  		}
+	                  		}
 	                  		iter--;
 	                    }
 	        }, 0, 20L);
-         for(int eggs = 100; eggs == 0; eggs--){
-        	int randomx = (int) Math.floor(Math.random()*146);
-        	int randomz = (int) Math.floor(Math.random()*43);
+         for(int eggs = 100; eggs != 0; eggs--){
+        	int randomx = (int) Math.floor(Math.random()*156);
+        	int randomz = (int) Math.floor(Math.random()*60);
         	Location loc = new Location(Bukkit.getServer().getWorld("Grasslands"), randomx-20, 35, randomz);
         	loc.getWorld().dropItemNaturally(loc, new ItemStack(Material.MONSTER_EGG));
+        	Bukkit.getLogger().info("Dropped egg at: x: " + randomx + "-20 z: " + randomz);
          }
 	}
 	public void teleportPlayers(){
