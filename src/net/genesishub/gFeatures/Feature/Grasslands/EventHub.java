@@ -1,6 +1,9 @@
 package net.genesishub.gFeatures.Feature.Grasslands;
 
+import net.genesishub.gFeatures.Feature.Grasslands.Scoreboard.Countdown;
+
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -26,6 +29,8 @@ https://github.com/GenesisHub/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Enable.grasslands.addPlayer(event.getPlayer());
+		Countdown cd = new Countdown();
+		event.getPlayer().setScoreboard(cd.get(event.getPlayer(), 60));
 		if(Basis.mode.equals(GrasslandsMode.Waiting) || Basis.mode.equals(GrasslandsMode.Counting)){
 			Enable.lobby.addPlayer(event.getPlayer());
 			GameStart gs = new GameStart();

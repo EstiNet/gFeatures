@@ -20,19 +20,19 @@ public class Countdown {
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName("[" + ChatColor.GREEN + "" + ChatColor.BOLD + "Grasslands" + ChatColor.RESET +"]");
 		Score score1 = objective.getScore(""); //Get a fake offline player
-		score1.setScore(7);
+		score1.setScore(10);
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "Online:"); //Get a fake offline player
-		score2.setScore(7);
+		score2.setScore(9);
 		Score score3 = objective.getScore("" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
-		score3.setScore(6);
+		score3.setScore(8);
 		Score score11 = objective.getScore(""); //Get a fake offline player
 		score11.setScore(7);
 		Score score = objective.getScore(ChatColor.GREEN + "Clupic:"); //Get a fake offline player
-		score.setScore(5);
+		score.setScore(6);
 		Score score5 = objective.getScore("" + Float.toString(mm.getMoney(p))); //Get a fake offline player
-		score5.setScore(4);
+		score5.setScore(5);
 		Score score12 = objective.getScore(""); //Get a fake offline player
-		score12.setScore(7);
+		score12.setScore(4);
 		Score score8 = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD +  "Countdown:");
 		score8.setScore(3);
 		Score score9 = objective.getScore("" + count);
