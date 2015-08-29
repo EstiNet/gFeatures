@@ -39,7 +39,7 @@ public class Scored {
 		Scoreboard board = manager.getNewScoreboard();
 		Objective objective = board.registerNewObjective("test", "dummy");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _EstiNet_  ");
+		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net_  ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(7);
 		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
@@ -50,7 +50,7 @@ public class Scored {
 		score5.setScore(4);
 		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "Random Word:");
 		score8.setScore(3);
-		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "GenesisHub!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!"}; 
+		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!"}; 
 		Score score9 = objective.getScore(ChatColor.LIGHT_PURPLE + str[(int) Math.floor(Math.random() * 16)]);
 		score9.setScore(2);
 		if(!(p.getName().length() >= 16)){
