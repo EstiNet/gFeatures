@@ -39,7 +39,7 @@ public class Scored {
 		Scoreboard board = manager.getNewScoreboard();
 		Objective objective = board.registerNewObjective("test", "dummy");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _GenesisHub_  ");
+		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "  _EstiNet_  ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(7);
 		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
