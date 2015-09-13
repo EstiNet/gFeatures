@@ -1,12 +1,12 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
-import net.genesishub.gFeatures.Utility.gBroadcast.Configure;
+import net.estinet.gFeatures.Utility.gBroadcast.Configure;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -31,22 +31,22 @@ public class Setup {
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		*/
-		net.genesishub.gFeatures.Feature.Base.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.CTF.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisAccess.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisBackup.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gFactions.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gHub.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gMusic.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gScore.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gWarsSuite.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.HideAndSeek.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.Statistics.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.Gladiators.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.Grasslands.Configure.onSetup();
-		net.genesishub.gFeatures.Feature.gRanks.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Base.Configure.onSetup();
+		net.estinet.gFeatures.Feature.CTF.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
+		net.estinet.gFeatures.Feature.GenesisAccess.Configure.onSetup();
+		net.estinet.gFeatures.Feature.GenesisBackup.Configure.onSetup();
+		net.estinet.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gFactions.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gHub.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gMusic.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gScore.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gWarsSuite.Configure.onSetup();
+		net.estinet.gFeatures.Feature.HideAndSeek.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Statistics.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Gladiators.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Grasslands.Configure.onSetup();
+		net.estinet.gFeatures.Feature.gRanks.Configure.onSetup();
 		
 		/*
 		 * Initialize your Skripts here.
@@ -54,12 +54,12 @@ public class Setup {
 		 * to add to the Basic class. :D
 		*/
 		
-		net.genesishub.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
-		net.genesishub.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
+		net.estinet.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
 		
 		/*
 		 * Initialize your Utilities here.
@@ -67,8 +67,8 @@ public class Setup {
 		 * to add to the Basic class. :D
 		*/
 		
-		net.genesishub.gFeatures.Utility.gBroadcast.Configure.onSetup();
-		net.genesishub.gFeatures.Utility.gMotd.Configure.onSetup();
+		net.estinet.gFeatures.Utility.gBroadcast.Configure.onSetup();
+		net.estinet.gFeatures.Utility.gMotd.Configure.onSetup();
 		
 		//Ignore below. -_- Package Crawler attempt.
 		
@@ -76,7 +76,7 @@ public class Setup {
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
-			if(pac.getName().startsWith("net.genesishub.gFeatures")){
+			if(pac.getName().startsWith("net.estinet.gFeatures")){
 				Bukkit.getLogger().info("Start");
 				Class[] classes;
 				try {
@@ -144,7 +144,7 @@ public class Setup {
 			}
 		}
 			/*try {
-				Class[] classes = getClasses("net.genesishub.gFeatures.Feature.Base");
+				Class[] classes = getClasses("net.estinet.gFeatures.Feature.Base");
 			for(Class classs : classes){
 				Method[] methods = classs.getClass().getMethods();
 				Bukkit.getLogger().info(classs.getName());

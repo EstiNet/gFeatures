@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.io.IOException;
 
@@ -6,17 +6,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

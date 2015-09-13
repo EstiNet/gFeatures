@@ -1,24 +1,24 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import net.genesishub.gFeatures.API.Messaging.ActionAPI;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Connection;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.Join;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
-import net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
+import net.estinet.gFeatures.API.Messaging.ActionAPI;
+import net.estinet.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
+import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Connection;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.Interaction;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.Inventory;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.Join;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -45,9 +45,9 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

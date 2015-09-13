@@ -1,17 +1,17 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 
-import net.genesishub.gFeatures.Plus.Skript.SkriptManager;
+import net.estinet.gFeatures.Plus.Skript.SkriptManager;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Plus.Skript;
+package net.estinet.gFeatures.Plus.Skript;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
-import net.genesishub.gFeatures.Extension;
+import net.estinet.gFeatures.Extension;
 
 import org.apache.commons.io.IOUtils;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ https://github.com/GenesisHub/gFeatures
 public class SkriptManager {
 	public void Enable(Extension s, String packages) throws IOException{
 		try{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Plus/Skript/" + packages + "/"+ s.getName() + ".sk"));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Plus/Skript/" + packages + "/"+ s.getName() + ".sk"));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();

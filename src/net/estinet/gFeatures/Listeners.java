@@ -1,9 +1,9 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
-import net.genesishub.gFeatures.API.PlayerStats.Load;
-import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
-import net.genesishub.gFeatures.Configuration.LoadConfig;
-import net.genesishub.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.API.PlayerStats.Load;
+import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Configuration.LoadConfig;
+import net.estinet.gFeatures.Configuration.SetupConfig;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -32,9 +32,9 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	CommandLibrary commands = new CommandLibrary();
 	Setup setup = new Setup();
 	Load load = new Load();
-	net.genesishub.gFeatures.API.PlayerStats.Setup setups = new net.genesishub.gFeatures.API.PlayerStats.Setup();
+	net.estinet.gFeatures.API.PlayerStats.Setup setups = new net.estinet.gFeatures.API.PlayerStats.Setup();
 	
 	@Override
 	public void onEnable(){

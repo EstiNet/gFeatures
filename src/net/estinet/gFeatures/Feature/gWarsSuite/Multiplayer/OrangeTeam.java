@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer;
+package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

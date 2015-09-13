@@ -1,13 +1,13 @@
-package net.genesishub.gFeatures.Feature.gWord;
+package net.estinet.gFeatures.Feature.gWord;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

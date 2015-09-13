@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,9 +14,9 @@ import org.bukkit.command.CommandSender;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -56,7 +56,7 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
+					sender.sendMessage("EstiNet has never heard of this command. Do /help for help.");
 				}
 			} catch (Exception e) {
 			}
@@ -78,7 +78,7 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(uti.getName(), cmd.getName()) && uti.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("GenesisHub has never heard of this command. Do /help for help.");
+					sender.sendMessage("EstiNet has never heard of this command. Do /help for help.");
 				}
 			} catch (Exception e) {
 			}
@@ -88,7 +88,7 @@ public class CommandLibrary {
 	}
 	
 	public boolean Check(String filename, String command) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/Commands/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/Commands/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();

@@ -1,14 +1,14 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.MainMenu;
+package net.estinet.gFeatures.Feature.gWarsSuite.MainMenu;
 
-import net.genesishub.gFeatures.API.Inventory.InventoryAPI;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Statistics;
-import net.genesishub.gFeatures.Feature.gWarsSuite.gWarsMode;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.FourTier;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.OneTier;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ThreeTier;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.TwoTier;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ZeroTier;
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
+import net.estinet.gFeatures.Feature.gWarsSuite.Statistics;
+import net.estinet.gFeatures.Feature.gWarsSuite.gWarsMode;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.FourTier;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.OneTier;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ThreeTier;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.Tier;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.TwoTier;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.Tiers.ZeroTier;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -20,9 +20,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

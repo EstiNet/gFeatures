@@ -1,15 +1,15 @@
-package net.genesishub.gFeatures.Plus.Skript.gEssentialsHub;
+package net.estinet.gFeatures.Plus.Skript.gEssentialsHub;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.Extension;
-import net.genesishub.gFeatures.ExtensionsType;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Extension;
+import net.estinet.gFeatures.ExtensionsType;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

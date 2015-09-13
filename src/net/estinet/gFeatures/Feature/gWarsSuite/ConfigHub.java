@@ -1,18 +1,18 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import net.genesishub.gFeatures.Configuration.Config;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Enabling;
+import net.estinet.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Enabling;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

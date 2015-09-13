@@ -1,11 +1,11 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
 import java.util.List;
 
-import net.genesishub.gFeatures.API.PlayerStats.Load;
-import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
-import net.genesishub.gFeatures.Configuration.LoadConfig;
-import net.genesishub.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.API.PlayerStats.Load;
+import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Configuration.LoadConfig;
+import net.estinet.gFeatures.Configuration.SetupConfig;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,9 +14,9 @@ import org.bukkit.command.CommandSender;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -116,7 +116,7 @@ public class CoreCommands{
 						break;
 					case "flush":
 						for(gPlayer gp : Basic.getgPlayers()){
-							net.genesishub.gFeatures.API.PlayerStats.Setup s = new net.genesishub.gFeatures.API.PlayerStats.Setup();
+							net.estinet.gFeatures.API.PlayerStats.Setup s = new net.estinet.gFeatures.API.PlayerStats.Setup();
 							s.flushPlayer(gp);
 						}
 						sender.sendMessage(ChatColor.GRAY + "Player flush complete.");

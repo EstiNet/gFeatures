@@ -1,4 +1,4 @@
-package net.genesishub.EstiNet;
+package net.estinet.gFeatures;
 
 /*
 gFeatures

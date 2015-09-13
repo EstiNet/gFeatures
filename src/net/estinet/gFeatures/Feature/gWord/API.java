@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWord;
+package net.estinet.gFeatures.Feature.gWord;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,9 +14,9 @@ import org.bukkit.Bukkit;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ public class API {
 	public void backup(){
 		String str;
 		try {
-			str = httpGet("https://www.genesishub.net/wc-api/v2");
+			str = httpGet("https://www.estinet.net/wc-api/v2");
 			Bukkit.getLogger().info(str);
 		} catch (IOException e) {
 			e.printStackTrace();

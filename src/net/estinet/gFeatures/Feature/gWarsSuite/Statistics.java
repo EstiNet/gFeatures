@@ -1,15 +1,15 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite;
+package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Connection.Connection;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
-import net.genesishub.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
+import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Connection;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -17,9 +17,9 @@ import org.bukkit.entity.Player;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

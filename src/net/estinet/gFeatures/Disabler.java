@@ -1,15 +1,15 @@
-package net.genesishub.gFeatures;
+package net.estinet.gFeatures;
 
 import java.util.List;
 
-import net.genesishub.gFeatures.API.PlayerStats.gPlayer;
-import net.genesishub.gFeatures.Plus.Skript.SkriptManager;
+import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Plus.Skript.SkriptManager;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ public class Disabler {
 			}
 		}
 		for(gPlayer gp : Basic.getgPlayers()){
-			net.genesishub.gFeatures.API.PlayerStats.Setup setup = new net.genesishub.gFeatures.API.PlayerStats.Setup();
+			net.estinet.gFeatures.API.PlayerStats.Setup setup = new net.estinet.gFeatures.API.PlayerStats.Setup();
 			setup.flushPlayer(gp);
 		}
 		Basic.resetFeatures();

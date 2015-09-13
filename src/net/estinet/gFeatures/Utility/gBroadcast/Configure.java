@@ -1,14 +1,14 @@
-package net.genesishub.gFeatures.Utility.gBroadcast;
+package net.estinet.gFeatures.Utility.gBroadcast;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
-import net.genesishub.gFeatures.gUtility;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gUtility;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
