@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 import javax.persistence.Version;
 
-import net.genesishub.gFeatures.Feature.GenesisEconomy.CheckConfig;
+import net.estinet.gFeatures.Feature.GenesisEconomy.CheckConfig;
 
 import org.bukkit.Bukkit;
 

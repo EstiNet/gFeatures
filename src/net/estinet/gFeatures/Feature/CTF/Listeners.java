@@ -1,20 +1,20 @@
-package net.genesishub.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import net.genesishub.gFeatures.API.Minigame.Arena;
-import net.genesishub.gFeatures.API.Minigame.Game;
-import net.genesishub.gFeatures.API.Minigame.Resource;
-import net.genesishub.gFeatures.API.Minigame.Teams;
+import net.estinet.gFeatures.API.Minigame.Arena;
+import net.estinet.gFeatures.API.Minigame.Game;
+import net.estinet.gFeatures.API.Minigame.Resource;
+import net.estinet.gFeatures.API.Minigame.Teams;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.Base;
 
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures

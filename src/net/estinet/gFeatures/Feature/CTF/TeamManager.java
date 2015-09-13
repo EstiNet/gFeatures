@@ -1,14 +1,14 @@
-package net.genesishub.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.entity.Player;
 
-import net.genesishub.gFeatures.API.Minigame.Teams;
+import net.estinet.gFeatures.API.Minigame.Teams;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ https://github.com/GenesisHub/gFeatures
 */
 
 public class TeamManager {
-	net.genesishub.gFeatures.Feature.CTF.Listeners Listeners = new net.genesishub.gFeatures.Feature.CTF.Listeners();
+	net.estinet.gFeatures.Feature.CTF.Listeners Listeners = new net.estinet.gFeatures.Feature.CTF.Listeners();
 	public void onJoinTeam(Player player, Teams team) throws Exception{
 		if(team.equals(Listeners.hideandseek.getTeam(0))){
 			Listeners.hideandseek.getTeam(0).addPlayer(player);

@@ -3,8 +3,8 @@ package net.estinet.gFeatures.API.PlayerStats;
 import java.io.File;
 import java.io.IOException;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Configuration.Config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;

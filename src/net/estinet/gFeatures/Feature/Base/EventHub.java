@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.Base;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;

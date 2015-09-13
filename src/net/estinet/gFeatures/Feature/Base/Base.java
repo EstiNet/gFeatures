@@ -5,9 +5,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import net.genesishub.gFeatures.Events;
-import net.genesishub.gFeatures.Retrieval;
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.Events;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 /*
 gFeatures

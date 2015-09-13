@@ -6,8 +6,8 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures
