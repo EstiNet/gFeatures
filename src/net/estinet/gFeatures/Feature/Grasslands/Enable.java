@@ -1,19 +1,19 @@
-package net.genesishub.gFeatures.Feature.Grasslands;
+package net.estinet.gFeatures.Feature.Grasslands;
 
-import net.genesishub.gFeatures.API.Minigame.Arena;
-import net.genesishub.gFeatures.API.Minigame.Game;
-import net.genesishub.gFeatures.API.Minigame.Resource;
-import net.genesishub.gFeatures.API.Minigame.Teams;
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.API.Minigame.Arena;
+import net.estinet.gFeatures.API.Minigame.Game;
+import net.estinet.gFeatures.API.Minigame.Resource;
+import net.estinet.gFeatures.API.Minigame.Teams;
+import net.estinet.gFeatures.Configuration.Config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

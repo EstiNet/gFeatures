@@ -1,10 +1,10 @@
-package net.genesishub.gFeatures.Feature.gScore;
+package net.estinet.gFeatures.Feature.gScore;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ https://github.com/GenesisHub/gFeatures
    limitations under the License.
 */
 
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -29,7 +28,7 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
-import tk.genesishub.gFeatures.GenesisEconomy.MoneyManager;
+import net.estinet.gFeatures.GenesisEconomy.MoneyManager;
 
 public class Scored {
 	MoneyManager mm = new MoneyManager();

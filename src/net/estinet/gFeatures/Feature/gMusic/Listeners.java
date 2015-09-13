@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gMusic;
+package net.estinet.gFeatures.Feature.gMusic;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,9 +8,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -27,10 +27,10 @@ https://github.com/GenesisHub/gFeatures
 
 public class Listeners {
 	public void onEnable(){
-		Bukkit.getLogger().info("[gMusic] Hey! Just arrived at GenesisHub! *gMusic");
+		Bukkit.getLogger().info("[gMusic] Hey! Just arrived at EstiNet! *gMusic");
 	}
 	public void onDisable(){
-		Bukkit.getLogger().info("[gMusic] Well, my time here on GenesisHub is gone. Bye!");
+		Bukkit.getLogger().info("[gMusic] Well, my time here on EstiNet is gone. Bye!");
 	}
 	public void onPlayerJoin(PlayerJoinEvent event){
 		final Player p = event.getPlayer();

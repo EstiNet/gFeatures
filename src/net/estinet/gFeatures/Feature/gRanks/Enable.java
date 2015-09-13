@@ -1,24 +1,23 @@
-package net.genesishub.gFeatures.Feature.gRanks;
+package net.estinet.gFeatures.Feature.gRanks;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import net.genesishub.gFeatures.API.MojangAPI.UUIDFetcher;
-import net.genesishub.gFeatures.Feature.gRanks.Global.FileSync;
-import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalInherit;
-import net.genesishub.gFeatures.Feature.gRanks.Global.GlobalPerm;
-import net.genesishub.gFeatures.Feature.gRanks.Perms.Files;
+import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
+import net.estinet.gFeatures.Feature.gRanks.Global.FileSync;
+import net.estinet.gFeatures.Feature.gRanks.Global.GlobalInherit;
+import net.estinet.gFeatures.Feature.gRanks.Global.GlobalPerm;
+import net.estinet.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gRanks;
+package net.estinet.gFeatures.Feature.gRanks;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,13 +6,13 @@ import java.io.IOException;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

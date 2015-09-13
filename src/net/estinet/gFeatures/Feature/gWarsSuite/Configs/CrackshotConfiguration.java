@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gWarsSuite.Configs;
+package net.estinet.gFeatures.Feature.gWarsSuite.Configs;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,9 +12,9 @@ import org.apache.commons.io.IOUtils;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public class CrackshotConfiguration {
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/genesishub/gFeatures/Feature/gWarsSuite/Configs/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/gWarsSuite/Configs/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
