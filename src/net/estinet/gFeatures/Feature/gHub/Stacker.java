@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gHub;
+package net.estinet.gFeatures.Feature.gHub;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -7,15 +7,34 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
+/*
+gFeatures
+https://github.com/EstiNet/gFeatures
+
+   Copyright 2015 EstiNet
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
 public class Stacker {
 	public void event(Player p){
 		if(Basis.isInStacker(p.getName())){
 			Basis.removeStacker(p.getName());
-			p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.RED + "Your stacker is now off!");
+			p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "EstiNet" + ChatColor.GOLD + "] " + ChatColor.RED + "Your stacker is now off!");
 		}
 		else{
 			Basis.addStacker(p.getName());
-			p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker is now on!");
+			p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "EstiNet" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker is now on!");
 		}
 	}
 	  public Player checkPassenger(Player p)
@@ -48,12 +67,12 @@ public class Stacker {
 	                p.setPassenger(pl);
 	            }
 	            else{
-	            	p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.GREEN + "The player isn't playing stacker right now!");
+	            	p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "EstiNet" + ChatColor.GOLD + "] " + ChatColor.GREEN + "The player isn't playing stacker right now!");
 	            }
 	          }
 	        }
 	        else{
-	          p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "GenesisHub" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker needs to be on!");
+	          p.sendMessage(ChatColor.GOLD + "[" + ChatColor.AQUA + "EstiNet" + ChatColor.GOLD + "] " + ChatColor.GREEN + "Your stacker needs to be on!");
 	        }
 	  }
 	  public void onInteract(PlayerInteractEvent e)

@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gHub;
+package net.estinet.gFeatures.Feature.gHub;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -17,15 +17,15 @@ import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.weather.WeatherEvent;
 
-import net.genesishub.gFeatures.Events;
-import net.genesishub.gFeatures.Retrieval;
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.Events;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

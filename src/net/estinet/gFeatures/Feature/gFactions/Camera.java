@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gFactions;
+package net.estinet.gFeatures.Feature.gFactions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,9 +8,9 @@ import org.bukkit.entity.Player;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ public class Camera {
 		loc.setYaw(-12.1F);*/
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
 		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		p.sendMessage(ChatColor.DARK_AQUA + "Welcome to GenesisHub " + ChatColor.RED + "Factions" + ChatColor.DARK_AQUA + "!");
+		p.sendMessage(ChatColor.DARK_AQUA + "Welcome to EstiNet " + ChatColor.RED + "Factions" + ChatColor.DARK_AQUA + "!");
 		p.sendMessage(ChatColor.DARK_AQUA + "Before we begin, we are going to setup the tutorial. This may take up to 20 seconds.!");
 		p.sendMessage(ChatColor.DARK_AQUA + "During this time you will be teleported and you will be executing some commands!");
 		//SETUP

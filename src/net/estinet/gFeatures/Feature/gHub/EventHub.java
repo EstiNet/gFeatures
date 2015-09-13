@@ -1,9 +1,9 @@
-package net.genesishub.gFeatures.Feature.gHub;
+package net.estinet.gFeatures.Feature.gHub;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.genesishub.gFeatures.Feature.gRanks.Retrieve;
+import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -25,6 +25,25 @@ import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+/*
+gFeatures
+https://github.com/EstiNet/gFeatures
+
+   Copyright 2015 EstiNet
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
 
 public class EventHub {
 	ItemStack navigator, stacker, hider, additions, settings;
@@ -49,7 +68,7 @@ public class EventHub {
 		p.getInventory().setItem(4, settings);
 		try{
 		Retrieve r = new Retrieve();
-		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+		String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String prefix = prefixs.replace('&', '§');
 		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
 		}
@@ -126,7 +145,7 @@ public class EventHub {
 	public void onPlayerLeave(PlayerQuitEvent event){
 		try{
 		Retrieve r = new Retrieve();
-		String prefixs = net.genesishub.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+		String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String prefix = prefixs.replace('&', '§');
 		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}

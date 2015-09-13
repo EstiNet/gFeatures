@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.GenesisEconomy;
+package net.estinet.gFeatures.Feature.GenesisEconomy;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,14 +7,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
-import net.genesishub.gFeatures.Retrieval;
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class GenesisEconomy extends gFeature{
 	
-	net.genesishub.gFeatures.Feature.GenesisEconomy.Listeners listeners = new net.genesishub.gFeatures.Feature.GenesisEconomy.Listeners();
+	net.estinet.gFeatures.Feature.GenesisEconomy.Listeners listeners = new net.estinet.gFeatures.Feature.GenesisEconomy.Listeners();
 	
 	public GenesisEconomy(String featurename, String d) {
 		super(featurename, d);

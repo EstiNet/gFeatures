@@ -1,9 +1,9 @@
-package net.genesishub.gFeatures.Feature.GenesisEconomy;
+package net.estinet.gFeatures.Feature.GenesisEconomy;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-import net.genesishub.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Configuration.Config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -14,9 +14,9 @@ import com.earth2me.essentials.api.UserDoesNotExistException;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
