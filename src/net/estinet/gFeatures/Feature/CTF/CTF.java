@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import net.genesishub.gFeatures.Retrieval;
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -30,7 +30,7 @@ https://github.com/EstiNet/gFeatures
 
 public class CTF extends gFeature{
 	
-	net.genesishub.gFeatures.Feature.CTF.Listeners listeners = new net.genesishub.gFeatures.Feature.CTF.Listeners();
+	net.estinet.gFeatures.Feature.CTF.Listeners listeners = new net.estinet.gFeatures.Feature.CTF.Listeners();
 	
 	public CTF(String featurename, String d) {
 		super(featurename, d);

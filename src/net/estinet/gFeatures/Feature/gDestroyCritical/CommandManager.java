@@ -1,4 +1,4 @@
-package net.genesishub.gFeatures.Feature.gDestroyCritical;
+package net.estinet.gFeatures.Feature.gDestroyCritical;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -8,9 +8,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

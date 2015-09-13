@@ -1,8 +1,8 @@
-package net.genesishub.gFeatures.Feature.GenesisBackup;
+package net.estinet.gFeatures.Feature.GenesisBackup;
 
 import java.io.IOException;
 
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.gFeature;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -10,9 +10,9 @@ import org.bukkit.event.Event;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class GenesisBackup extends gFeature{
 	
-	net.genesishub.gFeatures.Feature.GenesisBackup.Listeners listeners = new net.genesishub.gFeatures.Feature.GenesisBackup.Listeners();
+	net.estinet.gFeatures.Feature.GenesisBackup.Listeners listeners = new net.estinet.gFeatures.Feature.GenesisBackup.Listeners();
 	
 	public GenesisBackup(String featurename, String d) {
 		super(featurename, d);

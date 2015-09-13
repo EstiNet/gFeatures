@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import net.genesishub.gFeatures.Basic;
-import net.genesishub.gFeatures.Configs;
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Configs;
 
 /*
 gFeatures

@@ -1,7 +1,7 @@
-package net.genesishub.gFeatures.Feature.GenesisAccess;
+package net.estinet.gFeatures.Feature.GenesisAccess;
 
-import net.genesishub.gFeatures.Retrieval;
-import net.genesishub.gFeatures.gFeature;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -12,9 +12,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ https://github.com/GenesisHub/gFeatures
 
 public class GenesisAccess extends gFeature{
 	
-	net.genesishub.gFeatures.Feature.GenesisAccess.Main main = new net.genesishub.gFeatures.Feature.GenesisAccess.Main();
+	net.estinet.gFeatures.Feature.GenesisAccess.Main main = new net.estinet.gFeatures.Feature.GenesisAccess.Main();
 	
 	public GenesisAccess(String featurename, String d) {
 		super(featurename, d);
