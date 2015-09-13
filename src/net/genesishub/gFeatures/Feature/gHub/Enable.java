@@ -1,5 +1,6 @@
 package net.genesishub.gFeatures.Feature.gHub;
 
+import net.genesishub.gFeatures.Basic;
 import net.genesishub.gFeatures.Command.RegisterCommand;
 import net.genesishub.gFeatures.Feature.gHub.command.Spawn;
 import net.genesishub.gFeatures.Feature.gHub.config.gHubConfig;
@@ -14,6 +15,9 @@ public class Enable {
 		rc.register(new Spawn(), "spawn");
 		gHubConfig ghc = new gHubConfig();
 		ghc.setup();
+		
+		Basic.addPlayerSection("Settings", "");
+		Basic.addPlayerSection("Settings.showChat", "true");
 		/*Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		PreventFall pf = new PreventFall();
