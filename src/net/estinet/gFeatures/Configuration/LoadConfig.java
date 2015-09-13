@@ -1,10 +1,9 @@
-package net.genesishub.gFeatures.Configuration;
+package net.estinet.gFeatures.Configuration;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.genesishub.gFeatures.Basic;
@@ -14,9 +13,9 @@ import net.genesishub.gFeatures.gFeature;
 
 /*
 gFeatures
-https://github.com/GenesisHub/gFeatures
+https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 GenesisHub
+   Copyright 2015 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
