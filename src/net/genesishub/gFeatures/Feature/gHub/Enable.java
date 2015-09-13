@@ -18,6 +18,7 @@ public class Enable {
 		
 		Basic.addPlayerSection("Settings", "");
 		Basic.addPlayerSection("Settings.showChat", "true");
+		Basic.addPlayerSection("Settings.scoreBoard", "true");
 		/*Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		PreventFall pf = new PreventFall();
