@@ -28,7 +28,7 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
-import net.estinet.gFeatures.GenesisEconomy.MoneyManager;
+import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 
 public class Scored {
 	MoneyManager mm = new MoneyManager();

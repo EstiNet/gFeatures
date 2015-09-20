@@ -1,7 +1,5 @@
 package net.estinet.gFeatures;
 
-import net.estinet.gFeatures.Utility.gBroadcast.Configure;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

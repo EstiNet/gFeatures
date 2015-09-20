@@ -1,4 +1,5 @@
- 
+package net.genesishub.gFeatures.API.Inventory;
+
 import java.util.Arrays;
  
 import org.bukkit.Bukkit;

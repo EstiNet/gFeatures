@@ -1,6 +1,6 @@
 name: gFeatures
 main: net.genesishub.gFeatures.Listeners
-version: 2.6.2
+version: 3.0.0-BETA 0.1
 load: STARTUP
 commands:
    gFeatures:

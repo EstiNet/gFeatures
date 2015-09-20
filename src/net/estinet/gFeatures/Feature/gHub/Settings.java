@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.gHub;
 
-import net.estinet.gFeatures.Feature.gWarsSuiteOld.InventoryAPI;
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
