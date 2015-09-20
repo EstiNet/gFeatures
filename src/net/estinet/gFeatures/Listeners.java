@@ -50,7 +50,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "2.6.2";
+	public static final String version = "3.0.0-Beta-0.1";
 	public static boolean debug = false;
 	
 	PluginManager pm = getServer().getPluginManager();
@@ -66,24 +66,24 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void onEnable(){
 	    pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("Initalizing gFeatures.");
-		getLogger().info("This server is running gFeatures Core Version: " + version);
-		getLogger().info("Starting intialization of Features and Extensions...");
+		getLogger().info("Starting gFeatures.");
+		getLogger().info("Current version: " + version);
+		getLogger().info("Starting modules!");
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
 		enable.onEnable();
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		load.load();
-		getLogger().info(" Complete!");
+		getLogger().info("Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
 	@Override
 	public void onDisable(){
 		getLogger().info("_________________________________________________________________________");
-		getLogger().info("Stopping gFeatures Core!");
-		getLogger().info("This server is running gFeatures Core Version: " + version);
-		getLogger().info("Turning off Features and Extensions...");
+		getLogger().info("Stopping gFeatures!");
+		getLogger().info("Current version: " + version);
+		getLogger().info("Turning off modules!");
 		disable.onDisable();
 		getLogger().info("Complete!");
 		getLogger().info("_________________________________________________________________________");

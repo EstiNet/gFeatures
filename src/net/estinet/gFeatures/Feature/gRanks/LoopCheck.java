@@ -35,8 +35,7 @@ public class LoopCheck {
         				b.initializeQuery();
         				}
         				catch(Exception e){
-        					Debug d = new Debug();
-        					d.print(e.getMessage());
+        					Debug.print(e.getMessage());
         				}
         			}
         		});
@@ -50,8 +49,7 @@ public class LoopCheck {
         		th.start();
         		}
         		catch(Exception e){
-        			Debug d = new Debug();
-					d.print(e.getMessage());
+					Debug.print(e.getMessage());
         		}
         	}
         }, 9000L, 9000L);

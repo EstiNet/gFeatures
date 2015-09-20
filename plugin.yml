@@ -1,5 +1,5 @@
 name: gFeatures
-main: net.genesishub.gFeatures.Listeners
+main: net.estinet.gFeatures.Listeners
 version: 3.0.0-BETA 0.1
 load: STARTUP
 commands:
