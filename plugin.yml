@@ -35,5 +35,9 @@ commands:
    gRanks:
       description: Core command for gRanks!
       permission: gFeatures.command.gRanks
+      usage: Syntax error! Do /gRanks help for help.
+   uhc:
+      description: Core command for gRanks!
+      permission: doi
       usage: Syntax error! Do /clupic help for help.
 softdepend: [Skript, CrackShot, Factions]

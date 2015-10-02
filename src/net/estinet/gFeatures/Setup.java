@@ -45,6 +45,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.Gladiators.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Grasslands.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gRanks.Configure.onSetup();
+		net.estinet.gFeatures.Feature.UHC.Configure.onSetup();
 		
 		/*
 		 * Initialize your Skripts here.

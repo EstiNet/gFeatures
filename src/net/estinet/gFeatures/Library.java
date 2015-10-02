@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -110,6 +111,9 @@ public class Library {
     }
     public void onWeatherChange(WeatherChangeEvent event){
     	check("onWeatherChange", event);
+    }
+    public void onPlayerLogin(PlayerLoginEvent event){
+    	check("onPlayerLogin", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

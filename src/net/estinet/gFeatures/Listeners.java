@@ -178,6 +178,10 @@ public class Listeners extends JavaPlugin implements Listener{
     public void WeatherChangeEvent(org.bukkit.event.weather.WeatherChangeEvent event){
     	library.onWeatherChange(event);
     }
+    @EventHandler
+    public void PlayerLoginEvent(PlayerLoginEvent event){
+    	library.onPlayerLogin(event);
+    }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	commands.Commands(sender, cmd, label, args);
