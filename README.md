@@ -20,11 +20,11 @@ gFeatures 3.0 is planned to be under "net.estinet.gFeatures".
 
 ## Team
 - _InDev_ / Devin Lin (also known as aguy867 in older commits) -> Main Developer & CEO of EstiNet
-- Seshpenguin / Seshan Ravikumar -> CEO of Dolphinbox, Founder of GenesisHub.
+- Seshpenguin / Seshan Ravikumar -> CEO of EstiNet, Derp Master.
 
 ## Copyright
 EstiNet and gFeatures are property of EstiNet.
 
-© 2015 EstiNet - All Rights Reserved.
+Â© 2015 EstiNet - All Rights Reserved.
 
 http://estinet.net/
