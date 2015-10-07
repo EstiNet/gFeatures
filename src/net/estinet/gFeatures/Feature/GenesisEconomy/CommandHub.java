@@ -211,6 +211,8 @@ public class CommandHub {
 	  				}
 	  			}
 	  			else if(args[2].equalsIgnoreCase("dollars") || args[2].equalsIgnoreCase("dollar")){
+	  				Thread thr = new Thread(new Runnable(){
+	  					public void run(){
 	  				try{
 	  				if(Economy.getMoney(sender.getName()) >= Float.parseFloat(args[1])){
 	  					Economy.subtract(sender.getName(), Float.parseFloat(args[1]));
@@ -224,6 +226,8 @@ public class CommandHub {
 	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error with your input! Try again.");
 	  					e.printStackTrace();
 	  				}
+	  				}
+	  				});
 	  			}
 	  			break;
 	  		default:

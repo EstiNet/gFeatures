@@ -35,6 +35,8 @@ public class SQLConnect {
 	
 
 		public void Connect(String url, String user, String password, String query){
+			Thread thr = new Thread(new Runnable(){
+				public void run(){
 			java.sql.Connection con = null;
 	        java.sql.Statement st = null;
 	        ResultSet rs = null;
@@ -61,6 +63,9 @@ public class SQLConnect {
 	                lgr.log(Level.WARNING, ex.getMessage(), ex);
 	            }
 	        }
+	        }
+			});
+			thr.start();
 		}
 		public List<String> ConnectReturn(String url, String user, String password, String query){
 			List<String> array = new ArrayList<>();

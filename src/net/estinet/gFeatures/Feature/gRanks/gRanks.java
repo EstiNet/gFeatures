@@ -47,7 +47,13 @@ public class gRanks extends gFeature{
 	@Override
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
+			Thread thr = new Thread(new Runnable(){
+				@Override
+				public void run() {
+					eh.onPlayerJoin((PlayerJoinEvent)event);
+				}
+			});
+			thr.start();
 		}
 		else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
 			eh.onPlayerChat((AsyncPlayerChatEvent)event);
