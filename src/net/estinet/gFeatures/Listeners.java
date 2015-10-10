@@ -4,6 +4,7 @@ import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
+import net.genesishub.gFeatures.API.Logger.Debug;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -89,8 +90,13 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info("_________________________________________________________________________");
 	}
 	@EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
+    public void onPlayerJoin(PlayerJoinEvent event){ 
+		try{
 		setups.checkPlayer(event.getPlayer());
+		}
+		catch(Exception e){
+			Debug.print(e.getMessage());
+		}
     	library.onPlayerJoin(event);
     }
     @EventHandler

@@ -66,6 +66,8 @@ public class EventHub {
 		p.getInventory().setItem(2, hider);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
+		Thread thr = new Thread(new Runnable(){
+		public void run(){
 		try{
 		Retrieve r = new Retrieve();
 		String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
@@ -75,6 +77,9 @@ public class EventHub {
 		catch(Exception e){
 			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + p.getName());
 		}
+		}
+		});
+		thr.start();
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		event.setCancelled(true);
