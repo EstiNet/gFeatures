@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,6 @@ public class InheritSync {
 			}
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 		for(Rank rank : Basis.getRanks()){
 			File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
