@@ -253,10 +253,7 @@ public class SQLConnect {
 	            		array.add(result.getString("Rank"));
 	            }
 	            catch(Exception e){
-	            	try{
 	            	array.add(result.getString(1));
-	            	}
-	            	catch(Exception es){}
 	            }
 	            }
 	            return array;

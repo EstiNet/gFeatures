@@ -42,7 +42,7 @@ public class LoopCheck {
         		th.start();
         	}
         }, 1000L, 1000L);
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+		/*Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		try{
         		Thread th = new Thread(new Cleanup());
@@ -52,6 +52,6 @@ public class LoopCheck {
 					Debug.print(e.getMessage());
         		}
         	}
-        }, 9000L, 9000L);
+        }, 9000L, 9000L);*/
 	}
 }
