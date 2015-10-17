@@ -7,6 +7,8 @@ import java.util.List;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+import net.estinet.gFeatures.API.Logger.Debug;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -107,6 +109,7 @@ public class Retrieve {
 				") LIMIT 1;\n"
 			);
 		try{
+			Debug.print(rankname + " is adding " + perm);
 		Basis.getRank(rankname).addPerm(perm);
 		}
 		catch(Exception e){

@@ -76,6 +76,7 @@ public class Cleanup implements Runnable{
 			cc.deletegInherit(inherit, inherits.get(inherit));
 			cc.addgInherit(inherit, inherits.get(inherit));
 		}
+		c.Connect(URL, Username, Password, "ALTER TABLE `users` AUTO_INCREMENT = 1;");
 	}
 	@Override
 	public void run() {
