@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -51,9 +52,11 @@ public class FilePush implements Runnable{
 		c.Connect(URL, Username, Password, "TRUNCATE TABLE Perms;");
 		for(Rank rank : Basis.getRanks()){
 			File f = new File("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
+			Debug.print("Current rank push: plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
 			try {
 				for(String perm : getPerms(f)){
 					cc.addgPerm(perm, rank.getName());
+					Debug.print("Current perm for " + rank.getName() + ": " + perm);
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
