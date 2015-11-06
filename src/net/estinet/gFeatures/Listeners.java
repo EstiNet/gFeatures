@@ -70,9 +70,14 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info("Starting gFeatures.");
 		getLogger().info("Current version: " + version);
 		getLogger().info("Starting modules!");
+		try{
 		setup.onSetup();
 		SetupConfig.setup();
 		LoadConfig.load();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		enable.onEnable();
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		load.load();

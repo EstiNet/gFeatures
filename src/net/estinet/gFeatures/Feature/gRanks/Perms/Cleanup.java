@@ -38,7 +38,7 @@ public class Cleanup implements Runnable{
 		String URL = c.toURL(Port, Address, Tablename);
 		HashMap<String, String> perms = new HashMap<>();
 		c.Connect(URL, Username, Password, "SET @count = 0;");
-		c.Connect(URL, Username, Password, "UPDATE `perms` SET `perms`.`id` = @count:= @count + 1;");
+		// Maybe later? c.Connect(URL, Username, Password, "UPDATE `perms` SET `perms`.`id` = @count:= @count + 1;");
 		c.Connect(URL, Username, Password, "ALTER TABLE `perms` AUTO_INCREMENT = 1;");
 		int cache = 0;
 		try{
