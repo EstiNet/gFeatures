@@ -88,6 +88,12 @@ public class CoreCommands{
 					case "featurestate":
 						sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures featurestate <Plugin>");
 						break;
+					case "gplist":
+						sender.sendMessage(ChatColor.GRAY + "gPlayers initialized:");
+						for(gPlayer gp : Basic.getgPlayers()){
+							sender.sendMessage(ChatColor.GRAY + "- " + gp.getName());
+						}
+						break;
 					case "reload":
 						Enabler enable = new Enabler();
 						Disabler disable = new Disabler();
