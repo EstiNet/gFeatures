@@ -37,6 +37,9 @@ public class Cleanup implements Runnable{
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		HashMap<String, String> perms = new HashMap<>();
+		c.Connect(URL, Username, Password, "SET @count = 0;");
+		c.Connect(URL, Username, Password, "UPDATE `perms` SET `perms`.`id` = @count:= @count + 1;");
+		c.Connect(URL, Username, Password, "ALTER TABLE `perms` AUTO_INCREMENT = 1;");
 		int cache = 0;
 		try{
 			int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Perms").get(1));
@@ -76,7 +79,7 @@ public class Cleanup implements Runnable{
 			cc.deletegInherit(inherit, inherits.get(inherit));
 			cc.addgInherit(inherit, inherits.get(inherit));
 		}
-		c.Connect(URL, Username, Password, "ALTER TABLE `users` AUTO_INCREMENT = 1;");
+
 	}
 	@Override
 	public void run() {

@@ -92,7 +92,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){ 
 		try{
-		setups.checkPlayer(event.getPlayer());
+			setups.checkPlayer(event.getPlayer());
+			Debug.print("Player API initialized for " + event.getPlayer().getName());
 		}
 		catch(Exception e){
 			Debug.print(e.getMessage());
@@ -101,11 +102,16 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
+    	try{
     	gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
     	for(String valuename : gp.getValues().keySet()){
     		setups.smartFlush(gp, valuename, gp.getValue(valuename));
     	}
     	Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
+    	}
+    	catch(Exception e){
+    		Debug.print(e.getMessage());
+    	}
     	library.onPlayerLeave(event);
     }
     @EventHandler
