@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gRanks.Perms;
 import java.util.HashMap;
 import java.util.List;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
 
@@ -53,7 +54,7 @@ public class Cleanup implements Runnable{
 			}
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			Debug.print(e.getMessage());
 		}
 		for(String perm : perms.keySet()){
 			cc.deletegPerm(perm, perms.get(perm));
@@ -79,7 +80,6 @@ public class Cleanup implements Runnable{
 			cc.deletegInherit(inherit, inherits.get(inherit));
 			cc.addgInherit(inherit, inherits.get(inherit));
 		}
-
 	}
 	@Override
 	public void run() {

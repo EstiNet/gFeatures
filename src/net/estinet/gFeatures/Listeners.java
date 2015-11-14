@@ -80,7 +80,12 @@ public class Listeners extends JavaPlugin implements Listener{
 		}
 		enable.onEnable();
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
+		try{
 		load.load();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		getLogger().info("Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
