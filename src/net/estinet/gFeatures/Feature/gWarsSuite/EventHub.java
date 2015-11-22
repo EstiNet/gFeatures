@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.gWarsSuite;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
@@ -14,17 +12,13 @@ import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
 import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
