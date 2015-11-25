@@ -1,7 +1,7 @@
 ULR338:
     Item_Information:
         Item_Name: ULR338
-        Item_Type: 275
+        Item_Type: 274
         Item_Lore: "&eULR338|&eTier 1 Sniper|&eAccurate but slow firing"
         Melee_Mode: false
         Skip_Name_Check: false

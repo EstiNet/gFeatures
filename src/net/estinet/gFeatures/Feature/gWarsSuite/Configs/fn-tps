@@ -1,7 +1,7 @@
 FN-TPS:
     Item_Information:
         Item_Name: FN-TPS
-        Item_Type: 269
+        Item_Type: 256
         Item_Lore: "&eFN-TPS|&eTier 3 Shotgun|&eSets opponents alight."
         Melee_Mode: false
         Skip_Name_Check: false

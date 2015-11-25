@@ -86,6 +86,9 @@ public class TierThree{
 	}
 	public void shotgun(){
 		ci.clearInv(p);
+		CSUtility cs = new CSUtility();
+		cs.giveWeapon(p, "fn-tps", 1);
+		cs.giveWeapon(p, "Python", 1);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
 		finali();
 	}

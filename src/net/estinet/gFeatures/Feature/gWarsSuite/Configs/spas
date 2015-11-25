@@ -2,7 +2,7 @@ SPAS:
     Item_Information:
         Item_Name: SPAS
         Item_Type: 284
-        Item_Lore: "&eSPAS|&eTier 2 Shotgun|&eReliable for quick invasions"
+        Item_Lore: "&eSPAS|&eTier 2 Shotgun|&eFaster shooting but less damage."
         Melee_Mode: false
         Skip_Name_Check: false
         Sounds_Acquired: BAT_TAKEOFF-1-1-0
@@ -21,7 +21,7 @@ SPAS:
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 15
-        Projectile_Damage: 17
+        Projectile_Damage: 9
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false

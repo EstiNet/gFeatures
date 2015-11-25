@@ -13,7 +13,7 @@ Flamethrower:
         Projectile_Amount: 16
         Projectile_Type: snowball
         Projectile_Speed: 10
-        Projectile_Damage: 1
+        Projectile_Damage: 8
         Projectile_Incendiary:
             Enable: true
             Duration: 140

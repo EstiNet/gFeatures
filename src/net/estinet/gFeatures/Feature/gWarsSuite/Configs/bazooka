@@ -12,8 +12,8 @@ Bazooka:
         Recoil_Amount: 2
         Projectile_Amount: 1
         Projectile_Type: fireball
-        Projectile_Speed: 10
-        Projectile_Damage: 30
+        Projectile_Speed: 20
+        Projectile_Damage: 50
         Sounds_Shoot: ZOMBIE_WOOD-1-0-0,FIZZ-1-1-0
     Sneak:
         Enable: true
@@ -31,7 +31,7 @@ Bazooka:
     Shrapnel:
         Enable: true
         Block_Type: 77
-        Amount: 14
+        Amount: 24
         Speed: 7
     Explosions:
         Enable: true
