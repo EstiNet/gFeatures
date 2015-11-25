@@ -21,7 +21,7 @@ FN-TPS:
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 30
-        Projectile_Damage: 7
+        Projectile_Damage: 11
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: true

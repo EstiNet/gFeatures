@@ -14,14 +14,14 @@ Beretta-ARX100:
         Right_Click_To_Shoot: true
         Cancel_Left_Click_Block_Damage: true
         Cancel_Right_Click_Interactions: true
-        Delay_Between_Shots: 1
+        Delay_Between_Shots: 0.5
         Recoil_Amount: 0
         Projectile_Amount: 1
         Projectile_Type: snowball
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 30
-        Projectile_Damage: 7
+        Projectile_Damage: 9
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false
@@ -61,7 +61,7 @@ Beretta-ARX100:
         Night_Vision: true
         Zoom_Amount: 5
         Zoom_Bullet_Spread: 0
-        Zoom_Before_Shooting: true
+        Zoom_Before_Shooting: false
         Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
     Headshot:
         Enable: false
