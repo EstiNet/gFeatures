@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 
-import org.bukkit.event.entity.PlayerDeathEvent;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

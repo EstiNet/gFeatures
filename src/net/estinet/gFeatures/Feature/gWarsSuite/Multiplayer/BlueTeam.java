@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 /*
@@ -41,7 +42,8 @@ public class BlueTeam {
 	}
 	public static boolean hasPlayer(Player p){
 		for(Player player : bt){
-			if(p.getName().equals(player.getName())){
+			Bukkit.getLogger().info("Player name: " + p.getName() + " Check name: " + player.getName());
+			if(p.getName().equalsIgnoreCase(player.getName())){
 				return true;
 			}
 		}

@@ -113,7 +113,6 @@ public class Point {
 		for(Location locs : location){
 			Debug.print("[gCheck] Player x " + Math.floor(loc.getX()) + " point x " + Math.floor(locs.getX()) + " Player z " + Math.floor(loc.getBlockZ()) + " point z " + Math.floor(locs.getZ()));
 			if(Math.floor(locs.getX()) == Math.floor(loc.getX()) && Math.floor(locs.getZ()) == Math.floor(loc.getBlockZ())){
-				
 				return true;
 			}
 		}
