@@ -8,6 +8,8 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
+import net.estinet.gFeatures.API.Logger.Debug;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -109,7 +111,8 @@ public class Point {
 	}
 	public boolean isInLocation(Location loc){
 		for(Location locs : location){
-			if(locs.getBlockX() == loc.getBlockX() && locs.getBlockZ() == loc.getBlockZ()){
+			if(Math.floor(locs.getX()) == Math.floor(loc.getX()) && Math.floor(locs.getZ()) == Math.floor(loc.getBlockZ())){
+				Debug.print("[gCheck] Player x " + Math.floor(loc.getX()) + " point x ");
 				return true;
 			}
 		}
@@ -153,23 +156,13 @@ public class Point {
 			break;
 		case blue2:
 			break;
-		case blue3:
-			break;
 		case white:
-			break;
-		case white1:
-			break;
-		case white2:
-			break;
-		case white3:
 			break;
 		case orange:
 			break;
 		case orange1:
 			break;
 		case orange2:
-			break;
-		case orange3:
 			break;
 		}
 	}

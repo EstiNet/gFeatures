@@ -80,4 +80,4 @@ SilSil69:
     Damage_Based_On_Flight_Time:
         Enable: false
     Custom_Death_Message:
-        Normal: &b[&6Kill&b]&3 <shooter> killed <victim> using a &6SilSil69&3!
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6SilSil69&3!"

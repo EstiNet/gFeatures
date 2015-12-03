@@ -41,4 +41,4 @@ Bazooka:
         Explosion_Radius: 6
         Sounds_Shooter: SHOOT_ARROW-1-2-0
     Custom_Death_Message:
-        Normal: &b[&6Kill&b]&3 <shooter> blew up <victim> using a &6Bazooka&3!
+        Normal: "&b[&6Kill&b]&3 <shooter> blew up <victim> using a &6Bazooka&3!"

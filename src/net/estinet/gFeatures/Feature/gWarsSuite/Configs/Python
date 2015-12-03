@@ -33,4 +33,4 @@ Python:
         Enable: true
         Sounds_Shooter: SHOOT_ARROW-1-2-0
     Custom_Death_Message:
-        Normal: &b[&6Kill&b]&3 <shooter> killed <victim> using a &6Python&3!
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6Python&3!"
