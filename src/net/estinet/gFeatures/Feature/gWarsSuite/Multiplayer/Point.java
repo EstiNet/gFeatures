@@ -111,8 +111,9 @@ public class Point {
 	}
 	public boolean isInLocation(Location loc){
 		for(Location locs : location){
+			Debug.print("[gCheck] Player x " + Math.floor(loc.getX()) + " point x " + Math.floor(locs.getX()) + " Player z " + Math.floor(loc.getBlockZ()) + " point z " + Math.floor(locs.getZ()));
 			if(Math.floor(locs.getX()) == Math.floor(loc.getX()) && Math.floor(locs.getZ()) == Math.floor(loc.getBlockZ())){
-				Debug.print("[gCheck] Player x " + Math.floor(loc.getX()) + " point x ");
+				
 				return true;
 			}
 		}
