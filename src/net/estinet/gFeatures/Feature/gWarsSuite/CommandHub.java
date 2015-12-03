@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -31,18 +32,19 @@ https://github.com/EstiNet/gFeatures
 public class CommandHub {
 	Statistics stats = new Statistics();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("gWars")){
+		if(cmd.getName().equalsIgnoreCase("gWarss")){
 			if(args.length == 0){
-				sender.sendMessage(ChatColor.GRAY + "Do /gWars help.");
+				sender.sendMessage(ChatColor.GRAY + "Do /gWarss help.");
 			}
 			else if(args.length == 1){
 				if(args[0].equalsIgnoreCase("help")){
 					sender.sendMessage(ChatColor.GRAY + "[x] [x] Help [x] [x]");
-					sender.sendMessage(ChatColor.AQUA + "/gWars stats [Player] - Shows your stats or another player.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars kills [amount] [Player] - Sets a player's kills stat.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars deaths [amount] [Player] - Sets a player's deaths stat.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars mode [value] [Player] - Sets a player's mode stat.");
-					sender.sendMessage(ChatColor.AQUA + "/gWars version - Shows the version. ");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss stats [Player] - Shows your stats or another player.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss teams - Shows the team listings.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss kills [amount] [Player] - Sets a player's kills stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss deaths [amount] [Player] - Sets a player's deaths stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss mode [value] [Player] - Sets a player's mode stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss version - Shows the version. ");
 				}
 				else if(args[0].equalsIgnoreCase("stats")){
 					sender.sendMessage(ChatColor.GRAY + "[x] [x] Stats [x] [x]");
@@ -53,8 +55,18 @@ public class CommandHub {
 				else if(args[0].equalsIgnoreCase("version")){
 					sender.sendMessage(ChatColor.GRAY + "gWarsSuite version " + Basic.getFeature("gWarsSuite").getVersion());
 				}
+				else if(args[0].equalsIgnoreCase("teams")){
+					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Orange Team:");
+					for(Player p : OrangeTeam.getList()){
+						sender.sendMessage(ChatColor.BOLD + p.getDisplayName());
+					}
+					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Blue Team:");
+					for(Player p : BlueTeam.getList()){
+						sender.sendMessage(ChatColor.BOLD + p.getDisplayName());
+					}
+				}
 				else{
-					sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
+					sender.sendMessage(ChatColor.AQUA + "Do /gWarss help.");
 				}
 			}
 			else if(args.length == 2){
@@ -101,11 +113,11 @@ public class CommandHub {
 						sender.sendMessage(ChatColor.RED + "An error occured with your input.");
 				}
 				else{
-					sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
+					sender.sendMessage(ChatColor.AQUA + "Do /gWarss help.");
 				}
 			}
 			else{
-				sender.sendMessage(ChatColor.AQUA + "Do /gWars help.");
+				sender.sendMessage(ChatColor.AQUA + "Do /gWarss help.");
 			}
 		}
 	}

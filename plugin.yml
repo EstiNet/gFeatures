@@ -21,9 +21,9 @@ commands:
      description: gMusic core command.
      aliases: [play, song, music]
      usage: Syntax error! Do /gMusic help for help.
-   gWars:
+   gWarss:
      description: gWars core command.
-     aliases: [play, song, music]
+     aliases: [gw, gwars]
      permission: gWars
      usage: Syntax error! Do /gWars help.
    plugins:
