@@ -2,7 +2,7 @@ Beretta-ARX100:
     Item_Information:
         Item_Name: Beretta-ARX100
         Item_Type: 258
-        Item_Lore: "&eBeretta-ARX100|&eTier 3 Auto-Rifle|&eFast reloading and more ammo storage."
+        Item_Lore: "&eBeretta-ARX100|&eTier 3 Auto-Rifle|&eFast reloading and more damage dealt."
         Melee_Mode: false
         Skip_Name_Check: false
         Sounds_Acquired: BAT_TAKEOFF-1-1-0
@@ -21,7 +21,7 @@ Beretta-ARX100:
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 30
-        Projectile_Damage: 9
+        Projectile_Damage: 7
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false
@@ -40,8 +40,8 @@ Beretta-ARX100:
     Reload:
         Enable: true
         Reload_With_Mouse: false
-        Starting_Amount: 30
-        Reload_Amount: 30
+        Starting_Amount: 150
+        Reload_Amount: 150
         Reload_Bullets_Individually: false
         Take_Ammo_On_Reload: true
         Take_Ammo_As_Magazine: true
@@ -78,3 +78,5 @@ Beretta-ARX100:
         Enable: false
     Damage_Based_On_Flight_Time:
         Enable: false
+    Custom_Death_Message:
+        Normal: &b[&6Kill&b]&3 <shooter> killed <victim> using a &6Beretta-ARX100&3!

@@ -8,6 +8,7 @@ import org.bukkit.World;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CaptureState;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
@@ -45,6 +46,9 @@ public class Enable {
 		 * Intialize Points here.
 		 * 
 		 * */
+		Point innisfilhighway = new Point("Innisfil Highway", new Location(Bukkit.getWorld("gWars"), 42, 60, 80), new Location(Bukkit.getWorld("gWars"), 44, 60, 78), new Location(Bukkit.getWorld("gWars"), 43, 61, 80), CaptureState.blue);
+		Point kloynehighway = new Point("Kloyne Highway", new Location(Bukkit.getWorld("gWars"), 514, 60, -74), new Location(Bukkit.getWorld("gWars"), 512, 60, -76), new Location(Bukkit.getWorld("gWars"), 514, 61, -75), CaptureState.orange);
+		Point bridge = new Point("Bridge", new Location(Bukkit.getWorld("gWars"), 42, 60, 80), new Location(Bukkit.getWorld("gWars"), 44, 60, 78), new Location(Bukkit.getWorld("gWars"), 514, 61, -75), CaptureState.white);
 		
 		Constants.multiplayerpossession.put(Constants.innisfilhighway, Team.BLUE);
 		Constants.multiplayerpossession.put(Constants.kloynehighway, Team.ORANGE);

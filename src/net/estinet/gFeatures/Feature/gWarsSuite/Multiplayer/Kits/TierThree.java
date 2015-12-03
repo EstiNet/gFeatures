@@ -98,7 +98,14 @@ public class TierThree{
 	}
 	public void sniper(){
 		ci.clearInv(p);
+		CSUtility cs = new CSUtility();
+		cs.giveWeapon(p, "SR-25", 1);
+		cs.giveWeapon(p, "Python", 1);
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
+		jetpackammo = new ItemStack(Material.COAL, 1);
+		ItemMeta jmeta = jetpackammo.getItemMeta();
+		jmeta.setDisplayName(ChatColor.GOLD + "Jetpack Fuel");
+		jetpackammo.setItemMeta(jmeta);
 		finali();
 	}
 	public void special(){

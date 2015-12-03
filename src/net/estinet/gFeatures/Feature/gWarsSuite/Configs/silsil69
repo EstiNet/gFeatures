@@ -14,14 +14,14 @@ SilSil69:
         Right_Click_To_Shoot: true
         Cancel_Left_Click_Block_Damage: true
         Cancel_Right_Click_Interactions: true
-        Delay_Between_Shots: 2
+        Delay_Between_Shots: 1.5
         Recoil_Amount: 1
         Projectile_Amount: 1
         Projectile_Type: snowball
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 25
-        Projectile_Damage: 6
+        Projectile_Damage: 10
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false
@@ -31,7 +31,7 @@ SilSil69:
     Burstfire:
         Enable: true
         Shots_Per_Burst: 1
-        Delay_Between_Shots_In_Burst: 2
+        Delay_Between_Shots_In_Burst: 1.5
     Sneak:
         Enable: false
     Ammo:
@@ -79,3 +79,5 @@ SilSil69:
         Enable: false
     Damage_Based_On_Flight_Time:
         Enable: false
+    Custom_Death_Message:
+        Normal: &b[&6Kill&b]&3 <shooter> killed <victim> using a &6SilSil69&3!

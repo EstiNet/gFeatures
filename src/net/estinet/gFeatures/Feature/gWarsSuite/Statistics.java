@@ -3,8 +3,6 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.estinet.gFeatures.Basic;
-import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Connection;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;

@@ -13,7 +13,7 @@ It is the core that symbolizes everything about us.
 ## Notes
 gFeatures 1.0 is located in "tk.genesishub.*" and is in a End of Support phase.
 
-gFeatures2 is located in "net.genesishub.*" & "net.dolphinbox.*" and is now in a extended support phase.
+gFeatures2 is located in "net.genesishub.*" and is now in End of Support phase.
 
 gFeatures 3.0 is located in "net.estinet.gFeatures". It is in active development, and is in Mainstream support phase.
 

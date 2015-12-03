@@ -102,7 +102,7 @@ public class TierZero{
 	public void special(){
 		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
-    	cs.giveWeapon(p, "Shotgun", 1);
+    	cs.giveWeapon(p, "Crossbow", 1);
     	cs.giveWeapon(p, "Python", 1);
     	Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "jetpacks cheat jetpack "+ p.getName());
     	finali();
