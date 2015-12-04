@@ -152,7 +152,7 @@ public class EventHub {
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());
 			sm.intialize();
 			if(BlueTeam.hasPlayer(event.getPlayer())){
-				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 3, (byte)3);
 				event.getPlayer().getInventory().setHelmet(wool);
 			}
 			else if(OrangeTeam.hasPlayer(event.getPlayer())){
