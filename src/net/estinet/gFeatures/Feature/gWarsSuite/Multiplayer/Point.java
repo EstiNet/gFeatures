@@ -90,6 +90,7 @@ public class Point {
 		List<Block> blocks = new ArrayList<>();
 		for(Location loc : location){
 			blocks.add(loc.getBlock());
+			
 		}
 		for(Block block : blocks){
 			block.setData((byte)1);
@@ -101,6 +102,7 @@ public class Point {
 		List<Block> blocks = new ArrayList<>();
 		for(Location loc : location){
 			blocks.add(loc.getBlock());
+			
 		}
 		for(Block block : blocks){
 			block.setData((byte)3);
@@ -112,6 +114,7 @@ public class Point {
 		List<Block> blocks = new ArrayList<>();
 		for(Location loc : location){
 			blocks.add(loc.getBlock());
+			
 		}
 		for(Block block : blocks){
 			block.setData((byte)0);
