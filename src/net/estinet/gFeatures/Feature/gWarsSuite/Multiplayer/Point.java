@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -40,29 +41,31 @@ public class Point {
 		spawnlocation = spawn;
 		location.add(upper);
 		World world = upper.getWorld();
+		Bukkit.getLogger().info("Upper: Block X: " + upper.getBlockX() + " Block Z: " + upper.getBlockZ());
+		Bukkit.getLogger().info("Lower: Block X: " + lower.getBlockX() + " Block Z: " + lower.getBlockZ());
 		if(upper.getBlockX() < lower.getBlockX()){
-			for(int i = upper.getBlockX();i == lower.getBlockX(); i++){
+			for(int i = upper.getBlockX();i != lower.getBlockX(); i++){
 				if(upper.getBlockZ() < lower.getBlockZ()){
-					for(int id = upper.getBlockZ();i == lower.getBlockZ(); id++){
+					for(int id = upper.getBlockZ();id != lower.getBlockZ(); id++){
 						location.add(new Location(world, i, upper.getBlockY(), id));
 					}
 				}
 				else{
-					for(int id = upper.getBlockZ();i == lower.getBlockZ(); id--){
+					for(int id = upper.getBlockZ();id != lower.getBlockZ(); id--){
 						location.add(new Location(world, i, upper.getBlockY(), id));
 					}
 				}
 			}
 		}
 		else if(upper.getBlockX() > lower.getBlockX()){
-			for(int i = upper.getBlockX();i == lower.getBlockX(); i--){
+			for(int i = upper.getBlockX();i != lower.getBlockX(); i--){
 				if(upper.getBlockZ() < lower.getBlockZ()){
-					for(int id = upper.getBlockZ();i == lower.getBlockZ(); id++){
+					for(int id = upper.getBlockZ();id != lower.getBlockZ(); id++){
 						location.add(new Location(world, i, upper.getBlockY(), id));
 					}
 				}
 				else{
-					for(int id = upper.getBlockZ();i == lower.getBlockZ(); id--){
+					for(int id = upper.getBlockZ();id != lower.getBlockZ(); id--){
 						location.add(new Location(world, i, upper.getBlockY(), id));
 					}
 				}
