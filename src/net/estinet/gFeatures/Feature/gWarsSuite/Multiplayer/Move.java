@@ -29,6 +29,30 @@ public class Move {
 		for(Point point : Constants.multiplayerpossession.keySet()){
 			if(point.isInLocation(event.getPlayer().getLocation())){
 				Bukkit.getLogger().info("Player is in");
+				if(OrangeTeam.hasPlayer(event.getPlayer())){
+					if(point.getCaptureState().equals(CaptureState.blue) || point.getCaptureState().equals(CaptureState.white)){
+						point.setNeutral();
+						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				        	public void run(){
+				        		if(point.isInLocation(event.getPlayer().getLocation())){
+				        			point.setOrange();
+				        		}
+				        	}
+				        }, 60L);
+					}
+				}
+				else if(BlueTeam.hasPlayer(event.getPlayer())){
+					if(point.getCaptureState().equals(CaptureState.orange) || point.getCaptureState().equals(CaptureState.white)){
+						point.setNeutral();
+						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				        	public void run(){
+				        		if(point.isInLocation(event.getPlayer().getLocation())){
+				        			point.setBlue();
+				        		}
+				        	}
+				        }, 60L);
+					}
+				}
 			}
 		}	
 	}

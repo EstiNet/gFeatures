@@ -94,6 +94,7 @@ public class Point {
 		for(Block block : blocks){
 			block.setData((byte)1);
 		}
+		capturestate = CaptureState.orange;
 	}
 	@SuppressWarnings("deprecation")
 	public void setBlue(){
@@ -104,6 +105,7 @@ public class Point {
 		for(Block block : blocks){
 			block.setData((byte)3);
 		}
+		capturestate = CaptureState.blue;
 	}
 	@SuppressWarnings("deprecation")
 	public void setNeutral(){
@@ -114,6 +116,7 @@ public class Point {
 		for(Block block : blocks){
 			block.setData((byte)0);
 		}
+		capturestate = CaptureState.white;
 	}
 	public boolean isInLocation(Location loc){
 		for(Location locs : location){
@@ -158,17 +161,9 @@ public class Point {
 		switch(capturestate){
 		case blue:
 			break;
-		case blue1:
-			break;
-		case blue2:
-			break;
 		case white:
 			break;
 		case orange:
-			break;
-		case orange1:
-			break;
-		case orange2:
 			break;
 		}
 	}

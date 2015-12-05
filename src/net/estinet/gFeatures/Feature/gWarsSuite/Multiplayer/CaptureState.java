@@ -20,5 +20,5 @@ https://github.com/EstiNet/gFeatures
 */
 
 public enum CaptureState {
-	orange, orange1, orange2, white, blue2, blue1, blue
+	orange, white, blue
 }
