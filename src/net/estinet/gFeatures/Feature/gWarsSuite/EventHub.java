@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.util.List;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Connection;
@@ -139,7 +140,6 @@ public class EventHub {
 	}
 	public void onEntityExplode(EntityExplodeEvent e) {
 		List<Block> blocks = e.blockList();
-		 
 		for (Block b : blocks){
 		b.getDrops().clear();
 		}
@@ -152,7 +152,7 @@ public class EventHub {
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());
 			sm.intialize();
 			if(BlueTeam.hasPlayer(event.getPlayer())){
-				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 3, (byte)3);
+				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 				event.getPlayer().getInventory().setHelmet(wool);
 			}
 			else if(OrangeTeam.hasPlayer(event.getPlayer())){
@@ -166,6 +166,7 @@ public class EventHub {
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
+			Debug.print("He moved.");
 			Move move = new Move();
 			move.initialize(event);
 		}

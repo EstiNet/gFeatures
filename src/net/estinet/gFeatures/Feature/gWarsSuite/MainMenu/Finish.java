@@ -54,7 +54,7 @@ public class Finish {
 			p.getInventory().setHelmet(wool);
 		}
 		else{
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 3, (byte)1);
+			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 			p.getInventory().setHelmet(wool);
 		}
 	}
