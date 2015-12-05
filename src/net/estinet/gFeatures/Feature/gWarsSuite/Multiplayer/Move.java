@@ -1,8 +1,10 @@
 package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 
+import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.gWarsSuite.Constants;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 /*
@@ -25,17 +27,24 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Move {
+	ActionAPI aapi = new ActionAPI();
+	Source s = new Source();
 	public void initialize(PlayerMoveEvent event){
 		for(Point point : Constants.multiplayerpossession.keySet()){
 			if(point.isInLocation(event.getPlayer().getLocation())){
-				Bukkit.getLogger().info("Player is in");
 				if(OrangeTeam.hasPlayer(event.getPlayer())){
 					if(point.getCaptureState().equals(CaptureState.blue) || point.getCaptureState().equals(CaptureState.white)){
 						point.setNeutral();
+						s.flushAll();
+						aapi.sendTitles(event.getPlayer(), 20, 40, 20, ChatColor.GOLD + point.getName() + " is being captured!", ChatColor.GOLD + point.getName() + " is now " + ChatColor.WHITE + ChatColor.BOLD + " NEUTRAL.");
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 				        	public void run(){
 				        		if(point.isInLocation(event.getPlayer().getLocation())){
 				        			point.setOrange();
+				        			Constants.multiplayerpossession.remove(point);
+				        			Constants.multiplayerpossession.put(point, Team.ORANGE);
+									s.flushAll();
+									aapi.sendTitle(event.getPlayer(), 20, 40, 20, ChatColor.GOLD + point.getName() + " has been captured by Kloyne!");
 				        		}
 				        	}
 				        }, 60L);
@@ -44,10 +53,16 @@ public class Move {
 				else if(BlueTeam.hasPlayer(event.getPlayer())){
 					if(point.getCaptureState().equals(CaptureState.orange) || point.getCaptureState().equals(CaptureState.white)){
 						point.setNeutral();
+						s.flushAll();
+						aapi.sendTitles(event.getPlayer(), 20, 40, 20, ChatColor.DARK_AQUA + point.getName() + " is being captured!", ChatColor.DARK_AQUA + point.getName() + " is now " + ChatColor.WHITE + ChatColor.BOLD + " NEUTRAL.");
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 				        	public void run(){
 				        		if(point.isInLocation(event.getPlayer().getLocation())){
 				        			point.setBlue();
+				        			Constants.multiplayerpossession.remove(point);
+				        			Constants.multiplayerpossession.put(point, Team.BLUE);
+									s.flushAll();
+									aapi.sendTitle(event.getPlayer(), 20, 40, 20, ChatColor.DARK_AQUA + point.getName() + " has been captured by Kloyne!");
 				        		}
 				        	}
 				        }, 60L);
