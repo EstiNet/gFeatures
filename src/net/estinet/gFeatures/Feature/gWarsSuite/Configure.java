@@ -25,7 +25,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.7.0");
+		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.7.1");
 		Basic.addFeature(base);
 	}
 }

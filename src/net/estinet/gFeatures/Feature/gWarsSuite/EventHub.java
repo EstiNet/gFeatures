@@ -18,6 +18,7 @@ import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -165,7 +166,8 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
-		if(stats.getMode(event.getPlayer().getName()).equals(gWarsMode.TEAM)){
+		Bukkit.getLogger().info("0");
+		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
 			Move move = new Move();
 			move.initialize(event);
 		}
