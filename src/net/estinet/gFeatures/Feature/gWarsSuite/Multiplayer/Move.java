@@ -30,10 +30,8 @@ public class Move {
 	ActionAPI aapi = new ActionAPI();
 	Source s = new Source();
 	public void initialize(PlayerMoveEvent event){
-		Bukkit.getLogger().info("1");
 		for(Point point : Constants.multiplayerpossession.keySet()){
 			if(point.isInLocation(event.getPlayer().getLocation())){
-				Bukkit.getLogger().info("4");
 				if(OrangeTeam.hasPlayer(event.getPlayer())){
 					if(point.getCaptureState().equals(CaptureState.blue) || point.getCaptureState().equals(CaptureState.white)){
 						point.setNeutral();
@@ -53,9 +51,7 @@ public class Move {
 					}
 				}
 				else if(BlueTeam.hasPlayer(event.getPlayer())){
-					Bukkit.getLogger().info("2");
 					if(point.getCaptureState().equals(CaptureState.orange) || point.getCaptureState().equals(CaptureState.white)){
-						Bukkit.getLogger().info("3");
 						point.setNeutral();
 						s.flushAll();
 						aapi.sendTitles(event.getPlayer(), 20, 40, 20, ChatColor.DARK_AQUA + point.getName() + " is being captured!", ChatColor.DARK_AQUA + point.getName() + " is now " + ChatColor.WHITE + ChatColor.BOLD + " NEUTRAL.");

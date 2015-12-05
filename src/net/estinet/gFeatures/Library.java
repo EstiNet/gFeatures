@@ -1,6 +1,7 @@
 package net.estinet.gFeatures;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 import org.bukkit.event.Event;
@@ -126,6 +127,7 @@ public class Library {
 				}
 			} catch (NoSuchMethodException e) {} 
 			catch (SecurityException e) {}
+			catch (ConcurrentModificationException e) {}
 		}
 		List<Extension> extensions = Basic.getExtensions();
 		List<gUtility> utilities = new ArrayList<>();

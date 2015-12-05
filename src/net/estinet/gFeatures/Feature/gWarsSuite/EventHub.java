@@ -166,7 +166,6 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
-		Bukkit.getLogger().info("0");
 		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
 			Move move = new Move();
 			move.initialize(event);
