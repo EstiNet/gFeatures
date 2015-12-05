@@ -111,13 +111,9 @@ public class Point {
 	}
 	@SuppressWarnings("deprecation")
 	public void setNeutral(){
-		List<Block> blocks = new ArrayList<>();
-		for(Location loc : location){
-			blocks.add(loc.getBlock());
-			
-		}
-		for(Block block : blocks){
-			block.setData((byte)0);
+		for(Location location : location){
+			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
+			block.setTypeId(95);
 		}
 		capturestate = CaptureState.white;
 	}
