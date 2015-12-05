@@ -6,6 +6,7 @@ import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -45,6 +46,7 @@ public class CommandHub {
 					sender.sendMessage(ChatColor.AQUA + "/gWarss kills [amount] [Player] - Sets a player's kills stat.");
 					sender.sendMessage(ChatColor.AQUA + "/gWarss deaths [amount] [Player] - Sets a player's deaths stat.");
 					sender.sendMessage(ChatColor.AQUA + "/gWarss mode [value] [Player] - Sets a player's mode stat.");
+					sender.sendMessage(ChatColor.AQUA + "/gWarss points - Shows point data. ");
 					sender.sendMessage(ChatColor.AQUA + "/gWarss version - Shows the version. ");
 				}
 				else if(args[0].equalsIgnoreCase("stats")){
@@ -55,6 +57,21 @@ public class CommandHub {
 				}
 				else if(args[0].equalsIgnoreCase("version")){
 					sender.sendMessage(ChatColor.GRAY + "gWarsSuite version " + Basic.getFeature("gWarsSuite").getVersion());
+				}
+				else if(args[0].equalsIgnoreCase("points")){
+					sender.sendMessage(ChatColor.GRAY + "Points: ");
+					sender.sendMessage(ChatColor.GRAY + "Bridge: ");
+					for(Location loc: Constants.bridge.getLocations()){
+						sender.sendMessage(ChatColor.GRAY + "X: " + loc.getBlockX() + " Y: " + loc.getBlockY() + " Z: " + loc.getBlockZ());
+					}
+					sender.sendMessage(ChatColor.GRAY + "Kloyne Highway: ");
+					for(Location loc: Constants.kloynehighway.getLocations()){
+						sender.sendMessage(ChatColor.GRAY + "X: " + loc.getBlockX() + " Y: " + loc.getBlockY() + " Z: " + loc.getBlockZ());
+					}
+					sender.sendMessage(ChatColor.GRAY + "Innisfil Highway: ");
+					for(Location loc: Constants.innisfilhighway.getLocations()){
+						sender.sendMessage(ChatColor.GRAY + "X: " + loc.getBlockX() + " Y: " + loc.getBlockY() + " Z: " + loc.getBlockZ());
+					}
 				}
 				else if(args[0].equalsIgnoreCase("teams")){
 					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Orange Team:");

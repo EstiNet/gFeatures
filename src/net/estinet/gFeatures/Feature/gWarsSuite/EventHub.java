@@ -165,8 +165,7 @@ public class EventHub {
 		event.setCancelled(true);
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
-		if(stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAM)){
-			Debug.print("He moved.");
+		if(stats.getMode(event.getPlayer().getName()).equals(gWarsMode.TEAM)){
 			Move move = new Move();
 			move.initialize(event);
 		}

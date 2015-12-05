@@ -50,6 +50,6 @@ public class Constants {
 	public static List<String> tank = new ArrayList<>();
 	
 	public static Point innisfilhighway = new Point("Innisfil Highway", new Location(world, 42, 60, 80), new Location(world, 44, 60, 78), new Location(world, 43, 61, 80), CaptureState.blue);
-	public static Point kloynehighway = new Point("Kloyne Highway", new Location(world, 514, 60, -74), new Location(world, 512, 60, -76), new Location(world, 514, 61, -75), CaptureState.orange);
+	public static Point kloynehighway = new Point("Kloyne Highway", new Location(world, 512, 60, -76), new Location(world, 514, 60, -74), new Location(world, 514, 61, -75), CaptureState.orange);
 	public static Point bridge = new Point("Bridge", new Location(world, 354, 85, -139), new Location(world, 351, 85, -141), new Location(world, 353, 86, -141), CaptureState.white); 
 }

@@ -70,6 +70,9 @@ public class Point {
 		}
 		
 	}
+	public List<Location> getLocations(){
+		return location;
+	}
 	public String getName(){
 		return name;
 	}

@@ -54,6 +54,14 @@ public class Statistics {
 	public gWarsMode getMode(Entity entity){
 		return Constants.mode.get(entity);
 	}
+	public gWarsMode getMode(String playername){
+		for(Entity entity: Constants.mode.keySet()){
+			if(entity.getName().equals(playername)){
+				return Constants.mode.get(entity);
+			}
+		}
+		return null;
+	}
 	public void addKill(Player p, int num){
 		List<String> rs = new ArrayList<>();
 		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Kills FROM Kills WHERE Name = '" + p.getUniqueId().toString() + "';");
