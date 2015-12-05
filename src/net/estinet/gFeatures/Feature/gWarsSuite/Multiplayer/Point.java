@@ -87,25 +87,17 @@ public class Point {
 	}
 	@SuppressWarnings("deprecation")
 	public void setOrange(){
-		List<Block> blocks = new ArrayList<>();
-		for(Location loc : location){
-			blocks.add(loc.getBlock());
-			
-		}
-		for(Block block : blocks){
-			block.setData((byte)1);
+		for(Location location : location){
+			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
+			block.setTypeIdAndData(95, (byte) 1, true);
 		}
 		capturestate = CaptureState.orange;
 	}
 	@SuppressWarnings("deprecation")
 	public void setBlue(){
-		List<Block> blocks = new ArrayList<>();
-		for(Location loc : location){
-			blocks.add(loc.getBlock());
-			
-		}
-		for(Block block : blocks){
-			block.setData((byte)3);
+		for(Location location : location){
+			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
+			block.setTypeIdAndData(95, (byte) 3, true);
 		}
 		capturestate = CaptureState.blue;
 	}
@@ -119,7 +111,6 @@ public class Point {
 	}
 	public boolean isInLocation(Location loc){
 		for(Location locs : location){
-			Debug.print("[gCheck] Player x " + Math.floor(loc.getX()) + " point x " + Math.floor(locs.getX()) + " Player z " + Math.floor(loc.getBlockZ()) + " point z " + Math.floor(locs.getZ()));
 			if(Math.floor(locs.getX()) == Math.floor(loc.getX()) && Math.floor(locs.getZ()) == Math.floor(loc.getBlockZ())){
 				return true;
 			}

@@ -42,7 +42,6 @@ public class BlueTeam {
 	}
 	public static boolean hasPlayer(Player p){
 		for(Player player : bt){
-			Bukkit.getLogger().info("Player name: " + p.getName() + " Check name: " + player.getName());
 			if(p.getName().equalsIgnoreCase(player.getName())){
 				return true;
 			}
