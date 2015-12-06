@@ -1,4 +1,7 @@
 # gFeatures
+
+[![Join the chat at https://gitter.im/GlowstonePlusPlus/GlowstonePlusPlus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EstiNet/gFeatures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The core of EstiNet.
 
 EstiNet - The flow of creativity.
