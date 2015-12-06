@@ -4,7 +4,7 @@ The core of EstiNet.
 EstiNet - The flow of creativity.
 
 ##Version
-gFeatures Core/API: 3.0
+gFeatures Core/API: 3.0.3 BETA
 
 ## Info
 gFeatures powers EstiNet.
