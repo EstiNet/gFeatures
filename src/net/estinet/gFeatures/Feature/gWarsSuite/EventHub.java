@@ -90,6 +90,7 @@ public class EventHub {
 		BlueTeam.removePlayer(event.getPlayer());
 		OrangeTeam.removePlayer(event.getPlayer());
 		Constants.spawndump.remove(p);
+		Constants.capturetrigger.remove(event.getPlayer().getName());
 	}
 	public void onPlayerOpenInventory(InventoryOpenEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){

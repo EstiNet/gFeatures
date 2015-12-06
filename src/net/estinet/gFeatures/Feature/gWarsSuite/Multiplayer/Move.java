@@ -31,17 +31,20 @@ public class Move {
 	ActionAPI aapi = new ActionAPI();
 	Source s = new Source();
 	public void initialize(PlayerMoveEvent event){
+		if(!Constants.capturetrigger.contains(event.getPlayer().getName())){
 		for(Point point : Constants.multiplayerpossession.keySet()){
 			if(point.isInLocation(event.getPlayer().getLocation())){
 				if(OrangeTeam.hasPlayer(event.getPlayer())){
 					if(point.getCaptureState().equals(CaptureState.blue) || point.getCaptureState().equals(CaptureState.white)){
 						point.setNeutral();
 						s.flushAll();
+						Constants.capturetrigger.add(event.getPlayer().getName());
 						for(Player p : Bukkit.getOnlinePlayers()){
 							aapi.sendTitles(p, 20, 40, 20, ChatColor.GOLD + point.getName() + " is being captured!", ChatColor.GOLD + point.getName() + " is now " + ChatColor.WHITE + ChatColor.BOLD + " NEUTRAL.");
 						}
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 				        	public void run(){
+				        		Constants.capturetrigger.remove(event.getPlayer().getName());
 				        		if(point.isInLocation(event.getPlayer().getLocation())){
 				        			point.setOrange();
 				        			Constants.multiplayerpossession.remove(point);
@@ -60,11 +63,13 @@ public class Move {
 					if(point.getCaptureState().equals(CaptureState.orange) || point.getCaptureState().equals(CaptureState.white)){
 						point.setNeutral();
 						s.flushAll();
+						Constants.capturetrigger.add(event.getPlayer().getName());
 						for(Player p : Bukkit.getOnlinePlayers()){
 							aapi.sendTitles(p, 20, 40, 20, ChatColor.DARK_AQUA + point.getName() + " is being captured!", ChatColor.DARK_AQUA + point.getName() + " is now " + ChatColor.WHITE + ChatColor.BOLD + " NEUTRAL.");
 						}
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 				        	public void run(){
+				        		Constants.capturetrigger.remove(event.getPlayer().getName());
 				        		if(point.isInLocation(event.getPlayer().getLocation())){
 				        			point.setBlue();
 				        			Constants.multiplayerpossession.remove(point);
@@ -80,5 +85,6 @@ public class Move {
 				}
 			}
 		}	
+	}
 	}
 }
