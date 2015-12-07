@@ -6,18 +6,18 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.gFeature;
 
-public class EstiPlayer {
+public class EstiPlayer<T> {
 	private Player player;
 	private String name;
 	private String UUID;
-	private HashMap<gFeature, EstiSet> data = new HashMap<>();
+	private HashMap<gFeature, EstiSet<T>> data = new HashMap<>();
 	
 	public EstiPlayer(Player p){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
 		player = p;
 	}
-	public EstiPlayer(Player p, HashMap<gFeature, EstiSet> info){
+	public EstiPlayer(Player p, HashMap<gFeature, EstiSet<T>> info){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
 		data = info;
@@ -29,16 +29,19 @@ public class EstiPlayer {
 	public String getUUID(){
 		return UUID;
 	}
-	public HashMap<gFeature, EstiSet> getData(){
+	public HashMap<gFeature, EstiSet<T>> getData(){
 		return data;
 	}
 	public Player getPlayer(){
 		return player;
 	}
-	public void addData(gFeature plugin, EstiSet datas){
+	public void addSet(gFeature plugin, EstiSet<T> datas){
 		data.put(plugin, datas);
 	}
-	public void removeData(gFeature plugin, Key key){
-		
+	public void addData(gFeature plugin, Key<T> key, T value){
+		data.get(plugin).addData(key, value);
+	}
+	public void removeData(gFeature plugin, Key<T> key){
+		data.get(plugin).getData().remove(key);
 	}
 }
