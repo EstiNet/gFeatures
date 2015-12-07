@@ -57,8 +57,14 @@ public class Cleanup implements Runnable{
 			Debug.print(e.getMessage());
 		}
 		for(String perm : perms.keySet()){
+			try{
 			cc.deletegPerm(perm, perms.get(perm));
+			}
+			catch(Exception e){}
+			try{
 			cc.addgPerm(perm, perms.get(perm));
+			}
+			catch(Exception e){}
 		}
 		HashMap<String, String> inherits = new HashMap<>();
 		cache = 0;
