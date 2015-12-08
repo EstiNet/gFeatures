@@ -83,8 +83,12 @@ public class Cleanup implements Runnable{
 			e.printStackTrace();
 		}
 		for(String inherit : inherits.keySet()){
+			try{
 			cc.deletegInherit(inherit, inherits.get(inherit));
+			}catch(Exception e){}
+			try{
 			cc.addgInherit(inherit, inherits.get(inherit));
+			}catch(Exception e){}
 		}
 	}
 	@Override
