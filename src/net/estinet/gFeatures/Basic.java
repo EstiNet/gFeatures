@@ -6,6 +6,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.Setup;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 
 /*
 gFeatures
@@ -32,6 +33,9 @@ public class Basic {
 	private static List<Extension> extensions = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();
 	private static List<gPlayer> playerstats = new ArrayList<>();
+	
+	private static List<EstiPlayer> sqlplayers = new ArrayList<>();
+	
 	public static void addFeature(gFeature feature){
 		features.add(feature);
 	}

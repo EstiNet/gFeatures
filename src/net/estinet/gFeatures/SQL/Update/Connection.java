@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.API.SQLPlayer;
+package net.estinet.gFeatures.SQL.Update;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
