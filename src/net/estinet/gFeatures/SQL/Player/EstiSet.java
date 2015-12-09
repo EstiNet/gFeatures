@@ -4,42 +4,48 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
-public class EstiSet<T> {
+public class EstiSet<T, V> {
 	private String tag;
-	private HashMap<Key, T> data = new HashMap<>();
+	private HashMap<Key<V>, T> data = new HashMap<>();
 	
 	public EstiSet(){}
-	public EstiSet(HashMap<Key, T> datas){
+	public EstiSet(HashMap<Key<V>, T> datas){
 		data = datas;
 	}
-	public EstiSet(HashMap<Key, T> datas, String tags){
+	public EstiSet(HashMap<Key<V>, T> datas, String tags){
 		data = datas;
 		tag = tags;
 	}
 	
-	public void addData(Key key, T info){
+	public void setTag(String tags){
+		tag = tags;
+	}
+	public String getTag(){
+		return tag;
+	}
+	public void addData(Key<V> key, T info){
 		data.put(key, info);
 	}
-	public void removeData(Key key){
-		
+	public void removeData(Key<V> key){
+		data.remove(key);
 	}
-	public HashMap<Key, T> getData(){
+	public HashMap<Key<V>, T> getData(){
 		return data;
 	}
-	public T getData(Key key){
+	public T getData(Key<V> key){
 		return data.get(key);
 	}
 	public void clearData(){
 		data = new HashMap<>();
 	}
-	public void setData(HashMap<Key, T> datas){
+	public void setData(HashMap<Key<V>, T> datas){
 		data = datas;
 	}
-	public void setData(Key key, T value){
+	public void setData(Key<V> key, T value){
 		data.remove(key);
 		data.put(key, value);
 	}
-	public Set<Key> getKeySet(){
+	public Set<Key<V>> getKeySet(){
 		return data.keySet();
 	}
 	public Collection<T> getValueSet(){
@@ -48,7 +54,7 @@ public class EstiSet<T> {
 	public boolean containsValue(T value){
 		return data.containsValue(value);
 	}
-	public boolean containsKey(Key key){
+	public boolean containsKey(Key<V> key){
 		return data.containsKey(key);
 	}
 }
