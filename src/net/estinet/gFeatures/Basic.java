@@ -1,8 +1,11 @@
 package net.estinet.gFeatures;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.estinet.gFeatures.API.PlayerStats.Setup;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
@@ -29,6 +32,9 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basic<T,V> {
+	File f = new File("plugins/gFeatures/Config.yml");
+	YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+	
 	static Setup setup = new Setup();
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
@@ -151,5 +157,41 @@ public class Basic<T,V> {
 	public static void resetExtensions(){
 		List<Extension> extend = new ArrayList<>();
 		extensions = extend;
+	}
+	
+	
+	/*
+	 * MySQL Integration
+	 */
+	
+	public String getPort(){
+		if(yamlFile.get("Config.MySQL.Port") == null){
+			return "";
+		}
+		return yamlFile.get("Config.MySQL.Port").toString();
+	}
+	public String getAddress(){
+		if(yamlFile.get("Config.MySQL.Address") == null){
+			return "";
+		}
+		return yamlFile.get("Config.MySQL.Address").toString();
+	}
+	public String getTablename(){
+		if(yamlFile.get("Config.MySQL.TableName") == null){
+			return "";
+		}
+		return yamlFile.get("Config.MySQL.TableName").toString();
+	}
+	public String getUsername(){
+		if(yamlFile.get("Config.MySQL.Username") == null){
+			return "";
+		}
+		return yamlFile.get("Config.MySQL.Username").toString();
+	}
+	public String getPassword(){
+		if(yamlFile.get("Config.MySQL.Password") == null){
+			return "";
+		}
+		return yamlFile.get("Config.MySQL.Password").toString();
 	}
 }

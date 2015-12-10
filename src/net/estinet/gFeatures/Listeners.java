@@ -4,6 +4,7 @@ import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.SQL.Update.Obtain;
 import net.genesishub.gFeatures.API.Logger.Debug;
 
 import org.bukkit.command.Command;
@@ -82,6 +83,12 @@ public class Listeners extends JavaPlugin implements Listener{
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		try{
 		load.load();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		try{
+			Obtain.start();
 		}
 		catch(Exception e){
 			e.printStackTrace();

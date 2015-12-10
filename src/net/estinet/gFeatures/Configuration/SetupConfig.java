@@ -65,6 +65,19 @@ public class SetupConfig {
 				yamlFile.set("Config.Extensions." + extend.getType().toString() + "." + extend.getName() , "false");
 			}
 		}
+		if(!(yamlFile.contains("Config.MySQL"))){
+			yamlFile.createSection("Config.MySQL");
+			yamlFile.createSection("Config.MySQL.Address");
+			yamlFile.createSection("Config.MySQL.Port");
+			yamlFile.createSection("Config.MySQL.TableName");
+			yamlFile.createSection("Config.MySQL.Username");
+			yamlFile.createSection("Config.MySQL.Password");
+			yamlFile.set("Config.MySQL.Port", "3306");
+			yamlFile.set("Config.MySQL.Address", "localhost");
+			yamlFile.set("Config.MySQL.TableName", "gfeatures");
+			yamlFile.set("Config.MySQL.Username", "root");
+			yamlFile.set("Config.MySQL.Password", "pass123");
+		}
 		try {
 			yamlFile.save(f);
 		} catch (IOException e) {
