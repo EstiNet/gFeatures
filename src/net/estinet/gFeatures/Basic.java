@@ -32,8 +32,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basic<T,V> {
-	File f = new File("plugins/gFeatures/Config.yml");
-	YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+	public static File f = new File("plugins/gFeatures/Config.yml");
+	public static YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 	
 	static Setup setup = new Setup();
 	public static List<gFeature> features = new ArrayList<>();
@@ -164,31 +164,31 @@ public class Basic<T,V> {
 	 * MySQL Integration
 	 */
 	
-	public String getPort(){
+	public static String getPort(){
 		if(yamlFile.get("Config.MySQL.Port") == null){
 			return "";
 		}
 		return yamlFile.get("Config.MySQL.Port").toString();
 	}
-	public String getAddress(){
+	public static String getAddress(){
 		if(yamlFile.get("Config.MySQL.Address") == null){
 			return "";
 		}
 		return yamlFile.get("Config.MySQL.Address").toString();
 	}
-	public String getTablename(){
+	public static String getTablename(){
 		if(yamlFile.get("Config.MySQL.TableName") == null){
 			return "";
 		}
 		return yamlFile.get("Config.MySQL.TableName").toString();
 	}
-	public String getUsername(){
+	public static String getUsername(){
 		if(yamlFile.get("Config.MySQL.Username") == null){
 			return "";
 		}
 		return yamlFile.get("Config.MySQL.Username").toString();
 	}
-	public String getPassword(){
+	public static String getPassword(){
 		if(yamlFile.get("Config.MySQL.Password") == null){
 			return "";
 		}
