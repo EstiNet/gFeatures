@@ -7,6 +7,7 @@ import java.util.List;
 import net.estinet.gFeatures.API.PlayerStats.Setup;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
+import net.estinet.gFeatures.SQL.Player.EstiSet;
 
 /*
 gFeatures
@@ -27,13 +28,15 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Basic {
+public class Basic<T,V> {
 	static Setup setup = new Setup();
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();
 	private static List<gPlayer> playerstats = new ArrayList<>();
-	
+	@SuppressWarnings("rawtypes")
+	private static List<EstiSet> sqlplayerfields = new ArrayList<>();
+	@SuppressWarnings("rawtypes")
 	private static List<EstiPlayer> sqlplayers = new ArrayList<>();
 	
 	public static void addFeature(gFeature feature){
@@ -48,6 +51,14 @@ public class Basic {
 	public static void addgPlayer(gPlayer player){
 		playerstats.add(player);
 	}
+	@SuppressWarnings("rawtypes")
+	public static void addSQLFields(EstiSet field){
+		sqlplayerfields.add(field);
+	}
+	@SuppressWarnings("rawtypes")
+	public static void addEstiPlayer(EstiPlayer estiplayer){
+		sqlplayers.add(estiplayer);
+	}
 	public static void removeFeature(gFeature feature){
 		features.remove(feature);
 	}
@@ -59,6 +70,14 @@ public class Basic {
 	}
 	public static void removegPlayer(gPlayer player){
 		playerstats.remove(player);
+	}
+	@SuppressWarnings("rawtypes")
+	public static void removeSQLFields(EstiSet field){
+		sqlplayerfields.remove(field);
+	}
+	@SuppressWarnings("rawtypes")
+	public static void removeEstiPlayer(EstiPlayer estiplayer){
+		sqlplayers.remove(estiplayer);
 	}
 	public static gFeature getFeature(String name){
 		for(gFeature feature : features){
@@ -96,6 +115,14 @@ public class Basic {
 	public static List<gPlayer> getgPlayers(){
 		return playerstats;
 	}
+	@SuppressWarnings("rawtypes")
+	public static List<EstiSet> getSQLFields(){
+		return sqlplayerfields;
+	}
+	@SuppressWarnings("rawtypes")
+	public static List<EstiPlayer> getEstiPlayers(){
+		return sqlplayers;
+	}
 	public static void setgPlayers(List<gPlayer> pl){
 		playerstats = pl;
 	}
@@ -104,6 +131,14 @@ public class Basic {
 	}
 	public static void setExtensions(List<Extension> pl){
 		extensions = pl;
+	}
+	@SuppressWarnings("rawtypes")
+	public static void setSQLFields(List<EstiSet> set){
+		sqlplayerfields = set;
+	}
+	@SuppressWarnings("rawtypes")
+	public static void setEstiPlayers(List<EstiPlayer> set){
+		sqlplayers = set;
 	}
 	public static void setgPlayer(gPlayer originalplayer, gPlayer newplayer){
 		playerstats.set(playerstats.indexOf(originalplayer), newplayer);
