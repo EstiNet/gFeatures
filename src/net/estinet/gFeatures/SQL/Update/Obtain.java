@@ -23,7 +23,7 @@ public class Obtain {
 		Password = Basic.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		c.checkOnline(URL, Username, Password);
-		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(Name VARCHAR(200), Object blob)  ENGINE=InnoDB;");
+		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Object blob, PRIMARY KEY (id))  ENGINE=InnoDB;");
 		
 		List<EstiSet> sets = Basic.getSQLFields();
 		
