@@ -10,12 +10,13 @@ public class gLoop {
 		 * Initialize gFeatures Core loops here.
 		 * 
 		 */
+		if(Basic.getSQLState()){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		Thread th = new Thread(new Runnable(){
         			public void run(){
         				try{
-        					
+        					Basic.syncSQLPlayers();
         				}
         				catch(Exception e){
         					Debug.print(e.getMessage());
@@ -24,6 +25,7 @@ public class gLoop {
         		});
         		th.start();
         	}
-        }, 1000L, 1000L);
+        }, 2000L, 2000L);
+		}
 	}
 }

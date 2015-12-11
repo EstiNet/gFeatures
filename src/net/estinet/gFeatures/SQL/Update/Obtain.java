@@ -11,6 +11,7 @@ public class Obtain {
 	static Connection c = new Connection();
 	@SuppressWarnings("rawtypes")
 	public static void start(){
+		if(Basic.getSQLState()){
 		String Address, Port, Tablename, Username, Password;
 		Address = Basic.getAddress();
 		Port = Basic.getPort();
@@ -42,5 +43,6 @@ public class Obtain {
 			}
 		}
 		Basic.setEstiPlayers(players);
+		}
 	}
 }

@@ -72,11 +72,13 @@ public class SetupConfig {
 			yamlFile.createSection("Config.MySQL.TableName");
 			yamlFile.createSection("Config.MySQL.Username");
 			yamlFile.createSection("Config.MySQL.Password");
+			yamlFile.createSection("Config.MySQL.State");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
 			yamlFile.set("Config.MySQL.TableName", "gfeatures");
 			yamlFile.set("Config.MySQL.Username", "root");
 			yamlFile.set("Config.MySQL.Password", "pass123");
+			yamlFile.set("Config.MySQL.State", "false");
 		}
 		try {
 			yamlFile.save(f);

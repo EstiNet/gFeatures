@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.Base;
 
+import java.util.HashMap;
+
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 /*
@@ -20,11 +22,20 @@ https://github.com/EstiNet/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+import net.estinet.gFeatures.SQL.Player.EstiSet;
+import net.estinet.gFeatures.SQL.Player.Key;
 
 public class Configure{
 	@Configs
 	public static void onSetup(){
 		Base base = new Base("Base", "1.2.5");
 		Basic.addFeature(base);
+		HashMap<Key<String>, String> hash = new HashMap<>();
+		Key<String> key = new Key<>();
+		key.setKey("Health");
+		hash.put(key, "He's healthy!");
+		EstiSet<String, String> set = new EstiSet<>();
+		set.setData(hash);
+		set.setTag(base);
 	}
 }

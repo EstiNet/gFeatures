@@ -6,6 +6,7 @@ import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.SQL.Update.Obtain;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -52,6 +53,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
@@ -116,6 +118,14 @@ public class CoreCommands{
 						enable.onEnable();
 						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 						load.load();
+						try{
+							Obtain.start();
+						}
+						catch(Exception e){
+							e.printStackTrace();
+						}
+						gLoop gl = new gLoop();
+						gl.start();
 						Bukkit.getLogger().info(" Complete!");
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
@@ -136,6 +146,9 @@ public class CoreCommands{
 							Listeners.debug = true;
 							sender.sendMessage(ChatColor.GRAY + "Turned on debugging.");
 						}
+						break;
+					case "flushsql":
+						Basic.syncSQLPlayers();
 						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){

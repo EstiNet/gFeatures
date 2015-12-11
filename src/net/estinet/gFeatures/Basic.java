@@ -207,4 +207,15 @@ public class Basic<T,V> {
 		}
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
+	public static boolean getSQLState(){
+		if(yamlFile.get("Config.MySQL.State") == null){
+			return false;
+		}
+		else if(yamlFile.get("Config.MySQL.State").equals("true")){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }

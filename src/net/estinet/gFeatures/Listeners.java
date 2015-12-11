@@ -53,7 +53,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "3.0.5 Beta";
+	public static final String version = "3.0.7 Beta";
 	public static boolean debug = false;
 	
 	PluginManager pm = getServer().getPluginManager();
@@ -64,6 +64,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	Setup setup = new Setup();
 	Load load = new Load();
 	Entrly entrly = new Entrly();
+	gLoop gl = new gLoop();
 	net.estinet.gFeatures.API.PlayerStats.Setup setups = new net.estinet.gFeatures.API.PlayerStats.Setup();
 	
 	@Override
@@ -95,6 +96,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		gl.start();
 		getLogger().info("Complete!");
 		getLogger().info("_________________________________________________________________________");
 	}
