@@ -4,23 +4,25 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
+import net.estinet.gFeatures.gFeature;
+
 public class EstiSet<T, V> {
-	private String tag;
+	private gFeature tag;
 	private HashMap<Key<V>, T> data = new HashMap<>();
 	
 	public EstiSet(){}
 	public EstiSet(HashMap<Key<V>, T> datas){
 		data = datas;
 	}
-	public EstiSet(HashMap<Key<V>, T> datas, String tags){
+	public EstiSet(HashMap<Key<V>, T> datas, gFeature tags){
 		data = datas;
 		tag = tags;
 	}
 	
-	public void setTag(String tags){
+	public void setTag(gFeature tags){
 		tag = tags;
 	}
-	public String getTag(){
+	public gFeature getTag(){
 		return tag;
 	}
 	public void addData(Key<V> key, T info){

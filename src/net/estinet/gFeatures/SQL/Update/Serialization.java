@@ -3,16 +3,20 @@ package net.estinet.gFeatures.SQL.Update;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Logger.Debug;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class Serialization {
 	  static final String WRITE_OBJECT_SQL = "INSERT INTO java_objects(name, object_value) VALUES (?, ?)";
 
 	  static final String READ_OBJECT_SQL = "SELECT object_value FROM java_objects WHERE id = ?";
-	  
-	  public static long writeJavaObject(Connection conn, Object object) throws Exception {
+	  static net.estinet.gFeatures.SQL.Update.Connection con = new net.estinet.gFeatures.SQL.Update.Connection();
+	  public static long writeJavaObject(Object object) throws Exception {
+		  	
+		    Connection conn = DriverManager.getConnection(con.toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
 		    String className = object.getClass().getName();
 		    PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL);
 
@@ -34,7 +38,8 @@ public class Serialization {
 		    return id;
 		  }
 
-		  public static Object readJavaObject(Connection conn, long id) throws Exception {
+		  public static Object readJavaObject(long id) throws Exception {
+			Connection conn = DriverManager.getConnection(con.toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
 		    PreparedStatement pstmt = conn.prepareStatement(READ_OBJECT_SQL);
 		    pstmt.setLong(1, id);
 		    ResultSet rs = pstmt.executeQuery();
