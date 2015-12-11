@@ -161,6 +161,14 @@ public class Basic<T,V> {
 	public static void syncSQLPlayers(){
 		
 	}
+	@SuppressWarnings("rawtypes")
+	public static HashMap<gFeature, EstiSet> getHashFromEstiSet(List<EstiSet> sets){
+		HashMap<gFeature, EstiSet> hash = new HashMap<>();
+		for(EstiSet set : sets){
+			hash.put(set.getTag(), set);
+		}
+		return hash;
+	}
 	
 	/*
 	 * MySQL Integration

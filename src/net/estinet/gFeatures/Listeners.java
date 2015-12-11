@@ -4,6 +4,7 @@ import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.SQL.Update.Entrly;
 import net.estinet.gFeatures.SQL.Update.Obtain;
 import net.genesishub.gFeatures.API.Logger.Debug;
 
@@ -62,6 +63,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	CommandLibrary commands = new CommandLibrary();
 	Setup setup = new Setup();
 	Load load = new Load();
+	Entrly entrly = new Entrly();
 	net.estinet.gFeatures.API.PlayerStats.Setup setups = new net.estinet.gFeatures.API.PlayerStats.Setup();
 	
 	@Override
@@ -116,7 +118,7 @@ public class Listeners extends JavaPlugin implements Listener{
 			Debug.print(e.getMessage());
 		}
 		try{
-			
+			entrly.join(event.getPlayer());
 		}
 		catch(Exception e){
 			Debug.print(e.getMessage());
@@ -125,6 +127,7 @@ public class Listeners extends JavaPlugin implements Listener{
     }
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
+    	library.onPlayerLeave(event);
     	try{
     	gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
     	for(String valuename : gp.getValues().keySet()){
@@ -135,7 +138,6 @@ public class Listeners extends JavaPlugin implements Listener{
     	catch(Exception e){
     		Debug.print(e.getMessage());
     	}
-    	library.onPlayerLeave(event);
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
