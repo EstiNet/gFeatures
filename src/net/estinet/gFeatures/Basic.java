@@ -158,7 +158,9 @@ public class Basic<T,V> {
 		List<Extension> extend = new ArrayList<>();
 		extensions = extend;
 	}
-	
+	public static void syncSQLPlayers(){
+		
+	}
 	
 	/*
 	 * MySQL Integration

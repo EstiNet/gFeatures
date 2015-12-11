@@ -115,6 +115,12 @@ public class Listeners extends JavaPlugin implements Listener{
 		catch(Exception e){
 			Debug.print(e.getMessage());
 		}
+		try{
+			
+		}
+		catch(Exception e){
+			Debug.print(e.getMessage());
+		}
     	library.onPlayerJoin(event);
     }
     @EventHandler
