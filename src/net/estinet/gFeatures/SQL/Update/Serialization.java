@@ -20,12 +20,10 @@ public class Serialization {
 		    String className = object.getClass().getName();
 		    PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL);
 
-		    // set input parameters
 		    pstmt.setString(1, className);
 		    pstmt.setObject(2, object);
 		    pstmt.executeUpdate();
 
-		    // get the generated key for the id
 		    ResultSet rs = pstmt.getGeneratedKeys();
 		    int id = -1;
 		    if (rs.next()) {
