@@ -1,12 +1,12 @@
 package net.estinet.gFeatures;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Update.Entrly;
 import net.estinet.gFeatures.SQL.Update.Obtain;
-import net.genesishub.gFeatures.API.Logger.Debug;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

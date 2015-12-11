@@ -10,9 +10,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Serialization {
-	  static final String WRITE_OBJECT_SQL = "INSERT INTO java_objects(name, object_value) VALUES (?, ?)";
+	  static final String WRITE_OBJECT_SQL = "INSERT INTO People(Name, Object) VALUES (?, ?)";
 
-	  static final String READ_OBJECT_SQL = "SELECT object_value FROM java_objects WHERE id = ?";
+	  static final String READ_OBJECT_SQL = "SELECT Object FROM People WHERE id = ?";
 	  static net.estinet.gFeatures.SQL.Update.Connection con = new net.estinet.gFeatures.SQL.Update.Connection();
 	  public static long writeJavaObject(Object object) throws Exception {
 		  	

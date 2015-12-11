@@ -11,6 +11,7 @@ import net.estinet.gFeatures.API.PlayerStats.Setup;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
+import net.estinet.gFeatures.SQL.Update.Write;
 
 /*
 gFeatures
@@ -36,6 +37,8 @@ public class Basic<T,V> {
 	public static YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 	
 	static Setup setup = new Setup();
+	static Write write = new Write();
+	
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();
@@ -159,7 +162,7 @@ public class Basic<T,V> {
 		extensions = extend;
 	}
 	public static void syncSQLPlayers(){
-		
+		write.writeToSQL();
 	}
 	@SuppressWarnings("rawtypes")
 	public static HashMap<gFeature, EstiSet> getHashFromEstiSet(List<EstiSet> sets){

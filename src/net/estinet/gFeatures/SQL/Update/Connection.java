@@ -38,9 +38,6 @@ public class Connection {
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-        //String url = "jdbc:mysql://localhost:3306/testdb";
-        //String user = "testuser";
-        //String password = "test623";
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
@@ -105,9 +102,6 @@ public class Connection {
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-        //String url = "jdbc:mysql://localhost:3306/testdb";
-        //String user = "testuser";
-        //String password = "test623";
         Bukkit.getLogger().info("Establishing Connection to " + url);
         try {
             con = DriverManager.getConnection(url, user, password);
@@ -138,19 +132,6 @@ public class Connection {
                 Bukkit.getLogger().info("Make sure you check if the port is correct!");
             }
         }
-		return false;
-	}
-	@SuppressWarnings("unused")
-	public boolean tableExists(String url, String user, String password) throws SQLException{
-		java.sql.Connection con = null;
-        java.sql.Statement st = null;
-        ResultSet rs = null;
-        String url1 = "jdbc:mysql://localhost:3306/";
-        con = DriverManager.getConnection(url1, user, password);
-        st = con.createStatement();
-        CheckConfig cc = new CheckConfig();
-        //rs = st.executeQuery("SHOW TABLES LIKE 'Money'");
-        //Bukkit.getLogger().info(rs.getString(1));
 		return false;
 	}
 	public String toURL(String port, String address, String table){
