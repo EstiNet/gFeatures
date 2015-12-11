@@ -5,7 +5,7 @@ import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 
 public class Write {
 	public void writeToSQL(){
-		if(Basic.getSQLState()){
+		//if(Basic.getSQLState()){
 		for(EstiPlayer player : Basic.getEstiPlayers()){
 			try {
 				Serialization.writeJavaObject(player);
@@ -13,6 +13,6 @@ public class Write {
 				e.printStackTrace();
 			}
 		}
-		}
+		//}
 	}
 }
