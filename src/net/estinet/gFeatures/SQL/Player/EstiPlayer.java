@@ -1,13 +1,19 @@
 package net.estinet.gFeatures.SQL.Player;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.gFeature;
 
-public class EstiPlayer<T, V> {
-	private Player player;
+public class EstiPlayer<T, V> implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1624113009039883572L;
+	
 	private String name;
 	private String UUID;
 	private HashMap<gFeature, EstiSet<T, V>> data = new HashMap<>();
@@ -15,13 +21,11 @@ public class EstiPlayer<T, V> {
 	public EstiPlayer(Player p){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
-		player = p;
 	}
 	public EstiPlayer(Player p, HashMap<gFeature, EstiSet<T, V>> info){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
 		data = info;
-		player = p;
 	}
 	public String getName(){
 		return name;
@@ -35,13 +39,17 @@ public class EstiPlayer<T, V> {
 	public void setUUID(String UUIDs){
 		UUID = UUIDs;
 	}
-	public void setPlayer(Player p){
-		player = p;
-	}
 	public HashMap<gFeature, EstiSet<T, V>> getData(){
 		return data;
 	}
 	public Player getPlayer(){
+		Player player = null;
+		for(Player p : Bukkit.getOnlinePlayers()){
+			if(p.getUniqueId().equals(UUID)){
+				player = p;
+				break;
+			}
+		}
 		return player;
 	}
 	public void addSet(gFeature plugin, EstiSet<T, V> datas){
