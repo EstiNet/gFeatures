@@ -8,7 +8,7 @@ public class Write {
 		//if(Basic.getSQLState()){
 		for(EstiPlayer player : Basic.getEstiPlayers()){
 			try {
-				Serialization.writeJavaObject(player);
+				Serialization.writeJavaObject(player.getUUID(), player);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

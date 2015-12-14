@@ -2,6 +2,7 @@ package net.estinet.gFeatures.SQL.Update;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Logger.Debug;
@@ -14,13 +15,13 @@ public class Serialization {
 
 	  static final String READ_OBJECT_SQL = "SELECT Object FROM People WHERE id = ?";
 	  static net.estinet.gFeatures.SQL.Update.Connection con = new net.estinet.gFeatures.SQL.Update.Connection();
-	  public static long writeJavaObject(Object object) throws Exception {
+	  public static long writeJavaObject(String name, Object object) throws Exception {
 		  	
 		    Connection conn = DriverManager.getConnection(con.toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
 		    String className = object.getClass().getName();
-		    PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL);
+		    PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL, Statement.RETURN_GENERATED_KEYS);
 
-		    pstmt.setString(1, className);
+		    pstmt.setString(1, name);
 		    pstmt.setObject(2, object);
 		    pstmt.executeUpdate();
 

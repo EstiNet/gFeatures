@@ -13,7 +13,6 @@ public class Entrly {
 			EstiPlayer player = Basic.getEstiPlayers().get(i);
 			if(player.getUUID().equals(p.getUniqueId())){
 				player.setName(player.getName());
-				player.setPlayer(p);
 				Basic.getEstiPlayers().set(i, player);
 				return;
 			}
