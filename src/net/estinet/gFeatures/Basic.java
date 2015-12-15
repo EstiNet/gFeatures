@@ -114,6 +114,14 @@ public class Basic<T,V> {
 		}
 		return null;
 	}
+	public static EstiPlayer getEstiPlayer(String uuid){
+		for(EstiPlayer player : sqlplayers){
+			if(player.getUUID().equalsIgnoreCase(uuid)){
+				return player;
+			}
+		}
+		return null;
+	}
 	public static List<gFeature> getFeatures(){
 		return features;
 	}
