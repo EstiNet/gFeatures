@@ -32,8 +32,9 @@ public class Obtain {
 		
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(0));
 		Bukkit.getLogger().info(Integer.toString(i));
+		i++;
 		
-		for(int iter = 0; iter < i; iter++){
+		for(int iter = 1; iter < i; iter++){
 			try {
 				EstiPlayer player = (EstiPlayer) Serialization.readJavaObject(iter);
 				
