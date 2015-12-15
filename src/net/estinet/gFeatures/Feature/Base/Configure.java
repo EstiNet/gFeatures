@@ -37,6 +37,7 @@ public class Configure{
 		EstiSet<String, String> set = new EstiSet<>();
 		set.setData(hash);
 		set.setTag(base);
+		Basic.addSQLFields(set);
 		
 	}
 }

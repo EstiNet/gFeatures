@@ -7,6 +7,8 @@ import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
+import net.estinet.gFeatures.SQL.Player.EstiSet;
+import net.estinet.gFeatures.SQL.Player.Key;
 import net.estinet.gFeatures.SQL.Update.Obtain;
 
 import org.bukkit.Bukkit;
@@ -56,6 +58,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsqlfields : Shows loaded SQL fields.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
@@ -164,6 +167,16 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Players:");
 						for(EstiPlayer p : Basic.getEstiPlayers()){
 							sender.sendMessage(ChatColor.GRAY + "- " + p.getName());
+						}
+						break;
+					case "loadedsqlfields":
+						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Fields:");
+						for(EstiSet set : Basic.getSQLFields()){
+							sender.sendMessage(ChatColor.GRAY + "- " + set.getTag().getName());
+							for(Object key : set.getData().keySet()){
+								Key keys = (Key) key;
+								sender.sendMessage(ChatColor.GRAY + "    - " + keys.getKey().toString());
+							}
 						}
 						break;
 					default:
