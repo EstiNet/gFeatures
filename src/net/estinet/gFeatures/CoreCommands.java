@@ -6,6 +6,7 @@ import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
+import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Update.Obtain;
 
 import org.bukkit.Bukkit;
@@ -54,6 +55,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
@@ -148,7 +150,21 @@ public class CoreCommands{
 						}
 						break;
 					case "flushsql":
-						Basic.syncSQLPlayers();
+						sender.sendMessage(ChatColor.GRAY + "Flushing SQL...");
+							
+							Thread thr = new Thread(new Runnable(){
+								public void run(){
+								Basic.recieveSQLPlayers();
+								sender.sendMessage(ChatColor.GRAY + "Finished!");
+							}
+						});
+						thr.start();
+						break;
+					case "loadedsql":
+						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Players:");
+						for(EstiPlayer p : Basic.getEstiPlayers()){
+							sender.sendMessage(ChatColor.GRAY + "- " + p.getName());
+						}
 						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){

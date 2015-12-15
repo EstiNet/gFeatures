@@ -16,7 +16,7 @@ public class gLoop {
         		Thread th = new Thread(new Runnable(){
         			public void run(){
         				try{
-        					Basic.syncSQLPlayers();
+        					Basic.recieveSQLPlayers();
         				}
         				catch(Exception e){
         					Debug.print(e.getMessage());
