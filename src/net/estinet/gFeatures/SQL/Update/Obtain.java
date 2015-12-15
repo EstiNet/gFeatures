@@ -36,7 +36,7 @@ public class Obtain {
 		for(int iter = 1; iter < i; iter++){
 			try {
 				Bukkit.getLogger().info(Serialization.readJavaObject(iter).getClass().getName());
-				EstiPlayer player = (EstiPlayer) Serialization.readJavaObject(iter);
+				EstiPlayer player = Serialization.readJavaObject(iter);
 				
 				for(int it = 0; it < sets.size(); it++){
 					if(!player.getData().containsValue(sets.get(it))){
