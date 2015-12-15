@@ -30,7 +30,8 @@ public class Obtain {
 		
 		List<EstiPlayer> players = new ArrayList<>();
 		
-		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(1));
+		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(0));
+		Bukkit.getLogger().info(Integer.toString(i));
 		
 		for(int iter = 0; iter < i; iter++){
 			try {
