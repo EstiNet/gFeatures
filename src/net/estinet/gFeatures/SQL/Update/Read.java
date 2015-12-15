@@ -8,6 +8,7 @@ import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 
 public class Read {
+	Connection c = new Connection();
 	public void read(){
 		String Address, Port, Tablename, Username, Password;
 		Address = Basic.getAddress();
