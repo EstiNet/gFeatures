@@ -31,11 +31,11 @@ public class Obtain {
 		List<EstiPlayer> players = new ArrayList<>();
 		
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM People").get(0));
-		Bukkit.getLogger().info(Integer.toString(i));
 		i++;
 		
 		for(int iter = 1; iter < i; iter++){
 			try {
+				Bukkit.getLogger().info(Serialization.readJavaObject(iter).getClass().getName());
 				EstiPlayer player = (EstiPlayer) Serialization.readJavaObject(iter);
 				
 				for(int it = 0; it < sets.size(); it++){

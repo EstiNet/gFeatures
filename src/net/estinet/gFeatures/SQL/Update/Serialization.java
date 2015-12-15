@@ -4,8 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import org.bukkit.Bukkit;
-
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Logger.Debug;
 
@@ -43,7 +41,6 @@ public class Serialization {
 			Connection conn = DriverManager.getConnection(con.toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
 		    PreparedStatement pstmt = conn.prepareStatement(READ_OBJECT_SQL);
 		    pstmt.setLong(1, id);
-		    Bukkit.getLogger().info(pstmt.toString());
 		    ResultSet rs = pstmt.executeQuery();
 		    rs.next();
 		    Object object = rs.getObject(1);
