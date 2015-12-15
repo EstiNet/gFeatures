@@ -76,7 +76,6 @@ public class Connection {
             for(; !result.isLast();){
             result.next();
             array.add(result.getString(1));
-            array.add(result.getString(2));
             }
             return array;
         } catch (SQLException ex) {
