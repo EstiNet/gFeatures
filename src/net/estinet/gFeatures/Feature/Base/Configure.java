@@ -36,7 +36,7 @@ public class Configure{
 		hash.put(key, "He's healthy!");
 		EstiSet<String, String> set = new EstiSet<>();
 		set.setData(hash);
-		set.setTag(base);
+		set.setTag(base.getName());
 		Basic.addSQLFields(set);
 		
 	}

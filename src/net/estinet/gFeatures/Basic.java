@@ -183,8 +183,8 @@ public class Basic<T,V> {
 		read.read();
 	}
 	@SuppressWarnings("rawtypes")
-	public static HashMap<gFeature, EstiSet> getHashFromEstiSet(List<EstiSet> sets){
-		HashMap<gFeature, EstiSet> hash = new HashMap<>();
+	public static HashMap<String, EstiSet> getHashFromEstiSet(List<EstiSet> sets){
+		HashMap<String, EstiSet> hash = new HashMap<>();
 		for(EstiSet set : sets){
 			hash.put(set.getTag(), set);
 		}

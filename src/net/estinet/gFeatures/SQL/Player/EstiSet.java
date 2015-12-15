@@ -9,22 +9,22 @@ import net.estinet.gFeatures.gFeature;
 
 public class EstiSet<T, V> implements Serializable{
 	private static final long serialVersionUID = 9093150451692785458L;
-	private gFeature tag;
+	private String tag;
 	private HashMap<Key<V>, T> data = new HashMap<>();
 	
 	public EstiSet(){}
 	public EstiSet(HashMap<Key<V>, T> datas){
 		data = datas;
 	}
-	public EstiSet(HashMap<Key<V>, T> datas, gFeature tags){
+	public EstiSet(HashMap<Key<V>, T> datas, String tags){
 		data = datas;
 		tag = tags;
 	}
 	
-	public void setTag(gFeature tags){
+	public void setTag(String tags){
 		tag = tags;
 	}
-	public gFeature getTag(){
+	public String getTag(){
 		return tag;
 	}
 	public void addData(Key<V> key, T info){

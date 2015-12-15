@@ -172,7 +172,7 @@ public class CoreCommands{
 					case "loadedsqlfields":
 						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Fields:");
 						for(EstiSet set : Basic.getSQLFields()){
-							sender.sendMessage(ChatColor.GRAY + "- " + set.getTag().getName());
+							sender.sendMessage(ChatColor.GRAY + "- " + set.getTag());
 							for(Object key : set.getData().keySet()){
 								Key keys = (Key) key;
 								sender.sendMessage(ChatColor.GRAY + "    - " + keys.getKey().toString());
