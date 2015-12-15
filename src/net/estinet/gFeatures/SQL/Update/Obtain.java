@@ -40,7 +40,7 @@ public class Obtain {
 				
 				for(int it = 0; it < sets.size(); it++){
 					if(!player.getData().containsValue(sets.get(it))){
-						player.addSet(sets.get(it).getTag(), sets.get(it));
+						player.addSet(sets.get(it).getTag().getName(), sets.get(it));
 					}
 				}
 				players.add(player);

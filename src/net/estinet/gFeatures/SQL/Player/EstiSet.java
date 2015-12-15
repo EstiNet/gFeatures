@@ -1,12 +1,14 @@
 package net.estinet.gFeatures.SQL.Player;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
 import net.estinet.gFeatures.gFeature;
 
-public class EstiSet<T, V> {
+public class EstiSet<T, V> implements Serializable{
+	private static final long serialVersionUID = 9093150451692785458L;
 	private gFeature tag;
 	private HashMap<Key<V>, T> data = new HashMap<>();
 	

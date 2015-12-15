@@ -26,11 +26,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gFeature implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2837108808871949230L;
+public class gFeature{
 	private String name;
 	private String version;
 	private FeatureState state;

@@ -16,13 +16,13 @@ public class EstiPlayer<T, V> implements Serializable{
 	
 	private String name;
 	private String UUID;
-	private HashMap<gFeature, EstiSet<T, V>> data = new HashMap<>();
+	private HashMap<String, EstiSet<T, V>> data = new HashMap<>();
 	
 	public EstiPlayer(Player p){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
 	}
-	public EstiPlayer(Player p, HashMap<gFeature, EstiSet<T, V>> info){
+	public EstiPlayer(Player p, HashMap<String, EstiSet<T, V>> info){
 		name = p.getName();
 		UUID = p.getUniqueId().toString();
 		data = info;
@@ -39,7 +39,7 @@ public class EstiPlayer<T, V> implements Serializable{
 	public void setUUID(String UUIDs){
 		UUID = UUIDs;
 	}
-	public HashMap<gFeature, EstiSet<T, V>> getData(){
+	public HashMap<String, EstiSet<T, V>> getData(){
 		return data;
 	}
 	public Player getPlayer(){
@@ -52,19 +52,19 @@ public class EstiPlayer<T, V> implements Serializable{
 		}
 		return player;
 	}
-	public void addSet(gFeature plugin, EstiSet<T, V> datas){
-		data.put(plugin, datas);
+	public void addSet(String pluginname, EstiSet<T, V> datas){
+		data.put(pluginname, datas);
 	}
-	public void addData(gFeature plugin, Key<V> key, T value){
+	public void addData(String plugin, Key<V> key, T value){
 		data.get(plugin).addData(key, value);
 	}
-	public void setData(gFeature plugin, Key<V> key, T value){
+	public void setData(String plugin, Key<V> key, T value){
 		data.get(plugin).setData(key, value);
 	}
-	public void removeData(gFeature plugin, Key<V> key){
+	public void removeData(String plugin, Key<V> key){
 		data.get(plugin).getData().remove(key);
 	}
-	public Object getData(gFeature plugin, Key<V> key){
+	public Object getData(String plugin, Key<V> key){
 		return data.get(plugin).getData(key);
 	}
 }

@@ -1,6 +1,9 @@
 package net.estinet.gFeatures.SQL.Player;
 
-public class Key<V> {
+import java.io.Serializable;
+
+public class Key<V> implements Serializable{
+	private static final long serialVersionUID = 5168316688355794593L;
 	private V object;
 	
 	public Key(V objects){
