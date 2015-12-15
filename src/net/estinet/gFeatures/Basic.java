@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.estinet.gFeatures.API.PlayerStats.Setup;
@@ -162,6 +163,10 @@ public class Basic<T,V> {
 	public static void setgPlayer(gPlayer originalplayer, gPlayer newplayer){
 		playerstats.set(playerstats.indexOf(originalplayer), newplayer);
 		setup.flushPlayer(newplayer);
+	}
+	public static void setEstiPlayer(EstiPlayer original, EstiPlayer newplayer){
+		sqlplayers.set(sqlplayers.indexOf(original), newplayer);
+		syncSQLPlayers();
 	}
 	public static void resetFeatures(){
 		List<gFeature> feature = new ArrayList<>();
