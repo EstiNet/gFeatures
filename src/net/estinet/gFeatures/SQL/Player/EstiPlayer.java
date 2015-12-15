@@ -58,7 +58,13 @@ public class EstiPlayer<T, V> implements Serializable{
 	public void addData(gFeature plugin, Key<V> key, T value){
 		data.get(plugin).addData(key, value);
 	}
+	public void setData(gFeature plugin, Key<V> key, T value){
+		data.get(plugin).setData(key, value);
+	}
 	public void removeData(gFeature plugin, Key<V> key){
 		data.get(plugin).getData().remove(key);
+	}
+	public Object getData(gFeature plugin, Key<V> key){
+		return data.get(plugin).getData(key);
 	}
 }

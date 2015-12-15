@@ -30,8 +30,8 @@ public class EventHub{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Bukkit.getLogger().info("Player Joined!");
-		Bukkit.getLogger().info("Health: " + ((EstiSet) Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData().get(Basic.getFeature("Base"))).getData(new Key("Health")));
+		Bukkit.getLogger().info("Health: " + Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData(Basic.getFeature("Base"), new Key("Health")));
 		Bukkit.getLogger().info("Setting it to 21");
-		((EstiSet) Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData().get(Basic.getFeature("Base"))).setData(new Key("Health"), "21");
+		Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).setData(Basic.getFeature("Base"), new Key("Health"), "21");
 	}
 }
