@@ -1,0 +1,36 @@
+Python:
+    Item_Information:
+        Item_Name: "&ePython &l/&e Knife"
+        Item_Type: 417
+        Item_Lore: "&eRevolver with high power.|&eLeft click to melee enemies|&ewith the tactical knife."
+        Melee_Attachment: Tactical_Knife
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+    Shooting:
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 2
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Projectile_Speed: 40
+        Projectile_Damage: 2
+        Bullet_Spread: 0.5
+        Sounds_Shoot: IRONGOLEM_HIT-1-2-0,ZOMBIE_METAL-1-2-0
+    Reload:
+        Enable: true
+        Reload_Amount: 6
+        Reload_Duration: 35
+        Sounds_Reloading: LEVEL_UP-1-1-10,FIRE_IGNITE-1-2-28
+    Firearm_Action:
+        Type: revolver
+        Open_Duration: 5
+        Close_Duration: 5
+        Sound_Open: DOOR_OPEN-1-2-0
+        Sound_Close: DOOR_CLOSE-1-2-0
+    Abilities:
+        Reset_Hit_Cooldown: true
+    Hit_Events:
+        Enable: true
+        Sounds_Shooter: SHOOT_ARROW-1-2-0
+    Custom_Death_Message:
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6Python&3!"

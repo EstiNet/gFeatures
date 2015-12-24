@@ -1,0 +1,83 @@
+SilSil69:
+    Item_Information:
+        Item_Name: SilSil69
+        Item_Type: 285
+        Item_Lore: "&SilSil69|&eTier 2 Sniper|&eAccurate and fast but lower damage than regular snipers"
+        Melee_Mode: false
+        Skip_Name_Check: false
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: false
+        Hidden_From_List: false
+    Shooting:
+        Disable: false
+        Dual_Wield: false
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 1.5
+        Recoil_Amount: 1
+        Projectile_Amount: 1
+        Projectile_Type: snowball
+        Remove_Bullet_Drop: true
+        Removal_Or_Drag_Delay: 15-false
+        Projectile_Speed: 25
+        Projectile_Damage: 10
+        Projectile_Flames: false
+        Projectile_Incendiary:
+            Enable: false
+        Bullet_Spread: 1
+        Reset_Fall_Distance: true
+        Sounds_Shoot:  BLAZE_HIT-1-2-0,ZOMBIE_WOOD-1-2-0
+    Burstfire:
+        Enable: true
+        Shots_Per_Burst: 1
+        Delay_Between_Shots_In_Burst: 1.5
+    Sneak:
+        Enable: false
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
+    Reload:
+        Enable: true
+        Reload_With_Mouse: false
+        Starting_Amount: 40
+        Reload_Amount: 40
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Take_Ammo_As_Magazine: false
+        Reload_Duration: 12
+        Destroy_When_Empty: false
+        Sounds_Out_Of_Ammo: 
+        Sounds_Reloading:  NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+    Firearm_Action:
+        Type: bolt
+        Open_Duration: 12
+        Close_Duration: 12
+        Close_Shoot_Delay: 3
+        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: PISTON_EXTEND-1-2-0
+    Scope:
+        Enable: true
+        Night_Vision: true
+        Zoom_Amount: 5
+        Zoom_Bullet_Spread: 0
+        Zoom_Before_Shooting: false
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Headshot:
+        Enable: true
+        Bonus_Damage: 200
+        Message_Shooter: You got a headshot!
+        Message_Victim: You've been headshoted!
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+        Sounds_Victim: ORB_PICKUP-1-2-0
+    Backstab:
+        Enable: false
+    Critical_Hits:
+        Enable: false
+    Spawn_Entity_On_Hit:
+        Enable: false
+    Damage_Based_On_Flight_Time:
+        Enable: false
+    Custom_Death_Message:
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6SilSil69&3!"

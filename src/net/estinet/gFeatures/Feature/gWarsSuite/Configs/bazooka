@@ -1,0 +1,44 @@
+Bazooka:
+    Item_Information:
+        Item_Name: "&eBazooka"
+        Item_Type: 417
+        Item_Lore: "&eRocket launcher.|&eFire down at your|&efeet to rocket-jump.|&eNegates fall damage."
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Inventory_Control: Group_Bazookas
+    Shooting:
+        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Recoil_Amount: 2
+        Projectile_Amount: 1
+        Projectile_Type: fireball
+        Projectile_Speed: 20
+        Projectile_Damage: 50
+        Sounds_Shoot: ZOMBIE_WOOD-1-0-0,FIZZ-1-1-0
+    Sneak:
+        Enable: true
+        No_Recoil: true
+    Abilities:
+        No_Fall_Damage: true
+    Reload:
+        Enable: true
+        Reload_Amount: 1
+        Reload_Duration: 55
+        Sounds_Reloading: SKELETON_IDLE-1-0-10,PISTON_EXTEND-1-0-28,SKELETON_WALK-1-0-48
+    Particles:
+        Enable: true
+        Particle_Player_Shoot: BLOCK_BREAK-35
+    Shrapnel:
+        Enable: true
+        Block_Type: 77
+        Amount: 24
+        Speed: 7
+    Explosions:
+        Enable: true
+        Knockback: 5
+        Damage_Multiplier: 20
+        Explosion_No_Grief: true
+        Explosion_Radius: 6
+        Sounds_Shooter: SHOOT_ARROW-1-2-0
+    Custom_Death_Message:
+        Normal: "&b[&6Kill&b]&3 <shooter> blew up <victim> using a &6Bazooka&3!"

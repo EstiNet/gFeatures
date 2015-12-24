@@ -1,0 +1,34 @@
+CrossBow:
+    Item_Information:
+        Item_Name: "&4Crossbow"
+        Item_Type: 318
+        Item_Lore: "&7Armor penetrating rounds|Tier 0 Special|&3Makes enemy bleed."
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+    Shooting:
+        Right_Click_To_Shoot: true
+        Delay_Between_Shots: 0
+        Recoil_Amount: 0
+        Projectile_Amount: 1
+        Projectile_Type: arrow
+        Projectile_Damage: 5
+        Projectile_Speed: 1000
+        Sounds_Shoot: SHOOT_ARROW-1-2-0
+    Reload:
+        Enable: true
+        Reload_Amount: 1
+        Reload_Duration: 5
+        Take_Ammo_On_Reload: true
+        Sounds_Reloading: WATER-6-2-0,PIG_WALK-1-2-0
+    Potion_Effects:
+        Activation: hit
+        Potion_Effect_Shooter: Heal-3-1
+        Potion_Effect_Victim: WITHER-50-50
+    Scope:
+        Enable: true
+        Night_Vision: true
+        Zoom_Amount: 5
+        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+    Ammo:
+        Enable: true
+        Ammo_Item_ID: 362
+        Take_Ammo_Per_Shot: false
