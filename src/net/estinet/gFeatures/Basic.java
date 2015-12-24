@@ -186,6 +186,7 @@ public class Basic<T,V> {
 	public static HashMap<String, EstiSet> getHashFromEstiSet(List<EstiSet> sets){
 		HashMap<String, EstiSet> hash = new HashMap<>();
 		for(EstiSet set : sets){
+			Bukkit.getLogger().info(set.getTag() + " " + set.getKeySet().toArray()[0] + " " + set.getValueSet().toArray()[0]);
 			hash.put(set.getTag(), set);
 		}
 		return hash;

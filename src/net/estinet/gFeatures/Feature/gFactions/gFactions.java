@@ -44,10 +44,10 @@ public class gFactions extends gFeature{
 	@Override
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			listeners.onPlayerJoin((PlayerJoinEvent)event);
+			
 		}
 		else if(event.getEventName().equalsIgnoreCase("playercommandpreprocessevent")){
-			listeners.onCommandPre((PlayerCommandPreprocessEvent)event);
+			
 		}
 	}
 	@Retrieval

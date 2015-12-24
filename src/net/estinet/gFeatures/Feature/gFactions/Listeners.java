@@ -34,9 +34,4 @@ public class Listeners {
 	public void onPlayerJoin(PlayerJoinEvent event){
 		jm.Initialize(event);
 	}
-	public void onCommandPre(PlayerCommandPreprocessEvent event){
-		if(Const.atSpawn.contains(event.getPlayer())){
-			
-		}
-	}
 }

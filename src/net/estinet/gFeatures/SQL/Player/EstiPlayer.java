@@ -6,12 +6,7 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.gFeature;
-
 public class EstiPlayer<T, V> implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1624113009039883572L;
 	
 	private String name;
@@ -65,6 +60,7 @@ public class EstiPlayer<T, V> implements Serializable{
 		data.get(plugin).getData().remove(key);
 	}
 	public Object getData(String plugin, Key<V> key){
+		Bukkit.getLogger().info(data.get(plugin).getData(key) + " " + data.keySet().toArray()[0].toString() + " " + data.get(plugin).getValueSet().toArray()[0] + " " + data.get(plugin).getKeySet().toArray()[0] + " " + key);
 		return data.get(plugin).getData(key);
 	}
 }
