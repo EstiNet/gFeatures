@@ -6,8 +6,6 @@ import net.estinet.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
 gFeatures
