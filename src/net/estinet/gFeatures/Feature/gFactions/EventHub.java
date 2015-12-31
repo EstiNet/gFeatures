@@ -1,9 +1,11 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class EventHub {
-	public void onPlayerInteract(PlayerInteractEvent event){
-		
+	public void onPlayerInteract(PlayerInteractEntityEvent event){
+		if(event.getAction()){
+			
+		}
 	}
 }
