@@ -6,6 +6,7 @@ import net.estinet.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 /*
 gFeatures
@@ -28,6 +29,7 @@ https://github.com/EstiNet/gFeatures
 
 public class gFactions extends gFeature{
 	Listeners listeners = new Listeners();
+	EventHub eh = new EventHub();
 	public gFactions(String featurename, String d) {
 		super(featurename, d);
 	}
@@ -44,14 +46,14 @@ public class gFactions extends gFeature{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			
 		}
-		else if(event.getEventName().equalsIgnoreCase("playercommandpreprocessevent")){
-			
+		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
+			eh.onPlayerInteract((PlayerInteractEvent)event);
 		}
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
 	@Retrieval
-	public void onPlayerCommand(){}
+	public void onPlayerInteract(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented

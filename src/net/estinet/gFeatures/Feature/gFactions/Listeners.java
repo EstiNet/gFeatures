@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gFactions;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -31,7 +32,7 @@ public class Listeners {
 	public void onDisable(){
 		Bukkit.getLogger().info("gFactions is now off! :(");
 	}
-	public void onPlayerJoin(PlayerJoinEvent event){
+	/*public void onPlayerJoin(PlayerJoinEvent event){
 		jm.Initialize(event);
-	}
+	}*/
 }
