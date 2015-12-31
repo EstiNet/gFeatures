@@ -112,6 +112,8 @@ public class Listeners extends JavaPlugin implements Listener{
 	}
 	@EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){ 
+		Thread thr = new Thread(new Runnable(){
+			public void run(){
 		try{
 			setups.checkPlayer(event.getPlayer());
 			Debug.print("Player API initialized for " + event.getPlayer().getName());
@@ -125,6 +127,10 @@ public class Listeners extends JavaPlugin implements Listener{
 		catch(Exception e){
 			Debug.print(e.getMessage());
 		}
+			}
+		}
+		);
+		thr.start();
     	library.onPlayerJoin(event);
     }
     @EventHandler
