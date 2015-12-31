@@ -113,7 +113,6 @@ public class Retrieve {
 		Basis.getRank(rankname).addPerm(perm);
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 	public void addgInherit(String inherit, String rankname){
@@ -145,7 +144,6 @@ public class Retrieve {
 		Basis.getRank(rankname).removePerm(perm);
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 	public void deletegInherit(String inherit, String rankname){

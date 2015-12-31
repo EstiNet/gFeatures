@@ -136,6 +136,8 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event){
     	library.onPlayerLeave(event);
+    	Thread thr = new Thread(new Runnable(){
+    		public void run(){
     	try{
     	gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
     	for(String valuename : gp.getValues().keySet()){
@@ -146,6 +148,9 @@ public class Listeners extends JavaPlugin implements Listener{
     	catch(Exception e){
     		Debug.print(e.getMessage());
     	}
+    	}
+    	});
+    	thr.start();
     }
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event){
