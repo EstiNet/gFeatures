@@ -70,7 +70,9 @@ public class EventHub {
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		try{
 		String prefix;
-		if()
+		if(){
+			
+		}
 		String name = prefix.replace('&', '§');
 		event.getPlayer().setDisplayName(name + event.getPlayer().getName());
 		}

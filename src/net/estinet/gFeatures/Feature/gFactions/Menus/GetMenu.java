@@ -21,6 +21,7 @@ public class GetMenu {
 			Bukkit.getLogger().info(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier"));
 			if(!(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
 				autorifle.makeInventory(event.getPlayer(), Basic.getgPlayer(event.getPlayer().getUniqueId().toString()));
+				Blaze.invtrigger.add(event.getPlayer().getName());
 			}
 		}
 		else if(event.getRightClicked().getUniqueId().equals(Blaze.shotguns)){

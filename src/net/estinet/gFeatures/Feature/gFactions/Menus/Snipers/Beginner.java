@@ -10,6 +10,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Feature.gFactions.Blaze;
 
 public class Beginner {
 	public InventoryAPI makeInventory(final Player p, gPlayer player){
@@ -22,9 +23,17 @@ public class Beginner {
 	            	event.getPlayer().closeInventory();
 	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
+	                		if(!Blaze.invtrigger.contains(p.getName())){
 	                		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.AQUA + "Tiers" + ChatColor.BOLD + "] " + ChatColor.DARK_AQUA + "You have joined the Sniper tier.");
 	                		player.setValue("gFactionsTier", "sniper");
 	                		Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), player);
+	                		Blaze.invtrigger.add(event.getPlayer().getName());
+	                		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	    	                	public void run(){
+	    	                		Blaze.invtrigger.remove(p.getName());
+	    	                   }
+	    	                }, 9L);
+	                	}
 	                   }
 	                }, 9L);
 	            }
