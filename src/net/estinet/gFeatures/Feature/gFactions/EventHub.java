@@ -55,7 +55,9 @@ public class EventHub {
 					gm.start(ev);
 				}
 			}	
-			catch(Exception e){}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 	public void onEntityExplode(EntityExplodeEvent event){

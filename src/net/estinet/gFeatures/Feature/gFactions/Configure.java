@@ -25,7 +25,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gFactions base = new gFactions("gFactions", "1.0.1");
+		gFactions base = new gFactions("gFactions", "1.0.2");
 		Basic.addFeature(base);
 	}
 }
