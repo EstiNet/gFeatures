@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -9,10 +8,14 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
+import net.estinet.gFeatures.Feature.gFactions.Menus.GetMenu;
+
 public class EventHub {
+	GetMenu gm = new GetMenu();
 	public void onPlayerInteract(PlayerInteractEntityEvent event){
 		if(event.getRightClicked().getEntityId() == 426){
 			event.setCancelled(true);
+			gm.start(event);
 		}
 	}
 	public void onWorldLoad(WorldLoadEvent event){
