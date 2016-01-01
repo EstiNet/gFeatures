@@ -26,7 +26,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.event.weather.WeatherEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -115,6 +115,9 @@ public class Library {
     }
     public void onPlayerLogin(PlayerLoginEvent event){
     	check("onPlayerLogin", event);
+    }
+    public void onWorldLoad(WorldLoadEvent event){
+    	check("onWorldLoad", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

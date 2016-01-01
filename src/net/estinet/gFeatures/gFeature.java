@@ -89,4 +89,6 @@ public class gFeature{
     public void onEntityDamage(){}
     public void onPlayerInteractEntity(){}
     public void onWeatherChange(){}
+    public void onWorldLoad(){}
+    public void onPlayerLogin(){}
 }

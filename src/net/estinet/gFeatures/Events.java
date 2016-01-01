@@ -41,5 +41,6 @@ public interface Events {
     public void onEntityDamage();
     public void onPlayerInteractEntity();
     public void onWeatherChange();
-    //public void onPlayerLogin
+    public void onPlayerLogin();
+    public void onWorldLoad();
 }
