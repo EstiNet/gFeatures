@@ -29,13 +29,14 @@ https://github.com/EstiNet/gFeatures
 
 public class gFactions extends gFeature{
 	Listeners listeners = new Listeners();
+	Enable en = new Enable();
 	EventHub eh = new EventHub();
 	public gFactions(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
 	public void enable(){
-		listeners.onEnable();
+		en.plzenable();
 	}
 	@Override
 	public void disable(){
