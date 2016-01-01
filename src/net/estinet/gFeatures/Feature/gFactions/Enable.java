@@ -8,7 +8,7 @@ public class Enable {
 	public void plzenable(){
 		Bukkit.getLogger().info("gFactions initialized! Yay!");
 		Basic.addPlayerSection("gFactions", "");
-		Basic.addPlayerSection("gFactions.Tier", "none");
+		Basic.addPlayerSection("gFactionsTier", "none");
 		Basic.addPlayerSection("gFactions.TierRank", "0");
 	}
 }

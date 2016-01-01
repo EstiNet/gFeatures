@@ -23,7 +23,7 @@ public class Beginner {
 	            	scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	                	public void run(){
 	                		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.AQUA + "Tiers" + ChatColor.BOLD + "] " + ChatColor.DARK_AQUA + "You have joined the Auto-Rifle tier.");
-	                		player.setValue("gFactions.Tier", "autorifle");
+	                		player.setValue("gFactionsTier", "autorifle");
 	                		Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), player);
 	                   }
 	                }, 9L);
