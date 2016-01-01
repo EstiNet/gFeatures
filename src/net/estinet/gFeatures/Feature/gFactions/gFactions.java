@@ -3,10 +3,12 @@ package net.estinet.gFeatures.Feature.gFactions;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
@@ -57,6 +59,10 @@ public class gFactions extends gFeature{
 		}
 		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
 			eh.onEntityDamage((EntityDamageEvent)event);
+			Bukkit.getLogger().info("nope");
+		}
+		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
+			eh.onEntityExplode((EntityExplodeEvent)event);
 		}
 	}
 	@Retrieval
@@ -71,6 +77,9 @@ public class gFactions extends gFeature{
 	@Retrieval
 	@Override
 	public void onEntityDamage(){}
+	@Retrieval
+	@Override
+	public void onEntityExplode(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented

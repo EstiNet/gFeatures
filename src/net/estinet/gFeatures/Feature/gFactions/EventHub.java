@@ -5,6 +5,7 @@ import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
@@ -27,6 +28,13 @@ public class EventHub {
 		}
 	}
 	public void onEntityDamage(EntityDamageEvent event){
+		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
+			event.setCancelled(true);
+			Bukkit.getLogger().info("yep");
+		}
+		Bukkit.getLogger().info("nop");
+	}
+	public void onEntityExplode(EntityExplodeEvent event){
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(true);
 			Bukkit.getLogger().info("yep");
