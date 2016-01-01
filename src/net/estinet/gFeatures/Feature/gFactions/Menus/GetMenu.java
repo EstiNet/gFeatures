@@ -11,6 +11,10 @@ import net.estinet.gFeatures.Feature.gFactions.Blaze;
 public class GetMenu {
 	net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner autorifle = new net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner();
 	public void start(PlayerInteractEntityEvent event){
+		Bukkit.getLogger().info("debug3");
+		Bukkit.getLogger().info(event.getPlayer().getUniqueId().toString());
+		Bukkit.getLogger().info(event.getRightClicked().getUniqueId().toString());
+		Bukkit.getLogger().info(Blaze.autorifles.toString());
 		if(event.getRightClicked().getUniqueId().equals(Blaze.autorifles)){
 			Bukkit.getLogger().info(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier"));
 			if(!(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
@@ -25,7 +29,9 @@ public class GetMenu {
 		}
 	}
 	public void start(EntityDamageByEntityEvent event){
+		Bukkit.getLogger().info("debug3");
 		Player pl = (Player) event.getEntity();
+		Bukkit.getLogger().info(pl.getUniqueId().toString());
 		Bukkit.getLogger().info(event.getEntity().getUniqueId().toString());
 		Bukkit.getLogger().info(Blaze.autorifles.toString());
 		if(event.getEntity().getUniqueId().equals(Blaze.autorifles)){

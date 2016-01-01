@@ -16,7 +16,7 @@ import net.estinet.gFeatures.Feature.gFactions.Menus.GetMenu;
 public class EventHub {
 	GetMenu gm = new GetMenu();
 	public void onPlayerInteract(PlayerInteractEntityEvent event){
-		if(event.getRightClicked().getEntityId() == 426){
+		if(event.getRightClicked().getType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(true);
 			gm.start(event);
 		}
