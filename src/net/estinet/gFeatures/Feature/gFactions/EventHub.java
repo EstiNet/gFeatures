@@ -3,6 +3,8 @@ package net.estinet.gFeatures.Feature.gFactions;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -33,6 +35,13 @@ public class EventHub {
 	public void onEntityDamage(EntityDamageEvent event){
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(true);
+			try{
+				EntityDamageByEntityEvent ev = (EntityDamageByEntityEvent) event;
+				if(ev.getDamager() instanceof Player){
+					gm.start(event);
+				}
+			}	
+			catch(Exception e){}
 		}
 	}
 	public void onEntityExplode(EntityExplodeEvent event){
