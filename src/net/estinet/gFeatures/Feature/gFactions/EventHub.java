@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -30,6 +31,19 @@ public class EventHub {
 		Blaze.world.spawn(Blaze.sniper, EnderCrystal.class);
 		Blaze.world.spawn(Blaze.shotgun, EnderCrystal.class);
 		Blaze.world.spawn(Blaze.autorifle, EnderCrystal.class);
+		for(Entity ent : event.getWorld().getEntities()){
+			if(ent.getType().equals(EntityType.ENDER_CRYSTAL)){
+				if(ent.getLocation().equals(Blaze.sniper)){
+					Blaze.snipers = ent.getUniqueId();
+				}
+				else if(ent.getLocation().equals(Blaze.shotgun)){
+					Blaze.shotguns = ent.getUniqueId();
+				}
+				else if(ent.getLocation().equals(Blaze.autorifle)){
+					Blaze.autorifles = ent.getUniqueId();
+				}
+			}
+		}
 		}
 	}
 	public void onEntityDamage(EntityDamageEvent event){
@@ -38,7 +52,7 @@ public class EventHub {
 			try{
 				EntityDamageByEntityEvent ev = (EntityDamageByEntityEvent) event;
 				if(ev.getDamager() instanceof Player){
-					gm.start(event);
+					gm.start(ev);
 				}
 			}	
 			catch(Exception e){}
