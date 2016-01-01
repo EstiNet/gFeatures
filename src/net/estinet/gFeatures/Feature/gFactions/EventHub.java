@@ -30,15 +30,11 @@ public class EventHub {
 	public void onEntityDamage(EntityDamageEvent event){
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(true);
-			Bukkit.getLogger().info("yep");
 		}
-		Bukkit.getLogger().info("nop");
 	}
 	public void onEntityExplode(EntityExplodeEvent event){
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
-			event.setCancelled(true);
-			Bukkit.getLogger().info("yep");
+			event.setCancelled(false);
 		}
-		Bukkit.getLogger().info("nop");
 	}
 }

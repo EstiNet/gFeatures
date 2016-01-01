@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
@@ -57,9 +58,11 @@ public class gFactions extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
 			eh.onWorldLoad((WorldLoadEvent)event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
+		else if(event.getEventName().equalsIgnoreCase("EntityDamageEvent")){
 			eh.onEntityDamage((EntityDamageEvent)event);
-			Bukkit.getLogger().info("nope");
+		}
+		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
+			eh.onEntityDamage((EntityDamageByEntityEvent)event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
 			eh.onEntityExplode((EntityExplodeEvent)event);
@@ -80,6 +83,9 @@ public class gFactions extends gFeature{
 	@Retrieval
 	@Override
 	public void onEntityExplode(){}
+	@Retrieval
+	@Override
+	public void onEntityDamageByEntity(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented
