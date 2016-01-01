@@ -11,8 +11,10 @@ public class EventHub {
 		}
 	}
 	public void onWorldLoad(WorldLoadEvent event){
+		if(event.getWorld().getName().equals("Factions1.8.3")){
 		Blaze.world.spawn(Blaze.sniper, EnderCrystal.class);
 		Blaze.world.spawn(Blaze.shotgun, EnderCrystal.class);
 		Blaze.world.spawn(Blaze.autorifle, EnderCrystal.class);
+		}
 	}
 }

@@ -6,7 +6,7 @@ import org.bukkit.World;
 
 public class Blaze {
 	public static World world = Bukkit.getWorld("Factions1.8.3");
-	public static Location sniper = new Location(Bukkit.getWorld("Factions1.8.3"), -261, 96, 127);
-	public static Location shotgun = new Location(Bukkit.getWorld("Factions1.8.3"), -257, 97, 129);
-	public static Location autorifle = new Location(Bukkit.getWorld("Factions1.8.3"), -222, 97, 153);
+	public static Location sniper = new Location(Bukkit.getWorld("Factions1.8.3"), -261.5, 96, 126.5);
+	public static Location shotgun = new Location(Bukkit.getWorld("Factions1.8.3"), -257.5, 97, 178.5);
+	public static Location autorifle = new Location(Bukkit.getWorld("Factions1.8.3"), -222.5, 97, 152.5);
 }
