@@ -6,6 +6,7 @@ import net.estinet.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
@@ -54,6 +55,9 @@ public class gFactions extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
 			eh.onWorldLoad((WorldLoadEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
+			eh.onEntityDamage((EntityDamageEvent)event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -64,6 +68,9 @@ public class gFactions extends gFeature{
 	@Retrieval
 	@Override
 	public void onWorldLoad(){}
+	@Retrieval
+	@Override
+	public void onEntityDamage(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented
