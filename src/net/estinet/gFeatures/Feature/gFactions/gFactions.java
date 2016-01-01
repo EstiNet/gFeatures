@@ -10,6 +10,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
@@ -67,6 +68,9 @@ public class gFactions extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
 			eh.onEntityExplode((EntityExplodeEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
+			eh.onPlayerChat((AsyncPlayerChatEvent)event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -86,6 +90,9 @@ public class gFactions extends gFeature{
 	@Retrieval
 	@Override
 	public void onEntityDamageByEntity(){}
+	@Retrieval
+	@Override
+	public void onPlayerChat(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented

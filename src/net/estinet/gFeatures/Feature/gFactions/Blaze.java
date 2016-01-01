@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -14,4 +16,5 @@ public class Blaze {
 	public static UUID snipers;
 	public static UUID shotguns;
 	public static UUID autorifles;
+	public static List<String> invtrigger = new ArrayList<>();
 }

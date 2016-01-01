@@ -8,10 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
 import net.estinet.gFeatures.Feature.gFactions.Menus.GetMenu;
+import net.estinet.gFeatures.Feature.gRanks.Basis;
 
 public class EventHub {
 	GetMenu gm = new GetMenu();
@@ -63,6 +65,17 @@ public class EventHub {
 	public void onEntityExplode(EntityExplodeEvent event){
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(false);
+		}
+	}
+	public void onPlayerChat(AsyncPlayerChatEvent event){
+		try{
+		String prefix;
+		if()
+		String name = prefix.replace('&', '§');
+		event.getPlayer().setDisplayName(name + event.getPlayer().getName());
+		}
+		catch(Exception e){
+			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
 		}
 	}
 }

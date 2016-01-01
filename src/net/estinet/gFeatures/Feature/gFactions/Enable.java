@@ -9,6 +9,6 @@ public class Enable {
 		Bukkit.getLogger().info("gFactions initialized! Yay!");
 		Basic.addPlayerSection("gFactions", "");
 		Basic.addPlayerSection("gFactionsTier", "none");
-		Basic.addPlayerSection("gFactions.TierRank", "0");
+		Basic.addPlayerSection("gFactionsTierRank", "0");
 	}
 }

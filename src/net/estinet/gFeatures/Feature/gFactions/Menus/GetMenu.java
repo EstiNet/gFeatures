@@ -46,7 +46,7 @@ public class GetMenu {
 		}
 		else if(event.getEntity().getUniqueId().toString().equals(Blaze.snipers.toString())){
 			if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))){
-				InventoryAPI iapi = autorifle.makeInventory(pl, Basic.getgPlayer(pl.getUniqueId().toString()));
+				InventoryAPI iapi = sniper.makeInventory(pl, Basic.getgPlayer(pl.getUniqueId().toString()));
 				iapi.open(pl);
 			}
 		}
