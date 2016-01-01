@@ -1,11 +1,8 @@
 package net.estinet.gFeatures;
 
-import java.io.Serializable;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 /*
 gFeatures

@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 
 /*
 gFeatures
@@ -50,6 +51,9 @@ public class gFactions extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerentityinteractevent")){
 			eh.onPlayerInteract((PlayerInteractEntityEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
+			eh.onWorldLoad((WorldLoadEvent)event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -57,6 +61,9 @@ public class gFactions extends gFeature{
 	@Retrieval
 	@Override
 	public void onPlayerInteractEntity(){}
+	@Retrieval
+	@Override
+	public void onWorldLoad(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//When commands are implemented
