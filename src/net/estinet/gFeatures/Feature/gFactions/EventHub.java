@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -12,6 +13,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 
+import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.Feature.gFactions.Menus.GetMenu;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 
@@ -68,13 +71,22 @@ public class EventHub {
 		}
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
+		Player pl = event.getPlayer();
 		try{
 		String prefix;
-		if(){
-			
-		}
-		String name = prefix.replace('&', '§');
-		event.getPlayer().setDisplayName(name + event.getPlayer().getName());
+			if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
+				prefix = ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
+			}
+			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun"))){
+				prefix = ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
+			}
+			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))){
+				prefix = ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
+			}
+			else{
+				prefix = ChatColor.BOLD + "[" + ChatColor.GOLD + "Melee" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
+			}
+		event.getPlayer().setDisplayName(prefix + event.getPlayer().getDisplayName());
 		}
 		catch(Exception e){
 			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
