@@ -80,7 +80,9 @@ public class EventHub{
 		try{
 		String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
 		String name = prefix.replace('&', '§');
+		if(!event.getPlayer().getDisplayName().contains(name)){
 		event.getPlayer().setDisplayName(name + event.getPlayer().getName());
+		}
 		}
 		catch(Exception e){
 			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());

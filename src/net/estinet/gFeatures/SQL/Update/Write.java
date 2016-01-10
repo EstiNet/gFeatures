@@ -5,7 +5,7 @@ import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 
 public class Write {
 	public void writeToSQL(){
-		//if(Basic.getSQLState()){
+		if(Basic.getSQLState()){
 		Connection c = new Connection();
 		String Address, Port, Tablename, Username, Password;
 		Address = Basic.getAddress();
@@ -22,6 +22,6 @@ public class Write {
 				e.printStackTrace();
 			}
 		} //MAKE SURE THAT NEW PLAYERS FROM OTHER SERVERS DONT GET ERASED WITH TRUNCATE WHILE THIS IS GOING
-		//}
+		}
 	}
 }

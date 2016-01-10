@@ -13,7 +13,7 @@ public class Obtain {
 	static Connection c = new Connection();
 	@SuppressWarnings("rawtypes")
 	public static void start(){
-		//if(Basic.getSQLState()){
+		if(Basic.getSQLState()){
 		Bukkit.getLogger().info("[gFeatures] Initializing PlayerSQL API...");
 		String Address, Port, Tablename, Username, Password;
 		Address = Basic.getAddress();
@@ -52,5 +52,5 @@ public class Obtain {
 		}
 		Basic.setEstiPlayers(players);
 		}
-	//}
+	}
 }

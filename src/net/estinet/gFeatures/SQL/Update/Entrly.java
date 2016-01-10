@@ -8,7 +8,7 @@ import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 public class Entrly {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void join(Player p){
-		//if(Basic.getSQLState()){
+		if(Basic.getSQLState()){
 		for(int i = 0; i < Basic.getEstiPlayers().size(); i++){
 			EstiPlayer player = Basic.getEstiPlayers().get(i);
 			if(player.getUUID().equals(p.getUniqueId().toString())){
@@ -27,5 +27,5 @@ public class Entrly {
 		});
 		thr.start();
 		}
-	//}
+	}
 }

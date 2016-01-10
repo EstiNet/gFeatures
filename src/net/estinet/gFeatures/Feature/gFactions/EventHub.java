@@ -74,10 +74,10 @@ public class EventHub {
 		Player pl = event.getPlayer();
 		try{
 		String prefix;
-			if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
+			if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
-			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun"))){
+			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
 			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))){
