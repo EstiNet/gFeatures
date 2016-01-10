@@ -73,23 +73,23 @@ public class EventHub {
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		Player pl = event.getPlayer();
 		try{
-		String prefix;
-			if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
+		String prefix = "";
+			if((Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
-			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
+			else if((Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.GRAY + "Shotgunner" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
-			else if(!(Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))){
+			else if((Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))&& !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
-			else{
+			else if(!event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.GOLD + "Melee" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
 		event.getPlayer().setDisplayName(prefix + event.getPlayer().getDisplayName());
 		}
 		catch(Exception e){
-			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
+			e.printStackTrace();
 		}
 	}
 }

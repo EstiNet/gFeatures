@@ -26,6 +26,7 @@ public class Beginner {
 	                		if(!Blaze.invtrigger.contains(p.getName())){
 	                		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.AQUA + "Tiers" + ChatColor.BOLD + "] " + ChatColor.DARK_AQUA + "You have joined the Shotgun tier.");
 	                		player.setValue("gFactionsTier", "shotgun");
+	                		player.setValue("gFactionsTierRank", "1");
 	                		Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), player);
 	                		Blaze.invtrigger.add(event.getPlayer().getName());
 	                		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
