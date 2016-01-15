@@ -83,7 +83,7 @@ public class EventHub {
 			else if((Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))&& !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
-			else if(!event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.RED + "Sniper" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
+			else if(!event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.GOLD + "Melee" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
 				prefix = ChatColor.BOLD + "[" + ChatColor.GOLD + "Melee" + ChatColor.RESET + "" + ChatColor.BOLD + "]";
 			}
 		event.getPlayer().setDisplayName(prefix + event.getPlayer().getDisplayName());

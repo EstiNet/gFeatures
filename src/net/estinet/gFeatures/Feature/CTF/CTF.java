@@ -1,19 +1,19 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gFeature;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+
+import net.estinet.gFeatures.Events;
+import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.gFeature;
 
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 EstiNet
+   Copyright 2016 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -28,36 +28,33 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CTF extends gFeature{
+public class CTF extends gFeature implements Events{
 	
-	net.estinet.gFeatures.Feature.CTF.Listeners listeners = new net.estinet.gFeatures.Feature.CTF.Listeners();
+	EventHub eh = new EventHub();
+	CommandHub ch = new CommandHub();
 	
 	public CTF(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
 	public void enable(){
-		listeners.onEnable();
+		Enable.onEnable();
 	}
 	@Override
 	public void disable(){
-		listeners.onDisable();
+		Disable.onDisable();
 	}
 	@Override
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			listeners.onPlayerJoin((PlayerJoinEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
-			listeners.onPlayerQuit((PlayerQuitEvent)event);
+			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
-	@Retrieval
-	public void onPlayerQuit(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-			//Commands for later
+			ch.onCommand(sender, cmd, label, args);
 	}
 }
+
