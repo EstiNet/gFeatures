@@ -8,6 +8,13 @@ import org.bukkit.Location;
 public class Basic {
 	public static Location orangespawn;
 	public static Location bluespawn;
+	public static Location spectatespawn;
+	public static int orangeflags = 0;
+	public static int blueflags = 0;
+	public static HashMap<UUID, Integer> kills = new HashMap<>();
+	public static HashMap<UUID, Integer> deaths = new HashMap<>();
+	public static HashMap<UUID, Integer> flagcaptures = new HashMap<>();
 	public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
+	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
 }
