@@ -27,6 +27,7 @@ public class Join {
 			break;
 		case STARTED:
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
+			s.handler(event.getPlayer());
 			break;
 		default:
 			break;

@@ -29,6 +29,5 @@ public class Enable{
 		Bukkit.getLogger().info("[CTF] Enabled :D");
 		ch.setupConfig();
 		Bukkit.getServer().createWorld(new WorldCreator("MinigameSpawn"));
-		Bukkit.getServer().createWorld(new WorldCreator("CTF"));
 	}
 }

@@ -3,7 +3,6 @@ package net.estinet.gFeatures.Feature.Grasslands;
 import net.estinet.gFeatures.Feature.Grasslands.Scoreboard.Countdown;
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
