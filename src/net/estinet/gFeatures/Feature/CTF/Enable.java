@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
 
 /*
 gFeatures
@@ -26,5 +28,7 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("[CTF] Enabled :D");
 		ch.setupConfig();
+		Bukkit.getServer().createWorld(new WorldCreator("MinigameSpawn"));
+		Bukkit.getServer().createWorld(new WorldCreator("CTF"));
 	}
 }

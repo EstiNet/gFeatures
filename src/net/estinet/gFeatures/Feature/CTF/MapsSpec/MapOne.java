@@ -12,10 +12,13 @@ import net.estinet.gFeatures.Feature.CTF.Basic;
 public class MapOne {
 	File f = new File("plugins/gFeatures/CTF/CTF1");
 	File fz = new File("./CTF");
+	File fl = new File("plugins/gFeatures/CTF/MinigameSpawn");
+	File flz = new File("./MinigameSpawn");
 	public void justDoIt(){
 		fz.delete();
 		try {
 			FileUtils.copyDirectory(f, fz);
+			FileUtils.copyDirectory(fl, flz);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
