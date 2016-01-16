@@ -1,5 +1,11 @@
 package net.estinet.gFeatures.Feature.CTF.EventBase;
 
-public class Leave {
+import org.bukkit.event.player.PlayerQuitEvent;
 
+import net.estinet.gFeatures.Feature.CTF.Basic;
+
+public class Leave {
+	public void init(PlayerQuitEvent event){
+		Basic.modes.remove(event.getPlayer().getUniqueId());
+	}
 }

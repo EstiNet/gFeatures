@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
@@ -49,9 +50,16 @@ public class CTF extends gFeature implements Events{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerLeave((PlayerQuitEvent)event);
+		}
 	}
 	@Retrieval
+	@Override
 	public void onPlayerJoin(){}
+	@Retrieval
+	@Override
+	public void onPlayerLeave(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

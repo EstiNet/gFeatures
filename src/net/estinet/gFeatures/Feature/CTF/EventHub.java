@@ -1,8 +1,10 @@
 package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
+import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 
 /*
 gFeatures
@@ -25,7 +27,11 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	Join join = new Join();
+	Leave leave = new Leave();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		join.init(event);
+	}
+	public void onPlayerLeave(PlayerQuitEvent event){
+		leave.init(event);
 	}
 }
