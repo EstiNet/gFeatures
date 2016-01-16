@@ -20,4 +20,13 @@ public class Basic {
 	public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
 	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
+	
+	public int getOrangeSize(){
+		return;
+	}
+	public int getBlueSize(){
+		int ret = 0;
+		for(T)
+		return ret;
+	}
 }
