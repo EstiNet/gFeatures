@@ -13,6 +13,7 @@ public class Basic {
 	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
+	public static int countdown = 60;
 	public static HashMap<UUID, Integer> kills = new HashMap<>();
 	public static HashMap<UUID, Integer> deaths = new HashMap<>();
 	public static HashMap<UUID, Integer> flagcaptures = new HashMap<>();
