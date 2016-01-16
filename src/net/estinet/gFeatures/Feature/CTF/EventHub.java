@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -22,7 +24,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
+	Join join = new Join();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		
+		join.init(event);
 	}
 }

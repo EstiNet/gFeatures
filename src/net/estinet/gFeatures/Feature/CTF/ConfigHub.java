@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import net.estinet.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.Spec;
 
 /*
 gFeatures
@@ -28,6 +29,7 @@ https://github.com/EstiNet/gFeatures
 
 public class ConfigHub {
 	Config config = new Config();
+	Spec spec = new Spec();
 	File f = new File("plugins/gFeatures/CTF/Config.yml");
 	File ctf1 = new File("plugins/gFeatures/CTF/CTF1");
 	File ctf2 = new File("plugins/gFeatures/CTF/CTF2");
@@ -47,7 +49,7 @@ public class ConfigHub {
 			return;
 		}
 		int random = (int) Math.floor(Math.random() * maps.size());
-		
+		spec.direction(maps.get(random));
 		/*if(!f.exists()){
 			try{
 			Bukkit.getLogger().info("[CTF] Setting up configs....");

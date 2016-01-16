@@ -71,7 +71,7 @@ public class EventHub {
 		}
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
-		Player pl = event.getPlayer();
+		/*Player pl = event.getPlayer();
 		try{
 		String prefix = "";
 			if((Basic.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle")) && !event.getPlayer().getDisplayName().contains(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Auto-Rifler" + ChatColor.RESET + "" + ChatColor.BOLD + "]")){
@@ -90,6 +90,6 @@ public class EventHub {
 		}
 		catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 }
