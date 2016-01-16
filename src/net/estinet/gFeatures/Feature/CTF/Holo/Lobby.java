@@ -20,11 +20,11 @@ public class Lobby {
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "     _Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net_     ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(4);
-		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
+		Score score3 = objective.getScore(ChatColor.BOLD + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
 		score3.setScore(3);
 		Score score = objective.getScore(ChatColor.AQUA + "Time before game starts:"); //Get a fake offline player
 		score.setScore(2);
-		Score score5 = objective.getScore(ChatColor.BOLD + "" + Basic.blueflags + " "); //Get a fake offline player
+		Score score5 = objective.getScore(ChatColor.BOLD + "" + Basic.countdown + " "); //Get a fake offline player
 		score5.setScore(1);
 		return board;
 	}

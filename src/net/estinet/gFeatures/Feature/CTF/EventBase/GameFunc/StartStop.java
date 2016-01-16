@@ -4,24 +4,30 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+import net.estinet.gFeatures.Feature.CTF.Basic;
+import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
+
 public class StartStop {
 	static int tasknum;
-    int iter = 60;
+	Loop loop = new Loop();
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
- 					if(iter <= 0){
- 						Bukkit.getScheduler().cancelTask(tasknum);
- 						teleportPlayers();
+ 					if(Basic.countdown <= 0){
+ 						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
+ 							Bukkit.getScheduler().cancelTask(tasknum);
+ 							Basic.mode = Mode.STARTED;
+ 							teleportPlayers();
+ 						}
  					}
  					else{
+ 					loop.goThrough();
               		for(Player p : Bukkit.getServer().getOnlinePlayers()){
-              			p.setScoreboard(cd.get(p, iter));
-              			p.setLevel(iter);
+              			p.setLevel(Basic.countdown);
               			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
               		}
               		}
-              		iter--;
+              		Basic.countdown--;
                 }
     }, 0, 20L);
 	}

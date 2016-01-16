@@ -12,7 +12,6 @@ import org.bukkit.scoreboard.ScoreboardManager;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 
 public class CTFScore {
-	@SuppressWarnings("deprecation")
 	public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
@@ -21,7 +20,7 @@ public class CTFScore {
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "     _Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net_     ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
 		score2.setScore(6);
-		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
+		Score score3 = objective.getScore(ChatColor.BOLD + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
 		score3.setScore(5);
 		Score score = objective.getScore(ChatColor.AQUA + "Flags Captured (Blue):"); //Get a fake offline player
 		score.setScore(4);

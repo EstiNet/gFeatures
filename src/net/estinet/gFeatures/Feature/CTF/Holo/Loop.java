@@ -15,7 +15,7 @@ public class Loop {
 				ctfs.Initialize(p);
 			}
 			else if(Basic.mode.equals(Mode.WAITING)){
-				
+				lobby.Initialize(p);
 			}
 		}
 	}
