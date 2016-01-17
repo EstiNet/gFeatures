@@ -1,10 +1,14 @@
 package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
 
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.Feature.CTF.Basic;
+import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 
 public class StartStop {
@@ -17,7 +21,35 @@ public class StartStop {
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
  							Bukkit.getScheduler().cancelTask(tasknum);
  							Basic.mode = Mode.STARTED;
- 							teleportPlayers();
+ 							for(Player p : Bukkit.getOnlinePlayers()){
+ 								p.setLevel(0);
+ 								if(Basic.getOrangeSize() >= Basic.getBlueSize()){
+ 									Basic.teams.put(p.getUniqueId(), Team.BLUE);
+ 								}
+ 								else{
+ 									Basic.teams.put(p.getUniqueId(), Team.ORANGE);
+ 								}
+ 							}
+ 							for(UUID uuid : Basic.teams.keySet()){
+ 								if(Basic.teams.get(uuid).equals(Team.ORANGE)){
+ 									for(Player p : Bukkit.getServer().getOnlinePlayers()){
+ 										if(p.getUniqueId().equals(uuid)){
+ 											p.teleport(Basic.orangespawn);
+ 										}
+ 									}
+ 								}
+ 								else{
+ 									for(Player p : Bukkit.getServer().getOnlinePlayers()){
+ 										if(p.getUniqueId().equals(uuid)){
+ 											p.teleport(Basic.bluespawn);
+ 										}
+ 									}
+ 								}
+ 							}
+ 						}
+ 						else{
+ 							Basic.countdown = 60;
+ 							Bukkit.getScheduler().cancelTask(tasknum);
  						}
  					}
  					else{

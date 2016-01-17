@@ -21,12 +21,22 @@ public class Basic {
 	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
 	
-	public int getOrangeSize(){
-		return;
-	}
-	public int getBlueSize(){
+	public static int getOrangeSize(){
 		int ret = 0;
-		for(T)
+		for(Team t : teams.values()){
+			if(t.equals(Team.ORANGE)){
+				ret++;
+			}
+		}
+		return ret;
+	}
+	public static int getBlueSize(){
+		int ret = 0;
+		for(Team t : teams.values()){
+			if(t.equals(Team.BLUE)){
+				ret++;
+			}
+		}
 		return ret;
 	}
 }

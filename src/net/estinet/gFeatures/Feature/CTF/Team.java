@@ -1,5 +1,5 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-public class Team {
+public enum Team {
 	BLUE, ORANGE;
 }
