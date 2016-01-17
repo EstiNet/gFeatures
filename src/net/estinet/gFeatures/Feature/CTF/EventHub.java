@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
+import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 
@@ -34,6 +35,7 @@ public class EventHub{
 	Join join = new Join();
 	Leave leave = new Leave();
 	Dead d = new Dead();
+	FlagHit fh = new FlagHit();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		join.init(event);
 	}
@@ -73,6 +75,10 @@ public class EventHub{
 							d.init(p);
 						}
 					}
+				}
+				else if(event.getDamager().getType().equals(EntityType.ENDER_CRYSTAL)){
+					event.setCancelled(true);
+					fh.init(event.getDamager().getLocation(), p);
 				}
 			}
 		}

@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.CTF.EventBase;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.estinet.gFeatures.Feature.CTF.Basic;
@@ -13,6 +14,7 @@ public class Join {
 	StartStop ss = new StartStop();
 	Spectate s = new Spectate();
 	public void init(PlayerJoinEvent event){
+		event.getPlayer().setGameMode(GameMode.ADVENTURE);
 		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
 		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
 		switch(Basic.mode){
