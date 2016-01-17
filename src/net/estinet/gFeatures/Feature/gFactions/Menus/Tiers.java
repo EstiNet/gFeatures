@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.gFactions.Menus.Snipers;
+package net.estinet.gFeatures.Feature.gFactions.Menus;
 
 public class Tiers {
 

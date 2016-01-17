@@ -6,6 +6,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Events;
@@ -61,6 +62,9 @@ public class CTF extends gFeature implements Events{
 		else if(event.getEventName().equals("entitydamagebyentityevent")){
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
 		}
+		else if(event.getEventName().equals("playermoveevent")){
+			eh.onPlayerMove((PlayerMoveEvent) event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -74,6 +78,9 @@ public class CTF extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onEntityDamageByEntity(){}
+	@Override
+	@Retrieval
+	public void onPlayerMove(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

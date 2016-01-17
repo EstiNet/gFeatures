@@ -13,7 +13,7 @@ import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Feature.gFactions.Blaze;
 
 public class TierTwo {
-	public InventoryAPI makeInventory(final Player p, gPlayer player){
+	public static InventoryAPI makeInventory(final Player p, gPlayer player){
 		try{
 		InventoryAPI menu = new InventoryAPI("Sniper Tier", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override

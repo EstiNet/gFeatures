@@ -11,6 +11,7 @@ import net.estinet.gFeatures.Feature.CTF.Team;
 
 public class Respawn {
 	ClearInventory ci = new ClearInventory();
+	SpawnMenu sm = new SpawnMenu();
 	public void respawn(Player p){
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			ci.clearInv(p);

@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
@@ -48,10 +49,10 @@ public class EventHub{
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
-			if(Basic.modes.get(p.getUniqueId()).equals(Mode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(Mode.SELECT)){
+			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 				event.setCancelled(true);
 			}
-			else if(Basic.modes.get(p.getUniqueId()).equals(Mode.STARTED)){
+			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
 					Player pl = (Player) event.getDamager();
 					if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE) || Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)){
@@ -84,6 +85,12 @@ public class EventHub{
 		}
 		else{
 			return;
+		}
+	}
+	public void onPlayerMove(PlayerMoveEvent event) {
+		Player p = event.getPlayer();
+		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
+			event.setCancelled(true);
 		}
 	}
 }

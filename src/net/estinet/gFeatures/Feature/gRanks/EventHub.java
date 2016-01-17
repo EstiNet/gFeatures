@@ -33,6 +33,7 @@ public class EventHub{
 	Retrieve r = new Retrieve();
 	SQLConnect sqlc = new SQLConnect();
 	public void onPlayerJoin(PlayerJoinEvent event){
+		try{
 		Thread thr = new Thread(new Runnable(){
 		public void run(){
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -75,6 +76,10 @@ public class EventHub{
 		}
 		});
 		thr.start();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		try{
@@ -89,6 +94,11 @@ public class EventHub{
 		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
+		try{
 		Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

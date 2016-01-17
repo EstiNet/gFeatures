@@ -1,9 +1,9 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import net.estinet.gFeatures.Feature.gRanks.Global.FileSync;
 import net.estinet.gFeatures.Feature.gRanks.Global.GlobalPerm;
@@ -35,7 +35,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basis {
-	static HashMap<UUID,PermissionAttachment> permissions = new HashMap<>();
+	public static ConcurrentHashMap<UUID,PermissionAttachment> permissions = new ConcurrentHashMap<>();
 	static Retrieve r = new Retrieve();
 	public static boolean pexenabled = false;
 	SQLConnect c = new SQLConnect();
@@ -59,7 +59,12 @@ public class Basis {
 		ranks.remove(rank);
 	}
 	public static void removePermissionsAttach(UUID uuid){
+		try{
 		permissions.remove(uuid);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	public static Rank getRank(String rankname){
 		for(Rank r : ranks){
