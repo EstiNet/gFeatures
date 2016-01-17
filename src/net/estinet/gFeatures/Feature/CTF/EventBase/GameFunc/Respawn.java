@@ -8,11 +8,15 @@ import org.bukkit.inventory.ItemStack;
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Team;
+import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 
 public class Respawn {
 	ClearInventory ci = new ClearInventory();
 	SpawnMenu sm = new SpawnMenu();
 	public void respawn(Player p){
+		sm.init(p);
+	}
+	public void fullrespawn(Player p){
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			ci.clearInv(p);
 			p.setGameMode(GameMode.ADVENTURE);

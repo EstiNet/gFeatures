@@ -4,6 +4,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -92,5 +93,9 @@ public class EventHub{
 		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 			event.setCancelled(true);
 		}
+	}
+	public void onPlayerDrop(PlayerDropItemEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 }
