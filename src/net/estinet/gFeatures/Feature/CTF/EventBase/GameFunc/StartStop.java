@@ -35,6 +35,7 @@ public class StartStop {
  									for(Player p : Bukkit.getServer().getOnlinePlayers()){
  										if(p.getUniqueId().equals(uuid)){
  											p.teleport(Basic.orangespawn);
+ 											p.setWalkSpeed((float) 0.3);
  										}
  									}
  								}
@@ -42,10 +43,13 @@ public class StartStop {
  									for(Player p : Bukkit.getServer().getOnlinePlayers()){
  										if(p.getUniqueId().equals(uuid)){
  											p.teleport(Basic.bluespawn);
+ 											p.setWalkSpeed((float) 0.3);
  										}
  									}
  								}
  							}
+ 							
+ 							//Spawn flags
  						}
  						else{
  							Basic.countdown = 60;

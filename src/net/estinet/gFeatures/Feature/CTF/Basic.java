@@ -11,6 +11,8 @@ public class Basic {
 	public static Location bluespawn;
 	public static Location spectatespawn;
 	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
+	public static Location orangeflag;
+	public static Location blueflag;
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
 	public static int countdown = 60;
