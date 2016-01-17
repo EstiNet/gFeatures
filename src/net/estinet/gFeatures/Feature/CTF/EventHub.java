@@ -7,6 +7,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 
@@ -32,6 +33,7 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	Join join = new Join();
 	Leave leave = new Leave();
+	Dead d = new Dead();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		join.init(event);
 	}
@@ -58,6 +60,17 @@ public class EventHub{
 						double damage = event.getDamage();
 						if(health - damage <= 0){
 							event.setCancelled(true);
+							Integer deaths = Basic.deaths.get(p.getUniqueId());
+							deaths++;
+							Basic.deaths.remove(p.getUniqueId());
+							Basic.deaths.put(p.getUniqueId(), deaths);
+							
+							Integer kills = Basic.kills.get(pl.getUniqueId());
+							kills++;
+							Basic.kills.remove(pl.getUniqueId());
+							Basic.kills.put(pl.getUniqueId(), kills);
+							
+							d.init(p);
 						}
 					}
 				}
