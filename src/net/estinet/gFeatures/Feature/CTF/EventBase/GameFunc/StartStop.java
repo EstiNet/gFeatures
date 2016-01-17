@@ -3,11 +3,9 @@ package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.Team;
@@ -16,6 +14,7 @@ import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 public class StartStop {
 	static int tasknum;
 	Loop loop = new Loop();
+	Respawn respawn = new Respawn();
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
@@ -33,29 +32,15 @@ public class StartStop {
  								}
  							}
  							for(UUID uuid : Basic.teams.keySet()){
- 								if(Basic.teams.get(uuid).equals(Team.ORANGE)){
- 									for(Player p : Bukkit.getServer().getOnlinePlayers()){
- 										if(p.getUniqueId().equals(uuid)){
- 											p.teleport(Basic.orangespawn);
- 											p.setWalkSpeed((float) 0.3);
- 											ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
- 											p.getInventory().setHelmet(wool);
- 										}
- 									}
- 								}
- 								else{
- 									for(Player p : Bukkit.getServer().getOnlinePlayers()){
- 										if(p.getUniqueId().equals(uuid)){
- 											p.teleport(Basic.bluespawn);
- 											p.setWalkSpeed((float) 0.3);
- 											ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
- 											p.getInventory().setHelmet(wool);
- 										}
+ 								for(Player p : Bukkit.getServer().getOnlinePlayers()){
+ 									if(p.getUniqueId().equals(uuid)){
+ 										respawn.equals(p);
  									}
  								}
  							}
  							
- 							//Spawn flags
+ 							Bukkit.getWorld("CTF").spawn(Basic.blueflag, EnderCrystal.class);
+ 							Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
  						}
  						else{
  							Basic.countdown = 60;

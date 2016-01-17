@@ -48,7 +48,7 @@ public class EventHub{
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
-			if(Basic.modes.get(p.getUniqueId()).equals(Mode.WAITING)){
+			if(Basic.modes.get(p.getUniqueId()).equals(Mode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(Mode.SELECT)){
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(Mode.STARTED)){
