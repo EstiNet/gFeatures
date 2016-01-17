@@ -1,5 +1,9 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -33,5 +37,34 @@ public class EventHub{
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		leave.init(event);
+	}
+	public void onOpenInventory(InventoryOpenEvent event) {
+		event.setCancelled(true);
+	}
+	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		if(event.getEntityType().equals(EntityType.PLAYER)){
+			Player p = (Player) event.getEntity();
+			if(Basic.modes.get(p.getUniqueId()).equals(Mode.WAITING)){
+				event.setCancelled(true);
+			}
+			else if(Basic.modes.get(p.getUniqueId()).equals(Mode.STARTED)){
+				if(event.getDamager().getType().equals(EntityType.PLAYER)){
+					Player pl = (Player) event.getDamager();
+					if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE) || Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)){
+						event.setCancelled(true);
+					}
+					else{
+						int health = (int) p.getHealth();
+						double damage = event.getDamage();
+						if(health - damage <= 0){
+							event.setCancelled(true);
+						}
+					}
+				}
+			}
+		}
+		else{
+			return;
+		}
 	}
 }

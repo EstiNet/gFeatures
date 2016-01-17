@@ -13,6 +13,8 @@ public class Join {
 	StartStop ss = new StartStop();
 	Spectate s = new Spectate();
 	public void init(PlayerJoinEvent event){
+		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
+		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
 		switch(Basic.mode){
 		case WAITING:
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);

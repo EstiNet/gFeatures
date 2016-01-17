@@ -3,8 +3,10 @@ package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
@@ -36,6 +38,8 @@ public class StartStop {
  										if(p.getUniqueId().equals(uuid)){
  											p.teleport(Basic.orangespawn);
  											p.setWalkSpeed((float) 0.3);
+ 											ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+ 											p.getInventory().setHelmet(wool);
  										}
  									}
  								}
@@ -44,6 +48,8 @@ public class StartStop {
  										if(p.getUniqueId().equals(uuid)){
  											p.teleport(Basic.bluespawn);
  											p.setWalkSpeed((float) 0.3);
+ 											ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+ 											p.getInventory().setHelmet(wool);
  										}
  									}
  								}
