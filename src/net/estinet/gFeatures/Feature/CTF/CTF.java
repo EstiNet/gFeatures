@@ -8,6 +8,7 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Events;
@@ -68,6 +69,9 @@ public class CTF extends gFeature implements Events{
 		}
 		else if(event.getEventName().equals("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
+		}
+		else if(event.getEventName().equals("playerpickupitemevent")){
+			eh.onPlayerPickup((PlayerPickupItemEvent) event);
 		}
 	}
 	@Retrieval

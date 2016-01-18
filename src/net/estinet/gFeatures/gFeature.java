@@ -88,4 +88,5 @@ public class gFeature{
     public void onWeatherChange(){}
     public void onWorldLoad(){}
     public void onPlayerLogin(){}
+    public void onPlayerPickup(){}
 }

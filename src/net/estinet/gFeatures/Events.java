@@ -43,4 +43,5 @@ public interface Events {
     public void onWeatherChange();
     public void onPlayerLogin();
     public void onWorldLoad();
+    public void onPlayerPickup();
 }

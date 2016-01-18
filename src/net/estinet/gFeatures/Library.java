@@ -22,6 +22,7 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
@@ -118,6 +119,9 @@ public class Library {
     }
     public void onWorldLoad(WorldLoadEvent event){
     	check("onWorldLoad", event);
+    }
+    public void onPlayerPickup(PlayerPickupItemEvent event){
+    	check("onPlayerPickup", event);
     }
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

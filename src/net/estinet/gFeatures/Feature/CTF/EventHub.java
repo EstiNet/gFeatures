@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -7,12 +8,14 @@ import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
 import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
+import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 
 /*
 gFeatures
@@ -93,9 +96,18 @@ public class EventHub{
 		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 			event.setCancelled(true);
 		}
+		else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
+			if(p.getLocation().getBlockX() >= 60){
+				ActionAPI aapi = new ActionAPI();
+				aapi.sendActionbar(p, ChatColor.AQUA + "Can't go any higher m8!");
+				event.setCancelled(true);
+			}
+		}
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
-		// TODO Auto-generated method stub
-		
+		event.setCancelled(true);
+	}
+	public void onPlayerPickup(PlayerPickupItemEvent event) {
+		event.setCancelled(true);
 	}
 }
