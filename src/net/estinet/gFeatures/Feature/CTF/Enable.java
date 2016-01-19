@@ -1,8 +1,9 @@
 package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
+
+import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*
 gFeatures
@@ -29,5 +30,7 @@ public class Enable{
 		Bukkit.getLogger().info("[CTF] Enabled :D");
 		ch.setupConfig();
 		Bukkit.getServer().createWorld(new WorldCreator("MinigameSpawn"));
+		Capture c = new Capture();
+		c.loop();
 	}
 }
