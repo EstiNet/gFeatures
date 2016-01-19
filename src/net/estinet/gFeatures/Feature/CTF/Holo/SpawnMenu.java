@@ -37,9 +37,9 @@ public class SpawnMenu {
 		item4.setItemMeta(item1meta);
 		
 		p.getInventory().setItem(0, item1);
-		p.getInventory().setItem(0, item2);
-		p.getInventory().setItem(0, item3);
-		p.getInventory().setItem(0, item4);
+		p.getInventory().setItem(1, item2);
+		p.getInventory().setItem(2, item3);
+		p.getInventory().setItem(3, item4);
 	}
 	public void interact(Player p){
 		
