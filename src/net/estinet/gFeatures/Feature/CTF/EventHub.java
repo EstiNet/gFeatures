@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
@@ -15,6 +16,7 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
 import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
+import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.genesishub.gFeatures.API.Messaging.ActionAPI;
 
 /*
@@ -41,6 +43,7 @@ public class EventHub{
 	Leave leave = new Leave();
 	Dead d = new Dead();
 	FlagHit fh = new FlagHit();
+	SpawnMenu sm = new SpawnMenu();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		join.init(event);
 	}
@@ -109,5 +112,10 @@ public class EventHub{
 	}
 	public void onPlayerPickup(PlayerPickupItemEvent event) {
 		event.setCancelled(true);
+	}
+	public void onPlayerInteract(PlayerInteractEvent event){
+		if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)){
+			sm.interact(event);
+		}
 	}
 }

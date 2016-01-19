@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public class Basic {
 	public static Location orangespawn;
@@ -13,6 +14,8 @@ public class Basic {
 	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 	public static Location orangeflag;
 	public static Location blueflag;
+	public static Player orangeflagger;
+	public static Player blueflagger;
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
 	public static int countdown = 60;

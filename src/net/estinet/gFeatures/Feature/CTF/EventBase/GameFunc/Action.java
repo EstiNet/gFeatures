@@ -12,4 +12,9 @@ public class Action {
 			aapi.sendActionbar(p, message);
 		}
 	}
+	public static void sendAllTitle(String title, String subtitle, int fadeIn, int stay, int fadeOut){
+		for(Player p : Bukkit.getOnlinePlayers()){
+			aapi.sendTitles(p, fadeIn, stay, fadeOut, title, subtitle);
+		}
+	}
 }
