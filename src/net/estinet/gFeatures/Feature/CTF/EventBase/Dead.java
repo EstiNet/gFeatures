@@ -15,9 +15,11 @@ public class Dead {
 	public void init(Player p){
 		if(Basic.blueflagger.getName().equals(p.getName())){
 			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
+			Basic.blueflagger = null;
 		}
 		else if(Basic.orangeflagger.getName().equals(p.getName())){
 			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
+			Basic.orangeflagger = null;
 		}
 		p.setGameMode(GameMode.SPECTATOR);
 		ActionAPI aapi = new ActionAPI();

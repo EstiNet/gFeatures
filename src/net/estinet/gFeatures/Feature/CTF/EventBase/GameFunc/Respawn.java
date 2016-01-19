@@ -18,7 +18,6 @@ public class Respawn {
 	}
 	public void fullrespawn(Player p){
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
-			ci.clearInv(p);
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
 			p.setWalkSpeed((float) 0.3);
@@ -26,7 +25,6 @@ public class Respawn {
 			p.getInventory().setHelmet(wool);
 		}
 		else{
-			ci.clearInv(p);
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.bluespawn);
 			p.setWalkSpeed((float) 0.3);

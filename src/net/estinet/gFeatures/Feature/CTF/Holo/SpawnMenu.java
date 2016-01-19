@@ -16,7 +16,6 @@ public class SpawnMenu {
 	ItemStack item1, item2, item3, item4;
 	ClearInventory ci = new ClearInventory();
 	Respawn respawn = new Respawn();
-	ClearInventory ci = new ClearInventory();
 	public void init(Player p){
 		ci.clearInv(p);
 		
