@@ -8,13 +8,16 @@ import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.Team;
+import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 
 public class StartStop {
 	static int tasknum;
 	Loop loop = new Loop();
 	Respawn respawn = new Respawn();
+	Spectate s = new Spectate();
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
@@ -34,7 +37,7 @@ public class StartStop {
  							for(UUID uuid : Basic.teams.keySet()){
  								for(Player p : Bukkit.getServer().getOnlinePlayers()){
  									if(p.getUniqueId().equals(uuid)){
- 										respawn.equals(p);
+ 										respawn.respawn(p);
  									}
  								}
  							}
@@ -59,6 +62,10 @@ public class StartStop {
     }, 0, 20L);
 	}
 	public void stop(){
-		
+		for(Player p : Bukkit.getOnlinePlayers()){
+			Basic.modes.remove(p.getUniqueId());
+			Basic.modes.put(p.getUniqueId(), PlayerMode.SPECTATE);
+			s.handler(p);
+		}
 	}
 }

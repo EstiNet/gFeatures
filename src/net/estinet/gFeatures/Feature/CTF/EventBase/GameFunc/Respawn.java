@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.CTF.Basic;
+import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 
@@ -14,9 +15,13 @@ public class Respawn {
 	ClearInventory ci = new ClearInventory();
 	SpawnMenu sm = new SpawnMenu();
 	public void respawn(Player p){
+		Basic.modes.remove(p.getUniqueId());
+		Basic.modes.put(p.getUniqueId(), PlayerMode.SELECT);
 		sm.init(p);
 	}
 	public void fullrespawn(Player p){
+		Basic.modes.remove(p.getUniqueId());
+		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
