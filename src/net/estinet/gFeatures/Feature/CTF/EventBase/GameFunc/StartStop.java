@@ -12,6 +12,7 @@ import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
+import net.estinet.gFeatures.Feature.gMusic.Music;
 
 public class StartStop {
 	static int tasknum;
@@ -37,6 +38,8 @@ public class StartStop {
  							for(UUID uuid : Basic.teams.keySet()){
  								for(Player p : Bukkit.getServer().getOnlinePlayers()){
  									if(p.getUniqueId().equals(uuid)){
+ 										Music m = new Music();
+ 										m.sendMusic(p, "theme", 1000, "Vexento", "Movements", "");
  										respawn.respawn(p);
  									}
  								}
