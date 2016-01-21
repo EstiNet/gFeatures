@@ -19,9 +19,13 @@ public class CTFScore {
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "     _Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net_     ");
 		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "Online:"); //Get a fake offline player
-		score2.setScore(6);
+		score2.setScore(7);
 		Score score3 = objective.getScore(ChatColor.BOLD + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
-		score3.setScore(5);
+		score3.setScore(6);
+		Score score7 = objective.getScore(ChatColor.GREEN + "Time left:"); //Get a fake offline player
+		score7.setScore(5);
+		Score score10 = objective.getScore(ChatColor.BOLD + "" + Basic.minutes + "m " + Basic.seconds + "s"); //Get a fake offline player
+		score10.setScore(4);
 		Score score = objective.getScore(ChatColor.AQUA + "Flags Captured (Blue):"); //Get a fake offline player
 		score.setScore(4);
 		Score score5 = objective.getScore(ChatColor.BOLD + "" + Basic.blueflags + " "); //Get a fake offline player
