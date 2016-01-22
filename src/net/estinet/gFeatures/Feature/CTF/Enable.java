@@ -30,9 +30,9 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("[CTF] Enabled :D");
 		try{
+		ch.setupConfig();
 		WorldCreator cs = new WorldCreator("MinigameSpawn");
 		Bukkit.getServer().createWorld(cs);
-		ch.setupConfig();
 		}
 		catch(Exception e){
 			e.printStackTrace();
