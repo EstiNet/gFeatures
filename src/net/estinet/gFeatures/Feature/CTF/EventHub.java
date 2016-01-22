@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -137,7 +138,17 @@ public class EventHub{
 		}
 	}
 	public void onEntityDamage(EntityDamageEvent event) {
-		// TODO Auto-generated method stub
-		
+		 Entity player = event.getEntity();
+	        if (player instanceof Player) {
+	            Player p = (Player) player;
+	            Double damage = event.getDamage();
+	            Double pHealth = p.getHealth();
+	            if (pHealth - damage <= 0) {
+	                event.setCancelled(true);
+	                p.teleport(Basic.waitspawn);
+	                p.setHealth(20);
+	            }
+	 
+	        }
 	}
 }
