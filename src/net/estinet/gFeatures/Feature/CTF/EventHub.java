@@ -123,10 +123,8 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
-		Bukkit.getLogger().info("sup");
 		if(event.getEntity() instanceof Player){
 		if(Basic.modes.get(event.getEntity().getUniqueId()).equals(Mode.WAITING)){
-			Bukkit.getLogger().info("sup");
 			event.getEntity().setHealth(20);
 			event.getEntity().teleport(Basic.waitspawn);
 			Player player = event.getEntity();
@@ -136,20 +134,5 @@ public class EventHub{
 		    }});
 		}
 		}
-	}
-	public void onEntityDamage(EntityDamageEvent event) {
-		Bukkit.getLogger().info("sup");
-		 Entity player = event.getEntity();
-	        if (player instanceof Player) {
-	            Player p = (Player) player;
-	            Double damage = event.getDamage();
-	            Double pHealth = p.getHealth();
-	            if (pHealth - damage <= 0) {
-	                event.setCancelled(true);
-	                p.teleport(Basic.waitspawn);
-	                p.setHealth(20);
-	            }
-	 
-	        }
 	}
 }

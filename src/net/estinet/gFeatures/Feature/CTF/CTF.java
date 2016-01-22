@@ -56,7 +56,6 @@ public class CTF extends gFeature implements Events{
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		Bukkit.getLogger().info(event.getEventName());
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
@@ -66,26 +65,22 @@ public class CTF extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("inventoryopenevent")){
 			eh.onOpenInventory((InventoryOpenEvent)event);
 		}
-		else if(event.getEventName().equals("entitydamagebyentityevent")){
+		else if(event.getEventName().equalsIgnoreCase("entitydamagebyentityevent")){
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
 		}
-		else if(event.getEventName().equals("playermoveevent")){
+		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
 			eh.onPlayerMove((PlayerMoveEvent) event);
 		}
-		else if(event.getEventName().equals("playerdropitemevent")){
+		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
 		}
-		else if(event.getEventName().equals("playerpickupitemevent")){
+		else if(event.getEventName().equalsIgnoreCase("playerpickupitemevent")){
 			eh.onPlayerPickup((PlayerPickupItemEvent) event);
 		}
-		else if(event.getEventName().equals("playerinteractevent")){
+		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
 			eh.onPlayerInteract((PlayerInteractEvent) event);
 		}
-		else if(event.getEventName().equals("entitydamageevent")){
-			Bukkit.getLogger().info("sup");
-			eh.onEntityDamage((EntityDamageEvent) event);
-		}
-		else if(event.getEventName().equals("playerdeathevent")){
+		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
 			eh.onPlayerDeath((PlayerDeathEvent) event); 
 		}
 	}
@@ -113,9 +108,6 @@ public class CTF extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onPlayerDeath(){}
-	@Override
-	@Retrieval
-	public void onEntityDamage(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
