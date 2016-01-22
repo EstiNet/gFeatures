@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
@@ -55,6 +56,7 @@ public class CTF extends gFeature implements Events{
 	}
 	@Override
 	public void eventTrigger(Event event) {
+		Bukkit.getLogger().info(event.getEventName());
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
@@ -80,7 +82,11 @@ public class CTF extends gFeature implements Events{
 			eh.onPlayerInteract((PlayerInteractEvent) event);
 		}
 		else if(event.getEventName().equals("entitydamageevent")){
+			Bukkit.getLogger().info("sup");
 			eh.onEntityDamage((EntityDamageEvent) event);
+		}
+		else if(event.getEventName().equals("playerdeathevent")){
+			eh.onPlayerDeath((PlayerDeathEvent) event); 
 		}
 	}
 	@Retrieval

@@ -138,6 +138,7 @@ public class EventHub{
 		}
 	}
 	public void onEntityDamage(EntityDamageEvent event) {
+		Bukkit.getLogger().info("sup");
 		 Entity player = event.getEntity();
 	        if (player instanceof Player) {
 	            Player p = (Player) player;

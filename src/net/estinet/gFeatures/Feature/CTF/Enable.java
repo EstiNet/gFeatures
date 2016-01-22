@@ -29,10 +29,14 @@ public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
 		Bukkit.getLogger().info("[CTF] Enabled :D");
+		try{
 		WorldCreator cs = new WorldCreator("MinigameSpawn");
 		Bukkit.getServer().createWorld(cs);
 		ch.setupConfig();
-		
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 		Capture c = new Capture();
 		c.loop();
 	}

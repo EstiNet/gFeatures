@@ -15,6 +15,7 @@ import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
+import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.gMusic.Music;
@@ -25,6 +26,7 @@ public class StartStop {
 	Action act = new Action();
 	Respawn respawn = new Respawn();
 	Spectate s = new Spectate();
+	Lobby l = new Lobby();
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
@@ -76,6 +78,7 @@ public class StartStop {
  					else{
  					loop.goThrough();
               		for(Player p : Bukkit.getServer().getOnlinePlayers()){
+              			p.setScoreboard(l.Initialize(p));
               			p.setLevel(Basic.countdown);
               			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
               		}
