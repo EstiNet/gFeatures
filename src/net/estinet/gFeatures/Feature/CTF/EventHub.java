@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -116,6 +117,13 @@ public class EventHub{
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)){
 			sm.interact(event);
+		}
+	}
+	public void onPlayerDeath(PlayerDeathEvent event) {
+		if(event.getEntity() instanceof Player){
+		if(Basic.modes.get(event.getEntity().getUniqueId()).equals(Mode.WAITING)){
+			event.getEntity().teleport(Basic.waitspawn);
+		}
 		}
 	}
 }
