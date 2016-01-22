@@ -39,11 +39,11 @@ public class StartStop {
  								p.setLevel(0);
  								if(Basic.getOrangeSize() >= Basic.getBlueSize()){
  									Basic.teams.put(p.getUniqueId(), Team.BLUE);
- 									p.teleport(Basic.spectatespawn);
+ 									Bukkit.getServer().getPlayer(p.getName()).teleport(Basic.bluespawn);
  								}
  								else{
  									Basic.teams.put(p.getUniqueId(), Team.ORANGE);
- 									p.teleport(Basic.orangespawn);
+ 									Bukkit.getServer().getPlayer(p.getName()).teleport(Basic.orangespawn);
  								}
  							}
  							for(UUID uuid : Basic.teams.keySet()){
