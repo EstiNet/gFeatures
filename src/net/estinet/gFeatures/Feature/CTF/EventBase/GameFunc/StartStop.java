@@ -39,11 +39,9 @@ public class StartStop {
  								p.setLevel(0);
  								if(Basic.getOrangeSize() >= Basic.getBlueSize()){
  									Basic.teams.put(p.getUniqueId(), Team.BLUE);
- 									Bukkit.getServer().getPlayer(p.getName()).teleport(Basic.bluespawn);
  								}
  								else{
  									Basic.teams.put(p.getUniqueId(), Team.ORANGE);
- 									Bukkit.getServer().getPlayer(p.getName()).teleport(Basic.orangespawn);
  								}
  							}
  							for(UUID uuid : Basic.teams.keySet()){
@@ -72,6 +70,8 @@ public class StartStop {
  		 					        }, 4500L);
  					        	}
  					        }, 4500L);
+ 							FinishStart fs = new FinishStart();
+ 							fs.finish();
  						}
  						else{
  							Basic.countdown = 60;
