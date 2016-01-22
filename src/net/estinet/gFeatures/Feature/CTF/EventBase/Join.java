@@ -6,6 +6,7 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
@@ -18,7 +19,9 @@ public class Join {
 	Spectate s = new Spectate();
 	Lobby l = new Lobby();
 	CTFScore ctfs = new CTFScore();
+	ClearInventory ci = new ClearInventory();
 	public void init(PlayerJoinEvent event){
+		ci.clearInv(event.getPlayer());
 		event.getPlayer().setGameMode(GameMode.ADVENTURE);
 		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
 		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
