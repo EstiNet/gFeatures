@@ -16,6 +16,7 @@ public class MapOne {
 	File flz = new File("./MinigameSpawn");
 	public void justDoIt(){
 		fz.delete();
+		flz.delete();
 		try {
 			FileUtils.copyDirectory(f, fz);
 			FileUtils.copyDirectory(fl, flz);

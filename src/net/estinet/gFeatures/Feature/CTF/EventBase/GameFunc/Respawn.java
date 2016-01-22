@@ -13,10 +13,10 @@ import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 
 public class Respawn {
 	ClearInventory ci = new ClearInventory();
-	SpawnMenu sm = new SpawnMenu();
 	public void respawn(Player p){
 		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.SELECT);
+		SpawnMenu sm = new SpawnMenu();
 		sm.init(p);
 	}
 	public void fullrespawn(Player p){
