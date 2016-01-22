@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.CTF.EventBase;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -31,8 +32,9 @@ public class Join {
 				p.setScoreboard(l.Initialize(p));
 			}
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);
+			Basic.waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 			event.getPlayer().teleport(Basic.waitspawn);
-			if(Bukkit.getOnlinePlayers().size() >= 2){
+			if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60){
 				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
 				ss.start();
 			}

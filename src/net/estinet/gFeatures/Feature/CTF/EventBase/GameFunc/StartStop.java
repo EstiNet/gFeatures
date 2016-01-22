@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
@@ -38,9 +39,11 @@ public class StartStop {
  								p.setLevel(0);
  								if(Basic.getOrangeSize() >= Basic.getBlueSize()){
  									Basic.teams.put(p.getUniqueId(), Team.BLUE);
+ 									p.teleport(Basic.spectatespawn);
  								}
  								else{
  									Basic.teams.put(p.getUniqueId(), Team.ORANGE);
+ 									p.teleport(Basic.orangespawn);
  								}
  							}
  							for(UUID uuid : Basic.teams.keySet()){

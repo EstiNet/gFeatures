@@ -29,15 +29,15 @@ public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
 		Bukkit.getLogger().info("[CTF] Enabled :D");
-		try{
 		ch.setupConfig();
-		WorldCreator cs = new WorldCreator("MinigameSpawn");
-		Bukkit.getServer().createWorld(cs);
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
+		
 		Capture c = new Capture();
 		c.loop();
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		WorldCreator cs = new WorldCreator("MinigameSpawn");
+		Bukkit.getServer().createWorld(cs);
+        	}
+        }, 40L);
 	}
 }
