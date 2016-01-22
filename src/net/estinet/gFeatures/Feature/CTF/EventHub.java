@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -120,9 +121,17 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
+		Bukkit.getLogger().info("sup");
 		if(event.getEntity() instanceof Player){
 		if(Basic.modes.get(event.getEntity().getUniqueId()).equals(Mode.WAITING)){
+			Bukkit.getLogger().info("sup");
+			event.getEntity().setHealth(20);
 			event.getEntity().teleport(Basic.waitspawn);
+			Player player = event.getEntity();
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+		        if(event.getEntity().isDead())
+		            player.setHealth(20);
+		    }});
 		}
 		}
 	}
