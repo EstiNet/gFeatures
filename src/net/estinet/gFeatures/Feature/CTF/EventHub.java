@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -134,5 +135,9 @@ public class EventHub{
 		    }});
 		}
 		}
+	}
+	public void onEntityDamage(EntityDamageEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 }
