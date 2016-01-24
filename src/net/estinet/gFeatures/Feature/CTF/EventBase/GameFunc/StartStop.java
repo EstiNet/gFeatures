@@ -31,6 +31,8 @@ public class StartStop {
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
+ 				Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
+				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
  					if(Basic.countdown <= 0){
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
  							Bukkit.getScheduler().cancelTask(tasknum);

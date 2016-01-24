@@ -36,7 +36,10 @@ public class Enable{
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		WorldCreator cs = new WorldCreator("MinigameSpawn");
-		Bukkit.getServer().createWorld(cs);
+        		Bukkit.getServer().createWorld(cs);
+        		
+        		WorldCreator cs1 = new WorldCreator("CTF");
+        		Bukkit.getServer().createWorld(cs1);
         	}
         }, 40L);
 	}
