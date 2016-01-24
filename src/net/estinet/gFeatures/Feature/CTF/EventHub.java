@@ -62,12 +62,14 @@ public class EventHub{
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 				event.setCancelled(true);
+				Bukkit.getLogger().info("Yep");
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
 					Player pl = (Player) event.getDamager();
 					if((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE))){
 						event.setCancelled(true);
+						Bukkit.getLogger().info("Yep");
 					}
 					else{
 						int health = (int) p.getHealth();

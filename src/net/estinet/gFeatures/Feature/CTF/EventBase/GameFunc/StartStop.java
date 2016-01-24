@@ -16,6 +16,7 @@ import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
 import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
+import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
@@ -75,6 +76,7 @@ public class StartStop {
  					        }, 4500L);
  							FinishStart fs = new FinishStart();
  							fs.finish();
+ 							recursive();
  						}
  						else{
  							Basic.countdown = 60;
@@ -143,6 +145,10 @@ public class StartStop {
 	        		}
 	        		else{
 	        			Basic.seconds -= 10;
+	        		}
+	        		for(Player p : Bukkit.getOnlinePlayers()){
+	        			CTFScore ctfs = new CTFScore();
+	        			p.setScoreboard(ctfs.Initialize(p));
 	        		}
 	        		recursive();
 	        		}

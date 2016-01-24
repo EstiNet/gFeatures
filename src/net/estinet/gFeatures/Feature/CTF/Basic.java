@@ -18,7 +18,7 @@ public class Basic {
 	public static Player blueflagger;
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
-	public static int countdown = 60;
+	public static int countdown = 5;  //CHANGE TO 60 when complete game
 	public static int minutes = 7;
 	public static int seconds = 30;
 	public static HashMap<UUID, Integer> kills = new HashMap<>();
