@@ -66,7 +66,7 @@ public class EventHub{
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
 					Player pl = (Player) event.getDamager();
-					if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE) || Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)){
+					if((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE))){
 						event.setCancelled(true);
 					}
 					else{
@@ -100,7 +100,7 @@ public class EventHub{
 	}
 	public void onPlayerMove(PlayerMoveEvent event) {
 		Player p = event.getPlayer();
-		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
+		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT) && (!event.getTo().getBlock().equals(event.getPlayer().getLocation().getBlock()))){
 			event.setCancelled(true);
 		}
 		else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
@@ -135,21 +135,7 @@ public class EventHub{
 		    }});
 		}
 		else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
-			Player player = event.getEntity();
-			if(Basic.teams.get(player.getUniqueId()).equals(Team.ORANGE)){
-				Basic.modes.remove(player.getUniqueId());
-				Basic.modes.put(player.getUniqueId(), PlayerMode.SELECT);
-				player.teleport(Basic.orangespawn);
-			}
-			else{
-				Basic.modes.remove(player.getUniqueId());
-				Basic.modes.put(player.getUniqueId(), PlayerMode.SELECT);
-				player.teleport(Basic.bluespawn);
-			}
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
-		        if(event.getEntity().isDead())
-		            player.setHealth(20);
-		    }});
+			d.init(event.getEntity());
 		}
 		}
 	}

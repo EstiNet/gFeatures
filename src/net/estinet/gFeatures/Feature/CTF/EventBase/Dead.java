@@ -13,7 +13,9 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Respawn;
 public class Dead {
 	Respawn r = new Respawn();
 	public void init(Player p){
-		p.setHealth(20);
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+	            p.setHealth(20);
+	    }});
 		if(Basic.blueflagger.getName().equals(p.getName())){
 			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
 			Basic.blueflagger = null;
