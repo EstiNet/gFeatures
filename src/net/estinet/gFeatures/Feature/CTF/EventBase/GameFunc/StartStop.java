@@ -46,6 +46,7 @@ public class StartStop {
  									Basic.teams.put(p.getUniqueId(), Team.ORANGE);
  								}
  							}
+ 							
  							for(UUID uuid : Basic.teams.keySet()){
  								for(Player p : Bukkit.getServer().getOnlinePlayers()){
  									if(p.getUniqueId().equals(uuid)){

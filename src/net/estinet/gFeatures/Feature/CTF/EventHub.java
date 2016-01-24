@@ -104,7 +104,7 @@ public class EventHub{
 			event.setCancelled(true);
 		}
 		else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-			if(p.getLocation().getBlockX() >= 60){
+			if(p.getLocation().getBlockY() >= 60){
 				ActionAPI aapi = new ActionAPI();
 				aapi.sendActionbar(p, ChatColor.AQUA + "Can't go any higher m8!");
 				event.setCancelled(true);
