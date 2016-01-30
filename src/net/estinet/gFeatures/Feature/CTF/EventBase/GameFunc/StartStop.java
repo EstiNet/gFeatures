@@ -9,8 +9,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
 
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
@@ -19,6 +17,7 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
 import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
@@ -33,7 +32,7 @@ public class StartStop {
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
  				Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
-				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
+ 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5); //work on OOP after :/
  					if(Basic.countdown <= 0){
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
  							Bukkit.getScheduler().cancelTask(tasknum);
@@ -113,11 +112,8 @@ public class StartStop {
 				public void run(){
 					try {
 						mm.giveMoney(p, clupic);
-					} catch (IllegalArgumentException e) {
-						e.printStackTrace();
-					} catch (IllegalStateException e) {
-						e.printStackTrace();
-					} catch (UserDoesNotExistException e) {
+					}  
+					catch (Exception e) {
 						e.printStackTrace();
 					}
 				}
@@ -126,14 +122,20 @@ public class StartStop {
 		}
 		Basic.mode = Mode.ENDED;
 		if(Basic.orangeflags > Basic.blueflags){
-			Action.sendAllTitle(ChatColor.GOLD + "The orange team won!", ChatColor.BOLD + Integer.toString(Basic.orangeflags) + " captured.", 20, 40, 20);
+			Action.sendAllTitle(ChatColor.GOLD + "The orange team won!", ChatColor.BOLD + Integer.toString(Basic.orangeflags) + " flags captured.", 20, 40, 20);
 		}
 		else if(Basic.orangeflags < Basic.blueflags){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + "The blue team won!", ChatColor.BOLD + Integer.toString(Basic.blueflags) + " captured.", 20, 40, 20);
+			Action.sendAllTitle(ChatColor.DARK_AQUA + "The blue team won!", ChatColor.BOLD + Integer.toString(Basic.blueflags) + " flags captured.", 20, 40, 20);
 		}
 		else{
 			Action.sendAllTitle(ChatColor.BOLD + "Both teams tied!", "", 20, 40, 20);
 		}
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		//Kick player off to hub
+        		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+        	}
+        }, 100L);
 	}
 	public void recursive(){
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {

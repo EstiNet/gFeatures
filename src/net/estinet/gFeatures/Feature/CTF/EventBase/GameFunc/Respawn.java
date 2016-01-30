@@ -16,12 +16,6 @@ public class Respawn {
 	public void respawn(Player p){
 		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.SELECT);
-		SpawnMenu sm = new SpawnMenu();
-		sm.init(p);
-	}
-	public void fullrespawn(Player p){
-		Basic.modes.remove(p.getUniqueId());
-		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
@@ -32,6 +26,26 @@ public class Respawn {
 		else{
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.bluespawn);
+			p.setWalkSpeed((float) 0.3);
+			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+			p.getInventory().setHelmet(wool);
+		}
+		SpawnMenu sm = new SpawnMenu();
+		sm.init(p);
+	}
+	public void fullrespawn(Player p){
+		Basic.modes.remove(p.getUniqueId());
+		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
+		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
+			p.setGameMode(GameMode.ADVENTURE);
+			p.teleport(Basic.orangeafterspawn);
+			p.setWalkSpeed((float) 0.3);
+			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			p.getInventory().setHelmet(wool);
+		}
+		else{
+			p.setGameMode(GameMode.ADVENTURE);
+			p.teleport(Basic.blueafterspawn);
 			p.setWalkSpeed((float) 0.3);
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 			p.getInventory().setHelmet(wool);

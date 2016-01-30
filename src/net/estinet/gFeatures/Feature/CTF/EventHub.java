@@ -139,6 +139,21 @@ public class EventHub{
 		            player.setHealth(20);
 		    }});
 		}
+		else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.SELECT)){
+			event.getEntity().setHealth(20);
+			
+			if(Basic.teams.get(event.getEntity().getUniqueId()).equals(Team.BLUE)){
+				event.getEntity().teleport(Basic.bluespawn);
+			}
+			else if(Basic.teams.get(event.getEntity().getUniqueId()).equals(Team.ORANGE)){
+				event.getEntity().teleport(Basic.orangespawn);
+			}
+			Player player = event.getEntity();
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+		        if(event.getEntity().isDead())
+		            player.setHealth(20);
+		    }});
+		}
 		else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
 			d.init(event.getEntity());
 		}

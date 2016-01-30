@@ -7,8 +7,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -47,21 +45,21 @@ public class MoneyManager {
 		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
 		return Float.parseFloat(rs.get(1));
 	}
-	public void giveMoney(Player p, float amount) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void giveMoney(Player p, float amount) throws Exception{
 		List<String> rs = new ArrayList<>();
 		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float num = Float.parseFloat(rs.get(1));
 		float money = num + amount;
 		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
-	public void takeMoney(Player p, float amount) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void takeMoney(Player p, float amount) throws Exception{
 		List<String> rs = new ArrayList<>();
 		rs = c.ConnectReturn(URL, Username, Password, "SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';");
 		float num = Float.parseFloat(rs.get(1));
 		float money = num - amount;
 		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = " + money + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
-	public void setMoney(Player p, float amount) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException{
+	public void setMoney(Player p, float amount) throws Exception{
 		c.Connect(URL, Username, Password, "UPDATE Peoples SET Money = " + amount + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
 	}
 	public List<String> clupicTop(){

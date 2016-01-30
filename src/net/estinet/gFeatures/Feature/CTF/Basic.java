@@ -14,6 +14,8 @@ public class Basic {
 	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 	public static Location orangeflag;
 	public static Location blueflag;
+	public static Location orangeafterspawn;
+	public static Location blueafterspawn;
 	public static Player orangeflagger;
 	public static Player blueflagger;
 	public static int orangeflags = 0;
