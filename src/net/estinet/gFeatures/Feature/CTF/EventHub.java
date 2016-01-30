@@ -58,11 +58,13 @@ public class EventHub{
 		event.setCancelled(true);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		Bukkit.getLogger().info("Yep");
 		if(event.getEntityType().equals(EntityType.PLAYER)){
+			Bukkit.getLogger().info("Yep");
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
-				event.setCancelled(true);
 				Bukkit.getLogger().info("Yep");
+				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
@@ -89,15 +91,16 @@ public class EventHub{
 							d.init(p);
 						}
 					}
-				}
-				else if(event.getDamager().getType().equals(EntityType.ENDER_CRYSTAL)){
-					event.setCancelled(true);
-					fh.init(event.getDamager().getLocation(), p);
+					
 				}
 			}
 		}
 		else{
-			return;
+			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
+					Bukkit.getLogger().info("Yep");
+					event.setCancelled(true);
+					fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
+				}
 		}
 	}
 	public void onPlayerMove(PlayerMoveEvent event) {

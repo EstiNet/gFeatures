@@ -65,7 +65,8 @@ public class CTF extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("inventoryopenevent")){
 			eh.onOpenInventory((InventoryOpenEvent)event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("entitydamagebyentityevent")){
+		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
+			Bukkit.getLogger().info("Yep");
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){

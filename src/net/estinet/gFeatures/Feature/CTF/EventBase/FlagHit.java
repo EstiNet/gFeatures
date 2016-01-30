@@ -15,19 +15,20 @@ public class FlagHit {
 	ActionAPI aapi = new ActionAPI();
 	CTFScore ctfs = new CTFScore();
 	public void init(Location loc, Player p){
-		if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockX() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
+		Bukkit.getLogger().info("flog x:" + Basic.blueflag.getBlockX() + " flag y:" + Basic.blueflag.getBlockY() + " flag z:" + Basic.blueflag.getBlockZ() + " p x:" + loc.getBlockX() + " p y:" + loc.getBlockY() + " p z:" + loc.getBlockZ());
+		if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has taken the blue flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
 			aapi.sendActionbar(p, ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
 			Basic.blueflagger = p;
 			//Captured the blue flag
 		}
-		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockX() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)){
+		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)){
 			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has taken the orange flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
 			aapi.sendActionbar(p, ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
 			Basic.orangeflagger = p;
 			//Captured the orange flag
 		}
-		else if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockX() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.orangeflagger.getName().equals(p.getName())){
+		else if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.orangeflagger.getName().equals(p.getName())){
 			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has captured the orange flag!", "", 20, 40, 20);
 			Basic.orangeflagger = null;
 			Basic.blueflags += 1;
@@ -38,7 +39,7 @@ public class FlagHit {
 			}
 			//Fully Captured the orange flag
 		}
-		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockX() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.blueflagger.getName().equals(p.getName())){
+		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.blueflagger.getName().equals(p.getName())){
 			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has captured the blue flag!", "", 20, 40, 20);
 			Basic.blueflagger = null;
 			Basic.orangeflags += 1;
