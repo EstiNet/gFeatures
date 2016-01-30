@@ -26,6 +26,7 @@ public class Join {
 		event.getPlayer().setGameMode(GameMode.ADVENTURE);
 		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
 		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
+		Basic.flagcaptures.put(event.getPlayer().getUniqueId(), 0);
 		switch(Basic.mode){
 		case WAITING:
 			for(Player p : Bukkit.getOnlinePlayers()){
@@ -36,6 +37,10 @@ public class Join {
 			event.getPlayer().teleport(Basic.waitspawn);
 			if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60){
 				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
+				ss.start();
+			}
+			else if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown  == 5){
+				//make sure you remove after we finish
 				ss.start();
 			}
 			break;
