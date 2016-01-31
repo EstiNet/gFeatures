@@ -58,12 +58,9 @@ public class EventHub{
 		event.setCancelled(true);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		Bukkit.getLogger().info("Yep");
 		if(event.getEntityType().equals(EntityType.PLAYER)){
-			Bukkit.getLogger().info("Yep");
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
-				Bukkit.getLogger().info("Yep");
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
@@ -71,7 +68,6 @@ public class EventHub{
 					Player pl = (Player) event.getDamager();
 					if((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE))){
 						event.setCancelled(true);
-						Bukkit.getLogger().info("Yep");
 					}
 					else{
 						int health = (int) p.getHealth();
@@ -88,6 +84,8 @@ public class EventHub{
 							Basic.kills.remove(pl.getUniqueId());
 							Basic.kills.put(pl.getUniqueId(), kills);
 							
+							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+							
 							d.init(p);
 						}
 					}
@@ -97,7 +95,6 @@ public class EventHub{
 		}
 		else{
 			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
-					Bukkit.getLogger().info("Yep");
 					event.setCancelled(true);
 					fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
 				}
