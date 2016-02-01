@@ -22,7 +22,7 @@ public class Capture {
         				FireworkEffect effect = FireworkEffect.builder().withColor(Color.AQUA).with(Type.BALL).build();
 
         				fwm.addEffect(effect);
-        				fwm.setPower(20);
+        				fwm.setPower(2);
 
         				fw.setFireworkMeta(fwm);
         			}
@@ -32,7 +32,7 @@ public class Capture {
         				FireworkEffect effect = FireworkEffect.builder().withColor(Color.ORANGE).with(Type.BALL).build();
 
         				fwm.addEffect(effect);
-        				fwm.setPower(10);
+        				fwm.setPower(2);
 
         				fw.setFireworkMeta(fwm);
         			}

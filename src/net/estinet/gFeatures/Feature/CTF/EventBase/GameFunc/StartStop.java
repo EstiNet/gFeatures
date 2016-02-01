@@ -32,7 +32,12 @@ public class StartStop {
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  			public void run(){
  				Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
- 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5); //work on OOP after :/
+ 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
+ 				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
+ 				Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
+ 				Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
+ 				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 20.5, 45);
+ 				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 18.5, 13);// PLZ DO OOP FOR *** SAKE
  					if(Basic.countdown <= 0){
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
  							Bukkit.getScheduler().cancelTask(tasknum);
@@ -52,13 +57,19 @@ public class StartStop {
  									if(p.getUniqueId().equals(uuid)){
  										Music m = new Music();
  										m.sendMusic(p, "theme", 1000, "Vexento", "Movements", "");
+ 										p.playSound(p.getLocation(), "theme", 1000, 1);
  										respawn.respawn(p);
  									}
  								}
  							}
  							
- 							Bukkit.getWorld("CTF").spawn(Basic.blueflag, EnderCrystal.class);
- 							Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
+ 							Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	 					        	public void run(){
+	 					        		Bukkit.getWorld("CTF").spawn(Basic.blueflag, EnderCrystal.class);
+	 					        		Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
+	 					        	}
+	 					        }, 45L);
+ 							
  							
  							Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  					        	public void run(){

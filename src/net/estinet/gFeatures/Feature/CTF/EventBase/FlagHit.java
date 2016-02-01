@@ -33,7 +33,7 @@ public class FlagHit {
 			Basic.blueflags += 1;
 			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
 			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture++);
+			Basic.flagcaptures.put(p.getUniqueId(), capture + 1);
 			for(Player ps : Bukkit.getOnlinePlayers()){
 				ps.setScoreboard(ctfs.Initialize(ps));
 			}
@@ -45,7 +45,7 @@ public class FlagHit {
 			Basic.orangeflags += 1;
 			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
 			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture++);
+			Basic.flagcaptures.put(p.getUniqueId(), capture+1);
 			for(Player ps : Bukkit.getOnlinePlayers()){
 				ps.setScoreboard(ctfs.Initialize(ps));
 			}

@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.Feature.CTF.Confligs.ConfligInit;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -24,5 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class Disable{
 	public static void onDisable(){
 		Bukkit.getLogger().info("[CTF] Disabled :/");
+		ConfligInit ci = new ConfligInit();
+		ci.deleteConfigs();
 	}
 }

@@ -51,6 +51,7 @@ public class Join {
 			event.getPlayer().teleport(Basic.spectatespawn);
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
 			s.handler(event.getPlayer());
+			event.getPlayer().setGameMode(GameMode.SPECTATOR);
 			break;
 		case STARTED:
 			for(Player p : Bukkit.getOnlinePlayers()){
@@ -59,6 +60,7 @@ public class Join {
 			event.getPlayer().teleport(Basic.spectatespawn);
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
 			s.handler(event.getPlayer());
+			event.getPlayer().setGameMode(GameMode.SPECTATOR);
 			break;
 		default:
 			break;

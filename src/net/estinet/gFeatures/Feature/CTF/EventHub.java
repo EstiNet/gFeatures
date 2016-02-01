@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -110,6 +111,7 @@ public class EventHub{
 				ActionAPI aapi = new ActionAPI();
 				aapi.sendActionbar(p, ChatColor.AQUA + "Can't go any higher m8!");
 				event.setCancelled(true);
+				p.teleport(new Location(p.getWorld(), p.getLocation().getX(), p.getLocation().getBlockY()-1, p.getLocation().getZ()));
 			}
 		}
 	}
