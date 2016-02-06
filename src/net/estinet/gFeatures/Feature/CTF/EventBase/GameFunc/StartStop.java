@@ -56,8 +56,8 @@ public class StartStop {
  								for(Player p : Bukkit.getServer().getOnlinePlayers()){
  									if(p.getUniqueId().equals(uuid)){
  										Music m = new Music();
- 										m.sendMusic(p, "theme", 1000, "Vexento", "Movements", "");
- 										p.playSound(p.getLocation(), "theme", 1000, 1);
+ 										m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
+ 										p.playSound(p.getLocation(), "theme", 100, 1);
  										respawn.respawn(p);
  									}
  								}
@@ -75,7 +75,7 @@ public class StartStop {
  					        	public void run(){
  					        		for(Player p : Bukkit.getServer().getOnlinePlayers()){
  					        			Music m = new Music();
- 										m.sendMusic(p, "theme", 1000, "Vexento", "Movements", "");
+ 										m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
  					        		}
  					        		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
  		 					        	public void run(){
