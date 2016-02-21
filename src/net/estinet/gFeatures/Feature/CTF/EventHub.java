@@ -149,17 +149,6 @@ public class EventHub{
 	}
 	public void onPlayerMove(PlayerMoveEvent event) {
 		Player p = event.getPlayer();
-		if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT) && (!event.getTo().getBlock().equals(event.getPlayer().getLocation().getBlock()))){
-			event.setCancelled(true);
-		}
-		else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-			if(p.getLocation().getBlockY() >= 60){
-				ActionAPI aapi = new ActionAPI();
-				aapi.sendActionbar(p, ChatColor.AQUA + "Can't go any higher m8!");
-				event.setCancelled(true);
-				p.teleport(new Location(p.getWorld(), p.getLocation().getX(), p.getLocation().getBlockY()-1, p.getLocation().getZ()));
-			}
-		}
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
 		event.setCancelled(true);
