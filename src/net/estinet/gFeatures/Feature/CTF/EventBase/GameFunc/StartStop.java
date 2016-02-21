@@ -89,22 +89,19 @@ public class StartStop {
  							recursive();
  						}
  						else{
+ 							Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
+ 							Basic.mode = Mode.WAITING;
  							Basic.countdown = 60;
  							Bukkit.getScheduler().cancelTask(tasknum);
  						}
  					}
  					else{
- 						if(Bukkit.getOnlinePlayers().size() > 1){
  					loop.goThrough();
               		for(Player p : Bukkit.getServer().getOnlinePlayers()){
               			p.setScoreboard(l.Initialize(p));
               			p.setLevel(Basic.countdown);
               			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
               		}
- 						}
- 						else{
- 							Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
- 						}
               		}
               		Basic.countdown--;
                 }
@@ -151,7 +148,7 @@ public class StartStop {
         		//Kick player off to hub
         		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
         	}
-        }, 100L);
+        }, 1000L);
 	}
 	public void recursive(){
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
