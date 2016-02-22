@@ -8,6 +8,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -65,8 +66,8 @@ public class CTF extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			eh.onPlayerLeave((PlayerQuitEvent)event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("inventoryopenevent")){
-			eh.onOpenInventory((InventoryOpenEvent)event);
+		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
+			eh.onOpenInventory((InventoryClickEvent)event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
@@ -101,7 +102,7 @@ public class CTF extends gFeature implements Events{
 	public void onPlayerLeave(){}
 	@Override
 	@Retrieval
-	public void onPlayerOpenInventory(){}
+	public void onInventoryClick(){}
 	@Override
 	@Retrieval
 	public void onEntityDamageByEntity(){}

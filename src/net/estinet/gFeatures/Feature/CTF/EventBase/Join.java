@@ -39,10 +39,6 @@ public class Join {
 				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
 				ss.start();
 			}
-			else if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown  == 5){
-				//make sure you remove after we finish
-				ss.start();
-			}
 			break;
 		case ENDED:
 			for(Player p : Bukkit.getOnlinePlayers()){

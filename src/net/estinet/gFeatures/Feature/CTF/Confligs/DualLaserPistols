@@ -1,0 +1,46 @@
+DualLaserPistols:
+    Item_Information:
+        Item_Name: "&eDual Laser Pistols"
+        Item_Type: 417
+        Item_Lore: "&eDual Laser Pistols"
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+    Shooting:
+        Dual_Wield: true
+        Cancel_Left_Click_Block_Damage: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 2
+        Recoil_Amount: 2
+        Projectile_Amount: 1
+        Projectile_Type: egg
+        Projectile_Speed: 40
+        Projectile_Damage: 6
+        Bullet_Spread: 1
+        Sounds_Shoot: ZOMBIE_WOOD-1-2-0,ZOMBIE_WOOD-1-0-0
+    Sneak:
+        Enable: true
+        No_Recoil: true
+        Bullet_Spread: 0.75
+    Reload:
+        Enable: true
+        Reload_Amount: 7
+        Reload_Duration: 40
+        Sounds_Out_Of_Ammo: CLICK-1-1-0
+        Sounds_Reloading: DOOR_OPEN-1-2-4,DOOR_OPEN-1-2-8,DOOR_CLOSE-1-2-23,DOOR_CLOSE-1-2-38
+        Dual_Wield:
+            Single_Reload_Duration: 25
+            Sounds_Single_Reload: DOOR_OPEN-1-2-4,DOOR_CLOSE-1-2-23
+            Sounds_Shoot_With_No_Ammo: CLICK-1-2-0
+    Abilities:
+        Reset_Hit_Cooldown: true
+    Backstab:
+        Enable: true
+        Bonus_Damage: 2
+        Sounds_Shooter: ORB_PICKUP-1-2-0
+    Particles:
+        Enable: true
+        Particle_Backstab: BLOCK_BREAK-55
+    Hit_Events:
+        Enable: true
+        Sounds_Shooter: SHOOT_ARROW-1-2-0
+    Custom_Death_Message:
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using &6Dual Laser Pistols&3!"

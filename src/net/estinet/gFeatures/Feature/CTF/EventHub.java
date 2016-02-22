@@ -10,6 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -20,6 +21,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
 import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
@@ -58,10 +60,11 @@ public class EventHub{
 	public void onPlayerLeave(PlayerQuitEvent event){
 		leave.init(event);
 	}
-	public void onOpenInventory(InventoryOpenEvent event) {
+	public void onOpenInventory(InventoryClickEvent event) {
 		event.setCancelled(true);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		Bukkit.getLogger().info("PlayerDeathEntity");
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
@@ -77,18 +80,20 @@ public class EventHub{
 						int health = (int) p.getHealth();
 						double damage = event.getDamage();
 						if(health - damage <= 0){
+							ClearInventory ci = new ClearInventory();
+							ci.clearInv(p);
 							event.setCancelled(true);
-							Integer deaths = Basic.deaths.get(p.getUniqueId());
-							deaths++;
+							int deaths = Basic.deaths.get(p.getUniqueId());
+							deaths+=1;
 							Basic.deaths.remove(p.getUniqueId());
 							Basic.deaths.put(p.getUniqueId(), deaths);
 							
-							Integer kills = Basic.kills.get(pl.getUniqueId());
-							kills++;
+							int kills = Basic.kills.get(pl.getUniqueId());
+							kills+=1;
 							Basic.kills.remove(pl.getUniqueId());
 							Basic.kills.put(pl.getUniqueId(), kills);
 							
-							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
 							
 							d.init(p);
 						}
@@ -105,6 +110,7 @@ public class EventHub{
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
+		Bukkit.getLogger().info("PlayerDeathWeapon");
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getVictim();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
@@ -120,14 +126,16 @@ public class EventHub{
 						int health = (int) p.getHealth();
 						double damage = event.getDamage();
 						if(health - damage <= 0){
+							ClearInventory ci = new ClearInventory();
+							ci.clearInv(p);
 							event.setCancelled(true);
-							Integer deaths = Basic.deaths.get(p.getUniqueId());
-							deaths++;
+							int deaths = Basic.deaths.get(p.getUniqueId());
+							deaths+=1;
 							Basic.deaths.remove(p.getUniqueId());
 							Basic.deaths.put(p.getUniqueId(), deaths);
 							
-							Integer kills = Basic.kills.get(pl.getUniqueId());
-							kills++;
+							int kills = Basic.kills.get(pl.getUniqueId());
+							kills+=1;
 							Basic.kills.remove(pl.getUniqueId());
 							Basic.kills.put(pl.getUniqueId(), kills);
 							
@@ -162,6 +170,7 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
+		Bukkit.getLogger().info("PlayerDeath");
 		if(event.getEntity() instanceof Player){
 		if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.WAITING)){
 			event.getEntity().setHealth(20);
@@ -189,6 +198,9 @@ public class EventHub{
 		    }});
 		}
 		else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
+			ClearInventory ci = new ClearInventory();
+			ci.clearInv(event.getEntity());
+			
 			d.init(event.getEntity());
 		}
 		}

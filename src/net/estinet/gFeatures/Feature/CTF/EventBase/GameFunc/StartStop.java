@@ -36,8 +36,8 @@ public class StartStop {
  				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
  				Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
  				Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
- 				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 20.5, 45);
- 				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 18.5, 13);// PLZ DO OOP FOR *** SAKE
+ 				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 21, 45);
+ 				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE
  					if(Basic.countdown <= 0){
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
  							Bukkit.getScheduler().cancelTask(tasknum);
@@ -93,6 +93,11 @@ public class StartStop {
  							Basic.mode = Mode.WAITING;
  							Basic.countdown = 60;
  							Bukkit.getScheduler().cancelTask(tasknum);
+ 							for(Player p : Bukkit.getServer().getOnlinePlayers()){
+ 		              			p.setScoreboard(l.Initialize(p));
+ 		              			p.setLevel(Basic.countdown);
+ 		              			p.playSound(p.getLocation(), Sound.AMBIENCE_RAIN, 50, 50);
+ 		              		}
  						}
  					}
  					else{
