@@ -168,7 +168,11 @@ public class CommandHub {
           		else{
           			float m = Float.parseFloat(args[2]);
           			Player pl = Bukkit.getPlayer(args[1]);
-          			mm.giveMoney(pl, m);
+          			try {
+						mm.giveMoney(pl, m);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Gave " + args[2] + " clupic to player " + pl.getName());
           			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Recieved " + args[2] + " clupic.");
           		}

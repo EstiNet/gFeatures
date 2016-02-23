@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -56,7 +57,7 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("EstiNet has never heard of this command. Do /help for help.");
+					sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Unknown command.");
 				}
 			} catch (Exception e) {
 			}
@@ -78,7 +79,7 @@ public class CommandLibrary {
 			}
 			try {
 				if(Check(uti.getName(), cmd.getName()) && uti.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("EstiNet has never heard of this command. Do /help for help.");
+					sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Unknown command.");
 				}
 			} catch (Exception e) {
 			}

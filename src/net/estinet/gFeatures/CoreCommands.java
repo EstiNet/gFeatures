@@ -38,7 +38,10 @@ https://github.com/EstiNet/gFeatures
 public class CoreCommands{
 	CommandLibrary cl = new CommandLibrary();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
+		if(cmd.getName().equalsIgnoreCase("plugin")){
+			sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
+		}
+		else if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 		try {
 				if(args.length == 0){
 					if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){

@@ -54,7 +54,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener{
-	public static final String version = "3.0.8 Beta";
+	public static final String version = "3.0.9 Beta";
 	public static boolean debug = false;
 	
 	PluginManager pm = getServer().getPluginManager();

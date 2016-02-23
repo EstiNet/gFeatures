@@ -1,6 +1,6 @@
 name: gFeatures
 main: net.estinet.gFeatures.Listeners
-version: 3.0.8 Beta
+version: 3.0.9 Beta
 load: STARTUP
 commands:
    gFeatures:
@@ -26,9 +26,8 @@ commands:
      aliases: [gw, gwars]
      permission: gWars
      usage: Syntax error! Do /gWars help.
-   plugins:
+   plugin:
      description: Shows the plugins on the server.
-     aliases: [pl, plugin]
    clupic:
       description: Core command for clupic!
       usage: Syntax error! Do /clupic help for help.
