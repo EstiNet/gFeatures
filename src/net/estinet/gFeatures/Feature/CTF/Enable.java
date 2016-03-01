@@ -2,8 +2,6 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
-import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
-
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*

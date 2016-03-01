@@ -96,7 +96,7 @@ public class StartStop {
  							for(Player p : Bukkit.getServer().getOnlinePlayers()){
  		              			p.setScoreboard(l.Initialize(p));
  		              			p.setLevel(Basic.countdown);
- 		              			p.playSound(p.getLocation(), Sound.AMBIENCE_RAIN, 50, 50);
+ 		              			p.playSound(p.getLocation(), Sound.WEATHER_RAIN, 50, 50);
  		              		}
  						}
  					}
@@ -105,7 +105,7 @@ public class StartStop {
               		for(Player p : Bukkit.getServer().getOnlinePlayers()){
               			p.setScoreboard(l.Initialize(p));
               			p.setLevel(Basic.countdown);
-              			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
+              			p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HARP, 50, 50);
               		}
               		}
               		Basic.countdown--;

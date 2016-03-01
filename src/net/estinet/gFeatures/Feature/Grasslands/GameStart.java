@@ -54,7 +54,7 @@ public class GameStart {
 	                  		for(Player p : Bukkit.getServer().getOnlinePlayers()){
 	                  			p.setScoreboard(cd.get(p, iter));
 	                  			p.setLevel(iter);
-	                  			p.playSound(p.getLocation(), Sound.NOTE_PIANO, 50, 50);
+	                  			p.playSound(p.getLocation(), Sound.BLOCK_NOTE_PLING, 50, 50);
 	                  		}
 	                  		}
 	                  		iter--;

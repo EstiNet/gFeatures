@@ -9,8 +9,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import net.minecraft.server.v1_8_R3.World;
-
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
