@@ -44,4 +44,5 @@ public interface Events {
     public void onPlayerLogin();
     public void onWorldLoad();
     public void onPlayerPickup();
+    public void onPlayerAnimate();
 }

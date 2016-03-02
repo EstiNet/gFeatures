@@ -89,4 +89,5 @@ public class gFeature{
     public void onWorldLoad(){}
     public void onPlayerLogin(){}
     public void onPlayerPickup(){}
+    public void onPlayerAnimate(){}
 }

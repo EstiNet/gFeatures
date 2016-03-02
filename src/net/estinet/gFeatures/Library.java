@@ -123,6 +123,10 @@ public class Library {
     public void onPlayerPickup(PlayerPickupItemEvent event){
     	check("onPlayerPickup", event);
     }
+    public void onPlayerAnimate(org.bukkit.event.player.PlayerAnimationEvent event) {
+    	check("onPlayerAnimate", event);
+		
+	}
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();
 		for(gFeature feature : features){

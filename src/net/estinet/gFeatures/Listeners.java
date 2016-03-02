@@ -241,6 +241,10 @@ public class Listeners extends JavaPlugin implements Listener{
     public void PlayerPickupItemEvent(PlayerPickupItemEvent event){
     	library.onPlayerPickup(event);
     }
+    @EventHandler
+    public void PlayerAnimationEvent(PlayerAnimationEvent event){
+    	library.onPlayerAnimate(event);
+    }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	commands.Commands(sender, cmd, label, args);
