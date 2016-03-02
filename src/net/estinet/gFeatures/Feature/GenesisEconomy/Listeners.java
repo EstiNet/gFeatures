@@ -43,7 +43,7 @@ public class Listeners {
 	public void onDisable(){
 		Bukkit.getLogger().info("GenesisEconomy disabled. Good bye!");
 	}
-    public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException {
+    public void onCommand(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException{
     	CommandHub ch = new CommandHub();
     	ch.Intitiate(sender, command, commandLabel, args);
     }

@@ -25,13 +25,13 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
-		
+		EstiWield.direction.put(event.getPlayer().getUniqueId(), Hand.RIGHT);
 	}
 
 	public void onPlayerAnimate(PlayerAnimationEvent event) {
 		
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
-		
+		EstiWield.direction.remove(event.getPlayer().getUniqueId());
 	}
 }

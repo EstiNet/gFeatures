@@ -1,12 +1,10 @@
 package net.estinet.gFeatures.Feature.EstiWield;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerAnimationEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -35,7 +33,7 @@ import net.estinet.gFeatures.gFeature;
 	*/
 public class EstiWield extends gFeature implements Events{
 		
-		public static HashMap<Player, Hand> direction = new HashMap<>();
+		public static HashMap<UUID, Hand> direction = new HashMap<>();
 		
 		EventHub eh = new EventHub();
 		CommandHub ch = new CommandHub();

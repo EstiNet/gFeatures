@@ -7,9 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.earth2me.essentials.api.Economy;
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -33,9 +30,8 @@ public class CommandHub {
 	MoneyManager mm = new MoneyManager();
 	CheckConfig cc = new CheckConfig();
 	Connection c = new Connection();
-	Economy eco = new Economy();
 	@SuppressWarnings({ "deprecation", "unused" })
-	public void Intitiate(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException, UserDoesNotExistException {
+	public void Intitiate(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException {
 		String URL, Username, Password, Address, Port, Tablename;
 		Password = cc.getPassword();
 		Username = cc.getUsername();
@@ -194,46 +190,6 @@ public class CommandHub {
 			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Beep bop. No access to the command!");
 		  		}
 		  		break;
-	  		case "trade":
-	  			Bukkit.getLogger().info(args[2]);
-	  			if((!(args[2].equalsIgnoreCase("clupic")) && (!(args[2].equalsIgnoreCase("dollars"))))){
-	  				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "There are only 2 currencies, dollars and clupic");
-	  			}
-	  			else if(args[2].equalsIgnoreCase("clupic")){
-	  				try{
-	  				if(mm.getMoney((Player)sender) >= Float.parseFloat(args[1])){
-	  					mm.takeMoney((Player)sender, Float.parseFloat(args[1]));
-	  					Economy.add(sender.getName(), (Float.parseFloat(args[1])) * (Float.parseFloat(cc.getRate())));
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You got " + (Float.parseFloat(args[1])) * (Float.parseFloat(cc.getRate())) + " dollars from " + args[1] + " clupic.");
-	  				}
-	  				else{
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
-	  				}
-	  				}catch(Exception e){
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error with your input! Try again.");
-	  					e.printStackTrace();
-	  				}
-	  			}
-	  			else if(args[2].equalsIgnoreCase("dollars") || args[2].equalsIgnoreCase("dollar")){
-	  				Thread thr = new Thread(new Runnable(){
-	  					public void run(){
-	  				try{
-	  				if(Economy.getMoney(sender.getName()) >= Float.parseFloat(args[1])){
-	  					Economy.subtract(sender.getName(), Float.parseFloat(args[1]));
-	  					mm.giveMoney((Player)sender, (Float.parseFloat(args[1])) / (Float.parseFloat(cc.getRate())));
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You got " + (Float.parseFloat(args[1])) / (Float.parseFloat(cc.getRate())) + " clupic from " + args[1] + " dollars.");
-	  				}
-	  				else{
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough dollars!");
-	  				}
-	  				}catch(Exception e){
-	  					sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error with your input! Try again.");
-	  					e.printStackTrace();
-	  				}
-	  				}
-	  				});
-	  			}
-	  			break;
 	  		default:
     		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
     		  break;
