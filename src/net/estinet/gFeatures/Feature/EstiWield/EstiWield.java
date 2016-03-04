@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerAnimationEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -54,8 +55,8 @@ public class EstiWield extends gFeature implements Events{
 			if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 				eh.onPlayerJoin((PlayerJoinEvent)event);
 			}
-			else if(event.getEventName().equalsIgnoreCase("playeranimationevent")){
-				eh.onPlayerAnimate((PlayerAnimationEvent)event);
+			else if(event.getEventName().equalsIgnoreCase("playerinteractentityevent")){
+				eh.onPlayerAnimate((PlayerInteractEntityEvent)event);
 			}
 			else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 				eh.onPlayerLeave((PlayerQuitEvent)event);
@@ -66,7 +67,7 @@ public class EstiWield extends gFeature implements Events{
 		public void onPlayerJoin(){}
 		@Retrieval
 		@Override
-		public void onPlayerAnimate(){}
+		public void onPlayerInteractEntity(){}
 		@Retrieval
 		@Override
 		public void onPlayerLeave(){}

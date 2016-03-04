@@ -1,8 +1,21 @@
 package net.estinet.gFeatures.Feature.EstiWield;
 
-import org.bukkit.event.player.PlayerAnimationEvent;
+import java.lang.reflect.Field;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import net.estinet.gFeatures.API.Packets.Reflection;
+import net.estinet.gFeatures.API.Packets.Reflection.FieldAccessor;
+import net.estinet.gFeatures.API.Packets.TinyProtocol;
+import net.minecraft.server.v1_9_R1.PacketDataSerializer;
+import net.minecraft.server.v1_9_R1.PacketPlayInArmAnimation;
+import net.minecraft.server.v1_9_R1.PacketPlayInUseEntity;
 
 /*
 gFeatures
@@ -24,14 +37,52 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
+	
+	private Class<?> particleClass = Reflection.getClass("{nms}.PacketPlayOutWorldParticles");
+	private FieldAccessor<String> particleName = Reflection.getField(particleClass, String.class, 0);
+	private FieldAccessor<Float> particleX = Reflection.getField(particleClass, float.class, 0);
+	private FieldAccessor<Float> particleY = Reflection.getField(particleClass, float.class, 1);
+	private FieldAccessor<Float> particleZ = Reflection.getField(particleClass, float.class, 2);
+	private FieldAccessor<Integer> particleCount = Reflection.getField(particleClass, int.class, 0);
+	
+	private TinyProtocol protocol;
+
+	
 	public void onPlayerJoin(PlayerJoinEvent event){
 		EstiWield.direction.put(event.getPlayer().getUniqueId(), Hand.RIGHT);
 	}
 
-	public void onPlayerAnimate(PlayerAnimationEvent event) {
-		
+	public void onPlayerAnimate(PlayerInteractEntityEvent event) {
+		CraftPlayer cp = (CraftPlayer) event.getPlayer();
+		if(ifSwords(event.getPlayer())){
+				if(!EstiWield.direction.get(event.getPlayer().getUniqueId()).equals(Hand.RIGHT)){
+					try {
+						// Only visible for the client
+						Object explosionPacket = particleClass.newInstance();
+						Location loc = event.getPlayer().getLocation();
+						particleName.set(explosionPacket, "hugeexplosion");
+						particleX.set(explosionPacket, (float) loc.getX());
+						particleY.set(explosionPacket, (float) loc.getY());
+						particleZ.set(explosionPacket, (float) loc.getZ());
+						particleCount.set(explosionPacket, 1);
+
+						// Send the packet to the player
+						protocol.sendPacket(event.getPlayer(), explosionPacket);
+					} catch (Exception e) {
+						throw new RuntimeException("Cannot send packet.", e);
+					}
+				}
+		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		EstiWield.direction.remove(event.getPlayer().getUniqueId());
+	}
+	public boolean ifSwords(Player p){
+		if(p.getInventory().getItemInMainHand().getType().equals(Material.DIAMOND_SWORD) || p.getInventory().getItemInMainHand().getType().equals(Material.IRON_SWORD) || p.getInventory().getItemInMainHand().getType().equals(Material.GOLD_SWORD) || p.getInventory().getItemInMainHand().getType().equals(Material.STONE_SWORD) || p.getInventory().getItemInMainHand().getType().equals(Material.WOOD_SWORD) || p.getInventory().getItemInMainHand().getType().equals(Material.DIAMOND_AXE) || p.getInventory().getItemInMainHand().getType().equals(Material.IRON_AXE) || p.getInventory().getItemInMainHand().getType().equals(Material.GOLD_AXE) || p.getInventory().getItemInMainHand().getType().equals(Material.STONE_AXE) || p.getInventory().getItemInMainHand().getType().equals(Material.WOOD_AXE)){
+			if(p.getInventory().getItemInOffHand().getType().equals(Material.DIAMOND_SWORD) || p.getInventory().getItemInOffHand().getType().equals(Material.IRON_SWORD) || p.getInventory().getItemInOffHand().getType().equals(Material.GOLD_SWORD) || p.getInventory().getItemInOffHand().getType().equals(Material.STONE_SWORD) || p.getInventory().getItemInOffHand().getType().equals(Material.WOOD_SWORD) || p.getInventory().getItemInOffHand().getType().equals(Material.DIAMOND_AXE) || p.getInventory().getItemInOffHand().getType().equals(Material.IRON_AXE) || p.getInventory().getItemInOffHand().getType().equals(Material.GOLD_AXE) || p.getInventory().getItemInOffHand().getType().equals(Material.STONE_AXE) || p.getInventory().getItemInOffHand().getType().equals(Material.WOOD_AXE)){
+				return true;
+			}
+		}
+		return false;
 	}
 }

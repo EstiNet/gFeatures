@@ -10,8 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.earth2me.essentials.api.UserDoesNotExistException;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
