@@ -55,7 +55,7 @@ public class EstiWield extends gFeature implements Events{
 			if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 				eh.onPlayerJoin((PlayerJoinEvent)event);
 			}
-			else if(event.getEventName().equalsIgnoreCase("playerinteractentityevent")){
+			else if(event.getEventName().equalsIgnoreCase("PlayerInteractEntityEvent")){
 				eh.onPlayerAnimate((PlayerInteractEntityEvent)event);
 			}
 			else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
