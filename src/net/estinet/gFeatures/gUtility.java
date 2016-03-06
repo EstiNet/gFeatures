@@ -54,4 +54,5 @@ public class gUtility extends Extension{
     public void onEntityDamage(){}
     public void onPlayerInteractEntity(){}
     public void onWeatherChange(){}
+    public void onPlayerInventory(){}
 }

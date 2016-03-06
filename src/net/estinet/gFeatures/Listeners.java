@@ -26,6 +26,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -244,6 +245,10 @@ public class Listeners extends JavaPlugin implements Listener{
     @EventHandler
     public void PlayerAnimationEvent(PlayerAnimationEvent event){
     	library.onPlayerAnimate(event);
+    }
+	@EventHandler
+    public void PlayerInventoryEvent(InventoryEvent event){
+    	library.onPlayerInventory(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

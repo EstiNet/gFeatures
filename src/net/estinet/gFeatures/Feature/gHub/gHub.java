@@ -7,9 +7,11 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerInventoryEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -97,6 +99,9 @@ public class gHub extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("weatherchangeevent")){
 			eh.onWeatherChange((WeatherChangeEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("inventoryevent")){
+			eh.onPlayerInventory((InventoryEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -134,6 +139,9 @@ public class gHub extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onWeatherChange(){}
+	@Override
+	@Retrieval
+	public void onPlayerInventory(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){

@@ -12,6 +12,7 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
@@ -125,7 +126,9 @@ public class Library {
     }
     public void onPlayerAnimate(org.bukkit.event.player.PlayerAnimationEvent event) {
     	check("onPlayerAnimate", event);
-		
+	}
+	public void onPlayerInventory(InventoryEvent event) {
+		check("onPlayerInventory", event);
 	}
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();
@@ -158,4 +161,5 @@ public class Library {
 			catch (SecurityException e) {}
 		}
     }
+	
 }
