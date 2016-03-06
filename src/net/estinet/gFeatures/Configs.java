@@ -4,7 +4,7 @@ package net.estinet.gFeatures;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2015 EstiNet
+   Copyright 2016 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
