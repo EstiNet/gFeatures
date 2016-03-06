@@ -7,25 +7,37 @@ The core of EstiNet.
 EstiNet - The flow of creativity.
 
 ##Version
-gFeatures Core/API: 3.0.5 BETA
+gFeatures Core/API: 3.1.0
 
 ## Info
 gFeatures powers EstiNet.
 It is the core that symbolizes everything about us.
 
-## Notes
-gFeatures 1.0 is located in "tk.genesishub.*" and is in a End of Support phase.
+## Dependencies
+gFeatures requires the following dependencies to run:
+* Spigot 1.9
+* CrackShot
+* Java 8
+* MySQL
+* Skript (Optional)
 
-gFeatures2 is located in "net.genesishub.*" and is now in End of Support phase.
+## Features
+This plugin makes all of EstiNet run. At it's core, it contains the following features:
 
-gFeatures 3.0 is located in "net.estinet.gFeatures". It is in active development, and is in Mainstream support phase.
+### gPlayer API
+A usable API to store player data in YAML files.
 
+### Action API
+A useful API to send NMS data to the player (titles, action bars, and etc.).
 
-End of Life: The product is no longer reciving updates, and is considered obesolte.
+### EstiPlayer API (SQLPlayers)
+An API to store player data in a MySQL Database. Similar to the gPlayer API.
 
-Extended Support: The product will not recive any new updates, only bug fixes and patches.
+### gFeatures Core
+Loads all of the Features into memory. Basically runs the whole thing.
 
-Mainstream Support: The product is in active development, and recives updates regularly.
+### Utilities, Skript, Feature and File API
+Specific plugin types to hook into gFeatures Core.
 
 ## Team
 - _InDev_ / Devin Lin (also known as aguy867 in older commits) -> Main Developer & CEO of EstiNet
@@ -34,7 +46,7 @@ Mainstream Support: The product is in active development, and recives updates re
 ## Copyright
 EstiNet and gFeatures are property of EstiNet.
 
-Â© 2015 EstiNet - All Rights Reserved.
+© 2016 EstiNet - All Rights Reserved.
 
 http://estinet.net/
 
