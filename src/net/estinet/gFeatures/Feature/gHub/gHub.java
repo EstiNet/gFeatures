@@ -137,6 +137,9 @@ public class gHub extends gFeature implements Events{
 	@Retrieval
 	public void onWeatherChange(){}
 	@Override
+	@Retrieval
+	public void onInventoryInteract(){}
+	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 		if(cmd.getName().equalsIgnoreCase("spawn")){
 			

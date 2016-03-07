@@ -91,4 +91,5 @@ public class gFeature{
     public void onPlayerPickup(){}
     public void onPlayerAnimate(){}
     public void onInventory(){}
+    public void onInventoryInteract(){}
 }

@@ -250,6 +250,10 @@ public class Listeners extends JavaPlugin implements Listener{
     public void InventoryEvent(InventoryEvent event){
     	library.onInventory(event);
     }
+	@EventHandler
+	public void InventoryInteractEvent(InventoryInteractEvent event){
+		library.onInventoryInteract(event);
+	}
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
     	commands.Commands(sender, cmd, label, args);

@@ -130,6 +130,9 @@ public class Library {
 	public void onInventory(InventoryEvent event) {
 		check("onInventory", event);
 	}
+	public void onInventoryInteract(org.bukkit.event.inventory.InventoryInteractEvent event) {
+		check("onInventoryInteract", event);
+	}
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();
 		for(gFeature feature : features){
@@ -161,5 +164,5 @@ public class Library {
 			catch (SecurityException e) {}
 		}
     }
-	
+
 }
