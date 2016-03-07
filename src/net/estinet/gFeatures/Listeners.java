@@ -251,7 +251,7 @@ public class Listeners extends JavaPlugin implements Listener{
     	library.onInventory(event);
     }
 	@EventHandler
-	public void InventoryInteractEvent(InventoryInteractEvent event){
+	public void InventoryInteractEvent(org.bukkit.event.inventory.InventoryInteractEvent event){
 		library.onInventoryInteract(event);
 	}
     @Override

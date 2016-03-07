@@ -9,6 +9,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
-	<classpathentry kind="lib" path="C:/BungeeCord.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
