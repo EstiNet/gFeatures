@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gHub;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 import org.bukkit.ChatColor;
@@ -62,6 +63,8 @@ public class EventHub {
 	
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
+		ClearInventory ci = new ClearInventory();
+		ci.clearInv(p);
 		p.setGameMode(GameMode.ADVENTURE);
 		p.getInventory().setItem(0, navigator);
 		p.getInventory().setItem(1, stacker);
@@ -77,7 +80,7 @@ public class EventHub {
 		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
 		}
 		catch(Exception e){
-			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + p.getName());
+			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
 		}
 		}
 		});
@@ -88,7 +91,7 @@ public class EventHub {
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
-		switch(event.getPlayer().getItemInHand().getType()){
+		switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
 		case WATCH:
 			st.event(event.getPlayer());
 			break;
@@ -126,7 +129,7 @@ public class EventHub {
 	public void onPlayerMove(PlayerMoveEvent event){
 		event.getPlayer().setAllowFlight(true);
 	}
-	public void onInventoryClick(InventoryClickEvent event){
+	public void onInventoryClick(InventoryClickEvent event){ 
 		event.setCancelled(true);
 	}
 	public void onEntityDamage(EntityDamageEvent event){
@@ -157,7 +160,7 @@ public class EventHub {
 		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 		catch(Exception e){
-			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + "" + ChatColor.WHITE + event.getPlayer().getName());
+			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
 		}
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
@@ -173,8 +176,4 @@ public class EventHub {
 		return item;
 	}
 
-	public void onPlayerInventory(InventoryEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
 }

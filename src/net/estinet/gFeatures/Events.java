@@ -45,5 +45,5 @@ public interface Events {
     public void onWorldLoad();
     public void onPlayerPickup();
     public void onPlayerAnimate();
-    public void onPlayerInventory();
+    public void onInventory();
 }

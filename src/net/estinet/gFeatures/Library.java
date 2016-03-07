@@ -127,8 +127,8 @@ public class Library {
     public void onPlayerAnimate(org.bukkit.event.player.PlayerAnimationEvent event) {
     	check("onPlayerAnimate", event);
 	}
-	public void onPlayerInventory(InventoryEvent event) {
-		check("onPlayerInventory", event);
+	public void onInventory(InventoryEvent event) {
+		check("onInventory", event);
 	}
     public void check(String methodname, Event event){
     	List<gFeature> features = Basic.getFeatures();

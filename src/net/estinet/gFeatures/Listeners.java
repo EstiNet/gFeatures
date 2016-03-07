@@ -247,8 +247,8 @@ public class Listeners extends JavaPlugin implements Listener{
     	library.onPlayerAnimate(event);
     }
 	@EventHandler
-    public void PlayerInventoryEvent(InventoryEvent event){
-    	library.onPlayerInventory(event);
+    public void InventoryEvent(InventoryEvent event){
+    	library.onInventory(event);
     }
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {

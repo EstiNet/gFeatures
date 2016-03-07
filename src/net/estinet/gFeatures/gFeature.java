@@ -90,5 +90,5 @@ public class gFeature{
     public void onPlayerLogin(){}
     public void onPlayerPickup(){}
     public void onPlayerAnimate(){}
-    public void onPlayerInventory(){}
+    public void onInventory(){}
 }

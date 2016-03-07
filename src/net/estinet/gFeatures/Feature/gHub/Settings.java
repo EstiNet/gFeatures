@@ -47,7 +47,7 @@ public class Settings {
 	            event.setWillClose(true);
 	        }
 	    }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
-    .setOption(0, new ItemStack(Material.SULPHUR, 1), ChatColor.GOLD+"Show/Hide Players", ChatColor.WHITE+"Stand on an airfield!")
+    .setOption(0, Constants.getPlayersOnSetting(p))
     .setOption(1, new ItemStack(Material.MINECART, 1), ChatColor.GOLD+"Summon Anti Aircraft Guns", ChatColor.WHITE+"Stand close to an Anti-Aircraft Station!")
     .setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand on a docks!");
 	return menu;

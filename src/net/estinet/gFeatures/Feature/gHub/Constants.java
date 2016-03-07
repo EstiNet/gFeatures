@@ -1,7 +1,15 @@
 package net.estinet.gFeatures.Feature.gHub;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 /*
 gFeatures
@@ -23,5 +31,25 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Constants {
-	public static Location spawn = new Location(Bukkit.getWorld("GenesisHub"), -71.5, 236.5, -10.5);
+	public static HashMap<UUID, Boolean> playerOn = new HashMap<>();
+	public static ItemStack getPlayersOnSetting(Player p){
+		if(playerOn.get(p.getUniqueId()).equals(true)){
+			return createItem(Material.SULPHUR, ChatColor.AQUA + "Hide Players");
+		}
+		else{
+			return createItem(Material.REDSTONE, ChatColor.AQUA + "Show Players");
+		}
+	}
+	public static ItemStack createItem(Material material, String name, String ... lore){
+		ItemStack item = new ItemStack(material, 1);
+		List<String> lores = new ArrayList<>();
+		for(String lor : lore){
+		lores.add(lor);
+		}
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(name);
+		meta.setLore(lores);
+		item.setItemMeta(meta);
+		return item;
+	}
 }
