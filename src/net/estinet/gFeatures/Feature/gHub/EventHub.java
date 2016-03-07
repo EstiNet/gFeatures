@@ -16,11 +16,9 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerInventoryEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -49,14 +47,13 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-	ItemStack navigator, stacker, hider, additions, settings;
+	ItemStack navigator, hider, additions, settings;
 	HidePlayers hp = new HidePlayers();
 	Stacker st = new Stacker();
 	
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
 		hider = createItem(Material.WATCH, ChatColor.DARK_AQUA + "Stacker");
-		stacker = createItem(Material.SULPHUR, ChatColor.AQUA + "Hide Players");
 		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
 		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
 	}
@@ -67,7 +64,6 @@ public class EventHub {
 		ci.clearInv(p);
 		p.setGameMode(GameMode.ADVENTURE);
 		p.getInventory().setItem(0, navigator);
-		p.getInventory().setItem(1, stacker);
 		p.getInventory().setItem(2, hider);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);

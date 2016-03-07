@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import net.estinet.gFeatures.API.Inventory.EstiInventory;
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 
 import org.bukkit.Bukkit;
@@ -29,16 +30,23 @@ https://github.com/EstiNet/gFeatures
 
 public class Settings {
 	public void init(Player p){
-		InventoryAPI open = makeInventory(p);
+		EstiInventory open = makeInventory(p);
 		open.open(p);
 	}
-	public InventoryAPI makeInventory(final Player p){
+	public EstiInventory makeInventory(final Player p){
 		try{
-		InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + "Settings", 9, new InventoryAPI.OptionClickEventHandler() {
+		EstiInventory menu = new EstiInventory(ChatColor.GRAY + "Settings", 9, new EstiInventory.OptionClickEventHandler() {
 	        @Override
-	        public void onOptionClick(final InventoryAPI.OptionClickEvent event) {
-	            if(event.getName().equals(ChatColor.GOLD+" ")){
-	            	
+	        public void onOptionClick(final EstiInventory.OptionClickEvent event) {
+	            if(event.getName().equals(Constants.getPlayersOnSetting(p).getItemMeta().getDisplayName())){
+	            	if(Constants.playerOn.get(p)){
+	            		HidePlayers hp = new HidePlayers();
+	            		hp.hide(p);
+	            	}
+	            	else{
+	            		HidePlayers hp = new HidePlayers();
+	            		hp.show(p);
+	            	}
 	            }
 	            else if(event.getName().equals(ChatColor.GOLD+" ")){
 		            
