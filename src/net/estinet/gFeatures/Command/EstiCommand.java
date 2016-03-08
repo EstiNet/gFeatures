@@ -14,7 +14,7 @@ public class EstiCommand {
 	private gFeature feature;
 	private Extension extension;
 	private CommandExecutable execution;
-	private boolean multiThread;
+	private boolean multiThread, methodTrigger = false;
 	private List<String> aliases = new ArrayList<>();
 	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask){
 		this.name = name;
@@ -40,6 +40,36 @@ public class EstiCommand {
 		this.description = description;
 		this.extension = extension;
 		this.aliases = aliases;
+		execution = executedTask;
+	}
+	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, boolean methodTrigger){
+		this.name = name;
+		this.description = description;
+		this.feature = feature;
+		this.methodTrigger = methodTrigger;
+		execution = executedTask;
+	}
+	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, boolean methodTrigger){
+		this.name = name;
+		this.description = description;
+		this.extension = extension;
+		this.methodTrigger = methodTrigger;
+		execution = executedTask;
+	}
+	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+		this.name = name;
+		this.description = description;
+		this.feature = feature;
+		this.aliases = aliases;
+		this.methodTrigger = methodTrigger;
+		execution = executedTask;
+	}
+	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+		this.name = name;
+		this.description = description;
+		this.extension = extension;
+		this.aliases = aliases;
+		this.methodTrigger = methodTrigger;
 		execution = executedTask;
 	}
 	public String getName(){
@@ -79,6 +109,10 @@ public class EstiCommand {
 		aliases.remove(alias);
 	}
 	public void execute(CommandSender sender, Command cmd, String[] args){
+		if(methodTrigger){
+			feature.commandTrigger(sender, cmd, cmd.getLabel(), args);
+		}
+		else{
 		execution.args = args;
 		execution.cmd = cmd;
 		execution.sender = sender;
@@ -92,6 +126,7 @@ public class EstiCommand {
 				}
 			});
 			thr.start();
+		}
 		}
 	}
 }
