@@ -3,10 +3,10 @@ package net.estinet.gFeatures.Command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-public interface CommandExecutable{
-	CommandSender sender = null;
-	Command cmd = null;
-	String[] args = null;
+public abstract class CommandExecutable{
+	protected CommandSender sender;
+	protected Command cmd;
+	protected String[] args;
 	
-	public void run();
+	public abstract void run();
 }

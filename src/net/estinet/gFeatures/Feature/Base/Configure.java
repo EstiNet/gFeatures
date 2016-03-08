@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.Base.Commands.TestCommand;
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -29,6 +31,10 @@ public class Configure{
 	public static void onSetup(){
 		Base base = new Base("Base", "1.2.5");
 		Basic.addFeature(base);
+		
+		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, new TestCommand());
+		Basic.addCommand(test);
+		
 		HashMap<Key<String>, String> hash = new HashMap<>();
 		Key<String> key = new Key<>();
 		key.setKey("Health");

@@ -91,18 +91,6 @@ public class EstiCommand extends BukkitCommand{
 	public Extension getExtension(){
 		return extension;
 	}
-	/**
-	 * Sets the gFeature that this EstiCommand is assigned to.
-	 * <p>
-	 * This method always returns immediately, whether or not the 
-	 * image exists. When this applet attempts to draw the image on
-	 * the screen, the data will be loaded. The graphics primitives 
-	 * that draw the image will incrementally paint on the screen. 
-	 *
-	 * @param  feature  The gFeature that is going to be set
-	 * @return      No return value
-	 * @see         Image
-	 */
 	public void setFeature(gFeature feature){
 		this.feature = feature;
 	}
