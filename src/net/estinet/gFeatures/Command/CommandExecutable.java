@@ -8,12 +8,6 @@ public class CommandExecutable implements Runnable{
 	Command cmd;
 	String[] args;
 	
-	public CommandExecutable(CommandSender sender, Command cmd, String[] args){
-		this.sender = sender;
-		this.cmd = cmd;
-		this.args = args;
-	}
-
 	@Override
 	public void run() {}
 }

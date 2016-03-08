@@ -13,29 +13,29 @@ public class EstiCommand {
 	private String name, description;
 	private gFeature feature;
 	private Extension extension;
-	private Runnable execution;
+	private CommandExecutable execution;
 	private boolean multiThread;
 	private List<String> aliases = new ArrayList<>();
-	public EstiCommand(String name, String description, gFeature feature, Runnable executedTask){
+	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask){
 		this.name = name;
 		this.description = description;
 		this.feature = feature;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, Runnable executedTask){
+	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask){
 		this.name = name;
 		this.description = description;
 		this.extension = extension;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, gFeature feature, Runnable executedTask, List<String> aliases){
+	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, List<String> aliases){
 		this.name = name;
 		this.description = description;
 		this.feature = feature;
 		this.aliases = aliases;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, Runnable executedTask, List<String> aliases){
+	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, List<String> aliases){
 		this.name = name;
 		this.description = description;
 		this.extension = extension;
@@ -79,6 +79,9 @@ public class EstiCommand {
 		aliases.remove(alias);
 	}
 	public void execute(CommandSender sender, Command cmd, String[] args){
+		execution.args = args;
+		execution.cmd = cmd;
+		execution.sender = sender;
 		if(!multiThread){
 			execution.run();
 		}

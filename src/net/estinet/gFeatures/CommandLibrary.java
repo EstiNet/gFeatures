@@ -56,25 +56,6 @@ public class CommandLibrary {
 				}
 			}
 		}
-		
-		List<gFeature> features = Basic.getFeatures();
-		for(gFeature feature : features){
-			if(feature.getState().equals(FeatureState.ENABLE)){
-				
-			}
-		}
-		List<Extension> extensions = Basic.getExtensions();
-		List<gUtility> utilities = new ArrayList<>();
-		for(Extension ext : extensions){
-			if(ext.getType().equals(ExtensionsType.Utility)){
-				utilities.add((gUtility) ext);
-			}
-		}
-		for(gUtility uti : utilities){
-			if(uti.getState().equals(FeatureState.ENABLE)){
-				
-			}
-		}
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);
 	}
