@@ -50,7 +50,11 @@ public class CommandLibrary {
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		List<EstiCommand> commands = Basic.getCommands();
 		for(EstiCommand command : commands){
-			
+			if(command.getName().equals(cmd.getName())){
+				if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
+					command.execute(sender, cmd, args);
+				}
+			}
 		}
 		
 		List<gFeature> features = Basic.getFeatures();

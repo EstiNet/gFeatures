@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Command;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.estinet.gFeatures.Extension;
@@ -77,7 +78,7 @@ public class EstiCommand {
 	public void removeAlias(String alias){
 		aliases.remove(alias);
 	}
-	public void execute(CommandSender sender){
+	public void execute(CommandSender sender, Command cmd, String[] args){
 		if(!multiThread){
 			execution.run();
 		}
