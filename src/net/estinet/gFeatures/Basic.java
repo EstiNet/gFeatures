@@ -10,6 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.estinet.gFeatures.API.PlayerStats.Setup;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 import net.estinet.gFeatures.SQL.Update.Read;
@@ -44,6 +45,7 @@ public class Basic<T,V> {
 	
 	public static List<gFeature> features = new ArrayList<>();
 	private static List<Extension> extensions = new ArrayList<>();
+	private static List<EstiCommand> commands = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();
 	private static List<gPlayer> playerstats = new ArrayList<>();
 	@SuppressWarnings("rawtypes")
@@ -56,6 +58,9 @@ public class Basic<T,V> {
 	}
 	public static void addExtension(Extension extend){
 		extensions.add(extend);
+	}
+	public static void addCommand(EstiCommand command){
+		commands.add(command);
 	}
 	public static void addPlayerSection(String sectionname, String defaultvalue){
 		playersections.put(sectionname, defaultvalue);
@@ -76,6 +81,9 @@ public class Basic<T,V> {
 	}
 	public static void removeExtension(Extension extend){
 		extensions.remove(extend);
+	}
+	public static void removeCommand(EstiCommand command){
+		commands.remove(command);
 	}
 	public static void removePlayerSection(String sectionname, String defaultvalue){
 		playersections.remove(sectionname);
@@ -107,6 +115,14 @@ public class Basic<T,V> {
 		}
 		return null;
 	}
+	public static EstiCommand getCommand(String name){
+		for(EstiCommand command : commands){
+			if(command.getName().equalsIgnoreCase(name)){
+				return command;
+			}
+		}
+		return null;
+	}
 	public static gPlayer getgPlayer(String uuid){
 		for(gPlayer player : playerstats){
 			if(player.getUUID().equalsIgnoreCase(uuid)){
@@ -128,6 +144,9 @@ public class Basic<T,V> {
 	}
 	public static List<Extension> getExtensions(){
 		return extensions;
+	}
+	public static List<EstiCommand> getCommands(){
+		return commands;
 	}
 	public static HashMap<String, String> getPlayerSections(){
 		return playersections;
@@ -151,6 +170,9 @@ public class Basic<T,V> {
 	}
 	public static void setExtensions(List<Extension> pl){
 		extensions = pl;
+	}
+	public static void setCommands(List<EstiCommand> ec){
+		commands = ec;
 	}
 	@SuppressWarnings("rawtypes")
 	public static void setSQLFields(List<EstiSet> set){

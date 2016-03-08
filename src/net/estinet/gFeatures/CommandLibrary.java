@@ -13,6 +13,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
+import net.estinet.gFeatures.Command.EstiCommand;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -46,20 +48,15 @@ public class CommandLibrary {
 	}
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+		List<EstiCommand> commands = Basic.getCommands();
+		for(EstiCommand command : commands){
+			
+		}
+		
 		List<gFeature> features = Basic.getFeatures();
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
-				try {
-					if(Check(feature.getName(), cmd.getName())){
-						feature.commandTrigger(sender, cmd, label, args);
-					}
-				} catch (Exception e) {}
-			}
-			try {
-				if(Check(feature.getName(), cmd.getName()) && feature.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Unknown command.");
-				}
-			} catch (Exception e) {
+				
 			}
 		}
 		List<Extension> extensions = Basic.getExtensions();
@@ -71,34 +68,10 @@ public class CommandLibrary {
 		}
 		for(gUtility uti : utilities){
 			if(uti.getState().equals(FeatureState.ENABLE)){
-				try {
-					if(Check(uti.getName(), cmd.getName())){
-						uti.commandTrigger(sender, cmd, label, args);
-					}
-				} catch (Exception e) {}
-			}
-			try {
-				if(Check(uti.getName(), cmd.getName()) && uti.getState().equals(FeatureState.DISABLE)){
-					sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Unknown command.");
-				}
-			} catch (Exception e) {
+				
 			}
 		}
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);
-	}
-	
-	public boolean Check(String filename, String command) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/Commands/" + filename));
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(paramReader, writer);
-		String theString = writer.toString();
-		String[] lines = theString.split("\n");
-		for(int i = 0; i < lines.length; i++){
-			if(lines[i].equalsIgnoreCase(command)){
-				return true;
-			}
-		}
-		return false;
 	}
 }

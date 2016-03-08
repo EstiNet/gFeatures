@@ -3,7 +3,6 @@ package net.estinet.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 /*
 gFeatures
@@ -54,5 +53,10 @@ public class gUtility extends Extension{
     public void onEntityDamage(){}
     public void onPlayerInteractEntity(){}
     public void onWeatherChange(){}
-    public void onPlayerInventory(){}
+    public void onWorldLoad(){}
+    public void onPlayerLogin(){}
+    public void onPlayerPickup(){}
+    public void onPlayerAnimate(){}
+    public void onInventory(){}
+    public void onInventoryInteract(){}
 }
