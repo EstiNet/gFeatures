@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.Base;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 

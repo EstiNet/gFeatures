@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.GenesisEconomy;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
 
 /*
 gFeatures
@@ -27,5 +28,8 @@ public class Configure {
 	public static void onSetup(){
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.0");
 		Basic.addFeature(base);
+		
+		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, true);
+		Basic.addCommand(test);
 	}
 }

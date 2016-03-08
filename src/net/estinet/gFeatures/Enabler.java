@@ -60,11 +60,15 @@ public class Enabler {
 		}
 		
 		for(EstiCommand command : Basic.getCommands()){
-			Command comm = new Command(command.getName(), command.getDescription(), command.getDescription(), command.getAliases());
+			try{
 			Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
 			Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);
 			Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
-			register.invoke(cmdmap, comm.getName(), comm);
+			register.invoke(cmdmap, command.getName(), command);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 }

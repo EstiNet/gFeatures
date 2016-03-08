@@ -47,25 +47,23 @@ public class EstiCommand extends BukkitCommand{
 		super.setAliases(aliases);
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask, boolean methodTrigger){
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, boolean methodTrigger){
 		super(name);
 		super.setDescription(description);
 		super.setPermission(permission);
 		super.setUsage(usageMessage);
 		this.feature = feature;
 		this.methodTrigger = methodTrigger;
-		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask, boolean methodTrigger){
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, boolean methodTrigger){
 		super(name);
 		super.setDescription(description);
 		super.setPermission(permission);
 		super.setUsage(usageMessage);
 		this.extension = extension;
 		this.methodTrigger = methodTrigger;
-		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, List<String> aliases, boolean methodTrigger){
 		super(name);
 		super.setDescription(description);
 		super.setPermission(permission);
@@ -73,9 +71,8 @@ public class EstiCommand extends BukkitCommand{
 		this.feature = feature;
 		super.setAliases(aliases);
 		this.methodTrigger = methodTrigger;
-		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, List<String> aliases, boolean methodTrigger){
 		super(name);
 		super.setDescription(description);
 		super.setPermission(permission);
@@ -83,7 +80,6 @@ public class EstiCommand extends BukkitCommand{
 		this.extension = extension;
 		super.setAliases(aliases);
 		this.methodTrigger = methodTrigger;
-		execution = executedTask;
 	}
 	public gFeature getFeature(){
 		return feature;

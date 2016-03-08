@@ -49,17 +49,18 @@ public class CommandLibrary {
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		List<EstiCommand> commands = Basic.getCommands();
-		for(EstiCommand command : commands){
-			if(command.getName().equals(cmd.getName())){
+		EstiCommand command = (EstiCommand) cmd;
+		for(EstiCommand commandd : commands){
+			if(commandd.getName().equals(cmd.getName())){
 				try{
-				if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
-					command.execute(sender, cmd, args);
+				if(Basic.getFeature(commandd.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
+					command.execute(sender, label, args);
 				}
 				}
 				catch(Exception e){}
 				try{
-				if(Basic.getExtension(command.getExtension().getName()).getState().equals(FeatureState.ENABLE)){
-					command.execute(sender, cmd, args);
+				if(Basic.getExtension(commandd.getExtension().getName()).getState().equals(FeatureState.ENABLE)){
+					command.execute(sender, label, args);
 				}
 				}
 				catch(Exception e){}
