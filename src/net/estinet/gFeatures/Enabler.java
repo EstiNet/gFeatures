@@ -1,10 +1,13 @@
 package net.estinet.gFeatures;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
 
+import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Plus.Skript.SkriptManager;
 
 /*
@@ -56,5 +59,12 @@ public class Enabler {
 			}
 		}
 		
+		for(EstiCommand command : Basic.getCommands()){
+			Command comm = new Command(command.getName(), command.getDescription(), command.getDescription(), command.getAliases());
+			Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
+			Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);
+			Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
+			register.invoke(cmdmap, comm.getName(), comm);
+		}
 	}
 }

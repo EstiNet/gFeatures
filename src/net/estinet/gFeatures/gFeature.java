@@ -64,7 +64,6 @@ public class gFeature{
 	public void enable(){}
 	public void disable(){}
 	public void eventTrigger(Event event){}
-	@Deprecated
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
 	public void onPlayerJoin(){}
 	public void onPlayerLeave(){}

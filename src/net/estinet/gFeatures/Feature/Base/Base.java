@@ -31,7 +31,6 @@ https://github.com/EstiNet/gFeatures
 public class Base extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
-	CommandHub ch = new CommandHub();
 	
 	public Base(String featurename, String d) {
 		super(featurename, d);
@@ -52,8 +51,4 @@ public class Base extends gFeature implements Events{
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
-	@Override
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-			ch.onCommand(sender, cmd, label, args);
-	}
 }

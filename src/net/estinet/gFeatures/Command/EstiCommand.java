@@ -1,82 +1,89 @@
 package net.estinet.gFeatures.Command;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.defaults.BukkitCommand;
 
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.gFeature;
 
-public class EstiCommand {
-	private String name, description;
+public class EstiCommand extends BukkitCommand{
 	private gFeature feature;
 	private Extension extension;
 	private CommandExecutable execution;
 	private boolean multiThread, methodTrigger = false;
-	private List<String> aliases = new ArrayList<>();
-	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.feature = feature;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.extension = extension;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, List<String> aliases){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask, List<String> aliases){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.feature = feature;
-		this.aliases = aliases;
+		super.setAliases(aliases);
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, List<String> aliases){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask, List<String> aliases){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.extension = extension;
-		this.aliases = aliases;
+		super.setAliases(aliases);
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, boolean methodTrigger){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask, boolean methodTrigger){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.feature = feature;
 		this.methodTrigger = methodTrigger;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, boolean methodTrigger){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask, boolean methodTrigger){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.extension = extension;
 		this.methodTrigger = methodTrigger;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, gFeature feature, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, gFeature feature, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.feature = feature;
-		this.aliases = aliases;
+		super.setAliases(aliases);
 		this.methodTrigger = methodTrigger;
 		execution = executedTask;
 	}
-	public EstiCommand(String name, String description, Extension extension, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
-		this.name = name;
-		this.description = description;
+	public EstiCommand(String name, String description, String usageMessage, String permission, Extension extension, CommandExecutable executedTask, List<String> aliases, boolean methodTrigger){
+		super(name);
+		super.setDescription(description);
+		super.setPermission(permission);
+		super.setUsage(usageMessage);
 		this.extension = extension;
-		this.aliases = aliases;
+		super.setAliases(aliases);
 		this.methodTrigger = methodTrigger;
 		execution = executedTask;
-	}
-	public String getName(){
-		return name;
-	}
-	public String getDescription(){
-		return description;
 	}
 	public gFeature getFeature(){
 		return feature;
@@ -84,37 +91,32 @@ public class EstiCommand {
 	public Extension getExtension(){
 		return extension;
 	}
-	public List<String> getAliases(){
-		return aliases;
-	}
-	public void setName(String name){
-		this.name = name;
-	}
-	public void setDescription(String description){
-		this.description = description;
-	}
+	/**
+	 * Sets the gFeature that this EstiCommand is assigned to.
+	 * <p>
+	 * This method always returns immediately, whether or not the 
+	 * image exists. When this applet attempts to draw the image on
+	 * the screen, the data will be loaded. The graphics primitives 
+	 * that draw the image will incrementally paint on the screen. 
+	 *
+	 * @param  feature  The gFeature that is going to be set
+	 * @return      No return value
+	 * @see         Image
+	 */
 	public void setFeature(gFeature feature){
 		this.feature = feature;
 	}
 	public void setExtension(Extension extension){
 		this.extension = extension;
 	}
-	public void setAliases(List<String> aliases){
-		this.aliases = aliases;
-	}
-	public void addAlias(String alias){
-		aliases.add(alias);
-	}
-	public void removeAlias(String alias){
-		aliases.remove(alias);
-	}
-	public void execute(CommandSender sender, Command cmd, String[] args){
+	@Override
+	public boolean execute(CommandSender sender, String arg1, String[] args) {
 		if(methodTrigger){
-			feature.commandTrigger(sender, cmd, cmd.getLabel(), args);
+			feature.commandTrigger(sender, this, this.getLabel(), args);
 		}
 		else{
 		execution.args = args;
-		execution.cmd = cmd;
+		execution.cmd = this;
 		execution.sender = sender;
 		if(!multiThread){
 			execution.run();
@@ -128,5 +130,6 @@ public class EstiCommand {
 			thr.start();
 		}
 		}
+		return false;
 	}
 }

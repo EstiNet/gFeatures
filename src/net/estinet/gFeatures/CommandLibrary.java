@@ -51,9 +51,18 @@ public class CommandLibrary {
 		List<EstiCommand> commands = Basic.getCommands();
 		for(EstiCommand command : commands){
 			if(command.getName().equals(cmd.getName())){
+				try{
 				if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
 					command.execute(sender, cmd, args);
 				}
+				}
+				catch(Exception e){}
+				try{
+				if(Basic.getExtension(command.getExtension().getName()).getState().equals(FeatureState.ENABLE)){
+					command.execute(sender, cmd, args);
+				}
+				}
+				catch(Exception e){}
 			}
 		}
 		CoreCommands cc = new CoreCommands();

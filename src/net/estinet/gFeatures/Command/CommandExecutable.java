@@ -3,11 +3,10 @@ package net.estinet.gFeatures.Command;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-public class CommandExecutable implements Runnable{
-	CommandSender sender;
-	Command cmd;
-	String[] args;
+public interface CommandExecutable{
+	CommandSender sender = null;
+	Command cmd = null;
+	String[] args = null;
 	
-	@Override
-	public void run() {}
+	public void run();
 }
