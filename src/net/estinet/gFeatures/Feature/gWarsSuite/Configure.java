@@ -1,7 +1,10 @@
 package net.estinet.gFeatures.Feature.gWarsSuite;
 
+import java.util.Arrays;
+
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
 
 /*
 gFeatures
@@ -25,7 +28,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.7.1");
+		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.7.2");
 		Basic.addFeature(base);
+		
+		EstiCommand test = new EstiCommand("gWarss", "gWarsSuite core command.", "/gWarss help", base, Arrays.asList("gw"), true);
+		Basic.addCommand(test);
 	}
 }
