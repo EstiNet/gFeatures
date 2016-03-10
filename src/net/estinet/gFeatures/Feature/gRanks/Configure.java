@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gRanks;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
 
 /*
 gFeatures
@@ -25,7 +26,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		gRanks base = new gRanks("gRanks", "1.6.6");
+		gRanks base = new gRanks("gRanks", "1.6.7");
 		Basic.addFeature(base);
+		
+		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", base, true);
+		Basic.addCommand(test);
 	}
 }
