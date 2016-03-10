@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.GenesisEconomy;
 
+import java.util.Arrays;
+
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
@@ -29,7 +31,7 @@ public class Configure {
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("cliote", "Shows how much Cliotes you have and other Cliote related things.", "/cliote help", base, true);
+		EstiCommand test = new EstiCommand("clupic", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", base, true);
 		Basic.addCommand(test);
 	}
 }
