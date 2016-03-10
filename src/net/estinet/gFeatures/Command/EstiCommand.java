@@ -2,13 +2,12 @@ package net.estinet.gFeatures.Command;
 
 import java.util.List;
 
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.defaults.BukkitCommand;
-
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.gFeature;
 
-public class EstiCommand extends BukkitCommand{
+public class EstiCommand extends Command{
 	private gFeature feature;
 	private Extension extension;
 	private CommandExecutable execution;

@@ -1,15 +1,8 @@
 package net.estinet.gFeatures;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -48,24 +41,17 @@ public class CommandLibrary {
 	}
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		List<EstiCommand> commands = Basic.getCommands();
-		EstiCommand command = (EstiCommand) cmd;
-		for(EstiCommand commandd : commands){
+		for(EstiCommand commandd : Basic.getCommands()){
 			if(commandd.getName().equals(cmd.getName())){
 				try{
-				if(Basic.getFeature(commandd.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
-					command.execute(sender, label, args);
+					commandd.execute(sender, label, args);
 				}
+				catch(Exception e){
+					e.printStackTrace();
 				}
-				catch(Exception e){}
-				try{
-				if(Basic.getExtension(commandd.getExtension().getName()).getState().equals(FeatureState.ENABLE)){
-					command.execute(sender, label, args);
-				}
-				}
-				catch(Exception e){}
 			}
 		}
+		
 		CoreCommands cc = new CoreCommands();
 		cc.onCommand(sender, cmd, label, args);
 	}

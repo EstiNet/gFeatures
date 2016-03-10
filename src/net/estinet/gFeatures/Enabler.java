@@ -60,6 +60,7 @@ public class Enabler {
 		}
 		
 		for(EstiCommand command : Basic.getCommands()){
+			if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
 			try{
 			Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
 			Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);
@@ -68,6 +69,7 @@ public class Enabler {
 			}
 			catch(Exception e){
 				e.printStackTrace();
+			}
 			}
 		}
 	}
