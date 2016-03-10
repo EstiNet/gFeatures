@@ -26,10 +26,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.0");
+		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, true);
+		EstiCommand test = new EstiCommand("cliote", "Shows how much ", "/test", "gFeatures.test", base, true);
 		Basic.addCommand(test);
 	}
 }
