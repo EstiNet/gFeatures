@@ -29,7 +29,7 @@ public class Configure {
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("cliote", "Shows how much ", "/test", "gFeatures.test", base, true);
+		EstiCommand test = new EstiCommand("cliote", "Shows how much Cliotes you have and other Cliote related things.", "/cliote help", base, true);
 		Basic.addCommand(test);
 	}
 }

@@ -44,33 +44,32 @@ public class CommandHub {
             Bukkit.getLogger().info("Only players are supported for this GenesisEconomy as of now.");
             }
         }
-        if(command.getLabel().equals("clupic")) {
+        if(command.getLabel().equals("cliote")) {
           if(args.length == 0){
         	  float m = mm.getMoney((Player)sender);
         	  if(m%0.1 == 0){
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + "" + mm.getMoney((Player)sender) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + "" + mm.getMoney((Player)sender) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " cliotes.");
         	  }
         	  else{
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + mm.getMoney((Player)sender) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You have " + ChatColor.AQUA + mm.getMoney((Player)sender) + ChatColor.GOLD + "" + ChatColor.BOLD + " cliotes.");
         	  }
           }
           if(args.length == 1){
         	  switch(args[0]){
         	  case "help":
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
-        		  sender.sendMessage(ChatColor.AQUA + "/clupic | Views how much clupic you have.");
-        		  sender.sendMessage(ChatColor.AQUA + "/clupic get <player>| Views how much clupic the player has.");
-        		  sender.sendMessage(ChatColor.AQUA + "/clupic pay <player> <amount>| Pays a player.");
-        		  sender.sendMessage(ChatColor.AQUA + "/clupic set <player> <amount>| Admin command.");
-        		  sender.sendMessage(ChatColor.AQUA + "/clupic trade <amount> <currency(Dollars/Clupic)> | Trades between Dollars for Clupic and vice-versa");
+        		  sender.sendMessage(ChatColor.AQUA + "/cliote | Views how much cliote you have.");
+        		  sender.sendMessage(ChatColor.AQUA + "/cliote get <player>| Views how much cliote the player has.");
+        		  sender.sendMessage(ChatColor.AQUA + "/cliote pay <player> <amount>| Pays a player.");
+        		  sender.sendMessage(ChatColor.AQUA + "/cliote set <player> <amount>| Admin command.");
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD +"-----Help-----");
         		  break;
         	  case "pay":
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic pay <player> <amount>");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /cliote pay <player> <amount>");
         		  break;
         	  case "set":
         		  if(sender.hasPermission("GenesisEconomy.admin")){
-        			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic set <player> <amount>");
+        			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /cliote set <player> <amount>");
         		  }
         		  else{
         			  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Beep bop. No access to the command!");
@@ -80,24 +79,21 @@ public class CommandHub {
         		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "This feature is not available yet.");
         		  break;
         	  case "get":
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic get <player>");
-        		  break;
-        	  case "trade":
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <amount> <currency(Dollars/Clupic>");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/cliote get <player>");
         		  break;
         	  default:
-        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
+        		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/cliote help");
         		  break;
         	  }
           }
           if(args.length == 2){
         	  switch(args[0]){
         	  	case "pay":
-        	  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic pay <player> <amount>");
+        	  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /cliote pay <player> <amount>");
     		  		break;
     	  		case "set":
     		  		if(sender.hasPermission("GenesisEconomy.admin")){
-    			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /clupic set <player> <amount>");
+    			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /cliote set <player> <amount>");
     		  		}
     		  		else{
     			  		sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Beep bop. No access to the command!");
@@ -109,10 +105,10 @@ public class CommandHub {
            		  if(mm.playerExists(op)){
            			  float m = mm.getMoney((Player)sender);
            			  if(m%0.1 == 0){
-                   		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + "" + mm.getMoney(op) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic.");
+                   		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + "" + mm.getMoney(op) + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " cliotes.");
                    	  }
                    	  else{
-                   	  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + mm.getMoney(op) + ChatColor.GOLD + "" + ChatColor.BOLD + " clupic");
+                   	  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + mm.getMoney(op) + ChatColor.GOLD + "" + ChatColor.BOLD + " cliotes.");
                    	  }
            		  }
            		  else{
@@ -123,11 +119,8 @@ public class CommandHub {
            			  e.printStackTrace();
            		  }
            		  break;
-    	  		case "trade":
-          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic trade <amount> <currency(Dollars/Clupic>");
-          		  break;
     	  		default:
-          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
+          		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/cliote help");
           		  break;
     		  }
           }
@@ -139,21 +132,21 @@ public class CommandHub {
           		try{
           		float m = Float.parseFloat(args[2]);
           		if(m > mm.getMoney((Player)sender)){
-          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough clupic!");
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You don't have enough cliotes!");
           		}
           		else{
           			if(mm.playerOnline(args[1])){
           				Player pl = Bukkit.getPlayer(args[1]);
           				mm.giveMoney(pl, m);
               			mm.takeMoney((Player)sender, m);
-              			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " clupic to " + pl.getName());
-              			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You recieved " + m + " clupic from " + sender.getName());
+              			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " cliotes to " + pl.getName());
+              			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You recieved " + m + " cliotes from " + sender.getName());
           			}
           			else{
           				OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
           				mm.giveMoney(op, m);
           				mm.takeMoney((Player)sender, m);
-          				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " clupic to " + op.getName());
+          				sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " cliotes to " + op.getName());
           			}
           		}
           		}catch(Exception e){
@@ -169,8 +162,8 @@ public class CommandHub {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Gave " + args[2] + " clupic to player " + pl.getName());
-          			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Recieved " + args[2] + " clupic.");
+          			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Gave " + args[2] + " cliotes to player " + pl.getName());
+          			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Recieved " + args[2] + " cliotes.");
           		}
           		}
           		else{
@@ -191,7 +184,7 @@ public class CommandHub {
 		  		}
 		  		break;
 	  		default:
-    		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/clupic help");
+    		  sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/cliote help");
     		  break;
           	}
           }
