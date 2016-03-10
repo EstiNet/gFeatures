@@ -15,6 +15,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 
 /*
 gFeatures
@@ -39,7 +40,16 @@ public class CoreCommands{
 	CommandLibrary cl = new CommandLibrary();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("plugin")){
-			sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
+			if(sender.hasPermission("gFeatures.command.plugins")){
+				String plugins = "EstiNet";
+				for(Plugin plugin : Bukkit.getPluginManager().getPlugins()){
+					plugins += ", " + plugin.getName();
+				}
+				sender.sendMessage("Plugins (" + Bukkit.getServer().getPluginManager().getPlugins().length + "): " + ChatColor.GREEN + plugins);
+			}
+			else{
+				sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
+			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 		try {
