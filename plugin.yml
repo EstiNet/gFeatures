@@ -8,15 +8,6 @@ commands:
      aliases: [gf, gFeature]
      permission: gFeatures.command.gFeatures
      usage: Syntax error! Do /gFeatures help for help.
-   gWarss:
-     description: gWars core command.
-     aliases: [gw, gwars]
-     permission: gWars
-     usage: Syntax error! Do /gWars help.
    plugin:
      description: Shows the plugins on the server.
-   gRanks:
-      description: Core command for gRanks!
-      permission: gFeatures.command.gRanks
-      usage: Syntax error! Do /gRanks help for help.
 softdepend: [Skript, CrackShot, Factions]
