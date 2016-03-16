@@ -43,7 +43,7 @@ public class Scored {
 		score2.setScore(7);
 		Score score3 = objective.getScore(ChatColor.DARK_BLUE + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size())); //Get a fake offline player
 		score3.setScore(6);
-		Score score = objective.getScore(ChatColor.GREEN + "Cliotes:"); //Get a fake offline player
+		Score score = objective.getScore(ChatColor.GREEN + "Clupic:"); //Get a fake offline player
 		score.setScore(5);
 		Score score5 = objective.getScore(ChatColor.GREEN + "" + Float.toString(mm.getMoney(p))); //Get a fake offline player
 		score5.setScore(4);
