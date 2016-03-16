@@ -69,6 +69,7 @@ public class EventHub {
 		
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
+		Constants.playerOn.put(p.getUniqueId(), true);
 		Thread thr = new Thread(new Runnable(){
 		public void run(){
 		try{
