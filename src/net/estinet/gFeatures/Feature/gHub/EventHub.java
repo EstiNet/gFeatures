@@ -48,15 +48,15 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-	ItemStack navigator, hider, additions, settings;
+	ItemStack navigator, additions, settings, pane;
 	HidePlayers hp = new HidePlayers();
 	Stacker st = new Stacker();
 	
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
-		hider = createItem(Material.WATCH, ChatColor.DARK_AQUA + "Stacker");
 		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
 		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
+		pane = new ItemStack(Material.STAINED_GLASS_PANE);
 	}
 	
 	public void onPlayerJoin(PlayerJoinEvent event){
@@ -64,11 +64,15 @@ public class EventHub {
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);
 		p.setGameMode(GameMode.ADVENTURE);
-		p.getInventory().setItem(0, navigator);
-		p.getInventory().setItem(2, hider);
-		
+		p.getInventory().setItem(0, pane);
+		p.getInventory().setItem(1, pane);
+		p.getInventory().setItem(2, pane);
+		p.getInventory().setItem(6, pane);
+		p.getInventory().setItem(4, navigator);	
 		p.getInventory().setItem(3, additions);
-		p.getInventory().setItem(4, settings);
+		p.getInventory().setItem(5, settings);
+		p.getInventory().setItem(7, pane);
+		p.getInventory().setItem(8, pane);
 		Constants.playerOn.put(p.getUniqueId(), true);
 		Thread thr = new Thread(new Runnable(){
 		public void run(){
@@ -91,9 +95,6 @@ public class EventHub {
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 		switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
-		case WATCH:
-			st.event(event.getPlayer());
-			break;
 		case CHEST:
 			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			break;

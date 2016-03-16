@@ -48,7 +48,7 @@ public class Settings {
 							hp.show(p);
 						}
 					}
-					else if(event.getName().equals(ChatColor.GOLD+"Stacker")){
+					else if(event.getName().equals(ChatColor.DARK_AQUA+"Stacker")){
 						Stacker st = new Stacker();
 						st.event(p);
 						event.getPlayer().closeInventory();
@@ -57,7 +57,7 @@ public class Settings {
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
 					.setOption(0, Constants.getPlayersOnSetting(p))
-					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.GOLD+"Stacker")
+					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.DARK_AQUA+"Stacker")
 					.setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand on a docks!");
 			return menu;
 		}catch(Exception e){
