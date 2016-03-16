@@ -25,14 +25,18 @@ https://github.com/EstiNet/gFeatures
 public class HidePlayers {
 	public void show(Player p){
 		for(Player player : Bukkit.getOnlinePlayers()){
-			p.showPlayer(player);
+			if(!p.getUniqueId().equals(player.getUniqueId())){
+				p.showPlayer(player);
+			}
 		}
 		Constants.playerOn.remove(p.getUniqueId());
 		Constants.playerOn.put(p.getUniqueId(), true);
 	}
 	public void hide(Player p){
 		for(Player player : Bukkit.getOnlinePlayers()){
-			p.hidePlayer(player);
+			if(!p.getUniqueId().equals(player.getUniqueId())){
+				p.hidePlayer(player);
+			}
 		}
 		Constants.playerOn.remove(p.getUniqueId());
 		Constants.playerOn.put(p.getUniqueId(), false);

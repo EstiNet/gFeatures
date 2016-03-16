@@ -90,15 +90,11 @@ public class EstiInventory implements Listener {
    
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
-    	Bukkit.getLogger().info("lel");
     	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
-    		Bukkit.getLogger().info("lel");
         if (event.getInventory().getTitle().equals(name)) {
-        	Bukkit.getLogger().info("lel");
         	EstiInventory.players.add(event.getWhoClicked().getUniqueId());
         	Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
-                	Bukkit.getLogger().info("lel1");
                     EstiInventory.players.remove(event.getWhoClicked().getUniqueId());
                 }
             }, 3);
