@@ -142,7 +142,7 @@ public class StartStop {
 			p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Flag Captures: " + Basic.flagcaptures.get(p.getUniqueId()));
 			int clupic = (Basic.flagcaptures.get(p.getUniqueId()) * 20) + (Basic.kills.get(p.getUniqueId()) * 2);
-			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
+			p.sendMessage(ChatColor.GREEN + "Total Cliotes Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
 			MoneyManager mm = new MoneyManager();
 			Thread thr = new Thread(new Runnable(){
