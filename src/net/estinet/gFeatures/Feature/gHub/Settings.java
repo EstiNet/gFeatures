@@ -39,7 +39,7 @@ public class Settings {
 	        @Override
 	        public void onOptionClick(final EstiInventory.OptionClickEvent event) {
 	            if(event.getName().equals(Constants.getPlayersOnSetting(p).getItemMeta().getDisplayName())){
-	            	if(Constants.playerOn.get(p)){
+	            	if(Constants.playerOn.get(p.getUniqueId())){
 	            		HidePlayers hp = new HidePlayers();
 	            		hp.hide(p);
 	            	}

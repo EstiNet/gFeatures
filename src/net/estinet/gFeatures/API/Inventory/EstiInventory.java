@@ -66,7 +66,7 @@ public class EstiInventory implements Listener {
     }
     public EstiInventory setOption(int position, ItemStack icon) {
         optionNames[position] = icon.getItemMeta().getDisplayName();
-        optionIcons[position] = setItemNameAndLore(icon, icon.getItemMeta().getDisplayName(), icon.getItemMeta().getLore().toArray());
+        optionIcons[position] = icon;
         return this;
     }
    
@@ -90,11 +90,15 @@ public class EstiInventory implements Listener {
    
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
-    	if(EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
+    	Bukkit.getLogger().info("lel");
+    	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
+    		Bukkit.getLogger().info("lel");
         if (event.getInventory().getTitle().equals(name)) {
+        	Bukkit.getLogger().info("lel");
         	EstiInventory.players.add(event.getWhoClicked().getUniqueId());
         	Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
                 public void run() {
+                	Bukkit.getLogger().info("lel1");
                     EstiInventory.players.remove(event.getWhoClicked().getUniqueId());
                 }
             }, 3);
@@ -183,5 +187,10 @@ public class EstiInventory implements Listener {
         item.setItemMeta(im);
         return item;
     }
-   
+    private ItemStack setItemName(ItemStack item, String name){
+    	ItemMeta im = item.getItemMeta();
+        im.setDisplayName(name);
+        item.setItemMeta(im);
+        return item;
+    }
 }

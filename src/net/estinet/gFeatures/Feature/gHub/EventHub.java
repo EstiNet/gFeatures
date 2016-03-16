@@ -98,7 +98,6 @@ public class EventHub {
 			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			break;
 		case FURNACE:
-			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			Settings s = new Settings();
 			s.init(event.getPlayer());
 			break;
