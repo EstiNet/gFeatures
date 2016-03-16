@@ -57,8 +57,7 @@ public class Settings {
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
 					.setOption(0, Constants.getPlayersOnSetting(p))
-					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.DARK_AQUA+"Stacker")
-					.setOption(2, new ItemStack(Material.BOAT, 1), ChatColor.GOLD+"Summon Boat", ChatColor.WHITE+"Stand on a docks!");
+					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.DARK_AQUA+"Stacker");
 			return menu;
 		}catch(Exception e){
 			e.printStackTrace();

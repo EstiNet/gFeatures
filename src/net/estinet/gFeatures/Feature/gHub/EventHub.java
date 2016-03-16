@@ -56,7 +56,8 @@ public class EventHub {
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
 		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
 		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
-		pane = new ItemStack(Material.STAINED_GLASS_PANE);
+		pane = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
+		pane = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 7);
 	}
 	
 	public void onPlayerJoin(PlayerJoinEvent event){
