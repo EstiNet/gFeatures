@@ -17,18 +17,18 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class Setup {
 	Configs config;
 	public void onSetup() {
 		//Well, unfortunate part of the API :(
-		
+
 		/*
 		 * Initialize your plugins here.
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
-		*/
+		 */
 		net.estinet.gFeatures.Feature.Base.Configure.onSetup();
 		net.estinet.gFeatures.Feature.CTF.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
@@ -47,32 +47,32 @@ public class Setup {
 		net.estinet.gFeatures.Feature.gRanks.Configure.onSetup();
 		net.estinet.gFeatures.Feature.UHC.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiWield.Configure.onSetup();
-		
+
 		/*
 		 * Initialize your Skripts here.
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
-		*/
-		
+		 */
+
 		net.estinet.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
-		
+
 		/*
 		 * Initialize your Utilities here.
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
-		*/
-		
+		 */
+
 		net.estinet.gFeatures.Utility.gBroadcast.Configure.onSetup();
 		net.estinet.gFeatures.Utility.gMotd.Configure.onSetup();
-		
+
 		//Ignore below. -_- Package Crawler attempt.
-		
-		
+
+
 		/*Package[] packs = Package.getPackages();
 		Bukkit.getLogger().info("Start2");
 		for(Package pac : packs){
@@ -81,7 +81,7 @@ public class Setup {
 				Class[] classes;
 				try {
 					classes = getClasses(pac.getName());
-				
+
 				for(Class classd : classes){
 					Bukkit.getLogger().info(classd.getName());
 				for (Method method : classd.getMethods())

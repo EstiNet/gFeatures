@@ -66,6 +66,7 @@ public class EventHub {
 		p.setGameMode(GameMode.ADVENTURE);
 		p.getInventory().setItem(0, navigator);
 		p.getInventory().setItem(2, hider);
+		
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(4, settings);
 		Thread thr = new Thread(new Runnable(){
@@ -92,16 +93,11 @@ public class EventHub {
 		case WATCH:
 			st.event(event.getPlayer());
 			break;
-		case SULPHUR:
-			hp.show(event.getPlayer());
-			break;
-		case REDSTONE:
-			hp.hide(event.getPlayer());
-			break;
 		case CHEST:
 			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			break;
 		case FURNACE:
+			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
 			Settings s = new Settings();
 			s.init(event.getPlayer());
 			break;
