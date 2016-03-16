@@ -48,7 +48,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-	ItemStack navigator, additions, settings, pane;
+	static ItemStack navigator, additions, settings, pane;
 	HidePlayers hp = new HidePlayers();
 	Stacker st = new Stacker();
 	
@@ -58,6 +58,9 @@ public class EventHub {
 		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
 		pane = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
 		pane = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 7);
+		ItemMeta im = pane.getItemMeta();
+		im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
+		pane.setItemMeta(im);
 	}
 	
 	public void onPlayerJoin(PlayerJoinEvent event){

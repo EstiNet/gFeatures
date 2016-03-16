@@ -28,6 +28,7 @@ public class ClearInventory {
 	{
 	p.getInventory().setItem(j, null);
 	}
+	p.getInventory().setItemInOffHand(null);
 	p.getInventory().setHelmet(null);
 	p.getInventory().setChestplate(null);
 	p.getInventory().setLeggings(null);

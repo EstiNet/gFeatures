@@ -1,11 +1,13 @@
 package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Command.RegisterCommand;
 import net.estinet.gFeatures.Feature.gHub.command.Spawn;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.entity.Player;
 
 /*
 gFeatures
@@ -39,11 +41,22 @@ public class Enable {
 		Basic.addPlayerSection("Settings.showChat", "true");
 		Basic.addPlayerSection("Settings.scoreBoard", "true");
 		
-		/*Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
-        		PreventFall pf = new PreventFall();
-        		pf.check();
+        		for(Player p : Bukkit.getOnlinePlayers()){
+        			ClearInventory ci = new ClearInventory();
+        			ci.clearInv(p);
+        			p.getInventory().setItem(0, EventHub.pane);
+        			p.getInventory().setItem(1, EventHub.pane);
+        			p.getInventory().setItem(2, EventHub.pane);
+        			p.getInventory().setItem(6, EventHub.pane);
+        			p.getInventory().setItem(4, EventHub.navigator);	
+        			p.getInventory().setItem(3, EventHub.additions);
+        			p.getInventory().setItem(5, EventHub.settings);
+        			p.getInventory().setItem(7, EventHub.pane);
+        			p.getInventory().setItem(8, EventHub.pane);
+        		}
         	}
-        }, 40L, 40L);*/
+        }, 600L, 600L);
 	}
 }

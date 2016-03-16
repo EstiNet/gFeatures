@@ -33,7 +33,4 @@ public class Basis {
 	public static boolean isInStacker(String playername){
 		return stacker.contains(playername);
 	}
-	public static ItemStack getStackerItem(String playername){
-		
-	}
 }
