@@ -35,8 +35,8 @@ public class Basic {
 	public static Location blueflag;
 	public static Location orangeafterspawn;
 	public static Location blueafterspawn;
-	public static Player orangeflagger;
-	public static Player blueflagger;
+	public static Player orangeflagger = null;
+	public static Player blueflagger = null;
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
 	public static int countdown = 60;  //CHANGE TO 60 when complete game

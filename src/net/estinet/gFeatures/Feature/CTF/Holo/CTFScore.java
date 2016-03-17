@@ -55,22 +55,22 @@ public class CTFScore {
 		score9.setScore(5);
 		Score score12 = objective.getScore(ChatColor.AQUA + "Flag Taker (Blue):");
 		score12.setScore(4);
-		if(Basic.blueflagger.equals(null)){
-		Score score13 = objective.getScore(ChatColor.BOLD + "" + ChatColor.GOLD + "No one.");
+		if(Basic.blueflagger == null){
+		Score score13 = objective.getScore(ChatColor.BOLD + "No one.");
 		score13.setScore(3);
 		}
 		else{
-			Score score13 = objective.getScore(ChatColor.BOLD + "" + ChatColor.GOLD + Basic.blueflagger.getName());
+			Score score13 = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + Basic.blueflagger.getName());
 			score13.setScore(3);
 		}
 		Score score14 = objective.getScore(ChatColor.GOLD + "Flag Taker (Orange):");
 		score14.setScore(2);
-		if(Basic.orangeflagger.equals(null)){
-			Score score15 = objective.getScore(ChatColor.BOLD + "" + ChatColor.AQUA + "No one.");
+		if(Basic.orangeflagger == null){
+			Score score15 = objective.getScore(ChatColor.BOLD + "No one.");
 			score15.setScore(1);
 		}
 		else{
-			Score score15 = objective.getScore(ChatColor.BOLD + "" + ChatColor.AQUA + Basic.orangeflagger.getName());
+			Score score15 = objective.getScore(ChatColor.AQUA + "" + ChatColor.BOLD + Basic.orangeflagger.getName());
 			score15.setScore(1);
 		}
 		return board;

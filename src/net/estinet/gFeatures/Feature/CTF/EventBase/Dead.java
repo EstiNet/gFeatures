@@ -52,11 +52,11 @@ public class Dead {
 		catch(Exception e){}
 		p.setGameMode(GameMode.SPECTATOR);
 		ActionAPI aapi = new ActionAPI();
-		aapi.sendActionbar(p, ChatColor.RED + "Respawning in 3 seconds...");
+		aapi.sendActionbar(p, ChatColor.RED + "Respawning in 5 seconds...");
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		r.respawn(p);
         	}
-        }, 60L);
+        }, 100L);
 	}
 }
