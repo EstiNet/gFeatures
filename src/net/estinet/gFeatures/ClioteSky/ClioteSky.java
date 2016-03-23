@@ -9,6 +9,7 @@ public class ClioteSky {
 	private static String name = "";
 	private static String password = "";
 	private static boolean enable = false;
+	private static boolean serverOnline = false;
 	private static boolean aliveCache = false;
 	public static String getCategory() {
 		return category;
@@ -57,5 +58,11 @@ public class ClioteSky {
 	}
 	public static void setAliveCache(boolean aliveCache) {
 		ClioteSky.aliveCache = aliveCache;
+	}
+	public static boolean isServerOnline() {
+		return serverOnline;
+	}
+	public static void setServerOnline(boolean serverOnline) {
+		ClioteSky.serverOnline = serverOnline;
 	}
 }
