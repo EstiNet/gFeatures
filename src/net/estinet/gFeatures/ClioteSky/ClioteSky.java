@@ -15,7 +15,7 @@ public class ClioteSky {
 	private static String password = "";
 	private static boolean enable = false;
 	private static boolean serverOnline = false;
-	private static boolean aliveCache = false;
+	private static boolean aliveCache = true;
 	public static List<Packet> inputPackets = new ArrayList<>();;
 	public static String getCategory() {
 		return category;
