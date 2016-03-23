@@ -9,6 +9,7 @@ public class ClioteSky {
 	private static String name = "";
 	private static String password = "";
 	private static boolean enable = false;
+	private static boolean aliveCache = false;
 	public static String getCategory() {
 		return category;
 	}
@@ -50,5 +51,11 @@ public class ClioteSky {
 	}
 	public static void printLine(String line){
 		Bukkit.getLogger().info("[ClioteSky] " + line);
+	}
+	public static boolean isAliveCache() {
+		return aliveCache;
+	}
+	public static void setAliveCache(boolean aliveCache) {
+		ClioteSky.aliveCache = aliveCache;
 	}
 }
