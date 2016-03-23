@@ -22,7 +22,7 @@ public class NetworkThread {
 				try{
 					input = inFromServer.readLine();
 					Decosion de = new Decosion();
-					de.
+					de.decode(input);
 				}
 				catch(Exception e){
 					e.printStackTrace();
