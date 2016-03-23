@@ -3,6 +3,7 @@ package net.estinet.gFeatures;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Update.Entrly;
@@ -52,12 +53,12 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class Listeners extends JavaPlugin implements Listener{
 	public static final String version = "3.2.3";
 	public static boolean debug = false;
-	
+
 	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
 	Disabler disable = new Disabler();
@@ -68,18 +69,20 @@ public class Listeners extends JavaPlugin implements Listener{
 	Entrly entrly = new Entrly();
 	gLoop gl = new gLoop();
 	net.estinet.gFeatures.API.PlayerStats.Setup setups = new net.estinet.gFeatures.API.PlayerStats.Setup();
-	
+	ClioteConfigUtil ccu = new ClioteConfigUtil();
+
 	@Override
 	public void onEnable(){
-	    pm.registerEvents(this, this);
+		pm.registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
 		getLogger().info("Starting gFeatures.");
 		getLogger().info("Current version: " + version);
 		getLogger().info("Starting modules!");
 		try{
-		setup.onSetup();
-		SetupConfig.setup();
-		LoadConfig.load();
+			setup.onSetup();
+			SetupConfig.setup();
+			LoadConfig.load();
+			ccu.load();
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -87,7 +90,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		enable.onEnable();
 		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 		try{
-		load.load();
+			load.load();
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -113,150 +116,150 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info("_________________________________________________________________________");
 	}
 	@EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){ 
+	public void onPlayerJoin(PlayerJoinEvent event){ 
 		Thread thr = new Thread(new Runnable(){
 			public void run(){
-		try{
-			setups.checkPlayer(event.getPlayer());
-			Debug.print("Player API initialized for " + event.getPlayer().getName());
-		}
-		catch(Exception e){
-			Debug.print(e.getMessage());
-		}
-		try{
-			entrly.join(event.getPlayer());
-		}
-		catch(Exception e){
-			Debug.print(e.getMessage());
-		}
+				try{
+					setups.checkPlayer(event.getPlayer());
+					Debug.print("Player API initialized for " + event.getPlayer().getName());
+				}
+				catch(Exception e){
+					Debug.print(e.getMessage());
+				}
+				try{
+					entrly.join(event.getPlayer());
+				}
+				catch(Exception e){
+					Debug.print(e.getMessage());
+				}
 			}
 		}
-		);
+				);
 		thr.start();
-    	library.onPlayerJoin(event);
-    }
-    @EventHandler
-    public void onPlayerLeave(PlayerQuitEvent event){
-    	library.onPlayerLeave(event);
-    	Thread thr = new Thread(new Runnable(){
-    		public void run(){
-    	try{
-    	gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
-    	for(String valuename : gp.getValues().keySet()){
-    		setups.smartFlush(gp, valuename, gp.getValue(valuename));
-    	}
-    	Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
-    	}
-    	catch(Exception e){
-    		Debug.print(e.getMessage());
-    	}
-    	}
-    	});
-    	thr.start();
-    }
-    @EventHandler
-    public void onPlayerMove(PlayerMoveEvent event){
-    	library.onPlayerMove(event);
-    }
-    @EventHandler
-    public void onPlayerRespawn(PlayerRespawnEvent event){
-    	library.onPlayerRespawn(event);
-    }
-    @EventHandler
-    public void onDeath(PlayerDeathEvent event){
-    	library.onPlayerDeath(event);
-    }
-    @EventHandler
-    public void onHit(EntityDamageByEntityEvent event) {
-    	library.onEntityDamageByEntity(event);
-    }
-    @EventHandler
-    public void onHit1(WeaponDamageEntityEvent event) {
-        library.onWeaponDamageEntity(event);
-    }
-    @EventHandler
-    public void PlayerInteract(PlayerInteractEvent event){
-        library.onPlayerInteract(event);
-    }
-    @EventHandler
-    public void PlayerBreakBlock(BlockBreakEvent event){
-    	library.onPlayerBreakBlock(event);
-    }
-    @EventHandler
-    public void PlayerChatEvent(AsyncPlayerChatEvent event){
-    	library.onPlayerChat(event);
-    }
-    @EventHandler
-    public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
-    	library.onPlayerCommand(event);
-    }
-    @EventHandler
-    public void PlayerInventoryEvent(InventoryOpenEvent event){
-    	library.onPlayerOpenInventory(event);
-    }
-    @EventHandler
-    public void PlayerHeldItemEvent(PlayerItemHeldEvent event){
-    	library.onPlayerItemHeld(event);
-    }
-    @EventHandler
-    public void InventoryClickEvent(InventoryClickEvent event){
-    	library.onInventoryClick(event);
-    }
-    @EventHandler
-    public void EntityExplodeEvent(EntityExplodeEvent event){
-    	library.onEntityExplode(event);
-    }
-    @EventHandler
-    public void FoodLevelChangeEvent(org.bukkit.event.entity.FoodLevelChangeEvent event){
-    	library.onFoodLevelChange(event);
-    }
-    @EventHandler
-    public void PlayerDropItemEvent(PlayerDropItemEvent event){
-    	library.onPlayerDrop(event);
-    }
-    @EventHandler
-    public void PlayerToggleFlightEvent(PlayerToggleFlightEvent event){
-    	library.onPlayerToggleFlight(event);
-    }
-    @EventHandler
-    public void EntityDamageEvent(EntityDamageEvent event){
-    	library.onEntityDamage(event);
-    }
-    @EventHandler
-    public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event){
-    	library.onPlayerInteractEntity(event);
-    }
-    @EventHandler
-    public void WeatherChangeEvent(org.bukkit.event.weather.WeatherChangeEvent event){
-    	library.onWeatherChange(event);
-    }
-    @EventHandler
-    public void PlayerLoginEvent(PlayerLoginEvent event){
-    	library.onPlayerLogin(event);
-    }
-    @EventHandler
-    public void WorldLoadEvent(WorldLoadEvent event){
-    	library.onWorldLoad(event);
-    }
-    @EventHandler
-    public void PlayerPickupItemEvent(PlayerPickupItemEvent event){
-    	library.onPlayerPickup(event);
-    }
-    @EventHandler
-    public void PlayerAnimationEvent(PlayerAnimationEvent event){
-    	library.onPlayerAnimate(event);
-    }
+		library.onPlayerJoin(event);
+	}
 	@EventHandler
-    public void InventoryEvent(InventoryEvent event){
-    	library.onInventory(event);
-    }
+	public void onPlayerLeave(PlayerQuitEvent event){
+		library.onPlayerLeave(event);
+		Thread thr = new Thread(new Runnable(){
+			public void run(){
+				try{
+					gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
+					for(String valuename : gp.getValues().keySet()){
+						setups.smartFlush(gp, valuename, gp.getValue(valuename));
+					}
+					Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
+				}
+				catch(Exception e){
+					Debug.print(e.getMessage());
+				}
+			}
+		});
+		thr.start();
+	}
+	@EventHandler
+	public void onPlayerMove(PlayerMoveEvent event){
+		library.onPlayerMove(event);
+	}
+	@EventHandler
+	public void onPlayerRespawn(PlayerRespawnEvent event){
+		library.onPlayerRespawn(event);
+	}
+	@EventHandler
+	public void onDeath(PlayerDeathEvent event){
+		library.onPlayerDeath(event);
+	}
+	@EventHandler
+	public void onHit(EntityDamageByEntityEvent event) {
+		library.onEntityDamageByEntity(event);
+	}
+	@EventHandler
+	public void onHit1(WeaponDamageEntityEvent event) {
+		library.onWeaponDamageEntity(event);
+	}
+	@EventHandler
+	public void PlayerInteract(PlayerInteractEvent event){
+		library.onPlayerInteract(event);
+	}
+	@EventHandler
+	public void PlayerBreakBlock(BlockBreakEvent event){
+		library.onPlayerBreakBlock(event);
+	}
+	@EventHandler
+	public void PlayerChatEvent(AsyncPlayerChatEvent event){
+		library.onPlayerChat(event);
+	}
+	@EventHandler
+	public void PlayerCommandEvent(PlayerCommandPreprocessEvent event){
+		library.onPlayerCommand(event);
+	}
+	@EventHandler
+	public void PlayerInventoryEvent(InventoryOpenEvent event){
+		library.onPlayerOpenInventory(event);
+	}
+	@EventHandler
+	public void PlayerHeldItemEvent(PlayerItemHeldEvent event){
+		library.onPlayerItemHeld(event);
+	}
+	@EventHandler
+	public void InventoryClickEvent(InventoryClickEvent event){
+		library.onInventoryClick(event);
+	}
+	@EventHandler
+	public void EntityExplodeEvent(EntityExplodeEvent event){
+		library.onEntityExplode(event);
+	}
+	@EventHandler
+	public void FoodLevelChangeEvent(org.bukkit.event.entity.FoodLevelChangeEvent event){
+		library.onFoodLevelChange(event);
+	}
+	@EventHandler
+	public void PlayerDropItemEvent(PlayerDropItemEvent event){
+		library.onPlayerDrop(event);
+	}
+	@EventHandler
+	public void PlayerToggleFlightEvent(PlayerToggleFlightEvent event){
+		library.onPlayerToggleFlight(event);
+	}
+	@EventHandler
+	public void EntityDamageEvent(EntityDamageEvent event){
+		library.onEntityDamage(event);
+	}
+	@EventHandler
+	public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event){
+		library.onPlayerInteractEntity(event);
+	}
+	@EventHandler
+	public void WeatherChangeEvent(org.bukkit.event.weather.WeatherChangeEvent event){
+		library.onWeatherChange(event);
+	}
+	@EventHandler
+	public void PlayerLoginEvent(PlayerLoginEvent event){
+		library.onPlayerLogin(event);
+	}
+	@EventHandler
+	public void WorldLoadEvent(WorldLoadEvent event){
+		library.onWorldLoad(event);
+	}
+	@EventHandler
+	public void PlayerPickupItemEvent(PlayerPickupItemEvent event){
+		library.onPlayerPickup(event);
+	}
+	@EventHandler
+	public void PlayerAnimationEvent(PlayerAnimationEvent event){
+		library.onPlayerAnimate(event);
+	}
+	@EventHandler
+	public void InventoryEvent(InventoryEvent event){
+		library.onInventory(event);
+	}
 	@EventHandler
 	public void InventoryInteractEvent(org.bukkit.event.inventory.InventoryInteractEvent event){
 		library.onInventoryInteract(event);
 	}
-    @Override
-    public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
-    	commands.Commands(sender, cmd, label, args);
-        return true;
-    }
+	@Override
+	public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+		commands.Commands(sender, cmd, label, args);
+		return true;
+	}
 }

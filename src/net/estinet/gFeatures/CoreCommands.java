@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
+import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -34,7 +35,7 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class CoreCommands{
 	CommandLibrary cl = new CommandLibrary();
@@ -52,7 +53,7 @@ public class CoreCommands{
 			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-		try {
+			try {
 				if(args.length == 0){
 					if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
@@ -82,13 +83,13 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.ENABLE)){
-							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
+								sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Disabled:");
 						for(gFeature feature : features){
 							if(feature.getState().equals(FeatureState.DISABLE)){
-							sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
+								sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
 							}
 						}
 						sender.sendMessage(ChatColor.GRAY + "Extensions:");
@@ -119,6 +120,7 @@ public class CoreCommands{
 						Disabler disable = new Disabler();
 						Setup setup = new Setup();
 						Load load = new Load();
+						ClioteConfigUtil ccu = new ClioteConfigUtil();
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("Stopping gFeatures!");
 						Bukkit.getLogger().info("Current version: " + Listeners.version);
@@ -133,6 +135,7 @@ public class CoreCommands{
 						setup.onSetup();
 						SetupConfig.setup();
 						LoadConfig.load();
+						ccu.load();
 						enable.onEnable();
 						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 						load.load();
@@ -167,9 +170,9 @@ public class CoreCommands{
 						break;
 					case "flushsql":
 						sender.sendMessage(ChatColor.GRAY + "Flushing SQL...");
-							
-							Thread thr = new Thread(new Runnable(){
-								public void run(){
+
+						Thread thr = new Thread(new Runnable(){
+							public void run(){
 								Basic.recieveSQLPlayers();
 								sender.sendMessage(ChatColor.GRAY + "Finished!");
 							}
@@ -194,7 +197,7 @@ public class CoreCommands{
 						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+							sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
 						}
 						break;
 					}
@@ -212,9 +215,9 @@ public class CoreCommands{
 						break;
 					}
 				}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

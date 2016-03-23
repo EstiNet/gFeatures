@@ -27,7 +27,7 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class Enabler {
 	public void onEnable(){
@@ -58,18 +58,18 @@ public class Enabler {
 				gu.enable();
 			}
 		}
-		
+
 		for(EstiCommand command : Basic.getCommands()){
 			if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
-			try{
-			Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
-			Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);
-			Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
-			register.invoke(cmdmap, command.getName(), command);
-			}
-			catch(Exception e){
-				e.printStackTrace();
-			}
+				try{
+					Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
+					Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);
+					Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
+					register.invoke(cmdmap, command.getName(), command);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 		}
 	}

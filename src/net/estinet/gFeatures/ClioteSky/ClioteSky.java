@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.ClioteSky;
 
+import org.bukkit.Bukkit;
+
 public class ClioteSky {
 	private static String address = "";
 	private static String port = "";
@@ -37,10 +39,16 @@ public class ClioteSky {
 	public static void setPort(String port) {
 		ClioteSky.port = port;
 	}
-	public String getAddress(){
+	public static String getAddress(){
 		return address;
 	}
-	public String getPort(){
+	public static String getPort(){
 		return port;
+	}
+	public static void printError(String errorCode){
+		Bukkit.getLogger().info("[ClioteSky Error] Error code " + errorCode + " recieved from server.");
+	}
+	public static void printLine(String line){
+		Bukkit.getLogger().info("[ClioteSky] " + line);
 	}
 }
