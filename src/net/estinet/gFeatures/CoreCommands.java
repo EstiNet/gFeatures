@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
+import net.estinet.gFeatures.ClioteSky.ClioteInit;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -120,7 +120,7 @@ public class CoreCommands{
 						Disabler disable = new Disabler();
 						Setup setup = new Setup();
 						Load load = new Load();
-						ClioteConfigUtil ccu = new ClioteConfigUtil();
+						ClioteInit ccu = new ClioteInit();
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("Stopping gFeatures!");
 						Bukkit.getLogger().info("Current version: " + Listeners.version);
@@ -135,7 +135,7 @@ public class CoreCommands{
 						setup.onSetup();
 						SetupConfig.setup();
 						LoadConfig.load();
-						ccu.load();
+						ccu.enable();
 						enable.onEnable();
 						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
 						load.load();

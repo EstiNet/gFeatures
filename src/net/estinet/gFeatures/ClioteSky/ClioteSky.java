@@ -1,6 +1,11 @@
 package net.estinet.gFeatures.ClioteSky;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Bukkit;
+
+import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 
 public class ClioteSky {
 	private static String address = "";
@@ -11,6 +16,7 @@ public class ClioteSky {
 	private static boolean enable = false;
 	private static boolean serverOnline = false;
 	private static boolean aliveCache = false;
+	public static List<Packet> inputPackets = new ArrayList<>();;
 	public static String getCategory() {
 		return category;
 	}

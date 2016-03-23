@@ -20,7 +20,9 @@ public class NetworkThread {
 			inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			while(true){
 				try{
-				input = inFromServer.readLine();
+					input = inFromServer.readLine();
+					Decosion de = new Decosion();
+					de.
 				}
 				catch(Exception e){
 					e.printStackTrace();
