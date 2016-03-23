@@ -80,6 +80,20 @@ public class SetupConfig {
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			yamlFile.set("Config.MySQL.State", "false");
 		}
+		if(!(yamlFile.contains("Config.ClioteSky"))){
+			yamlFile.createSection("Config.ClioteSky.Address");
+			yamlFile.createSection("Config.ClioteSky.Port");
+			yamlFile.createSection("Config.ClioteSky.Category");
+			yamlFile.createSection("Config.ClioteSky.Name");
+			yamlFile.createSection("Config.ClioteSky.Password");
+			yamlFile.createSection("Config.ClioteSky.Enable");
+			yamlFile.set("Config.ClioteSky.Address", "localhost");
+			yamlFile.set("Config.ClioteSky.Port", "36000");
+			yamlFile.set("Config.ClioteSky.Category", "Default");
+			yamlFile.set("Config.ClioteSky.Name", "Server");
+			yamlFile.set("Config.ClioteSky.Password", "password");
+			yamlFile.set("Config.ClioteSky.Enable", "false");
+		}
 		try {
 			yamlFile.save(f);
 		} catch (IOException e) {

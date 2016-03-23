@@ -97,7 +97,7 @@ public class EventHub{
 		try{
 		Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
 		}
-		catch(Exception e){
+		catch(Throwable e){
 			e.printStackTrace();
 		}
 	}
