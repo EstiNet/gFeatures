@@ -3,6 +3,8 @@ package net.estinet.gFeatures;
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputAlive;
 
 /*
 gFeatures
@@ -45,6 +47,19 @@ public class gLoop {
         		th.start();
         	}
         }, 2000L, 2000L);
+		}
+		if(ClioteSky.isEnable()){
+			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+	        	public void run(){
+	        		Thread th = new Thread(new Runnable(){
+	        			public void run(){
+	        				OutputAlive oa = new OutputAlive();
+	        				oa.run(null);
+	        			}
+	        		});
+	        		th.start();
+	        	}
+	        }, 200L, 200L);
 		}
 	}
 }

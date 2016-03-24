@@ -73,6 +73,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsqlfields : Shows loaded SQL fields.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures send <Message> : Sends a manual message to the ClioteSky server.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;

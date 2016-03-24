@@ -21,8 +21,14 @@ public class NetworkThread {
 			while(true){
 				try{
 					input = inFromServer.readLine();
-					Decosion de = new Decosion();
-					de.decode(input);
+					if(input == null){
+						ClioteSky.printLine("Couldn't establish connection with server. We'll try a bit later!");
+						break;
+					}
+					else{
+						Decosion de = new Decosion();
+						de.decode(input);
+					}
 				}
 				catch(Exception e){
 					e.printStackTrace();

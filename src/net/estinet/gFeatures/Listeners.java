@@ -82,7 +82,12 @@ public class Listeners extends JavaPlugin implements Listener{
 			setup.onSetup();
 			SetupConfig.setup();
 			LoadConfig.load();
-			ccu.enable();
+			Thread thr = new Thread(new Runnable(){
+				public void run(){
+					ccu.enable();
+				}
+			});
+			thr.start();
 		}
 		catch(Exception e){
 			e.printStackTrace();

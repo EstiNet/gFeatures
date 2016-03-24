@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 
 public class ClioteSky {
@@ -70,5 +71,6 @@ public class ClioteSky {
 	}
 	public static void setServerOnline(boolean serverOnline) {
 		ClioteSky.serverOnline = serverOnline;
+		NetworkThread.start();
 	}
 }
