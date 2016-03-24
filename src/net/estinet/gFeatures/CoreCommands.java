@@ -5,6 +5,7 @@ import java.util.List;
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.ClioteSky.ClioteInit;
+import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -209,10 +210,27 @@ public class CoreCommands{
 						gFeature feature = Basic.getFeature(args[1]);
 						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
 						break;
+					case "send":
+						NetworkThread.sendOutput(args[1]);
+						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
 							sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
 						}
+						break;
+					}
+				}
+				else{
+					switch(args[0]){
+					case "send":
+						String output = "";
+						for(int i = 0; i < args.length-1; i++){
+							output += args[i+1] + " ";
+						}
+						NetworkThread.sendOutput(output);
+						break;
+					default:
+						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
 						break;
 					}
 				}

@@ -23,6 +23,7 @@ public class NetworkThread {
 					input = inFromServer.readLine();
 					if(input == null){
 						ClioteSky.printLine("Couldn't establish connection with server. We'll try a bit later!");
+						ClioteSky.setServerOnline(false);
 						break;
 					}
 					else{
@@ -41,6 +42,7 @@ public class NetworkThread {
 	}
 	public static void sendOutput(String message){
 		try {
+			DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 			outToServer.writeBytes(message);
 		} catch (IOException e) {
 			e.printStackTrace();
