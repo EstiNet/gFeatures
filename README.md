@@ -1,13 +1,11 @@
 # gFeatures
 
-[![Join the chat at https://gitter.im/GlowstonePlusPlus/GlowstonePlusPlus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/EstiNet/gFeatures?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 The core of EstiNet.
 
 EstiNet - The flow of creativity.
 
 ##Version
-gFeatures Core/API: 3.1.0
+gFeatures Core/API: 3.2.1
 
 ## Info
 gFeatures powers EstiNet.
@@ -38,6 +36,9 @@ Loads all of the Features into memory. Basically runs the whole thing.
 
 ### Utilities, Skript, Feature and File API
 Specific plugin types to hook into gFeatures Core.
+
+### ClioteSky
+Key map API to store and send keys to other installations.
 
 ## Team
 - _InDev_ / Devin Lin (also known as aguy867 in older commits) -> Main Developer & CEO of EstiNet
