@@ -9,12 +9,14 @@ public class ClioteInit {
 	public void enable(){
 		ClioteConfigUtil ccu = new ClioteConfigUtil();
 		ccu.load();
-		ClioteSky.inputPackets.add(new InputAlive());
-		ClioteSky.inputPackets.add(new InputError());
-		ClioteSky.inputPackets.add(new InputMessage());
-		NetworkThread.start();
+		if(ClioteSky.isEnable()){
+			ClioteSky.inputPackets.add(new InputAlive());
+			ClioteSky.inputPackets.add(new InputError());
+			ClioteSky.inputPackets.add(new InputMessage());
+			NetworkThread.start();
+		}
 	}
 	public void disable(){
-		
+
 	}
 }
