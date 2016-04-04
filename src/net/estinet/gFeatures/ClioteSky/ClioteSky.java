@@ -55,7 +55,7 @@ public class ClioteSky {
 		return port;
 	}
 	public static void printError(String errorCode){
-		Bukkit.getLogger().info("[ClioteSky Error] Error code " + errorCode + " recieved from server.");
+		Bukkit.getLogger().info("[ClioteSky Error] " + errorCode);
 	}
 	public static void printLine(String line){
 		Bukkit.getLogger().info("[ClioteSky] " + line);
@@ -69,8 +69,11 @@ public class ClioteSky {
 	public static boolean isServerOnline() {
 		return serverOnline;
 	}
-	public static void setServerOnline(boolean serverOnline) {
-		ClioteSky.serverOnline = serverOnline;
+	public static void setServerOffline(){
+		ClioteSky.serverOnline = false;
+	}
+	public static void setServerOnline() {
+		ClioteSky.serverOnline = true;
 		NetworkThread.start();
 	}
 }

@@ -16,13 +16,14 @@ public class OutputAlive extends Packet{
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		if(ClioteSky.isAliveCache()){
+        			ClioteSky.printLine("Uh oh! Server went offline.");
         			if(ClioteSky.isServerOnline() != false){
-        				ClioteSky.setServerOnline(false);
+        				ClioteSky.setServerOffline();
         			}
         		}
         		else{
         			if(ClioteSky.isServerOnline() != true){
-        				ClioteSky.setServerOnline(true);
+        				ClioteSky.setServerOnline();
         			}
         		}
         	}

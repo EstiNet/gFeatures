@@ -55,6 +55,7 @@ public class gLoop {
 	        			public void run(){
 	        				OutputAlive oa = new OutputAlive();
 	        				oa.run(null);
+	        				Debug.print("[ClioteSky] Pinging server...");
 	        			}
 	        		});
 	        		th.start();
