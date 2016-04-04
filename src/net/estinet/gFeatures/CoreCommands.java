@@ -211,7 +211,9 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
 						break;
 					case "send":
-						NetworkThread.sendOutput(args[1]);
+						NetworkThread nt = new NetworkThread();
+						nt.sendOutput(args[1]);
+						sender.sendMessage(ChatColor.GRAY + "Sent message " + args[1] + " to ClioteSky.");
 						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
@@ -227,7 +229,9 @@ public class CoreCommands{
 						for(int i = 0; i < args.length-1; i++){
 							output += args[i+1] + " ";
 						}
-						NetworkThread.sendOutput(output);
+						NetworkThread nt = new NetworkThread();
+						nt.sendOutput(output);
+						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + " to ClioteSky.");
 						break;
 					default:
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");

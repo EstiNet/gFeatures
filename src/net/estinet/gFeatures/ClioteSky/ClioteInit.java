@@ -10,6 +10,7 @@ public class ClioteInit {
 		ClioteConfigUtil ccu = new ClioteConfigUtil();
 		ccu.load();
 		if(ClioteSky.isEnable()){
+			ClioteSky.printLine("Connecting to ClioteSky...");
 			ClioteSky.inputPackets.add(new InputAlive());
 			ClioteSky.inputPackets.add(new InputError());
 			ClioteSky.inputPackets.add(new InputMessage());

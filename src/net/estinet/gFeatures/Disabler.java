@@ -1,9 +1,12 @@
 package net.estinet.gFeatures;
 
+import java.io.IOException;
 import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Plus.Skript.SkriptManager;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
 
 /*
 gFeatures
@@ -49,5 +52,12 @@ public class Disabler {
 		}
 		Basic.resetFeatures();
 		Basic.resetExtensions();
+		if(ClioteSky.isEnable()){
+			try {
+				NetworkThread.clientSocket.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

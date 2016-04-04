@@ -11,7 +11,8 @@ import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 public class OutputAlive extends Packet{
 	public void run(List<String> args){
 		ClioteSky.setAliveCache(true);
-		NetworkThread.sendOutput("alive");
+		NetworkThread nt = new NetworkThread();
+		nt.sendOutput("alive");
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		if(ClioteSky.isAliveCache()){
