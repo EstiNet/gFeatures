@@ -31,7 +31,8 @@ public class ConfigHub {
 	File f = new File("plugins/gFeatures/gRanks/Config.yml");
 	public void setupConfig(){
 		Config c = new Config();
-		c.createDirectory("plugins/gFeatures/gRanks", "gEconomy files created!");
+		c.createDirectory("plugins/gFeatures/gRanks", "gRanks files created!");
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		if(!f.exists()){
 			Bukkit.getLogger().info("[gRanks] Setting up configs....");
 			try {
@@ -39,7 +40,6 @@ public class ConfigHub {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 			yamlFile.createSection("Config");
 			yamlFile.createSection("Config.MySQL");
 			yamlFile.createSection("Config.MySQL.Address");
@@ -61,6 +61,12 @@ public class ConfigHub {
 				e.printStackTrace();
 			}
 			Bukkit.getLogger().info("[gRanks] Successfully added config!");
+		}
+		Bukkit.getLogger().info("hi");
+		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
+			Bukkit.getLogger().info("hi");
+			yamlFile.createSection("Config.ClioteSky.Enable");
+			yamlFile.set("Config.ClioteSky.Enable", "false");
 		}
 	}
 }
