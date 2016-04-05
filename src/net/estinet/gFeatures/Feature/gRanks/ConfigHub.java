@@ -47,6 +47,7 @@ public class ConfigHub {
 			yamlFile.createSection("Config.MySQL.TableName");
 			yamlFile.createSection("Config.MySQL.Username");
 			yamlFile.createSection("Config.MySQL.Password");
+			yamlFile.createSection("Config.ClioteSky");
 			yamlFile.createSection("Config.ClioteSky.Enable");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
@@ -65,6 +66,7 @@ public class ConfigHub {
 		Bukkit.getLogger().info("hi");
 		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
 			Bukkit.getLogger().info("hi");
+			yamlFile.createSection("Config.ClioteSky");
 			yamlFile.createSection("Config.ClioteSky.Enable");
 			yamlFile.set("Config.ClioteSky.Enable", "false");
 		}
