@@ -26,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		gRanks base = new gRanks("gRanks", "1.6.7");
+		gRanks base = new gRanks("gRanks", "1.6.8");
 		Basic.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", base, true);

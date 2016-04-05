@@ -47,7 +47,6 @@ public class Enable{
 		Username = cc.getUsername();
 		Password = cc.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
-		Basis.pexenabled = cc.getPexEnabled();
 		c.checkOnline(URL, Username, Password);
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, UUID VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
 		c.Connect(URL, Username, Password, "CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
@@ -101,19 +100,5 @@ public class Enable{
 		gi.start();
 		FileSync fs = new FileSync();
 		fs.start();
-		if(Basis.pexenabled){
-		for(Rank r : Basis.getRanks()){
-			for(String uuids : r.getPersonList()){
-				UUIDFetcher uuid = new UUIDFetcher(Arrays.asList(uuids));
-				Map<String, UUID> response = null;
-				try {
-					response = uuid.call();
-				} catch (Exception e) {
-					continue;
-				}
-					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user "+ response.get(uuids) + " set " + r.getName());
-			}
-		}
-		}
 	}
 }

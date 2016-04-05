@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 
@@ -17,7 +18,8 @@ public class ClioteSky {
 	private static boolean enable = false;
 	private static boolean serverOnline = false;
 	private static boolean aliveCache = true;
-	public static List<Packet> inputPackets = new ArrayList<>();;
+	public static List<Packet> inputPackets = new ArrayList<>();
+	public static List<ClioteHook> hooks = new ArrayList<>();
 	public static String getCategory() {
 		return category;
 	}
@@ -75,5 +77,8 @@ public class ClioteSky {
 	public static void setServerOnline() {
 		ClioteSky.serverOnline = true;
 		NetworkThread.start();
+	}
+	public static void addClioteHook(ClioteHook ch){
+		hooks.add(ch);
 	}
 }
