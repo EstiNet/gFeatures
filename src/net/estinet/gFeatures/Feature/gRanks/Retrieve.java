@@ -62,11 +62,11 @@ public class Retrieve {
 		}
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
-	public boolean getPexEnabled(){
-		if(yamlFile.get("Config.PEX.Support") == null){
+	public boolean getClioteSkySupport(){
+		if(yamlFile.get("Config.ClioteSky.Enable") == null){
 			return false;
 		}
-		return Boolean.parseBoolean(yamlFile.get("Config.PEX.Support").toString());
+		return Boolean.parseBoolean(yamlFile.get("Config.ClioteSky.Enable").toString());
 	}
 	String Address = getAddress();
 	String Port = getPort();

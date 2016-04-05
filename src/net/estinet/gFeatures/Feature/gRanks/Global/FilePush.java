@@ -7,11 +7,13 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputSend;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -61,6 +63,10 @@ public class FilePush implements Runnable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		if(cc.getClioteSkySupport()){
+			OutputSend os = new OutputSend();
+			os.run(Arrays.asList("granks", "sync"));
 		}
 	}
 	public List<String> getPerms(File f) throws IOException{

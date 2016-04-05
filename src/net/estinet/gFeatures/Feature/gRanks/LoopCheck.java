@@ -22,36 +22,39 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class LoopCheck {
 	public void start(){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		Thread th = new Thread(new Runnable(){
-        			public void run(){
-        				try{
-        				Basis b = new Basis();
-        				b.initializeQuery();
-        				}
-        				catch(Exception e){
-        					Debug.print(e.getMessage());
-        				}
-        			}
-        		});
-        		th.start();
-        	}
-        }, 1000L, 1000L);
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		try{
-        		Thread th = new Thread(new Cleanup());
-        		th.start();
-        		}
-        		catch(Exception e){
-					Debug.print(e.getMessage());
-        		}
-        	}
-        }, 9000L, 9000L);
+			public void run(){
+				Thread th = new Thread(new Runnable(){
+					public void run(){
+						try{
+							Basis b = new Basis();
+							b.initializeQuery();
+						}
+						catch(Exception e){
+							Debug.print(e.getMessage());
+						}
+					}
+				});
+				th.start();
+			}
+		}, 1000L, 1000L);
+		Retrieve r = new Retrieve();
+		if(!r.getClioteSkySupport()){
+			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				public void run(){
+					try{
+						Thread th = new Thread(new Cleanup());
+						th.start();
+					}
+					catch(Exception e){
+						Debug.print(e.getMessage());
+					}
+				}
+			}, 9000L, 9000L);
+		}
 	}
 }

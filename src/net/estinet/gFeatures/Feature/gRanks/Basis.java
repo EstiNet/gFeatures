@@ -37,7 +37,6 @@ https://github.com/EstiNet/gFeatures
 public class Basis {
 	public static ConcurrentHashMap<UUID,PermissionAttachment> permissions = new ConcurrentHashMap<>();
 	static Retrieve r = new Retrieve();
-	public static boolean pexenabled = false;
 	SQLConnect c = new SQLConnect();
 	String Address = r.getAddress();
 	String Port = r.getPort();
