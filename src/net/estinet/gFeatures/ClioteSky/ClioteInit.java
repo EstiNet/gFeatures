@@ -13,7 +13,7 @@ public class ClioteInit {
 			ClioteSky.inputPackets.add(new InputAlive());
 			ClioteSky.inputPackets.add(new InputError());
 			ClioteSky.inputPackets.add(new InputMessage());
-			ClioteSky.setServerOnline();
+			ClioteSky.setServerOnline(true);
 		}
 	}
 }

@@ -29,7 +29,6 @@ public class NetworkThread {
 					ClioteSky.printError("Unable to connect to ClioteSky at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
 				}
 				ClioteSky.setServerOffline();
-				clientSocket.close();
 				clientSocket = null;
 				return;
 			}

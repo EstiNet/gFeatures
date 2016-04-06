@@ -13,6 +13,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputSend;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
@@ -65,8 +66,8 @@ public class FilePush implements Runnable{
 			}
 		}
 		if(cc.getClioteSkySupport()){
-			OutputSend os = new OutputSend();
-			os.run(Arrays.asList("granks", "sync"));
+			CliotePing cp = new CliotePing();
+			cp.sendMessage("granks sync", "all");
 		}
 	}
 	public List<String> getPerms(File f) throws IOException{

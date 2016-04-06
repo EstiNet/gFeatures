@@ -4,7 +4,5 @@ import java.util.List;
 
 public class Packet {
 	public String name = "Packet";
-	public void run(List<String> args) {
-		
-	}
+	public void run(List<String> args) {}
 }
