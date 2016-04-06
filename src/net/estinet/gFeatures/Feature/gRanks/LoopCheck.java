@@ -26,24 +26,24 @@ https://github.com/EstiNet/gFeatures
 
 public class LoopCheck {
 	public void start(){
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			public void run(){
-				Thread th = new Thread(new Runnable(){
-					public void run(){
-						try{
-							Basis b = new Basis();
-							b.initializeQuery();
-						}
-						catch(Exception e){
-							Debug.print(e.getMessage());
-						}
-					}
-				});
-				th.start();
-			}
-		}, 1000L, 1000L);
 		Retrieve r = new Retrieve();
 		if(!r.getClioteSkySupport()){
+			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				public void run(){
+					Thread th = new Thread(new Runnable(){
+						public void run(){
+							try{
+								Basis b = new Basis();
+								b.initializeQuery();
+							}
+							catch(Exception e){
+								Debug.print(e.getMessage());
+							}
+						}
+					});
+					th.start();
+				}
+			}, 1000L, 1000L);
 			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 				public void run(){
 					try{
