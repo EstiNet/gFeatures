@@ -17,7 +17,7 @@ public class ClioteConfigUtil {
 		ClioteSky.setCategory(yamlFile.get("Config.ClioteSky.Category").toString());
 		ClioteSky.setAddress(yamlFile.get("Config.ClioteSky.Address").toString());
 		ClioteSky.setEnable(Boolean.parseBoolean(yamlFile.get("Config.ClioteSky.Enable").toString()));
-		ClioteSky.setPassword(yamlFile.get("Config.ClioteSky.Name").toString());
+		ClioteSky.setPassword(yamlFile.get("Config.ClioteSky.Password").toString());
 		ClioteSky.setPort(yamlFile.get("Config.ClioteSky.Port").toString());
 		File file = new File("plugins/gFeatures/cliotecache.txt");
 		if(!file.exists()){
