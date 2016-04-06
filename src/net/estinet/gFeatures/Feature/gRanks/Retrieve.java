@@ -126,7 +126,6 @@ public class Retrieve {
 		Basis.getRank(rankname).addInherit(Basis.getRank(inherit));
 		}
 		catch(Exception e){
-			e.printStackTrace();
 		}
 	}
 	public void deleteRank(Rank rank){
