@@ -7,6 +7,8 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.SocketException;
 
+import org.bukkit.Bukkit;
+
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
@@ -20,9 +22,9 @@ public class NetworkThread {
 		try{
 			String input;
 			try{
-			clientSocket = new Socket(ClioteSky.getAddress(), Integer.parseInt(ClioteSky.getPort()));
-			outToServer = new DataOutputStream(clientSocket.getOutputStream());
-			inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+				clientSocket = new Socket(ClioteSky.getAddress(), Integer.parseInt(ClioteSky.getPort()));
+				outToServer = new DataOutputStream(clientSocket.getOutputStream());
+				inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			}
 			catch(ConnectException e){
 				Debug.print("[ClioteSky] Connection unsuccessful.");
@@ -35,15 +37,7 @@ public class NetworkThread {
 			}
 			ClioteSky.printLine("Connected to ClioteSky at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
 			OutputHello os = new OutputHello();
-			os.run(null);
-			for(String message : ClioteSky.cachedQueries){
-				if(!message.equalsIgnoreCase("alive") && !message.equalsIgnoreCase("")){
-					NetworkThread nt = new NetworkThread();
-					nt.sendOutput(message);
-				}
-			}
-			ClioteConfigUtil ccu = new ClioteConfigUtil();
-			ccu.resetCache();			
+			os.run(null);		
 			while(true){
 				try{
 					input = inFromServer.readLine();
@@ -77,14 +71,25 @@ public class NetworkThread {
 	}
 	public void sendOutput(String message){
 		try {
-			if(ClioteSky.isServerOnline()){
-				DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-				outToServer.writeBytes(message + "\n");
-				outToServer.flush();
+			if(ClioteSky.isSyncedOutput()){
+				ClioteSky.secondCachedQueries.add(message);
 			}
 			else{
-				ClioteConfigUtil ccu = new ClioteConfigUtil();
-				ccu.addCacheEntry(message);
+				if(ClioteSky.isServerOnline()){
+					DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+					outToServer.writeBytes(message + "\n");
+					outToServer.flush();
+					ClioteSky.setSyncedOutput(true);
+					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			        	public void run(){
+			        		ClioteSky.setSyncedOutput(false);
+			        	}
+			        }, 15L);
+				}
+				else{
+					ClioteConfigUtil ccu = new ClioteConfigUtil();
+					ccu.addCacheEntry(message);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

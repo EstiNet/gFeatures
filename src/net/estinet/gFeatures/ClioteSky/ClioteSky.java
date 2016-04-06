@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
@@ -18,9 +19,27 @@ public class ClioteSky {
 	private static boolean enable = false;
 	private static boolean serverOnline = false;
 	private static boolean aliveCache = true;
+	private static boolean syncedOutput = false;
 	public static List<Packet> inputPackets = new ArrayList<>();
 	public static List<ClioteHook> hooks = new ArrayList<>();
 	public static List<String> cachedQueries = new ArrayList<>();
+	public static List<String> secondCachedQueries = new ArrayList<>();
+	public static boolean isSyncedOutput() {
+		return syncedOutput;
+	}
+	public static void setSyncedOutput(boolean syncedOutput) {
+		ClioteSky.syncedOutput = syncedOutput;
+		if(!syncedOutput){
+			try{
+				NetworkThread nt = new NetworkThread();
+				nt.sendOutput(secondCachedQueries.get(0));
+				secondCachedQueries.remove(0);
+			}
+			catch(Exception e){
+				Debug.print("[ClioteSky] Reached end of cache line.");
+			}
+		}
+	}
 	public static String getCategory() {
 		return category;
 	}

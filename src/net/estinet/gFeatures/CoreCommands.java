@@ -231,7 +231,7 @@ public class CoreCommands{
 						}
 						NetworkThread nt = new NetworkThread();
 						nt.sendOutput(output);
-						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + " to ClioteSky.");
+						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + "to ClioteSky.");
 						break;
 					default:
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
