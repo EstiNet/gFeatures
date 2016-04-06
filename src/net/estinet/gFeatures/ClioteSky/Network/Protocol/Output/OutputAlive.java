@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.ClioteSky.Network.Protocol.Output;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -10,24 +11,28 @@ import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 
 public class OutputAlive extends Packet{
 	public void run(List<String> args){
+		if(NetworkThread.clientSocket == null){
+			ClioteSky.setServerOnline(false);
+		}
+		else{
 		ClioteSky.setAliveCache(true);
 		NetworkThread nt = new NetworkThread();
 		nt.sendOutput("alive");
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		if(ClioteSky.isAliveCache()){
-        			ClioteSky.printLine("Uh oh! Server went offline.");
-        			if(ClioteSky.isServerOnline() != false){
+        			if(ClioteSky.isServerOnline()){
+        				ClioteSky.printLine("Uh oh! Server went offline.");
+        				try {
+							NetworkThread.clientSocket.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
         				ClioteSky.setServerOffline();
-        			}
-        		}
-        		else{
-        			if(ClioteSky.isServerOnline() != true){
-        				ClioteSky.setServerOnline();
         			}
         		}
         	}
         }, 100L);
-        
+	}
 	}
 }

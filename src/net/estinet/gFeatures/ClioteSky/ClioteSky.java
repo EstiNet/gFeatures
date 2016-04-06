@@ -20,6 +20,7 @@ public class ClioteSky {
 	private static boolean aliveCache = true;
 	public static List<Packet> inputPackets = new ArrayList<>();
 	public static List<ClioteHook> hooks = new ArrayList<>();
+	public static List<String> cachedQueries = new ArrayList<>();
 	public static String getCategory() {
 		return category;
 	}
@@ -73,10 +74,17 @@ public class ClioteSky {
 	}
 	public static void setServerOffline(){
 		ClioteSky.serverOnline = false;
+		NetworkThread.clientSocket = null;
 	}
-	public static void setServerOnline() {
+	public static void setServerOnline(boolean startup) {
 		ClioteSky.serverOnline = true;
-		NetworkThread.start();
+		NetworkThread.start(startup);
+		NetworkThread nt = new NetworkThread();
+		for(String message : cachedQueries){
+			if(!message.equalsIgnoreCase("alive")){
+				nt.sendOutput(message);
+			}
+		}
 	}
 	public static void addClioteHook(ClioteHook ch){
 		hooks.add(ch);
