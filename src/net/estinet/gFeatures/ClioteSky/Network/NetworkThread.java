@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.net.SocketException;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputHello;
 
@@ -35,6 +36,14 @@ public class NetworkThread {
 			ClioteSky.printLine("Connected to ClioteSky at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
 			OutputHello os = new OutputHello();
 			os.run(null);
+			for(String message : ClioteSky.cachedQueries){
+				if(!message.equalsIgnoreCase("alive") && !message.equalsIgnoreCase("")){
+					NetworkThread nt = new NetworkThread();
+					nt.sendOutput(message);
+				}
+			}
+			ClioteConfigUtil ccu = new ClioteConfigUtil();
+			ccu.resetCache();			
 			while(true){
 				try{
 					input = inFromServer.readLine();
@@ -74,7 +83,8 @@ public class NetworkThread {
 				outToServer.flush();
 			}
 			else{
-				ClioteSky.cachedQueries.add(message);
+				ClioteConfigUtil ccu = new ClioteConfigUtil();
+				ccu.addCacheEntry(message);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

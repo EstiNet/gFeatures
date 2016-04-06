@@ -79,12 +79,6 @@ public class ClioteSky {
 	public static void setServerOnline(boolean startup) {
 		ClioteSky.serverOnline = true;
 		NetworkThread.start(startup);
-		NetworkThread nt = new NetworkThread();
-		for(String message : cachedQueries){
-			if(!message.equalsIgnoreCase("alive")){
-				nt.sendOutput(message);
-			}
-		}
 	}
 	public static void addClioteHook(ClioteHook ch){
 		hooks.add(ch);
