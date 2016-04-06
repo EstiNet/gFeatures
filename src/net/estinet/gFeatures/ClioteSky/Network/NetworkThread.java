@@ -76,8 +76,9 @@ public class NetworkThread {
 			}
 			else{
 				if(ClioteSky.isServerOnline()){
-					DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-					outToServer.writeBytes(message + "\n");
+					try{
+						DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+						outToServer.writeBytes(message + "\n");
 					outToServer.flush();
 					ClioteSky.setSyncedOutput(true);
 					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -85,6 +86,12 @@ public class NetworkThread {
 			        		ClioteSky.setSyncedOutput(false);
 			        	}
 			        }, 15L);
+					}
+					catch(NullPointerException e){
+						ClioteConfigUtil ccu = new ClioteConfigUtil();
+						ccu.addCacheEntry(message);
+					}
+					
 				}
 				else{
 					ClioteConfigUtil ccu = new ClioteConfigUtil();

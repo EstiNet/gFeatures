@@ -1,6 +1,5 @@
 package net.estinet.gFeatures;
 
-import java.io.IOException;
 import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
@@ -55,8 +54,7 @@ public class Disabler {
 		if(ClioteSky.isEnable()){
 			try {
 				NetworkThread.clientSocket.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (Exception e) {
 			}
 		}
 	}
