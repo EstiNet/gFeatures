@@ -18,6 +18,7 @@ gFeatures requires the following dependencies to run:
 * Java 8
 * MySQL
 * Skript (Optional)
+* ClioteSky Server (Optional)
 
 ## Features
 This plugin makes all of EstiNet run. At it's core, it contains the following features:
