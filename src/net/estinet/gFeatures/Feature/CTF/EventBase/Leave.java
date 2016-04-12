@@ -2,8 +2,10 @@ package net.estinet.gFeatures.Feature.CTF.EventBase;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 
@@ -32,9 +34,12 @@ public class Leave {
 		Basic.kills.remove(event.getPlayer().getUniqueId());
 		Basic.deaths.remove(event.getPlayer().getUniqueId());
 		Basic.flagcaptures.remove(event.getPlayer().getUniqueId());
-		if(Bukkit.getOnlinePlayers().size() == 1 && Basic.mode.equals(Mode.STARTED)){
+		if(Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)){
 			Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
-			//Kick player off to hub with idro
+			CliotePing cp = new CliotePing();
+    		for(Player p : Bukkit.getOnlinePlayers()){
+    			cp.sendMessage("redirect " + p.getName() + " Hub", "Bungee");
+    		}
 			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	        	public void run(){
 	        		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop");

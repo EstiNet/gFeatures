@@ -4,11 +4,18 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.FireworkEffect.Type;
 import org.bukkit.entity.EnderCrystal;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.meta.FireworkMeta;
 
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
@@ -169,8 +176,19 @@ public class StartStop {
 		}
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
-        		//Kick player off to hub
-        		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+        		CliotePing cp = new CliotePing();
+        		for(Player p : Bukkit.getOnlinePlayers()){
+        			cp.sendMessage("redirect " + p.getName() + " Hub", "Bungee");
+        		}
+        		
+        		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                	public void run(){
+                		if(Bukkit.getOnlinePlayers().size() == 0){
+        				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+        			}
+                	}
+                }, 80L, 80L);
+        		
         	}
         }, 1000L);
 	}

@@ -5,7 +5,7 @@ LaserRifle:
         Item_Lore: "&eLaser-Rifle"
         Melee_Mode: false
         Skip_Name_Check: false
-        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
         Remove_Unused_Tag: false
         Hidden_From_List: false
     Shooting:
@@ -27,7 +27,7 @@ LaserRifle:
             Enable: false
         Bullet_Spread: 0.5
         Reset_Fall_Distance: true
-        Sounds_Shoot: IRONGOLEM_HIT-1-2-0,SKELETON_HURT-1-2-0,ZOMBIE_WOOD-1-2-0
+        Sounds_Shoot: ENTITY_IRONGOLEM_HURT-1-2-0,ENTITY_SKELETON_HURT-1-2-0,ENTITY_ZOMBIE_ATTACK_DOOR_WOOD-1-2-0
     Fully_Automatic:
         Enable: true
         Fire_Rate: 16
@@ -48,28 +48,28 @@ LaserRifle:
         Reload_Duration: 9
         Destroy_When_Empty: false
         Sounds_Out_Of_Ammo: 
-        Sounds_Reloading:  FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+        Sounds_Reloading:  ITEM_FLINTANDSTEEL_USE-1-1-4,BLOCK_IRON_DOOR_OPEN-1-2-6,ITEM_FLINTANDSTEEL_USE-1-1-36,HURT_FLESH-1-0-37,BLOCK_WOODEN_DOOR_CLOSE-1-2-38
     Firearm_Action:
         Type: slide
         Open_Duration: 12
         Close_Duration: 12
         Close_Shoot_Delay: 3
-        Sound_Open: NOTE_STICKS-1-0-0,PISTON_RETRACT-1-2-2
-        Sound_Close: FIRE_IGNITE-1-1-4,DOOR_OPEN-1-2-6,FIRE_IGNITE-1-1-36,HURT_FLESH-1-0-37,DOOR_CLOSE-1-2-38
+        Sound_Open: BLOCK_NOTE_HAT-1-0-0,PISTON_RETRACT-1-2-2
+        Sound_Close: ITEM_FLINTANDSTEEL_USE-1-1-4,BLOCK_IRON_DOOR_OPEN-1-2-6,ITEM_FLINTANDSTEEL_USE-1-1-36,HURT_FLESH-1-0-37,BLOCK_WOODEN_DOOR_CLOSE-1-2-38
     Scope:
         Enable: true
         Night_Vision: true
         Zoom_Amount: 5
         Zoom_Bullet_Spread: 0
         Zoom_Before_Shooting: false
-        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+        Sounds_Toggle_Zoom: BLOCK_NOTE_HAT-1-2-0
     Headshot:
         Enable: false
         Bonus_Damage: 15
         Message_Shooter: You got a headshot!
         Message_Victim: You've been headshoted!
-        Sounds_Shooter: ORB_PICKUP-1-2-0
-        Sounds_Victim: ORB_PICKUP-1-2-0
+        Sounds_Shooter: ENTITY_EXPERIENCE_ORB_PICKUP-1-2-0
+        Sounds_Victim: ENTITY_EXPERIENCE_ORB_PICKUP-1-2-0
     Backstab:
         Enable: false
     Critical_Hits:
