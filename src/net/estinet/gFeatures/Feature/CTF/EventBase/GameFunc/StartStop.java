@@ -81,9 +81,6 @@ public class StartStop {
  							for(UUID uuid : Basic.teams.keySet()){
  								for(Player p : Bukkit.getServer().getOnlinePlayers()){
  									if(p.getUniqueId().equals(uuid)){
- 										Music m = new Music();
- 										m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
- 										p.playSound(p.getLocation(), "theme", 100, 1);
  										respawn.respawn(p);
  									}
  								}
