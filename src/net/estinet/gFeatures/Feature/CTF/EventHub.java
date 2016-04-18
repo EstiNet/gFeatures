@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -76,7 +77,7 @@ public class EventHub{
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
 					Player pl = (Player) event.getDamager();
-					if((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE))){
+					if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
 						event.setCancelled(true);
 					}
 					else{
@@ -125,7 +126,7 @@ public class EventHub{
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				if(event.getDamager().getType().equals(EntityType.PLAYER)){
 					Player pl = (Player) event.getDamager();
-					if((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE))){
+					if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
 						event.setCancelled(true);
 					}
 					else{
@@ -140,12 +141,12 @@ public class EventHub{
 							deaths+=1;
 							Basic.deaths.remove(p.getUniqueId());
 							Basic.deaths.put(p.getUniqueId(), deaths);
-
+							Bukkit.getLogger().info("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
 							int kills = Basic.kills.get(pl.getUniqueId());
 							kills+=1;
 							Basic.kills.remove(pl.getUniqueId());
 							Basic.kills.put(pl.getUniqueId(), kills);
-
+							Bukkit.getLogger().info("first kills:" + (kills-1) + " afterkill: " + kills);
 							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
 
 							d.init(p);
@@ -177,6 +178,7 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
+		
 		if(event.getEntity() instanceof Player){
 			if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
 				event.getDrops().remove(Material.STAINED_GLASS);
@@ -209,9 +211,9 @@ public class EventHub{
 			else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
 				ClearInventory ci = new ClearInventory();
 				ci.clearInv(event.getEntity());
-				final Player player = event.getEntity();
-				Location loc = player.getLocation();
-				((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)player).getHandle(), 0, false, loc, true);
+				for(int i = 0; i < event.getDrops().size(); i++){
+					event.getDrops().set(i, new ItemStack(Material.AIR));
+				}
 				d.init(event.getEntity());
 			}
 		}

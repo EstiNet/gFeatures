@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Team;
 import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
+import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*
 gFeatures
@@ -37,6 +38,8 @@ public class FinishStart {
 			else{
 				p.teleport(Basic.orangespawn);
 			}
+			Music m = new Music();
+			m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
 		}
 	}
 }

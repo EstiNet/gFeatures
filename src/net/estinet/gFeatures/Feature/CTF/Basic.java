@@ -48,6 +48,7 @@ public class Basic {
 	public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
 	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
+	public static Team winningteam = null;
 	
 	public static int getOrangeSize(){
 		int ret = 0;

@@ -51,6 +51,8 @@ public class Join {
 			for(Player p : Bukkit.getOnlinePlayers()){
 				p.setScoreboard(l.Initialize(p));
 			}
+			event.getPlayer().setHealth(20);
+			event.getPlayer().setSaturation(20);
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);
 			Basic.waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 			event.getPlayer().teleport(Basic.waitspawn);

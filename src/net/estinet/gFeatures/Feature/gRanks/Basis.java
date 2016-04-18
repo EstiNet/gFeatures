@@ -36,7 +36,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Basis {
 	public static ConcurrentHashMap<UUID,PermissionAttachment> permissions = new ConcurrentHashMap<>();
-	static Retrieve r = new Retrieve();
+	Retrieve r = new Retrieve();
 	SQLConnect c = new SQLConnect();
 	String Address = r.getAddress();
 	String Port = r.getPort();
@@ -154,6 +154,7 @@ public class Basis {
 	}
 	public static boolean hasRank(Player p){
 		try{
+			Retrieve r = new Retrieve();
 			r.getRank(p);
 		}
 		catch(Exception e){
