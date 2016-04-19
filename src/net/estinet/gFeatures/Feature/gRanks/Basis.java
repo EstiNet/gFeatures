@@ -92,7 +92,6 @@ public class Basis {
 	}
 	public void initializeQuery(){
 		Basis.resetAll();
-		if(!r.getClioteSkySupport()){
 		int i = Integer.parseInt(c.ConnectReturn(URL, Username, Password, "SELECT COUNT(*) FROM Ranks").get(1));
 		int cache = 0;
 		List<String> ranksdata = c.ConnectReturnRanks(URL, Username, Password, "SELECT * FROM Ranks;");
@@ -121,7 +120,6 @@ public class Basis {
 		}
 		GlobalPerm gp = new GlobalPerm();
 		gp.start();
-		}
 		Files f = new Files();
 		f.setupFiles();
 		FileSync fs = new FileSync();
