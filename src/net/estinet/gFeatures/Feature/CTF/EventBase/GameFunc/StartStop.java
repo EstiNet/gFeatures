@@ -66,6 +66,8 @@ public class StartStop {
  				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE
  					if(Basic.countdown <= 0){
  						if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
+ 							CliotePing cp = new CliotePing();
+ 							cp.sendMessage("mgstart", "Bungee");
  							Bukkit.getScheduler().cancelTask(tasknum);
  							Basic.mode = Mode.STARTED;
  							for(Player p : Bukkit.getOnlinePlayers()){

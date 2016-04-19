@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
+
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*
@@ -38,6 +40,9 @@ public class Enable{
         		
         		WorldCreator cs1 = new WorldCreator("CTF");
         		Bukkit.getServer().createWorld(cs1);
+        		
+        		CliotePing cp = new CliotePing();
+        		cp.sendMessage("mghello", "Bungee");
         	}
         }, 40L);
 	}

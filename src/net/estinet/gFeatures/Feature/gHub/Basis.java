@@ -1,7 +1,12 @@
 package net.estinet.gFeatures.Feature.gHub;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import org.bukkit.Location;
+
+import net.estinet.gFeatures.Feature.gHub.crystal.MGServer;
 
 /*
 gFeatures
@@ -23,6 +28,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basis {
+	public static HashMap<Location, MGServer> crystals = new HashMap<>();
 	public static List<String> stacker = new ArrayList<>();
 	public static void addStacker(String playername){
 		stacker.add(playername);

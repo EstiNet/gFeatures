@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Confligs.ConfligInit;
 
 /*
@@ -28,5 +29,7 @@ public class Disable{
 		Bukkit.getLogger().info("[CTF] Disabled :/");
 		ConfligInit ci = new ConfligInit();
 		ci.deleteConfigs();
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("mgcomplete", "Bungee");
 	}
 }
