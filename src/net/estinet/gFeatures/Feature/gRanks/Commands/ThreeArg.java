@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -51,6 +52,10 @@ public class ThreeArg {
 				Rank rank = Basis.getRank(args[2]);
 				r.setRank(rank, response.get(args[1]).toString());
 				sender.sendMessage(ChatColor.GRAY + "[gRanks] Set " + args[1] + "'s rank to " + args[2] + ".");
+				if(r.getClioteSkySupport()){
+					CliotePing cp = new CliotePing();
+					cp.sendMessage("granks sync", "all");
+				}
 			}
 		}
 		else if(args[0].equalsIgnoreCase("create")){
@@ -58,6 +63,10 @@ public class ThreeArg {
 			r.addRank(newrank);
 			String name = newrank.getName().replace('&', '§');
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Created rank " + args[1] + "" + ChatColor.RESET + ""  + ChatColor.GRAY + " with the prefix of " + name + "" + ChatColor.RESET + "" + ChatColor.GRAY + ".");
+			if(r.getClioteSkySupport()){
+				CliotePing cp = new CliotePing();
+				cp.sendMessage("granks sync", "all");
+			}
 		}
 		else{
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
