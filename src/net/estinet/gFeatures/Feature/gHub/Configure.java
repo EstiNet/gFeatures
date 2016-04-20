@@ -25,9 +25,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gHub base = new gHub("gHub", "1.0.5");
+		gHub base = new gHub("gHub", "1.1.0");
 		Basic.addFeature(base);
-		
-		
 	}
 }
