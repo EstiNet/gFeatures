@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+
+import net.estinet.gFeatures.Feature.gHub.Basis;
 
 public class Crystal {
 	public void createFile(){
@@ -23,12 +27,17 @@ public class Crystal {
 			if (listOfFiles[i].isFile()) {
 				try {
 					List<String> lines = getLines(listOfFiles[i]);
+					MGServer mgs = new MGServer(lines.get(0), new Location(Bukkit.getWorld("EstiNet"), Double.parseDouble(lines.get(1)), Double.parseDouble(lines.get(2)), Double.parseDouble(lines.get(3))));
+					Basis.crystals.put(mgs.getLocation(), mgs);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				
 			}
 		}
+	}
+	public void initCrystal(){
+		createFile();
 	}
 	public List<String> getLines(File f) throws IOException{
 		List<String> permissions = new ArrayList<>();

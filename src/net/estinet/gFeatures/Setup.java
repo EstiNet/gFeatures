@@ -52,7 +52,6 @@ public class Setup {
 		 * Make sure that you have your onSetup() setup
 		 * to add to the Basic class. :D
 		 */
-
 		net.estinet.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
 		net.estinet.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
