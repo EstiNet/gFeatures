@@ -38,6 +38,13 @@ public class Crystal {
 	}
 	public void initCrystal(){
 		createFile();
+		spawnCrystals();
+		//Spawn crystals
+	}
+	public void spawnCrystals(){
+		for(Location loc : Basis.crystals.keySet()){
+			
+		}
 	}
 	public List<String> getLines(File f) throws IOException{
 		List<String> permissions = new ArrayList<>();

@@ -5,6 +5,8 @@ import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Command.RegisterCommand;
 import net.estinet.gFeatures.Feature.gHub.command.Spawn;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
+import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
+
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -40,6 +42,9 @@ public class Enable {
 		Basic.addPlayerSection("Settings", "");
 		Basic.addPlayerSection("Settings.showChat", "true");
 		Basic.addPlayerSection("Settings.scoreBoard", "true");
+		
+		Crystal c = new Crystal();
+		c.initCrystal();
 		
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
