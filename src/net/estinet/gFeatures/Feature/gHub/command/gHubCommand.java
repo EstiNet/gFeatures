@@ -1,6 +1,14 @@
 package net.estinet.gFeatures.Feature.gHub.command;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.Command.CommandExecutable;
@@ -44,11 +52,35 @@ public class gHubCommand extends CommandExecutable{
 					for(MGServer mgs : Basis.crystals.values()){
 						if(mgs.getName().equalsIgnoreCase(args[1])){
 							Basis.crystals.remove(mgs.getLocation());
+							File file = new File("plugins/gFeatures/gHub/Crystals/" + args[1] + ".txt");
+							file.delete();
 						}
 					}
 					break;
 				case "createcrystal":
 					sender.sendMessage(ChatColor.GRAY + "Attempting to create crystal for " + args[1] + "...");
+					Player p = (Player) sender;
+					MGServer mgs = new MGServer(args[1], new Location(Bukkit.getWorld("EstiNet"), p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ()));
+					Basis.crystals.put(mgs.getLocation(), mgs);
+					File file = new File("plugins/gFeatures/gHub/Crystals/" + args[1] + ".txt");
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					PrintWriter writer;
+					try {
+						writer = new PrintWriter(file, "UTF-8");
+						writer.println(args[1]);
+						writer.println(p.getLocation().getX());
+						writer.println(p.getLocation().getY());
+						writer.println(p.getLocation().getZ());
+						writer.close();
+					} catch (FileNotFoundException e) {
+						e.printStackTrace();
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
 					break;
 				}
 			}
