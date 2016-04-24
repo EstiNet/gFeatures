@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.gHub.command.gHubCommand;
 
 /*
 gFeatures
@@ -27,5 +29,8 @@ public class Configure {
 	public static void onSetup(){
 		gHub base = new gHub("gHub", "1.1.0");
 		Basic.addFeature(base);
+		
+		EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());
+		Basic.addCommand(test);
 	}
 }

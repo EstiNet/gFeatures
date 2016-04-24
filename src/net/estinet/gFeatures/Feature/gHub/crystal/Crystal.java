@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.entity.EnderCrystal;
 
 import net.estinet.gFeatures.Feature.gHub.Basis;
 
@@ -39,11 +40,10 @@ public class Crystal {
 	public void initCrystal(){
 		createFile();
 		spawnCrystals();
-		//Spawn crystals
 	}
 	public void spawnCrystals(){
 		for(Location loc : Basis.crystals.keySet()){
-			
+			Bukkit.getWorld("CTF").spawn(loc, EnderCrystal.class);
 		}
 	}
 	public List<String> getLines(File f) throws IOException{
