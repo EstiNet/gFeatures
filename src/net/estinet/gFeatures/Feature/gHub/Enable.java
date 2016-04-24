@@ -3,7 +3,6 @@ package net.estinet.gFeatures.Feature.gHub;
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Command.RegisterCommand;
-import net.estinet.gFeatures.Feature.gHub.command.Spawn;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 
@@ -34,8 +33,6 @@ public class Enable {
 	public void onEnable(){
 		Bukkit.getLogger().info("[gHub] gHub is enabled! Hi!");
 		Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
-		RegisterCommand rc = new RegisterCommand();
-		rc.register(new Spawn(), "spawn");
 		gHubConfig ghc = new gHubConfig();
 		ghc.setup();
 		
