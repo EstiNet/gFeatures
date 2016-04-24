@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -142,6 +144,10 @@ public class EventHub {
 		st.onEntityInteract(event);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
+			CrystalInteract ci = new CrystalInteract();
+			ci.init(event.getEntity().getLocation(), (Player) event.getDamager());
+		}
 		event.setCancelled(true);
 	}
 	public void onWeatherChange(WeatherChangeEvent event){
