@@ -43,7 +43,7 @@ public class Crystal {
 	}
 	public void spawnCrystals(){
 		for(Location loc : Basis.crystals.keySet()){
-			Bukkit.getWorld("CTF").spawn(loc, EnderCrystal.class);
+			Bukkit.getWorld("EstiNet").spawn(loc, EnderCrystal.class);
 		}
 	}
 	public List<String> getLines(File f) throws IOException{

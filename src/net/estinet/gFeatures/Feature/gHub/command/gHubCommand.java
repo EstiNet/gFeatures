@@ -9,6 +9,9 @@ import java.io.UnsupportedEncodingException;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.entity.EnderCrystal;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.Command.CommandExecutable;
@@ -54,6 +57,11 @@ public class gHubCommand extends CommandExecutable{
 							Basis.crystals.remove(mgs.getLocation());
 							File file = new File("plugins/gFeatures/gHub/Crystals/" + args[1] + ".txt");
 							file.delete();
+							for(Entity entity : Bukkit.getWorld("EstiNet").getEntities()){
+								if(entity.getType().equals(EntityType.ENDER_CRYSTAL) && entity.getLocation().equals(mgs.getLocation())){
+									entity.remove();
+								}
+							}
 						}
 					}
 					break;
@@ -81,6 +89,7 @@ public class gHubCommand extends CommandExecutable{
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
+					Bukkit.getWorld("EstiNet").spawn(mgs.getLocation(), EnderCrystal.class);
 					break;
 				}
 			}
