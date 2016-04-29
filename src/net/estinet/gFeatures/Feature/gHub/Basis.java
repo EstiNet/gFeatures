@@ -30,6 +30,7 @@ https://github.com/EstiNet/gFeatures
 public class Basis {
 	public static HashMap<Location, MGServer> crystals = new HashMap<>();
 	public static List<String> stacker = new ArrayList<>();
+	public static boolean recieving = false;
 	public static void addStacker(String playername){
 		stacker.add(playername);
 	}

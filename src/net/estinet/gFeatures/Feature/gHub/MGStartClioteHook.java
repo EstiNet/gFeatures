@@ -5,15 +5,16 @@ import java.util.List;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 
-public class MGDoneClioteHook extends ClioteHook{
+public class MGStartClioteHook extends ClioteHook{
 
-	public MGDoneClioteHook(gFeature feature) {
-		super(feature, "mgdone");
+	public MGStartClioteHook(gFeature feature) {
+		super(feature, "mgstart");
 	}
 	@Override
 	public void run(List<String> args, String categoryName, String clioteName){
+		String category = args.get(0);
 		try{
-			Basis.recieving = false;
+			Basis.recieving = true;
 		}
 		catch(Exception e){
 			e.printStackTrace();
