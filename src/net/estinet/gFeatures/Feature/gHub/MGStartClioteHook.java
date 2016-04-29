@@ -12,7 +12,6 @@ public class MGStartClioteHook extends ClioteHook{
 	}
 	@Override
 	public void run(List<String> args, String categoryName, String clioteName){
-		String category = args.get(0);
 		try{
 			Basis.recieving = true;
 		}

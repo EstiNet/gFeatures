@@ -2,8 +2,10 @@ package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.gHub.command.gHubCommand;
+import net.estinet.gFeatures.Feature.gRanks.gRanksClioteHook;
 
 /*
 gFeatures
@@ -32,5 +34,12 @@ public class Configure {
 		
 		EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());
 		Basic.addCommand(test);
+		
+		MGDoneClioteHook mgdch = new MGDoneClioteHook(base);
+		ClioteSky.addClioteHook(mgdch);
+		MGReturnClioteHook mgrch = new MGReturnClioteHook(base);
+		ClioteSky.addClioteHook(mgrch);
+		MGStartClioteHook mgsch = new MGStartClioteHook(base);
+		ClioteSky.addClioteHook(mgsch);
 	}
 }
