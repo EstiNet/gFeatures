@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.Location;
 
 import net.estinet.gFeatures.Feature.gHub.crystal.MGServer;
+import net.estinet.gFeatures.Feature.gHub.crystal.MGServerPlus;
 
 /*
 gFeatures
@@ -31,6 +32,7 @@ public class Basis {
 	public static HashMap<Location, MGServer> crystals = new HashMap<>();
 	public static List<String> stacker = new ArrayList<>();
 	public static boolean recieving = false;
+	public static List<MGServerPlus> servers = new ArrayList<>();
 	public static void addStacker(String playername){
 		stacker.add(playername);
 	}
@@ -39,5 +41,14 @@ public class Basis {
 	}
 	public static boolean isInStacker(String playername){
 		return stacker.contains(playername);
+	}
+	public static List<MGServerPlus> getServersWithType(String type){
+		List<MGServerPlus> list = new ArrayList<>();
+		for(MGServerPlus mgsp : servers){
+			if(mgsp.getName().contains(type)){
+				list.add(mgsp);
+			}
+		}
+		return list;
 	}
 }

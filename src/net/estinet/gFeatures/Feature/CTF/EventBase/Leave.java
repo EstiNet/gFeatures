@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
 
 /*
 gFeatures
@@ -34,6 +35,15 @@ public class Leave {
 		Basic.kills.remove(event.getPlayer().getUniqueId());
 		Basic.deaths.remove(event.getPlayer().getUniqueId());
 		Basic.flagcaptures.remove(event.getPlayer().getUniqueId());
+		if(Basic.blueflagger.getName().equals(event.getPlayer().getName())){
+			Basic.blueflagger = null;
+			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
+		}
+		if(Basic.orangeflagger.getName().equals(event.getPlayer().getName())){
+			Basic.orangeflagger = null;
+			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
+			
+		}
 		if(Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)){
 			Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
 			CliotePing cp = new CliotePing();

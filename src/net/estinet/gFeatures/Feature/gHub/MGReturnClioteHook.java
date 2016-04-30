@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
+import net.estinet.gFeatures.Feature.gHub.crystal.MGServerPlus;
 
 public class MGReturnClioteHook extends ClioteHook{
 
@@ -14,7 +15,7 @@ public class MGReturnClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(Basis.recieving == true){
-				
+				MGServerPlus mgsp = new MGServerPlus(args.get(0), args.get(1));
 			}
 		}
 		catch(Exception e){
