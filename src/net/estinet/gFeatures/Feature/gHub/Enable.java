@@ -2,7 +2,7 @@ package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.Command.RegisterCommand;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 
@@ -35,6 +35,9 @@ public class Enable {
 		Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
 		gHubConfig ghc = new gHubConfig();
 		ghc.setup();
+		
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("mgget", "Bungee");
 		
 		Basic.addPlayerSection("Settings", "");
 		Basic.addPlayerSection("Settings.showChat", "true");

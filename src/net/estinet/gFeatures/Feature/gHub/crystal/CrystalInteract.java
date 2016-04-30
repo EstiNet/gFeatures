@@ -7,7 +7,6 @@ import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 
 public class CrystalInteract {
 	public void init(Location location, Player player){
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("mgget", "Bungee");
+		
 	}
 }

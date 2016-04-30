@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
@@ -14,6 +15,7 @@ public class MGStartClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			Basis.recieving = true;
+			Basis.servers = new ArrayList<>();
 		}
 		catch(Exception e){
 			e.printStackTrace();
