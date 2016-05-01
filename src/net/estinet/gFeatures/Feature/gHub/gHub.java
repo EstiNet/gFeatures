@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.weather.WeatherEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
@@ -103,6 +104,9 @@ public class gHub extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("inventoryinteractevent")){
 			eh.onInventoryInteract((InventoryInteractEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
+			eh.onWorldLoad((WorldLoadEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -143,4 +147,7 @@ public class gHub extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onInventoryInteract(){}
+	@Override
+	@Retrieval
+	public void onWorldLoad(){}
 }

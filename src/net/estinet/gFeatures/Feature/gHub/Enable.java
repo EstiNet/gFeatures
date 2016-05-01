@@ -43,9 +43,6 @@ public class Enable {
 		Basic.addPlayerSection("Settings.showChat", "true");
 		Basic.addPlayerSection("Settings.scoreBoard", "true");
 		
-		Crystal c = new Crystal();
-		c.initCrystal();
-		
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		for(Player p : Bukkit.getOnlinePlayers()){

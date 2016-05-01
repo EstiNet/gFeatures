@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
@@ -27,6 +28,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -182,5 +184,10 @@ public class EventHub {
 
 	public void onInventoryInteract(InventoryInteractEvent event) {
 		event.setCancelled(true);
+	}
+
+	public void onWorldLoad(WorldLoadEvent event) {
+		Crystal c = new Crystal();
+		c.initCrystal();
 	}
 }
