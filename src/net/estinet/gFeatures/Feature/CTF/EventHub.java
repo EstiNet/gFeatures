@@ -30,6 +30,7 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
+import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
 gFeatures
@@ -58,6 +59,21 @@ public class EventHub{
 	SpawnMenu sm = new SpawnMenu();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		join.init(event);
+		Player p = event.getPlayer();
+		Thread thr = new Thread(new Runnable(){
+			public void run(){
+			try{
+			Retrieve r = new Retrieve();
+			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+			String prefix = prefixs.replace('&', '§');
+			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+			}
+			catch(Exception e){
+				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+			}
+			}
+			});
+			thr.start();
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		leave.init(event);

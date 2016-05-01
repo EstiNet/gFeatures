@@ -57,6 +57,7 @@ public class StartStop {
 	public void start(){
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
+				boolean nu = true;
 				Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
 				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
@@ -121,7 +122,7 @@ public class StartStop {
 						for(Player p : Bukkit.getServer().getOnlinePlayers()){
 							p.setScoreboard(l.Initialize(p));
 							p.setLevel(Basic.countdown);
-							p.playSound(p.getLocation(), Sound.WEATHER_RAIN, 50, 50);
+							p.playSound(p.getLocation(), Sound.BLOCK_PORTAL_TRAVEL, 25, 25);
 						}
 					}
 				}
@@ -142,11 +143,13 @@ public class StartStop {
 						for(Player p : Bukkit.getServer().getOnlinePlayers()){
 							p.setScoreboard(l.Initialize(p));
 							p.setLevel(Basic.countdown);
-							p.playSound(p.getLocation(), Sound.WEATHER_RAIN, 50, 50);
 						}
+						nu = false;
 					}
 				}
-				Basic.countdown--;
+				if(nu){
+					Basic.countdown--;
+				}
 			}
 		}, 0, 20L);
 	}
