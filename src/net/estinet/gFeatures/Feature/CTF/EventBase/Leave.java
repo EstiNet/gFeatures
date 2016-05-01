@@ -35,15 +35,18 @@ public class Leave {
 		Basic.kills.remove(event.getPlayer().getUniqueId());
 		Basic.deaths.remove(event.getPlayer().getUniqueId());
 		Basic.flagcaptures.remove(event.getPlayer().getUniqueId());
+		try{
 		if(Basic.blueflagger.getName().equals(event.getPlayer().getName())){
 			Basic.blueflagger = null;
 			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
 		}
+		}catch(NullPointerException e){}
+		try{
 		if(Basic.orangeflagger.getName().equals(event.getPlayer().getName())){
 			Basic.orangeflagger = null;
 			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
-			
 		}
+		}catch(NullPointerException e){}
 		if(Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)){
 			Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
 			CliotePing cp = new CliotePing();

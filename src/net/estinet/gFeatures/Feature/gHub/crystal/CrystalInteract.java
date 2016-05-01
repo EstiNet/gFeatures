@@ -19,6 +19,7 @@ public class CrystalInteract {
 	public void init(Location location, Player player){
 		EstiInventory open = makeInventory(player, location);
 		open.open(player);
+		Bukkit.getLogger().info("Opened Inv1!");
 	}
 	public EstiInventory makeInventory(Player p, Location loc){
 		MGServer mgs = Basis.crystals.get(loc);
@@ -26,6 +27,7 @@ public class CrystalInteract {
 			EstiInventory menu = new EstiInventory(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new EstiInventory.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(EstiInventory.OptionClickEvent event) {
+					Bukkit.getLogger().info("Opened Inv!");
 					Bukkit.getLogger().info(event.getName());
 					Bukkit.getLogger().info(ChatColor.GREEN + "");
 					if(event.getName().contains(ChatColor.GREEN + "")){
@@ -43,11 +45,10 @@ public class CrystalInteract {
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("redirect " + event.getPlayer().getName() + " " + mgs.getName() + cache, "Bungee");
 					}
-					else{
-						
-					}
+					event.setWillClose(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
+			
 			int iter = 0;
 			for(MGServerPlus mgsp : Basis.getServersWithType(mgs.getName())){
 				if(mgsp.getState().equals("WAIT")){
