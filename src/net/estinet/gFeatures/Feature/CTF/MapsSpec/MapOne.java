@@ -53,6 +53,7 @@ public class MapOne {
 		}
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("mgmap Terra", "Bungee");
+		Basic.mapName = "Terra";
 		Basic.orangespawn = orangespawn;
 		Basic.bluespawn = bluespawn;
 		Basic.orangeflag = orangeflag;

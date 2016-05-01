@@ -51,13 +51,13 @@ public class Leave {
 			Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
 			CliotePing cp = new CliotePing();
     		for(Player p : Bukkit.getOnlinePlayers()){
-    			cp.sendMessage("redirect " + p.getName() + " Hub", "Bungee");
+    			cp.sendMessage("redirect " + p.getName() + " MinigameHub", "Bungee");
     		}
 			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	        	public void run(){
 	        		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop");
 	        	}
-	        }, 60L);
+	        }, 100L);
 		}
 	}
 }

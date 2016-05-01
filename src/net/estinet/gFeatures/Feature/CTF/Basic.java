@@ -42,6 +42,7 @@ public class Basic {
 	public static int countdown = 60;  //CHANGE TO 60 when complete game
 	public static int minutes = 7;
 	public static int seconds = 30;
+	public static String mapName = "";
 	public static HashMap<UUID, Integer> kills = new HashMap<>();
 	public static HashMap<UUID, Integer> deaths = new HashMap<>();
 	public static HashMap<UUID, Integer> flagcaptures = new HashMap<>();

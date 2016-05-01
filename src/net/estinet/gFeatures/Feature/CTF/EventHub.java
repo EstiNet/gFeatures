@@ -163,9 +163,7 @@ public class EventHub{
 			}
 		}
 	}
-	public void onPlayerMove(PlayerMoveEvent event) {
-
-	}
+	public void onPlayerMove(PlayerMoveEvent event) {}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
 		event.setCancelled(true);
 	}

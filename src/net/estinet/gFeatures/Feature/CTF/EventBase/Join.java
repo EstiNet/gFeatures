@@ -4,8 +4,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.CTF.Basic;
@@ -60,6 +63,11 @@ public class Join {
 				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
 				ss.start();
 			}
+			ItemStack is = new ItemStack(Material.COMPASS, 1);
+			ItemMeta im = is.getItemMeta();
+			im.setDisplayName(ChatColor.DARK_AQUA + "Back to " + ChatColor.GOLD + "Hub");
+			is.setItemMeta(im);
+			event.getPlayer().getInventory().setItem(0, is);
 			break;
 		case ENDED:
 			for(Player p : Bukkit.getOnlinePlayers()){

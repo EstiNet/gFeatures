@@ -22,6 +22,8 @@ public class GetMGInfoClioteHook extends ClioteHook{
 				CliotePing cp = new CliotePing();
 				cp.sendMessage("mgstart", "Bungee");
 			}
+			CliotePing cp = new CliotePing();
+			cp.sendMessage("mgmap " + Basic.mapName, "Bungee");
 		}
 		catch(Exception e){
 			e.printStackTrace();
