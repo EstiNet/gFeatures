@@ -14,6 +14,7 @@ public class MGDoneClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			Basis.recieving = false;
+			Basis.servers = Basis.assemble;
 		}
 		catch(Exception e){
 			e.printStackTrace();

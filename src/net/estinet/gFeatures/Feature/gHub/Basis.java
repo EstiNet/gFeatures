@@ -33,6 +33,7 @@ public class Basis {
 	public static List<String> stacker = new ArrayList<>();
 	public static boolean recieving = false;
 	public static List<MGServerPlus> servers = new ArrayList<>();
+	public static List<MGServerPlus> assemble = new ArrayList<>();
 	public static void addStacker(String playername){
 		stacker.add(playername);
 	}

@@ -26,6 +26,8 @@ public class CrystalInteract {
 			EstiInventory menu = new EstiInventory(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new EstiInventory.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(EstiInventory.OptionClickEvent event) {
+					Bukkit.getLogger().info(event.getName());
+					Bukkit.getLogger().info(ChatColor.GREEN + "");
 					if(event.getName().contains(ChatColor.GREEN + "")){
 						char[] subit = event.getName().toCharArray();
 						List<Character> strs = new ArrayList<>();
@@ -40,7 +42,6 @@ public class CrystalInteract {
 						}
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("redirect " + event.getPlayer().getName() + " " + mgs.getName() + cache, "Bungee");
-						event.setWillClose(true);
 					}
 					else{
 						

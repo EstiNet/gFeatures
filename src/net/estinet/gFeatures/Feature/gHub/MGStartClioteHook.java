@@ -15,7 +15,7 @@ public class MGStartClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			Basis.recieving = true;
-			Basis.servers = new ArrayList<>();
+			Basis.assemble = new ArrayList<>();
 		}
 		catch(Exception e){
 			e.printStackTrace();
