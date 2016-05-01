@@ -31,6 +31,7 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
+import net.minecraft.server.v1_9_R1.PacketPlayInClientCommand;
 
 /*
 gFeatures
@@ -228,12 +229,16 @@ public class EventHub{
 				}});
 			}
 			else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
+				
 				ClearInventory ci = new ClearInventory();
 				ci.clearInv(event.getEntity());
 				for(int i = 0; i < event.getDrops().size(); i++){
 					event.getDrops().set(i, new ItemStack(Material.AIR));
 				}
 				d.init(event.getEntity());
+				final Player player = event.getEntity();
+				Location loc = player.getLocation();
+				((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)player).getHandle(), 0, false, loc, true);
 			}
 		}
 	}
