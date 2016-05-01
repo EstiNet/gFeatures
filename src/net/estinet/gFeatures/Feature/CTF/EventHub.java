@@ -29,6 +29,7 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
+import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
 
 /*
 gFeatures
@@ -174,6 +175,10 @@ public class EventHub{
 		if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)){
 			sm.interact(event);
 		}
+		else if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)){
+			WaitingMenu wm = new WaitingMenu();
+			wm.init(event.getPlayer());
+		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
 		
@@ -217,6 +222,7 @@ public class EventHub{
 		}
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
+		((Player)event.getEntity()).setFoodLevel(20);
 		event.setCancelled(true);
 	}
 }
