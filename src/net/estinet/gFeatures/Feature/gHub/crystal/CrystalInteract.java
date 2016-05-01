@@ -56,13 +56,18 @@ public class CrystalInteract {
 					ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
 					ItemMeta im = ready.getItemMeta();
 					im.setDisplayName(ChatColor.GREEN + mgsp.getName() + ": Waiting!");
+					List<String> lore = new ArrayList<>();
+					lore.add("");
+					lore.add(ChatColor.GOLD + "Game: " + ChatColor.WHITE + "" + mgs.getName());
+					lore.add(ChatColor.GOLD + "Players: " + ChatColor.WHITE + "" + mgsp.getNumOfPlayers() + "/20");
+					im.setLore(lore);
 					ready.setItemMeta(im);
 					menu.setOption(iter, ready);
 				}
-				else{
+				else if(mgsp.getState().equals("STARTED")){
 					ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 					ItemMeta im = ready.getItemMeta();
-					im.setDisplayName(ChatColor.RED + mgsp.getName() + ": Ingame!");
+					im.setDisplayName(ChatColor.YELLOW + mgsp.getName() + ": Ingame!");
 					ready.setItemMeta(im);
 					menu.setOption(iter, ready);
 				}

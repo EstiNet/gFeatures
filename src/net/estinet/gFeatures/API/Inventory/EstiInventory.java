@@ -90,7 +90,6 @@ public class EstiInventory implements Listener {
    
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
-    	Bukkit.getLogger().info("yo");
     	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
         if (event.getInventory().getTitle().equals(name)) {
         	EstiInventory.players.add(event.getWhoClicked().getUniqueId());

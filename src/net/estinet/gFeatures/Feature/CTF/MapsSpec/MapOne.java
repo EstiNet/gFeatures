@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 
 /*
@@ -50,7 +51,8 @@ public class MapOne {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("mgmap Terra", "Bungee");
 		Basic.orangespawn = orangespawn;
 		Basic.bluespawn = bluespawn;
 		Basic.orangeflag = orangeflag;
