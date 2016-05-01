@@ -29,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gHub base = new gHub("gHub", "1.1.1");
+		gHub base = new gHub("gHub", "1.1.9");
 		Basic.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());

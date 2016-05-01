@@ -26,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		CTF base = new CTF("CTF", "1.0.6");
+		CTF base = new CTF("CTF", "1.1.0");
 		Basic.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("ctf", "CTF commands!", "/CTF", "gFeatures.minigames", base, true);

@@ -60,6 +60,7 @@ public class CrystalInteract {
 					lore.add("");
 					lore.add(ChatColor.GOLD + "Game: " + ChatColor.WHITE + "" + mgs.getName());
 					lore.add(ChatColor.GOLD + "Players: " + ChatColor.WHITE + "" + mgsp.getNumOfPlayers() + "/20");
+					lore.add(ChatColor.GOLD + "Map: " + ChatColor.WHITE + "" + mgsp.getMap());
 					im.setLore(lore);
 					ready.setItemMeta(im);
 					menu.setOption(iter, ready);
@@ -68,6 +69,11 @@ public class CrystalInteract {
 					ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 					ItemMeta im = ready.getItemMeta();
 					im.setDisplayName(ChatColor.YELLOW + mgsp.getName() + ": Ingame!");
+					List<String> lore = new ArrayList<>();
+					lore.add("");
+					lore.add(ChatColor.GOLD + "Game: " + ChatColor.WHITE + "" + mgs.getName());
+					lore.add(ChatColor.GOLD + "Players: " + ChatColor.WHITE + "" + mgsp.getNumOfPlayers() + "/20");
+					lore.add(ChatColor.GOLD + "Map: " + ChatColor.WHITE + "" + mgsp.getMap());
 					ready.setItemMeta(im);
 					menu.setOption(iter, ready);
 				}

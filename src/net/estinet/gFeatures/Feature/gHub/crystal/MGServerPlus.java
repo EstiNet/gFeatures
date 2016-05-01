@@ -4,10 +4,12 @@ public class MGServerPlus {
 	private String name;
 	private String state;
 	private int numOfPlayers;
-	public MGServerPlus(String name, String state, String numOfPlayers){
+	private String map;
+	public MGServerPlus(String name, String state, String numOfPlayers, String map){
 		this.name = name;
 		this.state = state;
 		this.numOfPlayers = Integer.parseInt(numOfPlayers);
+		this.map = map;
 	}
 	public String getName(){
 		return name;
@@ -17,5 +19,8 @@ public class MGServerPlus {
 	}
 	public int getNumOfPlayers(){
 		return numOfPlayers;
+	}
+	public String getMap(){
+		return map;
 	}
 }

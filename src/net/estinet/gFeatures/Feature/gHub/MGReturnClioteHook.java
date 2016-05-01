@@ -15,7 +15,7 @@ public class MGReturnClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(Basis.recieving == true){
-				MGServerPlus mgsp = new MGServerPlus(args.get(0), args.get(1), args.get(2));
+				MGServerPlus mgsp = new MGServerPlus(args.get(0), args.get(1), args.get(2), args.get(3));
 				Basis.assemble.add(mgsp);
 			}
 		}
