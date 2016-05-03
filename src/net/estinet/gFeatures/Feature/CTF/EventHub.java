@@ -32,6 +32,7 @@ import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 import net.minecraft.server.v1_9_R1.PacketPlayInClientCommand;
+import net.minecraft.server.v1_9_R1.PacketPlayOutRespawn;
 
 /*
 gFeatures
@@ -59,22 +60,22 @@ public class EventHub{
 	FlagHit fh = new FlagHit();
 	SpawnMenu sm = new SpawnMenu();
 	public void onPlayerJoin(PlayerJoinEvent event){
-		join.init(event);
 		Player p = event.getPlayer();
 		Thread thr = new Thread(new Runnable(){
 			public void run(){
-			try{
-			Retrieve r = new Retrieve();
-			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', '§');
-			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+				try{
+					Retrieve r = new Retrieve();
+					String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+					String prefix = prefixs.replace('&', '§');
+					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+				}
+				catch(Exception e){
+					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+				}
 			}
-			catch(Exception e){
-				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-			}
-			}
-			});
-			thr.start();
+		});
+		thr.start();
+		join.init(event);
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		leave.init(event);
@@ -132,45 +133,43 @@ public class EventHub{
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
-		if(event.getVictim().getUniqueId().equals(event.getDamager().getUniqueId())){
+		if(event.getVictim().getUniqueId().equals(event.getPlayer().getUniqueId())){
 			Bukkit.getLogger().info("shotfix");
 			event.setCancelled(true);
 		}
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){
+			Bukkit.getLogger().info("shotsfix");
 			Player p = (Player) event.getVictim();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-				if(event.getDamager().getType().equals(EntityType.PLAYER)){
-					Player pl = (Player) event.getDamager();
-					if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
+				Player pl = (Player) event.getPlayer(); // CHECK IT OUJT
+				if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
+					event.setCancelled(true);
+				}
+				else{
+					event.setCancelled(true);
+					int health = (int) p.getHealth();
+					double damage = event.getDamage();
+					if(health - damage <= 0){
+						ClearInventory ci = new ClearInventory();
+						ci.clearInv(p);
+						int deaths = Basic.deaths.get(p.getUniqueId());
+						deaths+=1;
+						Basic.deaths.remove(p.getUniqueId());
+						Basic.deaths.put(p.getUniqueId(), deaths);
+						Bukkit.getLogger().info("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
+						int kills = Basic.kills.get(pl.getUniqueId());
+						kills+=1;
+						Basic.kills.remove(pl.getUniqueId());
+						Basic.kills.put(pl.getUniqueId(), kills);
+						Bukkit.getLogger().info("first kills:" + (kills-1) + " afterkill: " + kills);
+						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
+
+						d.init(p);
 						event.setCancelled(true);
 					}
-					else{
-						event.setCancelled(true);
-						int health = (int) p.getHealth();
-						double damage = event.getDamage();
-						if(health - damage <= 0){
-							ClearInventory ci = new ClearInventory();
-							ci.clearInv(p);
-							event.setCancelled(true);
-							int deaths = Basic.deaths.get(p.getUniqueId());
-							deaths+=1;
-							Basic.deaths.remove(p.getUniqueId());
-							Basic.deaths.put(p.getUniqueId(), deaths);
-							Bukkit.getLogger().info("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
-							int kills = Basic.kills.get(pl.getUniqueId());
-							kills+=1;
-							Basic.kills.remove(pl.getUniqueId());
-							Basic.kills.put(pl.getUniqueId(), kills);
-							Bukkit.getLogger().info("first kills:" + (kills-1) + " afterkill: " + kills);
-							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
-
-							d.init(p);
-						}
-					}
-
 				}
 			}
 		}
@@ -198,7 +197,7 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
-		
+
 		if(event.getEntity() instanceof Player){
 			if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
 				event.getDrops().remove(Material.STAINED_GLASS);
@@ -229,16 +228,20 @@ public class EventHub{
 				}});
 			}
 			else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
-				
+
 				ClearInventory ci = new ClearInventory();
 				ci.clearInv(event.getEntity());
 				for(int i = 0; i < event.getDrops().size(); i++){
 					event.getDrops().set(i, new ItemStack(Material.AIR));
 				}
 				d.init(event.getEntity());
-				final Player player = event.getEntity();
-				Location loc = player.getLocation();
-				((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)player).getHandle(), 0, false, loc, true);
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+					if(event.getEntity().isDead())
+						event.getEntity().setHealth(20);
+				}});
+				//Location loc = event.getEntity().getLocation();
+				//((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)event.getEntity()).getHandle(), 0, false);
+				//event.getEntity().teleport(loc);
 			}
 		}
 	}

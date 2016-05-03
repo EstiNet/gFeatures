@@ -60,7 +60,6 @@ public class Join {
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);
 			Basic.waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 			event.getPlayer().teleport(Basic.waitspawn);
-			Bukkit.getLogger().info(Basic.countdown + "");
 			if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60){
 				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
 				ss.start();

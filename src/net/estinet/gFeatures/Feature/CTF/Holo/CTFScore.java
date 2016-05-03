@@ -56,7 +56,7 @@ public class CTFScore {
 		Score score12 = objective.getScore(ChatColor.AQUA + "Flag Taker (Blue):");
 		score12.setScore(4);
 		if(Basic.blueflagger == null){
-		Score score13 = objective.getScore(ChatColor.BOLD + "No one.");
+		Score score13 = objective.getScore(ChatColor.BOLD + "No one. ");
 		score13.setScore(3);
 		}
 		else{
