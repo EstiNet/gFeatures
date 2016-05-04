@@ -88,7 +88,7 @@ public class EstiInventory implements Listener {
         optionIcons = null;
     }
    
-    @EventHandler(priority=EventPriority.MONITOR)
+    @EventHandler(priority=EventPriority.HIGHEST)
     void onInventoryClick(InventoryClickEvent event) {
     	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
         if (event.getInventory().getTitle().equals(name)) {
