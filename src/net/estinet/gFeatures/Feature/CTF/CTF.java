@@ -89,7 +89,6 @@ public class CTF extends gFeature implements Events{
 		}
 		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
 			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event); 
-			Bukkit.getLogger().info("hey");
 		}
 		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
 			eh.onFoodLevelChange((FoodLevelChangeEvent) event);

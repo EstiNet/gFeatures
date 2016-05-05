@@ -11,21 +11,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.estinet.gFeatures.API.Inventory.EstiInventory;
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
+//import net.estinet.gFeatures.API.Inventory.EstiInventory;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.gHub.Basis;
 
 public class CrystalInteract {
 	public void init(Location location, Player player){
-		EstiInventory open = makeInventory(player, location);
+		InventoryAPI open = makeInventory(player, location);
 		open.open(player);
 	}
-	public EstiInventory makeInventory(Player p, Location loc){
+	public InventoryAPI makeInventory(Player p, Location loc){
 		MGServer mgs = Basis.crystals.get(loc);
 		try{
-			EstiInventory menu = new EstiInventory(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new EstiInventory.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
-				public void onOptionClick(EstiInventory.OptionClickEvent event) {
+				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					Bukkit.getLogger().info(event.getName());
 					Bukkit.getLogger().info(ChatColor.GREEN + "");
 					if(event.getName().contains(ChatColor.GREEN + "")){

@@ -24,6 +24,7 @@ import org.bukkit.inventory.ItemStack;
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
 import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
@@ -84,10 +85,10 @@ public class EventHub{
 		event.setCancelled(true);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		if(event.getEntity().getUniqueId().equals(event.getDamager().getUniqueId())){
+		/*if(event.getEntity().getUniqueId().equals(event.getDamager().getUniqueId())){
 			Bukkit.getLogger().info("shotfix");
 			event.setCancelled(true);
-		}
+		}*/
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
@@ -133,23 +134,22 @@ public class EventHub{
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
-		if(event.getVictim().getUniqueId().equals(event.getPlayer().getUniqueId())){
+		/*if(event.getVictim().getUniqueId().equals(event.getPlayer().getUniqueId())){
 			Bukkit.getLogger().info("shotfix");
 			event.setCancelled(true);
-		}
+		}*/
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){
-			Bukkit.getLogger().info("shotsfix");
 			Player p = (Player) event.getVictim();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-				Player pl = (Player) event.getPlayer(); // CHECK IT OUJT
+				Player pl = (Player) event.getPlayer(); // CHECK IT OUT
 				if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
 					event.setCancelled(true);
+					Debug.print("[gWars] Prevented team kill.");
 				}
 				else{
-					event.setCancelled(true);
 					int health = (int) p.getHealth();
 					double damage = event.getDamage();
 					if(health - damage <= 0){
@@ -159,16 +159,15 @@ public class EventHub{
 						deaths+=1;
 						Basic.deaths.remove(p.getUniqueId());
 						Basic.deaths.put(p.getUniqueId(), deaths);
-						Bukkit.getLogger().info("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
+						Debug.print("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
 						int kills = Basic.kills.get(pl.getUniqueId());
 						kills+=1;
 						Basic.kills.remove(pl.getUniqueId());
 						Basic.kills.put(pl.getUniqueId(), kills);
-						Bukkit.getLogger().info("first kills:" + (kills-1) + " afterkill: " + kills);
+						Debug.print("first kills:" + (kills-1) + " afterkill: " + kills);
 						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
 
 						d.init(p);
-						event.setCancelled(true);
 					}
 				}
 			}
