@@ -29,7 +29,7 @@ public class Music {
 			p.sendMessage(custommessage);
 		}
 		else{
-			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + "" + ChatColor.GOLD + "" + ChatColor.BOLD + "Music" + ChatColor.STRIKETHROUGH + "" + ChatColor.WHITE + ChatColor.BOLD +  "-----");
+			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + "" + ChatColor.GOLD + "" + ChatColor.BOLD + "Music" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD +  "-----");
 			p.sendMessage(ChatColor.AQUA + "Song name: " + songname);
 			p.sendMessage(ChatColor.AQUA + "Artist: " + artist);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" +ChatColor.BOLD + "---------------");

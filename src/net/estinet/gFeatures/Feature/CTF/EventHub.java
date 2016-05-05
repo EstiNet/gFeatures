@@ -2,14 +2,10 @@ package net.estinet.gFeatures.Feature.CTF;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_9_R1.CraftServer;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -32,8 +28,6 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
-import net.minecraft.server.v1_9_R1.PacketPlayInClientCommand;
-import net.minecraft.server.v1_9_R1.PacketPlayOutRespawn;
 
 /*
 gFeatures
@@ -62,20 +56,15 @@ public class EventHub{
 	SpawnMenu sm = new SpawnMenu();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
-		Thread thr = new Thread(new Runnable(){
-			public void run(){
-				try{
-					Retrieve r = new Retrieve();
-					String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-					String prefix = prefixs.replace('&', '§');
-					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-				}
-				catch(Exception e){
-					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-				}
-			}
-		});
-		thr.start();
+		try{
+			Retrieve r = new Retrieve();
+			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+			String prefix = prefixs.replace('&', '§');
+			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+		}
+		catch(Exception e){
+			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+		}
 		join.init(event);
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
