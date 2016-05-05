@@ -58,6 +58,11 @@ public class InventoryAPI implements Listener {
         optionIcons[position] = setItemNameAndLore(icon, name, info);
         return this;
     }
+    public InventoryAPI setOption(int position, ItemStack icon) {
+        optionNames[position] = icon.getItemMeta().getDisplayName();
+        optionIcons[position] = icon;
+        return this;
+    }
    
     public void open(Player player) {
         Inventory inventory = Bukkit.createInventory(player, size, name);
@@ -97,6 +102,7 @@ public class InventoryAPI implements Listener {
                 if (e.willDestroy()) {
                     destroy();
                 }
+                HandlerList.unregisterAll(this);
             }
         }
     }

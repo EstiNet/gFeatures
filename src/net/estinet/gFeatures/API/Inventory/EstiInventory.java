@@ -88,7 +88,7 @@ public class EstiInventory implements Listener {
         optionIcons = null;
     }
    
-    @EventHandler(priority=EventPriority.HIGHEST)
+    @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
     	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
         if (event.getInventory().getTitle().equals(name)) {
@@ -115,6 +115,7 @@ public class EstiInventory implements Listener {
                 if (e.willDestroy()) {
                     destroy();
                 }
+                HandlerList.unregisterAll(this);
             }
             
         }

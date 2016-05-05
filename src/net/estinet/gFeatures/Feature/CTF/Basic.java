@@ -51,6 +51,22 @@ public class Basic {
 	public static Mode mode = Mode.WAITING;
 	public static Team winningteam = null;
 	
+	public static boolean isInOrange(Player p){
+		if(teams.get(p.getUniqueId()).equals(Team.ORANGE)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public static boolean isInBlue(Player p){
+		if(teams.get(p.getUniqueId()).equals(Team.BLUE)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	public static int getOrangeSize(){
 		int ret = 0;
 		for(Team t : teams.values()){

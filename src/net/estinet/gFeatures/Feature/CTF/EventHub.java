@@ -85,10 +85,7 @@ public class EventHub{
 		event.setCancelled(true);
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		/*if(event.getEntity().getUniqueId().equals(event.getDamager().getUniqueId())){
-			Bukkit.getLogger().info("shotfix");
-			event.setCancelled(true);
-		}*/
+		if(event.getDamager().getType().equals(EntityType.PLAYER)){
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
@@ -122,7 +119,7 @@ public class EventHub{
 							d.init(p);
 						}
 					}
-
+				}
 				}
 			}
 		}
@@ -134,10 +131,6 @@ public class EventHub{
 		}
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
-		/*if(event.getVictim().getUniqueId().equals(event.getPlayer().getUniqueId())){
-			Bukkit.getLogger().info("shotfix");
-			event.setCancelled(true);
-		}*/
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getVictim();
 			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
@@ -145,9 +138,15 @@ public class EventHub{
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
 				Player pl = (Player) event.getPlayer(); // CHECK IT OUT
-				if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
+				if((Basic.isInBlue(p) && Basic.isInBlue(pl)) || (Basic.isInOrange(p) && Basic.isInOrange(pl))){
 					event.setCancelled(true);
-					Debug.print("[gWars] Prevented team kill.");
+					if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)){
+						Debug.print("[CTF] Both are in blue.");
+					}
+					else if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)){
+						Debug.print("[CTF] Both are in orange.");
+					}
+					Debug.print("[CTF] Prevented team kill.");
 				}
 				else{
 					int health = (int) p.getHealth();
@@ -159,14 +158,14 @@ public class EventHub{
 						deaths+=1;
 						Basic.deaths.remove(p.getUniqueId());
 						Basic.deaths.put(p.getUniqueId(), deaths);
-						Debug.print("first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
+						Debug.print("[CTF] first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
 						int kills = Basic.kills.get(pl.getUniqueId());
 						kills+=1;
 						Basic.kills.remove(pl.getUniqueId());
 						Basic.kills.put(pl.getUniqueId(), kills);
-						Debug.print("first kills:" + (kills-1) + " afterkill: " + kills);
+						Debug.print("[CTF] first kills:" + (kills-1) + " afterkill: " + kills);
 						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
-
+						event.setCancelled(true);
 						d.init(p);
 					}
 				}
