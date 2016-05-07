@@ -10,6 +10,7 @@ import net.estinet.gFeatures.gFeature;
 public class EstiChat extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
+	public static String lastSent = "";
 	
 	public EstiChat(String featurename, String d) {
 		super(featurename, d);

@@ -28,9 +28,11 @@ public class EventHub{
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("chat " + event.getMessage(), "Bungee");
+		EstiChat.lastSent = event.getMessage();
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("chat " + event.getDeathMessage(), "Bungee");
+		EstiChat.lastSent = event.getDeathMessage();
 	}
 }
