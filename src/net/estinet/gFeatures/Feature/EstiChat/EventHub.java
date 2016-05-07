@@ -1,12 +1,9 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 
 /*
 gFeatures
@@ -29,21 +26,11 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerChat(AsyncPlayerChatEvent event){
-		  ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		  out.writeUTF("Chat");
-		  out.writeUTF(event.getMessage());
-
-		  Player player = event.getPlayer();
-
-		  player.sendPluginMessage(Bukkit.getPluginManager().getPlugin("gFeatures"), "BungeeCord", out.toByteArray());
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("chat " + event.getMessage(), "Bungee");
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
-		  ByteArrayDataOutput out = ByteStreams.newDataOutput();
-		  out.writeUTF("Chat");
-		  out.writeUTF(event.getDeathMessage());
-
-		  Player player = event.getEntity();
-
-		  player.sendPluginMessage(Bukkit.getPluginManager().getPlugin("gFeatures"), "BungeeCord", out.toByteArray());
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("chat " + event.getDeathMessage(), "Bungee");
 	}
 }

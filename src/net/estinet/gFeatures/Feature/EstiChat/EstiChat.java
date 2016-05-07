@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
@@ -26,9 +27,14 @@ public class EstiChat extends gFeature implements Events{
 		if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
 			eh.onPlayerChat((AsyncPlayerChatEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
+			eh.onPlayerDeath((PlayerDeathEvent)event);
+		}
 	}
 	@Retrieval
 	@Override
 	public void onPlayerChat(){}
-	@
+	@Retrieval
+	@Override
+	public void onPlayerDeath(){}
 }
