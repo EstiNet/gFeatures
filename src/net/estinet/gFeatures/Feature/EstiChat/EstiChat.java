@@ -1,8 +1,7 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
 import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerJoinEvent;
-
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
@@ -24,10 +23,12 @@ public class EstiChat extends gFeature implements Events{
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
+		if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
+			eh.onPlayerChat((AsyncPlayerChatEvent)event);
 		}
 	}
 	@Retrieval
-	public void onPlayerJoin(){}
+	@Override
+	public void onPlayerChat(){}
+	@
 }

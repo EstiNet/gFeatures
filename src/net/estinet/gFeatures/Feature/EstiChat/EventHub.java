@@ -1,12 +1,12 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
 import org.bukkit.Bukkit;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import net.estinet.gFeatures.Basic;
-import net.estinet.gFeatures.SQL.Player.EstiPlayer;
-import net.estinet.gFeatures.SQL.Player.EstiSet;
-import net.estinet.gFeatures.SQL.Player.Key;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 
 /*
 gFeatures
@@ -28,7 +28,22 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
-	public void onPlayerJoin(PlayerJoinEvent event){
-		
+	public void onPlayerChat(AsyncPlayerChatEvent event){
+		  ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		  out.writeUTF("Chat");
+		  out.writeUTF(event.getMessage());
+
+		  Player player = event.getPlayer();
+
+		  player.sendPluginMessage(Bukkit.getPluginManager().getPlugin("gFeatures"), "BungeeCord", out.toByteArray());
+	}
+	public void onPlayerDeath(PlayerDeathEvent event){
+		  ByteArrayDataOutput out = ByteStreams.newDataOutput();
+		  out.writeUTF("Chat");
+		  out.writeUTF(event.getDeathMessage());
+
+		  Player player = event.getEntity();
+
+		  player.sendPluginMessage(Bukkit.getPluginManager().getPlugin("gFeatures"), "BungeeCord", out.toByteArray());
 	}
 }
