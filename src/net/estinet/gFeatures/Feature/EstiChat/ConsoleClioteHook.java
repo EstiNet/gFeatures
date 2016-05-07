@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.EstiChat;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
 
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
@@ -22,7 +23,8 @@ public class ConsoleClioteHook extends ClioteHook{
 		}
 		mgs = mgs.substring(0, mgs.length()-1);
 		if(!mgs.equals(EstiChat.lastSent)){
-			Bukkit.getLogger().info("[" + server + "] " + mgs);
+			ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+			console.sendMessage("[" + server + "] " + mgs);
 		}
 	}
 }

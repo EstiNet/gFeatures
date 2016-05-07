@@ -27,7 +27,7 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		CliotePing cp = new CliotePing();
-		cp.sendMessage("chat " + event.getMessage(), "Bungee");
+		cp.sendMessage("chat <" + event.getPlayer().getDisplayName() + "> " + event.getMessage(), "Bungee");
 		EstiChat.lastSent = event.getMessage();
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
