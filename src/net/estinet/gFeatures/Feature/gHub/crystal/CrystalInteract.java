@@ -27,8 +27,6 @@ public class CrystalInteract {
 			InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					Bukkit.getLogger().info(event.getName());
-					Bukkit.getLogger().info(ChatColor.GREEN + "");
 					if(event.getName().contains(ChatColor.GREEN + "")){
 						char[] subit = event.getName().toCharArray();
 						List<Character> strs = new ArrayList<>();
