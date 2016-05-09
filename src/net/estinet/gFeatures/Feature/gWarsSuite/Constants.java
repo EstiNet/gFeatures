@@ -36,8 +36,13 @@ public class Constants {
 	public static World world = Bukkit.getServer().getWorld("gWars");
 	
 	public static Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
-	public static Location multiplayergunselection = new Location(Bukkit.getServer().getWorld("gWars"), 250.0, 103.0, -59.0); //TODO
+	
+	public static Location multiplayergunselection = new Location(Bukkit.getServer().getWorld("gWars"), 578.0, 79.0, -282.0); //TODO
 	public static Location multiplayerorangeteamlook = new Location(Bukkit.getServer().getWorld("gWars"), 636.0, 91.0, -96.0); //TODO
+	public static Location teleport3 = new Location(Bukkit.getServer().getWorld("gWars"), 435.0, 152.0, -183.0);
+	public static Location teleport4 = new Location(Bukkit.getServer().getWorld("gWars"), 267.0, 107.0, -162.0);
+	public static Location teleport5 = new Location(Bukkit.getServer().getWorld("gWars"), 249.0, 107.0, 89);
+	
 	public static HashMap<Point, Team> multiplayerpossession = new HashMap<>();
 	public static HashMap<Player, gWarsMode> mode = new HashMap<>();
 	public static HashMap<String, Location> spawndump = new HashMap<>();

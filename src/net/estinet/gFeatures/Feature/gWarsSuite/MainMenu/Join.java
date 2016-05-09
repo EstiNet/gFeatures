@@ -6,15 +6,8 @@ import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.gWarsSuite.Constants;
 import net.estinet.gFeatures.Feature.gWarsSuite.Statistics;
 import net.estinet.gFeatures.Feature.gWarsSuite.gWarsMode;
-import net.minecraft.server.v1_9_R1.Entity;
-import net.minecraft.server.v1_9_R1.EntityLiving;
-import net.minecraft.server.v1_9_R1.EntityPlayer;
-import net.minecraft.server.v1_9_R1.WorldServer;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -22,14 +15,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.World;
-import org.bukkit.entity.Bat;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
 /*
@@ -54,7 +43,6 @@ https://github.com/EstiNet/gFeatures
 public class Join {
 	ActionAPI aapi = new ActionAPI();
 	Statistics stats = new Statistics();
-	@SuppressWarnings("deprecation")
 	public void start(PlayerJoinEvent event){
 		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
 		//TODO Player cinematic
@@ -65,9 +53,6 @@ public class Join {
 		p.teleport(spawnonjoin);
 		p.setGameMode(GameMode.ADVENTURE);
 
-		//Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
-
-
 		p.setWalkSpeed((float) 0.5);
 
 		for(Player sp : Bukkit.getOnlinePlayers()){
@@ -77,11 +62,7 @@ public class Join {
 		}
 		for (Player players : Bukkit.getOnlinePlayers()){
 			players.hidePlayer(p);
-		}//TODO NEED IT LATER MAYBE
-
-		Vector vector = Constants.multiplayerorangeteamlook.toVector().subtract(p.getLocation().toVector());
-		//Bat bat = (Bat) p.getWorld().spawnEntity(p.getLocation(), EntityType.BAT);
-		//bat.setPassenger(p);
+		}
 
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
@@ -120,16 +101,18 @@ public class Join {
 		locs.add(Constants.multiplayerorangeteamlook);
 		List<Location> tps = new ArrayList<>();
 		locs.add(Constants.multiplayergunselection);
+		locs.add(Constants.teleport3);
+		locs.add(Constants.teleport4);
+		locs.add(Constants.teleport5);
 		World w = player.getWorld();
 		for (int i = 0; i < locs.size() - 1; i++){
 			Location s = (Location)locs.get(i);
 			Location n = (Location)locs.get(i + 1);
-			int t = ((Integer)1000).intValue();
+			int t = ((Integer)100).intValue();
 
 			double moveX = n.getX() - s.getX();
 			double moveY = n.getY() - s.getY();
 			double moveZ = n.getZ() - s.getZ();
-			double movePitch = n.getPitch() - s.getPitch();
 
 			double yawDiff = Math.abs(n.getYaw() - s.getYaw());
 			double c = 0.0D;
@@ -146,14 +129,11 @@ public class Join {
 			} else {
 				c = 360.0D - yawDiff;
 			}
-			double d = c / t;
 			for (int x = 0; x < t; x++){
 				Location l = new Location(w, s.getX() + moveX / t * x, s.getY() + moveY / t * x, s.getZ() + moveZ / t * x/*, (float)(s.getYaw() + d * x), (float)(s.getPitch() + movePitch / t * x)*/);
 				tps.add(l);
 			}
 		}
-
-
 		try
 		{
 			player.setAllowFlight(true);
@@ -166,16 +146,15 @@ public class Join {
 				public void run()
 				{
 					if (this.ticks < tps.size()){
-						//player.teleport((Location)tps.get(this.ticks));
 						Vector vector;
-						try{
-						vector = tps.get(this.ticks).toVector().subtract(player.getLocation().toVector());
-						player.setVelocity(vector);
-						player.setPassenger(player);
-						}
-						catch(Exception e){}
 						if (stats.getMode(player).equals(gWarsMode.MAINMENU) || stats.getMode(player).equals(gWarsMode.GUNMENU) || stats.getMode(player).equals(gWarsMode.SPAWNMENU) || stats.getMode(player).equals(gWarsMode.TEAMMENU)){
 							Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("gFeatures"), this, 1L);
+							try{
+								vector = tps.get(this.ticks).toVector().subtract(player.getLocation().toVector());
+								player.setVelocity(vector);
+								player.setPassenger(player);
+								}
+								catch(Exception e){}
 						}
 						else{
 							player.setAllowFlight(false);
@@ -183,6 +162,10 @@ public class Join {
 							
 						}
 						this.ticks += 1;
+					}
+					if(this.ticks == tps.size()){
+						this.ticks = 0;
+						Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("gFeatures"), this, 1L);
 					}
 				}
 			});

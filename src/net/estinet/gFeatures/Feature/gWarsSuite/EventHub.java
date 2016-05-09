@@ -165,6 +165,8 @@ public class EventHub {
 				event.getPlayer().getInventory().setHelmet(wool);
 			}
 		}
+		Join join = new Join();
+		join.algore(event.getPlayer());
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		event.setCancelled(true);
@@ -204,6 +206,8 @@ public class EventHub {
 							event.getEntity().getInventory().setHelmet(wool);
 						}
 					}
+					Join join = new Join();
+					join.algore(event.getEntity());
 				}
 			}, 100L);
 	}
