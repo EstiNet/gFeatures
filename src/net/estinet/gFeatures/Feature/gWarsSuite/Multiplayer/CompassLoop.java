@@ -44,7 +44,7 @@ public class CompassLoop {
 			try{
 			if(st.getType().equals(Material.COMPASS)){
 				p.getInventory().remove(st);
-				Player playerget = getNearest(p, 50.0);
+				Player playerget = getNearest(p, 500.0);
 				p.setCompassTarget(playerget.getLocation());
 				ItemMeta im = st.getItemMeta();
 				im.setDisplayName(ChatColor.AQUA + "Compass: " + ChatColor.GOLD + "" + playerget.getName());
@@ -61,7 +61,7 @@ public class CompassLoop {
         double distance = Double.POSITIVE_INFINITY; // To make sure the first
                                                     // player checked is closest
         target = p;
-        for (Entity e : p.getNearbyEntities(range, range, range)) {
+        for (Entity e : p.getNearbyEntities(range, 64, range)) {
             if (!(e instanceof Player)){
                 continue;
             }

@@ -161,8 +161,10 @@ public class CommandHub {
 						mm.giveMoney(pl, m);
 					} catch (Exception e) {
 						e.printStackTrace();
-					}
+					}try{
           			sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Gave " + args[2] + " clupic to player " + pl.getName());
+					}
+					catch(Exception e){}
           			pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Recieved " + args[2] + " clupic.");
           		}
           		}

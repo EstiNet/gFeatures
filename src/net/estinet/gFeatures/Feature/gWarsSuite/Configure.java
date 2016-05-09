@@ -28,7 +28,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.7.2");
+		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.8.0");
 		Basic.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gWarss", "gWarsSuite core command.", "/gWarss help", base, Arrays.asList("gw"), true);

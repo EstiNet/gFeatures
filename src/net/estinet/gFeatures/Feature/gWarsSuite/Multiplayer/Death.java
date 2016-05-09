@@ -1,5 +1,8 @@
 package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 
+import org.bukkit.Material;
+import org.bukkit.event.entity.PlayerDeathEvent;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -20,4 +23,10 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Death {
+
+	public void init(PlayerDeathEvent event) {
+		if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
+			event.getDrops().remove(Material.STAINED_GLASS);
+		}
+	}
 }

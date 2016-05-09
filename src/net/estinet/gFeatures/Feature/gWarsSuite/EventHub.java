@@ -13,12 +13,15 @@ import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.MenuDamage;
 import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Damage;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -56,7 +59,7 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class EventHub {
 	Join mm = new Join();
@@ -72,13 +75,13 @@ public class EventHub {
 				"WHERE NOT EXISTS (\n"+
 				"SELECT Name FROM Kills WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
 				") LIMIT 1;\n"
-			);
+				);
 		c.Connect(c.toURL(cc.getPort(), cc.getAddress(), cc.getTablename()), cc.getUsername(), cc.getPassword(), "INSERT INTO Deaths(Name, Deaths)\n"+
 				"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
 				"WHERE NOT EXISTS (\n"+
 				"SELECT Name FROM Deaths WHERE Name = '" + event.getPlayer().getUniqueId() + "'\n"+
 				") LIMIT 1;\n"
-			);
+				);
 		Source s = new Source();
 		s.flushAll();
 		stats.setMode(event.getPlayer(), gWarsMode.MAINMENU);
@@ -143,7 +146,7 @@ public class EventHub {
 	public void onEntityExplode(EntityExplodeEvent e) {
 		List<Block> blocks = e.blockList();
 		for (Block b : blocks){
-		b.getDrops().clear();
+			b.getDrops().clear();
 		}
 	}
 	public void onPlayerRespawn(PlayerRespawnEvent event){
@@ -173,6 +176,36 @@ public class EventHub {
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
+		Death d = new Death();
+		d.init(event);
+		Player player = event.getEntity();
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+			if(event.getEntity().isDead())
+				player.setHealth(20);
+			player.setGameMode(GameMode.SPECTATOR);
+			ActionAPI aapi = new ActionAPI();
+			aapi.sendActionbar(player, ChatColor.RED + "Respawning in 5 seconds...");
+		}});
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				public void run(){
+					Source s = new Source();
+					s.flushAll();
+					event.getEntity().setGameMode(GameMode.ADVENTURE);
+					if(stats.getMode((Player)event.getEntity()).equals(gWarsMode.TEAM)){
+						stats.setMode(event.getEntity(), gWarsMode.SPAWNMENU);
+						SpawnMenu sm = new SpawnMenu(event.getEntity());
+						sm.intialize();
+						if(BlueTeam.hasPlayer(event.getEntity())){
+							ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+							event.getEntity().getInventory().setHelmet(wool);
+						}
+						else if(OrangeTeam.hasPlayer(event.getEntity())){
+							ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+							event.getEntity().getInventory().setHelmet(wool);
+						}
+					}
+				}
+			}, 100L);
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){

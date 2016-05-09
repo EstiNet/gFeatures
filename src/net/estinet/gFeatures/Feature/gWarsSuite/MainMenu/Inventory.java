@@ -52,14 +52,15 @@ public class Inventory {
 		event.setCancelled(true);
 	}
 	public void interact(PlayerInteractEvent event){
-			if(event.getPlayer().getItemInHand().equals(item1)){
+			if(event.getPlayer().getInventory().getItemInMainHand().equals(item1)){
 				event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
 			}
-			else if(event.getPlayer().getItemInHand().equals(item2)){
+			else if(event.getPlayer().getInventory().getItemInMainHand().equals(item2)){
 				aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a team.");
 				TeamMenu tm = new TeamMenu();
 				stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
 				tm.initialize(event.getPlayer());
+				event.getPlayer().playSound(event.getPlayer().getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
 			}
 	}
 }
