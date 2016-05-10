@@ -98,12 +98,24 @@ public class Join {
 
 	public void algore(Player player){
 		List<Location> locs = new ArrayList<>();
-		locs.add(Constants.multiplayerorangeteamlook);
+		locs.add(Constants.teleport1);
 		List<Location> tps = new ArrayList<>();
-		locs.add(Constants.multiplayergunselection);
+		locs.add(Constants.teleport2);
 		locs.add(Constants.teleport3);
 		locs.add(Constants.teleport4);
 		locs.add(Constants.teleport5);
+		locs.add(Constants.teleport6);
+		locs.add(Constants.teleport7);
+		locs.add(Constants.teleport8);
+		locs.add(Constants.teleport9);
+		locs.add(Constants.teleport10);
+		locs.add(Constants.teleport11);
+		locs.add(Constants.teleport12);
+		locs.add(Constants.teleport13);
+		locs.add(Constants.teleport14);
+		locs.add(Constants.teleport15);
+		locs.add(Constants.teleport16);
+		locs.add(Constants.teleport17);
 		World w = player.getWorld();
 		for (int i = 0; i < locs.size() - 1; i++){
 			Location s = (Location)locs.get(i);
@@ -113,24 +125,8 @@ public class Join {
 			double moveX = n.getX() - s.getX();
 			double moveY = n.getY() - s.getY();
 			double moveZ = n.getZ() - s.getZ();
-
-			double yawDiff = Math.abs(n.getYaw() - s.getYaw());
-			double c = 0.0D;
-			if (yawDiff <= 180.0D)
-			{
-				if (s.getYaw() < n.getYaw()) {
-					c = yawDiff;
-				} else {
-					c = -yawDiff;
-				}
-			}
-			else if (s.getYaw() < n.getYaw()) {
-				c = -(360.0D - yawDiff);
-			} else {
-				c = 360.0D - yawDiff;
-			}
 			for (int x = 0; x < t; x++){
-				Location l = new Location(w, s.getX() + moveX / t * x, s.getY() + moveY / t * x, s.getZ() + moveZ / t * x/*, (float)(s.getYaw() + d * x), (float)(s.getPitch() + movePitch / t * x)*/);
+				Location l = new Location(w, s.getX() + moveX / t * x, s.getY() + moveY / t * x, s.getZ() + moveZ / t * x);
 				tps.add(l);
 			}
 		}
@@ -164,6 +160,7 @@ public class Join {
 						this.ticks += 1;
 					}
 					if(this.ticks == tps.size()){
+						player.teleport((Location)tps.get(0));
 						this.ticks = 0;
 						Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getPluginManager().getPlugin("gFeatures"), this, 1L);
 					}

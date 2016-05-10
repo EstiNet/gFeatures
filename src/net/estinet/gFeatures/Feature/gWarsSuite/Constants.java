@@ -37,11 +37,23 @@ public class Constants {
 	
 	public static Location spawnonjoin = new Location(Bukkit.getServer().getWorld("gWars"), 350.3, 103.0, -59.3);
 	
-	public static Location multiplayergunselection = new Location(Bukkit.getServer().getWorld("gWars"), 578.0, 79.0, -282.0); //TODO
-	public static Location multiplayerorangeteamlook = new Location(Bukkit.getServer().getWorld("gWars"), 636.0, 91.0, -96.0); //TODO
-	public static Location teleport3 = new Location(Bukkit.getServer().getWorld("gWars"), 435.0, 152.0, -183.0);
-	public static Location teleport4 = new Location(Bukkit.getServer().getWorld("gWars"), 267.0, 107.0, -162.0);
-	public static Location teleport5 = new Location(Bukkit.getServer().getWorld("gWars"), 249.0, 107.0, 89);
+	public static Location teleport1 = new Location(Bukkit.getServer().getWorld("gWars"), -449, 75.0, 390.0);
+	public static Location teleport2 = new Location(Bukkit.getServer().getWorld("gWars"), -353, 90.0, 303.0);
+	public static Location teleport3 = new Location(Bukkit.getServer().getWorld("gWars"), -290.0, 109.0, 222.0);
+	public static Location teleport4 = new Location(Bukkit.getServer().getWorld("gWars"), -213.0, 110.0, -196.0);
+	public static Location teleport5 = new Location(Bukkit.getServer().getWorld("gWars"), -78.0, 84.0, 174);
+	public static Location teleport6 = new Location(Bukkit.getServer().getWorld("gWars"), 2.0, 88.0, 153);
+	public static Location teleport7 = new Location(Bukkit.getServer().getWorld("gWars"), 56.0, 94.0, 110);
+	public static Location teleport8 = new Location(Bukkit.getServer().getWorld("gWars"), 81.0, 105.0, -17);
+	public static Location teleport9 = new Location(Bukkit.getServer().getWorld("gWars"), 253.0, 105.0, -69);
+	public static Location teleport10 = new Location(Bukkit.getServer().getWorld("gWars"), 338.0, 80.0, -122);
+	public static Location teleport11 = new Location(Bukkit.getServer().getWorld("gWars"), 365.0, 80.0, -206);
+	public static Location teleport12 = new Location(Bukkit.getServer().getWorld("gWars"), 427.0, 112.0, -174);
+	public static Location teleport13 = new Location(Bukkit.getServer().getWorld("gWars"), 548.0, 84.0, -158);
+	public static Location teleport14 = new Location(Bukkit.getServer().getWorld("gWars"), 643.0, 84.0, -103);
+	public static Location teleport15 = new Location(Bukkit.getServer().getWorld("gWars"), 713.0, 122.0, 109);
+	public static Location teleport16 = new Location(Bukkit.getServer().getWorld("gWars"), 554.0, 101.0, 279);
+	public static Location teleport17 = new Location(Bukkit.getServer().getWorld("gWars"), 233.0, 101.0, 329);
 	
 	public static HashMap<Point, Team> multiplayerpossession = new HashMap<>();
 	public static HashMap<Player, gWarsMode> mode = new HashMap<>();

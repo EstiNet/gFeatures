@@ -25,6 +25,7 @@ public class InputError extends Packet{
 			break;
 		case "400":
 			ClioteSky.printError("Cliote already logged in! Are you sure there isn't already another instance of this server?");
+			break;
 		case "900":
 			ClioteSky.printError("Password incorrect when logging in! Are you sure you configured the config correctly?");
 			break;
