@@ -65,7 +65,7 @@ public class TeamMenu {
 		
 	}
 	public void interact(PlayerInteractEvent event){
-			if(event.getPlayer().getItemInHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getItemInHand().getData().getData() == 1){
+			if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getInventory().getItemInMainHand().getData().getData() == 1){
 				if(!(BlueTeam.size() < OrangeTeam.size())){
 					OrangeTeam.addPlayer(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + ".");
@@ -76,7 +76,7 @@ public class TeamMenu {
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
 				}
 			}
-			else if(event.getPlayer().getItemInHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getItemInHand().getData().getData() == 3){
+			else if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getInventory().getItemInMainHand().getData().getData() == 3){
 				if(!(BlueTeam.size() > OrangeTeam.size())){
 					BlueTeam.addPlayer(event.getPlayer());
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY + ".");

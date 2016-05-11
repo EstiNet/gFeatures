@@ -133,31 +133,31 @@ public class TierMenu {
 	}
 	
 	public void interact(PlayerInteractEvent event){
-		if(event.getPlayer().getItemInHand().equals(tierzero)){
+		if(event.getPlayer().getInventory().getItemInMainHand().equals(tierzero)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon.");
 			tier(0 ,event.getPlayer());
 		}
-		else if(event.getPlayer().getItemInHand().equals(tierone)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierone)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 5 kills for this tier.");
 			tier(1,event.getPlayer());
 		}
-		else if(event.getPlayer().getItemInHand().equals(tiertwo)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tiertwo)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 10 kills for this tier.");
 			tier(2,event.getPlayer());
 		}
-		else if(event.getPlayer().getItemInHand().equals(tierthree)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierthree)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 25 kills for this tier.");
 			tier(3,event.getPlayer());
 		}
-		else if(event.getPlayer().getItemInHand().equals(tierfour)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierfour)){
 			aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Please select a weapon. You will need 50 kills for this tier.");
 			tier(4,event.getPlayer());
 		}
-		else if(event.getPlayer().getItemInHand().equals(sniper) || event.getPlayer().getItemInHand().equals(shotgun) || event.getPlayer().getItemInHand().equals(special) || event.getPlayer().getItemInHand().equals(autorifle)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun) || event.getPlayer().getInventory().getItemInMainHand().equals(special) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle)){
 			TierZero tz = new TierZero(event.getPlayer());
 			tz.interact(event);				
 		}
-		else if(event.getPlayer().getItemInHand().equals(sniper1) || event.getPlayer().getItemInHand().equals(shotgun1) || event.getPlayer().getItemInHand().equals(special1) || event.getPlayer().getItemInHand().equals(autorifle1)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper1) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun1) || event.getPlayer().getInventory().getItemInMainHand().equals(special1) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle1)){
 			if(s.getKills(event.getPlayer()) >= 5){
 			TierOne to = new TierOne(event.getPlayer());
 			to.interact(event);
@@ -166,7 +166,7 @@ public class TierMenu {
 				aww(event.getPlayer(), "5");
 			}
 		}
-		else if(event.getPlayer().getItemInHand().equals(sniper2) || event.getPlayer().getItemInHand().equals(shotgun2) || event.getPlayer().getItemInHand().equals(special2) || event.getPlayer().getItemInHand().equals(autorifle2)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper2) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun2) || event.getPlayer().getInventory().getItemInMainHand().equals(special2) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle2)){
 			if(s.getKills(event.getPlayer()) >= 10){
 			TierTwo to = new TierTwo(event.getPlayer());
 			to.interact(event);
@@ -175,7 +175,7 @@ public class TierMenu {
 				aww(event.getPlayer(), "10");
 			}
 		}
-		else if(event.getPlayer().getItemInHand().equals(sniper3) || event.getPlayer().getItemInHand().equals(shotgun) || event.getPlayer().getItemInHand().equals(special3) || event.getPlayer().getItemInHand().equals(autorifle3)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper3) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun) || event.getPlayer().getInventory().getItemInMainHand().equals(special3) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle3)){
 			if(s.getKills(event.getPlayer()) >= 25){
 			TierThree to = new TierThree(event.getPlayer());
 			to.interact(event);
@@ -184,7 +184,7 @@ public class TierMenu {
 				aww(event.getPlayer(), "25");
 			}
 		}
-		else if(event.getPlayer().getItemInHand().equals(sniper4) || event.getPlayer().getItemInHand().equals(shotgun4) || event.getPlayer().getItemInHand().equals(special4) || event.getPlayer().getItemInHand().equals(autorifle4)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper4) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun4) || event.getPlayer().getInventory().getItemInMainHand().equals(special4) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle4)){
 			if(s.getKills(event.getPlayer()) >= 50){
 			TierFour to = new TierFour(event.getPlayer());
 			to.interact(event);
@@ -193,7 +193,7 @@ public class TierMenu {
 				aww(event.getPlayer(), "50");
 			}
 		}
-		else if(event.getPlayer().getItemInHand().equals(cancel)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(cancel)){
 			setup(event.getPlayer());
 		}
 	}

@@ -53,7 +53,6 @@ public class Finish {
 		ItemStack compass = createItem(Material.COMPASS, ChatColor.AQUA + "Compass");
 		p.getInventory().setItem(7, compass);
 		p.setWalkSpeed((float) 0.5);
-		//Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walking 5 "+ p.getName());
 		if(OrangeTeam.hasPlayer(p)){
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 			p.getInventory().setHelmet(wool);

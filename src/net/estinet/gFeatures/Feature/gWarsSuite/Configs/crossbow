@@ -3,7 +3,7 @@ CrossBow:
         Item_Name: "&4Crossbow"
         Item_Type: 318
         Item_Lore: "&7Armor penetrating rounds|Tier 0 Special|&3Makes enemy bleed."
-        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
     Shooting:
         Right_Click_To_Shoot: true
         Delay_Between_Shots: 0
@@ -27,7 +27,7 @@ CrossBow:
         Enable: true
         Night_Vision: true
         Zoom_Amount: 5
-        Sounds_Toggle_Zoom: NOTE_STICKS-1-2-0
+        Sounds_Toggle_Zoom: BLOCK_NOTE_HAT-1-2-0
     Ammo:
         Enable: true
         Ammo_Item_ID: 362

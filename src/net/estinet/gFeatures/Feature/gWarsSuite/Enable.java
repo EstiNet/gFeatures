@@ -59,16 +59,5 @@ public class Enable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		for(Point point : Constants.multiplayerpossession.keySet()){
-			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){
-				point.setBlue();
-			}
-			else if(Constants.multiplayerpossession.get(point).equals(Team.ORANGE)){
-				point.setOrange();
-			}
-			else if(Constants.multiplayerpossession.get(point).equals(Team.NEUTRAL)){
-				point.setNeutral();
-			}
-		}
 	}
 }

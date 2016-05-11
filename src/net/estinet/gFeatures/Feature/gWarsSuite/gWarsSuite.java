@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
@@ -101,6 +102,9 @@ public class gWarsSuite extends gFeature{
 		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
+			eh.onWorldLoad((WorldLoadEvent) event);
+		}
 	}
 	@Override
 	@Retrieval
@@ -144,6 +148,9 @@ public class gWarsSuite extends gFeature{
 	@Override
 	@Retrieval
 	public void onPlayerDrop(){}
+	@Override
+	@Retrieval
+	public void onWorldLoad(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

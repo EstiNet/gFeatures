@@ -3,7 +3,7 @@ Flamethrower:
         Item_Name: "&eFlamethrower"
         Item_Type: 369
         Item_Lore: "&eShoots much fire.|&eDeadly at close range.|&eBurns target."
-        Sounds_Acquired: BAT_TAKEOFF-1-1-0
+        Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
     Shooting:
         Cancel_Left_Click_Block_Damage: true
         Cancel_Right_Click_Interactions: true
@@ -28,13 +28,13 @@ Flamethrower:
         Enable: true
         Reload_Amount: 60
         Reload_Duration: 80
-        Sounds_Reloading: NOTE_STICKS-1-1-0,NOTE_SNARE_DRUM-1-6-1
+        Sounds_Reloading: BLOCK_NOTE_HAT-1-1-0,NOTE_SNARE_DRUM-1-6-1
     Firearm_Action:
         Type: pump
         Open_Duration: 1
         Close_Duration: 1
-        Sound_Open: DOOR_OPEN-1-2-0
-        Sound_Close: DOOR_CLOSE-1-2-0
+        Sound_Open: BLOCK_WOODEN_DOOR_OPEN-1-2-0
+        Sound_Close: BLOCK_WOODEN_DOOR_CLOSE-1-2-0
     Abilities:
         Reset_Hit_Cooldown: false
         Knockback: 0

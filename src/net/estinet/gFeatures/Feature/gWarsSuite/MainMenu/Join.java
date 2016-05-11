@@ -45,7 +45,6 @@ public class Join {
 	Statistics stats = new Statistics();
 	public void start(PlayerJoinEvent event){
 		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
-		//TODO Player cinematic
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());

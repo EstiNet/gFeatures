@@ -17,7 +17,9 @@ import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Death;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Interact;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Move;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -38,6 +40,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
@@ -214,6 +217,19 @@ public class EventHub {
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			event.setCancelled(true);
+		}
+	}
+	public void onWorldLoad(WorldLoadEvent event){
+		for(Point point : Constants.multiplayerpossession.keySet()){
+			if(Constants.multiplayerpossession.get(point).equals(Team.BLUE)){
+				point.setBlue();
+			}
+			else if(Constants.multiplayerpossession.get(point).equals(Team.ORANGE)){
+				point.setOrange();
+			}
+			else if(Constants.multiplayerpossession.get(point).equals(Team.NEUTRAL)){
+				point.setNeutral();
+			}
 		}
 	}
 }
