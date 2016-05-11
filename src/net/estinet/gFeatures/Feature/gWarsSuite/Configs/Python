@@ -15,12 +15,12 @@ Python:
         Projectile_Speed: 40
         Projectile_Damage: 2
         Bullet_Spread: 0.5
-        Sounds_Shoot: ENTITY_IRONGOLEM_ATTACK-1-2-0,ZOMBIE_METAL-1-2-0
+        Sounds_Shoot: ENTITY_IRONGOLEM_ATTACK-1-2-0,ENTITY_ZOMBIE_ATTACK_IRON_DOOR-1-2-0
     Reload:
         Enable: true
         Reload_Amount: 6
         Reload_Duration: 35
-        Sounds_Reloading: LEVEL_UP-1-1-10,ITEM_FIRECHARGE_USE-1-2-28
+        Sounds_Reloading: ENTITY_PLAYER_LEVELUP-1-1-10,ITEM_FIRECHARGE_USE-1-2-28
     Firearm_Action:
         Type: revolver
         Open_Duration: 5
@@ -31,6 +31,6 @@ Python:
         Reset_Hit_Cooldown: true
     Hit_Events:
         Enable: true
-        Sounds_Shooter: SHOOT_ARROW-1-2-0
+        Sounds_Shooter: ENTITY_ARROW_SHOOT-1-2-0
     Custom_Death_Message:
         Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6Python&3!"

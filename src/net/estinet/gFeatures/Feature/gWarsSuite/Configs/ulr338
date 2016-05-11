@@ -27,7 +27,7 @@ ULR338:
             Enable: false
         Bullet_Spread: 1
         Reset_Fall_Distance: true
-        Sounds_Shoot:  BLAZE_HIT-1-2-0,ENTITY_ZOMBIE_ATTACK_DOOR_WOOD-1-2-0
+        Sounds_Shoot:  ENTITY_BLAZE_SHOOT-1-2-0,ENTITY_ZOMBIE_ATTACK_DOOR_WOOD-1-2-0
     Sneak:
         Enable: false
     Ammo:
@@ -45,14 +45,14 @@ ULR338:
         Reload_Duration: 15
         Destroy_When_Empty: false
         Sounds_Out_Of_Ammo: 
-        Sounds_Reloading:  BLOCK_NOTE_HAT-1-1-0,NOTE_SNARE_DRUM-1-6-1
+        Sounds_Reloading:  BLOCK_NOTE_HAT-1-1-0,BLOCK_NOTE_SNARE-1-6-1
     Firearm_Action:
         Type: bolt
         Open_Duration: 12
         Close_Duration: 12
         Close_Shoot_Delay: 3
         Sound_Open: BLOCK_NOTE_HAT-1-0-0,BLOCK_PISTON_CONTRACT-1-2-2
-        Sound_Close: PISTON_EXTEND-1-2-0
+        Sound_Close: BLOCK_PISTON_EXTEND-1-2-0
     Scope:
         Enable: true
         Night_Vision: true

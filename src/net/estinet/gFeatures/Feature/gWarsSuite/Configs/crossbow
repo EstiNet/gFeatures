@@ -12,17 +12,17 @@ CrossBow:
         Projectile_Type: arrow
         Projectile_Damage: 5
         Projectile_Speed: 1000
-        Sounds_Shoot: SHOOT_ARROW-1-2-0
+        Sounds_Shoot: ENTITY_ARROW_SHOOT-1-2-0
     Reload:
         Enable: true
         Reload_Amount: 1
         Reload_Duration: 5
         Take_Ammo_On_Reload: true
-        Sounds_Reloading: WATER-6-2-0,PIG_WALK-1-2-0
+        Sounds_Reloading: BLOCK_WATER_AMBIENT-6-2-0,ENTITY_PIG_STEP-1-2-0
     Potion_Effects:
         Activation: hit
         Potion_Effect_Shooter: Heal-3-1
-        Potion_Effect_Victim: WITHER-50-50
+        Potion_Effect_Victim: ENTITY_WITHER_AMBIENT-50-50
     Scope:
         Enable: true
         Night_Vision: true
