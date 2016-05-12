@@ -110,16 +110,16 @@ public class TierOne{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		if(p.getItemInHand().equals(sniper1)){
+		if(p.getInventory().getItemInMainHand().equals(sniper1)){
 			sniper();
 		}
-		else if(p.getItemInHand().equals(shotgun1)){
+		else if(p.getInventory().getItemInMainHand().equals(shotgun1)){
 			shotgun();
 		}
-		else if(p.getItemInHand().equals(special1)){
+		else if(p.getInventory().getItemInMainHand().equals(special1)){
 			special();
 		}
-		else if(p.getItemInHand().equals(autorifle1)){
+		else if(p.getInventory().getItemInMainHand().equals(autorifle1)){
 			autorifle();
 		}
 	}

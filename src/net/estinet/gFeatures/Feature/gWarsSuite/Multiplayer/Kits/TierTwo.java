@@ -110,16 +110,16 @@ public class TierTwo{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		if(p.getItemInHand().equals(sniper2)){
+		if(p.getInventory().getItemInMainHand().equals(sniper2)){
 			sniper();
 		}
-		else if(p.getItemInHand().equals(shotgun2)){
+		else if(p.getInventory().getItemInMainHand().equals(shotgun2)){
 			shotgun();
 		}
-		else if(p.getItemInHand().equals(special2)){
+		else if(p.getInventory().getItemInMainHand().equals(special2)){
 			special();
 		}
-		else if(p.getItemInHand().equals(autorifle2)){
+		else if(p.getInventory().getItemInMainHand().equals(autorifle2)){
 			autorifle();
 		}
 	}

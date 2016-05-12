@@ -96,16 +96,16 @@ public class TierFour{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		if(p.getItemInHand().equals(sniper4)){
+		if(p.getInventory().getItemInMainHand().equals(sniper4)){
 			sniper();
 		}
-		else if(p.getItemInHand().equals(shotgun4)){
+		else if(p.getInventory().getItemInMainHand().equals(shotgun4)){
 			shotgun();
 		}
-		else if(p.getItemInHand().equals(special4)){
+		else if(p.getInventory().getItemInMainHand().equals(special4)){
 			special();
 		}
-		else if(p.getItemInHand().equals(autorifle4)){
+		else if(p.getInventory().getItemInMainHand().equals(autorifle4)){
 			autorifle();
 		}
 	}

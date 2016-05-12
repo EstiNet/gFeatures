@@ -48,6 +48,7 @@ public class CrackshotConfiguration {
 			MakeFile("fn-tps");
 			MakeFile("sr-25");
 			MakeFile("crossbow");
+			MakeFile("hkmp5");
 		}
 		else{
 			DeleteFile("ak47silver");
@@ -66,6 +67,7 @@ public class CrackshotConfiguration {
 			DeleteFile("fn-tps");
 			DeleteFile("sr-25");
 			DeleteFile("crossbow");
+			DeleteFile("hkmp5");
 		}
 	}
 	public void MakeFile(String filename) throws IOException{

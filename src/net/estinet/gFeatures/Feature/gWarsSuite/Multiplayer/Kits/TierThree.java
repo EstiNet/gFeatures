@@ -115,16 +115,16 @@ public class TierThree{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		if(p.getItemInHand().equals(sniper3)){
+		if(p.getInventory().getItemInMainHand().equals(sniper3)){
 			sniper();
 		}
-		else if(p.getItemInHand().equals(shotgun3)){
+		else if(p.getInventory().getItemInMainHand().equals(shotgun3)){
 			shotgun();
 		}
-		else if(p.getItemInHand().equals(special3)){
+		else if(p.getInventory().getItemInMainHand().equals(special3)){
 			special();
 		}
-		else if(p.getItemInHand().equals(autorifle3)){
+		else if(p.getInventory().getItemInMainHand().equals(autorifle3)){
 			autorifle();
 		}
 	}
