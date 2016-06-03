@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -35,8 +36,9 @@ public class Interact {
 		try{
 			Statistics stats = new Statistics();
 			if(stats.getMode(event.getPlayer().getName()).equals(gWarsMode.TEAM)){
+				Bukkit.getLogger().info("x: " + event.getClickedBlock().getLocation().getX() + " y: " + event.getClickedBlock().getLocation().getY() + " z: " + event.getClickedBlock().getLocation().getZ());
 				World world = Bukkit.getServer().getWorld("gWars");
-				if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -56))){//Orange
+				if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -57))){//Orange
 					int random = (int) Math.ceil(Math.random() * 4);
 					event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
 					switch(random){
@@ -53,6 +55,7 @@ public class Interact {
 						world.spawnEntity(new Location(world, 663, 61, -54), EntityType.MINECART);
 						break;
 					}
+					addPlayer(event.getPlayer());
 					event.setCancelled(true);
 				}
 				else if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 24, 61, 216))){//Blue
@@ -72,12 +75,62 @@ public class Interact {
 						world.spawnEntity(new Location(world, 22, 61, 222), EntityType.MINECART);
 						break;
 					}
+					addPlayer(event.getPlayer());
 					event.setCancelled(true);
+				}
+				else{
+					blueBoats(event);
+					orangeBoats(event);
 				}
 			}
 		}catch(Exception e){e.printStackTrace();}
 		/*not in adventure? if(event.getAction().equals(Action.PHYSICAL) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)){
 			event.setCancelled(true);
 		}*/
+	}
+	public void blueBoats(PlayerInteractEvent event){
+		World world = Bukkit.getServer().getWorld("gWars");
+		if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 286))){
+			world.spawnEntity(new Location(world, 3, 62, 282), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 294))){
+			world.spawnEntity(new Location(world, 4, 62, 290), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 302))){
+			world.spawnEntity(new Location(world, 4, 62, 298), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+	}
+	public void orangeBoats(PlayerInteractEvent event){
+		World world = Bukkit.getServer().getWorld("gWars");
+		if(event.getClickedBlock().getLocation().equals(new Location(world, 837, 61, -37))){
+			world.spawnEntity(new Location(world, 833, 62, -36), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+		else if(event.getClickedBlock().getLocation().equals(new Location(world, 829, 61, -37))){
+			world.spawnEntity(new Location(world, 825, 62, -36), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+		else if(event.getClickedBlock().getLocation().equals(new Location(world, 821, 61, -37))){
+			world.spawnEntity(new Location(world, 817, 62, -36), EntityType.BOAT);
+			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+			addPlayer(event.getPlayer());
+			event.setCancelled(true);
+		}
+	}
+	public void addPlayer(Player p){
+		
 	}
 }

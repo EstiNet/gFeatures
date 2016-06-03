@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CaptureState;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
@@ -65,6 +66,8 @@ public class Constants {
 	public static List<String> fighterjets = new ArrayList<>();
 	public static List<String> bombers = new ArrayList<>();
 	public static List<String> tank = new ArrayList<>();
+	
+	public static List<UUID> vehiclehog = new ArrayList<>();
 	
 	public static List<String> capturetrigger = new ArrayList<>();
 	
