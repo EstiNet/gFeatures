@@ -85,7 +85,6 @@ public class TierThree{
 		finali();
 	}
 	public void shotgun(){
-		System.out.println("hey");
 		ci.clearInv(p);
 		CSUtility cs = new CSUtility();
 		cs.giveWeapon(p, "FN-TPS", 1);
@@ -116,12 +115,10 @@ public class TierThree{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
-		System.out.println("hey");
 		if(p.getInventory().getItemInMainHand().equals(sniper3)){
 			sniper();
 		}
 		else if(p.getInventory().getItemInMainHand().equals(shotgun3)){
-			System.out.println("hey");
 			shotgun();
 		}
 		else if(p.getInventory().getItemInMainHand().equals(special3)){

@@ -136,9 +136,9 @@ public class EventHub {
 		}
 	}
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
-		/*if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
+		if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
 			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getPreviousSlot()).getItemMeta().getLore().get(0));
-		}*/
+		}
 	}
 	public void onInventoryClick(InventoryClickEvent event){
 		if(stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getWhoClicked()).equals(gWarsMode.SPAWNMENU)){

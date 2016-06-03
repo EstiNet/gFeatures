@@ -44,7 +44,7 @@ public class TierZero{
 		
 		sniper = createItem(Material.WOOD_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
 		shotgun = createItem(Material.WOOD_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
-		special = createItem(Material.WOOD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Armoured");
+		special = createItem(Material.WOOD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Crossbow");
 		autorifle = createItem(Material.WOOD_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Auto-Rifle");
 		ammo = new ItemStack(Material.MELON_SEEDS, 16);
 		ItemMeta meta = ammo.getItemMeta();
