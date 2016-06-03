@@ -2,7 +2,6 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.util.List;
 
-import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.CheckConfig;
 import net.estinet.gFeatures.Feature.gWarsSuite.Connection.Connection;

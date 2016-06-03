@@ -116,6 +116,7 @@ public class TierThree{
 	}
 	public void interact(PlayerInteractEvent event){
 		Player p = event.getPlayer();
+		System.out.println("hey");
 		if(p.getInventory().getItemInMainHand().equals(sniper3)){
 			sniper();
 		}

@@ -82,7 +82,7 @@ public class TierMenu {
 		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Heckler and Koch MP-4");
 		shotgun4 = createItem(Material.DIAMOND_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.DIAMOND_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
-		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16-Elite");
+		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16-Elite");		
 		
 		all.add(sniper);
 		all.add(shotgun);
@@ -175,7 +175,7 @@ public class TierMenu {
 				aww(event.getPlayer(), "10");
 			}
 		}
-		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper3) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun) || event.getPlayer().getInventory().getItemInMainHand().equals(special3) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle3)){
+		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper3) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun3) || event.getPlayer().getInventory().getItemInMainHand().equals(special3) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle3)){
 			if(s.getKills(event.getPlayer()) >= 25){
 			TierThree to = new TierThree(event.getPlayer());
 			to.interact(event);
