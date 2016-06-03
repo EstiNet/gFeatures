@@ -41,10 +41,10 @@ public class TierFour{
 	ItemStack sniper4, shotgun4, special4, autorifle4, ammo, jetpackammo;
 	public TierFour(Player player) {
 		p = player;
-		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Heckler and Koch MP-4");
+		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "C14 Timberwolf");
 		shotgun4 = createItem(Material.DIAMOND_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.DIAMOND_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
-		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16-Elite");
+		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Heckler and Koch MP-5");
 		
 		ammo = new ItemStack(Material.MELON_SEEDS, 16);
 		ItemMeta meta = ammo.getItemMeta();
