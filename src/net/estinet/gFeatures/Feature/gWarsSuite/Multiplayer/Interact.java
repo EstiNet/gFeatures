@@ -2,15 +2,21 @@ package net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
+import net.estinet.gFeatures.Feature.gWarsSuite.Constants;
 import net.estinet.gFeatures.Feature.gWarsSuite.Statistics;
 import net.estinet.gFeatures.Feature.gWarsSuite.gWarsMode;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.Join;
+import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
 
 /*
 gFeatures
@@ -39,44 +45,56 @@ public class Interact {
 				Bukkit.getLogger().info("x: " + event.getClickedBlock().getLocation().getX() + " y: " + event.getClickedBlock().getLocation().getY() + " z: " + event.getClickedBlock().getLocation().getZ());
 				World world = Bukkit.getServer().getWorld("gWars");
 				if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -57))){//Orange
-					int random = (int) Math.ceil(Math.random() * 4);
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
-					switch(random){
-					case 1:
-						world.spawnEntity(new Location(world, 651, 61, -54), EntityType.MINECART);
-						break;
-					case 2:
-						world.spawnEntity(new Location(world, 655, 61, -54), EntityType.MINECART);
-						break;
-					case 3:
-						world.spawnEntity(new Location(world, 659, 61, -54), EntityType.MINECART);
-						break;
-					case 4:
-						world.spawnEntity(new Location(world, 663, 61, -54), EntityType.MINECART);
-						break;
+					if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+						int random = (int) Math.ceil(Math.random() * 4);
+						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
+						switch(random){
+						case 1:
+							world.spawnEntity(new Location(world, 651, 61, -54), EntityType.MINECART);
+							break;
+						case 2:
+							world.spawnEntity(new Location(world, 655, 61, -54), EntityType.MINECART);
+							break;
+						case 3:
+							world.spawnEntity(new Location(world, 659, 61, -54), EntityType.MINECART);
+							break;
+						case 4:
+							world.spawnEntity(new Location(world, 663, 61, -54), EntityType.MINECART);
+							break;
+						}
+						addPlayer(event.getPlayer());
+						event.setCancelled(true);
 					}
-					addPlayer(event.getPlayer());
-					event.setCancelled(true);
+					else{
+						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+						event.setCancelled(true);
+					}
 				}
 				else if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 24, 61, 216))){//Blue
-					int random = (int) Math.ceil(Math.random() * 4);
-					event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
-					switch(random){
-					case 1:
-						world.spawnEntity(new Location(world, 22, 61, 210), EntityType.MINECART);
-						break;
-					case 2:
-						world.spawnEntity(new Location(world, 22, 61, 214), EntityType.MINECART);
-						break;
-					case 3:
-						world.spawnEntity(new Location(world, 22, 61, 218), EntityType.MINECART);
-						break;
-					case 4:
-						world.spawnEntity(new Location(world, 22, 61, 222), EntityType.MINECART);
-						break;
+					if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+						int random = (int) Math.ceil(Math.random() * 4);
+						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
+						switch(random){
+						case 1:
+							world.spawnEntity(new Location(world, 22, 61, 210), EntityType.MINECART);
+							break;
+						case 2:
+							world.spawnEntity(new Location(world, 22, 61, 214), EntityType.MINECART);
+							break;
+						case 3:
+							world.spawnEntity(new Location(world, 22, 61, 218), EntityType.MINECART);
+							break;
+						case 4:
+							world.spawnEntity(new Location(world, 22, 61, 222), EntityType.MINECART);
+							break;
+						}
+						addPlayer(event.getPlayer());
+						event.setCancelled(true);
 					}
-					addPlayer(event.getPlayer());
-					event.setCancelled(true);
+					else{
+						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+						event.setCancelled(true);
+					}
 				}
 				else{
 					blueBoats(event);
@@ -91,46 +109,87 @@ public class Interact {
 	public void blueBoats(PlayerInteractEvent event){
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 286))){
-			world.spawnEntity(new Location(world, 3, 62, 282), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 3, 62, 282), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 294))){
-			world.spawnEntity(new Location(world, 4, 62, 290), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 4, 62, 290), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 302))){
-			world.spawnEntity(new Location(world, 4, 62, 298), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 4, 62, 298), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 	}
 	public void orangeBoats(PlayerInteractEvent event){
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(world, 837, 61, -37))){
-			world.spawnEntity(new Location(world, 833, 62, -36), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 833, 62, -36), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 829, 61, -37))){
-			world.spawnEntity(new Location(world, 825, 62, -36), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 825, 62, -36), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 821, 61, -37))){
-			world.spawnEntity(new Location(world, 817, 62, -36), EntityType.BOAT);
-			event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
-			addPlayer(event.getPlayer());
-			event.setCancelled(true);
+			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+				world.spawnEntity(new Location(world, 817, 62, -36), EntityType.BOAT);
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
+				addPlayer(event.getPlayer());
+				event.setCancelled(true);
+			}
+			else{
+				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Please wait " + ChatColor.AQUA + "30" + ChatColor.GRAY + " seconds before spawning another vehicle.");
+				event.setCancelled(true);
+			}
 		}
 	}
 	public void addPlayer(Player p){
-		
+		Constants.vehiclehog.add(p.getUniqueId());
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			public void run(){
+				Constants.vehiclehog.remove(p.getUniqueId());
+			}
+		}, 600L);
 	}
 }

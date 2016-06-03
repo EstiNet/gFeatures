@@ -137,7 +137,7 @@ public class EventHub {
 	}
 	public void onPlayerItemHeld(PlayerItemHeldEvent event){
 		if(stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU)){
-			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getPreviousSlot()).getItemMeta().getLore().get(0));
+			aapi.sendActionbar(event.getPlayer(), event.getPlayer().getInventory().getItem(event.getNewSlot()).getItemMeta().getLore().get(0));
 		}
 	}
 	public void onInventoryClick(InventoryClickEvent event){
