@@ -68,6 +68,7 @@ public class Setup {
 
 		net.estinet.gFeatures.Utility.gBroadcast.Configure.onSetup();
 		net.estinet.gFeatures.Utility.gMotd.Configure.onSetup();
+		net.estinet.gFeatures.Utility.EstiJoin.Configure.onSetup();
 
 		//Ignore below. -_- Package Crawler attempt.
 
