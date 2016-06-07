@@ -45,7 +45,7 @@ public class Interact {
 				Bukkit.getLogger().info("x: " + event.getClickedBlock().getLocation().getX() + " y: " + event.getClickedBlock().getLocation().getY() + " z: " + event.getClickedBlock().getLocation().getZ());
 				World world = Bukkit.getServer().getWorld("gWars");
 				if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -57))){//Orange
-					if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+					if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 						int random = (int) Math.ceil(Math.random() * 4);
 						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
 						switch(random){
@@ -71,7 +71,7 @@ public class Interact {
 					}
 				}
 				else if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 24, 61, 216))){//Blue
-					if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+					if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 						int random = (int) Math.ceil(Math.random() * 4);
 						event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Fighter Jet" + ChatColor.GRAY + ".");
 						switch(random){
@@ -109,7 +109,7 @@ public class Interact {
 	public void blueBoats(PlayerInteractEvent event){
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 286))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 3, 62, 282), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
@@ -121,7 +121,7 @@ public class Interact {
 			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 294))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 4, 62, 290), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
@@ -133,7 +133,7 @@ public class Interact {
 			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 3, 61, 302))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 4, 62, 298), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
@@ -148,7 +148,7 @@ public class Interact {
 	public void orangeBoats(PlayerInteractEvent event){
 		World world = Bukkit.getServer().getWorld("gWars");
 		if(event.getClickedBlock().getLocation().equals(new Location(world, 837, 61, -37))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 833, 62, -36), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
@@ -160,7 +160,7 @@ public class Interact {
 			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 829, 61, -37))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 825, 62, -36), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
@@ -172,7 +172,7 @@ public class Interact {
 			}
 		}
 		else if(event.getClickedBlock().getLocation().equals(new Location(world, 821, 61, -37))){
-			if(Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
+			if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
 				world.spawnEntity(new Location(world, 817, 62, -36), EntityType.BOAT);
 				event.getPlayer().sendMessage(ChatColor.GRAY + "[Vehicle] Spawned a " + ChatColor.AQUA + "Boat" + ChatColor.GRAY + ".");
 				addPlayer(event.getPlayer());
