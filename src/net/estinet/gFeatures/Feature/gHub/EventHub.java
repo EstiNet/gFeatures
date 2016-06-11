@@ -125,7 +125,7 @@ public class EventHub {
 	      player.setAllowFlight(false);
 	      player.setFlying(false);
 	      player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
-	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_BAT_TAKEOFF, 1.0F, -5.0F);
+	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
 	    }
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
