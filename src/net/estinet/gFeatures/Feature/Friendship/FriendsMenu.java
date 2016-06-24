@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.Friendship;
 
-package net.estinet.gFeatures.Feature.gHub.crystal;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class FriendsMenu {
 	}
 	public InventoryAPI makeInventory(Player p, Location loc){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends Menu", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase("")){
@@ -34,7 +32,7 @@ public class FriendsMenu {
 					event.setWillClose(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-			ItemStack player = new ItemStack();
+			
 			return menu;
 		}catch(Exception e){
 			e.printStackTrace();
