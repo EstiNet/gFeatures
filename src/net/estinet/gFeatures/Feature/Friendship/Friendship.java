@@ -1,5 +1,8 @@
 package net.estinet.gFeatures.Feature.Friendship;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
@@ -7,6 +10,8 @@ import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
 
 public class Friendship extends gFeature implements Events{
+	
+	public static List<String> cacheNames = new ArrayList<>();
 	
 	EventHub eh = new EventHub();
 	
