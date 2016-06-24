@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Friendship;
+package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
 import java.util.List;
