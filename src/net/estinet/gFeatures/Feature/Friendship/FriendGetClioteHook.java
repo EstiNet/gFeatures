@@ -22,6 +22,7 @@ public class FriendGetClioteHook extends ClioteHook{
 				Friendship.friendget.remove(args.get(1));
 			}
 			else{
+				Friendship.statusRequest.put(args.get(1), args.get(2));
 				CliotePing cp = new CliotePing();
 				cp.sendMessage("friends obtain " + args.get(1), "Bungee");
 			}
