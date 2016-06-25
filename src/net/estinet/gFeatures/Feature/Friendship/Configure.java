@@ -7,7 +7,7 @@ import net.estinet.gFeatures.Command.EstiCommand;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		Friendship base = new Friendship("Friendship", "1.0.0");
+		Friendship base = new Friendship("Friendship", "1.0.5");
 		Basic.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("friends", "Shows the friend menu!", "/friends", base, true);

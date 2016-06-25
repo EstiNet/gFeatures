@@ -28,7 +28,7 @@ public class FriendsMenu {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Friends List")){
-
+						event.getPlayer().sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");
 						Friendship.cacheNames.add(p.getName());
 						Friendship.friendget.put(p.getName(), new HashMap<>());
 						CliotePing cp = new CliotePing();
@@ -51,6 +51,7 @@ public class FriendsMenu {
 						}, 1L);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Pending Friends")){
+						event.getPlayer().sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");
 						Friendship.cacheNames.add(p.getName());
 						Friendship.friendreq.put(p.getName(), new ArrayList<>());
 						CliotePing cp = new CliotePing();
@@ -64,7 +65,7 @@ public class FriendsMenu {
 			menu.setOption(0, createItem(Material.SKULL_ITEM, ChatColor.GOLD + "Friends List"));
 			menu.setOption(1, createItem(Material.ARROW, ChatColor.GOLD + "Add Friend"));
 			menu.setOption(2, createItem(Material.BARRIER, ChatColor.GOLD + "Remove Friend"));
-			menu.setOption(3, createItem(Material.WRITTEN_BOOK, ChatColor.GOLD + "Pending Friends"));
+			menu.setOption(3, createItem(Material.ENCHANTED_BOOK, ChatColor.GOLD + "Pending Friends"));
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
 			//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 			SkullMeta sm = (SkullMeta) skull.getItemMeta();

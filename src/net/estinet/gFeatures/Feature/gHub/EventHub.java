@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -11,6 +12,7 @@ import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -65,7 +67,10 @@ public class EventHub {
 		ItemMeta im = pane.getItemMeta();
 		im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
 		pane.setItemMeta(im);
-		friend = createItem(Material.SKULL_ITEM, ChatColor.GOLD + "Friends");
+		friend = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+		ItemMeta ims = friend.getItemMeta();
+		ims.setDisplayName(ChatColor.GOLD + "Friends");
+		friend.setItemMeta(ims);
 	}
 	
 	public void onPlayerJoin(PlayerJoinEvent event){
@@ -110,6 +115,10 @@ public class EventHub {
 		case FURNACE:
 			Settings s = new Settings();
 			s.init(event.getPlayer());
+			break;
+		case SKULL_ITEM:
+			FriendsMenu fm = new FriendsMenu();
+			fm.init(event.getPlayer());
 			break;
 		default:
 			break;

@@ -18,7 +18,6 @@ import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 public class FriendsList {
 	public void init(HashMap<String, String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
-		Bukkit.getPlayer(player).sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");
 		open.open(Bukkit.getPlayer(player));
 	}
 	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
