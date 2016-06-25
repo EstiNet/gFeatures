@@ -4,8 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsList;
+import net.md_5.bungee.api.ChatColor;
 
 public class FriendDetailsClioteHook extends ClioteHook{
 
@@ -16,11 +15,16 @@ public class FriendDetailsClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(args.get(0).equals("offline")){
-				Friendship.statusRequest.get(args.get)
+				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + args.get(2) + " and ";
+				for(int i = 3; i < args.size(); i++){
+					compile += args.get(i) + " ";
+				}
+				Friendship.friendget.get(Friendship.statusRequest.get(args.get(1))).put(args.get(1), compile);
+				Friendship.statusRequest.remove(args.get(1));
 			}
 			else{
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("friends obtain " + args.get(1), "Bungee");
+				Friendship.friendget.get(Friendship.statusRequest.get(args.get(2))).put(args.get(2), ChatColor.GREEN + "ONLINE: " + ChatColor.RESET + "Currently on " + args.get(1));
+				Friendship.statusRequest.remove(args.get(2));
 			}
 		}
 		catch(Exception e){

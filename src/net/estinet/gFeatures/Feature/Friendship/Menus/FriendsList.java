@@ -1,12 +1,12 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -22,7 +22,15 @@ public class FriendsList {
 	}
 	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", 9, new InventoryAPI.OptionClickEventHandler() {
+			int amount = 9;
+			if(hash.size() < 44){
+				amount = (int)(hash.size() / amount) * 9 + 9; 
+			}
+			else{
+				//will add later (Overflow friends (too many) needz more pages) plz future espidev :/:/
+				amount = 45;
+			}
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", amount, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					
@@ -33,15 +41,15 @@ public class FriendsList {
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
-			menu.setOption(0, createItem(Material.SKULL_ITEM, ChatColor.GOLD + "Friends List"));
-			menu.setOption(1, createItem(Material.ARROW, ChatColor.GOLD + "Add Friend"));
-			menu.setOption(2, createItem(Material.BARRIER, ChatColor.GOLD + "Remove Friend"));
-			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-			SkullMeta sm = (SkullMeta) skull.getItemMeta();
-			sm.setOwner(p.getName());
-			sm.setDisplayName(ChatColor.DARK_AQUA + "Profile");
-			skull.setItemMeta(sm);
-			menu.setOption(8, skull);
+			for(int i = 0 ; i < hash.size(); i++){
+				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
+				SkullMeta sm = (SkullMeta) skull.getItemMeta();
+				sm.setOwner(p.getName());
+				sm.setDisplayName((String) hash.keySet().toArray()[i]);
+				sm.setLore(Arrays.asList((String)hash.values().toArray()[i]));
+				skull.setItemMeta(sm);
+				menu.setOption(i, skull);
+			}
 			
 			return menu;
 		}catch(Exception e){
