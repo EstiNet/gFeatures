@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gRanks;
 import net.estinet.gFeatures.API.Logger.Debug;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -76,6 +77,13 @@ public class EventHub{
 		}
 		});
 		thr.start();
+		Thread thrs = new Thread(new Runnable(){
+			public void run(){
+				Basis b = new Basis();
+				b.initializeQuery();
+			}
+		});
+		thrs.start();
 		}
 		catch(Exception e){
 			e.printStackTrace();

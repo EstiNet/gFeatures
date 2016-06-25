@@ -15,7 +15,7 @@ public class FriendsAdd {
 				if(event.getSlot() == AnvilGUI.AnvilSlot.OUTPUT){
 					event.setWillClose(true);
 					event.setWillDestroy(true);
-					
+
 					CliotePing cp = new CliotePing();
 					cp.sendMessage("friends request " + p.getName() + " " + event.getName(), "Bungee");
 				} else {
