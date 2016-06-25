@@ -16,6 +16,8 @@ public class Friendship extends gFeature implements Events{
 	
 	public static HashMap<String, String> statusRequest = new HashMap<>();
 	
+	public static HashMap<String, List<String>> friendreq = new HashMap<>();
+	
 	public static HashMap<String, HashMap<String, String>> friendget = new HashMap<>();
 	
 	EventHub eh = new EventHub();

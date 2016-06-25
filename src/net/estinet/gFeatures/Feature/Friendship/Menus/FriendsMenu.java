@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -29,6 +30,7 @@ public class FriendsMenu {
 					if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Friends List")){
 
 						Friendship.cacheNames.add(p.getName());
+						Friendship.friendget.put(p.getName(), new HashMap<>());
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("friends list " + p.getName(), "Bungee");
 					}
@@ -41,7 +43,10 @@ public class FriendsMenu {
 						fr.init(p);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Pending Friends")){
-
+						Friendship.cacheNames.add(p.getName());
+						Friendship.friendreq.put(p.getName(), new ArrayList<>());
+						CliotePing cp = new CliotePing();
+						cp.sendMessage("friends requests " + p.getName(), "Bungee");
 					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);

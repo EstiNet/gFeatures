@@ -15,12 +15,12 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 
-public class FriendsList {
-	public void init(HashMap<String, String> hash, String player){
+public class FriendsPending {
+	public void init(List<String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
 		open.open(Bukkit.getPlayer(player));
 	}
-	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
+	public InventoryAPI makeInventory(List<String> hash, Player p){
 		try{
 			int amount = 9;
 			if(hash.size() < 44){
@@ -30,7 +30,7 @@ public class FriendsList {
 				//will add later (Overflow friends (too many) needz more pages) plz future espidev :/:/
 				amount = 45;
 			}
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", amount, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Pending Friend Requests", amount, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					
@@ -44,9 +44,8 @@ public class FriendsList {
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
-				sm.setOwner((String) hash.keySet().toArray()[i]);
-				sm.setDisplayName((String) hash.keySet().toArray()[i]);
-				sm.setLore(Arrays.asList((String)hash.values().toArray()[i]));
+				sm.setOwner(hash.get(i));
+				sm.setDisplayName((String) hash.get(i));
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);
 			}
