@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
+import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
 
 public class Friendship extends gFeature implements Events{
 	
@@ -43,7 +45,8 @@ public class Friendship extends gFeature implements Events{
 	//public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-			
+			FriendsMenu fm = new FriendsMenu();
+			fm.init((Player) sender);
 	}
 	
 }

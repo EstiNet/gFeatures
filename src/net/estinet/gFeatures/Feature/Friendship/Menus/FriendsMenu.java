@@ -62,7 +62,7 @@ public class FriendsMenu {
 			sm.setOwner(p.getName());
 			sm.setDisplayName(ChatColor.DARK_AQUA + " Hello " + p.getDisplayName() + ".");
 			skull.setItemMeta(sm);
-			menu.setOption(8, skull);
+			menu.setOption(9, skull);
 
 			return menu;
 		}catch(Exception e){

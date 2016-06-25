@@ -34,13 +34,18 @@ public class FriendsPending {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					
-					//add player options????
-					
+					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+						public void run(){
+							FriendsAccept fa = new FriendsAccept();
+							fa.init(p, event.getName());
+						}
+					}, 9L);
+
 					event.setWillClose(false);
 					event.setWillDestroy(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-			
+
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
@@ -49,7 +54,7 @@ public class FriendsPending {
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);
 			}
-			
+
 			return menu;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -60,7 +65,7 @@ public class FriendsPending {
 		ItemStack item = new ItemStack(material, 1);
 		List<String> lores = new ArrayList<>();
 		for(String lor : lore){
-		lores.add(lor);
+			lores.add(lor);
 		}
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(name);
