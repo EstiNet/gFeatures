@@ -15,7 +15,7 @@ public class FriendDetailsClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(args.get(0).equals("offline")){
-				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + args.get(2) + "\nWas on ";
+				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + ChatColor.DARK_AQUA + args.get(2) + "\n" + ChatColor.DARK_AQUA + "Last seen: " + ChatColor.WHITE;
 				for(int i = 3; i < args.size(); i++){
 					compile += args.get(i) + " ";
 				}
@@ -23,7 +23,7 @@ public class FriendDetailsClioteHook extends ClioteHook{
 				Friendship.statusRequest.remove(args.get(1));
 			}
 			else{
-				Friendship.friendget.get(Friendship.statusRequest.get(args.get(2))).put(args.get(2), ChatColor.GREEN + "ONLINE: " + ChatColor.RESET + "Currently on " + args.get(1));
+				Friendship.friendget.get(Friendship.statusRequest.get(args.get(2))).put(args.get(2), ChatColor.GREEN + "ONLINE " + ChatColor.RESET + "\n" + ChatColor.WHITE + "Currently on " + ChatColor.DARK_AQUA + args.get(1));
 				Friendship.statusRequest.remove(args.get(2));
 			}
 		}

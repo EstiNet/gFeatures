@@ -1,8 +1,6 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -18,6 +16,7 @@ import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 public class FriendsPending {
 	public void init(List<String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
+		Bukkit.getPlayer(player).sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");
 		open.open(Bukkit.getPlayer(player));
 	}
 	public InventoryAPI makeInventory(List<String> hash, Player p){
@@ -48,7 +47,8 @@ public class FriendsPending {
 
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-				SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner(hash.get(i));
 				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.get(i) + ChatColor.AQUA + ">");
 				skull.setItemMeta(sm);

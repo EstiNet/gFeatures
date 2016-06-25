@@ -66,7 +66,8 @@ public class FriendsMenu {
 			menu.setOption(2, createItem(Material.BARRIER, ChatColor.GOLD + "Remove Friend"));
 			menu.setOption(3, createItem(Material.WRITTEN_BOOK, ChatColor.GOLD + "Pending Friends"));
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-			SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+			//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+			SkullMeta sm = (SkullMeta) skull.getItemMeta();
 			sm.setOwner(p.getName());
 			sm.setDisplayName(ChatColor.DARK_AQUA + "Hello " + p.getDisplayName() + ".");
 			skull.setItemMeta(sm);

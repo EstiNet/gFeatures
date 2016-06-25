@@ -52,7 +52,8 @@ public class FriendsAccept {
 			menu.setOption(2, pane);
 			menu.setOption(3, pane);
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-			SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+			//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+			SkullMeta sm = (SkullMeta) skull.getItemMeta();
 			sm.setOwner(name);
 			sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) name + ChatColor.AQUA + ">");
 			skull.setItemMeta(sm);

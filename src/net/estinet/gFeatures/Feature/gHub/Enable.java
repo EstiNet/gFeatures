@@ -49,7 +49,7 @@ public class Enable {
         			ClearInventory ci = new ClearInventory();
         			ci.clearInv(p);
         			p.getInventory().setItem(0, EventHub.pane);
-        			p.getInventory().setItem(1, EventHub.pane);
+        			p.getInventory().setItem(1, EventHub.friend);
         			p.getInventory().setItem(2, EventHub.pane);
         			p.getInventory().setItem(6, EventHub.pane);
         			p.getInventory().setItem(4, EventHub.navigator);	

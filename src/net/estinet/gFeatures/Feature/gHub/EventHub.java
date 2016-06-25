@@ -52,7 +52,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-	static ItemStack navigator, additions, settings, pane;
+	static ItemStack navigator, additions, settings, pane, friend;
 	HidePlayers hp = new HidePlayers();
 	Stacker st = new Stacker();
 	
@@ -65,6 +65,7 @@ public class EventHub {
 		ItemMeta im = pane.getItemMeta();
 		im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
 		pane.setItemMeta(im);
+		friend = createItem(Material.SKULL_ITEM, ChatColor.GOLD + "Friends");
 	}
 	
 	public void onPlayerJoin(PlayerJoinEvent event){
@@ -73,7 +74,7 @@ public class EventHub {
 		ci.clearInv(p);
 		p.setGameMode(GameMode.ADVENTURE);
 		p.getInventory().setItem(0, pane);
-		p.getInventory().setItem(1, pane);
+		p.getInventory().setItem(1, friend);
 		p.getInventory().setItem(2, pane);
 		p.getInventory().setItem(6, pane);
 		p.getInventory().setItem(4, navigator);	

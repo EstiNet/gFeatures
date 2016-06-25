@@ -18,6 +18,7 @@ import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 public class FriendsList {
 	public void init(HashMap<String, String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
+		Bukkit.getPlayer(player).sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");
 		open.open(Bukkit.getPlayer(player));
 	}
 	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
@@ -43,10 +44,11 @@ public class FriendsList {
 			
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-				SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner((String) hash.keySet().toArray()[i]);
 				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.keySet().toArray()[i] + ChatColor.AQUA + ">");
-				sm.setLore(Arrays.asList((String)hash.values().toArray()[i]));
+				sm.setLore(Arrays.asList((String)hash.values().toArray()[i].toString().split("\n")[0], (String)hash.values().toArray()[i].toString().split("\n")[1]));
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);
 			}
