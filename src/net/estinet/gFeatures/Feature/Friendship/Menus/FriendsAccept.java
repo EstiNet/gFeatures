@@ -48,12 +48,10 @@ public class FriendsAccept {
 			menu.setOption(1, pane);
 			menu.setOption(2, pane);
 			menu.setOption(3, pane);
-			menu.setOption(4, pane);
 			menu.setOption(5, pane1);
 			menu.setOption(6, pane1);
 			menu.setOption(7, pane1);
 			menu.setOption(8, pane1);
-			menu.setOption(9, pane1);
 
 			return menu;
 		}catch(Exception e){
