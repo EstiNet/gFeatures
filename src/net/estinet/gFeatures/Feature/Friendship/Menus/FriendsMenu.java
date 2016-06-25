@@ -17,9 +17,9 @@ import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.Friendship.Friendship;
 
 public class FriendsMenu {
-	public void init(String player){
-		InventoryAPI open = makeInventory(Bukkit.getPlayer(player));
-		open.open(Bukkit.getPlayer(player));
+	public void init(Player player){
+		InventoryAPI open = makeInventory(player);
+		open.open(player);
 	}
 	public InventoryAPI makeInventory(Player p){
 		try{

@@ -15,11 +15,8 @@ public class FriendDetailsClioteHook extends ClioteHook{
 	@Override
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
-			if(args.get(0).equals("done")){
-				Friendship.cacheNames.remove(args.get(1));
-				FriendsList fl = new FriendsList();
-				fl.init(Friendship.friendget.get(args.get(1)), args.get(1));
-				Friendship.friendget.remove(args.get(1));
+			if(args.get(0).equals("offline")){
+				Friendship.statusRequest.get(args.get)
 			}
 			else{
 				CliotePing cp = new CliotePing();
