@@ -46,6 +46,7 @@ public class CrystalInteract {
 						p.sendMessage(ChatColor.RED + "That server is currently ingame, or is offline!");
 					}
 					event.setWillClose(true);
+					event.setWillDestroy(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
