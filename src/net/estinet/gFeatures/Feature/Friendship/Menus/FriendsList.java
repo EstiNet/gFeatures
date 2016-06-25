@@ -52,7 +52,9 @@ public class FriendsList {
 			}
 			
 			return menu;
-		}catch(Exception e){
+		}
+		catch(NullPointerException e){}
+		catch(Exception e){
 			e.printStackTrace();
 		}
 		return null;

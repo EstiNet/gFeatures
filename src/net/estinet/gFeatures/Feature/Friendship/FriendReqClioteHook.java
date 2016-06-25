@@ -21,7 +21,7 @@ public class FriendReqClioteHook extends ClioteHook{
 				Friendship.friendreq.remove(args.get(1));
 			}
 			else{
-				Friendship.friendreq.get(args.get(2)).add(args.get(1));
+				Friendship.friendreq.get(args.get(1)).add(args.get(0));
 			}
 		}
 		catch(Exception e){
