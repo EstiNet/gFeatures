@@ -1,10 +1,12 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,36 +14,21 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-//import net.estinet.gFeatures.API.Inventory.EstiInventory;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.Friendship.Friendship;
 
-public class FriendsMenu {
-	public void init(String player){
-		InventoryAPI open = makeInventory(Bukkit.getPlayer(player));
+public class FriendsList {
+	public void init(HashMap<String, String> hash, String player){
+		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
 		open.open(Bukkit.getPlayer(player));
 	}
-	public InventoryAPI makeInventory(Player p){
+	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends Menu", 9, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", 9, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Friends List")){
-						
-						Friendship.cacheNames.add(p.getName());
-						CliotePing cp = new CliotePing();
-						cp.sendMessage("friends list " + p.getName(), "Bungee");
-					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Add Friend")){
-						
-					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Remove Friend")){
-						
-					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.DARK_AQUA + "Profile")){
-						
-					}
-					event.setWillClose(true);
+					
+					//add player options????
+					
+					event.setWillClose(false);
 					event.setWillDestroy(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));

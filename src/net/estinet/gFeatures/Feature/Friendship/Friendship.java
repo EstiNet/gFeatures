@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Friendship;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -12,6 +13,10 @@ import net.estinet.gFeatures.gFeature;
 public class Friendship extends gFeature implements Events{
 	
 	public static List<String> cacheNames = new ArrayList<>();
+	
+	public static HashMap<String, String> statusRequest = new HashMap<>();
+	
+	public static HashMap<String, HashMap<String, String>> friendget = new HashMap<>();
 	
 	EventHub eh = new EventHub();
 	
