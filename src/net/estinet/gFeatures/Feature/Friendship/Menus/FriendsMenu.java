@@ -37,12 +37,10 @@ public class FriendsMenu {
 						fa.init(p);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Remove Friend")){
-
+						FriendsRemove fr = new FriendsRemove();
+						fr.init(p);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Pending Friends")){
-
-					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.DARK_AQUA + "Profile")){
 
 					}
 					event.setWillClose(true);
@@ -57,7 +55,7 @@ public class FriendsMenu {
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
 			SkullMeta sm = (SkullMeta) skull.getItemMeta();
 			sm.setOwner(p.getName());
-			sm.setDisplayName(ChatColor.DARK_AQUA + "Profile");
+			sm.setDisplayName(ChatColor.DARK_AQUA + " Hello " + p.getDisplayName() + ".");
 			skull.setItemMeta(sm);
 			menu.setOption(8, skull);
 
