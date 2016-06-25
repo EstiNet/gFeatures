@@ -77,13 +77,6 @@ public class EventHub{
 		}
 		});
 		thr.start();
-		Thread thrs = new Thread(new Runnable(){
-			public void run(){
-				Basis b = new Basis();
-				b.initializeQuery();
-			}
-		});
-		thrs.start();
 		}
 		catch(Exception e){
 			e.printStackTrace();

@@ -15,7 +15,7 @@ public class FriendDetailsClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(args.get(0).equals("offline")){
-				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + args.get(2) + " and ";
+				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + args.get(2) + "\nWas on ";
 				for(int i = 3; i < args.size(); i++){
 					compile += args.get(i) + " ";
 				}

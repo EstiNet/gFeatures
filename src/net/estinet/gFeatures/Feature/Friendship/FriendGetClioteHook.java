@@ -4,7 +4,6 @@ import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsList;
 
 public class FriendGetClioteHook extends ClioteHook{
@@ -24,9 +23,7 @@ public class FriendGetClioteHook extends ClioteHook{
 				}
 			}
 			else{
-				Friendship.statusRequest.put(args.get(1), args.get(2));
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("friends obtain " + args.get(1), "Bungee");
+				Friendship.statusRequest.put(args.get(0), args.get(1));
 			}
 		}
 		catch(Exception e){

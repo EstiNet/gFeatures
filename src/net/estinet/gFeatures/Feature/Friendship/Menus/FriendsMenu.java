@@ -40,7 +40,7 @@ public class FriendsMenu {
 								FriendsAdd fa = new FriendsAdd();
 								fa.init(p);
 							}
-						}, 9L);
+						}, 1L);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Remove Friend")){
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -48,7 +48,7 @@ public class FriendsMenu {
 								FriendsRemove fr = new FriendsRemove();
 								fr.init(p);
 							}
-						}, 9L);
+						}, 1L);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Pending Friends")){
 						Friendship.cacheNames.add(p.getName());
@@ -66,7 +66,7 @@ public class FriendsMenu {
 			menu.setOption(2, createItem(Material.BARRIER, ChatColor.GOLD + "Remove Friend"));
 			menu.setOption(3, createItem(Material.WRITTEN_BOOK, ChatColor.GOLD + "Pending Friends"));
 			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-			SkullMeta sm = (SkullMeta) skull.getItemMeta();
+			SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 			sm.setOwner(p.getName());
 			sm.setDisplayName(ChatColor.DARK_AQUA + "Hello " + p.getDisplayName() + ".");
 			skull.setItemMeta(sm);

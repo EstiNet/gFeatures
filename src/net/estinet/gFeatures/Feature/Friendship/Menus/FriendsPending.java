@@ -48,9 +48,9 @@ public class FriendsPending {
 
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-				SkullMeta sm = (SkullMeta) skull.getItemMeta();
+				SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 				sm.setOwner(hash.get(i));
-				sm.setDisplayName((String) hash.get(i));
+				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.get(i) + ChatColor.AQUA + ">");
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);
 			}

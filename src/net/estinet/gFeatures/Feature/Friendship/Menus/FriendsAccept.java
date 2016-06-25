@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -9,6 +10,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 
@@ -19,7 +22,7 @@ public class FriendsAccept {
 	}
 	public InventoryAPI makeInventory(Player p, String name){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept " + name + "'s friend request?", 9, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept friend request?", 9, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Accept")){
@@ -48,6 +51,12 @@ public class FriendsAccept {
 			menu.setOption(1, pane);
 			menu.setOption(2, pane);
 			menu.setOption(3, pane);
+			ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
+			SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
+			sm.setOwner(name);
+			sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) name + ChatColor.AQUA + ">");
+			skull.setItemMeta(sm);
+			menu.setOption(4, skull);
 			menu.setOption(5, pane1);
 			menu.setOption(6, pane1);
 			menu.setOption(7, pane1);
