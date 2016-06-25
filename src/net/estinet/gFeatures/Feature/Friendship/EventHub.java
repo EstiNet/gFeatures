@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.Friendship;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -28,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
-	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
+	public void onPlayerLeave(PlayerQuitEvent event){
+		Friendship.cacheNames.remove(event.getPlayer().getName());
 	}
 }

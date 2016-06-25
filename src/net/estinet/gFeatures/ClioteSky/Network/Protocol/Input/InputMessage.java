@@ -19,7 +19,7 @@ public class InputMessage extends Packet{
 		for(int i = 3; i < args.size(); i++){
 			newArgs.add(args.get(i));
 		}
-		Debug.print("Recieved message " + newArgs + " from category " + args.get(0) + " and cliote " + args.get(1));
+		Debug.print("Recieved message " + args + " from category " + args.get(0) + " and cliote " + args.get(1));
 		for(ClioteHook ch : ClioteSky.hooks){
 			if(ch.getCoreArgument().equals(args.get(2)) && Basic.getFeature(ch.getgFeature().getName()).getState().equals(FeatureState.ENABLE)){
 				ch.run(newArgs, args.get(0), args.get(1));

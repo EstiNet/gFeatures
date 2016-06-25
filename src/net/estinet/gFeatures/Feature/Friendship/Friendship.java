@@ -8,7 +8,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerQuitEvent;
+
 import net.estinet.gFeatures.Events;
+import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
 
@@ -37,12 +40,13 @@ public class Friendship extends gFeature implements Events{
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		/*if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}*///maybe after we add player join msgs
+		if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerLeave((PlayerQuitEvent)event);
+		}
 	}
-	//@Retrieval
-	//public void onPlayerJoin(){}
+	@Retrieval
+	@Override
+	public void onPlayerLeave(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			FriendsMenu fm = new FriendsMenu();

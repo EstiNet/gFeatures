@@ -15,10 +15,12 @@ public class FriendReqClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
 			if(args.get(0).equals("done")){
-				Friendship.cacheNames.remove(args.get(1));
-				FriendsPending fl = new FriendsPending();
-				fl.init(Friendship.friendreq.get(args.get(1)), args.get(1));
-				Friendship.friendreq.remove(args.get(1));
+				if(Friendship.cacheNames.contains(args.get(1))){
+					Friendship.cacheNames.remove(args.get(1));
+					FriendsPending fl = new FriendsPending();
+					fl.init(Friendship.friendreq.get(args.get(1)), args.get(1));
+					Friendship.friendreq.remove(args.get(1));
+				}
 			}
 			else{
 				Friendship.friendreq.get(args.get(1)).add(args.get(0));
