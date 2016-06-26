@@ -46,7 +46,7 @@ public class FriendsList {
 				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner((String) hash.keySet().toArray()[i]);
-				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.keySet().toArray()[i] + ChatColor.AQUA + ">");
+				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.keySet().toArray()[i] + ChatColor.AQUA + ">" + ChatColor.RESET);
 				sm.setLore(Arrays.asList((String)hash.values().toArray()[i].toString().split("\n")[0], (String)hash.values().toArray()[i].toString().split("\n")[1]));
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);

@@ -40,7 +40,7 @@ public class FriendsMenu {
 								FriendsAdd fa = new FriendsAdd();
 								fa.init(p);
 							}
-						}, 1L);
+						}, 9L);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Remove Friend")){
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -48,7 +48,7 @@ public class FriendsMenu {
 								FriendsRemove fr = new FriendsRemove();
 								fr.init(p);
 							}
-						}, 1L);
+						}, 9L);
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.GOLD + "Pending Friends")){
 						event.getPlayer().sendMessage("[" + ChatColor.GOLD + "Friends" + ChatColor.WHITE + "] Fetching list...");

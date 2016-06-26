@@ -55,7 +55,7 @@ public class FriendsAccept {
 			//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 			SkullMeta sm = (SkullMeta) skull.getItemMeta();
 			sm.setOwner(name);
-			sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) name + ChatColor.AQUA + ">");
+			sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) name + ChatColor.AQUA + ">" + ChatColor.RESET);
 			skull.setItemMeta(sm);
 			menu.setOption(4, skull);
 			menu.setOption(5, pane1);
