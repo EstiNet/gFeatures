@@ -1,11 +1,8 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
+package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.Team;
-import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*

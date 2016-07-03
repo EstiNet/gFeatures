@@ -1,9 +1,8 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.CTF.Confligs.ConfligInit;
 
 /*
 gFeatures
@@ -26,7 +25,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("[CTF] Disabled :/");
+		Bukkit.getLogger().info("[Gliders] Disabled :/");
 		ConfligInit ci = new ConfligInit();
 		ci.deleteConfigs();
 		CliotePing cp = new CliotePing();

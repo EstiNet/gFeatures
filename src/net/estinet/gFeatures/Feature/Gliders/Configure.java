@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
@@ -26,10 +26,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		CTF base = new CTF("CTF", "1.1.3");
+		Gliders base = new Gliders("Gliders", "1.0.0");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("ctf", "CTF commands!", "/CTF", "gFeatures.minigames", base, true);
+		EstiCommand test = new EstiCommand("gliders", "Gliders commands!", "/Gliders", "gFeatures.minigames", base, true);
 		Basic.addCommand(test);
 	}
 }

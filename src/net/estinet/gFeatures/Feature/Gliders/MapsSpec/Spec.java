@@ -33,7 +33,7 @@ public class Spec {
 			mo.justDoIt();
 			break;
 		case Two:
-			Bukkit.getLogger().info("[CTF] Map Two selected!");
+			Bukkit.getLogger().info("[CTF] Map two selected!");
 			mt.justDoIt();
 			break;
 		default:

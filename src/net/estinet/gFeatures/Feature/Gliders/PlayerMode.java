@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 /*
 gFeatures
@@ -20,5 +20,5 @@ https://github.com/EstiNet/gFeatures
 */
 
 public enum PlayerMode {
-	WAITING, SELECT, INGAME, SPECTATE;
+	WAITING, INGAME, SPECTATE;
 }

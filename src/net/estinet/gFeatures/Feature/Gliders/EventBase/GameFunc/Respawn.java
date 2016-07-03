@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
+package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -7,10 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.PlayerMode;
-import net.estinet.gFeatures.Feature.CTF.Team;
-import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 
 /*
 gFeatures

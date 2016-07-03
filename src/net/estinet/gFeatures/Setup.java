@@ -48,6 +48,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.EstiWield.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiChat.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Friendship.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Gliders.Configure.onSetup();
 
 		/*
 		 * Initialize your Skripts here.

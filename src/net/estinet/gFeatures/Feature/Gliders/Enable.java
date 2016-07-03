@@ -1,10 +1,9 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*
 gFeatures
@@ -28,7 +27,7 @@ https://github.com/EstiNet/gFeatures
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
-		Bukkit.getLogger().info("[CTF] Enabled :D");
+		Bukkit.getLogger().info("[Gliders] Enabled :D");
 		ch.setupConfig();
 		
 		Capture c = new Capture();
@@ -38,7 +37,7 @@ public class Enable{
         		WorldCreator cs = new WorldCreator("MinigameSpawn");
         		Bukkit.getServer().createWorld(cs);
         		
-        		WorldCreator cs1 = new WorldCreator("CTF");
+        		WorldCreator cs1 = new WorldCreator("Gliders");
         		Bukkit.getServer().createWorld(cs1);
         		
         		CliotePing cp = new CliotePing();

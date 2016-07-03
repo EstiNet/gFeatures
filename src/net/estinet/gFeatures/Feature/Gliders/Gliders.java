@@ -1,15 +1,12 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -42,12 +39,12 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CTF extends gFeature implements Events{
+public class Gliders extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
 	
-	public CTF(String featurename, String d) {
+	public Gliders(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override

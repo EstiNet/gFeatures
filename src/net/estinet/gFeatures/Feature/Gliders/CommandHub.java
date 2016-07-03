@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 import java.util.UUID;
 

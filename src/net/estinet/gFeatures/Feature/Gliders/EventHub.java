@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF;
+package net.estinet.gFeatures.Feature.Gliders;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,12 +21,6 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.Feature.CTF.EventBase.Dead;
-import net.estinet.gFeatures.Feature.CTF.EventBase.FlagHit;
-import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
-import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
-import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
-import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*

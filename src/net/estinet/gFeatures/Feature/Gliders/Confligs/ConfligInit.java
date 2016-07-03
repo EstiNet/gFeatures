@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.Confligs;
+package net.estinet.gFeatures.Feature.Gliders.Confligs;
 
 import java.io.BufferedWriter;
 import java.io.File;

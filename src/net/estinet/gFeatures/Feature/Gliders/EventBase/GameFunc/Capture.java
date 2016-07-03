@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
+package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
