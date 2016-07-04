@@ -39,7 +39,19 @@ public class MapOne {
 	public static Location spectatespawn;
 	public static Location flag;
 	
-	public MapOne(){
+	File f = new File("plugins/gFeatures/Gliders/Gliders1");
+	File fz = new File("./Gliders");
+	public void justDoIt(){
+		fz.delete();
+		try {
+			FileUtils.copyDirectory(f, fz);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		WorldCreator cs1 = new WorldCreator("Gliders");
+		Bukkit.getServer().createWorld(cs1);
+		
+		try{
 		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 769.5, 238.5, -563.5));
 		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 751.5, 238.5, -563.5));
 		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 734.5, 238.5, -568.5));
@@ -55,19 +67,9 @@ public class MapOne {
 	
 		spectatespawn.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
 		flag.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
-	}
-	
-	File f = new File("plugins/gFeatures/Gliders/Gliders1");
-	File fz = new File("./Gliders");
-	public void justDoIt(){
-		fz.delete();
-		try {
-			FileUtils.copyDirectory(f, fz);
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-		WorldCreator cs1 = new WorldCreator("Gliders");
-		Bukkit.getServer().createWorld(cs1);
+		catch(NullPointerException e){}
+		
 		Basic.mapName = "LargeIsland";
 		Basic.planespawn = planespawn;
 		Basic.towerspawn = towerspawn;
@@ -75,6 +77,25 @@ public class MapOne {
 		Basic.flag = flag;
 	}
 	public void reassign(){
+		try{
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 769.5, 238.5, -563.5));
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 751.5, 238.5, -563.5));
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 734.5, 238.5, -568.5));
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 481.5, 224.5, -566.5));
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 497.5, 224.5, -565.5));
+			planespawn.add(new Location(Bukkit.getWorld("Gliders"), 490.5, 224.5, -565.5));
+			
+			towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 581.5, 51.5, -563.5));
+			towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 590.5, 50.5, -510.5));
+			towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 614.5, 49.5, -540.5));
+			towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 619.5, 49.5, -583.5));
+			towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 585.5, 49.5, -592.5));
+		
+			spectatespawn.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
+			flag.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
+			}
+			catch(NullPointerException e){}
+		
 		Basic.mapName = "LargeIsland";
 		Basic.planespawn = planespawn;
 		Basic.towerspawn = towerspawn;
