@@ -1,0 +1,23 @@
+Grenade:
+    Item_Information:
+        Item_Name: "&eFrag Grenade"
+        Item_Type: 402
+        Item_Lore: "&eExplodes three seconds after launch."
+        Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
+        Remove_Unused_Tag: true
+    Shooting:
+        Right_Click_To_Shoot: true
+        Cancel_Right_Click_Interactions: true
+        Delay_Between_Shots: 10
+        Projectile_Amount: 1
+        Projectile_Type: grenade
+        Projectile_Subtype: 46
+        Projectile_Speed: 10
+        Sounds_Shoot: ENTITY_SKELETON_SHOOT-2-0-0
+    Explosions:
+        Enable: true
+        Explosion_No_Grief: true
+        Explosion_Radius: 4
+        Explosion_Delay: 60
+    Extras:
+        One_Time_Use: true
