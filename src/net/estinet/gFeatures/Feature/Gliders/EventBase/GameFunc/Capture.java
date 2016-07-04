@@ -36,7 +36,7 @@ public class Capture {
         	public void run(){
         		try{
         			if(Basic.flagger instanceof Player){
-        				Firework fw = (Firework) Bukkit.getServer().getWorld("Gliders").spawnEntity(Basic.flagger.getLocation(), EntityType.FIREWORK);
+        				Firework fw = (Firework) Bukkit.getServer().getWorld(Basic.mapName).spawnEntity(Basic.flagger.getLocation(), EntityType.FIREWORK);
         				FireworkMeta fwm = fw.getFireworkMeta();
         				FireworkEffect effect = FireworkEffect.builder().withColor(Color.WHITE).with(Type.BALL).build();
 

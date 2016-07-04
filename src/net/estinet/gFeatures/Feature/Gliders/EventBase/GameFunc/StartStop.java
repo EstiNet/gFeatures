@@ -50,6 +50,7 @@ public class StartStop {
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				boolean nu = true;
+				
 				/*Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
 				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
@@ -57,11 +58,8 @@ public class StartStop {
 				Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
 				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 21, 45);
 				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE*/
-				if(Basic.countdown <= 0){
-					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
-						
-						//Initialize world finding
-						if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
+				if(Basic.countdown == 4){
+					if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
 							MapTwo mt = new MapTwo();
 							mt.justDoIt();
 							mt.reassign();
@@ -71,13 +69,19 @@ public class StartStop {
 							mo.justDoIt();
 							mo.reassign();
 						}
+				}
+				if(Basic.countdown <= 0){
+					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
 						
+						//Initialize world finding
+								
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("mgstart", "Bungee");
 						Bukkit.getScheduler().cancelTask(tasknum);
 						Basic.mode = Mode.STARTED;
 						for(Player p : Bukkit.getOnlinePlayers()){
 							p.setLevel(0);
+							Bukkit.getLogger().info(Basic.getOrangeSize() + " " + Basic.getBlueSize());
 							if(Basic.getOrangeSize() >= Basic.getBlueSize()){
 								Basic.teams.put(p.getUniqueId(), Team.BLUE);
 							}
@@ -96,7 +100,7 @@ public class StartStop {
 
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
-								Bukkit.getWorld("Gliders").spawn(Basic.flag, EnderCrystal.class);
+								Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
 							}
 						}, 45L);
 

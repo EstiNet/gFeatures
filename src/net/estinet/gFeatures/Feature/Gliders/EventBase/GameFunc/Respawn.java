@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -39,6 +40,7 @@ public class Respawn {
 		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
 		if((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && !Basic.swap) || (Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.swap)){
 			p.setGameMode(GameMode.ADVENTURE);
+			Bukkit.getLogger().info(Basic.towerspawn.size() + "");
 			int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
 			p.teleport(Basic.towerspawn.get(random));
 			

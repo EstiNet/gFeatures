@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
@@ -82,6 +83,7 @@ public class Gliders extends gFeature implements Events{
 			eh.onPlayerInteract((PlayerInteractEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
+			Bukkit.getLogger().info("death");
 			eh.onPlayerDeath((PlayerDeathEvent) event); 
 		}
 		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
@@ -121,6 +123,9 @@ public class Gliders extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onFoodLevelChange(){}
+	@Override
+	@Retrieval
+	public void onPlayerRespawn(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

@@ -1,5 +1,9 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
@@ -31,12 +35,37 @@ public class Enable{
 		Bukkit.getLogger().info("[Gliders] Enabled :D");
 		ch.setupConfig();
 		
+		File f = new File("plugins/gFeatures/Gliders/Gliders2");
+		File fz = new File("./Gliders2");
+		
+		fz.delete();
+		try {
+			FileUtils.copyDirectory(f, fz);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		fz.delete();
+		try {
+			FileUtils.copyDirectory(f, fz);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		f = new File("plugins/gFeatures/Gliders/Gliders1");
+		fz = new File("./Gliders1");
+		
 		Capture c = new Capture();
 		c.loop();
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		WorldCreator cs = new WorldCreator("MinigameSpawn");
         		Bukkit.getServer().createWorld(cs);
+        		
+        		WorldCreator cs1 = new WorldCreator("Gliders1");
+        		Bukkit.getServer().createWorld(cs1);
+        		
+        		WorldCreator cs2 = new WorldCreator("Gliders2");
+        		Bukkit.getServer().createWorld(cs2);
         		
         		CliotePing cp = new CliotePing();
         		cp.sendMessage("mghello", "Bungee");

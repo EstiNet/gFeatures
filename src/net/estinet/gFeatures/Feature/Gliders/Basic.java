@@ -34,7 +34,7 @@ public class Basic {
 	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
 	public static Location flag;
 	public static Player flagger = null;
-	public static int countdown = 60;  //CHANGE TO 60 when complete game
+	public static int countdown = 5;  //CHANGE TO 60 when complete game
 	public static int minutes = 5;
 	public static int seconds = 0;
 	public static String mapName = "";
