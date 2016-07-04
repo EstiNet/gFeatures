@@ -20,5 +20,5 @@ https://github.com/EstiNet/gFeatures
 */
 
 public enum Team {
-	BLUE, ORANGE;
+	BLUE, ORANGE, NONE;
 }

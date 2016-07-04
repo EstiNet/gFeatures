@@ -3,8 +3,6 @@ package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.Feature.Gliders.Basic;
-import net.estinet.gFeatures.Feature.Gliders.Team;
 import net.estinet.gFeatures.Feature.Gliders.Holo.GlidersScore;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
@@ -32,14 +30,14 @@ public class FinishStart {
 		GlidersScore gs = new GlidersScore();
 		for(Player p : Bukkit.getOnlinePlayers()){
 			p.setScoreboard(gs.Initialize(p));
-			if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)){
+			/*if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)){
 				int random = (int) Math.floor(Math.random() * Basic.planespawn.size());
 				p.teleport(Basic.planespawn.get(random));
 			}
 			else{
 				int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
 				p.teleport(Basic.towerspawn.get(random));
-			}
+			}*/
 			Music m = new Music();
 			m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
 		}

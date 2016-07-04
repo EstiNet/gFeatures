@@ -9,6 +9,8 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -33,20 +35,10 @@ public class Capture {
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		try{
-        			if(Basic.blueflagger instanceof Player){
-        				Firework fw = (Firework) Bukkit.getServer().getWorld("CTF").spawnEntity(Basic.blueflagger.getLocation(), EntityType.FIREWORK);
+        			if(Basic.flagger instanceof Player){
+        				Firework fw = (Firework) Bukkit.getServer().getWorld("Gliders").spawnEntity(Basic.flagger.getLocation(), EntityType.FIREWORK);
         				FireworkMeta fwm = fw.getFireworkMeta();
-        				FireworkEffect effect = FireworkEffect.builder().withColor(Color.AQUA).with(Type.BALL).build();
-
-        				fwm.addEffect(effect);
-        				fwm.setPower(2);
-
-        				fw.setFireworkMeta(fwm);
-        			}
-        			if(Basic.orangeflagger instanceof Player){
-        				Firework fw = (Firework) Bukkit.getServer().getWorld("CTF").spawnEntity(Basic.orangeflagger.getLocation(), EntityType.FIREWORK);
-        				FireworkMeta fwm = fw.getFireworkMeta();
-        				FireworkEffect effect = FireworkEffect.builder().withColor(Color.ORANGE).with(Type.BALL).build();
+        				FireworkEffect effect = FireworkEffect.builder().withColor(Color.WHITE).with(Type.BALL).build();
 
         				fwm.addEffect(effect);
         				fwm.setPower(2);
@@ -54,9 +46,7 @@ public class Capture {
         				fw.setFireworkMeta(fwm);
         			}
         		}
-        		catch(Exception e){
-        			
-        		}
+        		catch(Exception e){}
         	}
         }, 80L, 80L);
 	}

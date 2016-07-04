@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -24,46 +23,17 @@ https://github.com/EstiNet/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.Team;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Action;
 
 public class FlagHit {
 	ActionAPI aapi = new ActionAPI();
-	CTFScore ctfs = new CTFScore();
 	public void init(Location loc, Player p){
-		if((loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)) && Basic.blueflagger == null){
-			Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the blue flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-			aapi.sendActionbar(p, ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
-			Basic.blueflagger = p;
-			//Captured the blue flag
-		}
-		else if((loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)) && Basic.orangeflagger == null){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has taken the orange flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-			aapi.sendActionbar(p, ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
-			Basic.orangeflagger = p;
-			//Captured the orange flag
-		}
-		else if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.orangeflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has captured the orange flag!", "", 20, 40, 20);
-			Basic.orangeflagger = null;
-			Basic.blueflags += 1;
-			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
-			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture + 1);
-			for(Player ps : Bukkit.getOnlinePlayers()){
-				ps.setScoreboard(ctfs.Initialize(ps));
-			}
-			//Fully Captured the orange flag
-		}
-		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.blueflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has captured the blue flag!", "", 20, 40, 20);
-			Basic.blueflagger = null;
-			Basic.orangeflags += 1;
-			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
-			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture+1);
-			for(Player ps : Bukkit.getOnlinePlayers()){
-				ps.setScoreboard(ctfs.Initialize(ps));
-			}
-			//Fully Captured the blue flag
+		if((((loc.getBlockX() == Basic.flag.getBlockX() && loc.getBlockY() == Basic.flag.getBlockY() && loc.getBlockZ() == Basic.flag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)) && !Basic.swap) || (loc.getBlockX() == Basic.flag.getBlockX() && loc.getBlockY() == Basic.flag.getBlockY() && loc.getBlockZ() == Basic.flag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.swap)) && Basic.flagger == null){
+			Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
+			aapi.sendActionbar(p, ChatColor.AQUA + "Jump off the island to secure victory!");
+			Basic.flagger = p;
 		}
 	}
 }

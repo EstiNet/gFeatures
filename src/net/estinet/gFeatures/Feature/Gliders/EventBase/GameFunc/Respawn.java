@@ -61,6 +61,7 @@ public class Respawn {
 			
 			CSUtility cs = new CSUtility();
 			cs.giveWeapon(p, "Pistol", 1);
+			cs.giveWeapon(p, "Grenade", 1);
 		}
 	}
 }
