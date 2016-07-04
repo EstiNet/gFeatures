@@ -58,7 +58,7 @@ public class MapOne {
 	}
 	
 	File f = new File("plugins/gFeatures/Gliders/Gliders1");
-	File fz = new File("./CTF");
+	File fz = new File("./Gliders");
 	public void justDoIt(){
 		fz.delete();
 		try {
@@ -68,6 +68,13 @@ public class MapOne {
 		}
 		WorldCreator cs1 = new WorldCreator("Gliders");
 		Bukkit.getServer().createWorld(cs1);
+		Basic.mapName = "LargeIsland";
+		Basic.planespawn = planespawn;
+		Basic.towerspawn = towerspawn;
+		Basic.spectatespawn = spectatespawn;
+		Basic.flag = flag;
+	}
+	public void reassign(){
 		Basic.mapName = "LargeIsland";
 		Basic.planespawn = planespawn;
 		Basic.towerspawn = towerspawn;

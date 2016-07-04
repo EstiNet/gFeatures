@@ -32,23 +32,28 @@ https://github.com/EstiNet/gFeatures
 public class ConfligInit {
 	public void createConfigs(){
 		try {
-			MakeFile("LaserRifle");
-			MakeFile("DualLaserPistols");
-			MakeFile("PlasmaShotgun");
-			MakeFile("PlasmaSniper");
+			MakeFile("Auto-Rifle");
+			MakeFile("Pistol");
+			MakeFile("Shotgun");
+			MakeFile("Sniper");
+			MakeFile("Grenade");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	public void deleteConfigs(){
 		try {
-			DeleteFile("LaserRifle");
+			DeleteFile("Auto-Rifle");
+			DeleteFile("Pistol");
+			DeleteFile("Shotgun");
+			DeleteFile("Sniper");
+			DeleteFile("Grenade");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/CTF/Confligs/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/Gliders/Confligs/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();

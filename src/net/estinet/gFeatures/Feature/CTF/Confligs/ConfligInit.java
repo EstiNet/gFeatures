@@ -43,6 +43,9 @@ public class ConfligInit {
 	public void deleteConfigs(){
 		try {
 			DeleteFile("LaserRifle");
+			DeleteFile("DualLaserPistols");
+			DeleteFile("PlasmaShotgun");
+			DeleteFile("PlasmaSniper");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
@@ -20,7 +19,6 @@ import net.estinet.gFeatures.Feature.Gliders.Holo.Lobby;
 import net.estinet.gFeatures.Feature.Gliders.Holo.Loop;
 import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapOne;
 import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapTwo;
-import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*
 gFeatures
@@ -66,10 +64,12 @@ public class StartStop {
 						if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
 							MapTwo mt = new MapTwo();
 							mt.justDoIt();
+							mt.reassign();
 						}
 						else{
 							MapOne mo = new MapOne();
 							mo.justDoIt();
+							mo.reassign();
 						}
 						
 						CliotePing cp = new CliotePing();

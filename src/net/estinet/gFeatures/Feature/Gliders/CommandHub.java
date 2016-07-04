@@ -35,16 +35,16 @@ public class CommandHub{
 		}
 		catch(Exception e){}
 		if(args.length == 0){
-			sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
+			sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
 		}
 		else if(args.length == 1){
 			switch(args[0]){
 			case "help":
-				sender.sendMessage(ChatColor.GOLD + "-----CTF Help-----");
-				sender.sendMessage(ChatColor.AQUA + "/CTF help - Displays help for CTF.");
-				sender.sendMessage(ChatColor.AQUA + "/CTF list - Lists all the teams and participants.");
-				sender.sendMessage(ChatColor.AQUA + "/CTF mode - Gets the current state of the game.");
-				sender.sendMessage(ChatColor.AQUA + "/CTF playermode [Player Name] - Gets the player state.");
+				sender.sendMessage(ChatColor.GOLD + "-----Gliders Help-----");
+				sender.sendMessage(ChatColor.AQUA + "/Gliders help - Displays help for Gliders.");
+				sender.sendMessage(ChatColor.AQUA + "/Gliders list - Lists all the teams and participants.");
+				sender.sendMessage(ChatColor.AQUA + "/Gliders mode - Gets the current state of the game.");
+				sender.sendMessage(ChatColor.AQUA + "/Gliders playermode [Player Name] - Gets the player state.");
 				break;
 			case "list":
 				sender.sendMessage(ChatColor.GOLD + "Orange:");
@@ -66,7 +66,7 @@ public class CommandHub{
 				sender.sendMessage(ChatColor.AQUA + "The current game state is: " + Basic.mode.toString());
 				break;
 			default:
-				sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
+				sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
 				break;
 			}
 		}
@@ -81,12 +81,12 @@ public class CommandHub{
 				}
 				break;
 			default:
-				sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
+				sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
 				break;
 			}
 		}
 		else{
-			sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
+			sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
 		}
 	}
 }
