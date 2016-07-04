@@ -39,21 +39,12 @@ public class MapTwo {
 	public static Location flag;
 	
 	public MapTwo(){
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 769.5, 238.5, -563.5));
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 751.5, 238.5, -563.5));
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 734.5, 238.5, -568.5));
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 481.5, 224.5, -566.5));
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 497.5, 224.5, -565.5));
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 490.5, 224.5, -565.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), -662.5, 220.5, 881.5));
 		
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 581.5, 51.5, -563.5));
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 590.5, 50.5, -510.5));
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 614.5, 49.5, -540.5));
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 619.5, 49.5, -583.5));
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), 585.5, 49.5, -592.5));
+		towerspawn.add(new Location(Bukkit.getWorld("Gliders"), -560.5, 61.5, -868.5));
 	
-		spectatespawn.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
-		flag.add(new Location(Bukkit.getWorld("Gliders"), 596.5, 60.5, -564.5));
+		spectatespawn.add(new Location(Bukkit.getWorld("Gliders"), -575.5, 135.5, 883.5));
+		flag.add(new Location(Bukkit.getWorld("Gliders"), -579.5, 49.5, 879.5));
 	}
 	
 	File f = new File("plugins/gFeatures/Gliders/Gliders2");
