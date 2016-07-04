@@ -71,7 +71,6 @@ public class StartStop {
 						Basic.mode = Mode.STARTED;
 						for(Player p : Bukkit.getOnlinePlayers()){
 							p.setLevel(0);
-							Bukkit.getLogger().info(Basic.getOrangeSize() + " " + Basic.getBlueSize());
 							if(Basic.getOrangeSize() >= Basic.getBlueSize()){
 								Basic.teams.put(p.getUniqueId(), Team.BLUE);
 							}

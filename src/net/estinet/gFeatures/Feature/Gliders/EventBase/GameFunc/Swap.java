@@ -19,6 +19,9 @@ import net.md_5.bungee.api.ChatColor;
 public class Swap {
 	public void init(){
 		Basic.swap = true;
+		Basic.flagger = null;
+		Basic.minutes = 5;
+		Basic.seconds = 0;
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				if(!Basic.mode.equals(Mode.ENDED)){

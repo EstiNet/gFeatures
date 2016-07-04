@@ -71,7 +71,7 @@ public class Gliders extends gFeature implements Events{
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
-			eh.onPlayerMove((PlayerMoveEvent) event);
+			//eh.onPlayerMove((PlayerMoveEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
@@ -83,7 +83,6 @@ public class Gliders extends gFeature implements Events{
 			eh.onPlayerInteract((PlayerInteractEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
-			Bukkit.getLogger().info("death");
 			eh.onPlayerDeath((PlayerDeathEvent) event); 
 		}
 		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){

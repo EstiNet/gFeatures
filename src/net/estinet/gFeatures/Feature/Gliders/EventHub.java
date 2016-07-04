@@ -113,6 +113,10 @@ public class EventHub{
 					}
 				}
 			}
+			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
+				event.setCancelled(true);
+				fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
+			}
 		}
 		else{
 			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
@@ -167,29 +171,6 @@ public class EventHub{
 			}
 		}
 	}
-	public void onPlayerMove(PlayerMoveEvent event) {
-		if((event.getPlayer().getLocation().getX() < 10) && ((Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.BLUE) && !Basic.swap) || (Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.ORANGE) && Basic.swap))){
-			if(!Basic.swap){
-				Basic.firstteam = Team.BLUE;
-				Action.sendAllTitle(ChatColor.BOLD + event.getPlayer().getName() + " has secured the flag!", "", 20, 20, 20);
-				for(Player p : Bukkit.getOnlinePlayers()){
-					p.setGameMode(GameMode.SPECTATOR);
-				}
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-					public void run(){
-						Swap swap = new Swap();
-						swap.init();
-					}
-				}, 2000L);
-			}
-			else{
-				if(Basic.firstteam.equals(Team.ORANGE)){
-					StartStop ss = new StartStop();
-					ss.stopGame(Team.ORANGE);
-				}
-			}
-		}
-	}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
 		event.setCancelled(true);
 	}
@@ -218,18 +199,17 @@ public class EventHub{
 				}});
 			}
 			else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)){
-
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ 
+					public void run() {
+						if(event.getEntity().isDead())
+							event.getEntity().setHealth(20);
+					}});
 				ClearInventory ci = new ClearInventory();
 				ci.clearInv(event.getEntity());
 				for(int i = 0; i < event.getDrops().size(); i++){
 					event.getDrops().set(i, new ItemStack(Material.AIR));
 				}
 				d.init(event.getEntity());
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ 
-					public void run() {
-						if(event.getEntity().isDead())
-							event.getEntity().setHealth(20);
-					}});
 			}
 		}
 	}

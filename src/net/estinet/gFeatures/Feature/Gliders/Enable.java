@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.ConstantCheck;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Capture;
 
 /*
@@ -44,15 +45,15 @@ public class Enable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		f = new File("plugins/gFeatures/Gliders/Gliders1");
+		fz = new File("./Gliders1");
 		fz.delete();
 		try {
 			FileUtils.copyDirectory(f, fz);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		f = new File("plugins/gFeatures/Gliders/Gliders1");
-		fz = new File("./Gliders1");
+		
 		
 		Capture c = new Capture();
 		c.loop();
@@ -71,5 +72,11 @@ public class Enable{
         		cp.sendMessage("mghello", "Bungee");
         	}
         }, 40L);
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			public void run(){
+				ConstantCheck cc = new ConstantCheck();
+				cc.goThrough();
+			}
+		}, 10L, 10L);
 	}
 }
