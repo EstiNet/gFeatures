@@ -50,16 +50,11 @@ public class StartStop {
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				boolean nu = true;
-				
-				/*Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
-				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
-				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
-				Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
-				Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
-				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 21, 45);
-				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE*/
-				if(Basic.countdown == 4){
-					if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
+				if(Basic.countdown <= 0){
+					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
+						
+						//Initialize world finding
+						if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
 							MapTwo mt = new MapTwo();
 							mt.justDoIt();
 							mt.reassign();
@@ -69,12 +64,7 @@ public class StartStop {
 							mo.justDoIt();
 							mo.reassign();
 						}
-				}
-				if(Basic.countdown <= 0){
-					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
 						
-						//Initialize world finding
-								
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("mgstart", "Bungee");
 						Bukkit.getScheduler().cancelTask(tasknum);
