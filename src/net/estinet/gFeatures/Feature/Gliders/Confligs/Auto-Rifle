@@ -1,8 +1,8 @@
-LaserRifle:
+Auto-Rifle:
     Item_Information:
-        Item_Name: Laser-Rifle
+        Item_Name: Auto-Rifle
         Item_Type: 258
-        Item_Lore: "&eLaser-Rifle"
+        Item_Lore: "&eAuto-Rifle"
         Melee_Mode: false
         Skip_Name_Check: false
         Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
@@ -79,4 +79,4 @@ LaserRifle:
     Damage_Based_On_Flight_Time:
         Enable: false
     Custom_Death_Message:
-        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6Laser-Rifle&3!"
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using a &6Auto-Rifle&3!"

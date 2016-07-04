@@ -1,8 +1,8 @@
-DualLaserPistols:
+Pistol:
     Item_Information:
-        Item_Name: "&eDual Laser Pistols"
+        Item_Name: "&eDual Pistols"
         Item_Type: 417
-        Item_Lore: "&eDual Laser Pistols"
+        Item_Lore: "&eDual Pistols"
         Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
     Shooting:
         Dual_Wield: true
@@ -43,4 +43,4 @@ DualLaserPistols:
         Enable: true
         Sounds_Shooter: ENTITY_ARROW_SHOOT-1-2-0
     Custom_Death_Message:
-        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using &6Dual Laser Pistols&3!"
+        Normal: "&b[&6Kill&b]&3 <shooter> killed <victim> using &6Dual Pistols&3!"
