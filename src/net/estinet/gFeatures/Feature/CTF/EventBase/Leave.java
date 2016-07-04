@@ -35,6 +35,7 @@ public class Leave {
 		Basic.kills.remove(event.getPlayer().getUniqueId());
 		Basic.deaths.remove(event.getPlayer().getUniqueId());
 		Basic.flagcaptures.remove(event.getPlayer().getUniqueId());
+		Basic.teams.remove(event.getPlayer().getUniqueId());
 		try{
 		if(Basic.blueflagger.getName().equals(event.getPlayer().getName())){
 			Basic.blueflagger = null;

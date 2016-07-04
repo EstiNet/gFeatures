@@ -12,8 +12,10 @@ import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 import net.estinet.gFeatures.Feature.Gliders.Mode;
+import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
 import net.estinet.gFeatures.Feature.Gliders.Team;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.Spectate;
+import net.estinet.gFeatures.Feature.Gliders.Holo.GlidersScore;
 import net.estinet.gFeatures.Feature.Gliders.Holo.Lobby;
 import net.estinet.gFeatures.Feature.Gliders.Holo.Loop;
 import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapOne;
@@ -98,7 +100,6 @@ public class StartStop {
 							}
 						}, 45L);
 
-
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
 								if(!Basic.swap){
@@ -107,12 +108,13 @@ public class StartStop {
 								}
 							}
 						}, 6000L);
+						
 						FinishStart fs = new FinishStart();
 						fs.finish();
 						recursive();
 					}
 					else{
-						Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
+						Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
 						Basic.mode = Mode.WAITING;
 						Basic.countdown = 60;
 						Bukkit.getScheduler().cancelTask(tasknum);
@@ -133,7 +135,7 @@ public class StartStop {
 						}
 					}
 					else{
-						Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
+						Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
 						Basic.mode = Mode.WAITING;
 						Basic.countdown = 60;
 						Bukkit.getScheduler().cancelTask(tasknum);
@@ -150,25 +152,30 @@ public class StartStop {
 			}
 		}, 0, 20L);
 	}
-	public void stop(){
+	public void stopGame(Team winner){
 		for(Player p : Bukkit.getOnlinePlayers()){
 			Basic.modes.remove(p.getUniqueId());
 			Basic.modes.put(p.getUniqueId(), PlayerMode.SPECTATE);
 			s.handler(p);
 			//Show their stats
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + ChatColor.GREEN + "" + ChatColor.BOLD + "Stats" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----");
-			p.sendMessage(ChatColor.AQUA + "Participation: +5 clupic");
+			p.sendMessage(ChatColor.AQUA + "Participation: +3 clupic");
 			p.sendMessage(ChatColor.AQUA + "Kills: " + Basic.kills.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
-			p.sendMessage(ChatColor.AQUA + "Flag Captures: " + Basic.flagcaptures.get(p.getUniqueId()));
-			int clupic = (Basic.flagcaptures.get(p.getUniqueId()) * 20) + ((Basic.kills.get(p.getUniqueId()) * 2) + 16);
+			int clupic = 0;
+			if(winner.equals(Basic.teams.get(p.getUniqueId()))){
+				p.sendMessage(ChatColor.AQUA + "Won Game: +10 clupic");
+				clupic += 10;
+			}
+			clupic += (Basic.kills.get(p.getUniqueId()) * 2 + 3);
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
 			MoneyManager mm = new MoneyManager();
+			final int clupics = clupic;
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 					try {
-						mm.giveMoney(p, clupic);
+						mm.giveMoney(p, clupics);
 					}  
 					catch (Exception e) {
 						e.printStackTrace();
@@ -178,11 +185,11 @@ public class StartStop {
 			thr.start();
 		}
 		Basic.mode = Mode.ENDED;
-		if(Basic.orangeflags > Basic.blueflags){
-			Action.sendAllTitle(ChatColor.GOLD + "The orange team won!", ChatColor.BOLD + Integer.toString(Basic.orangeflags) + " flags captured.", 20, 40, 20);
+		if(winner.equals(Team.ORANGE)){
+			Action.sendAllTitle(ChatColor.GOLD + "The orange team won!", "Congrats!", 20, 40, 20);
 		}
-		else if(Basic.orangeflags < Basic.blueflags){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + "The blue team won!", ChatColor.BOLD + Integer.toString(Basic.blueflags) + " flags captured.", 20, 40, 20);
+		else if(winner.equals(Team.BLUE)){
+			Action.sendAllTitle(ChatColor.DARK_AQUA + "The blue team won!", "Congrats!", 20, 40, 20);
 		}
 		else{
 			Action.sendAllTitle(ChatColor.BOLD + "Both teams tied!", "", 20, 40, 20);
@@ -217,7 +224,7 @@ public class StartStop {
 						Basic.seconds -= 10;
 					}
 					for(Player p : Bukkit.getOnlinePlayers()){
-						CTFScore ctfs = new CTFScore();
+						GlidersScore ctfs = new GlidersScore();
 						p.setScoreboard(ctfs.Initialize(p));
 					}
 					recursive();

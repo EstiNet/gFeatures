@@ -37,7 +37,7 @@ public class Respawn {
 		ci.clearInv(p);
 		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
-		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
+		if((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && !Basic.swap) || (Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.swap)){
 			p.setGameMode(GameMode.ADVENTURE);
 			int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
 			p.teleport(Basic.towerspawn.get(random));

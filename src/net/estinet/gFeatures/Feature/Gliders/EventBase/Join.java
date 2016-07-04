@@ -11,6 +11,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Action;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.StartStop;
+import net.estinet.gFeatures.Feature.Gliders.Holo.GlidersScore;
+import net.estinet.gFeatures.Feature.Gliders.Holo.Lobby;
 
 /*
 gFeatures
@@ -35,14 +41,13 @@ public class Join {
 	StartStop ss = new StartStop();
 	Spectate s = new Spectate();
 	Lobby l = new Lobby();
-	CTFScore ctfs = new CTFScore();
+	GlidersScore ctfs = new GlidersScore();
 	ClearInventory ci = new ClearInventory();
 	public void init(PlayerJoinEvent event){
 		ci.clearInv(event.getPlayer());
 		event.getPlayer().setGameMode(GameMode.ADVENTURE);
 		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
 		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
-		Basic.flagcaptures.put(event.getPlayer().getUniqueId(), 0);
 		switch(Basic.mode){
 		case WAITING:
 			for(Player p : Bukkit.getOnlinePlayers()){
