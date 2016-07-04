@@ -59,6 +59,9 @@ public class MapOne {
 		WorldCreator cs1 = new WorldCreator("Gliders");
 		Bukkit.getServer().createWorld(cs1);
 		Basic.mapName = "LargeIsland";
-		
+		Basic.planespawn = planespawn;
+		Basic.towerspawn = towerspawn;
+		Basic.spectatespawn = spectatespawn;
+		Basic.flag = flag;
 	}
 }

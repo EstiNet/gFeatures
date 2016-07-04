@@ -1,12 +1,15 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import com.shampaggon.crackshot.CSUtility;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
+import net.estinet.gFeatures.Feature.Gliders.Team;
 
 /*
 gFeatures
@@ -33,54 +36,31 @@ public class Respawn {
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);
 		Basic.modes.remove(p.getUniqueId());
-		Basic.modes.put(p.getUniqueId(), PlayerMode.SELECT);
-		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
-			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.orangespawn);
-			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
-			p.getInventory().setHelmet(wool);
-		}
-		else{
-			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.bluespawn);
-			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
-			p.getInventory().setHelmet(wool);
-		}
-		SpawnMenu sm = new SpawnMenu();
-		sm.init(p);
-		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
-			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.orangespawn);
-			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
-			p.getInventory().setHelmet(wool);
-		}
-		else{
-			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.bluespawn);
-			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
-			p.getInventory().setHelmet(wool);
-		}
-	}
-	public void fullrespawn(Player p){
-		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.orangeafterspawn);
-			p.setWalkSpeed((float) 0.3);
+			int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
+			p.teleport(Basic.towerspawn.get(random));
+			
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 			p.getInventory().setHelmet(wool);
+			
+			CSUtility cs = new CSUtility();
+			cs.giveWeapon(p, "Sniper", 1);
+			cs.giveWeapon(p, "Shotgun", 1);
+			cs.giveWeapon(p, "Auto-Rifle", 1);
 		}
 		else{
 			p.setGameMode(GameMode.ADVENTURE);
-			p.teleport(Basic.blueafterspawn);
-			p.setWalkSpeed((float) 0.3);
+			int random = (int) Math.floor(Math.random() * Basic.planespawn.size());
+			p.teleport(Basic.planespawn.get(random));
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 			p.getInventory().setHelmet(wool);
+			
+			p.getInventory().setChestplate(new ItemStack(Material.ELYTRA, 1));
+			
+			CSUtility cs = new CSUtility();
+			cs.giveWeapon(p, "Pistol", 1);
 		}
 	}
 }

@@ -44,6 +44,7 @@ public class Basic {
 	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
 	public static Team winningteam = null;
+	public static boolean swap = false;
 	
 	public static boolean isInOrange(Player p){
 		if(teams.get(p.getUniqueId()).equals(Team.ORANGE)){

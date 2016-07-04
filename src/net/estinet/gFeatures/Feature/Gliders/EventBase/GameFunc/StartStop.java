@@ -9,12 +9,15 @@ import org.bukkit.Sound;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapTwo;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 import net.estinet.gFeatures.Feature.Gliders.Mode;
 import net.estinet.gFeatures.Feature.Gliders.Team;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.Spectate;
+import net.estinet.gFeatures.Feature.Gliders.Holo.Lobby;
+import net.estinet.gFeatures.Feature.Gliders.Holo.Loop;
 import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapOne;
+import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapTwo;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*
@@ -98,17 +101,12 @@ public class StartStop {
 
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
-								for(Player p : Bukkit.getServer().getOnlinePlayers()){
-									Music m = new Music();
-									m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
+								if(!Basic.swap){
+									Swap swap = new Swap();
+									swap.init();
 								}
-								Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-									public void run(){
-										stop();
-									}
-								}, 4500L);
 							}
-						}, 4500L);
+						}, 6000L);
 						FinishStart fs = new FinishStart();
 						fs.finish();
 						recursive();
