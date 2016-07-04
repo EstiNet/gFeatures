@@ -23,7 +23,12 @@ public class Swap {
 			public void run(){
 				if(!Basic.mode.equals(Mode.ENDED)){
 					StartStop ss = new StartStop();
-					ss.stopGame(Team.NONE);
+					if(Basic.firstteam.equals(Team.BLUE)){
+						ss.stopGame(Team.BLUE);
+					}
+					else{
+						ss.stopGame(Team.NONE);
+					}
 				}
 			}
 		}, 6000L);// counter just in case game keeps going

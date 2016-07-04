@@ -45,6 +45,7 @@ public class Basic {
 	public static Mode mode = Mode.WAITING;
 	public static Team winningteam = null;
 	public static boolean swap = false;
+	public static Team firstteam = null;
 	
 	public static boolean isInOrange(Player p){
 		if(teams.get(p.getUniqueId()).equals(Team.ORANGE)){

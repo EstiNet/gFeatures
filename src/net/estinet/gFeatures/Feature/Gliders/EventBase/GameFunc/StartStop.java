@@ -103,6 +103,7 @@ public class StartStop {
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
 								if(!Basic.swap){
+									Basic.firstteam = Team.ORANGE; //keep the first win team
 									Swap swap = new Swap();
 									swap.init();
 								}

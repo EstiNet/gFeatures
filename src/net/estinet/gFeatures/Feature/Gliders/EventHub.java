@@ -29,6 +29,7 @@ import net.estinet.gFeatures.Feature.Gliders.EventBase.Join;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.Leave;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.StartStop;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Swap;
+import net.estinet.gFeatures.Feature.Gliders.Holo.WaitingMenu;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
@@ -76,40 +77,40 @@ public class EventHub{
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getDamager().getType().equals(EntityType.PLAYER)){
-		if(event.getEntityType().equals(EntityType.PLAYER)){
-			Player p = (Player) event.getEntity();
-			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING)){
-				event.setCancelled(true);
-			}
-			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-				if(event.getDamager().getType().equals(EntityType.PLAYER)){
-					Player pl = (Player) event.getDamager();
-					if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
-						event.setCancelled(true);
-					}
-					else{
-						int health = (int) p.getHealth();
-						double damage = event.getDamage();
-						if(health - damage <= 0){
-							ClearInventory ci = new ClearInventory();
-							ci.clearInv(p);
+			if(event.getEntityType().equals(EntityType.PLAYER)){
+				Player p = (Player) event.getEntity();
+				if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING)){
+					event.setCancelled(true);
+				}
+				else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
+					if(event.getDamager().getType().equals(EntityType.PLAYER)){
+						Player pl = (Player) event.getDamager();
+						if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
 							event.setCancelled(true);
-							int deaths = Basic.deaths.get(p.getUniqueId());
-							deaths+=1;
-							Basic.deaths.remove(p.getUniqueId());
-							Basic.deaths.put(p.getUniqueId(), deaths);
+						}
+						else{
+							int health = (int) p.getHealth();
+							double damage = event.getDamage();
+							if(health - damage <= 0){
+								ClearInventory ci = new ClearInventory();
+								ci.clearInv(p);
+								event.setCancelled(true);
+								int deaths = Basic.deaths.get(p.getUniqueId());
+								deaths+=1;
+								Basic.deaths.remove(p.getUniqueId());
+								Basic.deaths.put(p.getUniqueId(), deaths);
 
-							int kills = Basic.kills.get(pl.getUniqueId());
-							kills+=1;
-							Basic.kills.remove(pl.getUniqueId());
-							Basic.kills.put(pl.getUniqueId(), kills);
+								int kills = Basic.kills.get(pl.getUniqueId());
+								kills+=1;
+								Basic.kills.remove(pl.getUniqueId());
+								Basic.kills.put(pl.getUniqueId(), kills);
 
-							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+								Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
 
-							d.init(p);
+								d.init(p);
+							}
 						}
 					}
-				}
 				}
 			}
 		}
@@ -168,16 +169,25 @@ public class EventHub{
 	}
 	public void onPlayerMove(PlayerMoveEvent event) {
 		if((event.getPlayer().getLocation().getX() < 10) && ((Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.BLUE) && !Basic.swap) || (Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.ORANGE) && Basic.swap))){
-			Action.sendAllTitle(ChatColor.BOLD + event.getPlayer().getName() + " has secured the flag!", "", 20, 20, 20);
-			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setGameMode(GameMode.SPECTATOR);
-			}
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-				public void run(){
-					Swap swap = new Swap();
-					swap.init();
+			if(!Basic.swap){
+				Basic.firstteam = Team.BLUE;
+				Action.sendAllTitle(ChatColor.BOLD + event.getPlayer().getName() + " has secured the flag!", "", 20, 20, 20);
+				for(Player p : Bukkit.getOnlinePlayers()){
+					p.setGameMode(GameMode.SPECTATOR);
 				}
-			}, 2000L);
+				Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+					public void run(){
+						Swap swap = new Swap();
+						swap.init();
+					}
+				}, 2000L);
+			}
+			else{
+				if(Basic.firstteam.equals(Team.ORANGE)){
+					StartStop ss = new StartStop();
+					ss.stopGame(Team.ORANGE);
+				}
+			}
 		}
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
@@ -186,7 +196,12 @@ public class EventHub{
 	public void onPlayerPickup(PlayerPickupItemEvent event) {
 		event.setCancelled(true);
 	}
-	public void onPlayerInteract(PlayerInteractEvent event){}
+	public void onPlayerInteract(PlayerInteractEvent event){
+		if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)){
+			WaitingMenu wm = new WaitingMenu();
+			wm.init(event.getPlayer());
+		}
+	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
 		if(event.getEntity() instanceof Player){
 			for(ItemStack im : event.getDrops()){
@@ -210,10 +225,11 @@ public class EventHub{
 					event.getDrops().set(i, new ItemStack(Material.AIR));
 				}
 				d.init(event.getEntity());
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
-					if(event.getEntity().isDead())
-						event.getEntity().setHealth(20);
-				}});
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ 
+					public void run() {
+						if(event.getEntity().isDead())
+							event.getEntity().setHealth(20);
+					}});
 			}
 		}
 	}
