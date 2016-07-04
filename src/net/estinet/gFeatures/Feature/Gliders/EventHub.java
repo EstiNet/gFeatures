@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.Gliders;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -21,6 +22,13 @@ import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.Dead;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.FlagHit;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.Join;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.Leave;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.StartStop;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Swap;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
@@ -47,7 +55,6 @@ public class EventHub{
 	Leave leave = new Leave();
 	Dead d = new Dead();
 	FlagHit fh = new FlagHit();
-	SpawnMenu sm = new SpawnMenu();
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
 		try{
@@ -71,7 +78,7 @@ public class EventHub{
 		if(event.getDamager().getType().equals(EntityType.PLAYER)){
 		if(event.getEntityType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getEntity();
-			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
+			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING)){
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
@@ -116,7 +123,7 @@ public class EventHub{
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){
 			Player p = (Player) event.getVictim();
-			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
+			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING)){
 				event.setCancelled(true);
 			}
 			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
@@ -124,12 +131,12 @@ public class EventHub{
 				if((Basic.isInBlue(p) && Basic.isInBlue(pl)) || (Basic.isInOrange(p) && Basic.isInOrange(pl))){
 					event.setCancelled(true);
 					if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)){
-						Debug.print("[CTF] Both are in blue.");
+						Debug.print("[Gliders] Both are in blue.");
 					}
 					else if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)){
-						Debug.print("[CTF] Both are in orange.");
+						Debug.print("[Gliders] Both are in orange.");
 					}
-					Debug.print("[CTF] Prevented team kill.");
+					Debug.print("[Gliders] Prevented team kill.");
 				}
 				else{
 					int health = (int) p.getHealth();
@@ -141,12 +148,10 @@ public class EventHub{
 						deaths+=1;
 						Basic.deaths.remove(p.getUniqueId());
 						Basic.deaths.put(p.getUniqueId(), deaths);
-						Debug.print("[CTF] first deaths:" + (deaths-1) + " afterdeaths: " + deaths);
 						int kills = Basic.kills.get(pl.getUniqueId());
 						kills+=1;
 						Basic.kills.remove(pl.getUniqueId());
 						Basic.kills.put(pl.getUniqueId(), kills);
-						Debug.print("[CTF] first kills:" + (kills-1) + " afterkill: " + kills);
 						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
 						event.setCancelled(true);
 						d.init(p);
@@ -161,47 +166,36 @@ public class EventHub{
 			}
 		}
 	}
-	public void onPlayerMove(PlayerMoveEvent event) {}
+	public void onPlayerMove(PlayerMoveEvent event) {
+		if((event.getPlayer().getLocation().getX() < 10) && ((Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.BLUE) && !Basic.swap) || (Basic.teams.get(event.getPlayer().getUniqueId()).equals(Team.ORANGE) && Basic.swap))){
+			Action.sendAllTitle(ChatColor.BOLD + event.getPlayer().getName() + " has secured the flag!", "", 20, 20, 20);
+			for(Player p : Bukkit.getOnlinePlayers()){
+				p.setGameMode(GameMode.SPECTATOR);
+			}
+			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				public void run(){
+					Swap swap = new Swap();
+					swap.init();
+				}
+			}, 2000L);
+		}
+	}
 	public void onPlayerDrop(PlayerDropItemEvent event) {
 		event.setCancelled(true);
 	}
 	public void onPlayerPickup(PlayerPickupItemEvent event) {
 		event.setCancelled(true);
 	}
-	public void onPlayerInteract(PlayerInteractEvent event){
-		if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)){
-			sm.interact(event);
-		}
-		else if(Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)){
-			WaitingMenu wm = new WaitingMenu();
-			wm.init(event.getPlayer());
-		}
-	}
+	public void onPlayerInteract(PlayerInteractEvent event){}
 	public void onPlayerDeath(PlayerDeathEvent event) {
-
 		if(event.getEntity() instanceof Player){
-			if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
-				event.getDrops().remove(Material.STAINED_GLASS);
+			for(ItemStack im : event.getDrops()){
+				event.getDrops().remove(im);
 			}
 			if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.WAITING)){
 				event.getEntity().setHealth(20);
 
 				event.getEntity().teleport(Basic.waitspawn);
-				Player player = event.getEntity();
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
-					if(event.getEntity().isDead())
-						player.setHealth(20);
-				}});
-			}
-			else if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.SELECT)){
-				event.getEntity().setHealth(20);
-
-				if(Basic.teams.get(event.getEntity().getUniqueId()).equals(Team.BLUE)){
-					event.getEntity().teleport(Basic.bluespawn);
-				}
-				else if(Basic.teams.get(event.getEntity().getUniqueId()).equals(Team.ORANGE)){
-					event.getEntity().teleport(Basic.orangespawn);
-				}
 				Player player = event.getEntity();
 				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
 					if(event.getEntity().isDead())
@@ -220,9 +214,6 @@ public class EventHub{
 					if(event.getEntity().isDead())
 						event.getEntity().setHealth(20);
 				}});
-				//Location loc = event.getEntity().getLocation();
-				//((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)event.getEntity()).getHandle(), 0, false);
-				//event.getEntity().teleport(loc);
 			}
 		}
 	}

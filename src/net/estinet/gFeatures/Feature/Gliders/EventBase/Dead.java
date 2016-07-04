@@ -6,6 +6,9 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Action;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Respawn;
 
 
 /*
@@ -34,16 +37,9 @@ public class Dead {
 	            p.setHealth(20);
 	    }});
 		try{
-		if(Basic.blueflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
-			Basic.blueflagger = null;
-		}
-		}
-		catch(Exception e){}
-		try{
-		if(Basic.orangeflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
-			Basic.orangeflagger = null;
+		if(Basic.flagger.getName().equals(p.getName())){
+			Action.sendAllTitle(ChatColor.BOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The flag has been returned.", 20, 40, 20);
+			Basic.flagger = null;
 		}
 		}
 		catch(Exception e){}
