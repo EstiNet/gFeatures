@@ -7,7 +7,10 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
+
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.Feature.Gliders.Confligs.ConfligInit;
 
 /*
 gFeatures
@@ -55,12 +58,14 @@ public class ConfigHub {
 			maps.add(Maps.Two);
 		}
 		if(maps.isEmpty()){
-			Bukkit.getLogger().info("[CTF] No maps found!");
+			Bukkit.getLogger().info("[Gliders] No maps found!");
 			Disable.onDisable();
-			net.estinet.gFeatures.Basic.getFeature("CTF").disable();
+			net.estinet.gFeatures.Basic.getFeature("Gliders").disable();
 			return;
 		}
-		spec.direction(maps.get(random));
+		
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("mgmap Island", "Bungee");
 		
 		ci.createConfigs();
 	}

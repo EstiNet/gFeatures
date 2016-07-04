@@ -85,7 +85,7 @@ public class NetworkThread {
 			        	public void run(){
 			        		ClioteSky.setSyncedOutput(false);
 			        	}
-			        }, 15L);
+			        }, 10L);
 					}
 					catch(NullPointerException e){
 						ClioteConfigUtil ccu = new ClioteConfigUtil();

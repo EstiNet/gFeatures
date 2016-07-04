@@ -1,10 +1,10 @@
-package net.estinet.gFeatures.Feature.CTF.Holo;
+package net.estinet.gFeatures.Feature.Gliders.Holo;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.Mode;
 
 /*
 gFeatures
@@ -26,12 +26,12 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Loop {
-	CTFScore ctfs = new CTFScore();
+	GlidersScore gs = new GlidersScore();
 	Lobby lobby = new Lobby();
 	public void goThrough(){
 		for(Player p : Bukkit.getServer().getOnlinePlayers()){
 			if(Basic.mode.equals(Mode.STARTED) || Basic.mode.equals(Mode.ENDED)){
-				ctfs.Initialize(p);
+				gs.Initialize(p);
 			}
 			else if(Basic.mode.equals(Mode.WAITING)){
 				lobby.Initialize(p);

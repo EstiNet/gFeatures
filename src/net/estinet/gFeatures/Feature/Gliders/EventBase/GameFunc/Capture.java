@@ -9,8 +9,6 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-import net.estinet.gFeatures.Feature.CTF.Basic;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

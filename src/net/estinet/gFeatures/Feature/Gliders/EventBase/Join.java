@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase;
+package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,12 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.PlayerMode;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.StartStop;
-import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
-import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 
 /*
 gFeatures

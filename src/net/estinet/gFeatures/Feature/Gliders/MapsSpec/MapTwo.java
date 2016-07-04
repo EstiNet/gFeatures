@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.MapsSpec;
+package net.estinet.gFeatures.Feature.Gliders.MapsSpec;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,6 @@ import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
-import net.estinet.gFeatures.Feature.CTF.Basic;
 
 /*
 gFeatures

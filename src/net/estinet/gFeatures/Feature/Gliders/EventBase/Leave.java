@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase;
+package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,9 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.Mode;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
 
 /*
 gFeatures

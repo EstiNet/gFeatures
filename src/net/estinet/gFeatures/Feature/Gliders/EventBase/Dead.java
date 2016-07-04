@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase;
+package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,9 +6,6 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Respawn;
 
 
 /*

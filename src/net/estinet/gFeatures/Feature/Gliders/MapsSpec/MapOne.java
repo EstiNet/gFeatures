@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
@@ -39,24 +40,24 @@ public class MapOne {
 	public static Location flag;
 	
 	public MapOne(){
-		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 769.5, 239.5, -563.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 769.5, 238.5, -563.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 751.5, 238.5, -563.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 734.5, 238.5, -568.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 481.5, 224.5, -566.5));
+		planespawn.add(new Location(Bukkit.getWorld("Gliders"), 497.5, 224.5, -565.5));
 	}
 	
 	File f = new File("plugins/gFeatures/Gliders/Gliders1");
 	File fz = new File("./CTF");
-	File fl = new File("plugins/gFeatures/Gliders/MinigameSpawn");
-	File flz = new File("./MinigameSpawn");
 	public void justDoIt(){
 		fz.delete();
-		flz.delete();
 		try {
 			FileUtils.copyDirectory(f, fz);
-			FileUtils.copyDirectory(fl, flz);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("mgmap LargeIsland", "Bungee");
+		WorldCreator cs1 = new WorldCreator("Gliders");
+		Bukkit.getServer().createWorld(cs1);
 		Basic.mapName = "LargeIsland";
 		
 	}

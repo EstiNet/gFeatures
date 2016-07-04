@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Capture;
 
 /*
 gFeatures
@@ -36,9 +37,6 @@ public class Enable{
         	public void run(){
         		WorldCreator cs = new WorldCreator("MinigameSpawn");
         		Bukkit.getServer().createWorld(cs);
-        		
-        		WorldCreator cs1 = new WorldCreator("Gliders");
-        		Bukkit.getServer().createWorld(cs1);
         		
         		CliotePing cp = new CliotePing();
         		cp.sendMessage("mghello", "Bungee");

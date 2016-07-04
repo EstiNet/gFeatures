@@ -1,31 +1,20 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc;
+package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.Sound;
-import org.bukkit.FireworkEffect.Type;
 import org.bukkit.entity.EnderCrystal;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.FireworkMeta;
-
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.CTF.Basic;
-import net.estinet.gFeatures.Feature.CTF.Mode;
-import net.estinet.gFeatures.Feature.CTF.PlayerMode;
-import net.estinet.gFeatures.Feature.CTF.Team;
-import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
-import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
-import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
-import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapTwo;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.Mode;
+import net.estinet.gFeatures.Feature.Gliders.Team;
+import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapOne;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*
@@ -58,15 +47,26 @@ public class StartStop {
 		tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				boolean nu = true;
-				Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
+				/*Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
 				Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
 				Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
 				Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
 				Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
 				Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 21, 45);
-				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE
+				Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE*/
 				if(Basic.countdown <= 0){
 					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
+						
+						//Initialize world finding
+						if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
+							MapTwo mt = new MapTwo();
+							mt.justDoIt();
+						}
+						else{
+							MapOne mo = new MapOne();
+							mo.justDoIt();
+						}
+						
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("mgstart", "Bungee");
 						Bukkit.getScheduler().cancelTask(tasknum);
@@ -91,8 +91,7 @@ public class StartStop {
 
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
-								Bukkit.getWorld("CTF").spawn(Basic.blueflag, EnderCrystal.class);
-								Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
+								Bukkit.getWorld("Gliders").spawn(Basic.flag, EnderCrystal.class);
 							}
 						}, 45L);
 

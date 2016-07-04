@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.Holo;
+package net.estinet.gFeatures.Feature.Gliders.Holo;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -10,7 +10,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import com.shampaggon.crackshot.CSUtility;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Respawn;
 
 /*
 gFeatures

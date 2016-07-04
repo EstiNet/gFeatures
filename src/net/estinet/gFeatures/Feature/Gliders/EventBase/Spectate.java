@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.CTF.EventBase;
+package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
