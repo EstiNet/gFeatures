@@ -120,6 +120,10 @@ public class EventHub {
 			FriendsMenu fm = new FriendsMenu();
 			fm.init(event.getPlayer());
 			break;
+		case COMPASS:
+			Compass c = new Compass();
+			c.init(event.getPlayer());
+			break;
 		default:
 			break;
 		}
