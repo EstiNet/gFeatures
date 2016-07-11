@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Global.FileSync;
 import net.estinet.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.estinet.gFeatures.Feature.gRanks.Global.InheritSync;
@@ -131,9 +132,7 @@ public class Basis {
 			PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 			for(String perm : Basis.getRank(r.getRank(p)).getPerms()){
 				if(perm.equals("'*'")){
-					for(Permission permsa : Bukkit.getPluginManager().getPermissions()){
-						pa.setPermission(permsa, true);
-					}
+					p.setOp(true);
 				}
 				else{
 				boolean isittrue;
@@ -144,8 +143,12 @@ public class Basis {
 				else{
 					isittrue = true;
 				}
+				Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + p.getName());
 				pa.setPermission(perm, isittrue);
 				}
+			}
+			if(!Basis.getRank(r.getRank(p)).getPerms().contains("'*'")){
+				p.setOp(false);
 			}
 			Basis.addPermissionAttach(p.getUniqueId(), pa);
 		}

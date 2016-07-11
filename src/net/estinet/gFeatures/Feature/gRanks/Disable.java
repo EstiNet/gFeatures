@@ -22,6 +22,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("gRanks Plugin Disabled!");
+		Bukkit.getLogger().info("[gRanks] Plugin Disabled!");
 	}
 }

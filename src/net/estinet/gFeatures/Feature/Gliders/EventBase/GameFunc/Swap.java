@@ -50,6 +50,8 @@ public class Swap {
 				
 				p.getInventory().setChestplate(new ItemStack(Material.ELYTRA, 1));
 				
+				p.setHealth(20);
+				
 				CSUtility cs = new CSUtility();
 				cs.giveWeapon(p, "Pistol", 1);
 				cs.giveWeapon(p, "Grenade", 1);
@@ -64,6 +66,8 @@ public class Swap {
 				
 				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 				p.getInventory().setHelmet(wool);
+				
+				p.setHealth(20);
 				
 				CSUtility cs = new CSUtility();
 				cs.giveWeapon(p, "Sniper", 1);

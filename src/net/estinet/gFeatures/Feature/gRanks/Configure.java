@@ -27,10 +27,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		gRanks base = new gRanks("gRanks", "1.7.1");
+		gRanks base = new gRanks("gRanks", "1.8.0");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", base, true);
+		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", "gFeatures.admin", base, true);
 		Basic.addCommand(test);
 		
 		gRanksClioteHook grch = new gRanksClioteHook(base);

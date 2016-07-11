@@ -63,9 +63,7 @@ public class ConfigHub {
 			}
 			Bukkit.getLogger().info("[gRanks] Successfully added config!");
 		}
-		Bukkit.getLogger().info("hi");
 		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
-			Bukkit.getLogger().info("hi");
 			yamlFile.createSection("Config.ClioteSky");
 			yamlFile.createSection("Config.ClioteSky.Enable");
 			yamlFile.set("Config.ClioteSky.Enable", "false");

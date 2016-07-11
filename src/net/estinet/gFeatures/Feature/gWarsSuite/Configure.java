@@ -31,7 +31,7 @@ public class Configure {
 		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.8.3");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("gWarss", "gWarsSuite core command.", "/gWarss help", base, Arrays.asList("gw"), true);
+		EstiCommand test = new EstiCommand("gWarss", "gWarsSuite core command.", "/gWarss help", "gFeatures.admin", base, Arrays.asList("gw"), true);
 		Basic.addCommand(test);
 	}
 }

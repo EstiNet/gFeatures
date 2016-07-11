@@ -31,7 +31,7 @@ public class Configure {
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("clupic", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", base, true);
+		EstiCommand test = new EstiCommand("clupic", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", "gFeatures.admin", base, true);
 		Basic.addCommand(test);
 	}
 }

@@ -221,6 +221,7 @@ public class EventHub{
 	public void onEntityDamage(EntityDamageEvent event) {
 		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
 			event.setCancelled(true);
+			Bukkit.getLogger().info("prevented ender blow up");
 		}
 		if(event.getEntity() instanceof Player){
 			Player p = (Player) event.getEntity();

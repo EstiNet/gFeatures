@@ -39,7 +39,7 @@ public class FinishStart {
 				p.teleport(Basic.towerspawn.get(random));
 			}*/
 			Music m = new Music();
-			m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
+			m.sendMusic(p, "theme", 100, "Vexento", "New Colours", "");
 		}
 	}
 }
