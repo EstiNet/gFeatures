@@ -7,6 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
+
+import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
@@ -73,9 +75,13 @@ public class StartStop {
 							p.setLevel(0);
 							if(Basic.getOrangeSize() >= Basic.getBlueSize()){
 								Basic.teams.put(p.getUniqueId(), Team.BLUE);
+								ActionAPI aapi = new ActionAPI();
+								aapi.sendActionbar(p, ChatColor.BLUE + "You are on the blue team! Glide down from the plane and steal the flag!");
 							}
 							else{
 								Basic.teams.put(p.getUniqueId(), Team.ORANGE);
+								ActionAPI aapi = new ActionAPI();
+								aapi.sendActionbar(p, ChatColor.GOLD + "You are on the orange team! Protect the flag from the gliders!");
 							}
 						}
 

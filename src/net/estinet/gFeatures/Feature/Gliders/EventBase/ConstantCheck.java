@@ -19,7 +19,7 @@ public class ConstantCheck {
 			Bukkit.getLogger().info(p.getName() + " " + Basic.flagger.getName());
 			}
 			catch(NullPointerException e){}
-			if((p.getLocation().getX() < 10) && Basic.flagger.getName().equals(p.getName())){
+			if((p.getLocation().getY() < 10) && Basic.flagger.getName().equals(p.getName())){
 				if(!Basic.swap){
 					Basic.firstteam = Team.BLUE;
 					Action.sendAllTitle(ChatColor.BOLD + p.getName() + " has secured the flag!", ChatColor.AQUA + "Blue wins this round!", 20, 20, 20);

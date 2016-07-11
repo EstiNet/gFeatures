@@ -7,6 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -105,7 +106,7 @@ public class EventHub{
 								Basic.kills.remove(pl.getUniqueId());
 								Basic.kills.put(pl.getUniqueId(), kills);
 
-								Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+								Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + ((Player) event.getDamager()).getDisplayName() + " killed " + ((Player) event.getEntity()).getDisplayName() + "!");
 
 								d.init(p);
 							}
@@ -157,7 +158,7 @@ public class EventHub{
 						kills+=1;
 						Basic.kills.remove(pl.getUniqueId());
 						Basic.kills.put(pl.getUniqueId(), kills);
-						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
+						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getPlayer().getDisplayName() + " killed " + ((Player) event.getVictim()).getDisplayName() + "!");
 						event.setCancelled(true);
 						d.init(p);
 					}
@@ -216,5 +217,36 @@ public class EventHub{
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		((Player)event.getEntity()).setFoodLevel(20);
 		event.setCancelled(true);
+	}
+	public void onEntityDamage(EntityDamageEvent event) {
+		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
+			event.setCancelled(true);
+		}
+		if(event.getEntity() instanceof Player){
+			Player p = (Player) event.getEntity();
+			int health = (int) p.getHealth();
+			double damage = event.getDamage();
+			if(health - damage <= 0){
+				if(Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.WAITING)){
+					p.setHealth(20);
+
+					p.teleport(Basic.waitspawn);
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+						if(event.getEntity().isDead())
+							p.setHealth(20);
+					}});
+				}
+				else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
+					p.getInventory().clear();
+					int deaths = Basic.deaths.get(p.getUniqueId());
+					deaths+=1;
+					Basic.deaths.remove(p.getUniqueId());
+					Basic.deaths.put(p.getUniqueId(), deaths);
+					Bukkit.broadcastMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Death" + ChatColor.GOLD +"] " + ChatColor.DARK_AQUA + p.getDisplayName() + " died. .-.");
+					event.setCancelled(true);
+					d.init(p);
+				}
+			}
+		}
 	}
 }
