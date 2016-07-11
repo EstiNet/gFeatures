@@ -51,13 +51,13 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class EventHub {
 	static ItemStack navigator, additions, settings, pane, friend;
 	HidePlayers hp = new HidePlayers();
 	Stacker st = new Stacker();
-	
+
 	public EventHub(){
 		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
 		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
@@ -72,7 +72,7 @@ public class EventHub {
 		ims.setDisplayName(ChatColor.GOLD + "Friends");
 		friend.setItemMeta(ims);
 	}
-	
+
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
@@ -89,17 +89,17 @@ public class EventHub {
 		p.getInventory().setItem(8, pane);
 		Constants.playerOn.put(p.getUniqueId(), true);
 		Thread thr = new Thread(new Runnable(){
-		public void run(){
-		try{
-		Retrieve r = new Retrieve();
-		String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-		String prefix = prefixs.replace('&', '§');
-		event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-		}
-		catch(Exception e){
-			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-		}
-		}
+			public void run(){
+				try{
+					Retrieve r = new Retrieve();
+					String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+					String prefix = prefixs.replace('&', '§');
+					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+				}
+				catch(Exception e){
+					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+				}
+			}
 		});
 		thr.start();
 	}
@@ -108,39 +108,39 @@ public class EventHub {
 	}
 	public void onPlayerInteract(PlayerInteractEvent event){
 		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
-		switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
-		case CHEST:
-			event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
-			break;
-		case FURNACE:
-			Settings s = new Settings();
-			s.init(event.getPlayer());
-			break;
-		case SKULL_ITEM:
-			FriendsMenu fm = new FriendsMenu();
-			fm.init(event.getPlayer());
-			break;
-		case COMPASS:
-			Compass c = new Compass();
-			c.init(event.getPlayer());
-			break;
-		default:
-			break;
-		}
+			switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
+			case CHEST:
+				event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
+				break;
+			case FURNACE:
+				Settings s = new Settings();
+				s.init(event.getPlayer());
+				break;
+			case SKULL_ITEM:
+				FriendsMenu fm = new FriendsMenu();
+				fm.init(event.getPlayer());
+				break;
+			case COMPASS:
+				//Compass c = new Compass();
+				//c.init(event.getPlayer());
+				break;
+			default:
+				break;
+			}
 		}
 		st.onInteract(event);
 		event.setCancelled(true);
 	}
 	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
 		Player player = event.getPlayer();
-	    if ((player.getGameMode() != GameMode.CREATIVE))
-	    {
-	      event.setCancelled(true);
-	      player.setAllowFlight(false);
-	      player.setFlying(false);
-	      player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
-	      player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
-	    }
+		if ((player.getGameMode() != GameMode.CREATIVE))
+		{
+			event.setCancelled(true);
+			player.setAllowFlight(false);
+			player.setFlying(false);
+			player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
+			player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
+		}
 	}
 	public void onPlayerMove(PlayerMoveEvent event){
 		event.getPlayer().setAllowFlight(true);
@@ -174,10 +174,10 @@ public class EventHub {
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		try{
-		Retrieve r = new Retrieve();
-		String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-		String prefix = prefixs.replace('&', '§');
-		event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+			Retrieve r = new Retrieve();
+			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+			String prefix = prefixs.replace('&', '§');
+			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 		catch(Exception e){
 			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
@@ -187,7 +187,7 @@ public class EventHub {
 		ItemStack item = new ItemStack(material, 1);
 		List<String> lores = new ArrayList<>();
 		for(String lor : lore){
-		lores.add(lor);
+			lores.add(lor);
 		}
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(name);

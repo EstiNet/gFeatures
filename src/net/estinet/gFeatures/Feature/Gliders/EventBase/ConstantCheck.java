@@ -15,7 +15,10 @@ import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Swap;
 public class ConstantCheck {
 	public void goThrough(){
 		for(Player p : Bukkit.getOnlinePlayers()){
+			try{
 			Bukkit.getLogger().info(p.getName() + " " + Basic.flagger.getName());
+			}
+			catch(NullPointerException e){}
 			if((p.getLocation().getX() < 10) && Basic.flagger.getName().equals(p.getName())){
 				if(!Basic.swap){
 					Basic.firstteam = Team.BLUE;
