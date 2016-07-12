@@ -13,6 +13,8 @@ import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EnderCrystal;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 
 import net.estinet.gFeatures.Feature.gHub.Basis;
 
@@ -42,6 +44,11 @@ public class Crystal {
 		spawnCrystals();
 	}
 	public void spawnCrystals(){
+		for(Entity ent : Bukkit.getWorld("EstiNet").getEntities()){
+			if(ent.getType().equals(EntityType.ENDER_CRYSTAL)){
+				ent.remove();
+			}
+		}
 		for(Location loc : Basis.crystals.keySet()){
 			Bukkit.getWorld("EstiNet").spawn(loc, EnderCrystal.class);
 		}
