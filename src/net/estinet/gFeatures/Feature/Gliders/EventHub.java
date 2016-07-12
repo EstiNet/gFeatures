@@ -4,10 +4,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -116,13 +118,19 @@ public class EventHub{
 			}
 			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
 				event.setCancelled(true);
+				try{
 				fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
+				}
+				catch(ClassCastException e){}
 			}
 		}
 		else{
 			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
 				event.setCancelled(true);
+				try{
 				fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
+				}
+				catch(ClassCastException e){}
 			}
 		}
 	}
@@ -219,10 +227,6 @@ public class EventHub{
 		event.setCancelled(true);
 	}
 	public void onEntityDamage(EntityDamageEvent event) {
-		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
-			event.setCancelled(true);
-			Bukkit.getLogger().info("prevented ender blow up");
-		}
 		if(event.getEntity() instanceof Player){
 			Player p = (Player) event.getEntity();
 			int health = (int) p.getHealth();
@@ -248,6 +252,16 @@ public class EventHub{
 					d.init(p);
 				}
 			}
+		}
+	}
+	public void onEntityExplode(EntityExplodeEvent event) {
+		if(event.getEntityType().equals(EntityType.ENDER_CRYSTAL)){
+			event.setCancelled(true);
+			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+				public void run(){
+					Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
+				}
+			}, 5L);
 		}
 	}
 }

@@ -54,7 +54,8 @@ public class Swap {
 				
 				CSUtility cs = new CSUtility();
 				cs.giveWeapon(p, "Pistol", 1);
-				cs.giveWeapon(p, "Grenade", 1);
+				cs.giveWeapon(p, "Grenade", 20);
+				cs.giveWeapon(p, "GrenadeLauncher", 1);
 			}
 			else{
 				Action.sendAll(ChatColor.DARK_AQUA + "You are now defending the island!");

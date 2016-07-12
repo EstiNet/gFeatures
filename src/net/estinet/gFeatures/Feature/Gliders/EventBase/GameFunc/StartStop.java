@@ -56,16 +56,16 @@ public class StartStop {
 					if(Bukkit.getServer().getOnlinePlayers().size() >= 2){
 						
 						//Initialize world finding
-						if(Bukkit.getServer().getOnlinePlayers().size() >= 4){
+						/*if(Bukkit.getServer().getOnlinePlayers().size() <= 4){
 							MapTwo mt = new MapTwo();
 							mt.justDoIt();
 							mt.reassign();
 						}
-						else{
+						else{*/
 							MapOne mo = new MapOne();
 							mo.justDoIt();
 							mo.reassign();
-						}
+						//}
 						
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("mgstart", "Bungee");
@@ -167,6 +167,9 @@ public class StartStop {
 				p.sendMessage(ChatColor.AQUA + "Won Game: +10 clupic");
 				clupic += 10;
 			}
+			else if(winner.equals(Team.NONE)){
+				p.sendMessage(ChatColor.AQUA + "Tie: +5 clupic");
+			}
 			clupic += (Basic.kills.get(p.getUniqueId()) * 2 + 3);
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
@@ -205,6 +208,11 @@ public class StartStop {
 					public void run(){
 						if(Bukkit.getOnlinePlayers().size() == 0){
 							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+						}
+						else{
+							for(Player p : Bukkit.getOnlinePlayers()){
+								cp.sendMessage("redirect " + p.getName() + " MinigameHub", "Bungee");
+							}
 						}
 					}
 				}, 80L, 80L);

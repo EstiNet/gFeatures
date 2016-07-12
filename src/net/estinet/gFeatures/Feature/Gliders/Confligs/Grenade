@@ -1,23 +1,41 @@
-Grenade:
+GrenadeLauncher:
     Item_Information:
-        Item_Name: "&eFrag Grenade"
-        Item_Type: 402
-        Item_Lore: "&eExplodes three seconds after launch."
-        Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
-        Remove_Unused_Tag: true
+        Item_Name: "&eGrenade Launcher"
+        Item_Type: 417
+        Item_Lore: "&eLaunches grenades."
+        Sounds_Acquired: BAT_TAKEOFF-1-1-0
     Shooting:
-        Right_Click_To_Shoot: true
+        Cancel_Left_Click_Block_Damage: true
         Cancel_Right_Click_Interactions: true
-        Delay_Between_Shots: 10
+        Right_Click_To_Shoot: true
+        Delay_Between_Shots: 6
+        Recoil_Amount: 1
         Projectile_Amount: 1
-        Projectile_Type: grenade
-        Projectile_Subtype: 46
+        Projectile_Type: egg
         Projectile_Speed: 10
-        Sounds_Shoot: ENTITY_SKELETON_SHOOT-2-0-0
+        Projectile_Damage: 12
+        Projectile_Incendiary:
+            Enable: true
+            Duration: 140
+        Bullet_Spread: 4
+        Reset_Fall_Distance: false
+        Sounds_Shoot: GHAST_FIREBALL-1-1-0
+    Reload:
+        Enable: true
+        Reload_Amount: 1
+        Reload_Bullets_Individually: false
+        Take_Ammo_On_Reload: true
+        Reload_Duration: 20
+        Sounds_Out_Of_Ammo: FIRE_IGNITE-2-0-0
+        Sounds_Reloading: FIZZ-1-1-0,PISTON_RETRACT-2-2-80
+    Particles:
+        Enable: true
+        Particle_Player_Shoot: smoke
+        Particle_Hit: smoke
+        Particle_Headshot: smoke
     Explosions:
         Enable: true
         Explosion_No_Grief: true
-        Explosion_Radius: 4
-        Explosion_Delay: 60
-    Extras:
-        One_Time_Use: true
+        Explosion_Radius: 7
+        Explosion_Delay: 0
+        On_Impact_With_Anything: true

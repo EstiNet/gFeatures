@@ -49,8 +49,8 @@ public class Scored {
 		score5.setScore(4);
 		Score score8 = objective.getScore(ChatColor.LIGHT_PURPLE + "Random Word:");
 		score8.setScore(3);
-		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!"}; 
-		Score score9 = objective.getScore(ChatColor.LIGHT_PURPLE + str[(int) Math.floor(Math.random() * 16)]);
+		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!", "toes"}; 
+		Score score9 = objective.getScore(ChatColor.LIGHT_PURPLE + str[(int) Math.floor(Math.random() * 17)]);
 		score9.setScore(2);
 		if(!(p.getName().length() >= 16)){
 		Score score10 = objective.getScore(ChatColor.DARK_AQUA + p.getName().trim());

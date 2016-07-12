@@ -21,7 +21,7 @@ Auto-Rifle:
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 30
-        Projectile_Damage: 6
+        Projectile_Damage: 5
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false

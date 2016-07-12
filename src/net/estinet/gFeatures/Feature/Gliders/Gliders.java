@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -95,6 +96,9 @@ public class Gliders extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
 			eh.onEntityDamage((EntityDamageEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
+			eh.onEntityExplode((EntityExplodeEvent) event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -132,6 +136,9 @@ public class Gliders extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onEntityDamage(){}
+	@Override
+	@Retrieval
+	public void onEntityExplode(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);
