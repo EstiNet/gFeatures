@@ -19,6 +19,7 @@ public class FriendsList {
 	public void init(HashMap<String, String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
 		open.open(Bukkit.getPlayer(player));
+		Bukkit.getPlayer(player).updateInventory();
 	}
 	public InventoryAPI makeInventory(HashMap<String, String> hash, Player p){
 		try{
@@ -43,7 +44,6 @@ public class FriendsList {
 			
 			for(int i = 0 ; i < hash.size(); i++){
 				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner((String) hash.keySet().toArray()[i]);
 				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.keySet().toArray()[i] + ChatColor.AQUA + ">" + ChatColor.RESET);

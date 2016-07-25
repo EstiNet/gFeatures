@@ -32,3 +32,4 @@ public class FriendDetailsClioteHook extends ClioteHook{
 		}
 	}
 }
+ 

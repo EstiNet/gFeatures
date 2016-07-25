@@ -17,6 +17,7 @@ public class FriendsPending {
 	public void init(List<String> hash, String player){
 		InventoryAPI open = makeInventory(hash, Bukkit.getPlayer(player));
 		open.open(Bukkit.getPlayer(player));
+		Bukkit.getPlayer(player).updateInventory();
 	}
 	public InventoryAPI makeInventory(List<String> hash, Player p){
 		try{

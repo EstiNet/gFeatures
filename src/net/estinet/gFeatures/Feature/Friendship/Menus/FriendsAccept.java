@@ -19,6 +19,7 @@ public class FriendsAccept {
 	public void init(Player player, String name){
 		InventoryAPI open = makeInventory(player, name);
 		open.open(player);
+		player.updateInventory();
 	}
 	public InventoryAPI makeInventory(Player p, String name){
 		try{
