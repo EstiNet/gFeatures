@@ -261,7 +261,7 @@ public class EventHub{
 				public void run(){
 					Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
 				}
-			}, 5L);
+			}, 20L);
 		}
 	}
 }

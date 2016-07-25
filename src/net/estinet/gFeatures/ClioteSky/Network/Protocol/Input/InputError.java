@@ -5,6 +5,7 @@ import java.util.List;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputAlive;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputCreate;
 
 public class InputError extends Packet{
@@ -24,7 +25,10 @@ public class InputError extends Packet{
 			ClioteSky.printError("Cliote name already taken! Select another one!");
 			break;
 		case "400":
+			ClioteSky.setServerOnlineBoolean();
 			ClioteSky.printError("Cliote already logged in! Are you sure there isn't already another instance of this server?");
+			OutputAlive oa = new OutputAlive();
+			oa.run(args);
 			break;
 		case "900":
 			ClioteSky.printError("Password incorrect when logging in! Are you sure you configured the config correctly?");

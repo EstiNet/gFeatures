@@ -96,6 +96,7 @@ public class StartStop {
 						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 							public void run(){
 								Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
+								Bukkit.getWorld(Basic.mapName).setSpawnLocation(Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX());
 							}
 						}, 45L);
 

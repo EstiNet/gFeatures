@@ -91,6 +91,9 @@ public class ClioteSky {
 	public static boolean isServerOnline() {
 		return serverOnline;
 	}
+	public static void setServerOnlineBoolean(){
+		ClioteSky.serverOnline = true;
+	}
 	public static void setServerOffline(){
 		ClioteSky.serverOnline = false;
 		NetworkThread.clientSocket = null;
