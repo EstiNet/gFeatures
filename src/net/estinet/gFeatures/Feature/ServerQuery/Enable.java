@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ServerQuery;
 
 import org.bukkit.Bukkit;
 
@@ -22,9 +22,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable{
-	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
-		Bukkit.getLogger().info("Base Plugin enabled!");
-		ch.setupConfig();
+		Bukkit.getLogger().info("[ServerQuery] Enabled!");
 	}
 }

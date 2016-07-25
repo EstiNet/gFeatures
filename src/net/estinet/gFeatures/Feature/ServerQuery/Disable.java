@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ServerQuery;
 
 import org.bukkit.Bukkit;
 
@@ -23,6 +23,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("Base Plugin Disabled!");
+		Bukkit.getLogger().info("[ServerQuery] Disabled!");
 	}
 }
