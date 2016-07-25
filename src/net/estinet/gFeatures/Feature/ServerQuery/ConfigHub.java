@@ -1,7 +1,6 @@
-package net.estinet.gFeatures.Feature.gScore;
+package net.estinet.gFeatures.Feature.Base;
 
-import net.estinet.gFeatures.Basic;
-import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures
@@ -22,10 +21,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Configure {
-	@Configs
-	public static void onSetup(){
-		gScore base = new gScore("gScore", "2.0.0");
-		Basic.addFeature(base);
+public class ConfigHub {
+	Config config = new Config();
+	public void setupConfig(){
+		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
 	}
 }
