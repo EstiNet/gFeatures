@@ -29,6 +29,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
 import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
+import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 
 public class Scored {
 	MoneyManager mm = new MoneyManager();
@@ -41,13 +42,13 @@ public class Scored {
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "     Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net     ");
 		Score score1 = objective.getScore("");
 		score1.setScore(11);
-		Score score2 = objective.getScore(ChatColor.DARK_BLUE + "" + ChatColor.BOLD + "Online");
+		Score score2 = objective.getScore(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Online");
 		score2.setScore(10);
-		Score score3 = objective.getScore(ChatColor.GRAY + "" + Integer.toString(Bukkit.getServer().getOnlinePlayers().size()));
+		Score score3 = objective.getScore(ChatColor.GRAY + "" + ServerQuery.getPlayerCount());
 		score3.setScore(9);
 		Score score12 = objective.getScore(" ");
 		score12.setScore(8);
-		Score score = objective.getScore(ChatColor.GREEN + "" + ChatColor.BOLD + "Clupic ⛀⛁⛃⛂");
+		Score score = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + "Clupic ⛀⛁⛃⛂");
 		score.setScore(7);
 		Score score5 = objective.getScore(ChatColor.GRAY + "" + Float.toString(mm.getMoney(p)));
 		score5.setScore(6);

@@ -17,8 +17,8 @@ public class ServerQueryClioteHook extends ClioteHook{
 		}
 		else if(args.get(0).equals("playerget")){
 			Execute e = ServerQuery.hash.get(args.get(1));
-			e.server = args.get(1);
-			
+			e.server = args.get(2);
+			e.run();
 		}
 	}
 }
