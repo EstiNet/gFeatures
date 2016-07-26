@@ -22,9 +22,17 @@ public class ServerQueryClioteHook extends ClioteHook{
 			ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
 			if(Basic.getFeature("gScore").getState().equals(FeatureState.ENABLE)){
 				Listeners l = new Listeners();
-				for(Player p : Bukkit.getOnlinePlayers()){
-					l.set(p);
-				}
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+		        	public void run(){
+							try {
+								for(Player p : Bukkit.getOnlinePlayers()){
+									l.set(p);
+								}
+						} catch (IllegalArgumentException e) {
+						} catch (IllegalStateException e) {
+						}
+		        	}
+		        }, 40L);
 			}
 		}
 		else if(args.get(0).equals("playerget")){
