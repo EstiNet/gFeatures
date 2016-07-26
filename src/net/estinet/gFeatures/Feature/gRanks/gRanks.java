@@ -67,6 +67,8 @@ public class gRanks extends gFeature{
 	public void onPlayerLeave(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
+		if(sender.hasPermission("gFeatures.admin")){
 			ch.onCommand(sender, cmd, label, args);
+		}
 	}
 }
