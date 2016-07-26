@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gHub;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
@@ -9,6 +10,7 @@ import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -102,6 +104,11 @@ public class EventHub {
 			}
 		});
 		thr.start();
+		for(UUID uuid : Constants.playerOn.keySet()){
+			if(!Constants.playerOn.get(uuid)){
+				Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
+			}
+		}
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
 		event.setCancelled(true);

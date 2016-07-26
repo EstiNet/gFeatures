@@ -50,7 +50,7 @@ public class FriendsPending {
 				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner(hash.get(i));
-				sm.setDisplayName((String) hash.get(i) );
+				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE + (String) hash.get(i) + ChatColor.AQUA + ">" + ChatColor.RESET);
 				skull.setItemMeta(sm);
 				menu.setOption(i, skull);
 			}

@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.md_5.bungee.api.ChatColor;
 
 /*
 gFeatures
@@ -44,7 +45,12 @@ public class CommandLibrary {
 		for(EstiCommand commandd : Basic.getCommands()){
 			if(commandd.getName().equals(cmd.getName())){
 				try{
-					commandd.execute(sender, label, args);
+					if(sender.hasPermission(commandd.getPermission())){
+						commandd.execute(sender, label, args);
+					}
+					else{
+						sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "] " + ChatColor.GRAY + "Permission denied.");
+					}
 				}
 				catch(Exception e){
 					e.printStackTrace();
