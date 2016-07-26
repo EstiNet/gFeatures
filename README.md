@@ -5,7 +5,7 @@ The core of EstiNet.
 EstiNet - The flow of creativity.
 
 ##Version
-gFeatures Core/API: 3.3.5
+gFeatures Core/API: 3.3.8
 
 ## Info
 gFeatures powers EstiNet.
@@ -13,7 +13,7 @@ It is the core that symbolizes everything about us.
 
 ## Dependencies
 gFeatures requires the following dependencies to run:
-* Spigot 1.9
+* Spigot 1.10
 * CrackShot
 * Java 8
 * MySQL
@@ -31,6 +31,9 @@ A useful API to send NMS data to the player (titles, action bars, and etc.).
 
 ### EstiPlayer API (SQLPlayers)
 An API to store player data in a MySQL Database. Similar to the gPlayer API.
+
+## au3c API (Redis - MySQL)
+An API to automatically communicate with Redis (and au3c) to store data quickly.
 
 ### gFeatures Core
 Loads all of the Features into memory. Basically runs the whole thing.
