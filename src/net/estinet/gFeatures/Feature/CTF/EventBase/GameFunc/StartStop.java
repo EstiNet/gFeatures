@@ -160,11 +160,11 @@ public class StartStop {
 			s.handler(p);
 			//Show their stats
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + ChatColor.GREEN + "" + ChatColor.BOLD + "Stats" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----");
-			p.sendMessage(ChatColor.AQUA + "Participation: +5 clupic");
+			p.sendMessage(ChatColor.AQUA + "Participation: +10 clupic");
 			p.sendMessage(ChatColor.AQUA + "Kills: " + Basic.kills.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Flag Captures: " + Basic.flagcaptures.get(p.getUniqueId()));
-			int clupic = (Basic.flagcaptures.get(p.getUniqueId()) * 20) + ((Basic.kills.get(p.getUniqueId()) * 2) + 16);
+			int clupic = (Basic.flagcaptures.get(p.getUniqueId()) * 20) + ((Basic.kills.get(p.getUniqueId()) * 5) + 10);
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
 			MoneyManager mm = new MoneyManager();

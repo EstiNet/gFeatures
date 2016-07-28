@@ -160,18 +160,19 @@ public class StartStop {
 			s.handler(p);
 			//Show their stats
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + ChatColor.GREEN + "" + ChatColor.BOLD + "Stats" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----");
-			p.sendMessage(ChatColor.AQUA + "Participation: +3 clupic");
+			p.sendMessage(ChatColor.AQUA + "Participation: +5 clupic");
 			p.sendMessage(ChatColor.AQUA + "Kills: " + Basic.kills.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
 			int clupic = 0;
 			if(winner.equals(Basic.teams.get(p.getUniqueId()))){
-				p.sendMessage(ChatColor.AQUA + "Won Game: +10 clupic");
-				clupic += 10;
+				p.sendMessage(ChatColor.AQUA + "Won Game: +20 clupic");
+				clupic += 20;
 			}
 			else if(winner.equals(Team.NONE)){
-				p.sendMessage(ChatColor.AQUA + "Tie: +5 clupic");
+				p.sendMessage(ChatColor.AQUA + "Tie: +10 clupic");
+				clupic += 10;
 			}
-			clupic += (Basic.kills.get(p.getUniqueId()) * 2 + 3);
+			clupic += (Basic.kills.get(p.getUniqueId()) * 5 + 5);
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
 			MoneyManager mm = new MoneyManager();

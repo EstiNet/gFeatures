@@ -86,6 +86,8 @@ public class MapOne {
 		spectatespawn = new Location(Bukkit.getWorld("Gliders1"), 596.5, 60.5, -564.5);
 		flag = new Location(Bukkit.getWorld("Gliders1"), 596.5, 50.5, -564.5);
 
+		Bukkit.getWorld("Gliders1").setSpawnLocation(581, 51, -563);
+		
 		Basic.mapName = "Gliders1";
 		Basic.planespawn = planespawn;
 		Basic.towerspawn = towerspawn;

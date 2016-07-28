@@ -1,5 +1,10 @@
 package net.estinet.gFeatures.Utility.EstiJoin;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,9 +15,14 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gUtility;
+import net.estinet.gFeatures.API.Messaging.ActionAPI;
+import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 public class EstiJoin extends gUtility{
+	
+	public static String title = "";
+	public static String subtitle = "";
 	
 	public EstiJoin(String featurename, String d) {
 		super(featurename, d);
@@ -20,6 +30,27 @@ public class EstiJoin extends gUtility{
 	@Override
 	public void enable(){
 		Bukkit.getLogger().info("[EstiJoin] Enabled.");
+		Config c = new Config();
+		c.createDirectory("plugins/gFeatures/EstiJoin", "Created EstiJoin Directory.");
+		File f = new File("plugins/gFeatures/EstiJoin/title.txt");
+		if(!f.exists()){
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			try {
+				FileReader fr = new FileReader(f);
+				BufferedReader br = new BufferedReader(fr);
+				title = br.readLine();
+				subtitle = br.readLine();
+				br.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	@Override
 	public void disable(){
@@ -29,6 +60,10 @@ public class EstiJoin extends gUtility{
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			PlayerJoinEvent e = (PlayerJoinEvent) event;
+			ActionAPI aapi = new ActionAPI();
+			if(!title.equals("")){
+				aapi.sendTitles(e.getPlayer(), 50, 40, 50, title.replace('&', '§'), subtitle.replace('&', '§'));
+			}
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 				try{

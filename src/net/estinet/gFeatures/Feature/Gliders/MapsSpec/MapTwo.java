@@ -63,7 +63,7 @@ public class MapTwo {
 	public void reassign(){
 		planespawn.add(new Location(Bukkit.getWorld("Gliders2"), -662.5, 220.5, 881.5));
 
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, -868.5));
+		towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, 868.5));
 
 		spectatespawn = new Location(Bukkit.getWorld("Gliders2"), -575.5, 135.5, 883.5);
 		flag = new Location(Bukkit.getWorld("Gliders2"), -579.5, 49.5, 879.5);
