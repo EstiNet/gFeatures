@@ -46,5 +46,13 @@ public class ConfigHub {
 			yamlFile.createSection("Redis.Password");
 			yamlFile.set("Redis.Password", "pass123");
 		}
+		if(!(yamlFile.contains("Redis.DatabaseNumber"))){
+			yamlFile.createSection("Redis.DatabaseNumber");
+			yamlFile.set("Redis.DatabaseNumber", "1");
+		}
+		Shop.IP = (String) yamlFile.get("Redis.IP");
+		Shop.port = (String) yamlFile.get("Redis.Port");
+		Shop.password = (String) yamlFile.get("Redis.Password");
+		Shop.databaseNum = (String) yamlFile.get("Redis.DatabaseNumber");
 	}
 }
