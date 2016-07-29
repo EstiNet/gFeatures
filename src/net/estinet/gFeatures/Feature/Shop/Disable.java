@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
 

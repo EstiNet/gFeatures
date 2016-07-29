@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
 
@@ -26,5 +26,7 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("Base Plugin enabled!");
 		ch.setupConfig();
+		//Get stuffs
+		
 	}
 }

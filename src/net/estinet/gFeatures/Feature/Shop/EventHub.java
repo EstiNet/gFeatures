@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -28,13 +28,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void onPlayerJoin(PlayerJoinEvent event){
-		Bukkit.getLogger().info("Player Joined!");
-		Bukkit.getLogger().info("Health: " + Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData(Basic.getFeature("Base").getName(), new Key("Health")));
-		Bukkit.getLogger().info("Setting it to 21");
-		EstiPlayer play = Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString());
-		play.setData(Basic.getFeature("Base").getName(), new Key("Health"), "21");
-		Basic.setEstiPlayer(Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()), play);
+		
 	}
 }
