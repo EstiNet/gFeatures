@@ -23,6 +23,9 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
+		Shop.connection.close();
+		Shop.redisClient.shutdown();
+		
 		Bukkit.getLogger().info("[Shop] Disabled!");
 	}
 }
