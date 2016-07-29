@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
+import net.estinet.gFeatures.Feature.Shop.SetTrail;
 import net.estinet.gFeatures.Feature.Shop.Shop;
 import net.estinet.gFeatures.Feature.Shop.Enums.Trails;
 
@@ -27,9 +27,13 @@ public class TrailShop {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
-						
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.NONE);
 					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.FIRE) + "Fire Trail"))
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.FIRE) + "Fire Trail")){
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.FIRE);
+					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
 				}

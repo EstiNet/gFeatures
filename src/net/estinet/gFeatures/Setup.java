@@ -50,7 +50,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.Friendship.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Gliders.Configure.onSetup();
 		net.estinet.gFeatures.Feature.ServerQuery.Configure.onSetup();
-		//net.estinet.gFeatures.Feature.Shop.Configure.onSetup();
+		net.estinet.gFeatures.Feature.Shop.Configure.onSetup();
 
 		/*
 		 * Initialize your Skripts here.

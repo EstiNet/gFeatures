@@ -10,7 +10,7 @@ public class Configure{
 		Shop base = new Shop("Shop", "1.0.0");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("shop", "Says test!", "/test", "gFeatures.test", base, new TestCommand());
+		EstiCommand test = new EstiCommand("shop", "Says test!", "/shop", base, new TestCommand());
 		Basic.addCommand(test);
 	}
 }

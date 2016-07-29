@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
+import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -117,7 +118,8 @@ public class EventHub {
 		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 			switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
 			case CHEST:
-				event.getPlayer().sendMessage(ChatColor.GOLD + "I'm still a work in progress!");
+				MainShop ms = new MainShop();
+				ms.init(event.getPlayer());
 				break;
 			case FURNACE:
 				Settings s = new Settings();
