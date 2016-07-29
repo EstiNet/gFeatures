@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -29,6 +30,10 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
-		
+		String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
+		Shop.playerTrail.put(event.getPlayer().getUniqueId(), value);
+	}
+	public void onPlayerLeave(PlayerQuitEvent event){
+		Shop.playerTrail.remove(event.getPlayer().getUniqueId());
 	}
 }

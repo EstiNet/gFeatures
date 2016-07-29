@@ -1,10 +1,13 @@
 package net.estinet.gFeatures.Feature.Shop;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import com.lambdaworks.redis.RedisClient;
-import com.lambdaworks.redis.RedisStringsConnection;
 import com.lambdaworks.redis.api.StatefulRedisConnection;
 import com.lambdaworks.redis.api.sync.RedisCommands;
 
@@ -20,6 +23,8 @@ public class Shop extends gFeature implements Events{
 	public static RedisClient redisClient = null;
 	public static StatefulRedisConnection<String, String> connection = null;
 	public static RedisCommands<String, String> syncCommands = null;
+	
+	public static HashMap<UUID, String> playerTrail = new HashMap<>();
 	
 	public static String IP = "", port = "", password = "", databaseNum = "";
 	
@@ -38,6 +43,9 @@ public class Shop extends gFeature implements Events{
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+			eh.onPlayerLeave((PlayerQuitEvent) event);
 		}
 	}
 	
@@ -59,5 +67,10 @@ public class Shop extends gFeature implements Events{
 	}
 	
 	@Retrieval
+	@Override
 	public void onPlayerJoin(){}
+	
+	@Retrieval
+	@Override
+	public void onPlayerLeave(){}
 }
