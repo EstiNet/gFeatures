@@ -12,7 +12,7 @@ public class Enable{
 		
 		System.out.println("[Shop] Connecting to Redis...");
 		
-		Shop.redisClient = RedisClient.create("redis://" + Shop.password + "@" + Shop.IP + ":" + Shop.port + "/" + Shop.databaseNum);
+		Shop.redisClient = RedisClient.create("redis://"/* + Shop.password + "@"*/ + Shop.IP + ":" + Shop.port + "/" + Shop.databaseNum);
 		Shop.connection = Shop.redisClient.connect();
 		Shop.syncCommands = Shop.connection.sync();
 

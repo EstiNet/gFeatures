@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Shop;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -50,9 +51,14 @@ public class ConfigHub {
 			yamlFile.createSection("Redis.DatabaseNumber");
 			yamlFile.set("Redis.DatabaseNumber", "1");
 		}
-		Shop.IP = (String) yamlFile.get("Redis.IP");
-		Shop.port = (String) yamlFile.get("Redis.Port");
-		Shop.password = (String) yamlFile.get("Redis.Password");
-		Shop.databaseNum = (String) yamlFile.get("Redis.DatabaseNumber");
+		Shop.IP = yamlFile.get("Redis.IP") + "";
+		Shop.port = yamlFile.get("Redis.Port") + "";
+		Shop.password = yamlFile.get("Redis.Password") + "";
+		Shop.databaseNum = yamlFile.get("Redis.DatabaseNumber") + "";
+		try {
+			yamlFile.save(new File("plugins/gFeatures/Shop/Config.yml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
