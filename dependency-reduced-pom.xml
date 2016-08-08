@@ -14,9 +14,6 @@
         <includes>
           <include>plugin.yml</include>
         </includes>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
       </resource>
     </resources>
     <plugins>
