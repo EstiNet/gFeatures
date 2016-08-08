@@ -3,6 +3,9 @@ package net.estinet.gFeatures.Feature.Shop;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -12,9 +15,9 @@ import com.lambdaworks.redis.api.StatefulRedisConnection;
 import com.lambdaworks.redis.api.sync.RedisCommands;
 
 import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.Shop.Enums.Trails;
+import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
 
 public class Shop extends gFeature implements Events{
 	
@@ -66,11 +69,15 @@ public class Shop extends gFeature implements Events{
 		return Trails.values().length;
 	}
 	
-	@Retrieval
 	@Override
 	public void onPlayerJoin(){}
 	
-	@Retrieval
 	@Override
 	public void onPlayerLeave(){}
+	
+	@Override
+	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
+			MainShop ms = new MainShop();
+			ms.init((Player) sender);
+	}
 }

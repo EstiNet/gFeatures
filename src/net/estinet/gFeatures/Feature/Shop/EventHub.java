@@ -5,6 +5,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Basic;
+import net.estinet.gFeatures.Feature.Shop.Enums.Trails;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 import net.estinet.gFeatures.SQL.Player.Key;
@@ -31,7 +32,11 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
-		Shop.playerTrail.put(event.getPlayer().getUniqueId(), value);
+		if(value == null){
+			SetTrail st = new SetTrail();
+			st.init(event.getPlayer(), Trails.NONE);
+		}
+		Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		Shop.playerTrail.remove(event.getPlayer().getUniqueId());

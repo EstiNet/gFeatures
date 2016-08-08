@@ -14,6 +14,7 @@ public class SetTrail {
 			Shop.playerTrail.remove(p.getUniqueId().toString());
 			Shop.playerTrail.put(p.getUniqueId(), trail.toString());
 			Shop.syncCommands.set("trail-" + p.getUniqueId().toString(), trail.toString());
+			
 			break;
 		case FIRE:
 			if(Shop.getTrail(p.getUniqueId().toString(), trail.toString())){
@@ -24,7 +25,7 @@ public class SetTrail {
 			else{
 				MoneyManager mm = new MoneyManager();
 				if(mm.getMoney(p) >= 450){
-					
+					//Buys trail
 				}
 				else{
 					p.sendMessage(ChatColor.RED + "Not enough money!");
