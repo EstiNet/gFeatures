@@ -23,5 +23,7 @@ public class Enable{
 		Shop.syncCommands = Shop.connection.sync();
 
 		System.out.println("[Shop] Connected!");
+		TrailLoop tl = new TrailLoop();
+		tl.init();
 	}
 }
