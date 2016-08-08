@@ -27,26 +27,27 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
-		String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
-		if(value == null){
-			SetTrail st = new SetTrail();
-			st.init(event.getPlayer(), Trails.NONE);
-		}
+
 		Thread thr = new Thread(new Runnable(){
 			public void run(){
+				String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
+				if(value == null){
+					SetTrail st = new SetTrail();
+					st.init(event.getPlayer(), Trails.NONE);
+				}
 				for(Trails trail : Trails.values()){
 					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
 						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
 					}
 				}
+				Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));
 			}
 		});
 		thr.start();
-		Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		Shop.playerTrail.remove(event.getPlayer().getUniqueId());

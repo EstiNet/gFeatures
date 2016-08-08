@@ -25,7 +25,16 @@ public class SetTrail {
 			else{
 				MoneyManager mm = new MoneyManager();
 				if(mm.getMoney(p) >= 450){
-					//Buys trail
+					try {
+						p.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "] " + ChatColor.GRAY + " Bought fire trail.");
+						mm.takeMoney(p, 450);
+						Shop.syncCommands.set("trail-" + p.getUniqueId().toString(), trail.toString());
+						Shop.syncCommands.set("trails-" + p.getUniqueId() + "-" + trail.toString(), "true");
+						Shop.playerTrail.remove(p.getUniqueId().toString());
+						Shop.playerTrail.put(p.getUniqueId(), trail.toString());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 				else{
 					p.sendMessage(ChatColor.RED + "Not enough money!");
