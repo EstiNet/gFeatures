@@ -18,7 +18,7 @@ public class SetTrail {
 			p.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Got rid of any trails.");
 			break;
 		case FIRE:
-			if(Shop.getTrail(p.getUniqueId().toString(), trail.toString())){
+			if(Shop.getTrail(p.getUniqueId().toString(), trail.toString()).equalsIgnoreCase("true")){
 				Shop.playerTrail.remove(p.getUniqueId().toString());
 				Shop.playerTrail.put(p.getUniqueId(), trail.toString());
 				Shop.syncCommands.set("trails-" + p.getUniqueId().toString(), trail.toString());
@@ -32,7 +32,6 @@ public class SetTrail {
 						mm.takeMoney(p, 450);
 						Shop.syncCommands.set("trails-" + p.getUniqueId().toString(), trail.toString());
 						Shop.syncCommands.set("trails-" + p.getUniqueId() + "-" + trail.toString(), "true");
-						Bukkit.getLogger().info("trails-" + p.getUniqueId() + "-" + trail.toString());
 						Shop.playerTrail.remove(p.getUniqueId().toString());
 						Shop.playerTrail.put(p.getUniqueId(), trail.toString());
 					} catch (Exception e) {

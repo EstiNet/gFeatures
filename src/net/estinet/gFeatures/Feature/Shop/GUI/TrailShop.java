@@ -64,7 +64,7 @@ public class TrailShop {
 		return null;
 	}
 	public ChatColor getText(Player p, Trails trail){
-		if(Shop.getTrail(p.getUniqueId().toString(), trail.toString())){
+		if(Shop.getTrail(p.getUniqueId().toString(), trail.toString()).equalsIgnoreCase("true")){
 			return ChatColor.GREEN;
 		}
 		else{

@@ -64,8 +64,6 @@ public class Shop extends gFeature implements Events{
 	}
 	public static String getTrail(String uuid, String trailName){
 		String value = syncCommands.get("trails-" + uuid + "-" + trailName);
-		Bukkit.getLogger().info(value); //HIIIIIIIIIIIIIII
-		Bukkit.getLogger().info("trails-" + uuid + "-" + trailName);
 		return value;
 	}
 	public static int getTotalNumOfTrails(){
