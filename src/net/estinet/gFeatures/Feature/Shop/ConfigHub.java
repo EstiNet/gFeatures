@@ -29,7 +29,7 @@ public class ConfigHub {
 	Config config = new Config();
 	public void setupConfig(){
 		config.createDirectory("plugins/gFeatures/Shop", "Shop plugin directory set!");
-		config.createDirectory("plugins/gFeatures/Shop/Config.yml", "Shop plugin config set!");
+		config.createFile("plugins/gFeatures/Shop/Config.yml", "Shop plugin config set!");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/Shop/Config.yml"));
 		if(!(yamlFile.contains("Redis"))){
 			yamlFile.createSection("Redis");

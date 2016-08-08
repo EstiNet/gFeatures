@@ -9,7 +9,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/mysql.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/o"/>
 	<classpathentry exported="true" kind="lib" path="lib/lettuce-4.2.1.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
