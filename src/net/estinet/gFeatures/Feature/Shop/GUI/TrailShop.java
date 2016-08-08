@@ -40,7 +40,7 @@ public class TrailShop {
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
 			//Fire Trail
-			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.FIRE.toString())){
+			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.FIRE.toString()).equalsIgnoreCase("true")){
 				menu.setOption(0, createItem(Material.BLAZE_POWDER, getText(p, Trails.FIRE) + "Fire Trail", ChatColor.GRAY + "Who doesn't like fire?", ChatColor.BLUE + "Costs 450 clupic."));
 			}
 			else{

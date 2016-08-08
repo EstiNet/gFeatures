@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.Shop;
 import java.util.HashMap;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -61,9 +62,11 @@ public class Shop extends gFeature implements Events{
 		}
 		return num;
 	}
-	public static boolean getTrail(String uuid, String trailName){
+	public static String getTrail(String uuid, String trailName){
 		String value = syncCommands.get("trails-" + uuid + "-" + trailName);
-		return Boolean.getBoolean(value);
+		Bukkit.getLogger().info(value); //HIIIIIIIIIIIIIII
+		Bukkit.getLogger().info("trails-" + uuid + "-" + trailName);
+		return value;
 	}
 	public static int getTotalNumOfTrails(){
 		return Trails.values().length;
