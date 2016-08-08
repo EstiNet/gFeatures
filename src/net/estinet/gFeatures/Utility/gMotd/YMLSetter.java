@@ -42,7 +42,7 @@ public class YMLSetter {
 		return new String(encoded, encoding);
 	}
 	public static String getMotd(){
-		String motds = motd.replace('&', 'ง');
+		String motds = motd.replace('&', 'ยง');
 		return motds;
 	}
 }

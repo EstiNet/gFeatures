@@ -96,7 +96,7 @@ public class EventHub {
 				try{
 					Retrieve r = new Retrieve();
 					String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-					String prefix = prefixs.replace('&', '§');
+					String prefix = prefixs.replace('&', 'Â§');
 					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
 				}
 				catch(Exception e){
@@ -185,7 +185,7 @@ public class EventHub {
 		try{
 			Retrieve r = new Retrieve();
 			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', '§');
+			String prefix = prefixs.replace('&', 'ï¿½');
 			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 		catch(Exception e){

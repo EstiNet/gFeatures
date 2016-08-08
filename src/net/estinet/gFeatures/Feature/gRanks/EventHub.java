@@ -51,7 +51,7 @@ public class EventHub{
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		try{
 			String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String name = prefix.replace('&', 'ง');
+			String name = prefix.replace('&', 'ยง');
 			if(!event.getPlayer().getDisplayName().contains(name)){
 				event.getPlayer().setDisplayName(name + event.getPlayer().getName());
 			}

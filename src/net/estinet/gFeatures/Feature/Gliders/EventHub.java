@@ -59,19 +59,6 @@ public class EventHub{
 	Leave leave = new Leave();
 	Dead d = new Dead();
 	FlagHit fh = new FlagHit();
-	public void onPlayerJoin(PlayerJoinEvent event){
-		Player p = event.getPlayer();
-		try{
-			Retrieve r = new Retrieve();
-			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', '§');
-			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-		}
-		catch(Exception e){
-			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-		}
-		join.init(event);
-	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		leave.init(event);
 	}

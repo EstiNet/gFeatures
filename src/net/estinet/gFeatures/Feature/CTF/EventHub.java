@@ -59,7 +59,7 @@ public class EventHub{
 		try{
 			Retrieve r = new Retrieve();
 			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', 'ง');
+			String prefix = prefixs.replace('&', 'ยง');
 			event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
 		}
 		catch(Exception e){

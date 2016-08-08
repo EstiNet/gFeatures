@@ -62,14 +62,14 @@ public class EstiJoin extends gUtility{
 			PlayerJoinEvent e = (PlayerJoinEvent) event;
 			ActionAPI aapi = new ActionAPI();
 			if(!title.equals("")){
-				aapi.sendTitles(e.getPlayer(), 50, 40, 50, title.replace('&', 'ง'), subtitle.replace('&', 'ง'));
+				aapi.sendTitles(e.getPlayer(), 50, 40, 50, title.replace('&', 'ยง'), subtitle.replace('&', 'ยง'));
 			}
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 				try{
 				Retrieve r = new Retrieve();
 				String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(e.getPlayer())).getPrefix();
-				String prefix = prefixs.replace('&', 'ง');
+				String prefix = prefixs.replace('&', 'ยง');
 				e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
 				}
 				catch(Exception es){
@@ -84,7 +84,7 @@ public class EstiJoin extends gUtility{
 			try{
 				Retrieve r = new Retrieve();
 				String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(e.getPlayer())).getPrefix();
-				String prefix = prefixs.replace('&', 'ง');
+				String prefix = prefixs.replace('&', 'ยง');
 				e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
 				}
 				catch(Exception es){

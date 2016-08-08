@@ -61,7 +61,7 @@ public class ThreeArg {
 		else if(args[0].equalsIgnoreCase("create")){
 			Rank newrank = new Rank(args[1], args[2]);
 			r.addRank(newrank);
-			String name = newrank.getName().replace('&', 'ง');
+			String name = newrank.getName().replace('&', 'ยง');
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Created rank " + args[1] + "" + ChatColor.RESET + ""  + ChatColor.GRAY + " with the prefix of " + name + "" + ChatColor.RESET + "" + ChatColor.GRAY + ".");
 			if(r.getClioteSkySupport()){
 				CliotePing cp = new CliotePing();
