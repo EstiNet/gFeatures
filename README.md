@@ -5,7 +5,7 @@ The core of EstiNet.
 EstiNet - The flow of creativity.
 
 ##Version
-gFeatures Core/API: 3.3.8
+gFeatures Core/API: 3.3.10
 
 ## Info
 gFeatures powers EstiNet.
@@ -51,7 +51,7 @@ Key map API to store and send keys to other installations.
 ## Copyright
 EstiNet and gFeatures are property of EstiNet.
 
-© 2016 EstiNet - All Rights Reserved.
+ï¿½ 2016 EstiNet - All Rights Reserved.
 
 http://estinet.net/
 
