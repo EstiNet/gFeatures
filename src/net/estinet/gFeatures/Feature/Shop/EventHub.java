@@ -36,6 +36,16 @@ public class EventHub{
 			SetTrail st = new SetTrail();
 			st.init(event.getPlayer(), Trails.NONE);
 		}
+		Thread thr = new Thread(new Runnable(){
+			public void run(){
+				for(Trails trail : Trails.values()){
+					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
+						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
+					}
+				}
+			}
+		});
+		thr.start();
 		Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){

@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
@@ -45,6 +47,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gHub extends gFeature implements Events{
+	public static Location spawn = null;
+	
 	Listeners listeners = new Listeners();
 	EventHub eh = new EventHub();
 	public gHub(String featurename, String d) {
