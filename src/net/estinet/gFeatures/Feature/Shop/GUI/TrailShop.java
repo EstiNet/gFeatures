@@ -41,7 +41,7 @@ public class TrailShop {
 			
 			//Fire Trail
 			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.FIRE.toString()).equalsIgnoreCase("true")){
-				menu.setOption(0, createItem(Material.BLAZE_POWDER, getText(p, Trails.FIRE) + "Fire Trail", ChatColor.GRAY + "Who doesn't like fire?", ChatColor.BLUE + "Costs 450 clupic."));
+				menu.setOption(0, createItem(Material.CLAY_BALL, getText(p, Trails.FIRE) + "Fire Trail", ChatColor.GRAY + "Who doesn't like fire?", ChatColor.BLUE + "Costs 450 clupic."));
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("FIRE")){
@@ -51,8 +51,18 @@ public class TrailShop {
 					menu.setOption(0, createItem(Material.BLAZE_POWDER, getText(p, Trails.FIRE) + "Fire Trail", ChatColor.GRAY + "Who doesn't like fire?", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
-			
-			
+			//Water Trail
+			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.WATER.toString()).equalsIgnoreCase("true")){
+				menu.setOption(1, createItem(Material.CLAY_BALL, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.BLUE + "Costs 450 clupic."));
+			}
+			else{
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("FIRE")){
+					menu.setOption(1, createItem(Material.BLAZE_POWDER, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Currently enabled!"));
+				}
+				else{
+					menu.setOption(1, createItem(Material.BLAZE_POWDER, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Click to ENABLE."));
+				}
+			}
 			
 			
 			menu.setOption(8, createItem(Material.BARRIER, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"));

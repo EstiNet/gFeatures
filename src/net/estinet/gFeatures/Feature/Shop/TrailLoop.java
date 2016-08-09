@@ -4,8 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.API.Misc.ParticleEffect;
-
 public class TrailLoop {
 	public void init(){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -18,7 +16,14 @@ public class TrailLoop {
         				//ParticleEffect.FLAME.display(0, 0, 0, 3, 1, p.getLocation(), 100);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 34);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 28);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.LAVA_POP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.LAVADRIP, 32);
+        				break;
+        			case "WATER":
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 28);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 31);
         				break;
         			}
         		}
