@@ -32,6 +32,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+
+import net.estinet.gFeatures.API.Logger.Debug;
  
 public class InventoryAPI implements Listener {
  
@@ -90,6 +92,7 @@ public class InventoryAPI implements Listener {
             if (slot >= 0 && slot < size && optionNames[slot] != null) {
                 Plugin plugin = this.plugin;
                 OptionClickEvent e = new OptionClickEvent((Player)event.getWhoClicked(), slot, optionNames[slot]);
+                Debug.print("[InventoryAPI] " + event.getWhoClicked().getName() + " clicked.");
                 handler.onOptionClick(e);
                 if (e.willClose()) {
                     final Player p = (Player)event.getWhoClicked();
