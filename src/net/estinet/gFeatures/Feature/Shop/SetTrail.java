@@ -69,6 +69,32 @@ public class SetTrail {
 				}
 			}
 			break;
+		case GRAY:
+			if(Shop.getTrail(p.getUniqueId().toString(), trail.toString()).equalsIgnoreCase("true")){
+				Shop.playerTrail.remove(p.getUniqueId().toString());
+				Shop.playerTrail.put(p.getUniqueId(), trail.toString());
+				Shop.syncCommands.set("trails-" + p.getUniqueId().toString(), trail.toString());
+				p.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Equipped grey trail.");
+			}
+			else{
+				MoneyManager mm = new MoneyManager();
+				if(mm.getMoney(p) >= 250){
+					try {
+						p.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "]" + ChatColor.GRAY + " Bought grey trail.");
+						mm.takeMoney(p, 250);
+						Shop.syncCommands.set("trails-" + p.getUniqueId().toString(), trail.toString());
+						Shop.syncCommands.set("trails-" + p.getUniqueId() + "-" + trail.toString(), "true");
+						Shop.playerTrail.remove(p.getUniqueId().toString());
+						Shop.playerTrail.put(p.getUniqueId(), trail.toString());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				else{
+					p.sendMessage(ChatColor.RED + "Not enough money!");
+				}
+			}
+			break;
 		}
 
 	}

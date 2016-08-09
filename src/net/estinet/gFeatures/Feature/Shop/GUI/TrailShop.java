@@ -73,14 +73,14 @@ public class TrailShop {
 			}
 			//White Trail
 			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.GRAY.toString()).equalsIgnoreCase("true")){
-				menu.setOption(1, createItem(Material.CLAY_BALL, getText(p, Trails.GRAY) + "Grey Trail", ChatColor.GRAY + "Coloured trail!", ChatColor.BLUE + "Costs 250 clupic."));
+				menu.setOption(2, createItem(Material.CLAY_BALL, getText(p, Trails.GRAY) + "Grey Trail", ChatColor.GRAY + "Coloured trail!", ChatColor.BLUE + "Costs 250 clupic."));
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("WATER")){
-					menu.setOption(1, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(1, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			

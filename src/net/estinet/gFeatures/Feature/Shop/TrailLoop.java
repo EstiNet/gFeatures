@@ -26,6 +26,13 @@ public class TrailLoop {
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31, 21);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31, 15);
         				break;
+        			case "GRAY":
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 21);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 15);
+        				break;
         			}
         		}
         	}
