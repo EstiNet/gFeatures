@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Effect;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Misc.ParticleEffect;
@@ -14,7 +15,10 @@ public class TrailLoop {
         			case "NONE":
         				continue;
         			case "FIRE":
-        				ParticleEffect.FLAME.display(0, 0, 0, 3, 1, p.getLocation(), 100);
+        				//ParticleEffect.FLAME.display(0, 0, 0, 3, 1, p.getLocation(), 100);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 28);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.FLAME, 31);
         				break;
         			}
         		}

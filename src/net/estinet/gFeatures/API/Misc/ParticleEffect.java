@@ -1408,7 +1408,7 @@ public enum ParticleEffect {
 				if (version > 7) {
 					enumParticle = PackageType.MINECRAFT_SERVER.getClass("EnumParticle");
 				}
-				Class<?> packetClass = PackageType.MINECRAFT_SERVER.getClass(version < 7 ? "Packet63WorldParticles" : "PacketPlayOutWorldParticles");
+				Class<?> packetClass = PackageType.MINECRAFT_SERVER.getClass("PacketPlayOutWorldParticles");
 				packetConstructor = ReflectionUtils.getConstructor(packetClass);
 				getHandle = ReflectionUtils.getMethod("CraftPlayer", PackageType.CRAFTBUKKIT_ENTITY, "getHandle");
 				playerConnection = ReflectionUtils.getField("EntityPlayer", PackageType.MINECRAFT_SERVER, false, "playerConnection");
