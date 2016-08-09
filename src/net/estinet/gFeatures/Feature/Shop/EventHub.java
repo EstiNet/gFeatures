@@ -44,7 +44,7 @@ public class EventHub{
 						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
 					}
 				}
-				Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));
+				Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));  //wat how is this gonna help
 			}
 		});
 		thr.start();

@@ -60,10 +60,7 @@ public class Gliders extends gFeature implements Events{
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
+		if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			eh.onPlayerLeave((PlayerQuitEvent)event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
@@ -100,9 +97,6 @@ public class Gliders extends gFeature implements Events{
 			eh.onEntityExplode((EntityExplodeEvent) event);
 		}
 	}
-	@Retrieval
-	@Override
-	public void onPlayerJoin(){}
 	@Retrieval
 	@Override
 	public void onPlayerLeave(){}
