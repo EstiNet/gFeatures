@@ -34,6 +34,10 @@ public class TrailShop {
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.FIRE);
 					}
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Water Trail")){
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.WATER);
+					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
 				}
@@ -57,10 +61,10 @@ public class TrailShop {
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("FIRE")){
-					menu.setOption(1, createItem(Material.BLAZE_POWDER, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(1, createItem(Material.WATER_BUCKET, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(1, createItem(Material.BLAZE_POWDER, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(1, createItem(Material.WATER_BUCKET, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			

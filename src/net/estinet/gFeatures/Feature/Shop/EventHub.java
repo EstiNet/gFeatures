@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.Shop;
 
+import java.util.HashMap;
+
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -43,8 +45,10 @@ public class EventHub{
 					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
 						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
 					}
+					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()).equalsIgnoreCase("true")){
+						Shop.playerTrail.put(event.getPlayer().getUniqueId(), trail.toString());
+					}
 				}
-				Shop.playerTrail.put(event.getPlayer().getUniqueId(), Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()));  //wat how is this gonna help
 			}
 		});
 		thr.start();
