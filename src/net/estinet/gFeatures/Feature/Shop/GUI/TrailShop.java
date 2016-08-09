@@ -38,9 +38,17 @@ public class TrailShop {
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.WATER);
 					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Grey Trail")){
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.GRAY) + "Grey Trail")){
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.GRAY);
+					}
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.MUSIC) + "Music Trail")){
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.GRAY);
+					}
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.RAINBOW) + "Rainbow Trail")){
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.RAINBOW);
 					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
@@ -71,16 +79,40 @@ public class TrailShop {
 					menu.setOption(1, createItem(Material.WATER_BUCKET, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
-			//White Trail
+			//Grey Trail
 			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.GRAY.toString()).equalsIgnoreCase("true")){
 				menu.setOption(2, createItem(Material.CLAY_BALL, getText(p, Trails.GRAY) + "Grey Trail", ChatColor.GRAY + "Coloured trail!", ChatColor.BLUE + "Costs 250 clupic."));
 			}
 			else{
-				if(Shop.playerTrail.get(p.getUniqueId()).equals("WATER")){
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("GRAY")){
 					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
 					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
+				}
+			}
+			//Music Trail
+			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.MUSIC.toString()).equalsIgnoreCase("true")){
+				menu.setOption(3, createItem(Material.CLAY_BALL, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.BLUE + "Costs 350 clupic."));
+			}
+			else{
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("MUSIC")){
+					menu.setOption(3, createItem(Material.RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Currently enabled!"));
+				}
+				else{
+					menu.setOption(3, createItem(Material.RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Click to ENABLE."));
+				}
+			}
+			//Rainbow Trail
+			if(!p.hasPermission("gFeatures.Esti+")){
+				menu.setOption(9, createItem(Material.CLAY_BALL, getText(p, Trails.RAINBOW) + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.BLUE + "Esti+ and higher."));
+			}
+			else{
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("RAINBOW")){
+					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, getText(p, Trails.RAINBOW) + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Currently enabled!"));
+				}
+				else{
+					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, getText(p, Trails.RAINBOW) + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			

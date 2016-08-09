@@ -23,15 +23,32 @@ public class TrailLoop {
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 34);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 28);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31, 21);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31, 15);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 28);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
         				break;
         			case "GRAY":
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 34);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28, 7);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 28, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 7);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 21);
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 15);
+        				break;
+        			case "MUSIC":
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.NOTE, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CRIT, 28, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.NOTE, 31, 7);
+        				break;
+        			case "RAINBOW":
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 34);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 7);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 21);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 15);
         				break;
         			}
         		}
