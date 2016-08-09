@@ -26,6 +26,7 @@ public class TrailShop {
 			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Trails", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
+					Bukkit.getLogger().info(p.getName() + " + " + event.getPlayer().getName()); 
 					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.NONE);
@@ -60,7 +61,7 @@ public class TrailShop {
 				menu.setOption(1, createItem(Material.CLAY_BALL, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.BLUE + "Costs 450 clupic."));
 			}
 			else{
-				if(Shop.playerTrail.get(p.getUniqueId()).equals("FIRE")){
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("WATER")){
 					menu.setOption(1, createItem(Material.WATER_BUCKET, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{

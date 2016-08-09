@@ -45,10 +45,8 @@ public class EventHub{
 					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
 						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
 					}
-					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId()).equalsIgnoreCase("true")){
-						Shop.playerTrail.put(event.getPlayer().getUniqueId(), trail.toString());
-					}
 				}
+				Shop.playerTrail.put(event.getPlayer().getUniqueId(), value);
 			}
 		});
 		thr.start();
