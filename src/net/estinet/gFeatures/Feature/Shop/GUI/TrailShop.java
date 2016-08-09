@@ -44,7 +44,7 @@ public class TrailShop {
 					}
 					else if(event.getName().equalsIgnoreCase(getText(p, Trails.MUSIC) + "Music Trail")){
 						SetTrail st = new SetTrail();
-						st.init(p, Trails.GRAY);
+						st.init(p, Trails.MUSIC);
 					}
 					else if(event.getName().equalsIgnoreCase(getText(p, Trails.RAINBOW) + "Rainbow Trail")){
 						SetTrail st = new SetTrail();

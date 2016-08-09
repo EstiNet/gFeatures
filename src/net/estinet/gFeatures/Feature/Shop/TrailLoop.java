@@ -45,14 +45,18 @@ public class TrailLoop {
         				break;
         			case "RAINBOW":
         				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 34);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28, 7);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 7);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 21);
-        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31, 15);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 32);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 29);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 44);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 24);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
+        				Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
         				break;
         			}
         		}
         	}
-        }, 5L, 5L);
+        }, 3L, 3L);
 	}
 }
