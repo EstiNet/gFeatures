@@ -60,14 +60,14 @@ public class Shop extends gFeature implements Events{
 				num++;
 			}
 		}
-		return num-1;
+		return num;
 	}
 	public static String getTrail(String uuid, String trailName){
 		String value = syncCommands.get("trails-" + uuid + "-" + trailName);
 		return value;
 	}
 	public static int getTotalNumOfTrails(){
-		return Trails.values().length;
+		return Trails.values().length-1;
 	}
 	
 	@Override

@@ -109,10 +109,10 @@ public class TrailShop {
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("RAINBOW")){
-					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, getText(p, Trails.RAINBOW) + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, getText(p, Trails.RAINBOW) + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			
