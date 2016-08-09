@@ -26,7 +26,6 @@ public class TrailShop {
 			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Trails", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					Bukkit.getLogger().info(p.getName() + " + " + event.getPlayer().getName()); 
 					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.NONE);
@@ -38,6 +37,10 @@ public class TrailShop {
 					else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Water Trail")){
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.WATER);
+					}
+					else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Grey Trail")){
+						SetTrail st = new SetTrail();
+						st.init(p, Trails.GRAY);
 					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
@@ -68,7 +71,18 @@ public class TrailShop {
 					menu.setOption(1, createItem(Material.WATER_BUCKET, getText(p, Trails.WATER) + "Water Trail", ChatColor.GRAY + "Bubbly watery goodness!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
-			
+			//White Trail
+			if(!Shop.getTrail(p.getUniqueId().toString(), Trails.GRAY.toString()).equalsIgnoreCase("true")){
+				menu.setOption(1, createItem(Material.CLAY_BALL, getText(p, Trails.GRAY) + "Grey Trail", ChatColor.GRAY + "Coloured trail!", ChatColor.BLUE + "Costs 250 clupic."));
+			}
+			else{
+				if(Shop.playerTrail.get(p.getUniqueId()).equals("WATER")){
+					menu.setOption(1, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
+				}
+				else{
+					menu.setOption(1, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
+				}
+			}
 			
 			menu.setOption(8, createItem(Material.BARRIER, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"));
 
@@ -98,8 +112,8 @@ public class TrailShop {
 		item.setItemMeta(meta);
 		return item;
 	}
-	public ItemStack createItem(Material material, String name, short met, String ... lore){
-		ItemStack item = new ItemStack(material, 1, met);
+	public ItemStack createItem(Material material, String name, int met, String ... lore){
+		ItemStack item = new ItemStack(material, 1, (short) met);
 		List<String> lores = new ArrayList<>();
 		for(String lor : lore){
 			lores.add(lor);

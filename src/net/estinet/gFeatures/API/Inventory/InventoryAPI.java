@@ -89,7 +89,7 @@ public class InventoryAPI implements Listener {
    
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
-        if (event.getInventory().getTitle().equals(name) && event.getWhoClicked().getUniqueId().equals(playerName)) {
+        if (event.getInventory().getTitle().equals(name) && event.getWhoClicked().getUniqueId().toString().equals(playerName)) {
             event.setCancelled(true);
             int slot = event.getRawSlot();
             if (slot >= 0 && slot < size && optionNames[slot] != null) {
@@ -114,7 +114,7 @@ public class InventoryAPI implements Listener {
     }
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClose(InventoryCloseEvent event){
-    	if(event.getInventory().getTitle().equals(name) && event.getPlayer().getUniqueId().equals(playerName)){
+    	if(event.getInventory().getTitle().equals(name) && event.getPlayer().getUniqueId().toString().equals(playerName)){
     		destroy();
     	}
     }

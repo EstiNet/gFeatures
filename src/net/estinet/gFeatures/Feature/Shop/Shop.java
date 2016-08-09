@@ -60,7 +60,7 @@ public class Shop extends gFeature implements Events{
 				num++;
 			}
 		}
-		return num;
+		return num-1;
 	}
 	public static String getTrail(String uuid, String trailName){
 		String value = syncCommands.get("trails-" + uuid + "-" + trailName);
