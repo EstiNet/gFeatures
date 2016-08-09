@@ -46,7 +46,7 @@ public class TrailShop {
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.MUSIC);
 					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.RAINBOW) + "Rainbow Trail")){
+					else if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Rainbow Trail") || event.getName().equalsIgnoreCase(ChatColor.RED + "Rainbow Trail")){
 						SetTrail st = new SetTrail();
 						st.init(p, Trails.RAINBOW);
 					}

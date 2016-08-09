@@ -9,7 +9,7 @@ public class Configure{
 		Shop base = new Shop("Shop", "1.0.0");
 		Basic.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("shop", "Says test!", "/shop", base, true);
+		EstiCommand test = new EstiCommand("cosmetics", "Shows cosmetics menu.", "/cosmetics", base, true);
 		Basic.addCommand(test);
 	}
 }

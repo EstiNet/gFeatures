@@ -12,6 +12,10 @@
       <resource>
         <directory>src</directory>
         <includes>
+          <include>**/*.txt</include>
+          <include>**/*</include>
+          <include>**/*.yml</include>
+          <include>**/*.sk</include>
           <include>plugin.yml</include>
         </includes>
       </resource>
