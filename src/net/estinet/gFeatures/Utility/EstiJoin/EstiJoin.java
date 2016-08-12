@@ -61,9 +61,12 @@ public class EstiJoin extends gUtility{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			PlayerJoinEvent e = (PlayerJoinEvent) event;
 			ActionAPI aapi = new ActionAPI();
+			try{
 			if(!title.equals("")){
 				aapi.sendTitles(e.getPlayer(), 50, 40, 50, title.replace('&', '§'), subtitle.replace('&', '§'));
 			}
+			}
+			catch(Exception es){}
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 				try{
