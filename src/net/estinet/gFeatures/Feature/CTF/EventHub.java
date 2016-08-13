@@ -75,49 +75,55 @@ public class EventHub{
 	}
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
 		if(event.getDamager().getType().equals(EntityType.PLAYER)){
-		if(event.getEntityType().equals(EntityType.PLAYER)){
-			Player p = (Player) event.getEntity();
-			if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
-				event.setCancelled(true);
-			}
-			else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
-				if(event.getDamager().getType().equals(EntityType.PLAYER)){
-					Player pl = (Player) event.getDamager();
-					if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
-						event.setCancelled(true);
-					}
-					else{
-						int health = (int) p.getHealth();
-						double damage = event.getDamage();
-						if(health - damage <= 0){
-							ClearInventory ci = new ClearInventory();
-							ci.clearInv(p);
+			if(event.getEntityType().equals(EntityType.PLAYER)){
+				Player p = (Player) event.getEntity();
+				if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)){
+					event.setCancelled(true);
+				}
+				else if(Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)){
+					if(event.getDamager().getType().equals(EntityType.PLAYER)){
+						Player pl = (Player) event.getDamager();
+						if(((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))){
 							event.setCancelled(true);
-							int deaths = Basic.deaths.get(p.getUniqueId());
-							deaths+=1;
-							Basic.deaths.remove(p.getUniqueId());
-							Basic.deaths.put(p.getUniqueId(), deaths);
+						}
+						else{
+							int health = (int) p.getHealth();
+							double damage = event.getDamage();
+							if(health - damage <= 0){
+								ClearInventory ci = new ClearInventory();
+								ci.clearInv(p);
+								event.setCancelled(true);
+								int deaths = Basic.deaths.get(p.getUniqueId());
+								deaths+=1;
+								Basic.deaths.remove(p.getUniqueId());
+								Basic.deaths.put(p.getUniqueId(), deaths);
 
-							int kills = Basic.kills.get(pl.getUniqueId());
-							kills+=1;
-							Basic.kills.remove(pl.getUniqueId());
-							Basic.kills.put(pl.getUniqueId(), kills);
+								int kills = Basic.kills.get(pl.getUniqueId());
+								kills+=1;
+								Basic.kills.remove(pl.getUniqueId());
+								Basic.kills.put(pl.getUniqueId(), kills);
 
-							Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+								Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
 
-							d.init(p);
+								d.init(p);
+							}
 						}
 					}
 				}
+			}
+			else{
+				if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
+					event.setCancelled(true);
+					fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
 				}
 			}
 		}
 		else{
 			if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
 				event.setCancelled(true);
-				fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
 			}
 		}
+
 	}
 	public void onWeaponDamageEntity(WeaponDamageEntityEvent event){
 		if(event.getVictim().getType().equals(EntityType.PLAYER)){

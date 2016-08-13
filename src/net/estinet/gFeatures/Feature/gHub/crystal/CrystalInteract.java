@@ -28,6 +28,7 @@ public class CrystalInteract {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().contains(ChatColor.GREEN + "")){
+						Bukkit.getLogger().info("ni");
 						char[] subit = event.getName().toCharArray();
 						List<Character> strs = new ArrayList<>();
 						for(char ch : subit){

@@ -164,14 +164,23 @@ public class StartStop {
 			p.sendMessage(ChatColor.AQUA + "Kills: " + Basic.kills.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
 			p.sendMessage(ChatColor.AQUA + "Flag Captures: " + Basic.flagcaptures.get(p.getUniqueId()));
-			int clupic = (Basic.flagcaptures.get(p.getUniqueId()) * 20) + ((Basic.kills.get(p.getUniqueId()) * 5) + 10);
+			int clupic = 0;
+			if(Basic.isInBlue(p)){
+				p.sendMessage(ChatColor.AQUA + "Team Flag Captures: " + Basic.blueflags);
+				clupic = (Basic.blueflags * 10) + ((Basic.kills.get(p.getUniqueId()) * 5) + 10);
+			}
+			else{
+				p.sendMessage(ChatColor.AQUA + "Team Flag Captures: " + Basic.orangeflags);
+				clupic = (Basic.orangeflags * 10) + ((Basic.kills.get(p.getUniqueId()) * 5) + 10);
+			}
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
 			MoneyManager mm = new MoneyManager();
+			final int nums = clupic;
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 					try {
-						mm.giveMoney(p, clupic);
+						mm.giveMoney(p, nums);
 					}  
 					catch (Exception e) {
 						e.printStackTrace();
@@ -201,6 +210,9 @@ public class StartStop {
 					public void run(){
 						if(Bukkit.getOnlinePlayers().size() == 0){
 							Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+						}
+						for(Player p : Bukkit.getOnlinePlayers()){
+							cp.sendMessage("redirect " + p.getName() + " MinigameHub", "Bungee");
 						}
 					}
 				}, 80L, 80L);
