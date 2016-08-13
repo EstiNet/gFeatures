@@ -27,6 +27,7 @@ public class CrystalInteract {
 			InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
+					Bukkit.getLogger().info("ni");
 					if(event.getName().contains(ChatColor.GREEN + "")){
 						Bukkit.getLogger().info("ni");
 						char[] subit = event.getName().toCharArray();
@@ -52,6 +53,7 @@ public class CrystalInteract {
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
 			int iter = 0;
+			Bukkit.getLogger().info("ni");
 			for(MGServerPlus mgsp : Basis.getServersWithType(mgs.getName())){
 				if(mgsp.getState().equals("WAIT")){
 					ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
