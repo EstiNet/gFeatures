@@ -68,6 +68,12 @@ public class Join {
 			im.setDisplayName(ChatColor.DARK_AQUA + "Back to " + ChatColor.GOLD + "Hub");
 			is.setItemMeta(im);
 			event.getPlayer().getInventory().setItem(8, is);
+			
+			ItemStack is1 = new ItemStack(Material.CHEST, 1);
+			ItemMeta im1 = is1.getItemMeta();
+			im1.setDisplayName(ChatColor.DARK_AQUA + "Cosmetics");
+			is1.setItemMeta(im1);
+			event.getPlayer().getInventory().setItem(7, is1);
 			break;
 		case ENDED:
 			for(Player p : Bukkit.getOnlinePlayers()){

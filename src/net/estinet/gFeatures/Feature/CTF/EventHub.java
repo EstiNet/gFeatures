@@ -153,7 +153,7 @@ public class EventHub{
 						Basic.kills.remove(pl.getUniqueId());
 						Basic.kills.put(pl.getUniqueId(), kills);
 						Debug.print("[CTF] first kills:" + (kills-1) + " afterkill: " + kills);
-						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getVictim().getName() + "!");
+						Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA +"]" + ChatColor.DARK_AQUA + event.getPlayer().getDisplayName() + " killed " + ((Player) event.getVictim()).getDisplayName() + "!");
 						event.setCancelled(true);
 						d.init(p);
 					}
