@@ -79,19 +79,19 @@ public class NetworkThread {
 					try{
 						DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
 						outToServer.writeBytes(message + "\n");
-					outToServer.flush();
-					ClioteSky.setSyncedOutput(true);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			        	public void run(){
-			        		ClioteSky.setSyncedOutput(false);
-			        	}
-			        }, 1L);
+						outToServer.flush();
+						ClioteSky.setSyncedOutput(true);
+						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+							public void run(){
+								ClioteSky.setSyncedOutput(false);
+							}
+						}, 1L);
 					}
 					catch(NullPointerException e){
 						ClioteConfigUtil ccu = new ClioteConfigUtil();
 						ccu.addCacheEntry(message);
 					}
-					
+
 				}
 				else{
 					ClioteConfigUtil ccu = new ClioteConfigUtil();
