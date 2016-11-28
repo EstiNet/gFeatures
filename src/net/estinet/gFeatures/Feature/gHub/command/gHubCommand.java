@@ -40,19 +40,6 @@ public class gHubCommand extends CommandExecutable{
 					sender.sendMessage(ChatColor.AQUA + "/gHub deletecrystal [Name] : Deletes a crystal with given name.");
 					sender.sendMessage(ChatColor.AQUA + "/gHub createcrystal [CategoryName] : Creates a crystal at your location with the given category name.");
 					break;
-				case "listcrystals":
-					sender.sendMessage(ChatColor.STRIKETHROUGH + "----------" + ChatColor.RESET + "" + ChatColor.GOLD + "Crystals" + ChatColor.RESET + "" + ChatColor.STRIKETHROUGH + "----------");
-					for(MGServer mgs : Basis.crystals.values()){
-						sender.sendMessage(ChatColor.GRAY + "- " + mgs.getName());
-					}
-					break;
-				default:
-					sender.sendMessage(ChatColor.GOLD + "[gHub]" + ChatColor.RESET + " " + ChatColor.BOLD + "Do /gHub help for help.");
-					break;
-				}
-			}
-			else if(args.length == 2){
-				switch(args[0].toLowerCase()){
 				case "setspawn":
 					try{
 						sender.sendMessage(ChatColor.GRAY + "Setting server spawn to your location.");
@@ -72,6 +59,19 @@ public class gHubCommand extends CommandExecutable{
 						sender.sendMessage(ChatColor.GRAY + "Turning on fall protection.");
 					}
 					break;
+				case "listcrystals":
+					sender.sendMessage(ChatColor.STRIKETHROUGH + "----------" + ChatColor.RESET + "" + ChatColor.GOLD + "Crystals" + ChatColor.RESET + "" + ChatColor.STRIKETHROUGH + "----------");
+					for(MGServer mgs : Basis.crystals.values()){
+						sender.sendMessage(ChatColor.GRAY + "- " + mgs.getName());
+					}
+					break;
+				default:
+					sender.sendMessage(ChatColor.GOLD + "[gHub]" + ChatColor.RESET + " " + ChatColor.BOLD + "Do /gHub help for help.");
+					break;
+				}
+			}
+			else if(args.length == 2){
+				switch(args[0].toLowerCase()){
 				case "deletecrystal":
 					sender.sendMessage(ChatColor.GRAY + "Attempting to delete " + args[1] + "...");
 					for(MGServer mgs : Basis.crystals.values()){
