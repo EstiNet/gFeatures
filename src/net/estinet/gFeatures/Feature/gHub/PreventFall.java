@@ -26,8 +26,8 @@ https://github.com/EstiNet/gFeatures
 public class PreventFall {
 	public void check(){
 		for(Player p : Bukkit.getOnlinePlayers()){
-			if(p.getLocation().getY() < 110){
-				p.teleport(new Location(Bukkit.getWorld("EstiNet"), -72.5, 236, -10.5));
+			if(p.getLocation().getY() < 110 && gHub.fall){
+				p.teleport(gHub.spawn);
 			}
 		}
 	}

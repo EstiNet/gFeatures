@@ -78,6 +78,7 @@ public class EventHub {
 
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
+		p.teleport(gHub.spawn);
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);
 		p.setGameMode(GameMode.ADVENTURE);

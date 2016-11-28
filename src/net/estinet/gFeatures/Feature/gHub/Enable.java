@@ -60,5 +60,11 @@ public class Enable {
         		}
         	}
         }, 600L, 600L);
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		PreventFall pf = new PreventFall();
+        		pf.check();
+        	}
+        }, 10L, 10L);
 	}
 }

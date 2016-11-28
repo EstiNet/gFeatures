@@ -1,9 +1,14 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import net.estinet.gFeatures.Feature.gHub.crystal.MGServer;
@@ -42,6 +47,36 @@ public class Basis {
 	}
 	public static boolean isInStacker(String playername){
 		return stacker.contains(playername);
+	}
+	public static void setSpawn(Location loc){
+		File f = new File("plugins/gFeatures/gHub/spawn.txt");
+		f.delete();
+		try {
+			f.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter output;
+		try {
+			output = new BufferedWriter(new FileWriter(f, true));
+			output.write(loc.getWorld().getName());
+			output.newLine();
+			output.write("" + loc.getX());
+			output.newLine();
+			output.write("" + loc.getY());
+			output.newLine();
+			output.write("" + loc.getZ());
+			output.newLine();
+			output.write("" + loc.getYaw());
+			output.newLine();
+			output.write("" + loc.getPitch());
+			output.newLine();
+			output.close();
+		}
+		catch(Exception e1){
+			e1.printStackTrace();
+		}
+		gHub.spawn = loc;
 	}
 	public static List<MGServerPlus> getServersWithType(String type){
 		List<MGServerPlus> list = new ArrayList<>();

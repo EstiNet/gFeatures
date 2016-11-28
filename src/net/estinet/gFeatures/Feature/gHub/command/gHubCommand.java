@@ -16,6 +16,7 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.Command.CommandExecutable;
 import net.estinet.gFeatures.Feature.gHub.Basis;
+import net.estinet.gFeatures.Feature.gHub.gHub;
 import net.estinet.gFeatures.Feature.gHub.crystal.MGServer;
 
 public class gHubCommand extends CommandExecutable{
@@ -33,6 +34,8 @@ public class gHubCommand extends CommandExecutable{
 				case "help":
 					sender.sendMessage(ChatColor.STRIKETHROUGH + "----------" + ChatColor.RESET + "" + ChatColor.GOLD + "[gHub Help]" + ChatColor.RESET + "" + ChatColor.STRIKETHROUGH + "----------");
 					sender.sendMessage(ChatColor.AQUA + "/gHub help : Displays the Help Menu.");
+					sender.sendMessage(ChatColor.AQUA + "/gHub setspawn : Sets the server spawn.");
+					sender.sendMessage(ChatColor.AQUA + "/gHub togglefall : Toggles fall protection.");
 					sender.sendMessage(ChatColor.AQUA + "/gHub listcrystals : Lists the loaded crystals.");
 					sender.sendMessage(ChatColor.AQUA + "/gHub deletecrystal [Name] : Deletes a crystal with given name.");
 					sender.sendMessage(ChatColor.AQUA + "/gHub createcrystal [CategoryName] : Creates a crystal at your location with the given category name.");
@@ -50,6 +53,25 @@ public class gHubCommand extends CommandExecutable{
 			}
 			else if(args.length == 2){
 				switch(args[0].toLowerCase()){
+				case "setspawn":
+					try{
+						sender.sendMessage(ChatColor.GRAY + "Setting server spawn to your location.");
+						Basis.setSpawn(((Player)sender).getLocation());
+					}
+					catch(Exception e){
+						sender.sendMessage(ChatColor.GRAY + "You aren't a player!");
+					}
+					break;
+				case "togglefall":
+					if(gHub.fall){
+						gHub.fall = false;
+						sender.sendMessage(ChatColor.GRAY + "Turning off fall protection.");
+					}
+					else{
+						gHub.fall = true;
+						sender.sendMessage(ChatColor.GRAY + "Turning on fall protection.");
+					}
+					break;
 				case "deletecrystal":
 					sender.sendMessage(ChatColor.GRAY + "Attempting to delete " + args[1] + "...");
 					for(MGServer mgs : Basis.crystals.values()){
