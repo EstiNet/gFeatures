@@ -4,7 +4,7 @@
   <groupId>net.estinet.gFeatures</groupId>
   <artifactId>gFeatures</artifactId>
   <name>gFeatures</name>
-  <version>v3.3.10</version>
+  <version>v3.3.11</version>
   <description>The core of EstiNet.</description>
   <build>
     <sourceDirectory>src</sourceDirectory>

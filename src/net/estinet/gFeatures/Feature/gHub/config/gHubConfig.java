@@ -65,7 +65,6 @@ public class gHubConfig {
 				Bukkit.getLogger().info("UHOH");
 			}
 		}
-		retrieve();
 	}
 	public void retrieve(){
 		try {

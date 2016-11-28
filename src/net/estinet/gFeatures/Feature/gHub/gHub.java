@@ -46,7 +46,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gHub extends gFeature implements Events{
-	public static Location spawn = null;
+	public static Location spawn;
 	public static boolean fall = true;
 	
 	Listeners listeners = new Listeners();

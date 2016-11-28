@@ -7,6 +7,7 @@ import java.util.UUID;
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsMenu;
 import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
+import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -213,5 +214,7 @@ public class EventHub {
 	public void onWorldLoad(WorldLoadEvent event) {
 		Crystal c = new Crystal();
 		c.initCrystal();
+		gHubConfig ghc = new gHubConfig();
+		ghc.retrieve();
 	}
 }
