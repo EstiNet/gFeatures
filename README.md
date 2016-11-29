@@ -1,6 +1,6 @@
 # gFeatures
 
-The core of EstiNet.
+The core of EstiNet. hai
 
 EstiNet - The flow of creativity.
 
