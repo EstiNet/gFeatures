@@ -1,6 +1,6 @@
-package net.estinet.gFeatures.Feature.FusionPlay;
+package net.estinet.gFeatures.Feature.Base;
 
-import org.bukkit.Bukkit;
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures
@@ -21,11 +21,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Enable{
-	static ConfigHub ch = new ConfigHub();
-	public static void onEnable(){
-		ch.setupConfig();
-		Bukkit.getLogger().info("[FusionPlay] Enabled!");
-		
+public class ConfigHub {
+	Config config = new Config();
+	public void setupConfig(){
+		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
 	}
 }

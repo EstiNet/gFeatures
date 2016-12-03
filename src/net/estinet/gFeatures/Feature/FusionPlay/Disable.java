@@ -23,7 +23,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("[FusionPlay] EstiNet presents FusionPlay (Disabling...)");
-		Bukkit.getLogger().info("[FusionPlay] EstiNet presents FusionPlay (Disabled!)");
+		Bukkit.getLogger().info("[FusionPlay] Disabled!");
 	}
 }
