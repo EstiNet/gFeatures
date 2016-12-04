@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ParkourRace;
 
 import java.util.HashMap;
 
@@ -29,20 +29,7 @@ import net.estinet.gFeatures.SQL.Player.Key;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		Base base = new Base("Base", "1.2.5");
+		ParkourRace base = new ParkourRace("ParkourRace", "1.0.0");
 		Basic.addFeature(base);
-		
-		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, new TestCommand());
-		Basic.addCommand(test);
-		
-		HashMap<Key<String>, String> hash = new HashMap<>();
-		Key<String> key = new Key<>();
-		key.setKey("Health");
-		hash.put(key, "He's healthy!");
-		EstiSet<String, String> set = new EstiSet<>();
-		set.setData(hash);
-		set.setTag(base.getName());
-		Basic.addSQLFields(set);
-		
 	}
 }

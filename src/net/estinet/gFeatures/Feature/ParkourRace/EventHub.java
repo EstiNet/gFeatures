@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;

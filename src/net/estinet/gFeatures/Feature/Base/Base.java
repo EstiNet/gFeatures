@@ -30,8 +30,8 @@ public class Base extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
 	
-	public Base(String featurename, String d) {
-		super(featurename, d);
+	public Base(String featurename, String version) {
+		super(featurename, version);
 	}
 	@Override
 	public void enable(){

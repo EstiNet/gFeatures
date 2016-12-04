@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.Bukkit;
 
@@ -24,7 +24,7 @@ https://github.com/EstiNet/gFeatures
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
-		Bukkit.getLogger().info("Base Plugin enabled!");
+		Bukkit.getLogger().info("[ParkourRace] Enabled!");
 		ch.setupConfig();
 	}
 }

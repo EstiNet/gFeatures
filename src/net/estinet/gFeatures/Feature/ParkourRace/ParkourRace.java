@@ -1,7 +1,4 @@
-package net.estinet.gFeatures.Feature.FusionPlay;
-
-import java.util.ArrayList;
-import java.util.List;
+package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -11,15 +8,12 @@ import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 
-public class FusionPlay extends gFeature implements Events{
+public class ParkourRace extends FusionGame implements Events{
 	
 	EventHub eh = new EventHub();
 	
-	public static List<FusionGame> games = new ArrayList<>();
-	public static FusionGame currentGame = null;
-	
-	public FusionPlay(String featurename, String version) {
-		super(featurename, version);
+	public ParkourRace(String featurename, String d) {
+		super(featurename, d);
 	}
 	@Override
 	public void enable(){

@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.Base;
+package net.estinet.gFeatures.Feature.ParkourRace;
 
 import net.estinet.gFeatures.Configuration.Config;
 
