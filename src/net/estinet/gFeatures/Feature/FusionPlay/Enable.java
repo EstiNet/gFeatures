@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -27,5 +29,7 @@ public class Enable{
 		ch.setupConfig();
 		Bukkit.getLogger().info("[FusionPlay] Enabled!");
 		
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("fusionplay online", "Bungee");
 	}
 }
