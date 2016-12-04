@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.OtherResponse;
 
 public class FusionPlayClioteHook extends ClioteHook{
 
@@ -22,8 +23,7 @@ public class FusionPlayClioteHook extends ClioteHook{
 			case "start":
 				break;
 			case "other":
-				File f = new File("plugins/gFeatures/FusionPlay/notminigame.txt");
-				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "stop");
+				OtherResponse.response(args, categoryName, clioteName);
 				break;
 			case "obtain":
 				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "stop");
