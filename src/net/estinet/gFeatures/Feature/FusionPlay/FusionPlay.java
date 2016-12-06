@@ -26,7 +26,7 @@ public class FusionPlay extends gFeature implements Events{
 		Enable.onEnable();
 	}
 	@Override
-	public void disable(){
+	public void disable() {
 		Disable.onDisable();
 	}
 	@Override
