@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -22,6 +23,7 @@ public class FusionPlay extends gFeature implements Events{
 	public static List<FusionGame> games = new ArrayList<>();
 	public static FusionGame currentGame = null;
 	public static boolean otherup = false;
+	public static boolean assigned = false;
 	
 	public FusionPlay(String featurename, String version) {
 		super(featurename, version);
@@ -65,6 +67,8 @@ public class FusionPlay extends gFeature implements Events{
 			e.printStackTrace();
 		}
 		if(hmm){
+			Bukkit.getLogger().info("[FusionPlay] Responding to server change type request.");
+			assigned = true;
 			otherup = true;
 		}
 		for(FusionGame fg : games){

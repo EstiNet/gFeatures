@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
-import java.io.File;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -9,6 +8,7 @@ import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.OtherResponse;
+import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.StartResponse;
 
 public class FusionPlayClioteHook extends ClioteHook{
 
@@ -21,6 +21,7 @@ public class FusionPlayClioteHook extends ClioteHook{
 			CliotePing cp = new CliotePing();
 			switch(args.get(0)){
 			case "start":
+				StartResponse.response(args, categoryName, clioteName);
 				break;
 			case "other":
 				OtherResponse.response(args, categoryName, clioteName);
