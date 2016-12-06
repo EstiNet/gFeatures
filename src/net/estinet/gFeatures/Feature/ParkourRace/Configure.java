@@ -6,6 +6,7 @@ import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.Base.Commands.TestCommand;
+import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -29,7 +30,10 @@ import net.estinet.gFeatures.SQL.Player.Key;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		ParkourRace base = new ParkourRace("ParkourRace", "1.0.0");
-		Basic.addFeature(base);
+		ParkourRace fg = new ParkourRace("ParkourRace", "1.0.0");
+		fg.setUsesAntiDeathScr(true);
+		fg.setUsesSpawns(true);
+		FusionPlay.addGame(fg);
+		Basic.addFeature(fg);
 	}
 }

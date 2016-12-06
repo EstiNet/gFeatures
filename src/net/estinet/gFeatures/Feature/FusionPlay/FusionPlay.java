@@ -43,6 +43,10 @@ public class FusionPlay extends gFeature implements Events{
 	@Retrieval
 	public void onPlayerJoin(){}
 	
+	public static void addGame(FusionGame fg){
+		games.add(fg);
+	}
+	
 	public static void selectGame(){
 		File f = new File("plugins/gFeatures/FusionPlay/notminigame.txt");
 		String not = "";

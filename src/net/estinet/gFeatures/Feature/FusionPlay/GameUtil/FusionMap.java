@@ -9,6 +9,13 @@ import org.bukkit.Location;
 public class FusionMap {
 	private File f = null;
 	private List<Location> spawns = new ArrayList<>();
+	public FusionMap(File f){
+		this.f = f;
+	}
+	public FusionMap(File f, List<Location> spawns){
+		this.spawns = spawns;
+		this.f = f;
+	}
 	public File getFile(){
 		return f;
 	}
