@@ -9,6 +9,7 @@ import net.estinet.gFeatures.Feature.FusionPlay.Enable;
 
 public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
+	protected boolean usesSpawns = true;
 	public FusionGame(String featurename, String version) {
 		super(featurename, version);
 	}
@@ -25,5 +26,11 @@ public class FusionGame extends gFeature{
 	}
 	public void setMaps(List<FusionMap> maps){
 		this.maps = maps;
+	}
+	public boolean usesSpawns(){
+		return usesSpawns;
+	}
+	public void setUsesSpawns(boolean usesSpawns){
+		this.usesSpawns = usesSpawns;
 	}
 }
