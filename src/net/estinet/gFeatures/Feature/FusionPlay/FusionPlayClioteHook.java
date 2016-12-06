@@ -12,7 +12,7 @@ import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.StartResponse;
 
 public class FusionPlayClioteHook extends ClioteHook{
 
-	public FusionPlayClioteHook(gFeature feature) {
+	public FusionPlayClioteHook(gFeature feature){
 		super(feature, "fusionplay");
 	}
 	@Override
