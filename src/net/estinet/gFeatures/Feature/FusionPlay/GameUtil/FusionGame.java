@@ -9,7 +9,7 @@ public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
 	
 	/*
-	 * gFeature provided settings.
+	 * FusionGame provided settings.
 	 */
 	
 	protected boolean usesSpawns = true; //Whether or not to use the built-in spawn mechanics.
@@ -24,6 +24,20 @@ public class FusionGame extends gFeature{
 	public void setMaps(List<FusionMap> maps){
 		this.maps = maps;
 	}
+	/*
+	 * Called when the server has been assigned to an ID,
+	 * and is ready to accept players.
+	 * Override to change assigning behaviour.
+	 */
+	public void gameAssigned(){
+		
+	}
+	
+	
+	/*
+	 * FusionGame Settings
+	 */
+	
 	public boolean usesSpawns(){
 		return usesSpawns;
 	}
@@ -36,4 +50,5 @@ public class FusionGame extends gFeature{
 	public void setUsesAntiDeathScr(boolean antiDeath){
 		this.antiDeath = antiDeath;
 	}
+	
 }
