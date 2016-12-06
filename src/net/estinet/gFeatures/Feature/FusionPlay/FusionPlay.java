@@ -1,5 +1,9 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,7 @@ public class FusionPlay extends gFeature implements Events{
 	
 	public static List<FusionGame> games = new ArrayList<>();
 	public static FusionGame currentGame = null;
+	public static boolean otherup = false;
 	
 	public FusionPlay(String featurename, String version) {
 		super(featurename, version);
@@ -37,5 +42,31 @@ public class FusionPlay extends gFeature implements Events{
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
-
+	
+	public static void selectGame(){
+		File f = new File("plugins/gFeatures/FusionPlay/notminigame.txt");
+		String not = "";
+		boolean hmm = true;
+		try {
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			not = br.readLine();
+			br.close();
+			f.delete();
+		}
+		catch (FileNotFoundException e){
+			hmm = false;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(hmm){
+			otherup = true;
+		}
+		for(FusionGame fg : games){
+			if(!fg.getName().equalsIgnoreCase(not)){
+				currentGame = fg;
+			}
+		}
+	}
 }

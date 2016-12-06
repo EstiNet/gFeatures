@@ -1,10 +1,14 @@
 package net.estinet.gFeatures.Feature.FusionPlay.GameUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.FusionPlay.Disable;
 import net.estinet.gFeatures.Feature.FusionPlay.Enable;
 
 public class FusionGame extends gFeature{
+	protected List<FusionMap> maps = new ArrayList<>();
 	public FusionGame(String featurename, String version) {
 		super(featurename, version);
 	}
@@ -15,5 +19,11 @@ public class FusionGame extends gFeature{
 	@Override
 	public void disable(){
 		Disable.onDisable();
+	}
+	public List<FusionMap> getMaps(){
+		return maps;
+	}
+	public void setMaps(List<FusionMap> maps){
+		this.maps = maps;
 	}
 }
