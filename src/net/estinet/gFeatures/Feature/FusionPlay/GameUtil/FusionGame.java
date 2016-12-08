@@ -32,6 +32,9 @@ public class FusionGame extends gFeature{
 	public void gameAssigned(){
 		
 	}
+	/*
+	 * Called when the server 
+	 */
 	
 	
 	/*
