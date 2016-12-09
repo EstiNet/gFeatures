@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.Events.JoinProcess;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -27,7 +29,7 @@ public class EventHub{
 			event.getPlayer().kickPlayer("Server hasn't been assigned!");
 		}
 		else{
-			
+			JoinProcess.init(event);
 		}
 	}
 }
