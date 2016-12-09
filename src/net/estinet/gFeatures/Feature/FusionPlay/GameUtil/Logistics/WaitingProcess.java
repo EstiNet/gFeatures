@@ -18,5 +18,8 @@ public class WaitingProcess {
 		cp.sendMessage("fusionplay started", "Bungee");
 		FusionPlay.currentGame.setFusionState(FusionState.STARTED);
 		FusionPlay.currentGame.waitTimerComplete();
+		if(FusionPlay.currentGame.getSettings().usesSpawns()){
+			//random spawn player move and stuff
+		}
 	}
 }
