@@ -22,7 +22,7 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class Enable{
 	static ConfigHub ch = new ConfigHub();
@@ -32,14 +32,15 @@ public class Enable{
 		FusionPlay.selectGame();
 		FusionPlay.currentGame.loadMap();
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		if(FusionPlay.currentGame.getSettings().usesAutoLoadMap()){
-        		WorldCreator cs = new WorldCreator(FusionPlay.currentGame.getSettings().getDefaultMapName());
-        		Bukkit.getServer().createWorld(cs);
-        		}
-        		
-        		EnabledHandler.init();
-        	}
-        }, 40L);
+			public void run(){
+				//Auto Implementation of World Loading
+				if(FusionPlay.currentGame.getSettings().usesAutoLoadMap()){
+					WorldCreator cs = new WorldCreator(FusionPlay.currentGame.getSettings().getDefaultMapName());
+					Bukkit.getServer().createWorld(cs);
+				}
+
+				EnabledHandler.init();
+			}
+		}, 40L);
 	}
 }
