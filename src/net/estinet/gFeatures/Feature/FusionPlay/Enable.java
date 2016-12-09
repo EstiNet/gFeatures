@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.EnabledHandler;
 
 /*
 gFeatures
@@ -28,5 +29,8 @@ public class Enable{
 	public static void onEnable(){
 		ch.setupConfig();
 		Bukkit.getLogger().info("[FusionPlay] Enabled!");
+		FusionPlay.selectGame();
+		FusionPlay.currentGame.loadMap();
+		EnabledHandler.init();
 	}
 }

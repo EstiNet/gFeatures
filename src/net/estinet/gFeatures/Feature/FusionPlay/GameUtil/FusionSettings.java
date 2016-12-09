@@ -8,7 +8,9 @@ public class FusionSettings {
 	
 	protected boolean usesSpawns = true; //Whether or not to use the built-in spawn mechanics.
 	protected boolean antiDeath = true; //Prevents death screen if enabled.
-	protected boolean autoLoadMap = true; //Whether or not to uset built in map-loader (loads before server is fully setup)
+	protected boolean autoLoadMap = true; //Whether or not to use built in map-loader (loads before server is fully setup)
+	protected String defaultMapName = "world";
+	protected TimeManager timeManager = null;
 	
 	/*
 	 * FusionGame Settings
@@ -31,5 +33,17 @@ public class FusionSettings {
 	}
 	public void setAutoLoadMap(boolean autoLoadMap){
 		this.autoLoadMap = autoLoadMap;
+	}
+	public String getDefaultMapName(){
+		return defaultMapName;
+	}
+	public void setDefaultMapName(String defaultMapName){
+		this.defaultMapName = defaultMapName;
+	}
+	public TimeManager getTimeManager(){
+		return timeManager;
+	}
+	public void setTimeManager(TimeManager timeManager){
+		this.timeManager = timeManager;
 	}
 }

@@ -33,7 +33,13 @@ public class FusionGame extends gFeature{
 		
 	}
 	/*
-	 * Called when the server 
+	 * Called when the server starts loading the map,
+	 * before the server starts up.
+	 * Override to change load map behaviour.
 	 */
-	
+	public void loadMap(){
+		if(settings.usesAutoLoadMap()){
+			
+		}
+	}
 }
