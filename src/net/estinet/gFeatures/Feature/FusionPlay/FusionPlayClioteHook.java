@@ -30,6 +30,7 @@ public class FusionPlayClioteHook extends ClioteHook{
 				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "stop");
 				break;
 			case "alive":
+				cp.sendMessage("fusionplay alive", "Bungee");
 				break;
 			}
 		}
