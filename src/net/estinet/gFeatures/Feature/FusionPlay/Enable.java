@@ -1,8 +1,8 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.EnabledHandler;
 
 /*
@@ -31,6 +31,15 @@ public class Enable{
 		Bukkit.getLogger().info("[FusionPlay] Enabled!");
 		FusionPlay.selectGame();
 		FusionPlay.currentGame.loadMap();
-		EnabledHandler.init();
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		if(FusionPlay.currentGame.getSettings().usesAutoLoadMap()){
+        		WorldCreator cs = new WorldCreator(FusionPlay.currentGame.getSettings().getDefaultMapName());
+        		Bukkit.getServer().createWorld(cs);
+        		}
+        		
+        		EnabledHandler.init();
+        	}
+        }, 40L);
 	}
 }

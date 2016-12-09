@@ -39,7 +39,7 @@ public class FusionGame extends gFeature{
 	 */
 	public void loadMap(){
 		if(settings.usesAutoLoadMap()){
-			
+			WorldUtil.initializeGame();
 		}
 	}
 }
