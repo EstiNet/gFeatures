@@ -28,8 +28,5 @@ public class Enable{
 	public static void onEnable(){
 		ch.setupConfig();
 		Bukkit.getLogger().info("[FusionPlay] Enabled!");
-		
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("fusionplay online", "Bungee");
 	}
 }

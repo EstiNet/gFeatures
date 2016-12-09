@@ -7,13 +7,7 @@ import net.estinet.gFeatures.gFeature;
 
 public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
-	
-	/*
-	 * FusionGame provided settings.
-	 */
-	
-	protected boolean usesSpawns = true; //Whether or not to use the built-in spawn mechanics.
-	protected boolean antiDeath = true; //Prevents death screen if enabled.
+	protected FusionSettings settings = new FusionSettings();
 	
 	public FusionGame(String featurename, String version) {
 		super(featurename, version);
@@ -23,6 +17,12 @@ public class FusionGame extends gFeature{
 	}
 	public void setMaps(List<FusionMap> maps){
 		this.maps = maps;
+	}
+	public FusionSettings getSettings(){
+		return settings;
+	}
+	public void setSettings(FusionSettings settings){
+		this.settings = settings;
 	}
 	/*
 	 * Called when the server has been assigned to an ID,
@@ -35,23 +35,5 @@ public class FusionGame extends gFeature{
 	/*
 	 * Called when the server 
 	 */
-	
-	
-	/*
-	 * FusionGame Settings
-	 */
-	
-	public boolean usesSpawns(){
-		return usesSpawns;
-	}
-	public void setUsesSpawns(boolean usesSpawns){
-		this.usesSpawns = usesSpawns;
-	}
-	public boolean usesAntiDeathScr(){
-		return antiDeath;
-	}
-	public void setUsesAntiDeathScr(boolean antiDeath){
-		this.antiDeath = antiDeath;
-	}
 	
 }
