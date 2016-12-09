@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 
 public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
@@ -50,11 +51,20 @@ public class FusionGame extends gFeature{
 		}
 	}
 	/*
+	 * Called if the waiting timer is complete.
+	 * Override to add game start enable behaviour (does not override auto fusionplay processes).
+	 */
+	public void waitTimerComplete(){
+		
+	}
+	/*
 	 * Called if using the auto timer, and the timer ends.
 	 * Override to COMPLETELY change timer end behaviour.
+	 * Note: YOU MUST IMPLEMENT CLIOTE("fusionplay done")
 	 */
 	public void timeCompleted(){
-		
+		CliotePing cp = new CliotePing();
+		cp.sendMessage("fusionplay done", "Bungee");
 	}
 	/*
 	 * Called if using the built in game stopper + auto timer,

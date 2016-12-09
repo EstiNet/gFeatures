@@ -3,6 +3,12 @@ package net.estinet.gFeatures.Feature.FusionPlay.GameUtil;
 public class FusionSettings {
 	
 	/*
+	 * FusionSettings Holder Variables
+	 */
+	
+	public int minLeft = 0, secLeft = 0;
+	
+	/*
 	 * FusionGame provided settings.
 	 */
 	

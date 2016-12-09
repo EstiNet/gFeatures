@@ -11,7 +11,6 @@ public class EnabledHandler {
 		}
 		else{
 			cp.sendMessage("fusionplay online " + FusionPlay.currentGame.getName(), "Bungee");
-			
 		}
 	}
 }

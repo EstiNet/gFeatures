@@ -5,7 +5,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 
 public class ParkourRace extends FusionGame implements Events{
