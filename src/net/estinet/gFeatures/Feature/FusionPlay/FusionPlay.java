@@ -15,6 +15,7 @@ import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
 public class FusionPlay extends gFeature implements Events{
 	
@@ -73,6 +74,7 @@ public class FusionPlay extends gFeature implements Events{
 		}
 		for(FusionGame fg : games){
 			if(!fg.getName().equalsIgnoreCase(not)){
+				fg.setFusionState(FusionState.LIMBO);
 				currentGame = fg;
 			}
 		}

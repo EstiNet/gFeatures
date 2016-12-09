@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
 public class StartResponse {
 	public static void response(List<String> args, String categoryName, String clioteName){
@@ -13,5 +14,6 @@ public class StartResponse {
 		}
 		FusionPlay.assigned = true;
 		FusionPlay.currentGame.gameAssigned();
+		FusionPlay.currentGame.setFusionState(FusionState.WAITING);
 	}
 }
