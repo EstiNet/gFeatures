@@ -34,6 +34,16 @@ public class FusionGame extends gFeature{
 		this.state = state;
 	}
 	/*
+	 * Non-Overridable
+	 * Please call this when the minigame is complete,
+	 * under winning circumstances.
+	 */
+	public final void finishGame(){
+		if(!settings.usesDependsOnTimer()){
+			timeCompleted(false);
+		}
+	}
+	/*
 	 * Called when the server has been assigned to an ID,
 	 * and is ready to accept players.
 	 * Override to change assigning behaviour.
@@ -59,11 +69,11 @@ public class FusionGame extends gFeature{
 		
 	}
 	/*
-	 * Called if using the auto timer, and the timer ends.
+	 * Called if using the auto timer, and the timer ends, or the game is complete.
 	 * Override to COMPLETELY change timer end behaviour.
 	 * Note: YOU MUST IMPLEMENT CLIOTE("fusionplay done") eventually
 	 */
-	public void timeCompleted(){
+	public void timeCompleted(boolean usedTimer){
 		//absoluteGameEnd() after certain amount of time
 		FusionPlay.currentGame.setFusionState(FusionState.ENDED);
 	}
@@ -81,6 +91,5 @@ public class FusionGame extends gFeature{
 	public void absoluteGameEnd(){
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("fusionplay done", "Bungee");
-		
 	}
 }

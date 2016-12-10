@@ -7,6 +7,7 @@ public class FusionSettings {
 	 */
 	
 	public int minLeft = 0, secLeft = 0;
+	public int waitingSecLeft = 0;
 	
 	/*
 	 * FusionGame provided settings.
@@ -16,9 +17,10 @@ public class FusionSettings {
 	protected boolean usesWaitingCounter = true; //Whether or not to use the built-in waiting counter. Must be supplied with waitingTimeManager and if overriden, check WaitingProcess.java
 	protected boolean antiDeath = true; //Prevents death screen if enabled.
 	protected boolean autoLoadMap = true; //Whether or not to use built in map-loader (loads before server is fully setup)
+	protected boolean dependsOnTimer = true; //Whether or not the game depends on the timer, or winning circumstance.
 	protected String defaultMapName = "world";
 	protected TimeManager timeManager = null;
-	protected TimeManager waitingTimeManager = null;
+	
 	
 	/*
 	 * FusionGame Settings
@@ -54,16 +56,22 @@ public class FusionSettings {
 	public void setWaitingCounter(boolean usesWaitingCounter){
 		this.usesWaitingCounter = usesWaitingCounter;
 	}
+	public int getWaitingSecLeft(){
+		return waitingSecLeft;
+	}
+	public void setWaitingSecLeft(int sec){
+		this.waitingSecLeft = sec;
+	}
 	public TimeManager getTimeManager(){
 		return timeManager;
 	}
 	public void setTimeManager(TimeManager timeManager){
 		this.timeManager = timeManager;
 	}
-	public TimeManager getWaitingTimeManager(){
-		return waitingTimeManager;
+	public boolean usesDependsOnTimer(){
+		return dependsOnTimer;
 	}
-	public void setWaitingTimeManager(TimeManager waitingTimeManager){
-		this.waitingTimeManager = waitingTimeManager;
+	public void setDependsOnTimer(boolean value){
+		dependsOnTimer = value;
 	}
 }

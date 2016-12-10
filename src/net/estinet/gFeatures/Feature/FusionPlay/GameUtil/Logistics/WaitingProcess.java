@@ -8,9 +8,8 @@ import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
 public class WaitingProcess {
 	public static void playerJoin(PlayerJoinEvent event){
-		//LATER IMPLEMENT IF USESWAITCOUNTER
-		if(FusionPlay.currentGame.getSettings()){
-			
+		if(FusionPlay.currentGame.getSettings().usesWaitingCounter()){
+			CounterProcess.waitInit();
 		}
 	}
 	public static void counterComplete(){
@@ -21,5 +20,7 @@ public class WaitingProcess {
 		if(FusionPlay.currentGame.getSettings().usesSpawns()){
 			//random spawn player move and stuff
 		}
+		FusionPlay.currentGame.waitTimerComplete();
+		CounterProcess.waitInit();
 	}
 }
