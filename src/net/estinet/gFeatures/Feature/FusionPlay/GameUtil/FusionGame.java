@@ -3,6 +3,9 @@ package net.estinet.gFeatures.Feature.FusionPlay.GameUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
+
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
@@ -36,11 +39,14 @@ public class FusionGame extends gFeature{
 	/*
 	 * Non-Overridable
 	 * Please call this when the minigame is complete,
-	 * under winning circumstances.
+	 * under winning circumstances, or built-in timer finishes.
 	 */
-	public final void finishGame(){
-		if(!settings.usesDependsOnTimer()){
+	public final void finishGame(boolean usedTimer){
+		if(!settings.usesDependsOnTimer() && !usedTimer){
 			timeCompleted(false);
+		}
+		else{
+			timeCompleted(true);
 		}
 	}
 	/*
@@ -48,9 +54,7 @@ public class FusionGame extends gFeature{
 	 * and is ready to accept players.
 	 * Override to change assigning behaviour.
 	 */
-	public void gameAssigned(){
-		
-	}
+	public void gameAssigned(){}
 	/*
 	 * Called when the server starts loading the map,
 	 * before the server starts up.
@@ -63,11 +67,9 @@ public class FusionGame extends gFeature{
 	}
 	/*
 	 * Called if the waiting timer is complete.
-	 * Override to add game start enable behaviour (does not override auto fusionplay processes).
+	 * Override to add game start enable behaviour (does not override auto fusionplay processes & spawner).
 	 */
-	public void waitTimerComplete(){
-		
-	}
+	public void waitTimerComplete(){}
 	/*
 	 * Called if using the auto timer, and the timer ends, or the game is complete.
 	 * Override to COMPLETELY change timer end behaviour.
@@ -76,15 +78,19 @@ public class FusionGame extends gFeature{
 	public void timeCompleted(boolean usedTimer){
 		//absoluteGameEnd() after certain amount of time
 		FusionPlay.currentGame.setFusionState(FusionState.ENDED);
+		gameEnd();
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			public void run(){
+				absoluteGameEnd();
+			}
+		}, 60L);
 	}
 	/*
 	 * Called if using the built in game stopper + auto timer,
 	 * and the timer ends.
 	 * Override to ADD-ON to the timer end behaviour.
 	 */
-	public void gameEnd(){
-		
-	}
+	public void gameEnd(){}
 	/*
 	 * Called when the rewards are given out, and after a certain amount of time.
 	 */
