@@ -1,6 +1,9 @@
 package net.estinet.gFeatures.Feature.ParkourRace;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
@@ -25,14 +28,22 @@ https://github.com/EstiNet/gFeatures
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionMap;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionSettings;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 import net.estinet.gFeatures.SQL.Player.Key;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		ParkourRace fg = new ParkourRace("ParkourRace", "1.0.0");
-		fg.setUsesAntiDeathScr(true);
-		fg.setUsesSpawns(true);
+		ParkourRace fg = new ParkourRace("ParkourRace", "1.0-ALPHA-DEV");
+		FusionSettings fs = new FusionSettings();
+		fs.setAutoLoadMap(true);
+		fs.setDefaultMapName("world");
+		fs.setUsesSpawns(true);
+		fs.setTimeManager(new TimeManager(3, TimeUnit.MINUTES));
+		fg.setSettings(fs);
+		fg.setMaps(MapsConfigure.init());
 		FusionPlay.addGame(fg);
 		Basic.addFeature(fg);
 	}
