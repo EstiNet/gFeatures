@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import org.bukkit.entity.Player;
 
 public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
 	protected FusionSettings settings = new FusionSettings();
 	protected FusionState state = FusionState.NOTUSED;
-	
+
+	public GameMode defaultGameMode = GameMode.ADVENTURE;
+
 	public FusionGame(String featurename, String version) {
 		super(featurename, version);
 	}
@@ -98,4 +102,12 @@ public class FusionGame extends gFeature{
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("fusionplay done", "Bungee");
 	}
+	/*
+	 * Called when spectator is added.
+	 */
+	public void setSpectator(Player p){}
+	/*
+	 * Called when spectator is removed.
+	 */
+	public void removeSpectator(Player p){}
 }

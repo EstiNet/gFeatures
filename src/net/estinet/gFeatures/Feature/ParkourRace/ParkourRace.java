@@ -32,4 +32,6 @@ public class ParkourRace extends FusionGame implements Events{
 	public void onPlayerJoin(){}
 	@Override
 	public void waitTimerComplete(){}
+	@Override
+
 }
