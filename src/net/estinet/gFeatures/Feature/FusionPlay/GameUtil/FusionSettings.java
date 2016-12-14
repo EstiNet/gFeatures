@@ -18,9 +18,10 @@ public class FusionSettings {
 	protected boolean antiDeath = true; //Prevents death screen if enabled.
 	protected boolean autoLoadMap = true; //Whether or not to use built in map-loader (loads before server is fully setup)
 	protected boolean dependsOnTimer = true; //Whether or not the game depends on the timer, or winning circumstance.
+	protected boolean allToSpectator = true; //Whether or not to set all players to Spectator after the game ends.
 	protected String defaultMapName = "world";
 	protected TimeManager timeManager = null;
-	
+	//Seshpenguin was here :D
 	
 	/*
 	 * FusionGame Settings
@@ -74,4 +75,7 @@ public class FusionSettings {
 	public void setDependsOnTimer(boolean value){
 		dependsOnTimer = value;
 	}
+	public boolean getAllToSpectator() { return allToSpectator; }
+	public void setAllToSpectator(boolean value){ allToSpectator = value; }
+
 }

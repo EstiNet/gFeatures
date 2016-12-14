@@ -33,6 +33,7 @@ public class ParkourRace extends FusionGame implements Events{
 	@Override
 	public void waitTimerComplete(){}
 	@Override
-	public void
-
+	public void gameAssigned(){}
+    @Override
+    public void gameEnd(){}
 }
