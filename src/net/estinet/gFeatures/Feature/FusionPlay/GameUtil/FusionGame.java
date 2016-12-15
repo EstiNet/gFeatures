@@ -123,5 +123,9 @@ public class FusionGame extends gFeature{
 	/*
 	 * Called when default world is loaded.
 	 */
-	public void worldLoaded() {}
+	public void worldLoaded(){}
+	/*
+	 * Called when the timer moves down one second.
+	 */
+	public void timerOneSec(int seconds){}
 }

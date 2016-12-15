@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -84,5 +85,8 @@ public class FusionPlay extends gFeature implements Events{
 				currentGame = fg;
 			}
 		}
+	}
+	public static void winners(Player p1, Player p2, Player p3){
+		
 	}
 }

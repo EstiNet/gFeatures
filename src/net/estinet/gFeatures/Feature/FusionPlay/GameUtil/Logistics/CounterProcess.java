@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
 import net.md_5.bungee.api.ChatColor;
@@ -51,6 +52,10 @@ public class CounterProcess {
 				if(!FusionPlay.currentGame.getFusionState().equals(FusionState.ENDED)){
 					if(FusionPlay.currentGame.getSettings().secLeft == 0){
 						FusionPlay.currentGame.finishGame(true);
+					}
+					else{
+						FusionPlay.currentGame.getSettings().secLeft--;
+						FusionPlay.currentGame.timerOneSec(FusionPlay.currentGame.getSettings().secLeft);
 					}
 				}
 			}
