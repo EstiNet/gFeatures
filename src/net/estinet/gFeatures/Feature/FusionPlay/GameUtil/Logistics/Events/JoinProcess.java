@@ -5,6 +5,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.WaitingProcess;
 
 public class JoinProcess {
@@ -13,6 +14,9 @@ public class JoinProcess {
 			if(Bukkit.getServer().getOnlinePlayers().size() > 1){
 				WaitingProcess.playerJoin(event);
 			}
+		}
+		else{
+			SpectateProcess.addSpectator(event.getPlayer());
 		}
 	}
 }
