@@ -54,6 +54,11 @@ public class FusionGame extends gFeature{
 		}
 	}
 	/*
+	 * Called when there are enough players to start, and the
+	 * waiting timer has started.
+	 */
+	public void enoughPlayers(){}
+	/*
 	 * Called when the server has been assigned to an ID,
 	 * and is ready to accept players.
 	 * Override to change assigning behaviour.

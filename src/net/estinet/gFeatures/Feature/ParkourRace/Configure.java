@@ -10,7 +10,7 @@ import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		ParkourRace fg = new ParkourRace("ParkourRace", "1.0-ALPHA-DEV");
+		ParkourRace fg = new ParkourRace("ParkourRace", "1.0.0");
 		FusionSettings fs = new FusionSettings();
 		fs.setAutoLoadMap(true);
 		fs.setDefaultMapName("world");
