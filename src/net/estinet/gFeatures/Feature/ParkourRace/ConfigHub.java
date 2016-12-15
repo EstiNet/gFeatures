@@ -24,6 +24,7 @@ https://github.com/EstiNet/gFeatures
 public class ConfigHub {
 	Config config = new Config();
 	public void setupConfig(){
-		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
+		config.createDirectory("plugins/gFeatures/ParkourRace", "[ParkourRace] Plugin directory set!");
+		config.createDirectory("plugins/gFeatures/ParkourRace/Maps", "[ParkourRace] Plugin maps directory set!");
 	}
 }

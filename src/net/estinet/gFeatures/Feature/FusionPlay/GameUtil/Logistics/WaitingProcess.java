@@ -9,22 +9,9 @@ import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
 public class WaitingProcess {
+	private static int counter = 0;
 	public static void playerJoin(PlayerJoinEvent event){
-		if(FusionPlay.currentGame.getSettings().usesSpawns()){
-			int counter = 0;
-			for(Player p : Bukkit.getOnlinePlayers()){
-				p.teleport(FusionPlay.currentGame.getFusionMap().getSpawns().get(counter));
-				if(counter == FusionPlay.currentGame.getFusionMap().getSpawns().size() - 2){
-					counter = 0;
-				}
-				else{
-					counter++;
-				}
-			}
-		}
-		if(FusionPlay.currentGame.getSettings().usesWaitingCounter()){
-			CounterProcess.waitInit();
-		}
+		CounterProcess.waitInit();
 	}
 	public static void counterComplete(){
 		CliotePing cp = new CliotePing();
@@ -32,5 +19,14 @@ public class WaitingProcess {
 		FusionPlay.currentGame.setFusionState(FusionState.STARTED);
 		FusionPlay.currentGame.waitTimerComplete();
 		CounterProcess.ingameInit(FusionPlay.currentGame.getSettings().getTimeManager());
+	}
+	public static void joinOnWait(Player p){
+		p.teleport(FusionPlay.currentGame.getFusionMap().getSpawns().get(counter));
+		if(counter == FusionPlay.currentGame.getFusionMap().getSpawns().size() - 2){
+			counter = 0;
+		}
+		else{
+			counter++;
+		}
 	}
 }

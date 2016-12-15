@@ -13,6 +13,9 @@ import net.md_5.bungee.api.ChatColor;
 public class JoinProcess {
 	public static void init(PlayerJoinEvent event){
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
+			if(FusionPlay.currentGame.getSettings().usesSpawns()){
+				WaitingProcess.joinOnWait(event.getPlayer());
+			}
 			event.getPlayer().setGameMode(FusionPlay.currentGame.defaultGameMode);
 			if(Bukkit.getServer().getOnlinePlayers().size() > 1){
 				WaitingProcess.playerJoin(event);

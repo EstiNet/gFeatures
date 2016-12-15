@@ -53,6 +53,7 @@ public class FusionGame extends gFeature{
 	 * under winning circumstances, or built-in timer finishes.
 	 */
 	public final void finishGame(boolean usedTimer){
+		this.state = FusionState.ENDED;
 		if(!settings.usesDependsOnTimer() && !usedTimer){
 			timeCompleted(false);
 		}
