@@ -14,7 +14,6 @@ public class FusionSettings {
 	 */
 	
 	protected boolean usesSpawns = true; //Whether or not to use the built-in spawn mechanics.
-	protected boolean usesWaitingCounter = true; //Whether or not to use the built-in waiting counter. Must be supplied with waitingTimeManager and if overriden, check WaitingProcess.java
 	protected boolean antiDeath = true; //Prevents death screen if enabled.
 	protected boolean autoLoadMap = true; //Whether or not to use built in map-loader (loads before server is fully setup)
 	protected boolean dependsOnTimer = true; //Whether or not the game depends on the timer, or winning circumstance.
@@ -50,12 +49,6 @@ public class FusionSettings {
 	}
 	public void setDefaultMapName(String defaultMapName){
 		this.defaultMapName = defaultMapName;
-	}
-	public boolean usesWaitingCounter(){
-		return usesWaitingCounter;
-	}
-	public void setWaitingCounter(boolean usesWaitingCounter){
-		this.usesWaitingCounter = usesWaitingCounter;
 	}
 	public int getWaitingSecLeft(){
 		return waitingSecLeft;
