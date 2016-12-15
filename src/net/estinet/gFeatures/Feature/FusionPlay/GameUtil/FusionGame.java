@@ -16,6 +16,7 @@ public class FusionGame extends gFeature{
 	protected List<FusionMap> maps = new ArrayList<>();
 	protected FusionSettings settings = new FusionSettings();
 	protected FusionState state = FusionState.NOTUSED;
+	protected FusionMap currentMap = null;
 
 	public GameMode defaultGameMode = GameMode.ADVENTURE;
 
@@ -39,6 +40,12 @@ public class FusionGame extends gFeature{
 	}
 	public void setFusionState(FusionState state){
 		this.state = state;
+	}
+	public void setFusionMap(FusionMap fm){
+		currentMap = fm;
+	}
+	public FusionMap getFusionMap(){
+		return currentMap;
 	}
 	/*
 	 * Non-Overridable
@@ -82,10 +89,8 @@ public class FusionGame extends gFeature{
 	/*
 	 * Called if using the auto timer, and the timer ends, or the game is complete.
 	 * Override to COMPLETELY change timer end behaviour.
-	 * Note: YOU MUST IMPLEMENT CLIOTE("fusionplay done") eventually
 	 */
 	public void timeCompleted(boolean usedTimer){
-		//absoluteGameEnd() after certain amount of time
 		FusionPlay.currentGame.setFusionState(FusionState.ENDED);
 		gameEnd();
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
@@ -102,6 +107,7 @@ public class FusionGame extends gFeature{
 	public void gameEnd(){}
 	/*
 	 * Called when the rewards are given out, and after a certain amount of time.
+	 * Note: YOU MUST IMPLEMENT CLIOTE("fusionplay done") eventually
 	 */
 	public void absoluteGameEnd(){
 		CliotePing cp = new CliotePing();
