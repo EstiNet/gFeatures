@@ -6,8 +6,9 @@ public class FusionSettings {
 	 * FusionSettings Holder Variables
 	 */
 
-	public int minLeft = 0, secLeft = 0;
+	public int secLeft = 0;
 	public int waitingSecLeft = 0;
+	protected int defaultWaitingSecLeft = 0;
 
 	/*
 	 * FusionGame provided settings.
@@ -21,7 +22,6 @@ public class FusionSettings {
 	protected String defaultMapName = "world";
 	protected String coolGameName = "[CoolGame]";
 	protected TimeManager timeManager = null;
-	//Seshpenguin was here :D
 
 	/*
 	 * FusionGame Settings
@@ -81,5 +81,10 @@ public class FusionSettings {
 	public void setAllToSpectator(boolean value){
 		allToSpectator = value; 
 	}
-
+	public void setDefaultWaitingSecLeft(int defaultWaitingSec){
+		this.defaultWaitingSecLeft = defaultWaitingSec;
+	}
+	public int getDefaultWaitingSecLeft(){
+		return defaultWaitingSecLeft;
+	}
 }
