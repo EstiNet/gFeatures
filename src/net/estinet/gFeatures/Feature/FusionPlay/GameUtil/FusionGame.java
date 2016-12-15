@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.WorldCreator;
-
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
@@ -122,4 +120,8 @@ public class FusionGame extends gFeature{
 	 * Called when spectator is removed.
 	 */
 	public void removeSpectator(Player p){}
+	/*
+	 * Called when default world is loaded.
+	 */
+	public void worldLoaded() {}
 }
