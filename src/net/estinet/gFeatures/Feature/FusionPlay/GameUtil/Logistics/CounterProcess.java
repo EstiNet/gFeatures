@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
 import net.md_5.bungee.api.ChatColor;
 
@@ -23,7 +24,7 @@ public class CounterProcess {
 						FusionPlay.currentGame.getSettings().waitingSecLeft = FusionPlay.currentGame.getSettings().getDefaultWaitingSecLeft();
 						for(Player p : Bukkit.getOnlinePlayers()){
 							ActionAPI api = new ActionAPI();
-							api.sendTitle(p, 1, 1, 1, ChatColor.AQUA + "Not enough players! .-.");
+							api.sendTitle(p, 1, 1, 1, ChatColor.AQUA + "Not enough players! (；一_一)");
 						}
 					}
 					else{
@@ -44,6 +45,16 @@ public class CounterProcess {
 		if(tm.getTimeUnit().equals(TimeUnit.MINUTES)){
 			sec *= 60;
 		}
-		
+		FusionPlay.currentGame.getSettings().secLeft = sec;
+		Thread thr = new Thread(new Runnable(){
+			public void run(){
+				if(!FusionPlay.currentGame.getFusionState().equals(FusionState.ENDED)){
+					if(FusionPlay.currentGame.getSettings().secLeft == 0){
+						FusionPlay.currentGame.finishGame(true);
+					}
+				}
+			}
+		});
+		thr.start();
 	}
 }
