@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.estinet.gFeatures.Events;
@@ -42,9 +43,14 @@ public class FusionPlay extends gFeature implements Events{
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
+			eh.onPlayerInteract((PlayerInteractEvent)event);
+		}
 	}
 	@Retrieval
 	public void onPlayerJoin(){}
+	@Retrieval
+	public void onPlayerInteract(){}
 	
 	public static void addGame(FusionGame fg){
 		games.add(fg);

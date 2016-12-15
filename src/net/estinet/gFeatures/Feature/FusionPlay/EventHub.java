@@ -1,7 +1,9 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.Events.JoinProcess;
 
 /*
@@ -30,6 +32,12 @@ public class EventHub{
 		}
 		else{
 			JoinProcess.init(event);
+		}
+	}
+
+	public void onPlayerInteract(PlayerInteractEvent event) {
+		if(SpectateProcess.spectators.contains(event.getPlayer().getUniqueId())){
+			event.setCancelled(true);
 		}
 	}
 }
