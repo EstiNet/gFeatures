@@ -3,10 +3,7 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.EnabledHandler;
-import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.CounterProcess;
-import net.md_5.bungee.api.ChatColor;
 
 /*
 gFeatures
@@ -42,6 +39,8 @@ public class Enable{
 					Bukkit.getServer().createWorld(cs);
 				}
 
+				FusionPlay.currentGame.worldLoaded();
+				
 				EnabledHandler.init();
 			}
 		}, 40L);

@@ -12,8 +12,7 @@ import java.util.List;
 public class MapsConfigure {
     public static List<FusionMap> init(){
         List<FusionMap> maps = new ArrayList<>();
-        List<Location> locations1 = new ArrayList<>();
-        MapOne fm1 = new MapOne(new File("plugins/gFeatures/ParkourRace/Maps/parkour1"), locations1);
+        MapOne fm1 = new MapOne(new File("plugins/gFeatures/ParkourRace/Maps/parkour1"));
         maps.add(fm1);
         return maps;
     }

@@ -7,6 +7,7 @@ import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionSettings;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
+import net.md_5.bungee.api.ChatColor;
 public class Configure{
 	@Configs
 	public static void onSetup(){
@@ -16,6 +17,8 @@ public class Configure{
 		fs.setDefaultMapName("world");
 		fs.setUsesSpawns(true);
 		fs.setTimeManager(new TimeManager(3, TimeUnit.MINUTES));
+		fs.setDefaultWaitingSecLeft(10);
+		fs.setCoolGameName(ChatColor.BOLD + "(づ￣ ³￣)づ" + ChatColor.AQUA + " Mini-Parkour");
 		fg.setSettings(fs);
 		fg.setMaps(MapsConfigure.init());
 		FusionPlay.addGame(fg);
