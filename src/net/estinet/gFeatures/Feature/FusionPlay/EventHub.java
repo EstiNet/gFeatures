@@ -52,6 +52,9 @@ public class EventHub{
 			if(!FusionPlay.currentGame.getSettings().allowPlayerTakeDamage()){
 				event.setCancelled(true);
 			}
+			else if(SpectateProcess.spectators.contains(event.getEntity().getUniqueId())){
+				event.setCancelled(true);
+			}
 		}
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
@@ -60,6 +63,9 @@ public class EventHub{
 				Player p = (Player) event.getEntity();
 				p.setFoodLevel(20);
 			}
+		}
+		else if(SpectateProcess.spectators.contains(event.getEntity().getUniqueId())){
+			event.setCancelled(true);
 		}
 	}
 }

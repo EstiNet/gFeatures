@@ -91,7 +91,7 @@ public class FusionGame extends gFeature{
 	 */
 	public void timeCompleted(boolean usedTimer){
 		FusionPlay.currentGame.setFusionState(FusionState.ENDED);
-		gameEnd();
+		gameEnd(usedTimer);
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				absoluteGameEnd();
@@ -103,7 +103,7 @@ public class FusionGame extends gFeature{
 	 * and the timer ends.
 	 * Override to ADD-ON to the timer end behaviour.
 	 */
-	public void gameEnd(){}
+	public void gameEnd(boolean usedTimer){}
 	/*
 	 * Called when the rewards are given out, and after a certain amount of time.
 	 * Note: YOU MUST IMPLEMENT CLIOTE("fusionplay done") eventually
