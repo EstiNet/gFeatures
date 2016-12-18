@@ -10,15 +10,42 @@ import org.bukkit.Location;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionMap;
 
 public class MapOne extends FusionMap{
-	public int pastDistance = 69;
+	public int pastDistanceZ = 154;
+	public int lowDistance = 39;
+	public int checkPointZ = 69;
+	public String name = "Classic";
+	public List<Location> checkpointSpawns = new ArrayList<>();
 	public MapOne(File f, List<Location> spawns) {
 		super(f, spawns);
+		assign();
 	}
 	public MapOne(File file) {
 		super(file);
+		assign();
 		List<Location> locs = new ArrayList<>();
-		locs.add(new Location(Bukkit.getWorld("world"), 69, 69, 69));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -804, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -807, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -810, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -813, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -816, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -819, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -822, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -824, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -826, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -829, -0, 90));
 		super.setSpawns(locs);
 	}
 	
+	public void assign(){
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -804, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -807, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -810, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -813, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -816, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -819, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -822, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -824, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -826, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -829, -0, 90));
+	}
 }
