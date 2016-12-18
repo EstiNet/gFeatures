@@ -20,7 +20,9 @@ public class FusionSettings {
 	protected boolean dependsOnTimer = true; //Whether or not the game depends on the timer, or winning circumstance.
 	protected boolean allToSpectator = true; //Whether or not to set all players to Spectator after the game ends.
 	protected boolean alwaysSetTime = true; //Whether or not to always keep the current time.
-	protected boolean usesPlayerCollision = true; //Whether or not to have player collision
+	protected boolean usesPlayerCollision = true; //Whether or not to have player collision.
+	protected boolean allowPlayerTakeDamage = false; //Whether or not to allow players take damage.
+	protected boolean allowPlayerLoseHunger = false; //Whether or not to add hunger.
 	protected int startTimeOfDay = 6000; //Starting time of the game (day, night). Default is noon.
 	protected String defaultMapName = "world";
 	protected String coolGameName = "[CoolGame]";
@@ -107,5 +109,17 @@ public class FusionSettings {
 	}
 	public boolean usesPlayerCollision(){
 		return usesPlayerCollision;
+	}
+	public void setPlayerTakeDamage(boolean allowPlayerTakeDamage){
+		this.allowPlayerTakeDamage = allowPlayerTakeDamage;
+	}
+	public boolean allowPlayerTakeDamage(){
+		return allowPlayerTakeDamage;
+	}
+	public void setPlayerLoseHunger(boolean allowPlayerLoseHunger){
+		this.allowPlayerLoseHunger = allowPlayerLoseHunger;
+	}
+	public boolean allowPlayerLoseHunger(){
+		return allowPlayerLoseHunger;
 	}
 }

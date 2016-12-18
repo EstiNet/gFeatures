@@ -10,6 +10,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -49,11 +50,19 @@ public class FusionPlay extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
 			eh.onPlayerInteract((PlayerInteractEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
+			eh.onFoodLevelChange((FoodLevelChangeEvent)event);
+		}
 	}
 	@Retrieval
+	@Override
 	public void onPlayerJoin(){}
 	@Retrieval
+	@Override
 	public void onPlayerInteract(){}
+	@Retrieval
+	@Override
+	public void onFoodLevelChange(){}
 	
 	public static void addGame(FusionGame fg){
 		games.add(fg);
