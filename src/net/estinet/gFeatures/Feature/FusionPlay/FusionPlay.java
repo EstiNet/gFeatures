@@ -94,10 +94,25 @@ public class FusionPlay extends gFeature implements Events{
 			assigned = true;
 			otherup = true;
 		}
+		int whee = 0;
+		while(true){
+			if(whee == 300){
+				games.get(0).setFusionState(FusionState.WAITING);
+				currentGame = games.get(0);
+				break;
+			}
+			int random = (int) Math.floor(Math.random() * games.size());
+			if(!games.get(random).getName().equalsIgnoreCase(not)){
+				games.get(random).setFusionState(FusionState.WAITING);
+				currentGame = games.get(random);
+				break;
+			}
+			Bukkit.getLogger().info("[FusionPlay] Ugh.");
+			whee++;
+		}
 		for(FusionGame fg : games){
-			if(!fg.getName().equalsIgnoreCase(not)){
+			if(!fg.equals(currentGame)){
 				fg.setFusionState(FusionState.LIMBO);
-				currentGame = fg;
 			}
 		}
 	}
