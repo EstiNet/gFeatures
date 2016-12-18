@@ -33,6 +33,8 @@ public class MapOne extends PRMap{
 		super.lowDistance = 39;
 		super.checkPointZ = 69;
 		super.name = "Classic";
+		super.p1 = new Location(Bukkit.getWorld("world"), 9, 43, -837);
+		super.p2 = new Location(Bukkit.getWorld("world"), 9, 44, -801);
 	}
 	
 	public void assign(){
