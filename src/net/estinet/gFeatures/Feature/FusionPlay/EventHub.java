@@ -27,6 +27,9 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
+		if(FusionPlay.currentGame.getSettings().usesPlayerCollision() == false){
+			event.getPlayer().setCollidable(false);
+		}
 		if(!FusionPlay.assigned && !event.getPlayer().hasPermission("gFeatures.admin")){
 			event.getPlayer().kickPlayer("Server hasn't been assigned!");
 		}

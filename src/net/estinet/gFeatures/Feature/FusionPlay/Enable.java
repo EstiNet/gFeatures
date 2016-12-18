@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Server.Spigot;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.EnabledHandler;
@@ -38,11 +39,17 @@ public class Enable{
 					WorldCreator cs = new WorldCreator(FusionPlay.currentGame.getSettings().getDefaultMapName());
 					Bukkit.getServer().createWorld(cs);
 				}
-
+				
+				Bukkit.getWorld(FusionPlay.currentGame.getSettings().getDefaultMapName()).setTime(FusionPlay.currentGame.getSettings().getStartTimeOfDay());
+				
+				if(FusionPlay.currentGame.getSettings().usesAlwaysSetTime()){
+					Bukkit.getWorld(FusionPlay.currentGame.getSettings().getDefaultMapName()).setGameRuleValue("doDaylightCycle", "false");
+				}
+				
 				FusionPlay.currentGame.worldLoaded();
 				
 				EnabledHandler.init();
 			}
-		}, 40L);
+		}, 50L);
 	}
 }

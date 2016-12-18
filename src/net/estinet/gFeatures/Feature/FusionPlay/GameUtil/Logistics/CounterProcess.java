@@ -34,6 +34,11 @@ public class CounterProcess {
 							aapi.sendTitles(p, 1, 1, 1, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] " + ChatColor.WHITE + ChatColor.BOLD + FusionPlay.currentGame.getSettings().getWaitingSecLeft() + ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] ");
 						}
 						FusionPlay.currentGame.getSettings().setWaitingSecLeft(FusionPlay.currentGame.getSettings().getWaitingSecLeft()-1);
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						run();
 					}
 				}
@@ -56,6 +61,12 @@ public class CounterProcess {
 					else{
 						FusionPlay.currentGame.getSettings().secLeft--;
 						FusionPlay.currentGame.timerOneSec(FusionPlay.currentGame.getSettings().secLeft);
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						run();
 					}
 				}
 			}

@@ -23,6 +23,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("Base Plugin Disabled!");
+		Bukkit.getLogger().info("[ParkourRace] Disabled!");
 	}
 }

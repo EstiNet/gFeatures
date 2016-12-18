@@ -19,6 +19,9 @@ public class FusionSettings {
 	protected boolean autoLoadMap = true; //Whether or not to use built in map-loader (loads before server is fully setup)
 	protected boolean dependsOnTimer = true; //Whether or not the game depends on the timer, or winning circumstance.
 	protected boolean allToSpectator = true; //Whether or not to set all players to Spectator after the game ends.
+	protected boolean alwaysSetTime = true; //Whether or not to always keep the current time.
+	protected boolean usesPlayerCollision = true; //Whether or not to have player collision
+	protected int startTimeOfDay = 6000; //Starting time of the game (day, night). Default is noon.
 	protected String defaultMapName = "world";
 	protected String coolGameName = "[CoolGame]";
 	protected TimeManager timeManager = null;
@@ -86,5 +89,23 @@ public class FusionSettings {
 	}
 	public int getDefaultWaitingSecLeft(){
 		return defaultWaitingSecLeft;
+	}
+	public void setStartTimeOfDay(int startTime){
+		startTimeOfDay = startTime;
+	}
+	public int getStartTimeOfDay(){
+		return startTimeOfDay;
+	}
+	public void setAlwaysSetTime(boolean alwaysSetTime){
+		this.alwaysSetTime = alwaysSetTime;
+	}
+	public boolean usesAlwaysSetTime(){
+		return alwaysSetTime;
+	}
+	public void setPlayerCollision(boolean usesPlayerCollision){
+		this.usesPlayerCollision = usesPlayerCollision;
+	}
+	public boolean usesPlayerCollision(){
+		return usesPlayerCollision;
 	}
 }
