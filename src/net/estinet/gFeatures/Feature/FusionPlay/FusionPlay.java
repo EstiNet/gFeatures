@@ -15,6 +15,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
@@ -101,10 +102,11 @@ public class FusionPlay extends gFeature implements Events{
 				currentGame = games.get(0);
 				break;
 			}
-			int random = (int) Math.floor(Math.random() * games.size());
+			int random = (int )(Math.random() * (games.size()-1) + 1);
 			if(!games.get(random).getName().equalsIgnoreCase(not)){
 				games.get(random).setFusionState(FusionState.WAITING);
 				currentGame = games.get(random);
+				Basic.addFeature(games.get(random));
 				break;
 			}
 			Bukkit.getLogger().info("[FusionPlay] Ugh.");

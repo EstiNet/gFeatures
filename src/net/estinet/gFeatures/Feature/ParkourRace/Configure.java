@@ -9,9 +9,10 @@ import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionSettings;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
 import net.md_5.bungee.api.ChatColor;
 public class Configure{
+	public static ParkourRace fg;
 	@Configs
 	public static void onSetup(){
-		ParkourRace fg = new ParkourRace("ParkourRace", "1.0.0");
+		fg = new ParkourRace("ParkourRace", "1.0.0");
 		FusionSettings fs = new FusionSettings();
 		fs.setAutoLoadMap(true);
 		fs.setDefaultMapName("world");
@@ -22,6 +23,5 @@ public class Configure{
 		fg.setSettings(fs);
 		fg.setMaps(MapsConfigure.init());
 		FusionPlay.addGame(fg);
-		Basic.addFeature(fg);
 	}
 }

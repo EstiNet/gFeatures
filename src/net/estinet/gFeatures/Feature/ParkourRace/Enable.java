@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.Bukkit;
 
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

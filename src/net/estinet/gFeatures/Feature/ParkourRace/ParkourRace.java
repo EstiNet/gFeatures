@@ -11,14 +11,13 @@ import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scoreboard.Scoreboard;
 
-import io.netty.util.internal.chmv8.ConcurrentHashMapV8.Action;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
+import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
 
 public class ParkourRace extends FusionGame implements Events{
 	
@@ -63,6 +62,29 @@ public class ParkourRace extends FusionGame implements Events{
     	Scoreboard sb = ScoreboardCreator.getScoreboard(seconds);
     	for(Player p : Bukkit.getOnlinePlayers()){
     		p.setScoreboard(sb);
+    		PRMap map = (PRMap) this.currentMap;
+    		if(p.getLocation().getY() < map.lowDistance){
+    			if(start.contains(p.getUniqueId())){
+    				int random = (int )(Math.random() * (map.getSpawns().size()-1) + 1);
+    				p.teleport(map.getSpawns().get(random));
+    			}
+    			else if(checkpoint.contains(p.getUniqueId())){
+    				int random = (int )(Math.random() * (map.checkpointSpawns.size()-1) + 1);
+    				p.teleport(map.checkpointSpawns.get(random));
+    			}
+    		}
+    		if(p.getLocation().getY() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+    			distances.remove(getDistance(p.getUniqueId()));
+    			distances.put(p.getLocation().getY(), p.getUniqueId());
+    		}
     	}
+    }
+    public double getDistance(UUID uuid){
+    	for(int i = 0; i < distances.values().size(); i++){
+    		if(distances.values().toArray()[i].equals(uuid)){
+    			return (double) distances.keySet().toArray()[i];
+    		}
+    	}
+    	return 0;
     }
 }

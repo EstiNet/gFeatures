@@ -9,12 +9,7 @@ import org.bukkit.Location;
 
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionMap;
 
-public class MapOne extends FusionMap{
-	public int pastDistanceZ = 154;
-	public int lowDistance = 39;
-	public int checkPointZ = 69;
-	public String name = "Classic";
-	public List<Location> checkpointSpawns = new ArrayList<>();
+public class MapOne extends PRMap{
 	public MapOne(File f, List<Location> spawns) {
 		super(f, spawns);
 		assign();
@@ -34,6 +29,10 @@ public class MapOne extends FusionMap{
 		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -826, -0, 90));
 		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -829, -0, 90));
 		super.setSpawns(locs);
+		super.pastDistanceZ = 154;
+		super.lowDistance = 39;
+		super.checkPointZ = 69;
+		super.name = "Classic";
 	}
 	
 	public void assign(){

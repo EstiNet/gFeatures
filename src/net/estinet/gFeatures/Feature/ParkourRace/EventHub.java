@@ -2,6 +2,9 @@ package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -23,6 +26,8 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
-		
+		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
+			ParkourRace.start.add(event.getPlayer().getUniqueId());
+		}
 	}
 }
