@@ -18,6 +18,8 @@ import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
+import net.estinet.gFeatures.Feature.gScore.ActionAPI;
+import net.md_5.bungee.api.ChatColor;
 
 public class ParkourRace extends FusionGame implements Events{
 	
@@ -47,7 +49,9 @@ public class ParkourRace extends FusionGame implements Events{
 	@Retrieval
 	public void onPlayerJoin(){}
 	@Override
-	public void waitTimerComplete(){}
+	public void waitTimerComplete(){
+		
+	}
 	@Override
 	public void gameAssigned(){}
     @Override
@@ -73,9 +77,17 @@ public class ParkourRace extends FusionGame implements Events{
     				p.teleport(map.checkpointSpawns.get(random));
     			}
     		}
-    		if(p.getLocation().getY() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+    		if(p.getLocation().getZ() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
     			distances.remove(getDistance(p.getUniqueId()));
     			distances.put(p.getLocation().getY(), p.getUniqueId());
+    		}
+    		if(p.getLocation().getZ() > map.checkPointZ && start.contains(p.getUniqueId())){
+    			start.remove(p.getUniqueId());
+    			checkpoint.add(p.getUniqueId());
+    			ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
+    		}
+    		if(p.getLocation().getZ() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+    			this.finishGame(false);
     		}
     	}
     }

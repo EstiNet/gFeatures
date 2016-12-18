@@ -18,6 +18,8 @@ public abstract class PRMap extends FusionMap{
 	public int pastDistanceZ;
 	public int lowDistance;
 	public int checkPointZ;
+	public Location p1;
+	public Location p2;
 	public String name = "Classic";
 	public List<Location> checkpointSpawns = new ArrayList<>();
 }
