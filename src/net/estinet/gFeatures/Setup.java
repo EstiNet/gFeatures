@@ -52,6 +52,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.ServerQuery.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Shop.Configure.onSetup();
 		net.estinet.gFeatures.Feature.FusionPlay.Configure.onSetup();
+		net.estinet.gFeatures.Feature.ParkourRace.Configure.onSetup();
 
 		/*
 		 * Initialize your Skripts here.

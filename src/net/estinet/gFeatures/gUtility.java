@@ -59,4 +59,5 @@ public class gUtility extends Extension{
     public void onPlayerAnimate(){}
     public void onInventory(){}
     public void onInventoryInteract(){}
+    public void onEntityDamageByBlock(){}
 }

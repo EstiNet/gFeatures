@@ -1,6 +1,9 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByBlockEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -25,7 +28,7 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
@@ -39,15 +42,20 @@ public class EventHub{
 			JoinProcess.init(event);
 		}
 	}
-
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if(SpectateProcess.spectators.contains(event.getPlayer().getUniqueId())){
 			event.setCancelled(true);
 		}
 	}
-
+	public void onPlayerDamage(EntityDamageEvent event){
+		if(event.getEntity() instanceof Player){
+			if(!FusionPlay.currentGame.getSettings().allowPlayerTakeDamage()){
+				event.setCancelled(true);
+			}
+		}
+	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
-		if(FusionPlay.currentGame.getSettings().allowPlayerLoseHunger()){
+		if(!FusionPlay.currentGame.getSettings().allowPlayerLoseHunger()){
 			if(event.getEntity() instanceof Player){
 				Player p = (Player) event.getEntity();
 				p.setFoodLevel(20);

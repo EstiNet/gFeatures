@@ -262,6 +262,10 @@ public class Listeners extends JavaPlugin implements Listener{
 	public void InventoryInteractEvent(org.bukkit.event.inventory.InventoryInteractEvent event){
 		library.onInventoryInteract(event);
 	}
+	@EventHandler
+	public void EntityDamageByBlockEvent(org.bukkit.event.entity.EntityDamageByBlockEvent event){
+		library.onEntityDamageByBlock(event);
+	}
 	@Override
 	public boolean onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
 		commands.Commands(sender, cmd, label, args);

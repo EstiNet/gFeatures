@@ -92,4 +92,5 @@ public class gFeature{
     public void onPlayerAnimate(){}
     public void onInventory(){}
     public void onInventoryInteract(){}
+    public void onEntityDamageByBlock(){}
 }
