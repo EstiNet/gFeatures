@@ -14,7 +14,7 @@ public class WorldUtil {
 	public static int movingSpawnIndex = 0;
 	public static void initializeGame(){
 		FusionGame fg = FusionPlay.currentGame;
-		int random = (int )(Math.random() * (fg.getMaps().size()-1) + 1);
+		int random = (int )(Math.random() * (fg.getMaps().size()));
 		Debug.print("[FusionPlay] World magic number: " + random);
 		FusionPlay.currentGame.setFusionMap(fg.getMaps().get(random));
 		copyWorld(fg.getMaps().get(random).getFile());

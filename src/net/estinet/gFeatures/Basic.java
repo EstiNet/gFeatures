@@ -2,8 +2,10 @@ package net.estinet.gFeatures;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -43,7 +45,7 @@ public class Basic<T,V> {
 	static Write write = new Write();
 	static Read read = new Read();
 	
-	public static List<gFeature> features = new ArrayList<>();
+	public static List<gFeature> features = Collections.synchronizedList(new CopyOnWriteArrayList<>());
 	private static List<Extension> extensions = new ArrayList<>();
 	private static List<EstiCommand> commands = new ArrayList<>();
 	private static HashMap<String, String> playersections = new HashMap<>();

@@ -102,12 +102,22 @@ public class FusionPlay extends gFeature implements Events{
 				currentGame = games.get(0);
 				break;
 			}
-			int random = (int )(Math.random() * (games.size()-1) + 1);
+			int random = (int )(Math.random() * (games.size()));
 			if(!games.get(random).getName().equalsIgnoreCase(not)){
 				games.get(random).setFusionState(FusionState.WAITING);
 				currentGame = games.get(random);
-				Basic.addFeature(games.get(random));
-				games.get(random).enable();
+				Thread thr = new Thread(new Runnable(){
+					public void run(){
+						try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						Basic.addFeature(games.get(random));
+						games.get(random).enable();
+					}
+				});
+				thr.start();
 				break;
 			}
 			Bukkit.getLogger().info("[FusionPlay] Ugh.");
