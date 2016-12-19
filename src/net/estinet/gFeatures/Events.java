@@ -47,5 +47,5 @@ public interface Events {
     public void onPlayerAnimate();
     public void onInventory();
     public void onInventoryInteract();
-    public void onEntityDamageByBlock(){}
+    public void onEntityDamageByBlock();
 }
