@@ -107,6 +107,7 @@ public class FusionPlay extends gFeature implements Events{
 				games.get(random).setFusionState(FusionState.WAITING);
 				currentGame = games.get(random);
 				Basic.addFeature(games.get(random));
+				games.get(random).enable();
 				break;
 			}
 			Bukkit.getLogger().info("[FusionPlay] Ugh.");
