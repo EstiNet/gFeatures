@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.ParkourRace;
 
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
@@ -29,5 +30,10 @@ public class EventHub{
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
 			ParkourRace.start.add(event.getPlayer().getUniqueId());
 		}
+	}
+	public void onPlayerLeave(PlayerQuitEvent event){
+		ParkourRace.start.remove(event.getPlayer().getUniqueId());
+		ParkourRace.checkpoint.remove(event.getPlayer().getUniqueId());
+		ParkourRace.distances.remove(ParkourRace.getDistance(event.getPlayer().getUniqueId()));
 	}
 }

@@ -119,7 +119,7 @@ public class ParkourRace extends FusionGame implements Events{
 			}
 		}
 	}
-	public double getDistance(UUID uuid){
+	public static double getDistance(UUID uuid){
 		for(int i = 0; i < distances.values().size(); i++){
 			if(distances.values().toArray()[i].equals(uuid)){
 				return (double) distances.keySet().toArray()[i];
