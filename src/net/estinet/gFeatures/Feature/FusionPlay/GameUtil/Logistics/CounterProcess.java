@@ -6,6 +6,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
+import net.estinet.gFeatures.Feature.CTF.Basic;
+import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
@@ -15,7 +18,8 @@ import net.md_5.bungee.api.ChatColor;
 public class CounterProcess {
 	public static void waitInit(){
 		FusionPlay.currentGame.enoughPlayers();
-		Thread thr = new Thread(new Runnable(){
+
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				if(FusionPlay.currentGame.getSettings().getWaitingSecLeft() <= 0){
 					WaitingProcess.counterComplete();
@@ -39,12 +43,11 @@ public class CounterProcess {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						run();
+						waitInit();
 					}
 				}
 			}
-		});
-		thr.start();
+		}, 20L);
 	}
 	public static void ingameInit(TimeManager tm){
 		int sec = (int) tm.getLength();
@@ -52,7 +55,7 @@ public class CounterProcess {
 			sec *= 60;
 		}
 		FusionPlay.currentGame.getSettings().secLeft = sec;
-		Thread thr = new Thread(new Runnable(){
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				if(!FusionPlay.currentGame.getFusionState().equals(FusionState.ENDED)){
 					if(FusionPlay.currentGame.getSettings().secLeft == 0){
@@ -66,11 +69,10 @@ public class CounterProcess {
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						run();
+						ingameInit(tm);
 					}
 				}
 			}
-		});
-		thr.start();
+		}, 20L);
 	}
 }

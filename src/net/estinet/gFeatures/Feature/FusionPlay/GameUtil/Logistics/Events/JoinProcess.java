@@ -22,7 +22,7 @@ public class JoinProcess {
 			}
 			else{
 				ActionAPI aapi = new ActionAPI();
-				aapi.sendTitle(event.getPlayer(), 3, 5, 3, ChatColor.DARK_GRAY + "Waiting for more players...");
+				aapi.sendTitle(event.getPlayer(), 10, 20, 10, ChatColor.DARK_GRAY + "Waiting for more players...");
 			}
 		}
 		else{
