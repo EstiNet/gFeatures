@@ -95,33 +95,38 @@ public class ParkourRace extends FusionGame implements Events{
 	}
 	@Override
 	public void timerOneSec(int seconds){
-		Scoreboard sb = ScoreboardCreator.getScoreboard(seconds);
-		for(Player p : Bukkit.getOnlinePlayers()){
-			p.setScoreboard(sb);
-			PRMap map = (PRMap) this.currentMap;
-			if(p.getLocation().getY() < map.lowDistance){
-				if(start.contains(p.getUniqueId())){
-					int random = (int )(Math.random() * (map.getSpawns().size()-1) + 1);
-					p.teleport(map.getSpawns().get(random));
+		Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
+			public void run(){
+				Scoreboard sb = ScoreboardCreator.getScoreboard(seconds);
+				for(Player p : Bukkit.getOnlinePlayers()){
+					p.setScoreboard(sb);
+					PRMap map = (PRMap) currentMap;
+					if(p.getLocation().getY() < map.lowDistance){
+						if(start.contains(p.getUniqueId())){
+							int random = (int )(Math.random() * (map.getSpawns().size()-1) + 1);
+							p.teleport(map.getSpawns().get(random));
+						}
+						else if(checkpoint.contains(p.getUniqueId())){
+							int random = (int )(Math.random() * (map.checkpointSpawns.size()-1) + 1);
+							p.teleport(map.checkpointSpawns.get(random));
+						}
+					}
+					if(p.getLocation().getZ() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+						distances.remove(getDistance(p.getUniqueId()));
+						distances.put(p.getLocation().getY(), p.getUniqueId());
+					}
+					if(p.getLocation().getZ() > map.checkPointZ && start.contains(p.getUniqueId())){
+						start.remove(p.getUniqueId());
+						checkpoint.add(p.getUniqueId());
+						ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
+					}
+					if(p.getLocation().getZ() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+						finishGame(false);
+					}
 				}
-				else if(checkpoint.contains(p.getUniqueId())){
-					int random = (int )(Math.random() * (map.checkpointSpawns.size()-1) + 1);
-					p.teleport(map.checkpointSpawns.get(random));
-				}
 			}
-			if(p.getLocation().getZ() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
-				distances.remove(getDistance(p.getUniqueId()));
-				distances.put(p.getLocation().getY(), p.getUniqueId());
-			}
-			if(p.getLocation().getZ() > map.checkPointZ && start.contains(p.getUniqueId())){
-				start.remove(p.getUniqueId());
-				checkpoint.add(p.getUniqueId());
-				ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
-			}
-			if(p.getLocation().getZ() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
-				this.finishGame(false);
-			}
-		}
+		});
+
 	}
 	public static double getDistance(UUID uuid){
 		for(int i = 0; i < distances.values().size(); i++){

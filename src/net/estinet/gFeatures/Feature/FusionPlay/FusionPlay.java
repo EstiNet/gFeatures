@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Events;
+import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
@@ -114,6 +115,7 @@ public class FusionPlay extends gFeature implements Events{
 							e.printStackTrace();
 						}
 						Basic.addFeature(games.get(random));
+						Basic.getFeature(games.get(random).getName()).setState(FeatureState.ENABLE);
 						games.get(random).enable();
 					}
 				});

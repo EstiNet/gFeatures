@@ -22,7 +22,7 @@ public class WaitingProcess {
 		FusionPlay.currentGame.waitTimerComplete();
 		ActionAPI aapi = new ActionAPI();
 		for(Player p : Bukkit.getOnlinePlayers()){
-			aapi.sendAll(p, 2, 3, 2, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.BOLD + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Game Start! (⌐■_■)", ChatColor.AQUA + "(╯°□°）╯︵ ┻━┻", "woo", "yey");
+			aapi.sendAll(p, 30, 60, 30, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.BOLD + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Game Start! (⌐■_■)", ChatColor.AQUA + "(╯°□°）╯︵ ┻━┻", "woo", "yey");
 		}
 		CounterProcess.ingameInit(FusionPlay.currentGame.getSettings().getTimeManager());
 	}

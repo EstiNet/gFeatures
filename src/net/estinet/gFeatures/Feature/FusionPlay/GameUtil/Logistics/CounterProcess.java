@@ -25,13 +25,13 @@ public class CounterProcess {
 						FusionPlay.currentGame.getSettings().waitingSecLeft = FusionPlay.currentGame.getSettings().getDefaultWaitingSecLeft();
 						for(Player p : Bukkit.getOnlinePlayers()){
 							ActionAPI api = new ActionAPI();
-							api.sendTitle(p, 1, 1, 1, ChatColor.AQUA + "Not enough players! (；一_一)");
+							api.sendTitle(p, 20, 40, 20, ChatColor.AQUA + "Not enough players! (；一_一)");
 						}
 					}
 					else{
 						for(Player p : Bukkit.getOnlinePlayers()){
 							ActionAPI aapi = new ActionAPI();
-							aapi.sendTitles(p, 1, 1, 1, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] " + ChatColor.WHITE + ChatColor.BOLD + FusionPlay.currentGame.getSettings().getWaitingSecLeft() + ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] ");
+							aapi.sendTitles(p, 10, 10, 10, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] " + ChatColor.WHITE + ChatColor.BOLD + FusionPlay.currentGame.getSettings().getWaitingSecLeft() + ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] ");
 						}
 						FusionPlay.currentGame.getSettings().setWaitingSecLeft(FusionPlay.currentGame.getSettings().getWaitingSecLeft()-1);
 						try {
