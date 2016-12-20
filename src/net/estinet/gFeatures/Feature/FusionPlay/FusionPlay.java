@@ -137,7 +137,8 @@ public class FusionPlay extends gFeature implements Events{
 	public static void winners(Player p1, Player p2, Player p3){
 		for(Player p : Bukkit.getOnlinePlayers()){
 			ActionAPI aapi = new ActionAPI();
-			aapi.sendTitles(p, 3, 5, 3, ChatColor.DARK_AQUA + " (◕‿↼) Game Complete! （╯°□°）╯︵(\\ .o.)\\", ChatColor.GOLD + "1: " + p1.getName() + " 2: " + p2.getName() + " 3: " + p3.getName());
+			Bukkit.getLogger().info( ChatColor.DARK_AQUA + " (◕‿↼) Game Complete! （╯°□°）╯︵(\\ .o.)\\" + ChatColor.GOLD + "1: " + p1.getName() + " 2: " + p2.getName() + " 3: " + p3.getName());
+			aapi.sendTitles(p, 20, 50, 20, ChatColor.DARK_AQUA + " (◕‿↼) Game Complete! （╯°□°）╯︵(\\ .o.)\\", ChatColor.GOLD + "1: " + p1.getName() + " 2: " + p2.getName() + " 3: " + p3.getName());
 		}
 	}
 }

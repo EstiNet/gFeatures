@@ -118,7 +118,7 @@ public class ParkourRace extends FusionGame implements Events{
 					}
 					if(Math.abs(p.getLocation().getX()) > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						distances.remove(getDistance(p.getUniqueId()));
-						distances.put(p.getLocation().getX(), p.getUniqueId());
+						distances.put(Math.abs(p.getLocation().getX()) - Math.abs(map.p1.getX()), p.getUniqueId());
 					}
 					if(Math.abs(p.getLocation().getX()) > map.checkPointZ && start.contains(p.getUniqueId())){
 						start.remove(p.getUniqueId());
