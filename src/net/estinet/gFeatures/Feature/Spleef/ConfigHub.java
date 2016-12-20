@@ -1,7 +1,4 @@
-package net.estinet.gFeatures.Feature.ParkourRace;
-
-import net.estinet.gFeatures.Configuration.Config;
-
+package net.estinet.gFeatures.Feature.Spleef;
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -21,10 +18,11 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
+import net.estinet.gFeatures.Configuration.Config;
+
 public class ConfigHub {
 	Config config = new Config();
 	public void setupConfig(){
-		config.createDirectory("plugins/gFeatures/ParkourRace", "[ParkourRace] Plugin directory set!");
-		config.createDirectory("plugins/gFeatures/ParkourRace/Maps", "[ParkourRace] Plugin maps directory set!");
+		config.createDirectory("plugins/gFeatures/Spleef", "[Spleef] Plugin directory set!");
 	}
 }

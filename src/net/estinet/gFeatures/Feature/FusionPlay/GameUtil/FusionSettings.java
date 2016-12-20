@@ -23,6 +23,8 @@ public class FusionSettings {
 	protected boolean usesPlayerCollision = true; //Whether or not to have player collision.
 	protected boolean allowPlayerTakeDamage = false; //Whether or not to allow players take damage.
 	protected boolean allowPlayerLoseHunger = false; //Whether or not to add hunger.
+	protected boolean allowOtherMobs = false; //Whether or not to allow other mobs to exist. This will automatically turn off allowMobSpawn.
+	protected boolean allowMobSpawn = false; //Whether or not to allow mobs to spawn.
 	protected int startTimeOfDay = 6000; //Starting time of the game (day, night). Default is noon.
 	protected String defaultMapName = "world";
 	protected String coolGameName = "[CoolGame]";
@@ -121,5 +123,17 @@ public class FusionSettings {
 	}
 	public boolean allowPlayerLoseHunger(){
 		return allowPlayerLoseHunger;
+	}
+	public void setAllowOtherMobs(boolean allowOtherMobs){
+		this.allowOtherMobs = allowOtherMobs;
+	}
+	public boolean allowOtherMobs(){
+		return allowOtherMobs;
+	}
+	public void setAllowMobSpawn(boolean allowMobSpawn){
+		this.allowMobSpawn = allowMobSpawn;
+	}
+	public boolean allowMobSpawn(){
+		return allowMobSpawn;
 	}
 }

@@ -15,7 +15,7 @@ public class FusionGame extends gFeature{
 	protected FusionSettings settings = new FusionSettings();
 	protected FusionState state = FusionState.NOTUSED;
 	protected FusionMap currentMap = null;
-
+	
 	public GameMode defaultGameMode = GameMode.ADVENTURE;
 
 	public FusionGame(String featurename, String version) {

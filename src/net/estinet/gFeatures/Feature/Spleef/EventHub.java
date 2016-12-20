@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.ParkourRace;
+package net.estinet.gFeatures.Feature.Spleef;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;

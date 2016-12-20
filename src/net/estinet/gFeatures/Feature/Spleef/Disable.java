@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.ParkourRace;
+package net.estinet.gFeatures.Feature.Spleef;
 
 import org.bukkit.Bukkit;
 
@@ -23,6 +23,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Disable{
 	public static void onDisable(){
-		Bukkit.getLogger().info("[ParkourRace] Disabled!");
+		Bukkit.getLogger().info("[Spleef] Disabled!");
 	}
 }

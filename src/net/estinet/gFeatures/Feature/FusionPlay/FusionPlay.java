@@ -69,6 +69,9 @@ public class FusionPlay extends gFeature implements Events{
 	@Retrieval
 	@Override
 	public void onFoodLevelChange(){}
+	@Retrieval
+	@Override
+	public void onEntityDamage(){}
 	
 	public static void addGame(FusionGame fg){
 		games.add(fg);
