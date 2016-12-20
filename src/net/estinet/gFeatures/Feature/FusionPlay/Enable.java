@@ -48,6 +48,8 @@ public class Enable{
 				
 				FusionPlay.currentGame.worldLoaded();
 				
+				FusionPlay.currentGame.getFusionMap().reassign();
+				
 				EnabledHandler.init();
 			}
 		}, 50L);

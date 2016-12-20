@@ -22,4 +22,5 @@ public abstract class PRMap extends FusionMap{
 	public Location p2;
 	public String name = "Classic";
 	public List<Location> checkpointSpawns = new ArrayList<>();
+	public abstract void reassign();
 }

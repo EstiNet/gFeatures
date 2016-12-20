@@ -55,7 +55,11 @@ public class ParkourRace extends FusionGame implements Events{
 	public void waitTimerComplete(){
 		PRMap map = (PRMap) this.currentMap;
 		for(Block block : blocksFromTwoPoints(map.p1, map.p2)){
-			block.setType(Material.AIR);
+			Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
+				public void run(){
+					block.setType(Material.AIR);
+				}
+			}, 1L);
 		}
 	}
 	public static List<Block> blocksFromTwoPoints(Location loc1, Location loc2){

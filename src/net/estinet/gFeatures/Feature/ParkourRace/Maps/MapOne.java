@@ -49,4 +49,35 @@ public class MapOne extends PRMap{
 		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -826, -0, 90));
 		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -829, -0, 90));
 	}
+	public void reassign(){
+		List<Location> locs = new ArrayList<>();
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -804, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -807, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -810, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -813, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -816, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -819, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -822, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -824, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -826, -0, 90));
+		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -829, -0, 90));
+		super.setSpawns(locs);
+		super.pastDistanceZ = 154;
+		super.lowDistance = 39;
+		super.checkPointZ = 69;
+		super.name = "Classic";
+		super.p1 = new Location(Bukkit.getWorld("world"), 9, 43, -837);
+		super.p2 = new Location(Bukkit.getWorld("world"), 9, 44, -801);
+		checkpointSpawns = new ArrayList<>();
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -804, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -807, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -810, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -813, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -816, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -819, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -822, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -824, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -826, -0, 90));
+		checkpointSpawns.add(new Location(Bukkit.getWorld("world"), -72, 44.5, -829, -0, 90));
+	}
 }

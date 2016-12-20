@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.bukkit.Location;
 
-public class FusionMap {
+public abstract class FusionMap {
 	private File f = null;
 	private List<Location> spawns = new ArrayList<>();
 	public FusionMap(File f){
@@ -31,4 +31,6 @@ public class FusionMap {
 	public void addSpawn(Location loc){
 		spawns.add(loc);
 	}
+	//must override plz
+	public abstract void reassign();
 }
