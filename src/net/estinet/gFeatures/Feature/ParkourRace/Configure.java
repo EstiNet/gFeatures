@@ -17,7 +17,7 @@ public class Configure{
 		fs.setAutoLoadMap(true);
 		fs.setDefaultMapName("world");
 		fs.setUsesSpawns(true);
-		fs.setTimeManager(new TimeManager(3, TimeUnit.MINUTES));
+		fs.setTimeManager(new TimeManager(6, TimeUnit.MINUTES));
 		fs.setDefaultWaitingSecLeft(10);
 		fs.setCoolGameName(ChatColor.BOLD + "(づ￣ ³￣)づ" + ChatColor.AQUA + " Mini-Parkour");
 		fg.setSettings(fs);

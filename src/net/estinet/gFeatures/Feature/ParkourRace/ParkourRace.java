@@ -16,12 +16,12 @@ import org.bukkit.scoreboard.Scoreboard;
 
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
-import net.estinet.gFeatures.Feature.gScore.ActionAPI;
 import net.md_5.bungee.api.ChatColor;
 
 public class ParkourRace extends FusionGame implements Events{
@@ -90,12 +90,16 @@ public class ParkourRace extends FusionGame implements Events{
 	public void gameEnd(boolean usedTimer){
 		for(Player p : Bukkit.getOnlinePlayers()){
 			p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
-			FusionPlay.winners(DetermineWinner.determine(0), DetermineWinner.determine(1), DetermineWinner.determine(2));
+			try{
+				FusionPlay.winners(DetermineWinner.determine(0), DetermineWinner.determine(1), DetermineWinner.determine(2));
+			}
+			catch(Exception e){
+				FusionPlay.winners(DetermineWinner.determine(0), DetermineWinner.determine(1), DetermineWinner.determine(1));
+			}
 		}
 	}
 	@Override
 	public void timerOneSec(int seconds){
-		Bukkit.getLogger().info(seconds + "");
 		//Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
 			//public void run(){
 				Scoreboard sb = ScoreboardCreator.getScoreboard(seconds);
@@ -119,7 +123,8 @@ public class ParkourRace extends FusionGame implements Events{
 					if(Math.abs(p.getLocation().getX()) > map.checkPointZ && start.contains(p.getUniqueId())){
 						start.remove(p.getUniqueId());
 						checkpoint.add(p.getUniqueId());
-						ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
+						ActionAPI aapi = new ActionAPI();
+						aapi.sendActionbar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
 					}
 					if(Math.abs(p.getLocation().getX()) > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						finishGame(false);
