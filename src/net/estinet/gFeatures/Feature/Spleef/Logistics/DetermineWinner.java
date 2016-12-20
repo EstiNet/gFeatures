@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.ParkourRace.Logistics;
+package net.estinet.gFeatures.Feature.Spleef.Logistics;
 
 import java.util.Arrays;
 import org.bukkit.Bukkit;
