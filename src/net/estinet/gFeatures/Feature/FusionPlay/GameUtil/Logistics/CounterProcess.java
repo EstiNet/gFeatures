@@ -17,7 +17,6 @@ import net.md_5.bungee.api.ChatColor;
 
 public class CounterProcess {
 	public static void waitInit(){
-		FusionPlay.currentGame.enoughPlayers();
 
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
@@ -35,26 +34,17 @@ public class CounterProcess {
 					else{
 						for(Player p : Bukkit.getOnlinePlayers()){
 							ActionAPI aapi = new ActionAPI();
-							aapi.sendTitles(p, 10, 10, 10, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] " + ChatColor.WHITE + ChatColor.BOLD + FusionPlay.currentGame.getSettings().getWaitingSecLeft() + ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] ");
+							aapi.sendTitles(p, 10, 20, 10, FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] " + ChatColor.WHITE + ChatColor.BOLD + FusionPlay.currentGame.getSettings().getWaitingSecLeft() + ChatColor.GOLD + "" + ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "⚠" + ChatColor.GOLD + "" + ChatColor.BOLD + "] ");
 						}
 						FusionPlay.currentGame.getSettings().setWaitingSecLeft(FusionPlay.currentGame.getSettings().getWaitingSecLeft()-1);
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
+
 						waitInit();
 					}
 				}
 			}
 		}, 20L);
 	}
-	public static void ingameInit(TimeManager tm){
-		int sec = (int) tm.getLength();
-		if(tm.getTimeUnit().equals(TimeUnit.MINUTES)){
-			sec *= 60;
-		}
-		FusionPlay.currentGame.getSettings().secLeft = sec;
+	public static void ingameInit(){
 		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			public void run(){
 				if(!FusionPlay.currentGame.getFusionState().equals(FusionState.ENDED)){
@@ -62,14 +52,10 @@ public class CounterProcess {
 						FusionPlay.currentGame.finishGame(true);
 					}
 					else{
-						FusionPlay.currentGame.getSettings().secLeft--;
+						FusionPlay.currentGame.getSettings().secLeft -= 1;
 						FusionPlay.currentGame.timerOneSec(FusionPlay.currentGame.getSettings().secLeft);
-						try {
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						ingameInit(tm);
+
+						ingameInit();
 					}
 				}
 			}

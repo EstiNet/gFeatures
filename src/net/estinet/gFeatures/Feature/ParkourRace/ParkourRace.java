@@ -95,8 +95,9 @@ public class ParkourRace extends FusionGame implements Events{
 	}
 	@Override
 	public void timerOneSec(int seconds){
-		Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
-			public void run(){
+		Bukkit.getLogger().info(seconds + "");
+		//Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
+			//public void run(){
 				Scoreboard sb = ScoreboardCreator.getScoreboard(seconds);
 				for(Player p : Bukkit.getOnlinePlayers()){
 					p.setScoreboard(sb);
@@ -111,21 +112,21 @@ public class ParkourRace extends FusionGame implements Events{
 							p.teleport(map.checkpointSpawns.get(random));
 						}
 					}
-					if(p.getLocation().getZ() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+					if(p.getLocation().getX() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						distances.remove(getDistance(p.getUniqueId()));
 						distances.put(p.getLocation().getY(), p.getUniqueId());
 					}
-					if(p.getLocation().getZ() > map.checkPointZ && start.contains(p.getUniqueId())){
+					if(p.getLocation().getX() > map.checkPointZ && start.contains(p.getUniqueId())){
 						start.remove(p.getUniqueId());
 						checkpoint.add(p.getUniqueId());
 						ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
 					}
-					if(p.getLocation().getZ() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+					if(p.getLocation().getX() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						finishGame(false);
 					}
 				}
-			}
-		});
+			//}
+		//});
 
 	}
 	public static double getDistance(UUID uuid){
