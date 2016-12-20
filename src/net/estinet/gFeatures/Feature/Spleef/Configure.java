@@ -6,7 +6,6 @@ import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionSettings;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
-import net.estinet.gFeatures.Feature.ParkourRace.ParkourRace;
 import net.md_5.bungee.api.ChatColor;
 
 public class Configure{

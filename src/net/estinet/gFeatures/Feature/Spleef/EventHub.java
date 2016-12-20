@@ -28,12 +28,10 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
-			ParkourRace.start.add(event.getPlayer().getUniqueId());
+			
 		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
-		ParkourRace.start.remove(event.getPlayer().getUniqueId());
-		ParkourRace.checkpoint.remove(event.getPlayer().getUniqueId());
-		ParkourRace.distances.remove(ParkourRace.getDistance(event.getPlayer().getUniqueId()));
+		
 	}
 }
