@@ -23,7 +23,7 @@ public class ScoreboardCreator {
 		Arrays.sort(doo);
 		for(int i = 0; i < doo.length; i++){
 			Score score = objective.getScore(Bukkit.getPlayer(ParkourRace.distances.get(doo[i])).getName());
-			score.setScore((int) doo[i]);
+			score.setScore((int) (double) doo[i]);
 		}
 		return board;
 	}

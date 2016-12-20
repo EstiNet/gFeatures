@@ -112,16 +112,16 @@ public class ParkourRace extends FusionGame implements Events{
 							p.teleport(map.checkpointSpawns.get(random));
 						}
 					}
-					if(p.getLocation().getX() > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+					if(Math.abs(p.getLocation().getX()) > getDistance(p.getUniqueId()) && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						distances.remove(getDistance(p.getUniqueId()));
-						distances.put(p.getLocation().getY(), p.getUniqueId());
+						distances.put(p.getLocation().getX(), p.getUniqueId());
 					}
-					if(p.getLocation().getX() > map.checkPointZ && start.contains(p.getUniqueId())){
+					if(Math.abs(p.getLocation().getX()) > map.checkPointZ && start.contains(p.getUniqueId())){
 						start.remove(p.getUniqueId());
 						checkpoint.add(p.getUniqueId());
 						ActionAPI.sendActionBar(p, ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
 					}
-					if(p.getLocation().getX() > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
+					if(Math.abs(p.getLocation().getX()) > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))){
 						finishGame(false);
 					}
 				}
