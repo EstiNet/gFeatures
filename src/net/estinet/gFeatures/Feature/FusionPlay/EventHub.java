@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -59,12 +60,16 @@ public class EventHub{
 	}
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		if(!FusionPlay.currentGame.getSettings().allowPlayerLoseHunger()){
+			Bukkit.getLogger().info("hunger");
 			if(event.getEntity() instanceof Player){
 				Player p = (Player) event.getEntity();
 				p.setFoodLevel(20);
+				event.setCancelled(true);
 			}
 		}
 		else if(SpectateProcess.spectators.contains(event.getEntity().getUniqueId())){
+			Player p = (Player) event.getEntity();
+			p.setFoodLevel(20);
 			event.setCancelled(true);
 		}
 	}
