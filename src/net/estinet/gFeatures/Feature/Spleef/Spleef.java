@@ -18,6 +18,8 @@ import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
+import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.md_5.bungee.api.ChatColor;
 
 public class Spleef extends FusionGame implements Events{
@@ -55,9 +57,30 @@ public class Spleef extends FusionGame implements Events{
 	public void onPlayerBreakBlock(){}
 	@Override
 	public void waitTimerComplete(){
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		for(Player p : Bukkit.getOnlinePlayers()){
+        			if(p.getLocation().getY() < 26 && !SpectateProcess.spectators.contains(p.getUniqueId())){
+        				SpectateProcess.addSpectator(p);
+        				p.teleport(SMap.spectate);
+        				Spleef.howFar.push(p.getUniqueId());
+        				Spleef.stillIn.remove(p.getUniqueId());
+        				if(Spleef.stillIn.size() < 2){
+        					FusionPlay.currentGame.finishGame(false);
+        				}
+        			}
+        		}
+        	}
+        }, 10L, 10L);
 		for(Player p : Bukkit.getOnlinePlayers()){
 			p.setGameMode(GameMode.SURVIVAL);
 			p.getInventory().addItem(new ItemStack(Material.DIAMOND_SPADE));
+		}
+	}
+	@Override
+	public void timerOneSec(int seconds){
+		for(Player p : Bukkit.getOnlinePlayers()){
+			p.setScoreboard(ScoreboardCreator.getScoreboard(seconds));
 		}
 	}
 	@Override

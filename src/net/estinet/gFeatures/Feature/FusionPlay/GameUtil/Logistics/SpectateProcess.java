@@ -29,6 +29,7 @@ public class SpectateProcess {
         }
         spectators.remove(p.getUniqueId());
         p.setAllowFlight(false);
+        p.setFlying(true);
         FusionPlay.currentGame.removeSpectator(p);
     }
 }

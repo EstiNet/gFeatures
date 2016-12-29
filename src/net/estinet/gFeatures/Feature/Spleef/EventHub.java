@@ -31,11 +31,12 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
-			
+			Spleef.stillIn.add(event.getPlayer().getUniqueId());
 		}
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
-		
+		Spleef.stillIn.remove(event.getPlayer().getUniqueId());
+		Spleef.howFar.remove(event.getPlayer().getUniqueId());
 	}
 	public void onPlayerBreak(BlockBreakEvent event) {
 		event.setCancelled(true);

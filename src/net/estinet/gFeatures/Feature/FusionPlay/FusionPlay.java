@@ -117,8 +117,9 @@ public class FusionPlay extends gFeature implements Events{
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
+						gFeature feature = games.get(random);
+						feature.setState(FeatureState.ENABLE);
 						Basic.addFeature(games.get(random));
-						Basic.getFeature(games.get(random).getName()).setState(FeatureState.ENABLE);
 						games.get(random).enable();
 					}
 				});
