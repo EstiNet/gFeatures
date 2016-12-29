@@ -1,5 +1,8 @@
 package net.estinet.gFeatures.Feature.Spleef;
 
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -33,5 +36,10 @@ public class EventHub{
 	}
 	public void onPlayerLeave(PlayerQuitEvent event){
 		
+	}
+	public void onPlayerBreak(BlockBreakEvent event) {
+		event.setCancelled(true);
+		Block block = event.getBlock();
+		block.setType(Material.AIR);
 	}
 }

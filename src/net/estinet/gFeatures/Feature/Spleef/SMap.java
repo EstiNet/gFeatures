@@ -10,6 +10,7 @@ import org.bukkit.Location;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionMap;
 
 public class SMap extends FusionMap{
+	public static Location spectate = new Location(Bukkit.getWorld("world"), -297, 38, -890);
 	public SMap(File f, List<Location> spawns) {
 		super(f, spawns);
 	}
@@ -29,17 +30,11 @@ public class SMap extends FusionMap{
 		super.setSpawns(locs);
 	}
 	public void reassign(){
-		List<Location> locs = new ArrayList<>(); //plz change
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -804, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -807, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -810, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -813, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -816, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -819, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -822, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -824, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -826, -0, 90));
-		locs.add(new Location(Bukkit.getWorld("world"), 11, 43.5, -829, -0, 90));
+		spectate = new Location(Bukkit.getWorld("world"), -297, 38, -890);
+		List<Location> locs = new ArrayList<>();
+		for(int i = 0; i < 50; i++){
+			locs.add(new Location(Bukkit.getWorld("world"), Math.floor(Math.random()*50)-323, 27, Math.floor(Math.random()*50)-914));
+		}
 		super.setSpawns(locs);
 		}
 }

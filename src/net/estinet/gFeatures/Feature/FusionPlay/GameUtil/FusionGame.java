@@ -8,6 +8,8 @@ import org.bukkit.GameMode;
 import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
+
 import org.bukkit.entity.Player;
 
 public class FusionGame extends gFeature{
@@ -111,6 +113,13 @@ public class FusionGame extends gFeature{
 	public void absoluteGameEnd(){
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("fusionplay done", "Bungee");
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		if(Bukkit.getOnlinePlayers().size() == 0){
+        			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "stop");
+        		}
+        	}
+        }, 20L, 20L);
 	}
 	/*
 	 * Called when spectator is added.

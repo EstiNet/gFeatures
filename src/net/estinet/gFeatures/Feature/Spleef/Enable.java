@@ -1,6 +1,11 @@
 package net.estinet.gFeatures.Feature.Spleef;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
+import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
 
 /*
 gFeatures
@@ -26,5 +31,20 @@ public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("[Spleef] Enabled!");
 		ch.setupConfig();
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        	public void run(){
+        		for(Player p : Bukkit.getOnlinePlayers()){
+        			if(p.getLocation().getY() < 26 && !SpectateProcess.spectators.contains(p.getUniqueId())){
+        				SpectateProcess.addSpectator(p);
+        				p.teleport(SMap.spectate);
+        				Spleef.howFar.push(p.getUniqueId());
+        				Spleef.stillIn.remove(p.getUniqueId());
+        				if(Spleef.stillIn.size() < 2){
+        					FusionPlay.currentGame.finishGame(false);
+        				}
+        			}
+        		}
+        	}
+        }, 10L, 10L);
 	}
 }

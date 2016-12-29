@@ -17,7 +17,8 @@ public class Configure{
 		fs.setAutoLoadMap(true);
 		fs.setDefaultMapName("world");
 		fs.setUsesSpawns(true);
-		fs.setTimeManager(new TimeManager(6, TimeUnit.MINUTES));
+		fs.setDependsOnTimer(true);
+		fs.setTimeManager(new TimeManager(5, TimeUnit.MINUTES));
 		fs.setDefaultWaitingSecLeft(10);
 		fs.setWaitingSecLeft(10);
 		fs.setCoolGameName(ChatColor.BOLD + "(づ￣ ³￣)づ" + ChatColor.AQUA + " Spleef");
