@@ -89,6 +89,7 @@ public class ParkourRace extends FusionGame implements Events{
 	@Override
 	public void gameEnd(boolean usedTimer){
 		for(Player p : Bukkit.getOnlinePlayers()){
+			SpectateProcess.
 			p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 			try{
 				FusionPlay.winners(DetermineWinner.determine(0), DetermineWinner.determine(1), DetermineWinner.determine(2));
