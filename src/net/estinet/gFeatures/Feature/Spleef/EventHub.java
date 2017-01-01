@@ -41,6 +41,8 @@ public class EventHub{
 	public void onPlayerBreak(BlockBreakEvent event) {
 		event.setCancelled(true);
 		Block block = event.getBlock();
-		block.setType(Material.AIR);
+		if(block.getType().equals(Material.SNOW_BLOCK)){
+			block.setType(Material.AIR);
+		}
 	}
 }

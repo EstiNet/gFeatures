@@ -14,7 +14,7 @@ import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 public class OtherResponse {
 	public static void response(List<String> args, String categoryName, String clioteName){
 		CliotePing cp = new CliotePing();
-		cp.sendMessage("fusionplay otheralive", "Bungee");
+		cp.sendMessage("fusionplay otheralive " + args.get(1), "Bungee");
 		File f = new File("plugins/gFeatures/FusionPlay/notminigame.txt");
 		try {
 			f.createNewFile();

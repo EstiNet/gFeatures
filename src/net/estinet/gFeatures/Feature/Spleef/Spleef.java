@@ -91,16 +91,24 @@ public class Spleef extends FusionGame implements Events{
 				stillIn.remove(0);
 			}
 		}
-		Player name1 = Bukkit.getPlayer(howFar.pop()), name2 = Bukkit.getPlayer(howFar.pop()), name3 = Bukkit.getPlayer(howFar.pop());
+		Player name1 = null , name2 = null, name3;
+		try{
+			name1 = Bukkit.getPlayer(howFar.pop());
+			name2 = Bukkit.getPlayer(howFar.pop());
+			name3 = Bukkit.getPlayer(howFar.pop());
+		}
+		catch(Exception e){
+			name3 = name2;
+		}
 		int num = 4;
 		while(howFar.size() > 0){
 			UUID uuid = howFar.pop();
-			Bukkit.getPlayer(uuid).sendMessage(ChatColor.AQUA + "◕‿◕ You were " + num + "th!");
+			Bukkit.getPlayer(uuid).sendMessage(ChatColor.AQUA + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  You were " + num + "th!");
 			num++;
 		}
-		name1.sendMessage(ChatColor.AQUA + "◕‿◕ You were 1st!");
-		name2.sendMessage(ChatColor.AQUA + "◕‿◕ You were 2nd!");
-		name3.sendMessage(ChatColor.AQUA + "◕‿◕ You were 3rd!");
+		name1.sendMessage(ChatColor.AQUA + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  You were 1st!");
+		name2.sendMessage(ChatColor.AQUA + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  You were 2nd!");
+		name3.sendMessage(ChatColor.AQUA + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧  You were 3rd!");
 		for(Player p : Bukkit.getOnlinePlayers()){
 			p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 			try{

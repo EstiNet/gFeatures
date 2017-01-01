@@ -21,7 +21,7 @@ public class Configure{
 		fs.setTimeManager(new TimeManager(5, TimeUnit.MINUTES));
 		fs.setDefaultWaitingSecLeft(10);
 		fs.setWaitingSecLeft(10);
-		fs.setCoolGameName(ChatColor.BOLD + "(づ￣ ³￣)づ" + ChatColor.AQUA + " Spleef");
+		fs.setCoolGameName(ChatColor.BOLD + "ヾ(⌐■_■)ノ♪" + ChatColor.DARK_BLUE + " Spleef");
 		fg.setSettings(fs);
 		fg.setMaps(MapsConfigure.init());
 		FusionPlay.addGame(fg);

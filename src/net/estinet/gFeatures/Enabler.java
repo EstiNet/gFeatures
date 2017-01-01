@@ -33,7 +33,8 @@ public class Enabler {
 	public void onEnable(){
 		List<gFeature> features = Basic.getFeatures();
 		List<Extension> extensions = Basic.getExtensions();
-		for(gFeature feature : features){
+		for(int i = 0; i < features.size(); i++){
+			gFeature feature = features.get(i);
 			if(feature.getState().equals(FeatureState.ENABLE)){
 				try{
 					feature.enable();

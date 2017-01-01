@@ -10,6 +10,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.Events.JoinProcess;
 
@@ -34,6 +35,8 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
+		ClearInventory ci = new ClearInventory();
+		ci.clearInv(event.getPlayer());
 		if(FusionPlay.currentGame.getSettings().usesPlayerCollision() == false){
 			event.getPlayer().setCollidable(false);
 		}
