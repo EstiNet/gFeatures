@@ -11,7 +11,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2016 EstiNet
+   Copyright 2017 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -356,7 +356,7 @@ public class MusicMenu {
 	.setOption(11, new ItemStack(Material.RECORD_4, 1), ChatColor.GOLD+"Vexento - Another Life (100%)")
 	.setOption(12, new ItemStack(Material.RECORD_5, 1), ChatColor.GOLD+"Vexento - Attention Deficit")
 	.setOption(13, new ItemStack(Material.RECORD_6, 1), ChatColor.GOLD+"Vexento - Buckle Up")
-	.setOption(14, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"Vexento - Capurganá")
+	.setOption(14, new ItemStack(Material.RECORD_7, 1), ChatColor.GOLD+"Vexento - Capurganï¿½")
 	.setOption(15, new ItemStack(Material.RECORD_8, 1), ChatColor.GOLD+"Vexento - Corallium")
 	.setOption(16, new ItemStack(Material.RECORD_9, 1), ChatColor.GOLD+"Vexento - Echo")
 	.setOption(17, new ItemStack(Material.RECORD_10, 1), ChatColor.GOLD+"Vexento - Empty")
