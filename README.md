@@ -51,7 +51,8 @@ Key map API to store and send keys to other installations.
 ## Copyright
 EstiNet and gFeatures are property of EstiNet.
 
-� 2016 EstiNet - All Rights Reserved.
+© 2017 EstiNet. EstiNet is a subsidiary of DolphinBox. 
+© 2017 DolphinBox -- https://dolphinbox.net/
 
-http://estinet.net/
+https://estinet.net/
 
