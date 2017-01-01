@@ -14,7 +14,7 @@ import net.minecraft.server.v1_11_R1.PacketPlayOutAnimation;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2016 EstiNet
+   Copyright 2017 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
