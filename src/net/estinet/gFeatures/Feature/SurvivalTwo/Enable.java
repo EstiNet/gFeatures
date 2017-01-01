@@ -22,9 +22,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable{
-	static ConfigHub ch = new ConfigHub();
 	public static void onEnable(){
 		Bukkit.getLogger().info("[SurvivalTwo] Enabled!");
-		ch.setupConfig();
 	}
 }

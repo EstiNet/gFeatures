@@ -54,6 +54,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.FusionPlay.Configure.onSetup();
 		net.estinet.gFeatures.Feature.ParkourRace.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Spleef.Configure.onSetup();
+		net.estinet.gFeatures.Feature.SurvivalTwo.Configure.onSetup();
 
 		/*
 		 * Initialize your Skripts here.

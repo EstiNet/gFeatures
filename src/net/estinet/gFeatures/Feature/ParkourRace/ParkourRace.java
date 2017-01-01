@@ -19,6 +19,7 @@ import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
+import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
@@ -108,7 +109,7 @@ public class ParkourRace extends FusionGame implements Events{
 	@Override
 	public void gameEnd(boolean usedTimer){
 		for(Player p : Bukkit.getOnlinePlayers()){
-			SpectateProcess.
+			SpectateProcess.addSpectator(p);
 			p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 			try{
 				FusionPlay.winners(DetermineWinner.determine(0), DetermineWinner.determine(1), DetermineWinner.determine(2));

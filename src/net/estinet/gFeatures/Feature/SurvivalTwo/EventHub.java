@@ -36,7 +36,7 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerInteract(PlayerInteractEvent event){
-		Block block = event.getPlayer().getTargetBlock(new HashSet<Byte>(), 100);
+		Block block = event.getPlayer().getTargetBlock(new HashSet<Material>(), 1);
 		if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
 			removeBlock(event, Material.COMMAND, block);
 		}
@@ -69,10 +69,24 @@ public class EventHub{
 		Block b = getPlaceBlock(event.getBlockFace(), block);
 		b.setType(material);
 		if(hand){
+			int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
+			if(amount == 1){
+				event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+			}
+			else{
+				event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount-1));
+			}
 			BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
 			Bukkit.getServer().getPluginManager().callEvent(bpe);
 		}
 		else{
+			int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
+			if(amount == 1){
+				event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
+			}
+			else{
+				event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount-1));
+			}
 			BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
 			Bukkit.getServer().getPluginManager().callEvent(bpe);
 		}
