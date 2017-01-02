@@ -20,7 +20,7 @@ public class Confirm {
 	}
 	public InventoryAPI makeInventory(Player p, String price, Material give, String name){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Buy protection stone? It is " + ChatColor.DARK_AQUA + "$" + price, 9, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Buy protection stone? It's " + ChatColor.DARK_AQUA + "$" + price, 9, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Yes")){

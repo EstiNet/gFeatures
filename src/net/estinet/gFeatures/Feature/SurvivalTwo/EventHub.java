@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.bukkit.Bukkit;
@@ -13,6 +15,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
 
@@ -82,6 +85,7 @@ public class EventHub{
 					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
 					Bukkit.getServer().getPluginManager().callEvent(bpe);
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
+					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			        	public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
@@ -99,6 +103,7 @@ public class EventHub{
 					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
 					Bukkit.getServer().getPluginManager().callEvent(bpe);
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
+					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 			        	public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
@@ -134,7 +139,29 @@ public class EventHub{
 	public void removeBlock(PlayerInteractEvent event, Material material, Block block){
 		BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
 		event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've removed your protection stone.");
-		block.getWorld().dropItem(block.getLocation(), new ItemStack(material, 1));
+		String name = "";
+		if(material.equals(Material.COMMAND)){
+			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+		}
+		else if(material.equals(Material.COMMAND_CHAIN)){
+			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+		}
+		else if(material.equals(Material.COMMAND_REPEATING)){
+			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+		}
+		block.getWorld().dropItem(block.getLocation(), createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
 		Bukkit.getServer().getPluginManager().callEvent(blockevent);
+	}
+	public ItemStack createItem(Material material, String name, String ... lore){
+		ItemStack item = new ItemStack(material, 1);
+		List<String> lores = new ArrayList<>();
+		for(String lor : lore){
+			lores.add(lor);
+		}
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(name);
+		meta.setLore(lores);
+		item.setItemMeta(meta);
+		return item;
 	}
 }

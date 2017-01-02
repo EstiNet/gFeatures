@@ -20,7 +20,7 @@ public class Shop {
 	}
 	public InventoryAPI makeInventory(Player p){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Shop", 18, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Shop", 9, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
@@ -53,8 +53,8 @@ public class Shop {
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
 			menu.setOption(0, createItem(Material.COMMAND, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
-			menu.setOption(1, createItem(Material.COMMAND_CHAIN, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"), ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300");
-			menu.setOption(2, createItem(Material.COMMAND_REPEATING, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"), ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500");
+			menu.setOption(1, createItem(Material.COMMAND_CHAIN, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300"));
+			menu.setOption(2, createItem(Material.COMMAND_REPEATING, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500"));
 			
 			return menu;
 		}catch(Exception e){
