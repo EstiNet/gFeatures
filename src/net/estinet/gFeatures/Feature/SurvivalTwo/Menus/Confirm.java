@@ -25,7 +25,7 @@ public class Confirm {
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Yes")){
 						if(EssentialsEcoUtil.getMoney(p.getUniqueId()) >= Double.parseDouble(price)){
-							Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "eco take " + Double.parseDouble(price));
+							Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "eco take " + p.getName() + " " + Double.parseDouble(price));
 							if(p.getInventory().firstEmpty() == -1){
 								p.getWorld().dropItem(p.getLocation(), createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
 							}

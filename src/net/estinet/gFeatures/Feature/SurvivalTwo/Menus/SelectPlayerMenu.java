@@ -23,7 +23,7 @@ public class SelectPlayerMenu {
 	public InventoryAPI makeInventory(Player p, MenuRunnable mr){
 		try{
 			int calculatenum = (int) (Math.ceil(Bukkit.getOnlinePlayers().size()/9)*9);
-			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Shop", calculatenum, new InventoryAPI.OptionClickEventHandler() {
+			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Choose a player.", calculatenum, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					mr.event = event;

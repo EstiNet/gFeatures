@@ -18,7 +18,6 @@ public class EssentialsEcoUtil {
 		else{
 			realMoney = Double.parseDouble(money);
 		}
-		Bukkit.getLogger().info(realMoney + " " + money + " " + uuid);
 		return realMoney;
 	}
 }

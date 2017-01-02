@@ -1,5 +1,9 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo.Menus;
 
-public class TpaMenu {
+import org.bukkit.entity.Player;
 
+public class TpaMenu{
+	public void init(Player p){
+		
+	}
 }

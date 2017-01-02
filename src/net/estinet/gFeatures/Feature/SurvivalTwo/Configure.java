@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.SurvivalTwo;
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.SurvivalTwo.Commands.MenuCommand;
 import net.estinet.gFeatures.Feature.SurvivalTwo.Commands.ShopCommand;
 /*
 gFeatures
@@ -30,5 +31,7 @@ public class Configure{
 		
 		EstiCommand ec = new EstiCommand("shop", "Opens the shop menu.", "/shop", base, new ShopCommand());
 		Basic.addCommand(ec);
+		EstiCommand ecs = new EstiCommand("menu", "Opens the main menu.", "/menu", base, new MenuCommand());
+		Basic.addCommand(ecs);
 	}
 }
