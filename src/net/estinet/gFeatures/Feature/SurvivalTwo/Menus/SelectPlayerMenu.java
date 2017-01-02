@@ -6,9 +6,11 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 
@@ -20,7 +22,8 @@ public class SelectPlayerMenu {
 	}
 	public InventoryAPI makeInventory(Player p, MenuRunnable mr){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Shop", 9, new InventoryAPI.OptionClickEventHandler() {
+			int calculatenum = (int) (Math.ceil(Bukkit.getOnlinePlayers().size()/9)*9);
+			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Shop", calculatenum, new InventoryAPI.OptionClickEventHandler() {
 				@Override
 				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
 					mr.event = event;
@@ -31,14 +34,19 @@ public class SelectPlayerMenu {
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
-			menu.setOption(0, createItem(Material.COMMAND, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
-			menu.setOption(1, createItem(Material.COMMAND_CHAIN, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300"));
-			menu.setOption(2, createItem(Material.COMMAND_REPEATING, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500"));
-			
-			
+			int i = 0;
 			
 			for(Player player : Bukkit.getOnlinePlayers()){
-				
+				if(player.getName().equals(p.getName())){
+					continue;
+				}
+				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+				SkullMeta meta = (SkullMeta) skull.getItemMeta();
+				meta.setOwner(player.getName());
+				meta.setDisplayName(player.getDisplayName());
+				skull.setItemMeta(meta);
+				menu.setOption(i, skull);
+				i++;
 			}
 			
 			return menu;
