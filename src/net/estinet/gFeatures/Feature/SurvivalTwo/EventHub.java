@@ -38,8 +38,7 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerInteract(PlayerInteractEvent event){
 		Block block = event.getPlayer().getTargetBlock((Set<Material>) null, 5);
-		Bukkit.getLogger().info(event.getAction().toString()); 
-	    if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
+		if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
 			removeBlock(event, Material.COMMAND, block);
 		}
 		else if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND_CHAIN)){
@@ -69,31 +68,43 @@ public class EventHub{
 	}
 	public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand){
 		Block b = getPlaceBlock(event.getBlockFace(), block);
-		if(b.getType().equals(Material.AIR)){
-			b.setType(material);
-			if(hand){
-				int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
-				if(amount == 1){
-					event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+		if(!SurvivalTwo.playerPlace.contains(event.getPlayer().getUniqueId())){
+			if(b.getType().equals(Material.AIR)){
+				b.setType(material);
+				if(hand){
+					int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
+					if(amount == 1){
+						event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+					}
+					else{
+						event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount-1));
+					}
+					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
+					Bukkit.getServer().getPluginManager().callEvent(bpe);
+					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			        	public void run(){
+							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
+			        	}
+			        }, 10L);
 				}
 				else{
-					event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount-1));
+					int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
+					if(amount == 1){
+						event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
+					}
+					else{
+						event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount-1));
+					}
+					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
+					Bukkit.getServer().getPluginManager().callEvent(bpe);
+					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+			        	public void run(){
+							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
+			        	}
+			        }, 10L);
 				}
-				BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
-				Bukkit.getServer().getPluginManager().callEvent(bpe);
-				SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-			}
-			else{
-				int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
-				if(amount == 1){
-					event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
-				}
-				else{
-					event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount-1));
-				}
-				BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
-				Bukkit.getServer().getPluginManager().callEvent(bpe);
-				SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
 			}
 		}
 	}

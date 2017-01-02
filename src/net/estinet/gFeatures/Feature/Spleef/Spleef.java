@@ -53,7 +53,7 @@ public class Spleef extends FusionGame implements Events{
 	}
 	@Override
 	public void enable(){
-		Enable.onEnable();
+		net.estinet.gFeatures.Feature.Spleef.Enable.onEnable();
 	}
 	@Override
 	public void disable(){
