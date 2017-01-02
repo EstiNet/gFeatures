@@ -11,8 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
-import net.estinet.gFeatures.Feature.Shop.GUI.TrailShop;
 
 public class Shop {
 	public void init(Player player){
@@ -53,8 +51,6 @@ public class Shop {
 					event.setWillDestroy(true);
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-
-			MoneyManager mm = new MoneyManager();
 
 			menu.setOption(0, createItem(Material.COMMAND, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
 			menu.setOption(1, createItem(Material.COMMAND_CHAIN, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"), ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300");

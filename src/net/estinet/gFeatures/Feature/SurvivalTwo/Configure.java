@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.SurvivalTwo;
 
 import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.SurvivalTwo.Commands.ShopCommand;
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -25,5 +27,8 @@ public class Configure{
 	public static void onSetup(){
 		SurvivalTwo base = new SurvivalTwo("SurvivalTwo", "1.0.0");
 		Basic.addFeature(base);
+		
+		EstiCommand ec = new EstiCommand("shop", "Opens the shop menu.", "/shop", base, new ShopCommand());
+		Basic.addCommand(ec);
 	}
 }

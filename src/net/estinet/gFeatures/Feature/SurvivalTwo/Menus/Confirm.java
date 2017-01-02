@@ -39,7 +39,12 @@ public class Confirm {
 						}
 					}
 					else if(event.getName().equalsIgnoreCase(ChatColor.RED + "No")){
-						
+						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+							public void run(){
+								Shop shop = new Shop();
+								shop.init(p);
+							}
+						}, 5L);
 					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
