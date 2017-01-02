@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -32,12 +33,13 @@ https://github.com/EstiNet/gFeatures
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
 public class EventHub{
 	public void onPlayerInteract(PlayerInteractEvent event){
-		Block block = event.getPlayer().getTargetBlock(new HashSet<Material>(), 1);
-		if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
+		Block block = event.getPlayer().getTargetBlock((Set<Material>) null, 5);
+		Bukkit.getLogger().info(event.getAction().toString()); 
+	    if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
 			removeBlock(event, Material.COMMAND, block);
 		}
 		else if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND_CHAIN)){
@@ -67,28 +69,32 @@ public class EventHub{
 	}
 	public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand){
 		Block b = getPlaceBlock(event.getBlockFace(), block);
-		b.setType(material);
-		if(hand){
-			int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
-			if(amount == 1){
-				event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+		if(b.getType().equals(Material.AIR)){
+			b.setType(material);
+			if(hand){
+				int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
+				if(amount == 1){
+					event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+				}
+				else{
+					event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount-1));
+				}
+				BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
+				Bukkit.getServer().getPluginManager().callEvent(bpe);
+				SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
 			}
 			else{
-				event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount-1));
+				int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
+				if(amount == 1){
+					event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
+				}
+				else{
+					event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount-1));
+				}
+				BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
+				Bukkit.getServer().getPluginManager().callEvent(bpe);
+				SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
 			}
-			BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
-			Bukkit.getServer().getPluginManager().callEvent(bpe);
-		}
-		else{
-			int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
-			if(amount == 1){
-				event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
-			}
-			else{
-				event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount-1));
-			}
-			BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
-			Bukkit.getServer().getPluginManager().callEvent(bpe);
 		}
 	}
 	public Block getPlaceBlock(BlockFace bf, Block block){
@@ -117,13 +123,7 @@ public class EventHub{
 	public void removeBlock(PlayerInteractEvent event, Material material, Block block){
 		BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
 		event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've removed your protection stone.");
-		if(event.getPlayer().getInventory().firstEmpty() == -1){
-			event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your inventory was full, dropping it on the floor.");
-			event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(material, 1));
-		}
-		else{
-			event.getPlayer().getInventory().addItem(new ItemStack(material, 1));
-		}
+		block.getWorld().dropItem(block.getLocation(), new ItemStack(material, 1));
 		Bukkit.getServer().getPluginManager().callEvent(blockevent);
 	}
 }

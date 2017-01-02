@@ -1,5 +1,9 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
 import net.estinet.gFeatures.Events;
@@ -9,6 +13,8 @@ import net.estinet.gFeatures.gFeature;
 public class SurvivalTwo extends gFeature implements Events{
 	
 	EventHub eh = new EventHub();
+	
+	public static List<UUID> playerPlace = new ArrayList<>();
 	
 	public SurvivalTwo(String featurename, String version) {
 		super(featurename, version);
@@ -28,6 +34,7 @@ public class SurvivalTwo extends gFeature implements Events{
 		}
 	}
 	@Retrieval
+	@Override
 	public void onPlayerInteract(){}
 
 }
