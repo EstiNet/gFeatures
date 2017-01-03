@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -9,10 +11,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -39,6 +43,11 @@ https://github.com/EstiNet/gFeatures
  */
 
 public class EventHub{
+	public void onPlayerJoin(PlayerJoinEvent event){
+		if(!event.getPlayer().hasPlayedBefore()){
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "rc player " + event.getPlayer().getName());
+		}
+	}
 	public void onPlayerInteract(PlayerInteractEvent event){
 		Block block = event.getPlayer().getTargetBlock((Set<Material>) null, 5);
 		if(event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND)){
@@ -72,6 +81,14 @@ public class EventHub{
 	public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand){
 		Block b = getPlaceBlock(event.getBlockFace(), block);
 		if(!SurvivalTwo.playerPlace.contains(event.getPlayer().getUniqueId())){
+			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+			yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
+			yamlFile.set(block.getX() + "." + (block.getY()+1) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
+			try {
+				yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			if(b.getType().equals(Material.AIR)){
 				b.setType(material);
 				if(hand){
@@ -87,10 +104,10 @@ public class EventHub{
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
 					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			        	public void run(){
+						public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
-			        	}
-			        }, 10L);
+						}
+					}, 10L);
 				}
 				else{
 					int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
@@ -105,10 +122,10 @@ public class EventHub{
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
 					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			        	public void run(){
+						public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
-			        	}
-			        }, 10L);
+						}
+					}, 10L);
 				}
 			}
 		}
@@ -137,20 +154,38 @@ public class EventHub{
 		}
 	}
 	public void removeBlock(PlayerInteractEvent event, Material material, Block block){
-		BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
-		event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've removed your protection stone.");
-		String name = "";
-		if(material.equals(Material.COMMAND)){
-			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+		try{
+			Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
+			if(!yamlFile.get(block.getX() + "." + block.getY() + "." + block.getZ()).equals(event.getPlayer().getUniqueId().toString()) && !event.getPlayer().hasPermission("gFeatures.admin")){
+				event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "This isn't your protection stone!");
+			}
+			else{
+				yamlFile.set(block.getX() + "." + block.getY() + "." + block.getZ(), null);
+				try {
+					yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
+				event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've removed your protection stone.");
+				String name = "";
+				if(material.equals(Material.COMMAND)){
+					name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+				}
+				else if(material.equals(Material.COMMAND_CHAIN)){
+					name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+				}
+				else if(material.equals(Material.COMMAND_REPEATING)){
+					name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+				}
+				block.getWorld().dropItem(block.getLocation(), createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
+				Bukkit.getServer().getPluginManager().callEvent(blockevent);
+			}
 		}
-		else if(material.equals(Material.COMMAND_CHAIN)){
-			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+		catch(NullPointerException e){
+			e.printStackTrace();
 		}
-		else if(material.equals(Material.COMMAND_REPEATING)){
-			name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-		}
-		block.getWorld().dropItem(block.getLocation(), createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-		Bukkit.getServer().getPluginManager().callEvent(blockevent);
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){
 		ItemStack item = new ItemStack(material, 1);

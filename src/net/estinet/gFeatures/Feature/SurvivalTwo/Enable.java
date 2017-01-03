@@ -1,8 +1,8 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
-import java.lang.reflect.Field;
-
 import org.bukkit.Bukkit;
+
+import net.estinet.gFeatures.Configuration.Config;
 
 /*
 gFeatures
@@ -26,5 +26,8 @@ https://github.com/EstiNet/gFeatures
 public class Enable{
 	public static void onEnable(){
 		Bukkit.getLogger().info("[SurvivalTwo] Enabled!");
+		Config config = new Config();
+		config.createDirectory("plugins/gFeatures/SurvivalTwo", "[SurvivalTwo] Created directory!");
+		config.createFile("plugins/gFeatures/SurvivalTwo/data.yml", "[SurvivalTwo] Created data.yml.");
 	}
 }

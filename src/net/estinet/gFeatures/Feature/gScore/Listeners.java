@@ -40,7 +40,9 @@ public class Listeners {
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
 					try {
-						event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
+						if(gScore.people.contains(event.getPlayer().getUniqueId())){
+							event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
+						}
 				} catch (IllegalArgumentException e) {
 				} catch (IllegalStateException e) {
 				}

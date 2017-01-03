@@ -3,6 +3,10 @@ package net.estinet.gFeatures.Feature.gScore;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
@@ -29,6 +33,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gScore extends gFeature{
+	
+	public static List<UUID> people = new ArrayList<>();
 	
 	Listeners listeners = new Listeners();
 	
