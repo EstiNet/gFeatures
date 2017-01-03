@@ -34,25 +34,28 @@ public class Listeners {
 	}
 	@SuppressWarnings("deprecation")
 	public void onPlayerJoin(final PlayerJoinEvent event) throws IllegalArgumentException, IllegalStateException{
-		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
-			ps.setScoreboard(s.Initialize(ps));
-		}
+		gScore.people.add(event.getPlayer().getUniqueId());
 		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
 					try {
-						if(gScore.people.contains(event.getPlayer().getUniqueId())){
-							event.getPlayer().setScoreboard(s.Initialize(event.getPlayer()));
+						for(Player ps : Bukkit.getServer().getOnlinePlayers()){
+							if(gScore.people.contains(ps.getUniqueId())){
+								ps.setScoreboard(s.Initialize(ps));
+							}
 						}
 				} catch (IllegalArgumentException e) {
 				} catch (IllegalStateException e) {
 				}
         	}
-        }, 100L);
+        }, 40L);
 	}
 	@SuppressWarnings("deprecation")
 	public void onPlayerLeave(PlayerQuitEvent event) throws IllegalArgumentException, IllegalStateException{
+		gScore.people.remove(event.getPlayer().getUniqueId());
 		for(Player ps : Bukkit.getServer().getOnlinePlayers()){
-			ps.setScoreboard(s.Initialize(ps));
+			if(gScore.people.contains(ps.getUniqueId())){
+				ps.setScoreboard(s.Initialize(ps));
+			}
 		}
 	}
 	public void set(Player p) throws IllegalArgumentException, IllegalStateException{
