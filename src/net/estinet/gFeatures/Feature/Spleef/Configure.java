@@ -44,5 +44,7 @@ public class Configure{
 		fg.setSettings(fs);
 		fg.setMaps(MapsConfigure.init());
 		FusionPlay.addGame(fg);
+		
+		
 	}
 }

@@ -11,10 +11,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.estinet.gFeatures.API.EssentialsHook.EssentialsEcoUtil;
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.SurvivalTwo.Menus.Shop;
 
 public class SurvivalMenu {
 	public void init(Player player){
@@ -31,7 +29,7 @@ public class SurvivalMenu {
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("redirect " + p.getName() + " Survival", "Bungee");
 					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "SurvivalTwo")){
+					else if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Survival2")){
 						CliotePing cp = new CliotePing();
 						cp.sendMessage("redirect " + p.getName() + " Survival2", "Bungee");
 					}
@@ -48,7 +46,7 @@ public class SurvivalMenu {
 			ItemStack pane1 = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 5);
 			ItemMeta im1 = pane1.getItemMeta();
 			im1.setDisplayName(ChatColor.GREEN + "Survival2");
-			im.setLore(Arrays.asList(ChatColor.GOLD + "For those that want to have a more vanilla experience."));
+			im1.setLore(Arrays.asList(ChatColor.GOLD + "For those that want to have a more vanilla experience."));
 			pane1.setItemMeta(im1);
 			
 			menu.setOption(0, pane);

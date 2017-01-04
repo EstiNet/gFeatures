@@ -46,6 +46,9 @@ public class MainMenu {
 							}
 						}, 5L);
 					}
+					else if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.YELLOW + "Toggle the Scoreboard" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
+						p.performCommand("score");
+					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
 				}
@@ -56,6 +59,7 @@ public class MainMenu {
 			menu.setOption(2, createItem(Material.COMMAND, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "Open Shop" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "/shop"));
 			menu.setOption(3, createItem(Material.EMERALD, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.BLUE + "Balance: $" + EssentialsEcoUtil.getMoney(p.getUniqueId()) + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "/bal"));
 			menu.setOption(4, createItem(Material.SKULL_ITEM, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "Teleport to a Player" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "/tpa [player]"));
+			menu.setOption(5, createItem(Material.ANVIL, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.YELLOW + "Toggle the Scoreboard" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "/score"));
 			
 			return menu;
 		}catch(Exception e){
