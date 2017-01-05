@@ -1,10 +1,7 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo.Commands;
 
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-
 import net.estinet.gFeatures.Command.CommandExecutable;
-import net.estinet.gFeatures.Feature.SurvivalTwo.Menus.Shop;
 
 public class TradeCommand extends CommandExecutable{
 	@Override
