@@ -21,6 +21,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.md_5.bungee.api.ChatColor;
 
 /*
@@ -80,19 +81,15 @@ public class EventHub{
 	}
 	public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand){
 		Block b = getPlaceBlock(event.getBlockFace(), block);
+		Debug.print("[SurvivalTwo] Placing command block.");
 		if(!SurvivalTwo.playerPlace.contains(event.getPlayer().getUniqueId())){
-			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-			yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
-			yamlFile.set(block.getX() + "." + (block.getY()+1) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
-			try {
-				yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			Debug.print("[SurvivalTwo] Passed playerPlace array check.");
 			if(b.getType().equals(Material.AIR) || b.getType().equals(Material.WATER)){
+				Debug.print("[SurvivalTwo] Passed AIR block and WATER check.");
 				Material type = b.getType();
 				b.setType(material);
 				if(hand){
+					Debug.print("[SurvivalTwo] Main Hand.");
 					int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
 					if(amount == 1){
 						event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
@@ -106,6 +103,7 @@ public class EventHub{
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 						public void run(){
 							if(event.isCancelled()){
+								Debug.print("[SurvivalTwo] Event cancelled.");
 								String name = "";
 								if(material.equals(Material.COMMAND)){
 									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
@@ -121,10 +119,11 @@ public class EventHub{
 								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
 							}
 							else{
+								Debug.print("[SurvivalTwo] Event not cancelled.");
 								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 							}
 						}
-					}, 5L);
+					}, 1L);
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 						public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
@@ -132,6 +131,7 @@ public class EventHub{
 					}, 10L);
 				}
 				else{
+					Debug.print("[SurvivalTwo] Off hand.");
 					int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
 					if(amount == 1){
 						event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
@@ -145,6 +145,7 @@ public class EventHub{
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 						public void run(){
 							if(event.isCancelled()){
+								Debug.print("[SurvivalTwo] Event cancelled.");
 								String name = "";
 								if(material.equals(Material.COMMAND)){
 									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
@@ -160,6 +161,7 @@ public class EventHub{
 								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
 							}
 							else{
+								Debug.print("[SurvivalTwo] Event not cancelled.");
 								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
 							}
 						}
