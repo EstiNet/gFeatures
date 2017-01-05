@@ -252,7 +252,7 @@ public class Listeners extends JavaPlugin implements Listener{
 	}
 	@EventHandler
 	public void PlayerAnimationEvent(PlayerAnimationEvent event){
-		library.onPlayerAnimate(event);
+		//library.onPlayerAnimate(event);
 	}
 	@EventHandler
 	public void InventoryEvent(InventoryEvent event){

@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
@@ -32,7 +34,13 @@ public class SurvivalTwo extends gFeature implements Events{
 		if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
 			eh.onPlayerInteract((PlayerInteractEvent)event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
+			eh.onPlayerJoin((PlayerJoinEvent) event);
+		}
 	}
+	@Retrieval
+	@Override
+	public void onPlayerJoin(){}
 	@Retrieval
 	@Override
 	public void onPlayerInteract(){}

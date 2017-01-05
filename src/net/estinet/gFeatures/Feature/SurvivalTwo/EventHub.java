@@ -89,7 +89,8 @@ public class EventHub{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			if(b.getType().equals(Material.AIR)){
+			if(b.getType().equals(Material.AIR) || b.getType().equals(Material.WATER)){
+				Material type = b.getType();
 				b.setType(material);
 				if(hand){
 					int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
@@ -102,7 +103,28 @@ public class EventHub{
 					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
 					Bukkit.getServer().getPluginManager().callEvent(bpe);
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+						public void run(){
+							if(event.isCancelled()){
+								String name = "";
+								if(material.equals(Material.COMMAND)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								else if(material.equals(Material.COMMAND_CHAIN)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								else if(material.equals(Material.COMMAND_REPEATING)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								b.setType(type);
+								event.getPlayer().getInventory().addItem(createItem(material, name));			
+								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
+							}
+							else{
+								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+							}
+						}
+					}, 5L);
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 						public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
@@ -120,7 +142,28 @@ public class EventHub{
 					BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
 					Bukkit.getServer().getPluginManager().callEvent(bpe);
 					SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-					event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+						public void run(){
+							if(event.isCancelled()){
+								String name = "";
+								if(material.equals(Material.COMMAND)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								else if(material.equals(Material.COMMAND_CHAIN)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								else if(material.equals(Material.COMMAND_REPEATING)){
+									name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
+								}
+								b.setType(type);
+								event.getPlayer().getInventory().addItem(createItem(material, name));	
+								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
+							}
+							else{
+								event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+							}
+						}
+					}, 5L);
 					Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 						public void run(){
 							SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());

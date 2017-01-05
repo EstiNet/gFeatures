@@ -15,8 +15,11 @@ public class SurvivalClioteHook extends ClioteHook{
 	@Override
 	public void run(List<String> args, String categoryName, String clioteName){
 		try{
+			try{
 			SurvivalMenu sm = new SurvivalMenu();
 			sm.init(Bukkit.getPlayer(args.get(0)));
+			}
+			catch(NullPointerException e){}
 		}
 		catch(Exception e){
 			e.printStackTrace();

@@ -33,5 +33,7 @@ public class Configure{
 		Basic.addCommand(ec);
 		EstiCommand ecs = new EstiCommand("menu", "Opens the main menu.", "/menu", base, new MenuCommand());
 		Basic.addCommand(ecs);
+		EstiCommand es = new EstiCommand("trade", "Trade with a player.", "/trade [player]", base, new MenuCommand());
+		//Basic.addCommand(es);
 	}
 }
