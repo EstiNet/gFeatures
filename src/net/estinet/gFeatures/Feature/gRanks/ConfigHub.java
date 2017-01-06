@@ -66,7 +66,7 @@ public class ConfigHub {
 		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
 			yamlFile.createSection("Config.ClioteSky");
 			yamlFile.createSection("Config.ClioteSky.Enable");
-			yamlFile.set("Config.ClioteSky.Enable", "false");
+			yamlFile.set("Config.ClioteSky.Enable", "true");
 		}
 	}
 }
