@@ -21,6 +21,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.estinet.gFeatures.Listeners;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.md_5.bungee.api.ChatColor;
 
@@ -249,7 +250,9 @@ public class EventHub{
 			}
 		}
 		catch(NullPointerException e){
-			e.printStackTrace();
+			if(Listeners.debug){
+				e.printStackTrace();
+			}
 		}
 	}
 	public ItemStack createItem(Material material, String name, String ... lore){

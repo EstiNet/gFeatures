@@ -49,6 +49,14 @@ public class MainMenu {
 					else if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.YELLOW + "Toggle the Scoreboard" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
 						p.performCommand("score");
 					}
+					else if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_BLUE + "Find the Recipe of an Item" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
+						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+							public void run(){
+								RecipeMenu tm = new RecipeMenu();
+								tm.init(p);
+							}
+						}, 5L);
+					}
 					event.setWillClose(true);
 					event.setWillDestroy(true);
 				}
