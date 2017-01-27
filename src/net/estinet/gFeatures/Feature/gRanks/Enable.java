@@ -12,6 +12,7 @@ import net.estinet.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.estinet.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 
 /*
 gFeatures

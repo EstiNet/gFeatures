@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.gRanks.Events;
 
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.permissions.PermissionAttachment;
@@ -9,6 +11,8 @@ import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
+
+import java.util.ArrayList;
 
 /*
 gFeatures
@@ -66,7 +70,11 @@ public class StartupTask {
 				pa.setPermission(perm, isittrue);
 			}
 		}
-		if(!Basis.getRank(r.getRank(event.getPlayer())).getPerms().contains("'*'")){
+			gRanks.oplist = new ArrayList<>();
+			for(OfflinePlayer op : Bukkit.getOperators()){
+				gRanks.oplist.add(op.getUniqueId());
+			}
+		if(!Basis.getRank(r.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())){
 			event.getPlayer().setOp(false);
 		}
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);

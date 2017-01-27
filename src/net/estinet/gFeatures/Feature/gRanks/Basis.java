@@ -12,6 +12,7 @@ import net.estinet.gFeatures.Feature.gRanks.Global.InheritSync;
 import net.estinet.gFeatures.Feature.gRanks.Perms.Files;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionAttachment;
@@ -147,7 +148,11 @@ public class Basis {
 				pa.setPermission(perm, isittrue);
 				}
 			}
-			if(!Basis.getRank(r.getRank(p)).getPerms().contains("'*'")){
+			gRanks.oplist = new ArrayList<>();
+			for(OfflinePlayer op : Bukkit.getOperators()){
+				gRanks.oplist.add(op.getUniqueId());
+			}
+			if(!Basis.getRank(r.getRank(p)).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())){
 				p.setOp(false);
 			}
 			Basis.addPermissionAttach(p.getUniqueId(), pa);

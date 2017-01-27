@@ -5,6 +5,7 @@ import net.estinet.gFeatures.Feature.gRanks.Events.StartupTask;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -35,6 +36,9 @@ public class EventHub{
 	Retrieve r = new Retrieve();
 	SQLConnect sqlc = new SQLConnect();
 	public void onPlayerJoin(PlayerJoinEvent event){
+		for(OfflinePlayer op : Bukkit.getOperators()){
+			gRanks.oplist.add(op.getUniqueId());
+		}
 		try{
 			Thread thr = new Thread(new Runnable(){
 				public void run(){

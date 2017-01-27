@@ -10,6 +10,10 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -32,6 +36,8 @@ https://github.com/EstiNet/gFeatures
 public class gRanks extends gFeature{
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
+
+	public static List<UUID> oplist = new ArrayList<>();
 	
 	public gRanks(String featurename, String d) {
 		super(featurename, d);
