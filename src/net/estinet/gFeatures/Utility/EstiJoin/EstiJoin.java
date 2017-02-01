@@ -86,6 +86,7 @@ public class EstiJoin extends gUtility{
 			}
 			}
 			catch(Exception es){}
+			e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
 			Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
 				public void run(){
 					try{

@@ -94,6 +94,7 @@ public class EventHub {
 		p.getInventory().setItem(7, pane);
 		p.getInventory().setItem(8, pane);
 		Constants.playerOn.put(p.getUniqueId(), true);
+        event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
 		Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
 		public void run(){
 			try{
