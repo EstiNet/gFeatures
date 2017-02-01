@@ -37,6 +37,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 /*
 gFeatures
@@ -87,26 +88,24 @@ public class EventHub {
 		p.getInventory().setItem(1, friend);
 		p.getInventory().setItem(2, pane);
 		p.getInventory().setItem(6, pane);
-		p.getInventory().setItem(4, navigator);	
+		p.getInventory().setItem(4, navigator);
 		p.getInventory().setItem(3, additions);
 		p.getInventory().setItem(5, settings);
 		p.getInventory().setItem(7, pane);
 		p.getInventory().setItem(8, pane);
 		Constants.playerOn.put(p.getUniqueId(), true);
-		Thread thr = new Thread(new Runnable(){
-			public void run(){
-				try{
-					Retrieve r = new Retrieve();
-					String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-					String prefix = prefixs.replace('&', '§');
-					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-				}
-				catch(Exception e){
-					event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-				}
+		Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
+		public void run(){
+			try{
+				Retrieve r = new Retrieve();
+				String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+				String prefix = prefixs.replace('&', '§');
+				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
 			}
-		});
-		thr.start();
+			catch(Exception e){
+				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+			}
+		}});
 		for(UUID uuid : Constants.playerOn.keySet()){
 			if(!Constants.playerOn.get(uuid)){
 				Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
@@ -156,7 +155,7 @@ public class EventHub {
 	public void onPlayerMove(PlayerMoveEvent event){
 		event.getPlayer().setAllowFlight(true);
 	}
-	public void onInventoryClick(InventoryClickEvent event){ 
+	public void onInventoryClick(InventoryClickEvent event){
 		event.setCancelled(true);
 	}
 	public void onEntityDamage(EntityDamageEvent event){

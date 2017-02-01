@@ -25,7 +25,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		EstiJoin estijoin = new EstiJoin("EstiJoin", "1.0.0");
+		EstiJoin estijoin = new EstiJoin("EstiJoin", "1.0.1");
 		Basic.addExtension(estijoin);
 	}
 }
