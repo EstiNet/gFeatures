@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.Statistics;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 
 /*
@@ -24,10 +25,10 @@ https://github.com/EstiNet/gFeatures
 public class Enable {
 	public void onEnable(){
 		Bukkit.getLogger().info("Statistics enabled! What's up?");
-		Basic.addPlayerSection("Statistics", "");
-		Basic.addPlayerSection("Statistics.LoginCount", "0");
-		Basic.addPlayerSection("Statistics.LogoutCount", "0");
-		Basic.addPlayerSection("Statistics.Deaths", "0");
-		Basic.addPlayerSection("Statistics.Kills", "0");
+		gFeatures.addPlayerSection("Statistics", "");
+		gFeatures.addPlayerSection("Statistics.LoginCount", "0");
+		gFeatures.addPlayerSection("Statistics.LogoutCount", "0");
+		gFeatures.addPlayerSection("Statistics.Deaths", "0");
+		gFeatures.addPlayerSection("Statistics.Kills", "0");
 	}
 }

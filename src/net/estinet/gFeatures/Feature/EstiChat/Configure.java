@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.EstiChat;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gHub.menus.SurvivalClioteHook;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -27,7 +28,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		EstiChat base = new EstiChat("EstiChat", "1.0.0");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		ConsoleClioteHook cch = new ConsoleClioteHook(base);
 		ClioteSky.addClioteHook(cch);

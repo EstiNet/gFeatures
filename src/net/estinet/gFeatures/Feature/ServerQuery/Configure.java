@@ -21,11 +21,13 @@ https://github.com/EstiNet/gFeatures
 
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.gFeatures;
+
 public class Configure{
 	@Configs
 	public static void onSetup(){
 		ServerQuery base = new ServerQuery("ServerQuery", "1.0.0");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		ServerQueryClioteHook sqch = new ServerQueryClioteHook(base);
 		ClioteSky.addClioteHook(sqch);

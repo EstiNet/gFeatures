@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.GenesisAccess;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -25,6 +26,6 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		GenesisAccess genesisaccess = new GenesisAccess("GenesisAccess", "1.3.0");
-		Basic.addFeature(genesisaccess);
+		gFeatures.addFeature(genesisaccess);
 	}
 }

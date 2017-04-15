@@ -25,6 +25,8 @@ https://github.com/EstiNet/gFeatures
 */
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 import net.estinet.gFeatures.SQL.Player.Key;
+import net.estinet.gFeatures.gFeatures;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -47,10 +49,10 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		Base base = new Base("Base", "1.2.5");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, new TestCommand());
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 		
 		HashMap<Key<String>, String> hash = new HashMap<>();
 		Key<String> key = new Key<>();
@@ -59,7 +61,7 @@ public class Configure{
 		EstiSet<String, String> set = new EstiSet<>();
 		set.setData(hash);
 		set.setTag(base.getName());
-		Basic.addSQLFields(set);
+		gFeatures.addSQLFields(set);
 		
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -29,13 +30,13 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		gMusic base = new gMusic("gMusic", "1.0.1");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		List<String> aliases = new ArrayList<>();
 		aliases.add("music");
 		aliases.add("play");
 		
 		EstiCommand test = new EstiCommand("gMusic", "Plays Music!", "/gMusic help", base, true);
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 	}
 }

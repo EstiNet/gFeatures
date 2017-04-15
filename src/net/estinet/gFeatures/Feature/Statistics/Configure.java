@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Statistics;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -25,6 +26,6 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		Statistics base = new Statistics("Statistics", "1.0.2");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 	}
 }

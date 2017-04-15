@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.Base;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -29,10 +30,10 @@ public class EventHub{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Bukkit.getLogger().info("Player Joined!");
-		Bukkit.getLogger().info("Health: " + Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData(Basic.getFeature("Base").getName(), new Key("Health")));
+		Bukkit.getLogger().info("Health: " + gFeatures.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData(gFeatures.getFeature("Base").getName(), new Key("Health")));
 		Bukkit.getLogger().info("Setting it to 21");
-		EstiPlayer play = Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString());
-		play.setData(Basic.getFeature("Base").getName(), new Key("Health"), "21");
-		Basic.setEstiPlayer(Basic.getEstiPlayer(event.getPlayer().getUniqueId().toString()), play);
+		EstiPlayer play = gFeatures.getEstiPlayer(event.getPlayer().getUniqueId().toString());
+		play.setData(gFeatures.getFeature("Base").getName(), new Key("Health"), "21");
+		gFeatures.setEstiPlayer(gFeatures.getEstiPlayer(event.getPlayer().getUniqueId().toString()), play);
 	}
 }

@@ -1,7 +1,8 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -26,9 +27,9 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		CTF base = new CTF("CTF", "1.1.3");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("ctf", "CTF commands!", "/CTF", "gFeatures.minigames", base, true);
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 	}
 }

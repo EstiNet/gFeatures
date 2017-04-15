@@ -4,6 +4,7 @@ import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.gHub.command.gHubCommand;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -28,10 +29,10 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		gHub base = new gHub("gHub", "1.3.1");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 		
 		MGDoneClioteHook mgdch = new MGDoneClioteHook(base);
 		ClioteSky.addClioteHook(mgdch);

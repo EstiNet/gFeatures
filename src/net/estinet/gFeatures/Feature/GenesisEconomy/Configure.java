@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.GenesisEconomy;
 
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -26,9 +27,9 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("clupic", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", "gFeatures.admin", base, true);
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 	}
 }

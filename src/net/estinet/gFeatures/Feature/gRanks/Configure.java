@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gRanks;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -27,10 +28,10 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		gRanks base = new gRanks("gRanks", "1.9.0");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", "gFeatures.admin", base, true);
-		Basic.addCommand(test);
+		gFeatures.addCommand(test);
 		
 		gRanksClioteHook grch = new gRanksClioteHook(base);
 		ClioteSky.addClioteHook(grch);

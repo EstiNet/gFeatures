@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.EstiWield;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -25,6 +26,6 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		EstiWield base = new EstiWield("EstiWield", "1.0.0b");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 	}
 }

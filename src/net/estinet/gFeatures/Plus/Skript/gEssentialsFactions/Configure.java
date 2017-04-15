@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Plus.Skript.gEssentialsFactions;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.ExtensionsType;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -27,6 +28,6 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		Extension gCrates = new Extension("gEssentialsFactions", "0.6-ALPHA", ExtensionsType.Skript);
-		Basic.addExtension(gCrates);
+		gFeatures.addExtension(gCrates);
 	}
 }

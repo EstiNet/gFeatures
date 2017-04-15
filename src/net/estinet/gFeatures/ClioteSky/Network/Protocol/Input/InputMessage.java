@@ -8,6 +8,7 @@ import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -39,7 +40,7 @@ public class InputMessage extends Packet{
 		}
 		Debug.print("Recieved message " + args + " from category " + args.get(0) + " and cliote " + args.get(1));
 		for(ClioteHook ch : ClioteSky.hooks){
-			if(ch.getCoreArgument().equals(args.get(2)) && Basic.getFeature(ch.getgFeature().getName()).getState().equals(FeatureState.ENABLE)){
+			if(ch.getCoreArgument().equals(args.get(2)) && gFeatures.getFeature(ch.getgFeature().getName()).getState().equals(FeatureState.ENABLE)){
 				ch.run(newArgs, args.get(0), args.get(1));
 			}
 		}

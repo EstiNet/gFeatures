@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gScore;
 
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -26,9 +27,9 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		gScore base = new gScore("gScore", "2.0.0");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 		
 		EstiCommand ecs = new EstiCommand("score", "Toggles the scoreboard.", "/score", base, new ScoreCommand());
-		Basic.addCommand(ecs);
+		gFeatures.addCommand(ecs);
 	}
 }

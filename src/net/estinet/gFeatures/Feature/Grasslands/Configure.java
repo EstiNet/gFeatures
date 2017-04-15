@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.Grasslands;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -25,6 +26,6 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		Grasslands base = new Grasslands("Grasslands", "1.0.0");
-		Basic.addFeature(base);
+		gFeatures.addFeature(base);
 	}
 }

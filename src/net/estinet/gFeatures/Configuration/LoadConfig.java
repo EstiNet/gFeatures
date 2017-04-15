@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.estinet.gFeatures.Extension;
@@ -32,8 +33,8 @@ https://github.com/EstiNet/gFeatures
 public class LoadConfig {
 	static Config config = new Config();
 	static File f = new File("plugins/gFeatures/Config.yml");
-	static List<gFeature> features = Basic.getFeatures();
-	static List<Extension> extensions = Basic.getExtensions();
+	static List<gFeature> features = gFeatures.getFeatures();
+	static List<Extension> extensions = gFeatures.getExtensions();
 	public static void load(){
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
 		List<gFeature> featur = new ArrayList<>();
@@ -56,7 +57,7 @@ public class LoadConfig {
 			}
 			extension.add(extend);
 		}
-		Basic.setFeatures(featur);
-		Basic.setExtensions(extension);
+		gFeatures.setFeatures(featur);
+		gFeatures.setExtensions(extension);
 	}
 }
