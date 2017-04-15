@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Plus.Skript.gEssentialsGlobal;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.ExtensionsType;

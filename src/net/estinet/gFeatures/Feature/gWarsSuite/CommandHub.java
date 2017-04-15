@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.gWarsSuite;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 

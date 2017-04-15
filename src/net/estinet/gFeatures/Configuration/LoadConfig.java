@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.gFeature;

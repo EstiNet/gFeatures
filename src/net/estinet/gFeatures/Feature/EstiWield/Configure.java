@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.EstiWield;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 
 /*

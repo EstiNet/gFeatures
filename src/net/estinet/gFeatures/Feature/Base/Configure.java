@@ -2,7 +2,6 @@ package net.estinet.gFeatures.Feature.Base;
 
 import java.util.HashMap;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.Base.Commands.TestCommand;

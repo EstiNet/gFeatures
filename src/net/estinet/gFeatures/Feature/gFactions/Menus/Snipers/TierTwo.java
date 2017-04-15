@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 import net.estinet.gFeatures.Feature.gFactions.Blaze;

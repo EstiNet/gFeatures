@@ -79,8 +79,8 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
 					case "list":
-						List<gFeature> features = Basic.getFeatures();
-						List<Extension> extensions = Basic.getExtensions();
+						List<gFeature> features = gFeatures.getFeatures();
+						List<Extension> extensions = gFeatures.getExtensions();
 						sender.sendMessage(ChatColor.GRAY + "Features:");
 						sender.sendMessage(ChatColor.GRAY + "Enabled:");
 						for(gFeature feature : features){
@@ -113,7 +113,7 @@ public class CoreCommands{
 						break;
 					case "gplist":
 						sender.sendMessage(ChatColor.GRAY + "gPlayers initialized:");
-						for(gPlayer gp : Basic.getgPlayers()){
+						for(gPlayer gp : gFeatures.getgPlayers()){
 							sender.sendMessage(ChatColor.GRAY + "- " + gp.getName());
 						}
 						break;
@@ -139,7 +139,7 @@ public class CoreCommands{
 						LoadConfig.load();
 						ccu.enable();
 						enable.onEnable();
-						Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
+						gFeatures.addPlayerSection("Setup", "DO NOT REMOVE!");
 						load.load();
 						try{
 							Obtain.start();
@@ -154,7 +154,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
 						break;
 					case "flush":
-						for(gPlayer gp : Basic.getgPlayers()){
+						for(gPlayer gp : gFeatures.getgPlayers()){
 							net.estinet.gFeatures.API.PlayerStats.Setup s = new net.estinet.gFeatures.API.PlayerStats.Setup();
 							s.flushPlayer(gp);
 						}
@@ -175,7 +175,7 @@ public class CoreCommands{
 
 						Thread thr = new Thread(new Runnable(){
 							public void run(){
-								Basic.recieveSQLPlayers();
+								gFeatures.recieveSQLPlayers();
 								sender.sendMessage(ChatColor.GRAY + "Finished!");
 							}
 						});
@@ -183,13 +183,13 @@ public class CoreCommands{
 						break;
 					case "loadedsql":
 						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Players:");
-						for(EstiPlayer p : Basic.getEstiPlayers()){
+						for(EstiPlayer p : gFeatures.getEstiPlayers()){
 							sender.sendMessage(ChatColor.GRAY + "- " + p.getName());
 						}
 						break;
 					case "loadedsqlfields":
 						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Fields:");
-						for(EstiSet set : Basic.getSQLFields()){
+						for(EstiSet set : gFeatures.getSQLFields()){
 							sender.sendMessage(ChatColor.GRAY + "- " + set.getTag());
 							for(Object key : set.getData().keySet()){
 								Key keys = (Key) key;
@@ -207,7 +207,7 @@ public class CoreCommands{
 				else if(args.length == 2){
 					switch(args[0]){
 					case "featurestate":
-						gFeature feature = Basic.getFeature(args[1]);
+						gFeature feature = gFeatures.getFeature(args[1]);
 						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
 						break;
 					case "send":

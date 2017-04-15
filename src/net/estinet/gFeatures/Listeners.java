@@ -93,7 +93,7 @@ public class Listeners extends JavaPlugin implements Listener{
 			e.printStackTrace();
 		}
 		enable.onEnable();
-		Basic.addPlayerSection("Setup", "DO NOT REMOVE!");
+		gFeatures.addPlayerSection("Setup", "DO NOT REMOVE!");
 		try{
 			load.load();
 		}
@@ -146,20 +146,18 @@ public class Listeners extends JavaPlugin implements Listener{
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event){
 		library.onPlayerLeave(event);
-		Thread thr = new Thread(new Runnable(){
-			public void run(){
-				try{
-					gPlayer gp = Basic.getgPlayer(event.getPlayer().getUniqueId().toString());
-					for(String valuename : gp.getValues().keySet()){
-						setups.smartFlush(gp, valuename, gp.getValue(valuename));
-					}
-					Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
-				}
-				catch(Exception e){
-					Debug.print(e.getMessage());
-				}
-			}
-		});
+		Thread thr = new Thread(() -> {
+            try{
+                gPlayer gp = gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString());
+                for(String valuename : gp.getValues().keySet()){
+                    setups.smartFlush(gp, valuename, gp.getValue(valuename));
+                }
+                gFeatures.setgPlayer(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()), gp);
+            }
+            catch(Exception e){
+                Debug.print(e.getMessage());
+            }
+        });
 		thr.start();
 	}
 	@EventHandler

@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.gWarsSuite.MainMenu;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.gWarsSuite.Constants;

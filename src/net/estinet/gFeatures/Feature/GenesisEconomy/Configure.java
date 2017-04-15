@@ -1,8 +1,5 @@
 package net.estinet.gFeatures.Feature.GenesisEconomy;
 
-import java.util.Arrays;
-
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
 

@@ -3,10 +3,8 @@ package net.estinet.gFeatures.API.PlayerStats;
 import java.io.File;
 import java.io.IOException;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configuration.Config;
 
 /*

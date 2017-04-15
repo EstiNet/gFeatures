@@ -21,7 +21,6 @@ https://github.com/EstiNet/gFeatures
 
 import java.util.concurrent.TimeUnit;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionSettings;

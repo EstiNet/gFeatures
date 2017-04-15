@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.Statistics;
 
-import net.estinet.gFeatures.Basic;
-
 import org.bukkit.Bukkit;
 
 /*

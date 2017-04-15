@@ -1,13 +1,11 @@
 package net.estinet.gFeatures;
 
-import java.util.List;
-
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import net.estinet.gFeatures.Command.EstiCommand;
-import net.md_5.bungee.api.ChatColor;
 
 /*
 gFeatures
@@ -42,7 +40,7 @@ public class CommandLibrary {
 	}
 	
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		for(EstiCommand commandd : Basic.getCommands()){
+		for(EstiCommand commandd : gFeatures.getCommands()){
 			if(commandd.getName().equals(cmd.getName())){
 				try{
 					if(sender.hasPermission(commandd.getPermission())){

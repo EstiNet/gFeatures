@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.Shop;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
 

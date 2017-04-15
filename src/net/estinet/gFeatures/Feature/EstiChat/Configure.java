@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gHub.menus.SurvivalClioteHook;

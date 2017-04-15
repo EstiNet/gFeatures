@@ -3,7 +3,6 @@ package net.estinet.gFeatures.SQL.Update;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
 

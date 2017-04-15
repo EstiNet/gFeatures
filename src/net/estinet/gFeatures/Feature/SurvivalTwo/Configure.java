@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.SurvivalTwo.Commands.MenuCommand;

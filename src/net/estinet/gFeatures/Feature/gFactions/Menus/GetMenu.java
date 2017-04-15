@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Feature.gFactions.Blaze;
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 

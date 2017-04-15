@@ -2,9 +2,6 @@ package net.estinet.gFeatures.Feature.gFactions.Menus.Snipers;
 
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.Basic;
-import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

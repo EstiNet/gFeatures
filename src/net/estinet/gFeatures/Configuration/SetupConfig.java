@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.ExtensionsType;
 import net.estinet.gFeatures.gFeature;

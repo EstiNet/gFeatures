@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.SQL.Update;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 
 /*

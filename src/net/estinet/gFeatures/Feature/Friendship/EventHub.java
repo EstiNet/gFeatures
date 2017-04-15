@@ -1,13 +1,6 @@
 package net.estinet.gFeatures.Feature.Friendship;
 
-import org.bukkit.Bukkit;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import net.estinet.gFeatures.Basic;
-import net.estinet.gFeatures.SQL.Player.EstiPlayer;
-import net.estinet.gFeatures.SQL.Player.EstiSet;
-import net.estinet.gFeatures.SQL.Player.Key;
 
 /*
 gFeatures

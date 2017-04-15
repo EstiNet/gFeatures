@@ -31,13 +31,13 @@ public class gLoop {
 		 * Initialize gFeatures Core loops here.
 		 * 
 		 */
-		if(Basic.getSQLState()){
+		if(gFeatures.getSQLState()){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		Thread th = new Thread(new Runnable(){
         			public void run(){
         				try{
-        					Basic.recieveSQLPlayers();
+        					gFeatures.recieveSQLPlayers();
         				}
         				catch(Exception e){
         					Debug.print(e.getMessage());
@@ -49,18 +49,14 @@ public class gLoop {
         }, 2000L, 2000L);
 		}
 		if(ClioteSky.isEnable()){
-			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-	        	public void run(){
-	        		Thread th = new Thread(new Runnable(){
-	        			public void run(){
-	        				OutputAlive oa = new OutputAlive();
-	        				oa.run(null);
-	        				Debug.print("[ClioteSky] Pinging server...");
-	        			}
-	        		});
-	        		th.start();
-	        	}
-	        }, 200L, 200L);
+			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                Thread th = new Thread(() -> {
+                    OutputAlive oa = new OutputAlive();
+                    oa.run(null);
+                    Debug.print("[ClioteSky] Pinging server...");
+                });
+                th.start();
+            }, 200L, 200L);
 		}
 	}
 }

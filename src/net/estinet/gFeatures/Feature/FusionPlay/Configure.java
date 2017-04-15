@@ -1,10 +1,7 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.Command.EstiCommand;
-import net.estinet.gFeatures.Feature.Base.Commands.TestCommand;
 
 /*
 gFeatures

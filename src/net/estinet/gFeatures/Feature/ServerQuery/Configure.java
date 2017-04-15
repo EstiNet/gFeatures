@@ -19,7 +19,6 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 public class Configure{

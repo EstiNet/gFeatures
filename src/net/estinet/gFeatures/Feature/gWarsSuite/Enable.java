@@ -3,14 +3,9 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 import java.io.IOException;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.World;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CaptureState;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Point;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Team;
 
 /*

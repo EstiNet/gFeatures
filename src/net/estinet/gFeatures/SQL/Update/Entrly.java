@@ -2,7 +2,6 @@ package net.estinet.gFeatures.SQL.Update;
 
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 
 /*

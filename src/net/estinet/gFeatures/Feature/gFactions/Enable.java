@@ -2,8 +2,6 @@ package net.estinet.gFeatures.Feature.gFactions;
 
 import org.bukkit.Bukkit;
 
-import net.estinet.gFeatures.Basic;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures

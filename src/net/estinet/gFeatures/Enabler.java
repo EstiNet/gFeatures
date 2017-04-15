@@ -31,8 +31,8 @@ https://github.com/EstiNet/gFeatures
 
 public class Enabler {
 	public void onEnable(){
-		List<gFeature> features = Basic.getFeatures();
-		List<Extension> extensions = Basic.getExtensions();
+		List<gFeature> features = gFeatures.getFeatures();
+		List<Extension> extensions = gFeatures.getExtensions();
 		for(int i = 0; i < features.size(); i++){
 			gFeature feature = features.get(i);
 			if(feature.getState().equals(FeatureState.ENABLE)){
@@ -60,8 +60,8 @@ public class Enabler {
 			}
 		}
 
-		for(EstiCommand command : Basic.getCommands()){
-			if(Basic.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
+		for(EstiCommand command : gFeatures.getCommands()){
+			if(gFeatures.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
 				try{
 					Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", null);
 					Object cmdmap = commandMap.invoke(Bukkit.getServer(), null);

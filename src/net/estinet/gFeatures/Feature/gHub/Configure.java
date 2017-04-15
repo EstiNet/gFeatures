@@ -1,11 +1,9 @@
 package net.estinet.gFeatures.Feature.gHub;
 
-import net.estinet.gFeatures.Basic;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.gHub.command.gHubCommand;
-import net.estinet.gFeatures.Feature.gRanks.gRanksClioteHook;
 
 /*
 gFeatures

@@ -28,8 +28,8 @@ https://github.com/EstiNet/gFeatures
 
 public class Disabler {
 	public void onDisable(){
-		List<gFeature> features = Basic.getFeatures();
-		List<Extension> extensions = Basic.getExtensions();
+		List<gFeature> features = gFeatures.getFeatures();
+		List<Extension> extensions = gFeatures.getExtensions();
 		for(gFeature feature : features){
 			if(feature.getState().equals(FeatureState.ENABLE)){
 				try{
@@ -45,12 +45,12 @@ public class Disabler {
 				sm.Disable(extension);
 			}
 		}
-		for(gPlayer gp : Basic.getgPlayers()){
+		for(gPlayer gp : gFeatures.getgPlayers()){
 			net.estinet.gFeatures.API.PlayerStats.Setup setup = new net.estinet.gFeatures.API.PlayerStats.Setup();
 			setup.flushPlayer(gp);
 		}
-		Basic.resetFeatures();
-		Basic.resetExtensions();
+		gFeatures.resetFeatures();
+		gFeatures.resetExtensions();
 		if(ClioteSky.isEnable()){
 			try {
 				NetworkThread.clientSocket.close();

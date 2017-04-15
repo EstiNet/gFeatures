@@ -137,7 +137,7 @@ public class Library {
 		check("onEntityDamageByBlock", event);
 	}
     public void check(String methodname, Event event){
-    	List<gFeature> features = Basic.getFeatures();
+    	List<gFeature> features = gFeatures.getFeatures();
 		for(gFeature feature : features){
 			try {
 				if(!(feature.getClass().getDeclaredMethod(methodname).equals(null))){
@@ -149,7 +149,7 @@ public class Library {
 			catch (SecurityException e) {}
 			catch (ConcurrentModificationException e) {}
 		}
-		List<Extension> extensions = Basic.getExtensions();
+		List<Extension> extensions = gFeatures.getExtensions();
 		List<gUtility> utilities = new ArrayList<>();
 		for(Extension ext : extensions){
 			if(ext.getType().equals(ExtensionsType.Utility)){
