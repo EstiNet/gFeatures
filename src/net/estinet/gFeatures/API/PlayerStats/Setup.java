@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import net.estinet.gFeatures.Configuration.Config;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -41,12 +42,12 @@ public class Setup {
 			yamlFile.createSection("Config.Name");
 			yamlFile.set("Config.Name", p.getName());
 			yamlFile.set("Config.UUID", p.getUniqueId().toString());
-			for(String str : Basic.getPlayerSections().keySet()){
+			for(String str : gFeatures.getPlayerSections().keySet()){
 				yamlFile.createSection("Config." + str);
-				yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+				yamlFile.set("Config." + str, gFeatures.getPlayerSections().get(str));
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
 			}
-			Basic.addgPlayer(gp);
+			gFeatures.addgPlayer(gp);
 			try {
 				yamlFile.save(f);
 			} catch (IOException e) {
@@ -55,14 +56,14 @@ public class Setup {
 		}
 		else{
 			YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-			gPlayer gp = Basic.getgPlayer(p.getUniqueId().toString());
+			gPlayer gp = gFeatures.getgPlayer(p.getUniqueId().toString());
 			
-			for(String str : Basic.getPlayerSections().keySet()){
+			for(String str : gFeatures.getPlayerSections().keySet()){
 				try{
 				if(yamlFile.get("Config." + str).equals(null)){}
 				}catch(Exception e){
 					yamlFile.createSection("Config." + str);
-					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					yamlFile.set("Config." + str, gFeatures.getPlayerSections().get(str));
 					Bukkit.getLogger().info("Adding " + str);
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
@@ -76,11 +77,11 @@ public class Setup {
 				e.printStackTrace();
 			}
 			try{
-				if(Basic.getgPlayer(p.getUniqueId().toString()).equals(null)){}
+				if(gFeatures.getgPlayer(p.getUniqueId().toString()).equals(null)){}
 			}catch(Exception e){
-				Basic.addgPlayer(gp);
+				gFeatures.addgPlayer(gp);
 			}
-			Basic.setgPlayer(Basic.getgPlayer(p.getUniqueId().toString()), gp);
+			gFeatures.setgPlayer(gFeatures.getgPlayer(p.getUniqueId().toString()), gp);
 		}
 	}
 	public void flushPlayer(gPlayer p){

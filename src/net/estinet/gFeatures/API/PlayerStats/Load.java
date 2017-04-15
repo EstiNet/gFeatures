@@ -3,6 +3,7 @@ package net.estinet.gFeatures.API.PlayerStats;
 import java.io.File;
 import java.io.IOException;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import net.estinet.gFeatures.Configuration.Config;
@@ -37,14 +38,14 @@ public class Load {
 			for(String str :  yamlFile.getConfigurationSection("Config").getKeys(true)){
 				gp.addValue(str, yamlFile.get("Config." + str).toString());
 			}
-			for(String str : Basic.getPlayerSections().keySet()){
+			for(String str : gFeatures.getPlayerSections().keySet()){
 				try{
 					if(yamlFile.get("Config." + str).equals(null)){}
 				}
 				catch(Exception e){
 					//Bukkit.getLogger().info("Found a problem with the file! Attempting to patch " + str);
 					yamlFile.createSection("Config." + str);
-					yamlFile.set("Config." + str, Basic.getPlayerSections().get(str));
+					yamlFile.set("Config." + str, gFeatures.getPlayerSections().get(str));
 					gp.addValue(str, yamlFile.get("Config." + str).toString());
 				}
 			}
@@ -53,7 +54,7 @@ public class Load {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			Basic.addgPlayer(gp);
+			gFeatures.addgPlayer(gp);
 		}
 	}
 }
