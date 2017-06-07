@@ -4,8 +4,8 @@ The core of EstiNet.
 
 EstiNet - The flow of creativity.
 
-##Version
-gFeatures Core/API: 3.3.10
+## Version
+gFeatures Core/API: 3.4.0
 
 ## Info
 gFeatures powers EstiNet.
@@ -13,11 +13,9 @@ It is the core that symbolizes everything about us.
 
 ## Dependencies
 gFeatures requires the following dependencies to run:
-* Spigot 1.10
+* Spigot 1.11.2
 * CrackShot
 * Java 8
-* MySQL
-* Skript (Optional)
 * ClioteSky Server (Optional)
 
 ## Features
@@ -44,16 +42,10 @@ Specific plugin types to hook into gFeatures Core.
 ### ClioteSky
 Key map API to store and send keys to other installations.
 
-## Team
-- _InDev_ / Devin Lin (also known as aguy867 in older commits) -> Main Developer & CEO of EstiNet
-- Seshpenguin / Seshan Ravikumar -> CEO of EstiNet, Derp Master.
-
 ## Copyright
 EstiNet and gFeatures are property of EstiNet.
 
-© 2017 EstiNet. EstiNet is a subsidiary of DolphinBox.
+© 2017 EstiNet. EstiNet is a server for Minecraft.
 
-© 2017 DolphinBox -- https://dolphinbox.net/
-
-https://estinet.net/
+Learn more at https://estinet.net/
 
