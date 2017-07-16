@@ -3,7 +3,6 @@ package net.estinet.gFeatures.API.EssentialsHook;
 import java.io.File;
 import java.util.UUID;
 
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class EssentialsEcoUtil {

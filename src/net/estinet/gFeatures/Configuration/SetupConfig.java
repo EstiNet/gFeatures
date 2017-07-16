@@ -8,6 +8,7 @@ import net.estinet.gFeatures.Extension;
 import net.estinet.gFeatures.ExtensionsType;
 import net.estinet.gFeatures.gFeature;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 /*
@@ -32,8 +33,8 @@ https://github.com/EstiNet/gFeatures
 public class SetupConfig {
 	static Config config = new Config();
 	static File f = new File("plugins/gFeatures/Config.yml");
-	static List<gFeature> features = Basic.getFeatures();
-	static List<Extension> extensions = Basic.getExtensions();
+	static List<gFeature> features = gFeatures.getFeatures();
+	static List<Extension> extensions = gFeatures.getExtensions();
 	public static void setup(){
 		config.createDirectory("plugins/gFeatures", "Setup the gFeatures directory for use!");
 		config.createFile("plugins/gFeatures/Config.yml", "Setup the gFeatures config for use!");

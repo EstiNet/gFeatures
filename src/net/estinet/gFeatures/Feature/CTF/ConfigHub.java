@@ -47,7 +47,7 @@ public class ConfigHub {
 		if(maps.isEmpty()){
 			Bukkit.getLogger().info("[CTF] No maps found!");
 			Disable.onDisable();
-			net.estinet.gFeatures.Basic.getFeature("CTF").disable();
+			net.estinet.gFeatures.gFeatures.getFeature("CTF").disable();
 			return;
 		}
 		int random = (int) Math.floor(Math.random() * maps.size());
