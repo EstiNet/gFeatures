@@ -5,11 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.persistence.Version;
-
+import net.estinet.gFeatures.API.Logger.Debug;
 import org.bukkit.Bukkit;
 
 /*
@@ -45,8 +42,7 @@ public class SQLConnect {
 	            st = con.createStatement();
 	            st.executeUpdate(query);
 	        } catch (SQLException ex) {
-	            Logger lgr = Logger.getLogger(Version.class.getName());
-	            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+	            Debug.print(ex.getMessage());
 	        } finally {
 	            try {
 	                if (rs != null) {
@@ -59,8 +55,7 @@ public class SQLConnect {
 	                    con.close();
 	                }
 	            } catch (SQLException ex) {
-	                Logger lgr = Logger.getLogger(Version.class.getName());
-	                lgr.log(Level.WARNING, ex.getMessage(), ex);
+					Debug.print(ex.getMessage());
 	            }
 	        }
 	        //}
@@ -285,8 +280,6 @@ public class SQLConnect {
 	            con = DriverManager.getConnection(url, user, password);
 	            Bukkit.getLogger().info("Connected!");
 	        } catch (SQLException ex) {
-	            Logger lgr = Logger.getLogger(Version.class.getName());
-	            lgr.log(Level.SEVERE, ex.getMessage(), ex);
 	            ex.printStackTrace();
 	            Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
 	            Bukkit.getLogger().info("Make sure you check if the port is correct!");
@@ -303,8 +296,6 @@ public class SQLConnect {
 	                    con.close();
 	                }
 	            } catch (SQLException ex) {
-	                Logger lgr = Logger.getLogger(Version.class.getName());
-	                lgr.log(Level.WARNING, ex.getMessage(), ex);
 	                ex.printStackTrace();
 	                Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
 	                Bukkit.getLogger().info("Make sure you check if the port is correct!");
