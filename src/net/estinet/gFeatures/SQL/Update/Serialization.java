@@ -62,7 +62,7 @@ public class Serialization {
 		  }
 
 		  public static EstiPlayer readJavaObject(long id) throws Exception {
-			Connection conn = DriverManager.getConnection(toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), gFeatures.getUsername(), gFeatures.getPassword());
+			Connection conn = DriverManager.getConnection(toURL(gFeatures.getPort(), gFeatures.getAddress(), gFeatures.getTablename()), gFeatures.getUsername(), gFeatures.getPassword());
 		    PreparedStatement pstmt = conn.prepareStatement(READ_OBJECT_SQL);
 		    pstmt.setLong(1, id);
 		    ResultSet rs = pstmt.executeQuery();

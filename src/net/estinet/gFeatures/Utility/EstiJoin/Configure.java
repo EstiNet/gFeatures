@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Utility.EstiJoin;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -25,6 +26,6 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		EstiJoin estijoin = new EstiJoin("EstiJoin", "1.0.1");
-		Basic.addExtension(estijoin);
+		gFeatures.addExtension(estijoin);
 	}
 }

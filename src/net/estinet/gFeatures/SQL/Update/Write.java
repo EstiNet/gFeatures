@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.SQL.Update;
 
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -23,17 +24,17 @@ https://github.com/EstiNet/gFeatures
 
 public class Write {
 	public void writeToSQL(){
-		if(Basic.getSQLState()){
+		if(gFeatures.getSQLState()){
 		Connection c = new Connection();
 		String Address, Port, Tablename, Username, Password;
-		Address = Basic.getAddress();
-		Port = Basic.getPort();
-		Tablename = Basic.getTablename();
-		Username = Basic.getUsername();
-		Password = Basic.getPassword();
+		Address = gFeatures.getAddress();
+		Port = gFeatures.getPort();
+		Tablename = gFeatures.getTablename();
+		Username = gFeatures.getUsername();
+		Password = gFeatures.getPassword();
 		String URL = c.toURL(Port, Address, Tablename);
 		c.Connect(URL, Username, Password, "TRUNCATE People;");
-		for(EstiPlayer player : Basic.getEstiPlayers()){
+		for(EstiPlayer player : gFeatures.getEstiPlayers()){
 			try {
 				Serialization.writeJavaObject(player.getUUID(), player);
 			} catch (Exception e) {

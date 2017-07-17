@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Utility.gBroadcast;
 
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.gFeatures;
 import net.estinet.gFeatures.gUtility;
 
 /*
@@ -26,6 +27,6 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		gUtility gBroadcast = new gUtility("gBroadcast", "1.0.0");
-		Basic.addExtension(gBroadcast);
+		gFeatures.addExtension(gBroadcast);
 	}
 }

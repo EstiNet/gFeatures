@@ -1,6 +1,9 @@
 package net.estinet.gFeatures.API.Messaging;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
@@ -45,6 +48,13 @@ https://github.com/EstiNet/gFeatures
  */
 public class ActionAPI
 {
+    private String nmsver;
+
+    public ActionAPI(){
+        nmsver = Bukkit.getServer().getClass().getPackage().getName();
+        nmsver = nmsver.substring(nmsver.lastIndexOf(".") + 1);
+    }
+
     /**
      * Sends a title to a Player.
      *
@@ -148,9 +158,10 @@ public class ActionAPI
 
         if (actionText != null)
         {
-            IChatBaseComponent actionComponent = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + ChatColor.translateAlternateColorCodes('&', actionText) + "\"}");
-            PacketPlayOutChat actionPacket = new PacketPlayOutChat(actionComponent, (byte) 2);
-            playerConnection.sendPacket(actionPacket);
+//            IChatBaseComponent actionComponent = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + ChatColor.translateAlternateColorCodes('&', actionText) + "\"}");
+//            PacketPlayOutChat actionPacket = new PacketPlayOutChat(actionComponent, (byte) 2);
+//            playerConnection.sendPacket(actionPacket);
+            sendActionBarPost112(p, actionText);
         }
 
         if (header != null || footer != null)
@@ -161,7 +172,7 @@ public class ActionAPI
             IChatBaseComponent headerComponent = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + header + "\"}");
             IChatBaseComponent footerComponent = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + footer + "\"}");
 
-            PacketPlayOutPlayerListHeaderFooter packetTablist = new PacketPlayOutPlayerListHeaderFooter(headerComponent);
+            PacketPlayOutPlayerListHeaderFooter packetTablist = new PacketPlayOutPlayerListHeaderFooter();
             try
             {
                 Field field = packetTablist.getClass().getDeclaredField("b");
@@ -173,6 +184,38 @@ public class ActionAPI
                 e.printStackTrace();
             }
             playerConnection.sendPacket(packetTablist);
+        }
+    }
+    private void sendActionBarPost112(Player player, String message) {
+        if (!player.isOnline()) {
+            return; // Player may have logged out
+        }
+        try {
+            Class<?> craftPlayerClass = Class.forName("org.bukkit.craftbukkit." + nmsver + ".entity.CraftPlayer");
+            Object craftPlayer = craftPlayerClass.cast(player);
+            Object ppoc;
+            Class<?> c4 = Class.forName("net.minecraft.server." + nmsver + ".PacketPlayOutChat");
+            Class<?> c5 = Class.forName("net.minecraft.server." + nmsver + ".Packet");
+            Class<?> c2 = Class.forName("net.minecraft.server." + nmsver + ".ChatComponentText");
+            Class<?> c3 = Class.forName("net.minecraft.server." + nmsver + ".IChatBaseComponent");
+            Class<?> chatMessageTypeClass = Class.forName("net.minecraft.server." + nmsver + ".ChatMessageType");
+            Object[] chatMessageTypes = chatMessageTypeClass.getEnumConstants();
+            Object chatMessageType = null;
+            for (Object obj : chatMessageTypes) {
+                if (obj.toString().equals("GAME_INFO")) {
+                    chatMessageType = obj;
+                }
+            }
+            Object o = c2.getConstructor(new Class<?>[]{String.class}).newInstance(message);
+            ppoc = c4.getConstructor(new Class<?>[]{c3, chatMessageTypeClass}).newInstance(o, chatMessageType);
+            Method m1 = craftPlayerClass.getDeclaredMethod("getHandle");
+            Object h = m1.invoke(craftPlayer);
+            Field f1 = h.getClass().getDeclaredField("playerConnection");
+            Object pc = f1.get(h);
+            Method m5 = pc.getClass().getDeclaredMethod("sendPacket", c5);
+            m5.invoke(pc, ppoc);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }
