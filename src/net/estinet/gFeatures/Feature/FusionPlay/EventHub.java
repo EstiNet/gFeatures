@@ -37,7 +37,7 @@ public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
-		if(FusionPlay.currentGame.getSettings().usesPlayerCollision() == false){
+		if(!FusionPlay.currentGame.getSettings().usesPlayerCollision()){
 			event.getPlayer().setCollidable(false);
 		}
 		if(!FusionPlay.assigned && !event.getPlayer().hasPermission("gFeatures.admin")){

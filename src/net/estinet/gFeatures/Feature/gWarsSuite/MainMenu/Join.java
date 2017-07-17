@@ -7,6 +7,8 @@ import net.estinet.gFeatures.Feature.gWarsSuite.Statistics;
 import net.estinet.gFeatures.Feature.gWarsSuite.gWarsMode;
 import java.util.ArrayList;
 import java.util.List;
+
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -43,7 +45,7 @@ public class Join {
 	ActionAPI aapi = new ActionAPI();
 	Statistics stats = new Statistics();
 	public void start(PlayerJoinEvent event){
-		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + Basic.getFeature("gWarsSuite").getVersion());
+		aapi.sendActionbar(event.getPlayer(), ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + gFeatures.getFeature("gWarsSuite").getVersion());
 		Player p = event.getPlayer();
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());

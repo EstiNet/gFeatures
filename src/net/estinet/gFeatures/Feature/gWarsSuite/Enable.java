@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 
 import java.io.IOException;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.Feature.gWarsSuite.Configs.CrackshotConfiguration;
@@ -29,7 +30,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Enable {
 	public static void onEnable(){
-		Bukkit.getLogger().info("[gFeatures-gWarsSuite]gWarsSuite enabled! Running core version: " + Basic.getFeature("gWarsSuite").getVersion() + "!");
+		Bukkit.getLogger().info("[gFeatures-gWarsSuite]gWarsSuite enabled! Running core version: " + gFeatures.getFeature("gWarsSuite").getVersion() + "!");
 		/*Basic.addPlayerSection("gWars", "");
 		Basic.addPlayerSection("gWars.Mode", "NONE");
 		Basic.addPlayerSection("gWars.Kills", "1");

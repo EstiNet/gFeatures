@@ -4,6 +4,7 @@ import net.estinet.gFeatures.API.Inventory.ClearInventory;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -37,9 +38,9 @@ public class Enable {
 		CliotePing cp = new CliotePing();
 		cp.sendMessage("mgget", "Bungee");
 		
-		Basic.addPlayerSection("Settings", "");
-		Basic.addPlayerSection("Settings.showChat", "true");
-		Basic.addPlayerSection("Settings.scoreBoard", "true");
+		gFeatures.addPlayerSection("Settings", "");
+		gFeatures.addPlayerSection("Settings.showChat", "true");
+		gFeatures.addPlayerSection("Settings.scoreBoard", "true");
 		
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){

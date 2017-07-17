@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gWarsSuite;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -55,7 +56,7 @@ public class CommandHub {
 					sender.sendMessage(ChatColor.AQUA + "Mode: " + stats.getMode((Player)sender));
 				}
 				else if(args[0].equalsIgnoreCase("version")){
-					sender.sendMessage(ChatColor.GRAY + "gWarsSuite version " + Basic.getFeature("gWarsSuite").getVersion());
+					sender.sendMessage(ChatColor.GRAY + "gWarsSuite version " + gFeatures.getFeature("gWarsSuite").getVersion());
 				}
 				else if(args[0].equalsIgnoreCase("points")){
 					sender.sendMessage(ChatColor.GRAY + "Points: ");

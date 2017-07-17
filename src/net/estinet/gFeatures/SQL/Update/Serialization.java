@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
+import net.estinet.gFeatures.gFeatures;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -40,7 +41,7 @@ public class Serialization {
 	  static net.estinet.gFeatures.SQL.Update.Connection con = new net.estinet.gFeatures.SQL.Update.Connection();
 	  public static long writeJavaObject(String name, Object object) throws Exception {
 		  	
-		    Connection conn = DriverManager.getConnection(con.toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
+		    Connection conn = DriverManager.getConnection(con.toURL(gFeatures.getPort(), gFeatures.getAddress(), gFeatures.getTablename()), gFeatures.getUsername(), gFeatures.getPassword());
 		    String className = object.getClass().getName();
 		    PreparedStatement pstmt = conn.prepareStatement(WRITE_OBJECT_SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -61,7 +62,7 @@ public class Serialization {
 		  }
 
 		  public static EstiPlayer readJavaObject(long id) throws Exception {
-			Connection conn = DriverManager.getConnection(toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), Basic.getUsername(), Basic.getPassword());
+			Connection conn = DriverManager.getConnection(toURL(Basic.getPort(), Basic.getAddress(), Basic.getTablename()), gFeatures.getUsername(), gFeatures.getPassword());
 		    PreparedStatement pstmt = conn.prepareStatement(READ_OBJECT_SQL);
 		    pstmt.setLong(1, id);
 		    ResultSet rs = pstmt.executeQuery();

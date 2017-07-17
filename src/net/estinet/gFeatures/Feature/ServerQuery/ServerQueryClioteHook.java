@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.ServerQuery;
 
 import java.util.List;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -38,7 +39,7 @@ public class ServerQueryClioteHook extends ClioteHook{
 	public void run(List<String> args, String categoryName, String clioteName){
 		if(args.get(0).equals("online")){
 			ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
-			if(Basic.getFeature("gScore").getState().equals(FeatureState.ENABLE)){
+			if(gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)){
 				Listeners l = new Listeners();
 				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 		        	public void run(){

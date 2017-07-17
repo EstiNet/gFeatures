@@ -33,13 +33,13 @@ public class CommandManager{
     public boolean onCommands(final CommandSender sender, Command cmd, String label, String[] args) {
    	 if (cmd.getName().equalsIgnoreCase("join")){
    		 cons.Acceptance.add(sender.getName());
-   		 if(Constants.arenaon == false){
+   		 if(!Constants.arenaon){
    		 sender.sendMessage("Added you to the wait list!");
    		 int index = cons.Acceptance.indexOf(sender.getName());
    		 cons.BlockBroke.set(index, "0");
    		 w.run();
    		 }
-   		 if(Constants.arenaon == true){
+   		 if(Constants.arenaon){
    			sender.sendMessage("Adding you to the game...");
    			int index = cons.Acceptance.indexOf(sender.getName());
       		cons.BlockBroke.set(index, "0");

@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
 import net.estinet.gFeatures.SQL.Player.EstiSet;
+import net.estinet.gFeatures.gFeatures;
 
 /*
 gFeatures
@@ -29,14 +30,14 @@ public class Read {
 	Connection c = new Connection();
 	public void read(){
 		String Address, Port, Tablename, Username, Password;
-		Address = Basic.getAddress();
-		Port = Basic.getPort();
-		Tablename = Basic.getTablename();
-		Username = Basic.getUsername();
-		Password = Basic.getPassword();
+		Address = gFeatures.getAddress();
+		Port = gFeatures.getPort();
+		Tablename = gFeatures.getTablename();
+		Username = gFeatures.getUsername();
+		Password = gFeatures.getPassword();
 		
 		String URL = c.toURL(Port, Address, Tablename);
-		List<EstiSet> sets = Basic.getSQLFields();
+		List<EstiSet> sets = gFeatures.getSQLFields();
 		
 		List<EstiPlayer> players = new ArrayList<>();
 		
@@ -56,6 +57,6 @@ public class Read {
 				e.printStackTrace();
 			}
 		}
-		Basic.setEstiPlayers(players);
+		gFeatures.setEstiPlayers(players);
 	}
 }

@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -15,10 +16,6 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.FeatureState;
-import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
@@ -137,7 +134,7 @@ public class FusionPlay extends gFeature implements Events{
 						}
 						gFeature feature = games.get(random);
 						feature.setState(FeatureState.ENABLE);
-						Basic.addFeature(games.get(random));
+						gFeatures.addFeature(games.get(random));
 						games.get(random).enable();
 					}
 				});

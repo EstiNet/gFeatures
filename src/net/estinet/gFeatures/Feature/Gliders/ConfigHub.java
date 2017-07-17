@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.gFeatures;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 
@@ -60,7 +61,7 @@ public class ConfigHub {
 		if(maps.isEmpty()){
 			Bukkit.getLogger().info("[Gliders] No maps found!");
 			Disable.onDisable();
-			net.estinet.gFeatures.Basic.getFeature("Gliders").disable();
+			gFeatures.getFeature("Gliders").disable();
 			return;
 		}
 		

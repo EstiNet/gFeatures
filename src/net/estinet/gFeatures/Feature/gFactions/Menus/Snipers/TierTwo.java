@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gFactions.Menus.Snipers;
 
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -45,7 +46,7 @@ public class TierTwo {
 	                		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.AQUA + "Tiers" + ChatColor.BOLD + "] " + ChatColor.DARK_AQUA + "You have joined the Sniper tier.");
 	                		player.setValue("gFactionsTier", "sniper");
 	                		player.setValue("gFactionsTierRank", "1");
-	                		Basic.setgPlayer(Basic.getgPlayer(event.getPlayer().getUniqueId().toString()), player);
+	                		gFeatures.setgPlayer(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()), player);
 	                		Blaze.invtrigger.add(event.getPlayer().getName());
 	                		scheduler.scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 	    	                	public void run(){
