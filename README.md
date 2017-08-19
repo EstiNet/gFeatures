@@ -5,7 +5,7 @@ The core of EstiNet.
 EstiNet - The flow of creativity.
 
 ## Version
-gFeatures Core/API: 3.4.0
+gFeatures Core/API: 3.4.2
 
 ## Info
 gFeatures powers EstiNet.
@@ -13,7 +13,7 @@ It is the core that symbolizes everything about us.
 
 ## Dependencies
 gFeatures requires the following dependencies to run:
-* Spigot 1.11.2
+* Spigot 1.12.2
 * CrackShot
 * Java 8
 * ClioteSky Server (Optional)
