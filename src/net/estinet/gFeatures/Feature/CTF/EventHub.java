@@ -190,8 +190,7 @@ public class EventHub{
 		}
 	}
 	public void onPlayerDeath(PlayerDeathEvent event) {
-
-		if(event.getEntity() instanceof Player){
+		if(event.getEntity() != null){
 			if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
 				event.getDrops().remove(Material.STAINED_GLASS);
 			}

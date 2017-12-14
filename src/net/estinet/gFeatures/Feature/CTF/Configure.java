@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.gFeatures;
@@ -28,7 +29,9 @@ public class Configure{
 	public static void onSetup(){
 		CTF base = new CTF("CTF", "1.1.3");
 		gFeatures.addFeature(base);
-		
+
+		ClioteSky.addClioteHook(new GetMGInfoClioteHook(base));
+
 		EstiCommand test = new EstiCommand("ctf", "CTF commands!", "/CTF", "gFeatures.minigames", base, true);
 		gFeatures.addCommand(test);
 	}

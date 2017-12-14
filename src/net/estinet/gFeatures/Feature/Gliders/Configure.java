@@ -1,7 +1,9 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.CTF.GetMGInfoClioteHook;
 import net.estinet.gFeatures.gFeatures;
 
 /*
@@ -24,12 +26,14 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Configure{
-	@Configs
-	public static void onSetup(){
-		Gliders base = new Gliders("Gliders", "1.0.0");
-		gFeatures.addFeature(base);
-		
-		EstiCommand test = new EstiCommand("gliders", "Gliders commands!", "/Gliders", "gFeatures.minigames", base, true);
-		gFeatures.addCommand(test);
-	}
+    @Configs
+    public static void onSetup(){
+        Gliders base = new Gliders("Gliders", "1.0.0");
+        gFeatures.addFeature(base);
+
+        ClioteSky.addClioteHook(new GetMGInfoClioteHook(base));
+
+        EstiCommand test = new EstiCommand("gliders", "Gliders commands!", "/Gliders", "gFeatures.minigames", base, true);
+        gFeatures.addCommand(test);
+    }
 }

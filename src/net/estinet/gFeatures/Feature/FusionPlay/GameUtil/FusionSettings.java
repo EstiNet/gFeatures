@@ -40,7 +40,7 @@ public class FusionSettings {
 	protected boolean allToSpectator = true; //Whether or not to set all players to Spectator after the game ends.
 	protected boolean alwaysSetTime = true; //Whether or not to always keep the current time.
 	protected boolean usesPlayerCollision = true; //Whether or not to have player collision.
-	protected boolean allowPlayerTakeDamage = false; //Whether or not to allow players take damage.
+	private boolean allowPlayerTakeDamage = false; //Whether or not to allow players take damage.
 	protected boolean allowPlayerLoseHunger = false; //Whether or not to add hunger.
 	protected boolean allowOtherMobs = false; //Whether or not to allow other mobs to exist. This will automatically turn off allowMobSpawn.
 	protected boolean allowMobSpawn = false; //Whether or not to allow mobs to spawn.

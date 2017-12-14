@@ -27,9 +27,9 @@ public class Rank {
 	private List<String> people = new ArrayList<>();
 	private List<String> perms = new ArrayList<>();
 	private List<Rank> inherits = new ArrayList<>();
-	public Rank(String names, String prefixx){
-		name = names;
-		prefix = prefixx;
+	public Rank(String name, String prefix){
+		this.name = name;
+		this.prefix = prefix;
 	}
 	public String getName(){
 		return name;
@@ -41,19 +41,15 @@ public class Rank {
 		people.add(UUID);
 	}
 	public void addPerm(String perm){
-		if(perm.equals("")){}
-		else if(perms.contains(perm)){}
-		else{
-		perms.add(perm);
+		if(!perm.equals("") && !perms.contains(perm)){
+            perms.add(perm);
 		}
 	}
 	public void addInherit(Rank inherit){
 		try{
-		if(inherit.equals("")){}
-		else if(inherits.contains(inherit)){}
-		else{
-		inherits.add(inherit);
-		}
+			if(!inherit.equals("") && !inherits.contains(inherit)){
+                inherits.add(inherit);
+            }
 		}
 		catch(Exception e){}
 	}
