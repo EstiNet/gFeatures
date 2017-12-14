@@ -5,6 +5,8 @@ import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import org.bukkit.Bukkit;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -55,4 +57,9 @@ public class EstiCoins extends gFeature implements Events {
     }
     @Retrieval
     public void onPlayerJoin(){}
+    @Override
+    public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
+        CommandHub ch = new CommandHub();
+        ch.Intitiate(sender, cmd, label, args);
+    }
 }

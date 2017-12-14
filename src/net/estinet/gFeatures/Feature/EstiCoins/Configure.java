@@ -26,10 +26,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		GenesisEconomy base = new GenesisEconomy("GenesisEconomy", "1.1.2");
+		EstiCoins base = new EstiCoins("EstiCoins", "1.2.0");
 		gFeatures.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("clupic", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", "gFeatures.admin", base, true);
+		EstiCommand test = new EstiCommand("coins", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", "gFeatures.admin", base, true);
 		gFeatures.addCommand(test);
 	}
 }
