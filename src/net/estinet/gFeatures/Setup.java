@@ -31,18 +31,13 @@ public class Setup {
 		 */
 		net.estinet.gFeatures.Feature.Base.Configure.onSetup();
 		net.estinet.gFeatures.Feature.CTF.Configure.onSetup();
-		net.estinet.gFeatures.Feature.gDestroyCritical.Configure.onSetup();
-		net.estinet.gFeatures.Feature.GenesisAccess.Configure.onSetup();
-		net.estinet.gFeatures.Feature.GenesisBackup.Configure.onSetup();
 		net.estinet.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gFactions.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gHub.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gMusic.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gScore.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gWarsSuite.Configure.onSetup();
-		net.estinet.gFeatures.Feature.HideAndSeek.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Statistics.Configure.onSetup();
-		net.estinet.gFeatures.Feature.Gladiators.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Grasslands.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gRanks.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiChat.Configure.onSetup();
@@ -55,18 +50,6 @@ public class Setup {
 		net.estinet.gFeatures.Feature.Spleef.Configure.onSetup();
 		net.estinet.gFeatures.Feature.SurvivalTwo.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiCoins.Configure.onSetup();
-
-		/*
-		 * Initialize your Skripts here.
-		 * Make sure that you have your onSetup() setup
-		 * to add to the Basic class. :D
-		 */
-		net.estinet.gFeatures.Plus.Skript.gCrates.Configure.onSetup();
-		net.estinet.gFeatures.Plus.Skript.gEssentialsFactions.Configure.onSetup();
-		net.estinet.gFeatures.Plus.Skript.gEssentialsGlobal.Configure.onSetup();
-		net.estinet.gFeatures.Plus.Skript.gEssentialsHub.Configure.onSetup();
-		net.estinet.gFeatures.Plus.Skript.gEssentialsMinigames.Configure.onSetup();
-		net.estinet.gFeatures.Plus.Skript.gMMO.Configure.onSetup();
 
 		/*
 		 * Initialize your Utilities here.
