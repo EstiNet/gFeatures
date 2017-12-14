@@ -27,9 +27,10 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigManager {
-	private static File f = new File("plugins/gFeatures/EstiCoins/config.yml");
-	public static boolean check(){
-	    try {
+    private static File f = new File("plugins/gFeatures/EstiCoins/config.yml");
+
+    public static boolean check() {
+        try {
             Config c = new Config();
             c.createDirectory("plugins/gFeatures/EstiCoins", "EstiCoins files created!");
             if (!f.exists()) {
@@ -53,8 +54,8 @@ public class ConfigManager {
                 return false;
             }
         } catch (Exception e) {
-	        e.printStackTrace();
+            e.printStackTrace();
         }
-		return true;
-	}
+        return true;
+    }
 }

@@ -14,6 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 public class EstiCoins extends gFeature implements Events {
 
@@ -23,10 +24,11 @@ public class EstiCoins extends gFeature implements Events {
     public EstiCoins(String featurename, String version) {
         super(featurename, version);
     }
+
     @Override
-    public void enable(){
+    public void enable() {
         Bukkit.getLogger().info("[EstiCoins] Enabled! Yay.");
-        if(ConfigManager.check()){
+        if (ConfigManager.check()) {
             String URL = Connection.toURL(sqlPort, sqlAddress, sqlTablename);
             Connection.checkOnline(URL, sqlUsername, sqlPassword);
             connect("CREATE TABLE IF NOT EXISTS Peoples(Name VARCHAR(200), Money FLOAT) ENGINE=InnoDB;");
@@ -40,25 +42,30 @@ public class EstiCoins extends gFeature implements Events {
         EstiCoins.sqlPort = yamlFile.getString("Config.MySQL.Port");
         EstiCoins.sqlTablename = yamlFile.getString("Config.MySQL.TableName");
     }
+
     @Override
-    public void disable(){
+    public void disable() {
         Bukkit.getLogger().info("[EstiCoins] Disabled. Good bye!");
     }
+
     @Override
     public void eventTrigger(Event event) {
-        if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
+        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
             Connection c = new Connection();
             PlayerJoinEvent e = (PlayerJoinEvent) event;
-            new Thread(() -> connect("INSERT INTO Peoples(Name, Money)\n"+
-                    "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
-                    "WHERE NOT EXISTS (\n"+
-                    "SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n"+
+            new Thread(() -> connect("INSERT INTO Peoples(Name, Money)\n" +
+                    "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n" +
+                    "WHERE NOT EXISTS (\n" +
+                    "SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n" +
                     ") LIMIT 1;\n"
             )).start();
         }
     }
+
     @Retrieval
-    public void onPlayerJoin(){}
+    public void onPlayerJoin() {
+    }
+
     @Override
     public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
         CommandHub ch = new CommandHub();
@@ -68,6 +75,7 @@ public class EstiCoins extends gFeature implements Events {
     private static List<String> connectReturn(String query) {
         return Connection.connectReturn(Connection.toURL(sqlPort, sqlAddress, sqlTablename), sqlUsername, sqlPassword, query);
     }
+
     private static void connect(String query) {
         Connection.connect(Connection.toURL(sqlPort, sqlAddress, sqlTablename), sqlUsername, sqlPassword, query);
     }
@@ -76,43 +84,50 @@ public class EstiCoins extends gFeature implements Events {
      * EstiCoins API
      */
 
-    public static double getMoney(Player p){
-        return Double.parseDouble(connectReturn("SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';").get(1));
+    public static double getMoney(UUID uuid) {
+        return Double.parseDouble(connectReturn("SELECT Name, Money FROM Peoples WHERE Name = '" + uuid + "';").get(1));
     }
-    public static double getMoney(OfflinePlayer p){
-        return getMoney((Player) p);
+
+    public static double getMoney(Player p) {
+        return getMoney(p.getUniqueId());
     }
-    public static void giveMoney(Player p, double amount) {
-        connect("UPDATE Peoples SET Money = " + (amount + getMoney(p)) + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+
+    public static void giveMoney(UUID uuid, double amount) {
+        connect("UPDATE Peoples SET Money = " + (amount + getMoney(uuid)) + "\nWHERE Name = '" + uuid + "';");
     }
-    public static void takeMoney(Player p, double amount) {
-        connect("UPDATE Peoples SET Money = " + (amount - getMoney(p)) + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+
+    public static void takeMoney(UUID uuid, double amount) {
+        connect("UPDATE Peoples SET Money = " + (amount - getMoney(uuid)) + "\nWHERE Name = '" + uuid + "';");
     }
-    public static void setMoney(Player p, double amount) {
-        connect("UPDATE Peoples SET Money = " + amount + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
+
+    public static void setMoney(UUID uuid, double amount) {
+        connect("UPDATE Peoples SET Money = " + amount + "\nWHERE Name = '" + uuid + "';");
     }
-    public static List<String> top(){
+
+    public static List<String> top() {
         return connectReturn("SELECT * FROM Peoples;");
     }
-    public static void giveMoney(OfflinePlayer p, double amount){
-        giveMoney((Player) p, amount);
+
+    public static void giveMoney(Player p, double amount) {
+        giveMoney(p.getUniqueId(), amount);
     }
-    public static void takeMoney(OfflinePlayer p, double amount){
-        takeMoney((Player) p, amount);
+
+    public static void takeMoney(Player p, double amount) {
+        takeMoney(p.getUniqueId(), amount);
     }
-    public static void setMoney(OfflinePlayer p, double amount){
-        setMoney((Player) p, amount);
+
+    public static void setMoney(Player p, double amount) {
+        setMoney(p.getUniqueId(), amount);
     }
-    public static boolean playerExists(OfflinePlayer p) {
-        return playerExists((Player) p);
-    }
-    public static boolean playerExists(Player p){
+
+    public static boolean playerExists(Player p) {
         return connectReturn("SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';").get(1) != null;
     }
+
     public static boolean isOnline(String name) {
         final Boolean[] ret = {false};
         Bukkit.getOnlinePlayers().forEach(player -> {
-            if(name.equals(player.getName())) ret[0] = true;
+            if (name.equals(player.getName())) ret[0] = true;
         });
         return ret[0];
     }
