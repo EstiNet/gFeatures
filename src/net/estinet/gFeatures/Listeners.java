@@ -59,7 +59,6 @@ public class Listeners extends JavaPlugin implements Listener{
 	public static final String version = "3.4.3";
 	public static boolean debug = false; 
 
-	PluginManager pm = getServer().getPluginManager();
 	Enabler enable = new Enabler();
 	Disabler disable = new Disabler();
 	Library library = new Library();
@@ -73,7 +72,7 @@ public class Listeners extends JavaPlugin implements Listener{
 
 	@Override
 	public void onEnable(){
-		pm.registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(this, this);
 		getLogger().info("_________________________________________________________________________");
 		getLogger().info("Starting gFeatures.");
 		getLogger().info("Current version: " + version);
