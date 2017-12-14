@@ -53,12 +53,10 @@ public class OneArg {
 			}
 		}
 		else if(args[0].equalsIgnoreCase("refresh")){
-			Thread thr = new Thread(new Runnable(){
-				public void run(){
-					Basis b = new Basis();
-					b.initializeQuery();
-				}
-			});
+			Thread thr = new Thread(() -> {
+                Basis b = new Basis();
+                b.initializeQuery();
+            });
 			thr.start();
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Plugin refreshed.");
 		}

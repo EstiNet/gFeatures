@@ -1,7 +1,5 @@
-package net.estinet.gFeatures.Feature.GenesisEconomy;
+package net.estinet.gFeatures.Feature.EstiCoins;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
