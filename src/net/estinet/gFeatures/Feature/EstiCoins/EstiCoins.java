@@ -44,13 +44,13 @@ public class EstiCoins extends gFeature implements Events {
     public void eventTrigger(Event event) {
         if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
             Connection c = new Connection();
-            Thread thr = new Thread(() -> c.Connect(c.toURL(sqlPort, sqlAddress, sqlTablename), cc.getUsername(), cc.getPassword(), "INSERT INTO Peoples(Name, Money)\n"+
+            PlayerJoinEvent e = (PlayerJoinEvent) event;
+            new Thread(() -> c.Connect(c.toURL(sqlPort, sqlAddress, sqlTablename), sqlUsername, sqlPassword, "INSERT INTO Peoples(Name, Money)\n"+
                     "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n"+
                     "WHERE NOT EXISTS (\n"+
                     "SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n"+
                     ") LIMIT 1;\n"
-            ));
-            thr.start();
+            )).start();
         }
     }
     @Retrieval
