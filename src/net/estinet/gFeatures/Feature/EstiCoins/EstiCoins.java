@@ -1,6 +1,5 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
-import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
@@ -14,8 +13,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class EstiCoins extends gFeature implements Events {

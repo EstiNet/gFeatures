@@ -45,7 +45,6 @@ public class Setup {
 		net.estinet.gFeatures.Feature.Gladiators.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Grasslands.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gRanks.Configure.onSetup();
-		net.estinet.gFeatures.Feature.EstiWield.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiChat.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Friendship.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Gliders.Configure.onSetup();
@@ -55,6 +54,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.ParkourRace.Configure.onSetup();
 		net.estinet.gFeatures.Feature.Spleef.Configure.onSetup();
 		net.estinet.gFeatures.Feature.SurvivalTwo.Configure.onSetup();
+		net.estinet.gFeatures.Feature.EstiCoins.Configure.onSetup();
 
 		/*
 		 * Initialize your Skripts here.
