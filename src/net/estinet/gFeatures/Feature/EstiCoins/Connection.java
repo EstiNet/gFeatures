@@ -29,13 +29,10 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Connection {
-	public void Connect(String url, String user, String password, String query){
+	public static void connect(String url, String user, String password, String query){
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-        //String url = "jdbc:mysql://localhost:3306/testdb";
-        //String user = "testuser";
-        //String password = "test623";
         try {
             con = DriverManager.getConnection(url, user, password);
             st = con.createStatement();
@@ -58,7 +55,7 @@ public class Connection {
             }
         }
 	}
-	public List<String> ConnectReturn(String url, String user, String password, String query){
+	public static List<String> connectReturn(String url, String user, String password, String query){
 		List<String> array = new ArrayList<>();
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
@@ -94,7 +91,7 @@ public class Connection {
         }
 		return null;
 	}
-	public boolean checkOnline(String url, String user, String password){
+	public static boolean checkOnline(String url, String user, String password){
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
@@ -130,7 +127,7 @@ public class Connection {
 		return false;
 	}
 	@SuppressWarnings("unused")
-	public boolean tableExists(String url, String user, String password) throws SQLException{
+	public static boolean tableExists(String url, String user, String password) throws SQLException{
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
@@ -142,7 +139,7 @@ public class Connection {
         //Bukkit.getLogger().info(rs.getString(1));
 		return false;
 	}
-	public String toURL(String port, String address, String table){
+	public static String toURL(String port, String address, String table){
 		return "jdbc:mysql://" + address + ":" + port + "/" + table;
 	}
 }

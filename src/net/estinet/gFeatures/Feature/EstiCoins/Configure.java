@@ -29,7 +29,7 @@ public class Configure {
 		EstiCoins base = new EstiCoins("EstiCoins", "1.2.0");
 		gFeatures.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("coins", "Shows how much Clupic you have and other Clupic related things.", "/clupic help", "gFeatures.admin", base, true);
+		EstiCommand test = new EstiCommand("coins", "Money related commands.", "/coins help", base, true);
 		gFeatures.addCommand(test);
 	}
 }
