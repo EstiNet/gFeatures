@@ -41,7 +41,7 @@ public class CommandHub {
 					}
 				}
 				else {
-					Bukkit.getLogger().info("Do /coins help for more information!");
+					Bukkit.getLogger().info("Do /clupic help for more information!");
 				}
 			}
 			if(args.length == 1){

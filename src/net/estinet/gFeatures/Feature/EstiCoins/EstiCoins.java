@@ -88,25 +88,35 @@ public class EstiCoins extends gFeature implements Events {
     public static void giveMoney(Player p, double amount) {
         connect("UPDATE Peoples SET Money = " + (amount + getMoney(p)) + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
     }
-    public void takeMoney(Player p, double amount) {
+    public static void takeMoney(Player p, double amount) {
         connect("UPDATE Peoples SET Money = " + (amount - getMoney(p)) + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
     }
-    public void setMoney(Player p, double amount) {
+    public static void setMoney(Player p, double amount) {
         connect("UPDATE Peoples SET Money = " + amount + "\nWHERE Name = '" + p.getUniqueId().toString() + "';");
     }
-    public List<String> top(){
+    public static List<String> top(){
         return connectReturn("SELECT * FROM Peoples;");
     }
-    public void giveMoney(OfflinePlayer p, double amount){
+    public static void giveMoney(OfflinePlayer p, double amount){
         giveMoney((Player) p, amount);
     }
-    public void takeMoney(OfflinePlayer p, double amount){
+    public static void takeMoney(OfflinePlayer p, double amount){
         takeMoney((Player) p, amount);
     }
-    public void setMoney(OfflinePlayer p, double amount){
+    public static void setMoney(OfflinePlayer p, double amount){
         setMoney((Player) p, amount);
     }
-    public boolean playerExists(Player p){
+    public static boolean playerExists(OfflinePlayer p) {
+        return playerExists((Player) p);
+    }
+    public static boolean playerExists(Player p){
         return connectReturn("SELECT Name, Money FROM Peoples WHERE Name = '" + p.getUniqueId().toString() + "';").get(1) != null;
+    }
+    public static boolean isOnline(String name) {
+        final Boolean[] ret = {false};
+        Bukkit.getOnlinePlayers().forEach(player -> {
+            if(name.equals(player.getName())) ret[0] = true;
+        });
+        return ret[0];
     }
 }
