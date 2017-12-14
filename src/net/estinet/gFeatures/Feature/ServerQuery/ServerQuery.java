@@ -1,6 +1,9 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
 import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -26,32 +29,36 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class ServerQuery extends gFeature implements Events{
-	
-	private static int playerCount = 0;
-	
-	public static HashMap<String, Execute> hash = new HashMap<>();
-	
-	ServerQuery(String featurename, String d) {
-		super(featurename, d);
-	}
-	@Override
-	public void enable(){
-		Bukkit.getLogger().info("[ServerQuery] Enabled!");
-	}
-	@Override
-	public void disable(){
-		Bukkit.getLogger().info("[ServerQuery] Disabled!");
-	}
-	
-	public static void setPlayerCount(int amount){
-		playerCount = amount;
-	}
-	
-	public static int getPlayerCount(){
-		return playerCount;
-	}
-	
-	@Override
-	public void eventTrigger(Event event) {}
+public class ServerQuery extends gFeature implements Events {
+
+    private static int playerCount = 0;
+
+    //I really hope this actually works...
+    public static Queue<ServerQueryExecutable> requestQueue = new LinkedList<>();
+
+    ServerQuery(String featurename, String d) {
+        super(featurename, d);
+    }
+
+    @Override
+    public void enable() {
+        Bukkit.getLogger().info("[ServerQuery] Enabled!");
+    }
+
+    @Override
+    public void disable() {
+        Bukkit.getLogger().info("[ServerQuery] Disabled!");
+    }
+
+    public static void setPlayerCount(int amount) {
+        playerCount = amount;
+    }
+
+    public static int getPlayerCount() {
+        return playerCount;
+    }
+
+    @Override
+    public void eventTrigger(Event event) {
+    }
 }

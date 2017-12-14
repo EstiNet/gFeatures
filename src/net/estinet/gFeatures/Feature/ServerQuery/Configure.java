@@ -26,7 +26,7 @@ import net.estinet.gFeatures.gFeatures;
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		ServerQuery base = new ServerQuery("ServerQuery", "1.0.0");
+		ServerQuery base = new ServerQuery("ServerQuery", "1.1.0");
 		gFeatures.addFeature(base);
 		
 		ServerQueryClioteHook sqch = new ServerQueryClioteHook(base);

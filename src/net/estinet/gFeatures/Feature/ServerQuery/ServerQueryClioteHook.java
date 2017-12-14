@@ -8,6 +8,8 @@ import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -29,33 +31,31 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class ServerQueryClioteHook extends ClioteHook{
+public class ServerQueryClioteHook extends ClioteHook {
 
-	public ServerQueryClioteHook(gFeature feature) {
-		super(feature, "info");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		if(args.get(0).equals("online")){
-			ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
-			if(gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)){
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-					public void run(){
-						try {
-							for(Player p : Bukkit.getOnlinePlayers()){
-								p.setScoreboard(Scored.getScore(p));
-							}
-						} catch (IllegalArgumentException | IllegalStateException e) {
-							e.printStackTrace();
-						}
-					}
-				}, 40L);
-			}
-		}
-		else if(args.get(0).equals("playerget")){
-			Execute e = ServerQuery.hash.get(args.get(1));
-			e.server = args.get(2);
-			e.run();
-		}
-	}
+    public ServerQueryClioteHook(gFeature feature) {
+        super(feature, "info");
+    }
+
+    @Override
+    public void run(List<String> args, String categoryName, String clioteName) {
+        if (args.get(0).equals("online")) {
+            ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
+            if (gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)) {
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    try {
+                        for (Player p : Bukkit.getOnlinePlayers()) {
+                            p.setScoreboard(Scored.getScore(p));
+                        }
+                    } catch (IllegalArgumentException | IllegalStateException e) {
+                        e.printStackTrace();
+                    }
+                }, 40L);
+            }
+        } else if (args.get(0).equals("playerget")) {
+            ServerQuery.requestQueue.poll().run(Collections.singletonList(args.get(2)));
+        } else if(args.get(0).equals("uuidlookup")) {
+            ServerQuery.requestQueue.poll().run(Collections.singletonList(args.get(1)));
+        }
+    }
 }
