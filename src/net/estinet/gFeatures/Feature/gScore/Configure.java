@@ -28,7 +28,7 @@ public class Configure {
 	public static void onSetup(){
 		gScore base = new gScore("gScore", "2.0.0");
 		gFeatures.addFeature(base);
-		
+
 		EstiCommand ecs = new EstiCommand("score", "Toggles the scoreboard.", "/score", base, new ScoreCommand());
 		gFeatures.addCommand(ecs);
 	}

@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.ServerQuery;
 
 import java.util.HashMap;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
@@ -31,16 +32,16 @@ public class ServerQuery extends gFeature implements Events{
 	
 	public static HashMap<String, Execute> hash = new HashMap<>();
 	
-	public ServerQuery(String featurename, String d) {
+	ServerQuery(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
 	public void enable(){
-		Enable.onEnable();
+		Bukkit.getLogger().info("[ServerQuery] Enabled!");
 	}
 	@Override
 	public void disable(){
-		Disable.onDisable();
+		Bukkit.getLogger().info("[ServerQuery] Disabled!");
 	}
 	
 	public static void setPlayerCount(int amount){

@@ -34,11 +34,11 @@ public class EstiCoins extends gFeature implements Events {
         }
 
         YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/EstiCoins/config.yml"));
-        EstiCoins.sqlAddress = yamlFile.get("Config.MySQL.Address").toString();
-        EstiCoins.sqlPassword = yamlFile.get("Config.MySQL.Password").toString();
-        EstiCoins.sqlUsername = yamlFile.get("Config.MySQL.Username").toString();
-        EstiCoins.sqlPort = yamlFile.get("Config.MySQL.Port").toString();
-        EstiCoins.sqlTablename = yamlFile.get("Config.MySQL.TableName").toString();
+        EstiCoins.sqlAddress = yamlFile.getString("Config.MySQL.Address");
+        EstiCoins.sqlPassword = yamlFile.getString("Config.MySQL.Password");
+        EstiCoins.sqlUsername = yamlFile.getString("Config.MySQL.Username");
+        EstiCoins.sqlPort = yamlFile.getString("Config.MySQL.Port");
+        EstiCoins.sqlTablename = yamlFile.getString("Config.MySQL.TableName");
     }
     @Override
     public void disable(){
@@ -62,7 +62,7 @@ public class EstiCoins extends gFeature implements Events {
     @Override
     public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
         CommandHub ch = new CommandHub();
-        ch.Intitiate(sender, cmd, label, args);
+        ch.init(sender, cmd, label, args);
     }
 
     private static List<String> connectReturn(String query) {

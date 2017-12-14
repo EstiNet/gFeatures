@@ -28,7 +28,7 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void onPlayerJoin(PlayerJoinEvent event){
+	public static void onPlayerJoin(PlayerJoinEvent event){
 		Bukkit.getLogger().info("Player Joined!");
 		Bukkit.getLogger().info("Health: " + gFeatures.getEstiPlayer(event.getPlayer().getUniqueId().toString()).getData(gFeatures.getFeature("Base").getName(), new Key("Health")));
 		Bukkit.getLogger().info("Setting it to 21");

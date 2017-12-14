@@ -28,8 +28,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Base extends gFeature implements Events{
 	
-	EventHub eh = new EventHub();
-	
 	public Base(String featurename, String version) {
 		super(featurename, version);
 	}
@@ -44,7 +42,7 @@ public class Base extends gFeature implements Events{
 	@Override
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
+			EventHub.onPlayerJoin((PlayerJoinEvent)event);
 		}
 	}
 	@Retrieval

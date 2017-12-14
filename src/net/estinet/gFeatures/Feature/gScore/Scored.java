@@ -19,6 +19,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
+import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -32,9 +33,7 @@ import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 
 public class Scored {
-	MoneyManager mm = new MoneyManager();
-	@SuppressWarnings("deprecation")
-	public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException{
+	public static Scoreboard getScore(Player p) throws IllegalStateException, IllegalArgumentException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
 		Objective objective = board.registerNewObjective("test", "dummy");
@@ -50,20 +49,20 @@ public class Scored {
 		score12.setScore(8);
 		Score score = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + "Clupic ⛀⛁⛃⛂");
 		score.setScore(7);
-		Score score5 = objective.getScore(ChatColor.GRAY + "" + Float.toString(mm.getMoney(p)));
+		Score score5 = objective.getScore(ChatColor.GRAY + "" + EstiCoins.getMoney(p));
 		score5.setScore(6);
 		Score score11 = objective.getScore("  ");
 		score11.setScore(5);
 		Score score8 = objective.getScore(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Random Word");
 		score8.setScore(4);
-		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!", "toes"}; 
+		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "Different!", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!", "toes"};
 		Score score9 = objective.getScore(ChatColor.GRAY + str[(int) Math.floor(Math.random() * 17)]);
 		score9.setScore(3);
 		Score score100 = objective.getScore("   ");
 		score100.setScore(2);
 		if(!(p.getName().length() >= 16)){
-		Score score10 = objective.getScore(ChatColor.DARK_AQUA + p.getName().trim());
-		score10.setScore(1);
+			Score score10 = objective.getScore(ChatColor.DARK_AQUA + p.getName().trim());
+			score10.setScore(1);
 		}
 		return board;
 	}

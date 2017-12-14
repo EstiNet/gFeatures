@@ -1,15 +1,14 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
-import java.util.List;
-
+import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
+import net.estinet.gFeatures.Feature.gScore.Scored;
+import net.estinet.gFeatures.FeatureState;
+import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import net.estinet.gFeatures.FeatureState;
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
-import net.estinet.gFeatures.Feature.gScore.Listeners;
+import java.util.List;
 
 /*
 gFeatures
@@ -40,18 +39,17 @@ public class ServerQueryClioteHook extends ClioteHook{
 		if(args.get(0).equals("online")){
 			ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
 			if(gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)){
-				Listeners l = new Listeners();
 				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-		        	public void run(){
-							try {
-								for(Player p : Bukkit.getOnlinePlayers()){
-									l.set(p);
-								}
-						} catch (IllegalArgumentException e) {
-						} catch (IllegalStateException e) {
+					public void run(){
+						try {
+							for(Player p : Bukkit.getOnlinePlayers()){
+								p.setScoreboard(Scored.getScore(p));
+							}
+						} catch (IllegalArgumentException | IllegalStateException e) {
+							e.printStackTrace();
 						}
-		        	}
-		        }, 40L);
+					}
+				}, 40L);
 			}
 		}
 		else if(args.get(0).equals("playerget")){

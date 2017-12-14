@@ -22,8 +22,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigHub {
-	Config config = new Config();
-	public void setupConfig(){
+	static Config config = new Config();
+	public static void setupConfig(){
 		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
 	}
 }

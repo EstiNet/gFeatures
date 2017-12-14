@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -35,32 +37,47 @@ https://github.com/EstiNet/gFeatures
 public class gScore extends gFeature{
 	
 	public static List<UUID> people = new ArrayList<>();
-	
-	Listeners listeners = new Listeners();
-	
+
 	public gScore(String featurename, String d) {
 		super(featurename, d);
 	}
 	@Override
 	public void enable(){
-		listeners.onEnable();
+		Bukkit.getLogger().info("[gScore] Enabled.");
 	}
 	@Override
 	public void disable(){
-		listeners.onDisable();
+		Bukkit.getLogger().info("[gScore] Disabled! :(");
 	}
 	@Override
 	public void eventTrigger(Event event) {
+		PlayerJoinEvent es = (PlayerJoinEvent) event;
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			try {
-				listeners.onPlayerJoin((PlayerJoinEvent)event);
+				gScore.people.add(es.getPlayer().getUniqueId());
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    try {
+                        for(Player ps : Bukkit.getServer().getOnlinePlayers()){
+                            if(gScore.people.contains(ps.getUniqueId())){
+                                ps.setScoreboard(Scored.getScore(ps));
+                            }
+                        }
+                    } catch (IllegalArgumentException | IllegalStateException e1) {
+                        e1.printStackTrace();
+                    }
+                }, 40L);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
 			try {
-				listeners.onPlayerLeave((PlayerQuitEvent)event);
+                gScore.people.remove(((PlayerQuitEvent)event).getPlayer().getUniqueId());
+                for(Player ps : Bukkit.getServer().getOnlinePlayers()){
+                    if(gScore.people.contains(ps.getUniqueId())){
+                        ps.setScoreboard(Scored.getScore(ps));
+                    }
+                }
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -70,8 +87,4 @@ public class gScore extends gFeature{
 	public void onPlayerJoin(){}
 	@Retrieval
 	public void onPlayerLeave(){}
-	@Override
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-		//When stuff actually happens
-	}
 }
