@@ -1,11 +1,17 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
+import net.estinet.gFeatures.API.Resolver.ResolverFetcher;
+import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
+import net.estinet.gFeatures.Feature.ServerQuery.ServerQueryExecutable;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 /*
 gFeatures
@@ -69,10 +75,10 @@ public class CommandHub {
 
     public static void help(CommandSender sender) {
         sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "–––––––Help––––––");
-        sender.sendMessage(ChatColor.AQUA + "/coins                      | Shows how much coins you have.");
-        sender.sendMessage(ChatColor.AQUA + "/coins get <player>         | Views how much coins the player has.");
-        sender.sendMessage(ChatColor.AQUA + "/coins pay <player> <amount>| Pays a player.");
-        sender.sendMessage(ChatColor.AQUA + "/coins set <player> <amount>| Admin command.");
+        sender.sendMessage(ChatColor.AQUA + "/coins                       | Shows how much coins you have.");
+        sender.sendMessage(ChatColor.AQUA + "/coins get <player>          | Views how much coins the player has.");
+        sender.sendMessage(ChatColor.AQUA + "/coins pay <player> <amount> | Pays a player.");
+        if(sender.hasPermission("gFeatures.admin")) sender.sendMessage(ChatColor.AQUA + "/coins set <player> <amount> | Admin command.");
         sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "–––––––Help–––––––");
     }
 
@@ -98,10 +104,16 @@ public class CommandHub {
                             sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " coins to " + pl.getName());
                             pl.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "You recieved " + m + " coins from " + sender.getName());
                         } else {
-                            OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
-                            EstiCoins.giveMoney(op, m);
-                            EstiCoins.takeMoney((Player) sender, m);
-                            sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " coins to " + op.getName());
+                            ResolverFetcher.uuidFromName(args[1], uuid -> {
+                                if(uuid.equals("*")) {
+                                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
+                                }
+                                else {
+                                    EstiCoins.giveMoney(UUID.fromString(uuid), m);
+                                    EstiCoins.takeMoney(((Player) sender).getUniqueId(), m);
+                                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Sent " + m + " coins to " + args[1]);
+                                }
+                            });
                         }
                     }
                 } else {
@@ -126,12 +138,18 @@ public class CommandHub {
         if (args.length != 3) {
             sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage: /coins set <player> <amount>");
         } else {
-            try {
-                EstiCoins.setMoney(Bukkit.getServer().getOfflinePlayer(args[1]), Double.parseDouble(args[2]));
-                sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Set player " + Bukkit.getServer().getOfflinePlayer(args[1]).getName() + "'s balance to " + args[2]);
-            } catch (NumberFormatException e) {
-                sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
-            }
+            ResolverFetcher.uuidFromName(args[1], uuid -> {
+                try {
+                    if (uuid.equals("*")) {
+                        sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
+                    } else {
+                        EstiCoins.setMoney(UUID.fromString(uuid), Double.parseDouble(args[2]));
+                        sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Set player " + args[1] + "'s balance to " + args[2]);
+                    }
+                } catch (Exception e) {
+                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Problem with your input! Check what you entered.");
+                }
+            });
         }
 
     }
@@ -145,21 +163,19 @@ public class CommandHub {
             sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/coins get <player>");
             return;
         }
-        OfflinePlayer op = Bukkit.getOfflinePlayer(args[1]);
-        try {
-            if (EstiCoins.playerExists(op)) {
+        CliotePing cp = new CliotePing();
+        cp.sendMessage("info uuidlookup " + args[1], "Bungee");
+        ServerQuery.requestQueue.offer(args1 -> {
+            if (args1.get(0).equals("*")) {
+                sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
+            } else {
                 double m = EstiCoins.getMoney((Player) sender);
                 if (m % 0.1 == 0) {
-                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + "" + m + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " coins.");
+                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + args[1] + " has " + ChatColor.AQUA + "" + m + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " coins.");
                 } else {
-                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + op.getName() + " has " + ChatColor.AQUA + m + ChatColor.GOLD + "" + ChatColor.BOLD + " coins.");
+                    sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + args[1] + " has " + ChatColor.AQUA + m + ChatColor.GOLD + "" + ChatColor.BOLD + " coins.");
                 }
-            } else {
-                sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
             }
-        } catch (Exception e) {
-            sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Error in your input. Try again!");
-            e.printStackTrace();
-        }
+        });
     }
 }
