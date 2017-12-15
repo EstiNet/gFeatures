@@ -31,10 +31,6 @@ public class Config {
 		if(!(f.isDirectory())){
 			f.mkdir();
 			Bukkit.getLogger().info(ChatColor.GOLD + "[gFeatures] " + message);
-			return;
-		}
-		else{
-			return;
 		}
 	}
 	public void createFile(String path, String message){
@@ -46,10 +42,6 @@ public class Config {
 				e.printStackTrace();
 			}
 			Bukkit.getLogger().info(ChatColor.GOLD + "[gFeatures] " + message);
-			return;
-		}
-		else{
-			return;
 		}
 	}
 }

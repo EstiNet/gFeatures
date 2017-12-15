@@ -1,11 +1,10 @@
 package net.estinet.gFeatures;
 
-import java.util.List;
-
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.Plus.Skript.SkriptManager;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
+
+import java.util.List;
 
 /*
 gFeatures
@@ -27,35 +26,35 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Disabler {
-	public void onDisable(){
-		List<gFeature> features = gFeatures.getFeatures();
-		List<Extension> extensions = gFeatures.getExtensions();
-		for(gFeature feature : features){
-			if(feature.getState().equals(FeatureState.ENABLE)){
-				try{
-					feature.disable();
-				}catch(Exception e){
-					e.printStackTrace();
-				}
-			}
-		}
-		for(Extension extension : extensions){
-			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Skript)){
-				SkriptManager sm = new SkriptManager();
-				sm.Disable(extension);
-			}
-		}
-		for(gPlayer gp : gFeatures.getgPlayers()){
-			net.estinet.gFeatures.API.PlayerStats.Setup setup = new net.estinet.gFeatures.API.PlayerStats.Setup();
-			setup.flushPlayer(gp);
-		}
-		gFeatures.resetFeatures();
-		gFeatures.resetExtensions();
-		if(ClioteSky.isEnable()){
-			try {
-				NetworkThread.clientSocket.close();
-			} catch (Exception e) {
-			}
-		}
-	}
+    public void onDisable() {
+        List<gFeature> features = gFeatures.getFeatures();
+        List<Extension> extensions = gFeatures.getExtensions();
+        for (gFeature feature : features) {
+            if (feature.getState().equals(FeatureState.ENABLE)) {
+                try {
+                    feature.disable();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        for (Extension extension : extensions) {
+            if (extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)) {
+                ((gUtility) extension).disable();
+            }
+        }
+        for (gPlayer gp : gFeatures.getgPlayers()) {
+            net.estinet.gFeatures.API.PlayerStats.Setup setup = new net.estinet.gFeatures.API.PlayerStats.Setup();
+            setup.flushPlayer(gp);
+        }
+        gFeatures.resetFeatures();
+        gFeatures.resetExtensions();
+        if (ClioteSky.isEnable()) {
+            try {
+                NetworkThread.clientSocket.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

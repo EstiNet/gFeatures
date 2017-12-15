@@ -27,36 +27,33 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CommandLibrary {
-	
-	public void Commands(final CommandSender sender, Command cmd, String label, String[] args){
-		try{
-			onCommand(sender, cmd, label, args);
-		}
-		catch(Exception e){
-			Bukkit.getLogger().info("Error occurred when executing a gFeatures command.");
-			Bukkit.getLogger().info("Here's the error:");
-			e.printStackTrace();
-		}
-	}
-	
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		for(EstiCommand commandd : gFeatures.getCommands()){
-			if(commandd.getName().equals(cmd.getName())){
-				try{
-					if(sender.hasPermission(commandd.getPermission())){
-						commandd.execute(sender, label, args);
-					}
-					else{
-						sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net" + ChatColor.RESET + "] " + ChatColor.GRAY + "Permission denied.");
-					}
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		CoreCommands cc = new CoreCommands();
-		cc.onCommand(sender, cmd, label, args);
-	}
+
+    public void Commands(final CommandSender sender, Command cmd, String label, String[] args) {
+        try {
+            onCommand(sender, cmd, label, args);
+        } catch (Exception e) {
+            Bukkit.getLogger().info("Error occurred when executing a gFeatures command.");
+            Bukkit.getLogger().info("Here's the error:");
+            e.printStackTrace();
+        }
+    }
+
+    public void onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+        for (EstiCommand commandd : gFeatures.getCommands()) {
+            if (commandd.getName().equals(cmd.getName())) {
+                try {
+                    if (sender.hasPermission(commandd.getPermission())) {
+                        commandd.execute(sender, label, args);
+                    } else {
+                        sender.sendMessage("[" + ChatColor.GOLD + "" + ChatColor.BOLD + "Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "Net" + ChatColor.RESET + "] " + ChatColor.GRAY + "Permission denied.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        CoreCommands cc = new CoreCommands();
+        cc.onCommand(sender, cmd, label, args);
+    }
 }

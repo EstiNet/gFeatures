@@ -1,14 +1,11 @@
 package net.estinet.gFeatures;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.List;
-
+import net.estinet.gFeatures.Command.EstiCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 
-import net.estinet.gFeatures.Command.EstiCommand;
-import net.estinet.gFeatures.Plus.Skript.SkriptManager;
+import java.lang.reflect.Method;
+import java.util.List;
 
 /*
 gFeatures
@@ -33,28 +30,17 @@ public class Enabler {
 	public void onEnable(){
 		List<gFeature> features = gFeatures.getFeatures();
 		List<Extension> extensions = gFeatures.getExtensions();
-		for(int i = 0; i < features.size(); i++){
-			gFeature feature = features.get(i);
-			if(feature.getState().equals(FeatureState.ENABLE)){
-				try{
+		for (gFeature feature : features) {
+			if (feature.getState().equals(FeatureState.ENABLE)) {
+				try {
 					feature.enable();
-				}
-				catch(Exception e){
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
 		for(Extension extension : extensions){
-			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Skript)){
-				SkriptManager sm = new SkriptManager();
-				try {
-					Bukkit.getLogger().info(extension.getName() + " is ENABLED.");
-					sm.Enable(extension, extension.getName());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			else if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)){
+			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)){
 				gUtility gu = (gUtility) extension;
 				gu.enable();
 			}

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.estinet.gFeatures</groupId>
 	<artifactId>gFeatures</artifactId>
-	<version>v3.4.2</version>
+	<version>v3.4.3</version>
 	<name>gFeatures</name>
 	<description>The core of EstiNet.</description>
 
