@@ -47,7 +47,7 @@ public class Scored {
 		score3.setScore(9);
 		Score score12 = objective.getScore(" ");
 		score12.setScore(8);
-		Score score = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + "Clupic ⛀⛁⛃⛂");
+		Score score = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + "Coins ⛀⛁⛃⛂");
 		score.setScore(7);
 		Score score5 = objective.getScore(ChatColor.GRAY + "" + EstiCoins.getMoney(p));
 		score5.setScore(6);

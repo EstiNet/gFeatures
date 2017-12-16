@@ -169,7 +169,7 @@ public class CommandHub {
             if (args1.get(0).equals("*")) {
                 sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");
             } else {
-                double m = EstiCoins.getMoney((Player) sender);
+                double m = EstiCoins.getMoney(UUID.fromString(args1.get(0)));
                 if (m % 0.1 == 0) {
                     sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player " + args[1] + " has " + ChatColor.AQUA + "" + m + "0" + ChatColor.GOLD + "" + ChatColor.BOLD + " coins.");
                 } else {

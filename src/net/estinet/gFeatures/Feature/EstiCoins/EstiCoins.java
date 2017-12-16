@@ -34,13 +34,6 @@ public class EstiCoins extends gFeature implements Events {
             connect("CREATE TABLE IF NOT EXISTS Peoples(Name VARCHAR(200), Money FLOAT) ENGINE=InnoDB;");
             connect("UPDATE Peoples SET Money = Money + 1\nWHERE Name = 'InDev';");
         }
-
-        YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/EstiCoins/config.yml"));
-        EstiCoins.sqlAddress = yamlFile.getString("Config.MySQL.Address");
-        EstiCoins.sqlPassword = yamlFile.getString("Config.MySQL.Password");
-        EstiCoins.sqlUsername = yamlFile.getString("Config.MySQL.Username");
-        EstiCoins.sqlPort = yamlFile.getString("Config.MySQL.Port");
-        EstiCoins.sqlTablename = yamlFile.getString("Config.MySQL.TableName");
     }
 
     @Override
@@ -126,6 +119,7 @@ public class EstiCoins extends gFeature implements Events {
 
     public static boolean isOnline(String name) {
         final Boolean[] ret = {false};
+
         Bukkit.getOnlinePlayers().forEach(player -> {
             if (name.equals(player.getName())) ret[0] = true;
         });

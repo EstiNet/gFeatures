@@ -1,6 +1,6 @@
 name: gFeatures
 main: net.estinet.gFeatures.Listeners
-version: 3.4.2
+version: 3.4.3
 load: STARTUP
 commands:
    gFeatures:

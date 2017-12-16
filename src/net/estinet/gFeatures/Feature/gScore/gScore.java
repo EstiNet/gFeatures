@@ -51,8 +51,8 @@ public class gScore extends gFeature{
 	}
 	@Override
 	public void eventTrigger(Event event) {
-		PlayerJoinEvent es = (PlayerJoinEvent) event;
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
+			PlayerJoinEvent es = (PlayerJoinEvent) event;
 			try {
 				gScore.people.add(es.getPlayer().getUniqueId());
 				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {

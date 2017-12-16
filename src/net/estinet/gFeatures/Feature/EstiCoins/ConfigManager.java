@@ -33,6 +33,7 @@ public class ConfigManager {
         try {
             Config c = new Config();
             c.createDirectory("plugins/gFeatures/EstiCoins", "EstiCoins files created!");
+            boolean b = false;
             if (!f.exists()) {
                 Bukkit.getLogger().info("[EstiCoins] Setting up configs....");
                 f.createNewFile();
@@ -51,8 +52,18 @@ public class ConfigManager {
                 yamlFile.set("Config.MySQL.Password", "pass123");
                 yamlFile.save(f);
                 Bukkit.getLogger().info("[EstiCoins] Successfully added config!");
-                return false;
+                b = true;
             }
+
+            YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/EstiCoins/config.yml"));
+            EstiCoins.sqlAddress = yamlFile.getString("Config.MySQL.Address");
+            EstiCoins.sqlPassword = yamlFile.getString("Config.MySQL.Password");
+            EstiCoins.sqlUsername = yamlFile.getString("Config.MySQL.Username");
+            EstiCoins.sqlPort = yamlFile.getString("Config.MySQL.Port");
+            EstiCoins.sqlTablename = yamlFile.getString("Config.MySQL.TableName");
+
+            if(b) return false;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
