@@ -1,24 +1,17 @@
 package net.estinet.gFeatures.Feature.Shop.GUI;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
+import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
+import net.estinet.gFeatures.Feature.Shop.Shop;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
-import net.estinet.gFeatures.Feature.Shop.Shop;
-import net.estinet.gFeatures.Feature.gWarsSuite.gWarsMode;
-import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.Join;
-import net.estinet.gFeatures.Feature.gWarsSuite.MainMenu.SpawnMenu;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.BlueTeam;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.OrangeTeam;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Source;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 gFeatures
@@ -63,10 +56,8 @@ public class MainShop {
 				}
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
-			MoneyManager mm = new MoneyManager();
-
 			menu.setOption(0, createItem(Material.BLAZE_POWDER, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "Trails" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "" + Shop.getNumOfTrails(p.getUniqueId().toString()) + "/" + Shop.getTotalNumOfTrails() + " trails owned."));
-			menu.setOption(8, createItem(Material.EMERALD, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "Clupic" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"), ChatColor.GRAY + "You have " + mm.getMoney(p) + " clupic.");
+			menu.setOption(8, createItem(Material.EMERALD, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "Clupic" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->"), ChatColor.GRAY + "You have " + EstiCoins.getMoney(p) + " clupic.");
 
 			return menu;
 		}catch(Exception e){

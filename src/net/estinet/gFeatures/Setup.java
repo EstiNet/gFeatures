@@ -31,7 +31,6 @@ public class Setup {
 		 */
 		net.estinet.gFeatures.Feature.Base.Configure.onSetup();
 		net.estinet.gFeatures.Feature.CTF.Configure.onSetup();
-		net.estinet.gFeatures.Feature.GenesisEconomy.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gFactions.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gHub.Configure.onSetup();
 		net.estinet.gFeatures.Feature.gMusic.Configure.onSetup();

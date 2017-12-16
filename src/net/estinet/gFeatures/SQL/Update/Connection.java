@@ -1,17 +1,13 @@
 package net.estinet.gFeatures.SQL.Update;
 
+import net.estinet.gFeatures.API.Logger.Debug;
+import org.bukkit.Bukkit;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.Feature.GenesisEconomy.CheckConfig;
-
-import org.bukkit.Bukkit;
 
 /*
 gFeatures

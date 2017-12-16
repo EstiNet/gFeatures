@@ -26,7 +26,6 @@ import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
 import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*

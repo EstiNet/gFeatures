@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import java.util.UUID;
 
+import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -10,7 +11,6 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
 import net.estinet.gFeatures.ClioteSky.API.CliotePing;
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 import net.estinet.gFeatures.Feature.Gliders.Mode;
 import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
@@ -175,12 +175,11 @@ public class StartStop {
 			clupic += (Basic.kills.get(p.getUniqueId()) * 5 + 5);
 			p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
 			p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
-			MoneyManager mm = new MoneyManager();
 			final int clupics = clupic;
 			Thread thr = new Thread(new Runnable(){
 				public void run(){
 					try {
-						mm.giveMoney(p, clupics);
+						EstiCoins.giveMoney(p, clupics);
 					}  
 					catch (Exception e) {
 						e.printStackTrace();

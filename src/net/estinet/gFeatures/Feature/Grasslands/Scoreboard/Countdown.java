@@ -1,7 +1,6 @@
 package net.estinet.gFeatures.Feature.Grasslands.Scoreboard;
 
-import net.estinet.gFeatures.Feature.GenesisEconomy.MoneyManager;
-
+import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -31,7 +30,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Countdown {
-	MoneyManager mm = new MoneyManager();
 	public Scoreboard get(Player p, int count) throws IllegalStateException, IllegalArgumentException{
 		ScoreboardManager manager = Bukkit.getScoreboardManager();
 		Scoreboard board = manager.getNewScoreboard();
@@ -48,7 +46,7 @@ public class Countdown {
 		score11.setScore(7);
 		Score score = objective.getScore(ChatColor.GREEN + "Clupic:"); //Get a fake offline player
 		score.setScore(6);
-		Score score5 = objective.getScore("" + Float.toString(mm.getMoney(p))); //Get a fake offline player
+		Score score5 = objective.getScore("" + Double.toString(EstiCoins.getMoney(p))); //Get a fake offline player
 		score5.setScore(5);
 		Score score12 = objective.getScore(""); //Get a fake offline player
 		score12.setScore(4);
