@@ -46,6 +46,7 @@ public class InputError extends Packet{
 		case "400":
 			ClioteSky.setServerOnlineBoolean();
 			ClioteSky.printError("Cliote already logged in! Are you sure there isn't already another instance of this server?");
+            //add if statement if server is already logged in don't try again
 			OutputAlive oa = new OutputAlive();
 			oa.run(args);
 			break;

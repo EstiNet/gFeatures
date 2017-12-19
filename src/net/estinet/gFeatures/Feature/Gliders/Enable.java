@@ -57,26 +57,22 @@ public class Enable{
 		
 		Capture c = new Capture();
 		c.loop();
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		WorldCreator cs = new WorldCreator("MinigameSpawn");
-        		Bukkit.getServer().createWorld(cs);
-        		
-        		WorldCreator cs1 = new WorldCreator("Gliders1");
-        		Bukkit.getServer().createWorld(cs1);
-        		
-        		WorldCreator cs2 = new WorldCreator("Gliders2");
-        		Bukkit.getServer().createWorld(cs2);
-        		
-        		CliotePing cp = new CliotePing();
-        		cp.sendMessage("mghello", "Bungee");
-        	}
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            WorldCreator cs = new WorldCreator("MinigameSpawn");
+            Bukkit.getServer().createWorld(cs);
+
+            WorldCreator cs1 = new WorldCreator("Gliders1");
+            Bukkit.getServer().createWorld(cs1);
+
+            WorldCreator cs2 = new WorldCreator("Gliders2");
+            Bukkit.getServer().createWorld(cs2);
+
+            CliotePing cp = new CliotePing();
+            cp.sendMessage("mghello", "Bungee");
         }, 40L);
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			public void run(){
-				ConstantCheck cc = new ConstantCheck();
-				cc.goThrough();
-			}
-		}, 10L, 10L);
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            ConstantCheck cc = new ConstantCheck();
+            cc.goThrough();
+        }, 10L, 10L);
 	}
 }
