@@ -25,32 +25,39 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class OrangeTeam {
-	private final String town = "Kloyne";
-	private static List<Player> ot = new ArrayList<>();
-	public static void addPlayer(Player p){
-		ot.add(p);
-	}
-	public static void removePlayer(Player p){
-		ot.remove(p);
-	}
-	public static int size(){
-		return ot.size();
-	}
-	public static void setList(List<Player> list){
-		ot = list;
-	}
-	public static boolean hasPlayer(Player p){
-		for(Player player : ot){
-			if(p.getName().equals(player.getName())){
-				return true;
-			}
-		}
-		return false;
-	}
-	public static List<Player> getList(){
-		return ot;
-	}
-	public String getTownName(){
-		return town;
-	}
+    private final String town = "Kloyne";
+    private static List<Player> ot = new ArrayList<>();
+
+    public static void addPlayer(Player p) {
+        ot.add(p);
+    }
+
+    public static void removePlayer(Player p) {
+        ot.remove(p);
+    }
+
+    public static int size() {
+        return ot.size();
+    }
+
+    public static void setList(List<Player> list) {
+        ot = list;
+    }
+
+    public static boolean hasPlayer(Player p) {
+        for (Player player : ot) {
+            if (p.getName().equals(player.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static List<Player> getList() {
+        return ot;
+    }
+
+    public String getTownName() {
+        return town;
+    }
 }

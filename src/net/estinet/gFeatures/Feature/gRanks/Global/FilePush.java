@@ -39,49 +39,50 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FilePush implements Runnable{
+public class FilePush implements Runnable {
 
-	@Override
-	public void run() {
-		SQLConnect c = new SQLConnect();
-		Retrieve cc = new Retrieve();
-		String Address, Port, Tablename, Username, Password;
-		Address = cc.getAddress();
-		Port = cc.getPort();
-		Tablename = cc.getTablename();
-		Username = cc.getUsername();
-		Password = cc.getPassword();
-		String URL = c.toURL(Port, Address, Tablename);
-		c.Connect(URL, Username, Password, "TRUNCATE TABLE Perms;");
-		for(Rank rank : Basis.getRanks()){
-			File f = new File("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
-			Debug.print("Current rank push: plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
-			try {
-				for(String perm : getPerms(f)){
-					cc.addgPerm(perm, rank.getName());
-					Debug.print("Current perm for " + rank.getName() + ": " + perm);
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		if(cc.getClioteSkySupport()){
-			CliotePing cp = new CliotePing();
-			cp.sendMessage("granks sync", "all");
-		}
-	}
-	public List<String> getPerms(File f) throws IOException{
-		List<String> permissions = new ArrayList<>();
-		FileInputStream is = new FileInputStream(f);
-		Reader paramReader = new InputStreamReader(is);
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(paramReader, writer);
-		String theString = writer.toString();
-		String[] lines = theString.split("\n");
-		for(int i = 0; i < lines.length; i++){
-			String perm = lines[i].replace("\r", "");
-			permissions.add(perm);
-		}
-		return permissions;
-	}
+    @Override
+    public void run() {
+        SQLConnect c = new SQLConnect();
+        Retrieve cc = new Retrieve();
+        String Address, Port, Tablename, Username, Password;
+        Address = cc.getAddress();
+        Port = cc.getPort();
+        Tablename = cc.getTablename();
+        Username = cc.getUsername();
+        Password = cc.getPassword();
+        String URL = c.toURL(Port, Address, Tablename);
+        c.Connect(URL, Username, Password, "TRUNCATE TABLE Perms;");
+        for (Rank rank : Basis.getRanks()) {
+            File f = new File("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
+            Debug.print("Current rank push: plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
+            try {
+                for (String perm : getPerms(f)) {
+                    cc.addgPerm(perm, rank.getName());
+                    Debug.print("Current perm for " + rank.getName() + ": " + perm);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (cc.getClioteSkySupport()) {
+            CliotePing cp = new CliotePing();
+            cp.sendMessage("granks sync", "all");
+        }
+    }
+
+    public List<String> getPerms(File f) throws IOException {
+        List<String> permissions = new ArrayList<>();
+        FileInputStream is = new FileInputStream(f);
+        Reader paramReader = new InputStreamReader(is);
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(paramReader, writer);
+        String theString = writer.toString();
+        String[] lines = theString.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            String perm = lines[i].replace("\r", "");
+            permissions.add(perm);
+        }
+        return permissions;
+    }
 }

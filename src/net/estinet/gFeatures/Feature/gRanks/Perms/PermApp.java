@@ -44,36 +44,12 @@ public class PermApp {
 				e.printStackTrace();
 			}
 		}
-		for(Rank r : Basis.getRanks()){
-			try {
-				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))){
-					try{
-						for(String perm : Basis.getRank(inherit).getPerms()){
-							r.addInherit(Basis.getRank(inherit));
-							r.addPerm(perm);
-						}
-					}
-					catch(Exception e){}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		for(Rank r : Basis.getRanks()){
-			try {
-				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))){
-					try{
-						for(String perm : Basis.getRank(inherit).getPerms()){
-							r.addInherit(Basis.getRank(inherit));
-							r.addPerm(perm);
-						}
-					}
-					catch(Exception e){}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		test();
+		test();
+		test();
+	}
+
+	private void test() {
 		for(Rank r : Basis.getRanks()){
 			try {
 				for(String inherit : getPerms(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))){
@@ -90,6 +66,7 @@ public class PermApp {
 			}
 		}
 	}
+
 	public List<String> getPerms(File f) throws IOException{
 		List<String> permissions = new ArrayList<>();
 		FileInputStream is = new FileInputStream(f);
