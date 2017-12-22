@@ -303,18 +303,8 @@ public class SQLConnect {
 	        }
 			return false;
 		}
-		@SuppressWarnings("unused")
-		public boolean tableExists(String url, String user, String password) throws SQLException{
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        String url1 = "jdbc:mysql://localhost:3306/";
-	        con = DriverManager.getConnection(url1, user, password);
-	        st = con.createStatement();
-			return false;
-		}
 		public String toURL(String port, String address, String table){
-			return "jdbc:mysql://" + address + ":" + port + "/" + table;
+			return "jdbc:mysql://" + address + ":" + port + "/" + table + "?autoReconnect=true&useSSL=false";
 		}
 
 }

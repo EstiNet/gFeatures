@@ -124,6 +124,6 @@ public class Connection {
 		return false;
 	}
 	public static String toURL(String port, String address, String table){
-		return "jdbc:mysql://" + address + ":" + port + "/" + table;
+		return "jdbc:mysql://" + address + ":" + port + "/" + table + "?autoReconnect=true&useSSL=false";
 	}
 }
