@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.event.Event;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -56,6 +57,9 @@ public class SurvivalTwo extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent) event);
 		}
+		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
+			eh.onPlayerDeath((PlayerDeathEvent) event);
+		}
 	}
 	@Retrieval
 	@Override
@@ -63,5 +67,8 @@ public class SurvivalTwo extends gFeature implements Events{
 	@Retrieval
 	@Override
 	public void onPlayerInteract(){}
+	@Retrieval
+	@Override
+	public void onPlayerDeath(){}
 
 }

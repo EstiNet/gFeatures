@@ -15,6 +15,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -266,5 +267,11 @@ public class EventHub{
 		meta.setLore(lores);
 		item.setItemMeta(meta);
 		return item;
+	}
+
+	public void onPlayerDeath(PlayerDeathEvent event) {
+		if(event.getEntity().getBedSpawnLocation() == null) {
+			event.getEntity().performCommand("rc");
+		}
 	}
 }
