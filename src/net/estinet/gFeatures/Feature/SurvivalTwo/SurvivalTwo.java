@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 /*
 gFeatures
@@ -57,8 +58,8 @@ public class SurvivalTwo extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			eh.onPlayerJoin((PlayerJoinEvent) event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
-			eh.onPlayerDeath((PlayerDeathEvent) event);
+		else if(event.getEventName().equalsIgnoreCase("playerrespawnevent")){
+			eh.onPlayerDeath((PlayerRespawnEvent) event);
 		}
 	}
 	@Retrieval
@@ -69,6 +70,6 @@ public class SurvivalTwo extends gFeature implements Events{
 	public void onPlayerInteract(){}
 	@Retrieval
 	@Override
-	public void onPlayerDeath(){}
+	public void onPlayerRespawn(){}
 
 }

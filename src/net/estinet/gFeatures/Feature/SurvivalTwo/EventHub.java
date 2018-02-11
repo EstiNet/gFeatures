@@ -18,6 +18,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -269,9 +270,9 @@ public class EventHub{
 		return item;
 	}
 
-	public void onPlayerDeath(PlayerDeathEvent event) {
-		if(event.getEntity().getBedSpawnLocation() == null) {
-			event.getEntity().performCommand("rc");
+	public void onPlayerDeath(PlayerRespawnEvent event) {
+		if(event.getPlayer().getBedSpawnLocation() == null) {
+			event.getPlayer().performCommand("rc");
 		}
 	}
 }
