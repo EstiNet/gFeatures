@@ -19,6 +19,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
+import net.estinet.gFeatures.API.EssentialsHook.EssentialsEcoUtil;
 import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -30,6 +31,8 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
+
+import java.io.File;
 
 public class Scored {
 	public static Scoreboard getScore(Player p) throws IllegalStateException, IllegalArgumentException{
@@ -48,7 +51,12 @@ public class Scored {
 		score12.setScore(8);
 		Score score = objective.getScore(ChatColor.GOLD + "" + ChatColor.BOLD + "Coins ⛀⛁⛃⛂");
 		score.setScore(7);
-		Score score5 = objective.getScore(ChatColor.GRAY + "" + EstiCoins.getMoney(p));
+		Score score5;
+		if(new File("plugins/Essentials/userdata").exists()) {
+			score5 = objective.getScore(ChatColor.GRAY + "" + EssentialsEcoUtil.getMoney(p.getUniqueId()));
+		} else {
+			score5 = objective.getScore(ChatColor.GRAY + "" + EstiCoins.getMoney(p));
+		}
 		score5.setScore(6);
 		Score score11 = objective.getScore("  ");
 		score11.setScore(5);
