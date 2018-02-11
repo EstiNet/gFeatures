@@ -6,7 +6,7 @@ import net.estinet.gFeatures.Configuration.Config;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2017 EstiNet
+   Copyright 2018 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

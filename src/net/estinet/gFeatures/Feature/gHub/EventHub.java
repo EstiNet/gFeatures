@@ -43,7 +43,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2017 EstiNet
+   Copyright 2018 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -187,7 +187,7 @@ public class EventHub {
 		try{
 			Retrieve r = new Retrieve();
 			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', '�');
+			String prefix = prefixs.replace('&', '§');
 			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
 		}
 		catch(Exception e){

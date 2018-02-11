@@ -1,20 +1,18 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import org.bukkit.Bukkit;
-import org.bukkit.event.Event;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
+import org.bukkit.Bukkit;
+import org.bukkit.event.Event;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2017 EstiNet
+   Copyright 2018 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

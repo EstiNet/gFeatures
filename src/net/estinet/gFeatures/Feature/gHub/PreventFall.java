@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 gFeatures
 https://github.com/EstiNet/gFeatures
 
-   Copyright 2017 EstiNet
+   Copyright 2018 EstiNet
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class PreventFall {
 	public void check(){
 		for(Player p : Bukkit.getOnlinePlayers()){
-			if(p.getLocation().getY() < 110 && gHub.fall){
+			if(p.getLocation().getY() < 50 && gHub.fall){
 				p.teleport(gHub.spawn);
 			}
 		}
