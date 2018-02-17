@@ -80,12 +80,10 @@ public class StartupTask {
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
 		}
 		catch(NullPointerException e){
-			Thread thr = new Thread(new Runnable(){
-				public void run(){
-					StartupTask st = new StartupTask();
-					st.init(event);
-				}
-			});
+			Thread thr = new Thread(() -> {
+                StartupTask st = new StartupTask();
+                st.init(event);
+            });
 			thr.start();
 		}
 	}
