@@ -4,7 +4,9 @@ import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import org.bukkit.event.Event;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 /*
 gFeatures
@@ -42,6 +44,11 @@ public class gRanksNew extends gFeature implements Events{
 	public void eventTrigger(Event event) {
 		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
 			EventHub.onPlayerJoin((PlayerJoinEvent)event);
+		} else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
+			EventHub.onPlayerChat((AsyncPlayerChatEvent)event);
+		}
+		else if(event.getEventName().equalsIgnoreCase("PlayerQuitEvent")){
+			EventHub.onPlayerLeave((PlayerQuitEvent) event);
 		}
 	}
 	@Retrieval
