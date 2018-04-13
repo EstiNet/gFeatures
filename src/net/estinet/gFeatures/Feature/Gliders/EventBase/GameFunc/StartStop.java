@@ -10,7 +10,7 @@ import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.API.Messaging.ActionAPI;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 import net.estinet.gFeatures.Feature.Gliders.Mode;
 import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
@@ -20,7 +20,6 @@ import net.estinet.gFeatures.Feature.Gliders.Holo.GlidersScore;
 import net.estinet.gFeatures.Feature.Gliders.Holo.Lobby;
 import net.estinet.gFeatures.Feature.Gliders.Holo.Loop;
 import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapOne;
-import net.estinet.gFeatures.Feature.Gliders.MapsSpec.MapTwo;
 
 /*
 gFeatures

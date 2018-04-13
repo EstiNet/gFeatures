@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.API.Resolver;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 
 import java.util.Hashtable;
@@ -29,7 +29,7 @@ public class ResolverFetcher {
     private static Hashtable<String, String> hashtable = new Hashtable<>();
 
     /*
-     * ClioteSky and ServerQuery must be enabled to use this API!
+     * ClioteSkyOld and ServerQuery must be enabled to use this API!
      */
 
     public static void uuidFromName(String name, ResolverExecutor re) {

@@ -1,12 +1,10 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
 import net.estinet.gFeatures.API.Resolver.ResolverFetcher;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
-import net.estinet.gFeatures.Feature.ServerQuery.ServerQueryExecutable;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

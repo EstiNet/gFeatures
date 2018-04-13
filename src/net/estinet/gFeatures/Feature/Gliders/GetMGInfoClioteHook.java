@@ -3,8 +3,8 @@ package net.estinet.gFeatures.Feature.Gliders;
 import java.util.List;
 
 import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 
 /*
 gFeatures

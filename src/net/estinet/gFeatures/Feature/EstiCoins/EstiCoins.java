@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
+import net.estinet.gFeatures.API.SQLInterface.MySQLUtil;
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
@@ -48,10 +49,11 @@ public class EstiCoins extends gFeature implements Events {
     public void enable() {
         Bukkit.getLogger().info("[EstiCoins] Enabled! Yay.");
         if (ConfigManager.check()) {
-            String URL = Connection.toURL(sqlPort, sqlAddress, sqlTablename);
-            Connection.checkOnline(URL, sqlUsername, sqlPassword);
+            String url = Connection.toURL(sqlPort, sqlAddress, sqlTablename);
+            Bukkit.getLogger().info("Establishing MySQL connection to " + url);
+            MySQLUtil.checkServerStatus(url, sqlUsername, sqlPassword, true);
             connect("CREATE TABLE IF NOT EXISTS Peoples(Name VARCHAR(200), Money FLOAT) ENGINE=InnoDB;");
-            connect("UPDATE Peoples SET Money = Money + 1\nWHERE Name = 'InDev';");
+            connect("UPDATE Peoples SET Money = Money + 1\nWHERE Name = 'EspiDev';");
         }
     }
 
@@ -63,7 +65,6 @@ public class EstiCoins extends gFeature implements Events {
     @Override
     public void eventTrigger(Event event) {
         if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            Connection c = new Connection();
             PlayerJoinEvent e = (PlayerJoinEvent) event;
             new Thread(() -> connect("INSERT INTO Peoples(Name, Money)\n" +
                     "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n" +

@@ -1,7 +1,6 @@
 package net.estinet.gFeatures.Feature.Friendship.Menus;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -13,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 
 /*
 gFeatures

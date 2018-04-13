@@ -47,14 +47,14 @@ public class ConfigHub {
 			yamlFile.createSection("Config.MySQL.TableName");
 			yamlFile.createSection("Config.MySQL.Username");
 			yamlFile.createSection("Config.MySQL.Password");
-			yamlFile.createSection("Config.ClioteSky");
-			yamlFile.createSection("Config.ClioteSky.Enable");
+			yamlFile.createSection("Config.ClioteSkyOld");
+			yamlFile.createSection("Config.ClioteSkyOld.Enable");
 			yamlFile.set("Config.MySQL.Port", "3306");
 			yamlFile.set("Config.MySQL.Address", "localhost");
 			yamlFile.set("Config.MySQL.TableName", "granks");
 			yamlFile.set("Config.MySQL.Username", "root");
 			yamlFile.set("Config.MySQL.Password", "pass123");
-			yamlFile.set("Config.ClioteSky.Enable", "false");
+			yamlFile.set("Config.ClioteSkyOld.Enable", "false");
 			
 			try {
 				yamlFile.save(f);
@@ -63,10 +63,10 @@ public class ConfigHub {
 			}
 			Bukkit.getLogger().info("[gRanks] Successfully added config!");
 		}
-		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
-			yamlFile.createSection("Config.ClioteSky");
-			yamlFile.createSection("Config.ClioteSky.Enable");
-			yamlFile.set("Config.ClioteSky.Enable", "true");
+		if(!(yamlFile.contains("Config.ClioteSkyOld.Enable"))){
+			yamlFile.createSection("Config.ClioteSkyOld");
+			yamlFile.createSection("Config.ClioteSkyOld.Enable");
+			yamlFile.set("Config.ClioteSkyOld.Enable", "true");
 		}
 	}
 }

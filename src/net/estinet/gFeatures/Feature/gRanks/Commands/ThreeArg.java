@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;

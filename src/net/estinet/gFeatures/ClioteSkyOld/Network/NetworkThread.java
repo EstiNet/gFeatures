@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.ClioteSky.Network;
+package net.estinet.gFeatures.ClioteSkyOld.Network;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -10,9 +10,9 @@ import java.net.SocketException;
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteConfigUtil;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputHello;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteConfigUtil;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output.OutputHello;
 
 /*
 gFeatures
@@ -46,15 +46,15 @@ public class NetworkThread {
 				inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			}
 			catch(ConnectException e){
-				Debug.print("[ClioteSky] Connection unsuccessful.");
+				Debug.print("[ClioteSkyOld] Connection unsuccessful.");
 				if(whee){
-					ClioteSky.printError("Unable to connect to ClioteSky at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
+					ClioteSky.printError("Unable to connect to ClioteSkyOld at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
 				}
 				ClioteSky.setServerOffline();
 				clientSocket = null;
 				return;
 			}
-			ClioteSky.printLine("Connected to ClioteSky at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
+			ClioteSky.printLine("Connected to ClioteSkyOld at " + ClioteSky.getAddress() + ":" + ClioteSky.getPort());
 			OutputHello os = new OutputHello();
 			os.run(null);		
 			while(true){

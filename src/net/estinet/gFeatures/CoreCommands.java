@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.ClioteSky.ClioteInit;
-import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteInit;
+import net.estinet.gFeatures.ClioteSkyOld.Network.NetworkThread;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -43,9 +43,9 @@ public class CoreCommands{
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("plugin")){
 			if(sender.hasPermission("gFeatures.command.plugins")){
-				String plugins = "EstiNet";
+				StringBuilder plugins = new StringBuilder("EstiNet");
 				for(Plugin plugin : Bukkit.getPluginManager().getPlugins()){
-					plugins += ", " + plugin.getName();
+					plugins.append(", ").append(plugin.getName());
 				}
 				sender.sendMessage("Plugins (" + Bukkit.getServer().getPluginManager().getPlugins().length + "): " + ChatColor.GREEN + plugins);
 			}
@@ -74,7 +74,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsqlfields : Shows loaded SQL fields.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures send <Message> : Sends a manual message to the ClioteSky server.");
+						sender.sendMessage(ChatColor.GRAY + "/gFeatures send <Message> : Sends a manual message to the ClioteSkyOld server.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
 						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
 						break;
@@ -161,7 +161,7 @@ public class CoreCommands{
 						sender.sendMessage(ChatColor.GRAY + "Player flush complete.");
 						break;
 					case "debug":
-						if(Listeners.debug == true){
+						if(Listeners.debug){
 							Listeners.debug = false;
 							sender.sendMessage(ChatColor.GRAY + "Turned off debugging.");
 						}
@@ -213,7 +213,7 @@ public class CoreCommands{
 					case "send":
 						NetworkThread nt = new NetworkThread();
 						nt.sendOutput(args[1]);
-						sender.sendMessage(ChatColor.GRAY + "Sent message " + args[1] + " to ClioteSky.");
+						sender.sendMessage(ChatColor.GRAY + "Sent message " + args[1] + " to ClioteSkyOld.");
 						break;
 					default:
 						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
@@ -225,13 +225,13 @@ public class CoreCommands{
 				else{
 					switch(args[0]){
 					case "send":
-						String output = "";
+						StringBuilder output = new StringBuilder();
 						for(int i = 0; i < args.length-1; i++){
-							output += args[i+1] + " ";
+							output.append(args[i + 1]).append(" ");
 						}
 						NetworkThread nt = new NetworkThread();
-						nt.sendOutput(output);
-						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + "to ClioteSky.");
+						nt.sendOutput(output.toString());
+						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + "to ClioteSkyOld.");
 						break;
 					default:
 						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");

@@ -1,8 +1,8 @@
-package net.estinet.gFeatures.ClioteSky;
+package net.estinet.gFeatures.ClioteSkyOld;
 
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Input.InputAlive;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Input.InputError;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Input.InputMessage;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input.InputAlive;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input.InputError;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input.InputMessage;
 
 /*
 gFeatures
@@ -28,7 +28,7 @@ public class ClioteInit {
 		ClioteConfigUtil ccu = new ClioteConfigUtil();
 		ccu.load();
 		if(ClioteSky.isEnable()){
-			ClioteSky.printLine("Connecting to ClioteSky...");
+			ClioteSky.printLine("Connecting to ClioteSkyOld...");
 			ClioteSky.inputPackets.add(new InputAlive());
 			ClioteSky.inputPackets.add(new InputError());
 			ClioteSky.inputPackets.add(new InputMessage());

@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.ClioteSky;
+package net.estinet.gFeatures.ClioteSkyOld;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,12 +32,12 @@ public class ClioteConfigUtil {
 	public void load(){
 		File f = new File("plugins/gFeatures/Config.yml");
 		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		ClioteSky.setName(yamlFile.get("Config.ClioteSky.Name").toString());
-		ClioteSky.setCategory(yamlFile.get("Config.ClioteSky.Category").toString());
-		ClioteSky.setAddress(yamlFile.get("Config.ClioteSky.Address").toString());
-		ClioteSky.setEnable(Boolean.parseBoolean(yamlFile.get("Config.ClioteSky.Enable").toString()));
-		ClioteSky.setPassword(yamlFile.get("Config.ClioteSky.Password").toString());
-		ClioteSky.setPort(yamlFile.get("Config.ClioteSky.Port").toString());
+		ClioteSky.setName(yamlFile.get("Config.ClioteSkyOld.Name").toString());
+		ClioteSky.setCategory(yamlFile.get("Config.ClioteSkyOld.Category").toString());
+		ClioteSky.setAddress(yamlFile.get("Config.ClioteSkyOld.Address").toString());
+		ClioteSky.setEnable(Boolean.parseBoolean(yamlFile.get("Config.ClioteSkyOld.Enable").toString()));
+		ClioteSky.setPassword(yamlFile.get("Config.ClioteSkyOld.Password").toString());
+		ClioteSky.setPort(yamlFile.get("Config.ClioteSkyOld.Port").toString());
 		File file = new File("plugins/gFeatures/cliotecache.txt");
 		if(!file.exists()){
 			try {

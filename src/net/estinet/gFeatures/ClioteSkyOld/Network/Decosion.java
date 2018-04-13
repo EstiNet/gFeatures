@@ -1,4 +1,10 @@
-package net.estinet.gFeatures.ClioteSky.API;
+package net.estinet.gFeatures.ClioteSkyOld.Network;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
 
 /*
 gFeatures
@@ -19,29 +25,17 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-import java.util.List;
-
-import net.estinet.gFeatures.gFeature;
-
-public class ClioteHook{
-	private gFeature gf;
-	private String argument;
-	public ClioteHook(gFeature feature, String coreArgument){
-		gf = feature;
-		argument = coreArgument;
+public class Decosion {
+	public void decode(String message){
+		String[] args = message.split("\\s+");
+		for(Packet packet : ClioteSky.inputPackets){
+			if(args[0].equalsIgnoreCase(packet.name)){
+				List<String> newArgs = new ArrayList<>();
+				for(int i = 1; i<args.length; i++){
+					newArgs.add(args[i]);
+				}
+				packet.run(newArgs);
+			}
+		}
 	}
-	public gFeature getgFeature(){
-		return gf;
-	}
-	public String getCoreArgument(){
-		return argument;
-	}
-	public void setgFeature(gFeature gf){
-		this.gf = gf;
-	}
-	public void setCoreArgument(String coreArg){
-		argument = coreArg;
-	}
-	//Must override
-	public void run(List<String> args, String categoryName, String clioteName){}
 }

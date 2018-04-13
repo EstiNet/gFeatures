@@ -29,282 +29,279 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class SQLConnect {
-	
 
-		public void Connect(String url, String user, String password, String query){
-			//Thread thr = new Thread(new Runnable(){
-				//public void run(){
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            st.executeUpdate(query);
-	        } catch (SQLException ex) {
-	            Debug.print(ex.getMessage());
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-					Debug.print(ex.getMessage());
-	            }
-	        }
-	        //}
-			//});
-			//thr.start();
-		}
-		public List<String> ConnectReturn(String url, String user, String password, String query){
-			List<String> array = new ArrayList<>();
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        ResultSet result = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            result = st.executeQuery(query);
-	            result.beforeFirst();
-	            for(; !result.isLast();){
-	            result.next();
-	            try{
-	            array.add(result.getString(1));
-	            array.add(result.getString(2));
-	            }
-	            catch(Exception e){
-	            	array.add(result.getString(1));
-	            }
-	            }
-	            return array;
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-			return null;
-		}
-		public List<String> ConnectReturnRanks(String url, String user, String password, String query){
-			List<String> array = new ArrayList<>();
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        ResultSet result = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            result = st.executeQuery(query);
-	            result.beforeFirst();
-	            
-	            for(; !result.isLast();){
-	            result.next();
-	            try{
-	            		array.add(result.getString("Name"));
-	            		array.add(result.getString("Prefix"));
-	            }
-	            catch(Exception e){
-	            	array.add(result.getString(1));
-	            }
-	            }
-	            return array;
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-			return null;
-		}
-		public List<String> ConnectReturnPeople(String url, String user, String password, String query){
-			List<String> array = new ArrayList<>();
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        ResultSet result = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            result = st.executeQuery(query);
-	            result.beforeFirst();
-	            
-	            for(; !result.isLast();){
-	            result.next();
-	            try{
-	            		array.add(result.getString("UUID"));
-	            		array.add(result.getString("Rank"));
-	            }
-	            catch(Exception e){
-	            	array.add(result.getString(1));
-	            }
-	            }
-	            return array;
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-			return null;
-		}
-		public List<String> ConnectReturnPerm(String url, String user, String password, String query){
-			List<String> array = new ArrayList<>();
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        ResultSet result = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            result = st.executeQuery(query);
-	            result.beforeFirst();
-	            
-	            for(; !result.isLast();){
-	            result.next();
-	            try{
-	            		array.add(result.getString("Perm"));
-	            		array.add(result.getString("Rank"));
-	            }
-	            catch(Exception e){
-	            	array.add(result.getString(1));
-	            }
-	            }
-	            return array;
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-			return null;
-		}
-		public List<String> ConnectReturnInherit(String url, String user, String password, String query){
-			List<String> array = new ArrayList<>();
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        ResultSet result = null;
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            st = con.createStatement();
-	            result = st.executeQuery(query);
-	            result.beforeFirst();
-	            
-	            for(; !result.isLast();){
-	            result.next();
-	            try{
-	            		array.add(result.getString("Inherit"));
-	            		array.add(result.getString("Rank"));
-	            }
-	            catch(Exception e){
-	            	array.add(result.getString(1));
-	            }
-	            }
-	            return array;
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	            	ex.printStackTrace();
-	            }
-	        }
-			return null;
-		}
-		public boolean checkOnline(String url, String user, String password){
-			java.sql.Connection con = null;
-	        java.sql.Statement st = null;
-	        ResultSet rs = null;
-	        Bukkit.getLogger().info("Establishing Connection to " + url);
-	        try {
-	            con = DriverManager.getConnection(url, user, password);
-	            Bukkit.getLogger().info("Connected!");
-	        } catch (SQLException ex) {
-	            ex.printStackTrace();
-	            Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
-	            Bukkit.getLogger().info("Make sure you check if the port is correct!");
 
-	        } finally {
-	            try {
-	                if (rs != null) {
-	                    rs.close();
-	                }
-	                if (st != null) {
-	                    st.close();
-	                }
-	                if (con != null) {
-	                    con.close();
-	                }
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	                Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
-	                Bukkit.getLogger().info("Make sure you check if the port is correct!");
-	            }
-	        }
-			return false;
-		}
-		public String toURL(String port, String address, String table){
-			return "jdbc:mysql://" + address + ":" + port + "/" + table + "?autoReconnect=true&useSSL=false";
-		}
+    public void Connect(String url, String user, String password, String query) {
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+    }
+
+    public List<String> ConnectReturn(String url, String user, String password, String query) {
+        List<String> array = new ArrayList<>();
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+            result.beforeFirst();
+            for (; !result.isLast(); ) {
+                result.next();
+                try {
+                    array.add(result.getString(1));
+                    array.add(result.getString(2));
+                } catch (Exception e) {
+                    array.add(result.getString(1));
+                }
+            }
+            return array;
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public List<String> ConnectReturnRanks(String url, String user, String password, String query) {
+        List<String> array = new ArrayList<>();
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+            result.beforeFirst();
+
+            for (; !result.isLast(); ) {
+                result.next();
+                try {
+                    array.add(result.getString("Name"));
+                    array.add(result.getString("Prefix"));
+                } catch (Exception e) {
+                    array.add(result.getString(1));
+                }
+            }
+            return array;
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public List<String> ConnectReturnPeople(String url, String user, String password, String query) {
+        List<String> array = new ArrayList<>();
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+            result.beforeFirst();
+
+            for (; !result.isLast(); ) {
+                result.next();
+                try {
+                    array.add(result.getString("UUID"));
+                    array.add(result.getString("Rank"));
+                } catch (Exception e) {
+                    array.add(result.getString(1));
+                }
+            }
+            return array;
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public List<String> ConnectReturnPerm(String url, String user, String password, String query) {
+        List<String> array = new ArrayList<>();
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+            result.beforeFirst();
+
+            for (; !result.isLast(); ) {
+                result.next();
+                try {
+                    array.add(result.getString("Perm"));
+                    array.add(result.getString("Rank"));
+                } catch (Exception e) {
+                    array.add(result.getString(1));
+                }
+            }
+            return array;
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public List<String> ConnectReturnInherit(String url, String user, String password, String query) {
+        List<String> array = new ArrayList<>();
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        ResultSet result = null;
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            result = st.executeQuery(query);
+            result.beforeFirst();
+
+            for (; !result.isLast(); ) {
+                result.next();
+                try {
+                    array.add(result.getString("Inherit"));
+                    array.add(result.getString("Rank"));
+                } catch (Exception e) {
+                    array.add(result.getString(1));
+                }
+            }
+            return array;
+        } catch (SQLException ex) {
+            Debug.print(ex.getMessage());
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                Debug.print(ex.getMessage());
+            }
+        }
+        return null;
+    }
+
+    public boolean checkOnline(String url, String user, String password) {
+        java.sql.Connection con = null;
+        java.sql.Statement st = null;
+        ResultSet rs = null;
+        Bukkit.getLogger().info("Establishing Connection to " + url);
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            Bukkit.getLogger().info("Connected!");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
+            Bukkit.getLogger().info("Make sure you check if the port is correct!");
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
+                Bukkit.getLogger().info("Make sure you check if the port is correct!");
+            }
+        }
+        return false;
+    }
+
+    public String toURL(String port, String address, String table) {
+        return "jdbc:mysql://" + address + ":" + port + "/" + table + "?autoReconnect=true&useSSL=false";
+    }
 
 }

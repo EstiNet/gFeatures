@@ -15,7 +15,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 //import net.estinet.gFeatures.API.Inventory.EstiInventory;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Friendship.Friendship;
 
 /*

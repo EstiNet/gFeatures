@@ -3,7 +3,7 @@ package net.estinet.gFeatures;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.ClioteSky.ClioteInit;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteInit;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Update.Entrly;
@@ -29,7 +29,6 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.player.*;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.world.WorldLoadEvent;
@@ -81,11 +80,7 @@ public class Listeners extends JavaPlugin implements Listener{
 			setup.onSetup();
 			SetupConfig.setup();
 			LoadConfig.load();
-			Thread thr = new Thread(new Runnable(){
-				public void run(){
-					ccu.enable();
-				}
-			});
+			Thread thr = new Thread(() -> ccu.enable());
 			thr.start();
 		}
 		catch(Exception e){
@@ -120,7 +115,7 @@ public class Listeners extends JavaPlugin implements Listener{
 		getLogger().info("_________________________________________________________________________");
 	}
 	@EventHandler
-	public void onPlayerJoin(PlayerJoinEvent event){ 
+	public void onPlayerJoin(PlayerJoinEvent event){
 		Thread thr = new Thread(new Runnable(){
 			public void run(){
 				try{

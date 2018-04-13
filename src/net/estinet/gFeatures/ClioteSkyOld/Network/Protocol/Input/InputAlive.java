@@ -1,6 +1,10 @@
-package net.estinet.gFeatures.ClioteSky.API;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input;
 
-import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
+import java.util.List;
+
+import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
 
 /*
 gFeatures
@@ -21,9 +25,12 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CliotePing {
-	public void sendMessage(String message, String categoryOrCliote){
-		NetworkThread nt = new NetworkThread();
-		nt.sendOutput("send " + categoryOrCliote + " " + message);
+public class InputAlive extends Packet{
+	public InputAlive(){
+		super.name = "Alive";
+	}
+	public void run(List<String> args){
+		ClioteSky.setAliveCache(false);
+		Debug.print("[ClioteSkyOld] Ping successful.");
 	}
 }

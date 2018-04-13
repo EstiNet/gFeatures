@@ -3,7 +3,7 @@ package net.estinet.gFeatures.Feature.CTF;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*

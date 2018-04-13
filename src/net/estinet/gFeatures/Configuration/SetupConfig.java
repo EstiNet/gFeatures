@@ -80,19 +80,19 @@ public class SetupConfig {
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			yamlFile.set("Config.MySQL.State", "false");
 		}
-		if(!(yamlFile.contains("Config.ClioteSky"))){
-			yamlFile.createSection("Config.ClioteSky.Address");
-			yamlFile.createSection("Config.ClioteSky.Port");
-			yamlFile.createSection("Config.ClioteSky.Category");
-			yamlFile.createSection("Config.ClioteSky.Name");
-			yamlFile.createSection("Config.ClioteSky.Password");
-			yamlFile.createSection("Config.ClioteSky.Enable");
-			yamlFile.set("Config.ClioteSky.Address", "localhost");
-			yamlFile.set("Config.ClioteSky.Port", "36000");
-			yamlFile.set("Config.ClioteSky.Category", "Default");
-			yamlFile.set("Config.ClioteSky.Name", "Server");
-			yamlFile.set("Config.ClioteSky.Password", "password");
-			yamlFile.set("Config.ClioteSky.Enable", "false");
+		if(!(yamlFile.contains("Config.ClioteSkyOld"))){
+			yamlFile.createSection("Config.ClioteSkyOld.Address");
+			yamlFile.createSection("Config.ClioteSkyOld.Port");
+			yamlFile.createSection("Config.ClioteSkyOld.Category");
+			yamlFile.createSection("Config.ClioteSkyOld.Name");
+			yamlFile.createSection("Config.ClioteSkyOld.Password");
+			yamlFile.createSection("Config.ClioteSkyOld.Enable");
+			yamlFile.set("Config.ClioteSkyOld.Address", "localhost");
+			yamlFile.set("Config.ClioteSkyOld.Port", "36000");
+			yamlFile.set("Config.ClioteSkyOld.Category", "Default");
+			yamlFile.set("Config.ClioteSkyOld.Name", "Server");
+			yamlFile.set("Config.ClioteSkyOld.Password", "password");
+			yamlFile.set("Config.ClioteSkyOld.Enable", "false");
 		}
 		try {
 			yamlFile.save(f);

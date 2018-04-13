@@ -1,10 +1,8 @@
-package net.estinet.gFeatures.ClioteSky.Network.Protocol.Input;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output;
 
 import java.util.List;
 
-import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
 
 /*
 gFeatures
@@ -25,12 +23,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class InputAlive extends Packet{
-	public InputAlive(){
-		super.name = "Alive";
-	}
+public class OutputChange extends Packet{
 	public void run(List<String> args){
-		ClioteSky.setAliveCache(false);
-		Debug.print("[ClioteSky] Ping successful.");
+		
 	}
+
 }

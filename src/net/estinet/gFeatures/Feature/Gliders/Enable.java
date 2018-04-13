@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.ConstantCheck;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Capture;
 

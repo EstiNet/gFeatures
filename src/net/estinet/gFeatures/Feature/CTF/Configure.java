@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.gFeatures;

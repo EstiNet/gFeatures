@@ -3,8 +3,8 @@ package net.estinet.gFeatures;
 import org.bukkit.Bukkit;
 
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputAlive;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output.OutputAlive;
 
 /*
 gFeatures
@@ -53,7 +53,7 @@ public class gLoop {
                 Thread th = new Thread(() -> {
                     OutputAlive oa = new OutputAlive();
                     oa.run(null);
-                    Debug.print("[ClioteSky] Pinging server...");
+                    Debug.print("[ClioteSkyOld] Pinging server...");
                 });
                 th.start();
             }, 200L, 200L);

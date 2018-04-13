@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
-import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
 import net.estinet.gFeatures.Feature.gScore.Scored;
 import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.gFeature;
@@ -8,7 +8,6 @@ import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

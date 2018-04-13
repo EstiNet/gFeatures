@@ -5,18 +5,12 @@ import java.util.UUID;
 import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.Sound;
-import org.bukkit.FireworkEffect.Type;
 import org.bukkit.entity.EnderCrystal;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.FireworkMeta;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.PlayerMode;
@@ -25,7 +19,6 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Spectate;
 import net.estinet.gFeatures.Feature.CTF.Holo.CTFScore;
 import net.estinet.gFeatures.Feature.CTF.Holo.Lobby;
 import net.estinet.gFeatures.Feature.CTF.Holo.Loop;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
 import net.estinet.gFeatures.Feature.gMusic.Music;
 
 /*

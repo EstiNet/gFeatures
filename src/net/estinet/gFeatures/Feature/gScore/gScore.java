@@ -34,31 +34,34 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gScore extends gFeature{
-	
-	public static List<UUID> people = new ArrayList<>();
+public class gScore extends gFeature {
 
-	public gScore(String featurename, String d) {
-		super(featurename, d);
-	}
-	@Override
-	public void enable(){
-		Bukkit.getLogger().info("[gScore] Enabled.");
-	}
-	@Override
-	public void disable(){
-		Bukkit.getLogger().info("[gScore] Disabled! :(");
-	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			PlayerJoinEvent es = (PlayerJoinEvent) event;
-			try {
-				gScore.people.add(es.getPlayer().getUniqueId());
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+    public static List<UUID> people = new ArrayList<>();
+
+    public gScore(String featurename, String d) {
+        super(featurename, d);
+    }
+
+    @Override
+    public void enable() {
+        Bukkit.getLogger().info("[gScore] Enabled.");
+    }
+
+    @Override
+    public void disable() {
+        Bukkit.getLogger().info("[gScore] Disabled! :(");
+    }
+
+    @Override
+    public void eventTrigger(Event event) {
+        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
+            PlayerJoinEvent es = (PlayerJoinEvent) event;
+            try {
+                gScore.people.add(es.getPlayer().getUniqueId());
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                     try {
-                        for(Player ps : Bukkit.getServer().getOnlinePlayers()){
-                            if(gScore.people.contains(ps.getUniqueId())){
+                        for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                            if (gScore.people.contains(ps.getUniqueId())) {
                                 ps.setScoreboard(Scored.getScore(ps));
                             }
                         }
@@ -66,25 +69,28 @@ public class gScore extends gFeature{
                         e1.printStackTrace();
                     }
                 }, 40L);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
-			try {
-                gScore.people.remove(((PlayerQuitEvent)event).getPlayer().getUniqueId());
-                for(Player ps : Bukkit.getServer().getOnlinePlayers()){
-                    if(gScore.people.contains(ps.getUniqueId())){
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
+            try {
+                gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
+                for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                    if (gScore.people.contains(ps.getUniqueId())) {
                         ps.setScoreboard(Scored.getScore(ps));
                     }
                 }
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	@Retrieval
-	public void onPlayerJoin(){}
-	@Retrieval
-	public void onPlayerLeave(){}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Retrieval
+    public void onPlayerJoin() {
+    }
+
+    @Retrieval
+    public void onPlayerLeave() {
+    }
 }

@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 
 import net.estinet.gFeatures.gFeatures;

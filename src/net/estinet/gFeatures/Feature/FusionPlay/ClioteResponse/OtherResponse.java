@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 
 /*

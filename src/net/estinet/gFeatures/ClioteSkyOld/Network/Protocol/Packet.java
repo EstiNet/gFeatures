@@ -1,10 +1,6 @@
-package net.estinet.gFeatures.ClioteSky.Network;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
 
 /*
 gFeatures
@@ -25,17 +21,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Decosion {
-	public void decode(String message){
-		String[] args = message.split("\\s+");
-		for(Packet packet : ClioteSky.inputPackets){
-			if(args[0].equalsIgnoreCase(packet.name)){
-				List<String> newArgs = new ArrayList<>();
-				for(int i = 1; i<args.length; i++){
-					newArgs.add(args[i]);
-				}
-				packet.run(newArgs);
-			}
-		}
-	}
+public class Packet {
+	public String name = "Packet";
+	public void run(List<String> args) {}
 }

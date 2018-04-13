@@ -20,7 +20,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.gFeatures;
 
 public class Configure{

@@ -63,10 +63,10 @@ public class Retrieve {
 		return yamlFile.get("Config.MySQL.Password").toString();
 	}
 	public boolean getClioteSkySupport(){
-		if(yamlFile.get("Config.ClioteSky.Enable") == null){
+		if(yamlFile.get("Config.ClioteSkyOld.Enable") == null){
 			return false;
 		}
-		return Boolean.parseBoolean(yamlFile.get("Config.ClioteSky.Enable").toString());
+		return Boolean.parseBoolean(yamlFile.get("Config.ClioteSkyOld.Enable").toString());
 	}
 	String Address = getAddress();
 	String Port = getPort();

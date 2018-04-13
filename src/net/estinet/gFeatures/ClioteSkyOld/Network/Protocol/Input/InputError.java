@@ -1,12 +1,12 @@
-package net.estinet.gFeatures.ClioteSky.Network.Protocol.Input;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input;
 
 import java.util.List;
 
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputAlive;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Output.OutputCreate;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output.OutputAlive;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output.OutputCreate;
 
 /*
 gFeatures
@@ -32,7 +32,7 @@ public class InputError extends Packet{
 		super.name = "Error";
 	}
 	public void run(List<String> args){
-		Debug.print("[ClioteSky] Recieved error " + args.get(0) + " from server.");
+		Debug.print("[ClioteSkyOld] Recieved error " + args.get(0) + " from server.");
 		switch(args.get(0)){
 		case "201":
 			ClioteSky.printError("Name not known when logging in! Are you sure you configured the config correctly?");

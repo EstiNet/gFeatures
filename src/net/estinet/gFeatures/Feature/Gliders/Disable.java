@@ -2,7 +2,7 @@ package net.estinet.gFeatures.Feature.Gliders;
 
 import org.bukkit.Bukkit;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.Confligs.ConfligInit;
 
 /*

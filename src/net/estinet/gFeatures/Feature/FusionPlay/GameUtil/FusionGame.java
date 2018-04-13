@@ -6,9 +6,8 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
-import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.CompassLoop;
 
 import org.bukkit.entity.Player;
 

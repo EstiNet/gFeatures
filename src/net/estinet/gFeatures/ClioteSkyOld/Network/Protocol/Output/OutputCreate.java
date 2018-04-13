@@ -1,9 +1,10 @@
-package net.estinet.gFeatures.ClioteSky.Network.Protocol.Output;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Output;
 
 import java.util.List;
 
-import net.estinet.gFeatures.ClioteSky.Network.NetworkThread;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.Network.NetworkThread;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
 
 /*
 gFeatures
@@ -24,15 +25,11 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class OutputSend extends Packet{
-	@Deprecated
+public class OutputCreate extends Packet{
 	public void run(List<String> args){
-		String sent = "";
-		for(String st : args){
-			sent += st;
-		}
 		NetworkThread nt = new NetworkThread();
-		nt.sendOutput(sent);
+		nt.sendOutput("create " + ClioteSky.getName() + " " + ClioteSky.getCategory() + " " + ClioteSky.getPassword());
+		OutputHello oh = new OutputHello();
+		oh.run(null);
 	}
-
 }

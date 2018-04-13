@@ -1,23 +1,11 @@
 package net.estinet.gFeatures.Feature.Gliders.MapsSpec;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
-import org.bukkit.WorldCreator;
-import org.bukkit.FireworkEffect.Type;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Firework;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.FireworkMeta;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 
 /*

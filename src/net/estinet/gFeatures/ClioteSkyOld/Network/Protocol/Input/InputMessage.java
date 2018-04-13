@@ -1,13 +1,13 @@
-package net.estinet.gFeatures.ClioteSky.Network.Protocol.Input;
+package net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSky.Network.Protocol.Packet;
+import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSkyOld.Network.Protocol.Packet;
 import net.estinet.gFeatures.gFeatures;
 
 /*

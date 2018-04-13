@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 
 import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSky.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
 
 /*
 gFeatures

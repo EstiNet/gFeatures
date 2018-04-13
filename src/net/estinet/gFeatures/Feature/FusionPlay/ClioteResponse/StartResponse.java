@@ -2,7 +2,7 @@ package net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse;
 
 import java.util.List;
 
-import net.estinet.gFeatures.ClioteSky.API.CliotePing;
+import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
