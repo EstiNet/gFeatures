@@ -1,8 +1,7 @@
 /bin/
 /target/
 /.idea/
-build/dependency-cache/
-build/tmp/compileJava/
+build/
 src/main/resources/
 src/test/
 /.gradle
