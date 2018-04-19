@@ -1,0 +1,4 @@
+rootProject.name = 'gFeatures'
+include 'gradle'
+findProject(':gradle')?.name = 'gFeatures'
+
