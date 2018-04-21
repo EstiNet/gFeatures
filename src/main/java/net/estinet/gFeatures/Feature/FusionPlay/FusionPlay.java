@@ -130,18 +130,16 @@ public class FusionPlay extends gFeature implements Events {
             if (!games.get(random).getName().equalsIgnoreCase(not)) {
                 games.get(random).setFusionState(FusionState.WAITING);
                 currentGame = games.get(random);
-                Thread thr = new Thread(new Runnable() {
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        gFeature feature = games.get(random);
-                        feature.setState(FeatureState.ENABLE);
-                        gFeatures.addFeature(games.get(random));
-                        games.get(random).enable();
+                Thread thr = new Thread(() -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
+                    gFeature feature = games.get(random);
+                    feature.setState(FeatureState.ENABLE);
+                    gFeatures.addFeature(games.get(random));
+                    games.get(random).enable();
                 });
                 thr.start();
                 break;
