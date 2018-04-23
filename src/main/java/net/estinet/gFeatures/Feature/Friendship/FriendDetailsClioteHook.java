@@ -2,8 +2,8 @@ package net.estinet.gFeatures.Feature.Friendship;
 
 import java.util.List;
 
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.md_5.bungee.api.ChatColor;
 
 /*
@@ -25,30 +25,34 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FriendDetailsClioteHook extends ClioteHook{
+public class FriendDetailsClioteHook extends ClioteHook {
 
-	public FriendDetailsClioteHook(gFeature feature) {
-		super(feature, "frienddetails");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		try{
-			if(args.get(0).equals("offline")){
-				String compile = ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + ChatColor.DARK_AQUA + args.get(2) + "\n" + ChatColor.DARK_AQUA + "Last seen: " + ChatColor.WHITE;
-				for(int i = 3; i < args.size(); i++){
-					compile += args.get(i) + " ";
-				}
-				Friendship.friendget.get(Friendship.statusRequest.get(args.get(1))).put(args.get(1), compile);
-				Friendship.statusRequest.remove(args.get(1));
-			}
-			else{
-				Friendship.friendget.get(Friendship.statusRequest.get(args.get(2))).put(args.get(2), ChatColor.GREEN + "ONLINE " + ChatColor.RESET + "\n" + ChatColor.WHITE + "Currently on " + ChatColor.DARK_AQUA + args.get(1));
-				Friendship.statusRequest.remove(args.get(2));
-			}
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+    public FriendDetailsClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
+    }
+
+    @Override
+    public void run(byte[] data, String identifier) {
+
+        List<String> args = ClioteSky.parseBytesToStringList(data);
+
+        try {
+            assert args != null;
+            if (args.get(0).equals("offline")) {
+                StringBuilder compile = new StringBuilder(ChatColor.RED + "OFFLINE: " + ChatColor.RESET + " Last seen on " + ChatColor.DARK_AQUA + args.get(2) + "\n" + ChatColor.DARK_AQUA + "Last seen: " + ChatColor.WHITE);
+                for (int i = 3; i < args.size(); i++) {
+                    compile.append(args.get(i)).append(" ");
+                }
+                Friendship.friendget.get(Friendship.statusRequest.get(args.get(1))).put(args.get(1), compile.toString());
+                Friendship.statusRequest.remove(args.get(1));
+            } else {
+                Friendship.friendget.get(Friendship.statusRequest.get(args.get(2))).put(args.get(2), ChatColor.GREEN + "ONLINE " + ChatColor.RESET + "\n" + ChatColor.WHITE + "Currently on " + ChatColor.DARK_AQUA + args.get(1));
+                Friendship.statusRequest.remove(args.get(2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
  

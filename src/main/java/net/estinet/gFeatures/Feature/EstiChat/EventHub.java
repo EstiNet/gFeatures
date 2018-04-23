@@ -1,9 +1,8 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
-
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 
 /*
 gFeatures
@@ -26,13 +25,11 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub{
 	public void onPlayerChat(AsyncPlayerChatEvent event){
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("chat " + event.getPlayer().getName() + " <" + event.getPlayer().getDisplayName() + "> " + event.getMessage(), "Bungee");
+		ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getPlayer().getName() + " <" + event.getPlayer().getDisplayName() + "> " + event.getMessage()), "chat", "Bungee");
 		EstiChat.lastSent = event.getMessage();
 	}
 	public void onPlayerDeath(PlayerDeathEvent event){
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("chat "+ event.getEntity().getName() + " " + event.getDeathMessage(), "Bungee");
+	    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getEntity().getName() + " " + event.getDeathMessage()), "chat", "Bungee");
 		EstiChat.lastSent = event.getDeathMessage();
 	}
 }

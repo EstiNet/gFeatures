@@ -2,11 +2,12 @@ package net.estinet.gFeatures.Feature.EstiChat;
 
 import java.util.List;
 
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 
 import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
 
 /*
 gFeatures
@@ -27,23 +28,28 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class ConsoleClioteHook extends ClioteHook{
+public class ConsoleClioteHook extends ClioteHook {
 
-	public ConsoleClioteHook(gFeature feature) {
-		super(feature, "consolechat");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		String mgs = "";
-		String server = args.get(0);
-		args.remove(0);
-		for(String arg : args){
-			mgs += arg + " ";
-		}
-		mgs = mgs.substring(0, mgs.length()-1);
-		if(!mgs.equals(EstiChat.lastSent)){
-			ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-			console.sendMessage("[" + server + "] " + mgs);
-		}
-	}
+    public ConsoleClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
+    }
+
+    @Override
+    public void run(byte[] data, String identifier) {
+
+        List<String> args = ClioteSky.parseBytesToStringList(data);
+
+        String mgs = "";
+        String server = args.get(0);
+        args.remove(0);
+        for (String arg : args) {
+            mgs += arg + " ";
+        }
+        mgs = mgs.substring(0, mgs.length() - 1);
+        if (!mgs.equals(EstiChat.lastSent)) {
+            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+            console.sendMessage("[" + server + "] " + mgs);
+        }
+    }
 }

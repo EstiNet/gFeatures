@@ -1,10 +1,7 @@
 package net.estinet.gFeatures.Feature.CTF;
 
-import java.util.List;
-
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 
 /*
 gFeatures
@@ -25,28 +22,25 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class GetMGInfoClioteHook extends ClioteHook{
+public class GetMGInfoClioteHook extends ClioteHook {
 
-	public GetMGInfoClioteHook(gFeature feature) {
-		super(feature, "getmginfo");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		try{
-			if(Basic.mode.equals(Mode.WAITING)){
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("mghello", "Bungee");
-			}
-			else{
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("mgstart", "Bungee");
-			}
-			CliotePing cp = new CliotePing();
-			cp.sendMessage("mgmap " + Basic.mapName, "Bungee");
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+    public GetMGInfoClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
+    }
+
+    @Override
+    public void run(byte[] data, String identifier) {
+        try {
+            if (Basic.mode.equals(Mode.WAITING)) {
+                ClioteSky.getInstance().sendAsync(new byte[0], "mghello", "Bungee");
+            } else {
+                ClioteSky.getInstance().sendAsync(new byte[0], "mgstart", "Bungee");
+            }
+            ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(Basic.mapName), "mgmap", "Bungee");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

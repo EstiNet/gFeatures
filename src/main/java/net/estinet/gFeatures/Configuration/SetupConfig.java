@@ -80,19 +80,23 @@ public class SetupConfig {
 			yamlFile.set("Config.MySQL.Password", "pass123");
 			yamlFile.set("Config.MySQL.State", "false");
 		}
-		if(!(yamlFile.contains("Config.ClioteSkyOld"))){
-			yamlFile.createSection("Config.ClioteSkyOld.Address");
-			yamlFile.createSection("Config.ClioteSkyOld.Port");
-			yamlFile.createSection("Config.ClioteSkyOld.Category");
-			yamlFile.createSection("Config.ClioteSkyOld.Name");
-			yamlFile.createSection("Config.ClioteSkyOld.Password");
-			yamlFile.createSection("Config.ClioteSkyOld.Enable");
-			yamlFile.set("Config.ClioteSkyOld.Address", "localhost");
-			yamlFile.set("Config.ClioteSkyOld.Port", "36000");
-			yamlFile.set("Config.ClioteSkyOld.Category", "Default");
-			yamlFile.set("Config.ClioteSkyOld.Name", "Server");
-			yamlFile.set("Config.ClioteSkyOld.Password", "password");
-			yamlFile.set("Config.ClioteSkyOld.Enable", "false");
+		if (!(yamlFile.contains("ClioteSky.Address"))) {
+			yamlFile.set("ClioteSky.Address", "localhost");
+		}
+		if (!(yamlFile.contains("ClioteSky.Port"))) {
+			yamlFile.set("ClioteSky.Port", "36000");
+		}
+		if (!(yamlFile.contains("ClioteSky.Category"))) {
+			yamlFile.set("ClioteSky.Category", "Default");
+		}
+		if (!(yamlFile.contains("ClioteSky.Name"))) {
+			yamlFile.set("ClioteSky.Name", "Server");
+		}
+		if (!(yamlFile.contains("ClioteSky.Enable"))) {
+			yamlFile.set("ClioteSky.Enable", "true");
+		}
+		if (!(yamlFile.contains("ClioteSky.CheckTLS"))) {
+			yamlFile.set("ClioteSky.CheckTLS", "false");
 		}
 		try {
 			yamlFile.save(f);

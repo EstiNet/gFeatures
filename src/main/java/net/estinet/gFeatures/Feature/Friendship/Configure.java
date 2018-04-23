@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.Friendship;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.gFeatures;
 
@@ -32,12 +32,9 @@ public class Configure{
 		
 		EstiCommand test = new EstiCommand("friends", "Shows the friend menu!", "/friends", base, true);
 		gFeatures.addCommand(test);
-		
-		FriendDetailsClioteHook mmap = new FriendDetailsClioteHook(base);
-		ClioteSky.addClioteHook(mmap);
-		FriendGetClioteHook m = new FriendGetClioteHook(base);
-		ClioteSky.addClioteHook(m);
-		FriendReqClioteHook mm = new FriendReqClioteHook(base);
-		ClioteSky.addClioteHook(mm);
+
+		ClioteSky.addHook(new FriendDetailsClioteHook("frienddetails", base.getName()));
+		ClioteSky.addHook(new FriendGetClioteHook("friendget", base.getName()));
+		ClioteSky.addHook(new FriendReqClioteHook("friendreq", base.getName()));
 	}
 }

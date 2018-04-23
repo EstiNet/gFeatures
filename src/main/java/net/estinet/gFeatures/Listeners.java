@@ -3,7 +3,7 @@ package net.estinet.gFeatures;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteInit;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Update.Entrly;
@@ -67,7 +67,6 @@ public class Listeners extends JavaPlugin implements Listener {
     Entrly entrly = new Entrly();
     gLoop gl = new gLoop();
     net.estinet.gFeatures.API.PlayerStats.Setup setups = new net.estinet.gFeatures.API.PlayerStats.Setup();
-    ClioteInit ccu = new ClioteInit();
 
     @Override
     public void onEnable() {
@@ -81,8 +80,7 @@ public class Listeners extends JavaPlugin implements Listener {
             setup.onSetup();
             SetupConfig.setup();
             LoadConfig.load();
-            Thread thr = new Thread(() -> ccu.enable());
-            thr.start();
+            ClioteSky.initClioteSky();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -2,8 +2,9 @@ package net.estinet.gFeatures.Feature.Friendship;
 
 import java.util.List;
 
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
 import net.estinet.gFeatures.Feature.Friendship.Menus.FriendsPending;
 
 /*
@@ -25,13 +26,18 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FriendReqClioteHook extends ClioteHook{
+public class FriendReqClioteHook extends ClioteHook {
 
-	public FriendReqClioteHook(gFeature feature) {
-		super(feature, "friendreq");
+	public FriendReqClioteHook(String identifier, String gFeatureName) {
+		this.identifier = identifier;
+		this.gFeatureName = gFeatureName;
 	}
+
 	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
+	public void run(byte[] data, String identifier) {
+
+		List<String> args = ClioteSky.parseBytesToStringList(data);
+
 		try{
 			if(args.get(0).equals("done")){
 				if(Friendship.cacheNames.contains(args.get(1))){

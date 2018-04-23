@@ -1,13 +1,31 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "2.0.3"
+}
+
+//use the command /gradle to build
+
+defaultTasks 'build', 'shadowJar'
+
 apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'net.estinet.gFeatures'
-version = 'v3.4.3'
+version = 'v3.5.0'
 
 description = """gFeatures"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+shadowJar {
+    baseName = 'gFeatures'
+    classifier = null
+    version = null
+    from('src/main/java') {
+        include '**/*.yml'
+    }
+}
+
 
 jar {
     from('src/main/java') {
@@ -26,7 +44,7 @@ repositories {
 dependencies {
     compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.2.1.Final'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
-    compile 'io.grpc:grpc-netty:1.11.0'
+    compile 'io.grpc:grpc-netty-shaded:1.11.0'
     compile 'io.grpc:grpc-protobuf:1.11.0'
     compile 'io.grpc:grpc-stub:1.11.0'
     compile "com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT"
