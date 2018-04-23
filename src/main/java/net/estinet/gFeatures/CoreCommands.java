@@ -4,8 +4,7 @@ import java.util.List;
 
 import net.estinet.gFeatures.API.PlayerStats.Load;
 import net.estinet.gFeatures.API.PlayerStats.gPlayer;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteInit;
-import net.estinet.gFeatures.ClioteSkyOld.Network.NetworkThread;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configuration.LoadConfig;
 import net.estinet.gFeatures.Configuration.SetupConfig;
 import net.estinet.gFeatures.SQL.Player.EstiPlayer;
@@ -39,7 +38,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CoreCommands{
-	CommandLibrary cl = new CommandLibrary();
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("plugin")){
 			if(sender.hasPermission("gFeatures.command.plugins")){
@@ -122,7 +120,6 @@ public class CoreCommands{
 						Disabler disable = new Disabler();
 						Setup setup = new Setup();
 						Load load = new Load();
-						ClioteInit ccu = new ClioteInit();
 						Bukkit.getLogger().info("_________________________________________________________________________");
 						Bukkit.getLogger().info("Stopping gFeatures!");
 						Bukkit.getLogger().info("Current version: " + Listeners.version);
@@ -137,7 +134,7 @@ public class CoreCommands{
 						setup.onSetup();
 						SetupConfig.setup();
 						LoadConfig.load();
-						ccu.enable();
+						ClioteSky.initClioteSky();
 						enable.onEnable();
 						gFeatures.addPlayerSection("Setup", "DO NOT REMOVE!");
 						load.load();

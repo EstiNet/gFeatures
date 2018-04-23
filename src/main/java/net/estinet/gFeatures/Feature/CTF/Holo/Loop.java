@@ -26,16 +26,16 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Loop {
-	CTFScore ctfs = new CTFScore();
-	Lobby lobby = new Lobby();
-	public void goThrough(){
-		for(Player p : Bukkit.getServer().getOnlinePlayers()){
-			if(Basic.mode.equals(Mode.STARTED) || Basic.mode.equals(Mode.ENDED)){
-				ctfs.Initialize(p);
-			}
-			else if(Basic.mode.equals(Mode.WAITING)){
-				lobby.Initialize(p);
-			}
-		}
-	}
+    CTFScore ctfs = new CTFScore();
+    Lobby lobby = new Lobby();
+
+    public void goThrough() {
+        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+            if (Basic.mode.equals(Mode.STARTED) || Basic.mode.equals(Mode.ENDED)) {
+                ctfs.Initialize(p);
+            } else if (Basic.mode.equals(Mode.WAITING)) {
+                lobby.Initialize(p);
+            }
+        }
+    }
 }

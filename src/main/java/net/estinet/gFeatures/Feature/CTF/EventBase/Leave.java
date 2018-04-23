@@ -1,11 +1,11 @@
 package net.estinet.gFeatures.Feature.CTF.EventBase;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.Basic;
 import net.estinet.gFeatures.Feature.CTF.Mode;
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Action;
@@ -52,9 +52,8 @@ public class Leave {
         }
         if (Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)) {
             Bukkit.broadcastMessage(ChatColor.AQUA + "[CTF] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
-            CliotePing cp = new CliotePing();
             for (Player p : Bukkit.getOnlinePlayers()) {
-                cp.sendMessage("redirect " + p.getName() + " MinigameHub", "Bungee");
+                ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " MinigameHub"), "redirect", "Bungee");
             }
             Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
                 public void run() {

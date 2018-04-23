@@ -40,14 +40,15 @@ public class ConsoleClioteHook extends ClioteHook {
 
         List<String> args = ClioteSky.parseBytesToStringList(data);
 
-        String mgs = "";
+        StringBuilder mgs = new StringBuilder();
+        assert args != null;
         String server = args.get(0);
         args.remove(0);
         for (String arg : args) {
-            mgs += arg + " ";
+            mgs.append(arg).append(" ");
         }
-        mgs = mgs.substring(0, mgs.length() - 1);
-        if (!mgs.equals(EstiChat.lastSent)) {
+        mgs = new StringBuilder(mgs.substring(0, mgs.length() - 1));
+        if (!mgs.toString().equals(EstiChat.lastSent)) {
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             console.sendMessage("[" + server + "] " + mgs);
         }

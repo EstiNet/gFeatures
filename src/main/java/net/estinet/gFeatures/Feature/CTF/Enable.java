@@ -1,9 +1,9 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Capture;
 
 /*
@@ -25,25 +25,25 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Enable{
-	static ConfigHub ch = new ConfigHub();
-	public static void onEnable(){
-		Bukkit.getLogger().info("[CTF] Enabled :D");
-		ch.setupConfig();
-		
-		Capture c = new Capture();
-		c.loop();
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		WorldCreator cs = new WorldCreator("MinigameSpawn");
-        		Bukkit.getServer().createWorld(cs);
-        		
-        		WorldCreator cs1 = new WorldCreator("CTF");
-        		Bukkit.getServer().createWorld(cs1);
-        		
-        		CliotePing cp = new CliotePing();
-        		cp.sendMessage("mghello", "Bungee");
-        	}
+public class Enable {
+    private static ConfigHub ch = new ConfigHub();
+
+    public static void onEnable() {
+        Bukkit.getLogger().info("[CTF] Enabled :D");
+        ch.setupConfig();
+
+        Capture c = new Capture();
+        c.loop();
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                WorldCreator cs = new WorldCreator("MinigameSpawn");
+                Bukkit.getServer().createWorld(cs);
+
+                WorldCreator cs1 = new WorldCreator("CTF");
+                Bukkit.getServer().createWorld(cs1);
+
+                ClioteSky.getInstance().sendAsync(new byte[0], "mghello", "Bungee");
+            }
         }, 40L);
-	}
+    }
 }
