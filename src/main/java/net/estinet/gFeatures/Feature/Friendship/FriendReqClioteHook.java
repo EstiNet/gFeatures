@@ -34,7 +34,7 @@ public class FriendReqClioteHook extends ClioteHook {
 	}
 
 	@Override
-	public void run(byte[] data, String identifier) {
+	public void run(byte[] data, String sender) {
 
 		List<String> args = ClioteSky.parseBytesToStringList(data);
 

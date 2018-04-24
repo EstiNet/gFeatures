@@ -27,66 +27,61 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CommandHub{
+public class CommandHub {
 
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		try{
-		args[0].toLowerCase();
-		}
-		catch(Exception e){}
-		if(args.length == 0){
-			sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
-		}
-		else if(args.length == 1){
-			switch(args[0]){
-			case "help":
-				sender.sendMessage(ChatColor.GOLD + "-----Gliders Help-----");
-				sender.sendMessage(ChatColor.AQUA + "/Gliders help - Displays help for Gliders.");
-				sender.sendMessage(ChatColor.AQUA + "/Gliders list - Lists all the teams and participants.");
-				sender.sendMessage(ChatColor.AQUA + "/Gliders mode - Gets the current state of the game.");
-				sender.sendMessage(ChatColor.AQUA + "/Gliders playermode [Player Name] - Gets the player state.");
-				break;
-			case "list":
-				sender.sendMessage(ChatColor.GOLD + "Orange:");
-				for(UUID uuid : Basic.teams.keySet()){
-					if(Basic.teams.get(uuid).equals(Team.ORANGE)){
-						String name = Bukkit.getPlayer(uuid).getName();
-						sender.sendMessage(ChatColor.GRAY + "- " + name);
-					}
-				}
-				sender.sendMessage(ChatColor.DARK_AQUA + "Blue:");
-				for(UUID uuid : Basic.teams.keySet()){
-					if(Basic.teams.get(uuid).equals(Team.BLUE)){
-						String name = Bukkit.getPlayer(uuid).getName();
-						sender.sendMessage(ChatColor.GRAY + "- " + name);
-					}
-				}
-				break;
-			case "mode":
-				sender.sendMessage(ChatColor.AQUA + "The current game state is: " + Basic.mode.toString());
-				break;
-			default:
-				sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
-				break;
-			}
-		}
-		else if(args.length == 2){
-			switch(args[0]){
-			case "playermode":
-				if(Bukkit.getPlayer(args[1]) != null){
-					sender.sendMessage(ChatColor.GRAY + Basic.modes.get(Bukkit.getPlayer(args[1]).getUniqueId()).toString());
-				}
-				else{
-					sender.sendMessage(ChatColor.RED + "Player not found :/");
-				}
-				break;
-			default:
-				sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
-				break;
-			}
-		}
-		else{
-			sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
-		}
-	}
+    public void onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+        try {
+            args[0].toLowerCase();
+        } catch (Exception e) {
+            sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
+        }
+        if (args.length == 1) {
+            switch (args[0]) {
+                case "help":
+                    sender.sendMessage(ChatColor.GOLD + "-----Gliders Help-----");
+                    sender.sendMessage(ChatColor.AQUA + "/Gliders help - Displays help for Gliders.");
+                    sender.sendMessage(ChatColor.AQUA + "/Gliders list - Lists all the teams and participants.");
+                    sender.sendMessage(ChatColor.AQUA + "/Gliders mode - Gets the current state of the game.");
+                    sender.sendMessage(ChatColor.AQUA + "/Gliders playermode [Player Name] - Gets the player state.");
+                    break;
+                case "list":
+                    sender.sendMessage(ChatColor.GOLD + "Orange:");
+                    for (UUID uuid : Basic.teams.keySet()) {
+                        if (Basic.teams.get(uuid).equals(Team.ORANGE)) {
+                            String name = Bukkit.getPlayer(uuid).getName();
+                            sender.sendMessage(ChatColor.GRAY + "- " + name);
+                        }
+                    }
+                    sender.sendMessage(ChatColor.DARK_AQUA + "Blue:");
+                    for (UUID uuid : Basic.teams.keySet()) {
+                        if (Basic.teams.get(uuid).equals(Team.BLUE)) {
+                            String name = Bukkit.getPlayer(uuid).getName();
+                            sender.sendMessage(ChatColor.GRAY + "- " + name);
+                        }
+                    }
+                    break;
+                case "mode":
+                    sender.sendMessage(ChatColor.AQUA + "The current game state is: " + Basic.mode.toString());
+                    break;
+                default:
+                    sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
+                    break;
+            }
+        } else if (args.length == 2) {
+            switch (args[0]) {
+                case "playermode":
+                    if (Bukkit.getPlayer(args[1]) != null) {
+                        sender.sendMessage(ChatColor.GRAY + Basic.modes.get(Bukkit.getPlayer(args[1]).getUniqueId()).toString());
+                    } else {
+                        sender.sendMessage(ChatColor.RED + "Player not found :/");
+                    }
+                    break;
+                default:
+                    sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
+                    break;
+            }
+        } else {
+            sender.sendMessage(ChatColor.AQUA + "Do /Gliders help for help.");
+        }
+    }
 }

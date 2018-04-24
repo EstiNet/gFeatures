@@ -24,11 +24,12 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CommandHub {
-	Camera c = new Camera();
-	public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception{
-		if(cmd.getName().equalsIgnoreCase("tutorial")){
-			sender.sendMessage("Starting tutorial...");
-			c.Tutorial((Player)sender);
-		}
-	}
+    Camera c = new Camera();
+
+    public void CommandSwitch(final CommandSender sender, Command cmd, String label, String[] args) throws NumberFormatException, Exception {
+        if (cmd.getName().equalsIgnoreCase("tutorial")) {
+            sender.sendMessage("Starting tutorial...");
+            c.Tutorial((Player) sender);
+        }
+    }
 }

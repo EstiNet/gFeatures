@@ -2,11 +2,10 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 
 import java.util.List;
 
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.OtherResponse;
 import net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse.StartResponse;
 
@@ -29,32 +28,35 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FusionPlayClioteHook extends ClioteHook{
+public class FusionPlayClioteHook extends ClioteHook {
 
-	public FusionPlayClioteHook(gFeature feature){
-		super(feature, "fusionplay");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		try{
-			CliotePing cp = new CliotePing();
-			switch(args.get(0)){
-			case "start":
-				StartResponse.response(args, categoryName, clioteName);
-				break;
-			case "other":
-				OtherResponse.response(args, categoryName, clioteName);
-				break;
-			case "obtain":
-				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "stop");
-				break;
-			case "alive":
-				cp.sendMessage("fusionplay alive", "Bungee");
-				break;
-			}
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+    public FusionPlayClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
+    }
+
+    @Override
+    public void run(byte[] data, String sender) {
+
+        List<String> args = ClioteSky.parseBytesToStringList(data);
+
+        try {
+            switch (args.get(0)) {
+                case "start":
+                    StartResponse.response(args, sender);
+                    break;
+                case "other":
+                    OtherResponse.response(args, sender);
+                    break;
+                case "obtain":
+                    Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "stop");
+                    break;
+                case "alive":
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("alive"), "fusionplay", "Bungee");
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

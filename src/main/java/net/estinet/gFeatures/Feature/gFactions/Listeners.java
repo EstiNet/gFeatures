@@ -25,13 +25,15 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Listeners {
-	JoinManager jm = new JoinManager();
-	public void onEnable(){
-		Bukkit.getLogger().info("gFactions initialized! Yay!");
-	}
-	public void onDisable(){
-		Bukkit.getLogger().info("gFactions is now off! :(");
-	}
+    JoinManager jm = new JoinManager();
+
+    public void onEnable() {
+        Bukkit.getLogger().info("gFactions initialized! Yay!");
+    }
+
+    public void onDisable() {
+        Bukkit.getLogger().info("gFactions is now off! :(");
+    }
 	/*public void onPlayerJoin(PlayerJoinEvent event){
 		jm.Initialize(event);
 	}*/

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -53,8 +53,7 @@ public class ThreeArg {
 				r.setRank(rank, response.get(args[1]).toString());
 				sender.sendMessage(ChatColor.GRAY + "[gRanks] Set " + args[1] + "'s rank to " + args[2] + ".");
 				if(r.getClioteSkySupport()){
-					CliotePing cp = new CliotePing();
-					cp.sendMessage("granks sync", "all");
+					ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
 				}
 			}
 		}
@@ -64,8 +63,7 @@ public class ThreeArg {
 			String name = newrank.getName().replace('&', '§');
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Created rank " + args[1] + "" + ChatColor.RESET + ""  + ChatColor.GRAY + " with the prefix of " + name + "" + ChatColor.RESET + "" + ChatColor.GRAY + ".");
 			if(r.getClioteSkySupport()){
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("granks sync", "all");
+				ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
 			}
 		}
 		else{

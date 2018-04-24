@@ -37,207 +37,197 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CoreCommands{
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("plugin")){
-			if(sender.hasPermission("gFeatures.command.plugins")){
-				StringBuilder plugins = new StringBuilder("EstiNet");
-				for(Plugin plugin : Bukkit.getPluginManager().getPlugins()){
-					plugins.append(", ").append(plugin.getName());
-				}
-				sender.sendMessage("Plugins (" + Bukkit.getServer().getPluginManager().getPlugins().length + "): " + ChatColor.GREEN + plugins);
-			}
-			else{
-				sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
-			}
-		}
-		else if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-			try {
-				if(args.length == 0){
-					if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
-					}
-				}
-				else if(args.length == 1){
-					switch(args[0]){
-					case "version":
-						sender.sendMessage(ChatColor.GRAY + "gFeatures Version " + Listeners.version);
-						break;
-					case "help":
-						sender.sendMessage(ChatColor.GRAY + "------Help------");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the version.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsqlfields : Shows loaded SQL fields.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures send <Message> : Sends a manual message to the ClioteSkyOld server.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
-						sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
-						break;
-					case "list":
-						List<gFeature> features = gFeatures.getFeatures();
-						List<Extension> extensions = gFeatures.getExtensions();
-						sender.sendMessage(ChatColor.GRAY + "Features:");
-						sender.sendMessage(ChatColor.GRAY + "Enabled:");
-						for(gFeature feature : features){
-							if(feature.getState().equals(FeatureState.ENABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
-							}
-						}
-						sender.sendMessage(ChatColor.GRAY + "Disabled:");
-						for(gFeature feature : features){
-							if(feature.getState().equals(FeatureState.DISABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
-							}
-						}
-						sender.sendMessage(ChatColor.GRAY + "Extensions:");
-						sender.sendMessage(ChatColor.GRAY + "Enabled:");
-						for(Extension extension : extensions){
-							if(extension.getState().equals(FeatureState.ENABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
-							}
-						}
-						sender.sendMessage(ChatColor.GRAY + "Disabled:");
-						for(Extension extension : extensions){
-							if(extension.getState().equals(FeatureState.DISABLE)){
-								sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
-							}
-						}
-						break;
-					case "featurestate":
-						sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures featurestate <Plugin>");
-						break;
-					case "gplist":
-						sender.sendMessage(ChatColor.GRAY + "gPlayers initialized:");
-						for(gPlayer gp : gFeatures.getgPlayers()){
-							sender.sendMessage(ChatColor.GRAY + "- " + gp.getName());
-						}
-						break;
-					case "reload":
-						Enabler enable = new Enabler();
-						Disabler disable = new Disabler();
-						Setup setup = new Setup();
-						Load load = new Load();
-						Bukkit.getLogger().info("_________________________________________________________________________");
-						Bukkit.getLogger().info("Stopping gFeatures!");
-						Bukkit.getLogger().info("Current version: " + Listeners.version);
-						Bukkit.getLogger().info("Turning off modules!");
-						disable.onDisable();
-						Bukkit.getLogger().info("Complete!");
-						Bukkit.getLogger().info("_________________________________________________________________________");
-						Bukkit.getLogger().info("_________________________________________________________________________");
-						Bukkit.getLogger().info("Starting gFeatures!");
-						Bukkit.getLogger().info("Current version: " + Listeners.version);
-						Bukkit.getLogger().info("Starting modules!");
-						setup.onSetup();
-						SetupConfig.setup();
-						LoadConfig.load();
-						ClioteSky.initClioteSky();
-						enable.onEnable();
-						gFeatures.addPlayerSection("Setup", "DO NOT REMOVE!");
-						load.load();
-						try{
-							Obtain.start();
-						}
-						catch(Exception e){
-							e.printStackTrace();
-						}
-						gLoop gl = new gLoop();
-						gl.start();
-						Bukkit.getLogger().info(" Complete!");
-						Bukkit.getLogger().info("_________________________________________________________________________");
-						sender.sendMessage(ChatColor.GRAY + "Reload complete.");
-						break;
-					case "flush":
-						for(gPlayer gp : gFeatures.getgPlayers()){
-							net.estinet.gFeatures.API.PlayerStats.Setup s = new net.estinet.gFeatures.API.PlayerStats.Setup();
-							s.flushPlayer(gp);
-						}
-						sender.sendMessage(ChatColor.GRAY + "Player flush complete.");
-						break;
-					case "debug":
-						if(Listeners.debug){
-							Listeners.debug = false;
-							sender.sendMessage(ChatColor.GRAY + "Turned off debugging.");
-						}
-						else{
-							Listeners.debug = true;
-							sender.sendMessage(ChatColor.GRAY + "Turned on debugging.");
-						}
-						break;
-					case "flushsql":
-						sender.sendMessage(ChatColor.GRAY + "Flushing SQL...");
+public class CoreCommands {
+    public void onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("plugin")) {
+            if (sender.hasPermission("gFeatures.command.plugins")) {
+                StringBuilder plugins = new StringBuilder("EstiNet");
+                for (Plugin plugin : Bukkit.getPluginManager().getPlugins()) {
+                    plugins.append(", ").append(plugin.getName());
+                }
+                sender.sendMessage("Plugins (" + Bukkit.getServer().getPluginManager().getPlugins().length + "): " + ChatColor.GREEN + plugins);
+            } else {
+                sender.sendMessage("Plugins (1): " + ChatColor.GREEN + "gFeatures");
+            }
+        } else if (cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")) {
+            try {
+                if (args.length == 0) {
+                    if (cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")) {
+                        sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+                    }
+                } else if (args.length == 1) {
+                    switch (args[0]) {
+                        case "version":
+                            sender.sendMessage(ChatColor.GRAY + "gFeatures Version " + Listeners.version);
+                            break;
+                        case "help":
+                            sender.sendMessage(ChatColor.GRAY + "------Help------");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures version : States the version.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures list : Lists all features with their states and versions also.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures featurestate <Feature> : Gets the state of the feature.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures flush : Flushes the Player API.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures flushsql : Flushes the SQLPlayer API.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsql : Shows loaded SQL players.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures loadedsqlfields : Shows loaded SQL fields.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures send <Cliote> <Identifier> <Message> : Sends a manual message to the ClioteSkyOld server.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures debug : Turns on debug messages.");
+                            sender.sendMessage(ChatColor.GRAY + "/gFeatures reload : Reloads the plugin.");
+                            break;
+                        case "list":
+                            List<gFeature> features = gFeatures.getFeatures();
+                            List<Extension> extensions = gFeatures.getExtensions();
+                            sender.sendMessage(ChatColor.GRAY + "Features:");
+                            sender.sendMessage(ChatColor.GRAY + "Enabled:");
+                            for (gFeature feature : features) {
+                                if (feature.getState().equals(FeatureState.ENABLE)) {
+                                    sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
+                                }
+                            }
+                            sender.sendMessage(ChatColor.GRAY + "Disabled:");
+                            for (gFeature feature : features) {
+                                if (feature.getState().equals(FeatureState.DISABLE)) {
+                                    sender.sendMessage(ChatColor.GRAY + " - " + feature.getName() + " " + feature.getVersion());
+                                }
+                            }
+                            sender.sendMessage(ChatColor.GRAY + "Extensions:");
+                            sender.sendMessage(ChatColor.GRAY + "Enabled:");
+                            for (Extension extension : extensions) {
+                                if (extension.getState().equals(FeatureState.ENABLE)) {
+                                    sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
+                                }
+                            }
+                            sender.sendMessage(ChatColor.GRAY + "Disabled:");
+                            for (Extension extension : extensions) {
+                                if (extension.getState().equals(FeatureState.DISABLE)) {
+                                    sender.sendMessage(ChatColor.GRAY + " - " + extension.getName() + " " + extension.getVersion());
+                                }
+                            }
+                            break;
+                        case "featurestate":
+                            sender.sendMessage(ChatColor.GRAY + "Usage: /gFeatures featurestate <Plugin>");
+                            break;
+                        case "gplist":
+                            sender.sendMessage(ChatColor.GRAY + "gPlayers initialized:");
+                            for (gPlayer gp : gFeatures.getgPlayers()) {
+                                sender.sendMessage(ChatColor.GRAY + "- " + gp.getName());
+                            }
+                            break;
+                        case "reload":
+                            Enabler enable = new Enabler();
+                            Disabler disable = new Disabler();
+                            Setup setup = new Setup();
+                            Load load = new Load();
+                            Bukkit.getLogger().info("_________________________________________________________________________");
+                            Bukkit.getLogger().info("Stopping gFeatures!");
+                            Bukkit.getLogger().info("Current version: " + Listeners.version);
+                            Bukkit.getLogger().info("Turning off modules!");
+                            disable.onDisable();
+                            Bukkit.getLogger().info("Complete!");
+                            Bukkit.getLogger().info("_________________________________________________________________________");
+                            Bukkit.getLogger().info("_________________________________________________________________________");
+                            Bukkit.getLogger().info("Starting gFeatures!");
+                            Bukkit.getLogger().info("Current version: " + Listeners.version);
+                            Bukkit.getLogger().info("Starting modules!");
+                            setup.onSetup();
+                            SetupConfig.setup();
+                            LoadConfig.load();
+                            ClioteSky.initClioteSky();
+                            enable.onEnable();
+                            gFeatures.addPlayerSection("Setup", "DO NOT REMOVE!");
+                            load.load();
+                            try {
+                                Obtain.start();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            gLoop gl = new gLoop();
+                            gl.start();
+                            Bukkit.getLogger().info(" Complete!");
+                            Bukkit.getLogger().info("_________________________________________________________________________");
+                            sender.sendMessage(ChatColor.GRAY + "Reload complete.");
+                            break;
+                        case "flush":
+                            for (gPlayer gp : gFeatures.getgPlayers()) {
+                                net.estinet.gFeatures.API.PlayerStats.Setup s = new net.estinet.gFeatures.API.PlayerStats.Setup();
+                                s.flushPlayer(gp);
+                            }
+                            sender.sendMessage(ChatColor.GRAY + "Player flush complete.");
+                            break;
+                        case "debug":
+                            if (Listeners.debug) {
+                                Listeners.debug = false;
+                                sender.sendMessage(ChatColor.GRAY + "Turned off debugging.");
+                            } else {
+                                Listeners.debug = true;
+                                sender.sendMessage(ChatColor.GRAY + "Turned on debugging.");
+                            }
+                            break;
+                        case "flushsql":
+                            sender.sendMessage(ChatColor.GRAY + "Flushing SQL...");
 
-						Thread thr = new Thread(new Runnable(){
-							public void run(){
-								gFeatures.recieveSQLPlayers();
-								sender.sendMessage(ChatColor.GRAY + "Finished!");
-							}
-						});
-						thr.start();
-						break;
-					case "loadedsql":
-						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Players:");
-						for(EstiPlayer p : gFeatures.getEstiPlayers()){
-							sender.sendMessage(ChatColor.GRAY + "- " + p.getName());
-						}
-						break;
-					case "loadedsqlfields":
-						sender.sendMessage(ChatColor.GRAY + "Loaded SQL Fields:");
-						for(EstiSet set : gFeatures.getSQLFields()){
-							sender.sendMessage(ChatColor.GRAY + "- " + set.getTag());
-							for(Object key : set.getData().keySet()){
-								Key keys = (Key) key;
-								sender.sendMessage(ChatColor.GRAY + "    - " + keys.getKey().toString());
-							}
-						}
-						break;
-					default:
-						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-							sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
-						}
-						break;
-					}
-				}
-				else if(args.length == 2){
-					switch(args[0]){
-					case "featurestate":
-						gFeature feature = gFeatures.getFeature(args[1]);
-						sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
-						break;
-					case "send":
-						NetworkThread nt = new NetworkThread();
-						nt.sendOutput(args[1]);
-						sender.sendMessage(ChatColor.GRAY + "Sent message " + args[1] + " to ClioteSkyOld.");
-						break;
-					default:
-						if(cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")){
-							sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
-						}
-						break;
-					}
-				}
-				else{
-					switch(args[0]){
-					case "send":
-						StringBuilder output = new StringBuilder();
-						for(int i = 0; i < args.length-1; i++){
-							output.append(args[i + 1]).append(" ");
-						}
-						NetworkThread nt = new NetworkThread();
-						nt.sendOutput(output.toString());
-						sender.sendMessage(ChatColor.GRAY + "Sent message " + output + "to ClioteSkyOld.");
-						break;
-					default:
-						sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
-						break;
-					}
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+                            Thread thr = new Thread(new Runnable() {
+                                public void run() {
+                                    gFeatures.recieveSQLPlayers();
+                                    sender.sendMessage(ChatColor.GRAY + "Finished!");
+                                }
+                            });
+                            thr.start();
+                            break;
+                        case "loadedsql":
+                            sender.sendMessage(ChatColor.GRAY + "Loaded SQL Players:");
+                            for (EstiPlayer p : gFeatures.getEstiPlayers()) {
+                                sender.sendMessage(ChatColor.GRAY + "- " + p.getName());
+                            }
+                            break;
+                        case "loadedsqlfields":
+                            sender.sendMessage(ChatColor.GRAY + "Loaded SQL Fields:");
+                            for (EstiSet set : gFeatures.getSQLFields()) {
+                                sender.sendMessage(ChatColor.GRAY + "- " + set.getTag());
+                                for (Object key : set.getData().keySet()) {
+                                    Key keys = (Key) key;
+                                    sender.sendMessage(ChatColor.GRAY + "    - " + keys.getKey().toString());
+                                }
+                            }
+                            break;
+                        default:
+                            if (cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")) {
+                                sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+                            }
+                            break;
+                    }
+                } else if (args.length == 2) {
+                    switch (args[0]) {
+                        case "featurestate":
+                            gFeature feature = gFeatures.getFeature(args[1]);
+                            sender.sendMessage(ChatColor.GRAY + "Feature " + args[1] + " state is " + feature.getState().toString());
+                            break;
+                        default:
+                            if (cmd.getName().equalsIgnoreCase("gf") || cmd.getName().equalsIgnoreCase("gfeatures")) {
+                                sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+                            }
+                            break;
+                    }
+                } else if (args.length >= 4) {
+                    switch (args[0]) {
+                        case "send":
+                            StringBuilder output = new StringBuilder();
+                            for (int i = 3; i < args.length; i++) {
+                                output.append(args[i]).append(i == args.length-1 ? "" : " ");
+                            }
+
+                            ClioteSky.getInstance().send(ClioteSky.stringToBytes(output.toString()), args[2], args[1]);
+                            sender.sendMessage(net.md_5.bungee.api.ChatColor.GRAY + "Sent message " + output + " to ClioteSky.");
+                            break;
+                        default:
+                            sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+                            break;
+                    }
+                } else {
+                    sender.sendMessage(ChatColor.GRAY + "Please do /gFeatures help.");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -38,63 +38,64 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Join {
-	StartStop ss = new StartStop();
-	Spectate s = new Spectate();
-	Lobby l = new Lobby();
-	GlidersScore ctfs = new GlidersScore();
-	ClearInventory ci = new ClearInventory();
-	public void init(PlayerJoinEvent event){
-		ci.clearInv(event.getPlayer());
-		event.getPlayer().setGameMode(GameMode.ADVENTURE);
-		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
-		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
-		switch(Basic.mode){
-		case WAITING:
-			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(l.Initialize(p));
-			}
-			event.getPlayer().setHealth(20);
-			event.getPlayer().setSaturation(20);
-			event.getPlayer().setFoodLevel(20);
-			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);
-			Basic.waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
-			event.getPlayer().teleport(Basic.waitspawn);
-			if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60){  //CHANGE WHEN DONE GAME
-				Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
-				ss.start();
-			}
-			ItemStack is = new ItemStack(Material.COMPASS, 1);
-			ItemMeta im = is.getItemMeta();
-			im.setDisplayName(ChatColor.DARK_AQUA + "Back to " + ChatColor.GOLD + "Hub");
-			is.setItemMeta(im);
-			event.getPlayer().getInventory().setItem(8, is);
-			
-			ItemStack is1 = new ItemStack(Material.CHEST, 1);
-			ItemMeta im1 = is1.getItemMeta();
-			im1.setDisplayName(ChatColor.DARK_AQUA + "Cosmetics");
-			is1.setItemMeta(im1);
-			event.getPlayer().getInventory().setItem(7, is1);
-			break;
-		case ENDED:
-			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(ctfs.Initialize(p));
-			}
-			event.getPlayer().teleport(Basic.spectatespawn);
-			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
-			s.handler(event.getPlayer());
-			event.getPlayer().setGameMode(GameMode.SPECTATOR);
-			break;
-		case STARTED:
-			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(ctfs.Initialize(p));
-			}
-			event.getPlayer().teleport(Basic.spectatespawn);
-			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
-			s.handler(event.getPlayer());
-			event.getPlayer().setGameMode(GameMode.SPECTATOR);
-			break;
-		default:
-			break;
-		}
-	}
+    StartStop ss = new StartStop();
+    Spectate s = new Spectate();
+    Lobby l = new Lobby();
+    GlidersScore ctfs = new GlidersScore();
+    ClearInventory ci = new ClearInventory();
+
+    public void init(PlayerJoinEvent event) {
+        ci.clearInv(event.getPlayer());
+        event.getPlayer().setGameMode(GameMode.ADVENTURE);
+        Basic.kills.put(event.getPlayer().getUniqueId(), 0);
+        Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
+        switch (Basic.mode) {
+            case WAITING:
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    p.setScoreboard(l.Initialize(p));
+                }
+                event.getPlayer().setHealth(20);
+                event.getPlayer().setSaturation(20);
+                event.getPlayer().setFoodLevel(20);
+                Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.WAITING);
+                Basic.waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
+                event.getPlayer().teleport(Basic.waitspawn);
+                if (Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60) {  //CHANGE WHEN DONE GAME
+                    Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
+                    ss.start();
+                }
+                ItemStack is = new ItemStack(Material.COMPASS, 1);
+                ItemMeta im = is.getItemMeta();
+                im.setDisplayName(ChatColor.DARK_AQUA + "Back to " + ChatColor.GOLD + "Hub");
+                is.setItemMeta(im);
+                event.getPlayer().getInventory().setItem(8, is);
+
+                ItemStack is1 = new ItemStack(Material.CHEST, 1);
+                ItemMeta im1 = is1.getItemMeta();
+                im1.setDisplayName(ChatColor.DARK_AQUA + "Cosmetics");
+                is1.setItemMeta(im1);
+                event.getPlayer().getInventory().setItem(7, is1);
+                break;
+            case ENDED:
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    p.setScoreboard(ctfs.Initialize(p));
+                }
+                event.getPlayer().teleport(Basic.spectatespawn);
+                Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
+                s.handler(event.getPlayer());
+                event.getPlayer().setGameMode(GameMode.SPECTATOR);
+                break;
+            case STARTED:
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    p.setScoreboard(ctfs.Initialize(p));
+                }
+                event.getPlayer().teleport(Basic.spectatespawn);
+                Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
+                s.handler(event.getPlayer());
+                event.getPlayer().setGameMode(GameMode.SPECTATOR);
+                break;
+            default:
+                break;
+        }
+    }
 }

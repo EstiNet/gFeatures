@@ -29,6 +29,6 @@ public class Disable{
 		Bukkit.getLogger().info("[CTF] Disabled :/");
 		ConfligInit ci = new ConfligInit();
 		ci.deleteConfigs();
-		ClioteSky.getInstance().sendAsync(new byte[0], "mgcomplete", "Bungee");
+		ClioteSky.getInstance().send(new byte[0], "mgcomplete", "Bungee");
 	}
 }

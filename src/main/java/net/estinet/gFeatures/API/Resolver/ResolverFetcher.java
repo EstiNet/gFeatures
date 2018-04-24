@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.API.Resolver;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 
 import java.util.Hashtable;
@@ -40,8 +40,7 @@ public class ResolverFetcher {
                 if(!args.get(0).equals("*")) hashtable.put(name, args.get(0));
                 re.run(args.get(0));
             });
-            CliotePing cp = new CliotePing();
-            cp.sendMessage("info uuidlookup " + name, "Bungee");
+            ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("uuidlookup " + name), "info", "Bungee");
         }
     }
 }

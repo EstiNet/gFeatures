@@ -33,68 +33,81 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gFactions extends gFeature{
-	Listeners listeners = new Listeners();
-	Enable en = new Enable();
-	EventHub eh = new EventHub();
-	public gFactions(String featurename, String d) {
-		super(featurename, d);
-	}
-	@Override
-	public void enable(){
-		en.plzenable();
-	}
-	@Override
-	public void disable(){
-		listeners.onDisable();
-	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerentityinteractevent")){
-			eh.onPlayerInteract((PlayerInteractEntityEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("worldloadevent")){
-			eh.onWorldLoad((WorldLoadEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("EntityDamageEvent")){
-			eh.onEntityDamage((EntityDamageEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
-			eh.onEntityDamage((EntityDamageByEntityEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
-			eh.onEntityExplode((EntityExplodeEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("asyncplayerchatevent")){
-			eh.onPlayerChat((AsyncPlayerChatEvent)event);
-		}
-	}
-	@Retrieval
-	@Override
-	public void onPlayerJoin(){}
-	@Retrieval
-	@Override
-	public void onPlayerInteractEntity(){}
-	@Retrieval
-	@Override
-	public void onWorldLoad(){}
-	@Retrieval
-	@Override
-	public void onEntityDamage(){}
-	@Retrieval
-	@Override
-	public void onEntityExplode(){}
-	@Retrieval
-	@Override
-	public void onEntityDamageByEntity(){}
-	@Retrieval
-	@Override
-	public void onPlayerChat(){}
-	@Override
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
-			//When commands are implemented
-	}
+public class gFactions extends gFeature {
+    Listeners listeners = new Listeners();
+    Enable en = new Enable();
+    EventHub eh = new EventHub();
+
+    public gFactions(String featurename, String d) {
+        super(featurename, d);
+    }
+
+    @Override
+    public void enable() {
+        en.plzenable();
+    }
+
+    @Override
+    public void disable() {
+        listeners.onDisable();
+    }
+
+    @Override
+    public void eventTrigger(Event event) {
+        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
+
+        } else if (event.getEventName().equalsIgnoreCase("playerentityinteractevent")) {
+            eh.onPlayerInteract((PlayerInteractEntityEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("worldloadevent")) {
+            eh.onWorldLoad((WorldLoadEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("EntityDamageEvent")) {
+            eh.onEntityDamage((EntityDamageEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")) {
+            eh.onEntityDamage((EntityDamageByEntityEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("entityexplodeevent")) {
+            eh.onEntityExplode((EntityExplodeEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("asyncplayerchatevent")) {
+            eh.onPlayerChat((AsyncPlayerChatEvent) event);
+        }
+    }
+
+    @Retrieval
+    @Override
+    public void onPlayerJoin() {
+    }
+
+    @Retrieval
+    @Override
+    public void onPlayerInteractEntity() {
+    }
+
+    @Retrieval
+    @Override
+    public void onWorldLoad() {
+    }
+
+    @Retrieval
+    @Override
+    public void onEntityDamage() {
+    }
+
+    @Retrieval
+    @Override
+    public void onEntityExplode() {
+    }
+
+    @Retrieval
+    @Override
+    public void onEntityDamageByEntity() {
+    }
+
+    @Retrieval
+    @Override
+    public void onPlayerChat() {
+    }
+
+    @Override
+    public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
+        //When commands are implemented
+    }
 }

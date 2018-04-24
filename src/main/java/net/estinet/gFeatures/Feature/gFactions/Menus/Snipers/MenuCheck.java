@@ -22,11 +22,12 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class MenuCheck {
-	TierOne to = new TierOne();
-	TierTwo tt = new TierTwo();
-	TierThree tth = new TierThree();
-	TierFour tf = new TierFour();
-	public void check(Player p){/*
+    TierOne to = new TierOne();
+    TierTwo tt = new TierTwo();
+    TierThree tth = new TierThree();
+    TierFour tf = new TierFour();
+
+    public void check(Player p) {/*
 		if((Basic.getgPlayer(p.getUniqueId().toString()).getValue("gFactionsTier").equals("1"))){
 			InventoryAPI iapi = TierOne.makeInventory(p, Basic.getgPlayer(p.getUniqueId().toString()));
 			iapi.open(p);
@@ -43,5 +44,5 @@ public class MenuCheck {
 			InventoryAPI iapi = TierFour.makeInventory(p, Basic.getgPlayer(p.getUniqueId().toString()));
 			iapi.open(p);
 		}*/
-	}
+    }
 }

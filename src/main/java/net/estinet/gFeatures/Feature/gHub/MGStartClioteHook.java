@@ -1,10 +1,8 @@
 package net.estinet.gFeatures.Feature.gHub;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
 
 /*
 gFeatures
@@ -25,19 +23,20 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class MGStartClioteHook extends ClioteHook{
+public class MGStartClioteHook extends ClioteHook {
 
-	public MGStartClioteHook(gFeature feature) {
-		super(feature, "mgstart");
-	}
-	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
-		try{
-			Basis.recieving = true;
-			Basis.assemble = new ArrayList<>();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+    public MGStartClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
+    }
+
+    @Override
+    public void run(byte[] data, String sender) {
+        try {
+            Basis.recieving = true;
+            Basis.assemble = new ArrayList<>();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

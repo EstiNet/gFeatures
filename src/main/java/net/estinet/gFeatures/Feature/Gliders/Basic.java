@@ -28,57 +28,58 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basic {
-	public static List<Location> planespawn;
-	public static List<Location> towerspawn;
-	public static Location spectatespawn;
-	public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
-	public static Location flag;
-	public static Player flagger = null;
-	public static int countdown = 60;  //CHANGE TO 60 when complete game
-	public static int minutes = 5;
-	public static int seconds = 0;
-	public static String mapName = "";
-	public static HashMap<UUID, Integer> kills = new HashMap<>();
-	public static HashMap<UUID, Integer> deaths = new HashMap<>();
-	public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
-	public static HashMap<UUID, Team> teams = new HashMap<>();
-	public static Mode mode = Mode.WAITING;
-	public static Team winningteam = null;
-	public static boolean swap = false;
-	public static Team firstteam = null;
-	
-	public static boolean isInOrange(Player p){
-		if(teams.get(p.getUniqueId()).equals(Team.ORANGE)){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	public static boolean isInBlue(Player p){
-		if(teams.get(p.getUniqueId()).equals(Team.BLUE)){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	public static int getOrangeSize(){
-		int ret = 0;
-		for(Team t : teams.values()){
-			if(t.equals(Team.ORANGE)){
-				ret++;
-			}
-		}
-		return ret;
-	}
-	public static int getBlueSize(){
-		int ret = 0;
-		for(Team t : teams.values()){
-			if(t.equals(Team.BLUE)){
-				ret++;
-			}
-		}
-		return ret;
-	}
+    public static List<Location> planespawn;
+    public static List<Location> towerspawn;
+    public static Location spectatespawn;
+    public static Location waitspawn = new Location(Bukkit.getWorld("MinigameSpawn"), 76.5, 96.5, 91.5);
+    public static Location flag;
+    public static Player flagger = null;
+    public static int countdown = 60;  //CHANGE TO 60 when complete game
+    public static int minutes = 5;
+    public static int seconds = 0;
+    public static String mapName = "";
+    public static HashMap<UUID, Integer> kills = new HashMap<>();
+    public static HashMap<UUID, Integer> deaths = new HashMap<>();
+    public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
+    public static HashMap<UUID, Team> teams = new HashMap<>();
+    public static Mode mode = Mode.WAITING;
+    public static Team winningteam = null;
+    public static boolean swap = false;
+    public static Team firstteam = null;
+
+    public static boolean isInOrange(Player p) {
+        if (teams.get(p.getUniqueId()).equals(Team.ORANGE)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean isInBlue(Player p) {
+        if (teams.get(p.getUniqueId()).equals(Team.BLUE)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static int getOrangeSize() {
+        int ret = 0;
+        for (Team t : teams.values()) {
+            if (t.equals(Team.ORANGE)) {
+                ret++;
+            }
+        }
+        return ret;
+    }
+
+    public static int getBlueSize() {
+        int ret = 0;
+        for (Team t : teams.values()) {
+            if (t.equals(Team.BLUE)) {
+                ret++;
+            }
+        }
+        return ret;
+    }
 }

@@ -26,16 +26,16 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Camera {
-	public void Tutorial(final Player p){
-		p.hidePlayer(p);
-		for(World world : Bukkit.getServer().getWorlds()){
-			Bukkit.getLogger().info(world.getName());
-		}
-		World world = Bukkit.getServer().getWorld("Factions1.8.3");
-		final Location loc = new Location(world, -130.6, 67, 14.3, 20.9F, 50.1F);
-		final Location loc1 = new Location(world, -58.5, 105.3, 35.2, 47.3F, 218.7F);
-		final Location loc2 = new Location(world, -120.7, 89.4, -20.5, 39.5F, 33.6F);
-		final Location loc3 = new Location(world, -148, 72.9, 5.8, 7.2F, 89.1F);
+    public void Tutorial(final Player p) {
+        p.hidePlayer(p);
+        for (World world : Bukkit.getServer().getWorlds()) {
+            Bukkit.getLogger().info(world.getName());
+        }
+        World world = Bukkit.getServer().getWorld("Factions1.8.3");
+        final Location loc = new Location(world, -130.6, 67, 14.3, 20.9F, 50.1F);
+        final Location loc1 = new Location(world, -58.5, 105.3, 35.2, 47.3F, 218.7F);
+        final Location loc2 = new Location(world, -120.7, 89.4, -20.5, 39.5F, 33.6F);
+        final Location loc3 = new Location(world, -148, 72.9, 5.8, 7.2F, 89.1F);
 		/*Location loc = new Location(world, 44.3, 206, -167, 10.8F, -317.2F);
 		loc.setPitch(-317.2F);
 		loc.setYaw(10.8F);
@@ -84,112 +84,113 @@ public class Camera {
 		final Location loc15 = new Location(world,-101.2,66,37.9,-12.1F,-239.8F);
 		loc.setPitch(-239.8F);
 		loc.setYaw(-12.1F);*/
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
-		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		p.sendMessage(ChatColor.DARK_AQUA + "Welcome to EstiNet " + ChatColor.RED + "Factions" + ChatColor.DARK_AQUA + "!");
-		p.sendMessage(ChatColor.DARK_AQUA + "Before we begin, we are going to setup the tutorial. This may take up to 20 seconds.!");
-		p.sendMessage(ChatColor.DARK_AQUA + "During this time you will be teleported and you will be executing some commands!");
-		//SETUP
-		p.teleport(loc);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-		p.teleport(loc1);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-		p.teleport(loc2);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-		p.teleport(loc3);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
-        		}
-			}, 20L);
-	        	}
-			}, 20L);
-	        	}
-			}, 20L);
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam start 30s");
-		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		p.sendMessage(ChatColor.DARK_AQUA + "Done! Let's get started!");
-		p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
-		p.sendMessage(ChatColor.DARK_AQUA + "We'll be hovering here for a while.");
-		p.sendMessage(ChatColor.DARK_AQUA + "Sit back and enjoy the ride!");
-		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		p.showPlayer(p);
-		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " remove camerastudio");
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add camerastudio");
+        p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+        p.sendMessage(ChatColor.DARK_AQUA + "Welcome to EstiNet " + ChatColor.RED + "Factions" + ChatColor.DARK_AQUA + "!");
+        p.sendMessage(ChatColor.DARK_AQUA + "Before we begin, we are going to setup the tutorial. This may take up to 20 seconds.!");
+        p.sendMessage(ChatColor.DARK_AQUA + "During this time you will be teleported and you will be executing some commands!");
+        //SETUP
+        p.teleport(loc);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                p.teleport(loc1);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                    public void run() {
+                        p.teleport(loc2);
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                            public void run() {
+                                p.teleport(loc3);
+                                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam p");
+                            }
+                        }, 20L);
+                    }
+                }, 20L);
+            }
+        }, 20L);
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " cam start 30s");
+                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                p.sendMessage(ChatColor.DARK_AQUA + "Done! Let's get started!");
+                p.sendMessage(ChatColor.DARK_AQUA + "Now, this is our spawn.");
+                p.sendMessage(ChatColor.DARK_AQUA + "We'll be hovering here for a while.");
+                p.sendMessage(ChatColor.DARK_AQUA + "Sit back and enjoy the ride!");
+                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                p.showPlayer(p);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " remove camerastudio");
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 
-			@Override
-			public void run() {
-				nextPlayer(p);
-			}
-			
-    		}, 650L);
-        	}
-		}, 70L);
-	}
-	public void nextPlayer(final Player p){
-		final World world = Bukkit.getServer().getWorld("Factions1.8.3");
-		Location locs = new Location(world, 31, 207, -118, 21.75F, 179.228F);
-		p.teleport(locs);
-		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		p.sendMessage(ChatColor.DARK_AQUA + "This is where you first spawn!");
-		p.sendMessage(ChatColor.DARK_AQUA + "Nothing much here. -_-");
-		p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                    @Override
+                    public void run() {
+                        nextPlayer(p);
+                    }
 
-			@Override
-			public void run() {
-				Location locs = new Location(world, -117, 65, 45, 36.728F, -9.3F);
-				p.teleport(locs);
-				p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-				p.sendMessage(ChatColor.DARK_AQUA + "This is our fishing shack!");
-				p.sendMessage(ChatColor.DARK_AQUA + "Hike down the mountain or do /warp Fishing to get here!");
-				p.sendMessage(ChatColor.DARK_AQUA + "There are also animals around here.");
-				p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                }, 650L);
+            }
+        }, 70L);
+    }
 
-					@Override
-					public void run() {
-						Location locs = new Location(world, 41, 206, -127, 90.278F, 0.15F);
-						p.teleport(locs);
-						p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-						p.sendMessage(ChatColor.DARK_AQUA + "This is our shop!");
-						p.sendMessage(ChatColor.DARK_AQUA + "You can buy guns, obsidian, and any other necessities here!");
-						p.sendMessage(ChatColor.DARK_AQUA + "You can also do /buy.");
-						p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-						Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+    public void nextPlayer(final Player p) {
+        final World world = Bukkit.getServer().getWorld("Factions1.8.3");
+        Location locs = new Location(world, 31, 207, -118, 21.75F, 179.228F);
+        p.teleport(locs);
+        p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+        p.sendMessage(ChatColor.DARK_AQUA + "This is where you first spawn!");
+        p.sendMessage(ChatColor.DARK_AQUA + "Nothing much here. -_-");
+        p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 
-							@Override
-							public void run() {
-								Location locs = new Location(world, -9, 216, -162, 299.228F, 40.5F);
-								p.teleport(locs);
-								p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-								p.sendMessage(ChatColor.DARK_AQUA + "This is our dock!");
-								p.sendMessage(ChatColor.DARK_AQUA + "Summon a boat and travel to the wilderness!");
-								p.sendMessage(ChatColor.DARK_AQUA + "Do /warp Boat to get here.");
-								p.sendMessage(ChatColor.DARK_AQUA + "That's the end of the quick tutorial. Thanks!");
-								p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
-								Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            @Override
+            public void run() {
+                Location locs = new Location(world, -117, 65, 45, 36.728F, -9.3F);
+                p.teleport(locs);
+                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                p.sendMessage(ChatColor.DARK_AQUA + "This is our fishing shack!");
+                p.sendMessage(ChatColor.DARK_AQUA + "Hike down the mountain or do /warp Fishing to get here!");
+                p.sendMessage(ChatColor.DARK_AQUA + "There are also animals around here.");
+                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
 
-									@Override
-									public void run() {
-										Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
-									}
-									
-						    		}, 160L);
-							}
-							
-				    		}, 160L);
-					}
-					
-		    		}, 175L);
-			}
-			
-    		}, 170L);
-	}
+                    @Override
+                    public void run() {
+                        Location locs = new Location(world, 41, 206, -127, 90.278F, 0.15F);
+                        p.teleport(locs);
+                        p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                        p.sendMessage(ChatColor.DARK_AQUA + "This is our shop!");
+                        p.sendMessage(ChatColor.DARK_AQUA + "You can buy guns, obsidian, and any other necessities here!");
+                        p.sendMessage(ChatColor.DARK_AQUA + "You can also do /buy.");
+                        p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+
+                            @Override
+                            public void run() {
+                                Location locs = new Location(world, -9, 216, -162, 299.228F, 40.5F);
+                                p.teleport(locs);
+                                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                                p.sendMessage(ChatColor.DARK_AQUA + "This is our dock!");
+                                p.sendMessage(ChatColor.DARK_AQUA + "Summon a boat and travel to the wilderness!");
+                                p.sendMessage(ChatColor.DARK_AQUA + "Do /warp Boat to get here.");
+                                p.sendMessage(ChatColor.DARK_AQUA + "That's the end of the quick tutorial. Thanks!");
+                                p.sendMessage(ChatColor.AQUA + "____" + ChatColor.GOLD + "Tutorial" + ChatColor.AQUA + "____");
+                                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+
+                                    @Override
+                                    public void run() {
+                                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "sudo " + p.getName() + " spawn");
+                                    }
+
+                                }, 160L);
+                            }
+
+                        }, 160L);
+                    }
+
+                }, 175L);
+            }
+
+        }, 170L);
+    }
 }

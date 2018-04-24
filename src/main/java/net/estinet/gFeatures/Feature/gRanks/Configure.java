@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.gFeatures;
 
@@ -24,16 +24,15 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Configure{
-	@Configs
-	public static void onSetup(){
-		gRanks base = new gRanks("gRanks", "1.9.0");
-		gFeatures.addFeature(base);
-		
-		EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", "gFeatures.admin", base, true);
-		gFeatures.addCommand(test);
-		
-		gRanksClioteHook grch = new gRanksClioteHook(base);
-		ClioteSky.addClioteHook(grch);
-	}
+public class Configure {
+    @Configs
+    public static void onSetup() {
+        gRanks base = new gRanks("gRanks", "1.9.0");
+        gFeatures.addFeature(base);
+
+        EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", "gFeatures.admin", base, true);
+        gFeatures.addCommand(test);
+
+        ClioteSky.addHook(new gRanksClioteHook("granks", base.getName()));
+    }
 }

@@ -29,46 +29,44 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class GetMenu {
-	net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner autorifle = new net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner();
-	net.estinet.gFeatures.Feature.gFactions.Menus.Shotgun.Beginner shotgun = new net.estinet.gFeatures.Feature.gFactions.Menus.Shotgun.Beginner();
-	net.estinet.gFeatures.Feature.gFactions.Menus.Snipers.Beginner sniper = new net.estinet.gFeatures.Feature.gFactions.Menus.Snipers.Beginner();
-	public void start(PlayerInteractEntityEvent event){
-		Bukkit.getLogger().info(event.getPlayer().getUniqueId().toString());
-		Bukkit.getLogger().info(event.getRightClicked().getUniqueId().toString());
-		Bukkit.getLogger().info(Blaze.autorifles.toString());
-		if(event.getRightClicked().getUniqueId().equals(Blaze.autorifles)){
-			Bukkit.getLogger().info(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier"));
-			if(!(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
-				autorifle.makeInventory(event.getPlayer(), gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()));
-				Blaze.invtrigger.add(event.getPlayer().getName());
-			}
-		}
-		else if(event.getRightClicked().getUniqueId().equals(Blaze.shotguns)){
-			
-		}
-		else if(event.getRightClicked().getUniqueId().equals(Blaze.snipers)){
-			
-		}
-	}
-	public void start(EntityDamageByEntityEvent event){
-		Player pl = (Player) event.getDamager();
-		if(event.getEntity().getUniqueId().toString().equals(Blaze.autorifles.toString())){
-			if(!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))){
-				InventoryAPI iapi = autorifle.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
-				iapi.open(pl);
-			}
-		}
-		else if(event.getEntity().getUniqueId().toString().equals(Blaze.shotguns.toString())){
-			if(!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun"))){
-				InventoryAPI iapi = shotgun.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
-				iapi.open(pl);
-			}
-		}
-		else if(event.getEntity().getUniqueId().toString().equals(Blaze.snipers.toString())){
-			if(!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))){
-				InventoryAPI iapi = sniper.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
-				iapi.open(pl);
-			}
-		}
-	}
+    net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner autorifle = new net.estinet.gFeatures.Feature.gFactions.Menus.Autorifle.Beginner();
+    net.estinet.gFeatures.Feature.gFactions.Menus.Shotgun.Beginner shotgun = new net.estinet.gFeatures.Feature.gFactions.Menus.Shotgun.Beginner();
+    net.estinet.gFeatures.Feature.gFactions.Menus.Snipers.Beginner sniper = new net.estinet.gFeatures.Feature.gFactions.Menus.Snipers.Beginner();
+
+    public void start(PlayerInteractEntityEvent event) {
+        Bukkit.getLogger().info(event.getPlayer().getUniqueId().toString());
+        Bukkit.getLogger().info(event.getRightClicked().getUniqueId().toString());
+        Bukkit.getLogger().info(Blaze.autorifles.toString());
+        if (event.getRightClicked().getUniqueId().equals(Blaze.autorifles)) {
+            Bukkit.getLogger().info(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier"));
+            if (!(gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))) {
+                autorifle.makeInventory(event.getPlayer(), gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()));
+                Blaze.invtrigger.add(event.getPlayer().getName());
+            }
+        } else if (event.getRightClicked().getUniqueId().equals(Blaze.shotguns)) {
+
+        } else if (event.getRightClicked().getUniqueId().equals(Blaze.snipers)) {
+
+        }
+    }
+
+    public void start(EntityDamageByEntityEvent event) {
+        Player pl = (Player) event.getDamager();
+        if (event.getEntity().getUniqueId().toString().equals(Blaze.autorifles.toString())) {
+            if (!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("autorifle"))) {
+                InventoryAPI iapi = autorifle.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
+                iapi.open(pl);
+            }
+        } else if (event.getEntity().getUniqueId().toString().equals(Blaze.shotguns.toString())) {
+            if (!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("shotgun"))) {
+                InventoryAPI iapi = shotgun.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
+                iapi.open(pl);
+            }
+        } else if (event.getEntity().getUniqueId().toString().equals(Blaze.snipers.toString())) {
+            if (!(gFeatures.getgPlayer(pl.getUniqueId().toString()).getValue("gFactionsTier").equals("sniper"))) {
+                InventoryAPI iapi = sniper.makeInventory(pl, gFeatures.getgPlayer(pl.getUniqueId().toString()));
+                iapi.open(pl);
+            }
+        }
+    }
 }

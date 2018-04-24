@@ -59,162 +59,165 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-	static ItemStack navigator, additions, settings, pane, friend;
-	HidePlayers hp = new HidePlayers();
-	Stacker st = new Stacker();
+    static ItemStack navigator, additions, settings, pane, friend;
+    HidePlayers hp = new HidePlayers();
+    Stacker st = new Stacker();
 
-	public EventHub(){
-		navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
-		additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
-		settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
-		pane = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
-		pane = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 7);
-		ItemMeta im = pane.getItemMeta();
-		im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
-		pane.setItemMeta(im);
-		friend = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
-		ItemMeta ims = friend.getItemMeta();
-		ims.setDisplayName(ChatColor.GOLD + "Friends");
-		friend.setItemMeta(ims);
-	}
+    public EventHub() {
+        navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
+        additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
+        settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
+        pane = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
+        pane = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
+        ItemMeta im = pane.getItemMeta();
+        im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
+        pane.setItemMeta(im);
+        friend = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+        ItemMeta ims = friend.getItemMeta();
+        ims.setDisplayName(ChatColor.GOLD + "Friends");
+        friend.setItemMeta(ims);
+    }
 
-	public void onPlayerJoin(PlayerJoinEvent event){
-		Player p = event.getPlayer();
-		p.teleport(gHub.spawn);
-		ClearInventory ci = new ClearInventory();
-		ci.clearInv(p);
-		p.setGameMode(GameMode.ADVENTURE);
-		p.getInventory().setItem(0, pane);
-		p.getInventory().setItem(1, friend);
-		p.getInventory().setItem(2, pane);
-		p.getInventory().setItem(6, pane);
-		p.getInventory().setItem(4, navigator);
-		p.getInventory().setItem(3, additions);
-		p.getInventory().setItem(5, settings);
-		p.getInventory().setItem(7, pane);
-		p.getInventory().setItem(8, pane);
-		Constants.playerOn.put(p.getUniqueId(), true);
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        Player p = event.getPlayer();
+        p.teleport(gHub.spawn);
+        ClearInventory ci = new ClearInventory();
+        ci.clearInv(p);
+        p.setGameMode(GameMode.ADVENTURE);
+        p.getInventory().setItem(1, friend);
+        p.getInventory().setItem(4, navigator);
+        p.getInventory().setItem(3, additions);
+        p.getInventory().setItem(5, settings);
+        Constants.playerOn.put(p.getUniqueId(), true);
         event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-		Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), new Runnable(){
-		public void run(){
-			try{
-				Retrieve r = new Retrieve();
-				String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-				String prefix = prefixs.replace('&', '§');
-				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-			}
-			catch(Exception e){
-				event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-			}
-		}});
-		for(UUID uuid : Constants.playerOn.keySet()){
-			if(!Constants.playerOn.get(uuid)){
-				Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
-			}
-		}
-	}
-	public void onPlayerDrop(PlayerDropItemEvent event){
-		event.setCancelled(true);
-	}
-	public void onPlayerInteract(PlayerInteractEvent event){
-		if(event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)){
-			switch(event.getPlayer().getInventory().getItemInMainHand().getType()){
-			case CHEST:
-				MainShop ms = new MainShop();
-				ms.init(event.getPlayer());
-				break;
-			case FURNACE:
-				Settings s = new Settings();
-				s.init(event.getPlayer());
-				break;
-			case SKULL_ITEM:
-				FriendsMenu fm = new FriendsMenu();
-				fm.init(event.getPlayer());
-				break;
-			case COMPASS:
-				//Compass c = new Compass();
-				//c.init(event.getPlayer());
-				break;
-			default:
-				break;
-			}
-		}
-		st.onInteract(event);
-		event.setCancelled(true);
-	}
-	public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
-		Player player = event.getPlayer();
-		if ((player.getGameMode() != GameMode.CREATIVE))
-		{
-			event.setCancelled(true);
-			player.setAllowFlight(false);
-			player.setFlying(false);
-			player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
-			player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
-		}
-	}
-	public void onPlayerMove(PlayerMoveEvent event){
-		event.getPlayer().setAllowFlight(true);
-	}
-	public void onInventoryClick(InventoryClickEvent event){
-		event.setCancelled(true);
-	}
-	public void onEntityDamage(EntityDamageEvent event){
-		event.setCancelled(true);
-	}
-	public void onFoodLevelChange(FoodLevelChangeEvent event) {
-		Player p = (Player) event.getEntity();
-		p.setFoodLevel(20);
-		event.setCancelled(true);
-	}
-	public void onPlayerInteractEntity(PlayerInteractEntityEvent event){
-		st.onEntityInteract(event);
-	}
-	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		if(event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)){
-			CrystalInteract ci = new CrystalInteract();
-			ci.init(event.getEntity().getLocation(), (Player) event.getDamager());
-		}
-		event.setCancelled(true);
-	}
-	public void onWeatherChange(WeatherChangeEvent event){
-		boolean d = event.toWeatherState();
-		if(d){
-			event.setCancelled(true);
-		}
-	}
-	public void onPlayerLeave(PlayerQuitEvent event){
-		try{
-			Retrieve r = new Retrieve();
-			String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-			String prefix = prefixs.replace('&', '§');
-			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
-		}
-		catch(Exception e){
-			event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
-		}
-	}
-	public ItemStack createItem(Material material, String name, String ... lore){
-		ItemStack item = new ItemStack(material, 1);
-		List<String> lores = new ArrayList<>();
-		for(String lor : lore){
-			lores.add(lor);
-		}
-		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName(name);
-		meta.setLore(lores);
-		item.setItemMeta(meta);
-		return item;
-	}
+        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+            try {
+                Retrieve r = new Retrieve();
+                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+                String prefix = prefixs.replace('&', '§');
+                event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
+            } catch (Exception e) {
+                event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+            }
+        });
+        for (UUID uuid : Constants.playerOn.keySet()) {
+            if (!Constants.playerOn.get(uuid)) {
+                Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
+            }
+        }
+    }
 
-	public void onInventoryInteract(InventoryInteractEvent event) {
-		event.setCancelled(true);
-	}
+    public void onPlayerDrop(PlayerDropItemEvent event) {
+        event.setCancelled(true);
+    }
 
-	public void onWorldLoad(WorldLoadEvent event) {
-		Crystal c = new Crystal();
-		c.initCrystal();
-		gHubConfig ghc = new gHubConfig();
-		ghc.retrieve();
-	}
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR)) {
+            switch (event.getPlayer().getInventory().getItemInMainHand().getType()) {
+                case CHEST:
+                    MainShop ms = new MainShop();
+                    ms.init(event.getPlayer());
+                    break;
+                case FURNACE:
+                    Settings s = new Settings();
+                    s.init(event.getPlayer());
+                    break;
+                case SKULL_ITEM:
+                    FriendsMenu fm = new FriendsMenu();
+                    fm.init(event.getPlayer());
+                    break;
+                case COMPASS:
+                    //Compass c = new Compass();
+                    //c.init(event.getPlayer());
+                    break;
+                default:
+                    break;
+            }
+        }
+        st.onInteract(event);
+        event.setCancelled(true);
+    }
+
+    public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
+        Player player = event.getPlayer();
+        if ((player.getGameMode() != GameMode.CREATIVE)) {
+            event.setCancelled(true);
+            player.setAllowFlight(false);
+            player.setFlying(false);
+            player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
+            player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
+        }
+    }
+
+    public void onPlayerMove(PlayerMoveEvent event) {
+        event.getPlayer().setAllowFlight(true);
+    }
+
+    public void onInventoryClick(InventoryClickEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onEntityDamage(EntityDamageEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onFoodLevelChange(FoodLevelChangeEvent event) {
+        Player p = (Player) event.getEntity();
+        p.setFoodLevel(20);
+        event.setCancelled(true);
+    }
+
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        st.onEntityInteract(event);
+    }
+
+    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+        if (event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)) {
+            CrystalInteract ci = new CrystalInteract();
+            ci.init(event.getEntity().getLocation(), (Player) event.getDamager());
+        }
+        event.setCancelled(true);
+    }
+
+    public void onWeatherChange(WeatherChangeEvent event) {
+        boolean d = event.toWeatherState();
+        if (d) {
+            event.setCancelled(true);
+        }
+    }
+
+    public void onPlayerLeave(PlayerQuitEvent event) {
+        try {
+            Retrieve r = new Retrieve();
+            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+            String prefix = prefixs.replace('&', '§');
+            event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+        } catch (Exception e) {
+            event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
+        }
+    }
+
+    public ItemStack createItem(Material material, String name, String... lore) {
+        ItemStack item = new ItemStack(material, 1);
+        List<String> lores = new ArrayList<>();
+        for (String lor : lore) {
+            lores.add(lor);
+        }
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(name);
+        meta.setLore(lores);
+        item.setItemMeta(meta);
+        return item;
+    }
+
+    public void onInventoryInteract(InventoryInteractEvent event) {
+        event.setCancelled(true);
+    }
+
+    public void onWorldLoad(WorldLoadEvent event) {
+        Crystal c = new Crystal();
+        c.initCrystal();
+        gHubConfig ghc = new gHubConfig();
+        ghc.retrieve();
+    }
 }

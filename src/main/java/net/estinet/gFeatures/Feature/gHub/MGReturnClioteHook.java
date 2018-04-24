@@ -2,8 +2,8 @@ package net.estinet.gFeatures.Feature.gHub;
 
 import java.util.List;
 
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gHub.crystal.MGServerPlus;
 
 /*
@@ -25,13 +25,17 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class MGReturnClioteHook extends ClioteHook{
+public class MGReturnClioteHook extends ClioteHook {
 
-	public MGReturnClioteHook(gFeature feature) {
-		super(feature, "mgrecieve");
+	public MGReturnClioteHook(String identifier, String gFeatureName) {
+		this.identifier = identifier;
+		this.gFeatureName = gFeatureName;
 	}
+
 	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
+	public void run(byte[] data, String sender) {
+
+		List<String> args = ClioteSky.parseBytesToStringList(data);
 		try{
 			if(Basis.recieving == true){
 				MGServerPlus mgsp = new MGServerPlus(args.get(0), args.get(1), args.get(2), args.get(3));

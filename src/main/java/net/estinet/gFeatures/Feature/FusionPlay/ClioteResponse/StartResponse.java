@@ -2,7 +2,7 @@ package net.estinet.gFeatures.Feature.FusionPlay.ClioteResponse;
 
 import java.util.List;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 
@@ -26,18 +26,16 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class StartResponse {
-	public static void response(List<String> args, String categoryName, String clioteName){
-		CliotePing cp = new CliotePing();
-		if(!FusionPlay.otherup){
-			if(args.contains("new")){
-				cp.sendMessage("fusionplay cachealive new", "Bungee");
-			}
-			else{
-				cp.sendMessage("fusionplay cachealive", "Bungee");
-			}
-		}
-		FusionPlay.assigned = true;
-		FusionPlay.currentGame.gameAssigned();
-		FusionPlay.currentGame.setFusionState(FusionState.WAITING);
-	}
+    public static void response(List<String> args, String sender) {
+        if (!FusionPlay.otherup) {
+            if (args.contains("new")) {
+                ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("cachealive new"), "fusionplay", "Bungee");
+            } else {
+                ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("cachealive"), "fusionplay", "Bungee");
+            }
+        }
+        FusionPlay.assigned = true;
+        FusionPlay.currentGame.gameAssigned();
+        FusionPlay.currentGame.setFusionState(FusionState.WAITING);
+    }
 }

@@ -1,9 +1,9 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gScore.Scored;
 import net.estinet.gFeatures.FeatureState;
-import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -32,12 +32,16 @@ https://github.com/EstiNet/gFeatures
 
 public class ServerQueryClioteHook extends ClioteHook {
 
-    public ServerQueryClioteHook(gFeature feature) {
-        super(feature, "info");
+    public ServerQueryClioteHook(String identifier, String gFeatureName) {
+        this.identifier = identifier;
+        this.gFeatureName = gFeatureName;
     }
 
     @Override
-    public void run(List<String> args, String categoryName, String clioteName) {
+    public void run(byte[] data, String sender) {
+
+        List<String> args = ClioteSky.parseBytesToStringList(data);
+
         if (args.get(0).equals("online")) {
             ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
             if (gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)) {

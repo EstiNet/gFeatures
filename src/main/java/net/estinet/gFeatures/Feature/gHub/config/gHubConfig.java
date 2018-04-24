@@ -38,55 +38,55 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gHubConfig {
-	public void setup(){
-		Config c = new Config();
-		c.createDirectory("plugins/gFeatures/gHub", "Created gHub directory!");
-		c.createFile("plugins/gFeatures/gHub/Config.yml", "Created gHub config!");
-		File f = new File("plugins/gFeatures/gHub/spawn.txt");
-		if(!f.exists()){
-			c.createFile("plugins/gFeatures/gHub/spawn.txt", "Created spawn location!");
-			BufferedWriter output;
-			try {
-				output = new BufferedWriter(new FileWriter(f, true));
-				output.write("world");
-				output.newLine();
-				output.write("0");
-				output.newLine();
-				output.write("0");
-				output.newLine();
-				output.write("0");
-				output.newLine();
-				output.write("0");
-				output.newLine();
-				output.write("0");
-				output.close();
-			}
-			catch(Exception e1){
-				Bukkit.getLogger().info("UHOH");
-			}
-		}
-	}
-	public void retrieve(){
-		try {
-			List<String> list = getLines(new File("plugins/gFeatures/gHub/spawn.txt"));
-			gHub.spawn = new Location(Bukkit.getWorld(list.get(0)), Double.parseDouble(list.get(1)), Double.parseDouble(list.get(2)), Double.parseDouble(list.get(3)), Float.parseFloat(list.get(4)), Float.parseFloat(list.get(5)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public List<String> getLines(File f) throws IOException{
-		List<String> permissions = new ArrayList<>();
-		FileInputStream is = new FileInputStream(f);
-		Reader paramReader = new InputStreamReader(is);
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(paramReader, writer);
-		String theString = writer.toString();
-		String[] lines = theString.split("\n");
-		for(int i = 0; i < lines.length; i++){
-			String perm = lines[i].replace("\r", "");
-			permissions.add(perm);
-		}
-		return permissions;
-	}
+    public void setup() {
+        Config c = new Config();
+        c.createDirectory("plugins/gFeatures/gHub", "Created gHub directory!");
+        c.createFile("plugins/gFeatures/gHub/Config.yml", "Created gHub config!");
+        File f = new File("plugins/gFeatures/gHub/spawn.txt");
+        if (!f.exists()) {
+            c.createFile("plugins/gFeatures/gHub/spawn.txt", "Created spawn location!");
+            BufferedWriter output;
+            try {
+                output = new BufferedWriter(new FileWriter(f, true));
+                output.write("world");
+                output.newLine();
+                output.write("0");
+                output.newLine();
+                output.write("0");
+                output.newLine();
+                output.write("0");
+                output.newLine();
+                output.write("0");
+                output.newLine();
+                output.write("0");
+                output.close();
+            } catch (Exception e1) {
+                Bukkit.getLogger().info("UHOH");
+            }
+        }
+    }
+
+    public void retrieve() {
+        try {
+            List<String> list = getLines(new File("plugins/gFeatures/gHub/spawn.txt"));
+            gHub.spawn = new Location(Bukkit.getWorld(list.get(0)), Double.parseDouble(list.get(1)), Double.parseDouble(list.get(2)), Double.parseDouble(list.get(3)), Float.parseFloat(list.get(4)), Float.parseFloat(list.get(5)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> getLines(File f) throws IOException {
+        List<String> permissions = new ArrayList<>();
+        FileInputStream is = new FileInputStream(f);
+        Reader paramReader = new InputStreamReader(is);
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(paramReader, writer);
+        String theString = writer.toString();
+        String[] lines = theString.split("\n");
+        for (int i = 0; i < lines.length; i++) {
+            String perm = lines[i].replace("\r", "");
+            permissions.add(perm);
+        }
+        return permissions;
+    }
 }

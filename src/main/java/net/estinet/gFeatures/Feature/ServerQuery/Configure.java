@@ -19,17 +19,16 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.gFeatures;
 
-public class Configure{
-	@Configs
-	public static void onSetup(){
-		ServerQuery base = new ServerQuery("ServerQuery", "1.1.0");
-		gFeatures.addFeature(base);
-		
-		ServerQueryClioteHook sqch = new ServerQueryClioteHook(base);
-		ClioteSky.addClioteHook(sqch);
-	}
+public class Configure {
+    @Configs
+    public static void onSetup() {
+        ServerQuery base = new ServerQuery("ServerQuery", "1.1.0");
+        gFeatures.addFeature(base);
+
+		ClioteSky.addHook(new ServerQueryClioteHook("info", base.getName()));
+    }
 }

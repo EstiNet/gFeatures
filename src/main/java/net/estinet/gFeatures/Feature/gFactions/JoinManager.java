@@ -22,10 +22,11 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class JoinManager {
-	Camera c = new Camera();
-	public void Initialize(PlayerJoinEvent event){
-		if(!event.getPlayer().hasPlayedBefore()){
-			c.Tutorial(event.getPlayer());
-		}
-	}
+    Camera c = new Camera();
+
+    public void Initialize(PlayerJoinEvent event) {
+        if (!event.getPlayer().hasPlayedBefore()) {
+            c.Tutorial(event.getPlayer());
+        }
+    }
 }

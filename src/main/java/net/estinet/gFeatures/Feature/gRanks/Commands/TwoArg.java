@@ -1,12 +1,11 @@
 package net.estinet.gFeatures.Feature.gRanks.Commands;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
 import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -61,8 +60,7 @@ public class TwoArg {
 			r.deleteRank(newrank);
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Deleted rank " + args[1] + ".");
 			if(r.getClioteSkySupport()){
-				CliotePing cp = new CliotePing();
-				cp.sendMessage("granks sync", "all");
+				ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
 			}
 		}
 		else if(args[0].equalsIgnoreCase("perms")){

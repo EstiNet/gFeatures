@@ -1,9 +1,6 @@
 package net.estinet.gFeatures.Feature.gHub;
 
-import java.util.List;
-
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
 
 /*
 gFeatures
@@ -24,13 +21,15 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class MGDoneClioteHook extends ClioteHook{
+public class MGDoneClioteHook extends ClioteHook {
 
-	public MGDoneClioteHook(gFeature feature) {
-		super(feature, "mgdone");
+	public MGDoneClioteHook(String identifier, String gFeatureName) {
+		this.identifier = identifier;
+		this.gFeatureName = gFeatureName;
 	}
+
 	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
+	public void run(byte[] data, String sender) {
 		try{
 			Basis.recieving = false;
 			Basis.servers = Basis.assemble;

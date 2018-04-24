@@ -9,10 +9,10 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.apache.commons.io.IOUtils;
 
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.Retrieve;
@@ -64,8 +64,7 @@ public class FilePush implements Runnable {
             }
         }
         if (cc.getClioteSkySupport()) {
-            CliotePing cp = new CliotePing();
-            cp.sendMessage("granks sync", "all");
+            ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
         }
     }
 

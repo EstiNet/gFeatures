@@ -36,18 +36,15 @@ public class Compass {
 	}
 	public InventoryAPI makeInventory(Player p, String name){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept friend request?", 9, new InventoryAPI.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					if(event.getName().equalsIgnoreCase("")){
-						
-					}
-					else if(event.getName().equalsIgnoreCase("")){
-						
-					}
-					event.setWillClose(true);
-					event.setWillDestroy(true);
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept friend request?", 9, event -> {
+				if(event.getName().equalsIgnoreCase("")){
+
 				}
+				else if(event.getName().equalsIgnoreCase("")){
+
+				}
+				event.setWillClose(true);
+				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			ItemStack pane = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 5);
 			ItemMeta im = pane.getItemMeta();

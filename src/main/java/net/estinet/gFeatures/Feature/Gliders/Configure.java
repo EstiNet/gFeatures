@@ -1,9 +1,8 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
-import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
-import net.estinet.gFeatures.Feature.CTF.GetMGInfoClioteHook;
 import net.estinet.gFeatures.gFeatures;
 
 /*
@@ -31,7 +30,7 @@ public class Configure{
         Gliders base = new Gliders("Gliders", "1.0.0");
         gFeatures.addFeature(base);
 
-        ClioteSky.addClioteHook(new GetMGInfoClioteHook(base));
+        ClioteSky.addHook(new GetMGInfoClioteHook("getmginfo", base.getName()));
 
         EstiCommand test = new EstiCommand("gliders", "Gliders commands!", "/Gliders", "gFeatures.minigames", base, true);
         gFeatures.addCommand(test);

@@ -23,10 +23,10 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable {
-	public void plzenable(){
-		Bukkit.getLogger().info("gFactions initialized! Yay!");
-		gFeatures.addPlayerSection("gFactions", "");
-		gFeatures.addPlayerSection("gFactionsTier", "none");
-		gFeatures.addPlayerSection("gFactionsTierRank", "0");
-	}
+    public void plzenable() {
+        Bukkit.getLogger().info("gFactions initialized! Yay!");
+        gFeatures.addPlayerSection("gFactions", "");
+        gFeatures.addPlayerSection("gFactionsTier", "none");
+        gFeatures.addPlayerSection("gFactionsTierRank", "0");
+    }
 }

@@ -49,7 +49,6 @@ public class gHub extends gFeature implements Events{
 	public static Location spawn;
 	public static boolean fall = true;
 	
-	Listeners listeners = new Listeners();
 	EventHub eh = new EventHub();
 	public gHub(String featurename, String d) {
 		super(featurename, d);

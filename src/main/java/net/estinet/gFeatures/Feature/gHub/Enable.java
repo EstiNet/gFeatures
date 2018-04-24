@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.gHub;
 
 import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 
 import net.estinet.gFeatures.gFeatures;
@@ -29,41 +29,40 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable {
-	public void onEnable(){
-		Bukkit.getLogger().info("[gHub] gHub is enabled! Hi!");
-		Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
-		gHubConfig ghc = new gHubConfig();
-		ghc.setup();
-		
-		CliotePing cp = new CliotePing();
-		cp.sendMessage("mgget", "Bungee");
-		
-		gFeatures.addPlayerSection("Settings", "");
-		gFeatures.addPlayerSection("Settings.showChat", "true");
-		gFeatures.addPlayerSection("Settings.scoreBoard", "true");
-		
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		for(Player p : Bukkit.getOnlinePlayers()){
-        			ClearInventory ci = new ClearInventory();
-        			ci.clearInv(p);
-        			p.getInventory().setItem(0, EventHub.pane);
-        			p.getInventory().setItem(1, EventHub.friend);
-        			p.getInventory().setItem(2, EventHub.pane);
-        			p.getInventory().setItem(6, EventHub.pane);
-        			p.getInventory().setItem(4, EventHub.navigator);	
-        			p.getInventory().setItem(3, EventHub.additions);
-        			p.getInventory().setItem(5, EventHub.settings);
-        			p.getInventory().setItem(7, EventHub.pane);
-        			p.getInventory().setItem(8, EventHub.pane);
-        		}
-        	}
+    public void onEnable() {
+        Bukkit.getLogger().info("[gHub] gHub is enabled! Hi!");
+        Bukkit.getServer().setDefaultGameMode(GameMode.ADVENTURE);
+        gHubConfig ghc = new gHubConfig();
+        ghc.setup();
+
+        ClioteSky.getInstance().sendAsync(new byte[0], "mgget", "Bungee");
+
+        gFeatures.addPlayerSection("Settings", "");
+        gFeatures.addPlayerSection("Settings.showChat", "true");
+        gFeatures.addPlayerSection("Settings.scoreBoard", "true");
+
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    ClearInventory ci = new ClearInventory();
+                    ci.clearInv(p);
+                    p.getInventory().setItem(0, EventHub.pane);
+                    p.getInventory().setItem(1, EventHub.friend);
+                    p.getInventory().setItem(2, EventHub.pane);
+                    p.getInventory().setItem(6, EventHub.pane);
+                    p.getInventory().setItem(4, EventHub.navigator);
+                    p.getInventory().setItem(3, EventHub.additions);
+                    p.getInventory().setItem(5, EventHub.settings);
+                    p.getInventory().setItem(7, EventHub.pane);
+                    p.getInventory().setItem(8, EventHub.pane);
+                }
+            }
         }, 600L, 600L);
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		PreventFall pf = new PreventFall();
-        		pf.check();
-        	}
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+            public void run() {
+                PreventFall pf = new PreventFall();
+                pf.check();
+            }
         }, 10L, 10L);
-	}
+    }
 }

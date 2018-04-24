@@ -41,37 +41,38 @@ https://github.com/EstiNet/gFeatures
 
 public class MapTwo {
 
-	public static List<Location> planespawn = new ArrayList<>();
-	public static List<Location> towerspawn = new ArrayList<>();
-	public static Location spectatespawn;
-	public static Location flag;
+    public static List<Location> planespawn = new ArrayList<>();
+    public static List<Location> towerspawn = new ArrayList<>();
+    public static Location spectatespawn;
+    public static Location flag;
 
-	public void justDoIt(){
-		planespawn.add(new Location(Bukkit.getWorld("Gliders2"), -662.5, 220.5, 881.5));
+    public void justDoIt() {
+        planespawn.add(new Location(Bukkit.getWorld("Gliders2"), -662.5, 220.5, 881.5));
 
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, -868.5));
+        towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, -868.5));
 
-		spectatespawn = new Location(Bukkit.getWorld("Gliders2"), -575.5, 135.5, 883.5);
-		flag = new Location(Bukkit.getWorld("Gliders2"), -579.5, 49.5, 879.5);
-		Basic.mapName = "LargeIsland";
-		Basic.planespawn = planespawn;
-		Basic.towerspawn = towerspawn;
-		Basic.spectatespawn = spectatespawn;
-		Basic.flag = flag;
+        spectatespawn = new Location(Bukkit.getWorld("Gliders2"), -575.5, 135.5, 883.5);
+        flag = new Location(Bukkit.getWorld("Gliders2"), -579.5, 49.5, 879.5);
+        Basic.mapName = "LargeIsland";
+        Basic.planespawn = planespawn;
+        Basic.towerspawn = towerspawn;
+        Basic.spectatespawn = spectatespawn;
+        Basic.flag = flag;
 
-	}
-	public void reassign(){
-		planespawn.add(new Location(Bukkit.getWorld("Gliders2"), -662.5, 220.5, 881.5));
+    }
 
-		towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, 868.5));
+    public void reassign() {
+        planespawn.add(new Location(Bukkit.getWorld("Gliders2"), -662.5, 220.5, 881.5));
 
-		spectatespawn = new Location(Bukkit.getWorld("Gliders2"), -575.5, 135.5, 883.5);
-		flag = new Location(Bukkit.getWorld("Gliders2"), -579.5, 49.5, 879.5);
+        towerspawn.add(new Location(Bukkit.getWorld("Gliders2"), -560.5, 61.5, 868.5));
 
-		Basic.mapName = "Gliders2";
-		Basic.planespawn = planespawn;
-		Basic.towerspawn = towerspawn;
-		Basic.spectatespawn = spectatespawn;
-		Basic.flag = flag;
-	}
+        spectatespawn = new Location(Bukkit.getWorld("Gliders2"), -575.5, 135.5, 883.5);
+        flag = new Location(Bukkit.getWorld("Gliders2"), -579.5, 49.5, 879.5);
+
+        Basic.mapName = "Gliders2";
+        Basic.planespawn = planespawn;
+        Basic.towerspawn = towerspawn;
+        Basic.spectatespawn = spectatespawn;
+        Basic.flag = flag;
+    }
 }

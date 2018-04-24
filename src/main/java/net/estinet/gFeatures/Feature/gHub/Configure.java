@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.ClioteSkyOld.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Feature.gHub.command.gHubCommand;
 import net.estinet.gFeatures.gFeatures;
@@ -26,19 +26,16 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Configure {
-	@Configs
-	public static void onSetup(){
-		gHub base = new gHub("gHub", "1.3.1");
-		gFeatures.addFeature(base);
-		
-		EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());
-		gFeatures.addCommand(test);
-		
-		MGDoneClioteHook mgdch = new MGDoneClioteHook(base);
-		ClioteSky.addClioteHook(mgdch);
-		MGReturnClioteHook mgrch = new MGReturnClioteHook(base);
-		ClioteSky.addClioteHook(mgrch);
-		MGStartClioteHook mgsch = new MGStartClioteHook(base);
-		ClioteSky.addClioteHook(mgsch);
-	}
+    @Configs
+    public static void onSetup() {
+        gHub base = new gHub("gHub", "1.3.1");
+        gFeatures.addFeature(base);
+
+        EstiCommand test = new EstiCommand("gHub", "gHub core command.", "/gHub", "gFeatures.admin", base, new gHubCommand());
+        gFeatures.addCommand(test);
+
+        ClioteSky.addHook(new MGDoneClioteHook("mgdone", base.getName()));
+        ClioteSky.addHook(new MGReturnClioteHook("mgrecieve", base.getName()));
+        ClioteSky.addHook(new MGStartClioteHook("mgstart", base.getName()));
+    }
 }

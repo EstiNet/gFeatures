@@ -1,11 +1,11 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.Basic;
 import net.estinet.gFeatures.Feature.Gliders.Mode;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Action;
@@ -30,28 +30,28 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Leave {
-	public void init(PlayerQuitEvent event){
-		Basic.modes.remove(event.getPlayer().getUniqueId());
-		Basic.kills.remove(event.getPlayer().getUniqueId());
-		Basic.deaths.remove(event.getPlayer().getUniqueId());
-		Basic.teams.remove(event.getPlayer().getUniqueId());
-		try{
-		if(Basic.flagger.getName().equals(event.getPlayer().getName())){
-			Basic.flagger = null;
-			Action.sendAllTitle(ChatColor.BOLD + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.BOLD + "The flag has been returned.", 20, 40, 20);
-		}
-		}catch(NullPointerException e){}
-		if(Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)){
-			Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
-			CliotePing cp = new CliotePing();
-    		for(Player p : Bukkit.getOnlinePlayers()){
-    			cp.sendMessage("redirect " + p.getName() + " MinigameHub", "Bungee");
-    		}
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-	        	public void run(){
-	        		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop");
-	        	}
-	        }, 300L);
-		}
-	}
+    public void init(PlayerQuitEvent event) {
+        Basic.modes.remove(event.getPlayer().getUniqueId());
+        Basic.kills.remove(event.getPlayer().getUniqueId());
+        Basic.deaths.remove(event.getPlayer().getUniqueId());
+        Basic.teams.remove(event.getPlayer().getUniqueId());
+        try {
+            if (Basic.flagger.getName().equals(event.getPlayer().getName())) {
+                Basic.flagger = null;
+                Action.sendAllTitle(ChatColor.BOLD + "" + ChatColor.BOLD + event.getPlayer().getName() + " has left!", ChatColor.BOLD + "The flag has been returned.", 20, 40, 20);
+            }
+        } catch (NullPointerException e) {
+        }
+        if (Bukkit.getOnlinePlayers().size() == 2 && Basic.mode.equals(Mode.STARTED)) {
+            Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Server restarting. :/");
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " MinigameHub"), "redirect", "Bungee");
+            }
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
+                public void run() {
+                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop");
+                }
+            }, 300L);
+        }
+    }
 }

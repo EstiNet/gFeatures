@@ -2,11 +2,11 @@ package net.estinet.gFeatures.Feature.gRanks;
 
 import java.util.List;
 
+import net.estinet.gFeatures.ClioteSky.ClioteHook;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 
-import net.estinet.gFeatures.gFeature;
 import net.estinet.gFeatures.API.Logger.Debug;
-import net.estinet.gFeatures.ClioteSkyOld.API.ClioteHook;
 import net.estinet.gFeatures.Feature.gRanks.Perms.Cleanup;
 
 /*
@@ -28,13 +28,17 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gRanksClioteHook extends ClioteHook{
+public class gRanksClioteHook extends ClioteHook {
 
-	public gRanksClioteHook(gFeature feature) {
-		super(feature, "granks");
+	public gRanksClioteHook(String identifier, String gFeatureName) {
+		this.identifier = identifier;
+		this.gFeatureName = gFeatureName;
 	}
+
 	@Override
-	public void run(List<String> args, String categoryName, String clioteName){
+	public void run(byte[] data, String sender) {
+
+		List<String> args = ClioteSky.parseBytesToStringList(data);
 		if(args.get(0).equals("sync")){
 			try{
 				Bukkit.getLogger().info("[gRanks] Syncing permissions database...");

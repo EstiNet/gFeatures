@@ -1,7 +1,7 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
 import net.estinet.gFeatures.API.Resolver.ResolverFetcher;
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -161,8 +161,7 @@ public class CommandHub {
             sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "/coins get <player>");
             return;
         }
-        CliotePing cp = new CliotePing();
-        cp.sendMessage("info uuidlookup " + args[1], "Bungee");
+        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("uuidlookup " + args[1]), "info", "Bungee");
         ServerQuery.requestQueue.offer(args1 -> {
             if (args1.get(0).equals("*")) {
                 sender.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Player not found. :(");

@@ -2,11 +2,11 @@ package net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics;
 
 import java.util.concurrent.TimeUnit;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionState;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.TimeManager;
@@ -40,8 +40,7 @@ public class WaitingProcess {
     }
 
     public static void counterComplete() {
-        CliotePing cp = new CliotePing();
-        cp.sendMessage("fusionplay started", "Bungee");
+        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("started"), "fusionplay", "Bungee");
         FusionPlay.currentGame.setFusionState(FusionState.STARTED);
         FusionPlay.currentGame.waitTimerComplete();
         for (Player p : Bukkit.getOnlinePlayers()) {

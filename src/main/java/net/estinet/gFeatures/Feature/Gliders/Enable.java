@@ -3,11 +3,11 @@ package net.estinet.gFeatures.Feature.Gliders;
 import java.io.File;
 import java.io.IOException;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.ConstantCheck;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc.Capture;
 
@@ -30,34 +30,35 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Enable{
-	static ConfigHub ch = new ConfigHub();
-	public static void onEnable(){
-		Bukkit.getLogger().info("[Gliders] Enabled :D");
-		ch.setupConfig();
-		
-		File f = new File("plugins/gFeatures/Gliders/Gliders2");
-		File fz = new File("./Gliders2");
-		
-		fz.delete();
-		try {
-			FileUtils.copyDirectory(f, fz);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		f = new File("plugins/gFeatures/Gliders/Gliders1");
-		fz = new File("./Gliders1");
-		fz.delete();
-		try {
-			FileUtils.copyDirectory(f, fz);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-		Capture c = new Capture();
-		c.loop();
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+public class Enable {
+    static ConfigHub ch = new ConfigHub();
+
+    public static void onEnable() {
+        Bukkit.getLogger().info("[Gliders] Enabled :D");
+        ch.setupConfig();
+
+        File f = new File("plugins/gFeatures/Gliders/Gliders2");
+        File fz = new File("./Gliders2");
+
+        fz.delete();
+        try {
+            FileUtils.copyDirectory(f, fz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        f = new File("plugins/gFeatures/Gliders/Gliders1");
+        fz = new File("./Gliders1");
+        fz.delete();
+        try {
+            FileUtils.copyDirectory(f, fz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Capture c = new Capture();
+        c.loop();
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             WorldCreator cs = new WorldCreator("MinigameSpawn");
             Bukkit.getServer().createWorld(cs);
 
@@ -67,12 +68,11 @@ public class Enable{
             WorldCreator cs2 = new WorldCreator("Gliders2");
             Bukkit.getServer().createWorld(cs2);
 
-            CliotePing cp = new CliotePing();
-            cp.sendMessage("mghello", "Bungee");
+            ClioteSky.getInstance().send(new byte[0], "mghello", "Bungee");
         }, 40L);
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             ConstantCheck cc = new ConstantCheck();
             cc.goThrough();
         }, 10L, 10L);
-	}
+    }
 }

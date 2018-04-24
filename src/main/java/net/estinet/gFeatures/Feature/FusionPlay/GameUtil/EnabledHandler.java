@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.FusionPlay.GameUtil;
 
-import net.estinet.gFeatures.ClioteSkyOld.API.CliotePing;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 
 /*
@@ -23,14 +23,12 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EnabledHandler {
-	public static void init(){
-		CliotePing cp = new CliotePing();
-		FusionPlay.currentGame.setFusionState(FusionState.WAITING);
-		if(FusionPlay.otherup){
-			cp.sendMessage("fusionplay otherup " + FusionPlay.currentGame.getName(), "Bungee");
-		}
-		else{
-			cp.sendMessage("fusionplay online " + FusionPlay.currentGame.getName(), "Bungee");
-		}
-	}
+    public static void init() {
+        FusionPlay.currentGame.setFusionState(FusionState.WAITING);
+        if (FusionPlay.otherup) {
+            ClioteSky.getInstance().send(ClioteSky.stringToBytes("otherup " + FusionPlay.currentGame.getName()), "fusionplay","Bungee");
+        } else {
+            ClioteSky.getInstance().send(ClioteSky.stringToBytes("online " + FusionPlay.currentGame.getName()), "fusionplay","Bungee");
+        }
+    }
 }
