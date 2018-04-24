@@ -13,6 +13,7 @@ import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.Listeners;
 import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import javax.net.ssl.*;
 import java.io.*;
@@ -53,23 +54,17 @@ public class ClioteSky {
     }
 
     private static void loadConfig() {
-        Properties prop = new Properties();
-        InputStream input = null;
-
         try {
 
-            input = new FileInputStream("plugins/gFeatures/Config.yml");
-
-            // load a properties file
-            prop.load(input);
+            YamlConfiguration prop = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/Config.yml"));
 
             // get the property value and print it out
-            ClioteSky.name = prop.getProperty("ClioteSky.Name");
-            ClioteSky.category = prop.getProperty("ClioteSky.Category");
-            ClioteSky.address = prop.getProperty("ClioteSky.Address");
-            ClioteSky.enabled = Boolean.parseBoolean(prop.getProperty("ClioteSky.Enable"));
-            ClioteSky.port = prop.getProperty("ClioteSky.Port");
-            ClioteSky.checkTLS = Boolean.parseBoolean(prop.getProperty("ClioteSky.CheckTLS"));
+            ClioteSky.name = prop.getString("ClioteSky.Name");
+            ClioteSky.category = prop.getString("ClioteSky.Category");
+            ClioteSky.address = prop.getString("ClioteSky.Address");
+            ClioteSky.enabled = Boolean.parseBoolean(prop.getString("ClioteSky.Enable"));
+            ClioteSky.port = prop.getString("ClioteSky.Port");
+            ClioteSky.checkTLS = Boolean.parseBoolean(prop.getString("ClioteSky.CheckTLS"));
 
             File f = new File("plugins/gFeatures/masterkey.key"); //get master key password
             if (f.exists()) {
@@ -81,14 +76,6 @@ public class ClioteSky {
 
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
@@ -188,7 +175,6 @@ public class ClioteSky {
 
                 try {
                     iterator = blockingStub.request(ClioteSkyRPC.Token.newBuilder().setToken(authToken).build());
-
                     while (iterator.hasNext()) {
                         speedup = true;
                         speedupCount = 0;
@@ -249,6 +235,7 @@ public class ClioteSky {
 
     public void send(byte[] data, String identifier, String recipient) {
         try {
+            Debug.print("[ClioteSky] sent " + identifier + " to " + recipient);
             blockingStub.send(ClioteSkyRPC.ClioteSend.newBuilder().setData(ByteString.copyFrom(data)).setIdentifier(identifier).setRecipient(recipient).setToken(this.authToken).build());
         } catch (StatusRuntimeException e) {
             Bukkit.getLogger().severe("[ClioteSky] RPC failed: " + e.getStatus());
