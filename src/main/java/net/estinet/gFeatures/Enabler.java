@@ -3,7 +3,9 @@ package net.estinet.gFeatures;
 import net.estinet.gFeatures.Command.EstiCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandMap;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
@@ -27,37 +29,48 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enabler {
-	public void onEnable(){
-		List<gFeature> features = gFeatures.getFeatures();
-		List<Extension> extensions = gFeatures.getExtensions();
-		for (gFeature feature : features) {
-			if (feature.getState().equals(FeatureState.ENABLE)) {
-				try {
-					feature.enable();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		for(Extension extension : extensions){
-			if(extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)){
-				gUtility gu = (gUtility) extension;
-				gu.enable();
-			}
-		}
+    public void onEnable() {
+        List<gFeature> features = gFeatures.getFeatures();
+        List<Extension> extensions = gFeatures.getExtensions();
+        for (gFeature feature : features) {
+            if (feature.getState().equals(FeatureState.ENABLE)) {
+                try {
+                    feature.enable();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        for (Extension extension : extensions) {
+            if (extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)) {
+                gUtility gu = (gUtility) extension;
+                gu.enable();
+            }
+        }
 
-		for(EstiCommand command : gFeatures.getCommands()){
-			if(gFeatures.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)){
-				try{
-					Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", (Class<?>) null);
-					Object cmdmap = commandMap.invoke(Bukkit.getServer(), (Object) null);
-					Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
-					register.invoke(cmdmap, command.getName(), command);
-				}
-				catch(Exception e){
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+        for (EstiCommand command : gFeatures.getCommands()) {
+            if (gFeatures.getFeature(command.getFeature().getName()).getState().equals(FeatureState.ENABLE)) {
+
+                try {
+                    final Field bukkitCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
+
+                    bukkitCommandMap.setAccessible(true);
+                    CommandMap commandMap = (CommandMap) bukkitCommandMap.get(Bukkit.getServer());
+
+                    commandMap.register(command.getName(), command);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+/*
+                try {
+                    Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", (Class<?>) null);
+                    Object cmdmap = commandMap.invoke(Bukkit.getServer(), (Object) null);
+                    Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
+                    register.invoke(cmdmap, command.getName(), command);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }*/
+            }
+        }
+    }
 }
