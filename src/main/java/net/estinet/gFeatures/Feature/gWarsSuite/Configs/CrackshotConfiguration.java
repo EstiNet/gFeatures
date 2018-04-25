@@ -71,7 +71,7 @@ public class CrackshotConfiguration {
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/net/estinet/gFeatures/Feature/gWarsSuite/Configs/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/main/java/net/estinet/gFeatures/Feature/gWarsSuite/Configs/" + filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
