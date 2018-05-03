@@ -1,0 +1,11 @@
+before_script:
+  - ls -l
+
+build_gfeatures:
+  script:
+    - gradle
+
+artifacts:
+  untracked: true
+  paths:
+  - build/libs
