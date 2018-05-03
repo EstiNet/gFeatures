@@ -4,8 +4,7 @@ before_script:
 build_gfeatures:
   script:
     - gradle
-
-artifacts:
-  untracked: true
-  paths:
-  - build/libs
+  artifacts:
+    untracked: true
+    paths:
+      - build/libs
