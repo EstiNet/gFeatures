@@ -5,6 +5,6 @@ build_gfeatures:
   script:
     - gradle
   artifacts:
-    untracked: true
+    untracked: false
     paths:
       - build/libs
