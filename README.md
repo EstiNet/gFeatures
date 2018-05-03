@@ -11,6 +11,8 @@ gFeatures Core/API: 3.5.0
 gFeatures powers EstiNet.
 It is the core that symbolizes everything about us.
 
+Download the latest build: https://gitlab.dolphinbox.net/mirrors/gfeatures/pipelines
+
 ## Dependencies
 gFeatures requires the following dependencies to run:
 * Spigot 1.12.2
