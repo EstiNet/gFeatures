@@ -85,7 +85,7 @@ public class ClioteSky {
 
     public static List<String> parseBytesToStringList(byte[] data) {
         try {
-            return Arrays.asList(new String(data, "UTF-8").split(" "));//fix warning
+            return new LinkedList<>(Arrays.asList(new String(data, "UTF-8").split(" ")));//fix warning
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
