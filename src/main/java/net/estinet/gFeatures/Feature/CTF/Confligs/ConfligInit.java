@@ -51,7 +51,7 @@ public class ConfligInit {
 		}
 	}
 	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream("/main/java/net/estinet/gFeatures/Feature/CTF/Confligs/" + filename));
+		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream(filename));
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(paramReader, writer);
 		String theString = writer.toString();
