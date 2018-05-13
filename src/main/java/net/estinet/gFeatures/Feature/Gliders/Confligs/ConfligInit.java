@@ -43,15 +43,11 @@ public class ConfligInit {
     }
 
     public void deleteConfigs() {
-        try {
-            DeleteFile("Auto-Rifle");
-            DeleteFile("Pistol");
-            DeleteFile("Shotgun");
-            DeleteFile("Sniper");
-            DeleteFile("Grenade");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        DeleteFile("Auto-Rifle");
+        DeleteFile("Pistol");
+        DeleteFile("Shotgun");
+        DeleteFile("Sniper");
+        DeleteFile("Grenade");
     }
 
     public void MakeFile(String filename) throws IOException {
