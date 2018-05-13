@@ -30,41 +30,44 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfligInit {
-	public void createConfigs(){
-		try {
-			MakeFile("Auto-Rifle");
-			MakeFile("Pistol");
-			MakeFile("Shotgun");
-			MakeFile("Sniper");
-			MakeFile("Grenade");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void deleteConfigs(){
-		try {
-			DeleteFile("Auto-Rifle");
-			DeleteFile("Pistol");
-			DeleteFile("Shotgun");
-			DeleteFile("Sniper");
-			DeleteFile("Grenade");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public void MakeFile(String filename) throws IOException{
-		Reader paramReader = new InputStreamReader(getClass().getResourceAsStream(filename));
-		StringWriter writer = new StringWriter();
-		IOUtils.copy(paramReader, writer);
-		String theString = writer.toString();
-		File f = new File("plugins/CrackShot/weapons/" + filename + ".yml");
-		f.createNewFile();
-		BufferedWriter bw = new BufferedWriter(new FileWriter(f));
-		bw.write(theString);
-		bw.close();
-	}
-	public void DeleteFile(String filename) throws IOException{
-		File f = new File("plugins/CrackShot/weapons/" + filename + ".yml");
-		f.delete();
-	}
+    public void createConfigs() {
+        try {
+            MakeFile("Auto-Rifle");
+            MakeFile("Pistol");
+            MakeFile("Shotgun");
+            MakeFile("Sniper");
+            MakeFile("Grenade");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteConfigs() {
+        try {
+            DeleteFile("Auto-Rifle");
+            DeleteFile("Pistol");
+            DeleteFile("Shotgun");
+            DeleteFile("Sniper");
+            DeleteFile("Grenade");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void MakeFile(String filename) throws IOException {
+        Reader paramReader = new InputStreamReader(getClass().getResourceAsStream(filename + ".yml"));
+        StringWriter writer = new StringWriter();
+        IOUtils.copy(paramReader, writer);
+        String theString = writer.toString();
+        File f = new File("plugins/CrackShot/weapons/" + filename + ".yml");
+        f.createNewFile();
+        BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+        bw.write(theString);
+        bw.close();
+    }
+
+    public void DeleteFile(String filename) {
+        File f = new File("plugins/CrackShot/weapons/" + filename + ".yml");
+        f.delete();
+    }
 }
