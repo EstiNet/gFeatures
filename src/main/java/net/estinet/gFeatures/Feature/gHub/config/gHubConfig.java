@@ -62,6 +62,7 @@ public class gHubConfig {
                 output.close();
             } catch (Exception e1) {
                 Bukkit.getLogger().info("UHOH");
+                e1.printStackTrace();
             }
         }
     }

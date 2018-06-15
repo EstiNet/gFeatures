@@ -60,7 +60,6 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub {
     static ItemStack navigator, additions, settings, pane, friend;
-    HidePlayers hp = new HidePlayers();
     Stacker st = new Stacker();
 
     public EventHub() {
