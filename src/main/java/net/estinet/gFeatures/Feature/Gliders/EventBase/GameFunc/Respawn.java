@@ -1,16 +1,15 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
+import com.shampaggon.crackshot.CSUtility;
+import net.estinet.gFeatures.API.Inventory.ClearInventory;
+import net.estinet.gFeatures.Feature.Gliders.Basic;
+import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
+import net.estinet.gFeatures.Feature.Gliders.Team;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import com.shampaggon.crackshot.CSUtility;
-
-import net.estinet.gFeatures.API.Inventory.ClearInventory;
-import net.estinet.gFeatures.Feature.Gliders.Basic;
-import net.estinet.gFeatures.Feature.Gliders.PlayerMode;
-import net.estinet.gFeatures.Feature.Gliders.Team;
 
 /*
 gFeatures
@@ -32,7 +31,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Respawn {
-	ClearInventory ci = new ClearInventory();
 	public void respawn(Player p){
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);
@@ -43,10 +41,10 @@ public class Respawn {
 			Bukkit.getLogger().info(Basic.towerspawn.size() + "");
 			int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
 			p.teleport(Basic.towerspawn.get(random));
-			
+
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
 			p.getInventory().setHelmet(wool);
-			
+
 			CSUtility cs = new CSUtility();
 			cs.giveWeapon(p, "Sniper", 1);
 			cs.giveWeapon(p, "Shotgun", 1);
@@ -58,9 +56,9 @@ public class Respawn {
 			p.teleport(Basic.planespawn.get(random));
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 			p.getInventory().setHelmet(wool);
-			
+
 			p.getInventory().setChestplate(new ItemStack(Material.ELYTRA, 1));
-			
+
 			CSUtility cs = new CSUtility();
 			cs.giveWeapon(p, "Pistol", 1);
 			cs.giveWeapon(p, "Grenade", 20);

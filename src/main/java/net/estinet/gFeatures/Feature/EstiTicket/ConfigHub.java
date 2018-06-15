@@ -1,7 +1,5 @@
 package net.estinet.gFeatures.Feature.EstiTicket;
 
-import net.estinet.gFeatures.Configuration.Config;
-
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -22,8 +20,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigHub {
-	static Config config = new Config();
-	public static void setupConfig(){
-		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
+	public static void setupConfig() {
+
 	}
 }

@@ -22,11 +22,17 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class TestCommand extends CommandExecutable{
+public class TicketCommand extends CommandExecutable{
 
 	@Override
 	public void run() {
-		Bukkit.getLogger().info("Test! I can implement " + cmd.getDescription());
+		switch (super.args[0]) {
+			case "help":
+				break;
+			case "new":
+				break;
+
+		}
 	}
-	
+
 }

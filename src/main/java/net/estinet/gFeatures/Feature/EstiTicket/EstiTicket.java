@@ -33,9 +33,12 @@ public class EstiTicket extends gFeature implements Events{
 	}
 	@Override
 	public void enable(){
+		ConfigHub.setupConfig();
+		Bukkit.getLogger().info("[EstiTicket] Enabled!");
 	}
 	@Override
 	public void disable(){
+		Bukkit.getLogger().info("[EstiTicket] Disabled!");
 	}
 	@Override
 	public void eventTrigger(Event event) {

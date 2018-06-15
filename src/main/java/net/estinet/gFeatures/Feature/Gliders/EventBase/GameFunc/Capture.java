@@ -35,7 +35,7 @@ public class Capture {
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
         	public void run(){
         		try{
-        			if(Basic.flagger instanceof Player){
+        			if(Basic.flagger != null){
         				Firework fw = (Firework) Bukkit.getServer().getWorld(Basic.mapName).spawnEntity(Basic.flagger.getLocation(), EntityType.FIREWORK);
         				FireworkMeta fwm = fw.getFireworkMeta();
         				FireworkEffect effect = FireworkEffect.builder().withColor(Color.WHITE).with(Type.BALL).build();
