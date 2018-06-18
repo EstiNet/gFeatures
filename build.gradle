@@ -43,7 +43,7 @@ repositories {
 }
 dependencies {
     compile files('lib/CrackShot.jar')
-    compile group: 'biz.paluch.redis', name: 'lettuce', version: '4.2.1.Final'
+    compile group: 'io.lettuce', name: 'lettuce-core', version: '5.1.0.M1'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     compile 'io.grpc:grpc-netty-shaded:1.11.0'
     compile 'io.grpc:grpc-protobuf:1.11.0'

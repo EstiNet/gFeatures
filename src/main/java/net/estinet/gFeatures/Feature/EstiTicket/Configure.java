@@ -2,9 +2,7 @@ package net.estinet.gFeatures.Feature.EstiTicket;
 
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Configs;
-import net.estinet.gFeatures.Feature.EstiTicket.Commands.TestCommand;
-import net.estinet.gFeatures.SQL.Player.EstiSet;
-import net.estinet.gFeatures.SQL.Player.Key;
+import net.estinet.gFeatures.Feature.EstiTicket.Commands.TicketCommand;
 import net.estinet.gFeatures.gFeatures;
 
 import java.util.HashMap;
@@ -33,7 +31,7 @@ public class Configure{
 		EstiTicket base = new EstiTicket("EstiTicket", "1.0.0");
 		gFeatures.addFeature(base);
 		
-		EstiCommand test = new EstiCommand("ticket", "File a ticket.", "/ticket", base, new TestCommand());
+		EstiCommand test = new EstiCommand("ticket", "File a ticket.", "/ticket", base, new TicketCommand());
 		gFeatures.addCommand(test);
 		
 	}

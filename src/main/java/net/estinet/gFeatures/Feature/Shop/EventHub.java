@@ -27,20 +27,18 @@ https://github.com/EstiNet/gFeatures
 public class EventHub{
 	public void onPlayerJoin(PlayerJoinEvent event){
 
-		Thread thr = new Thread(new Runnable(){
-			public void run(){
-				String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
-				if(value == null){
-					SetTrail st = new SetTrail();
-					st.init(event.getPlayer(), Trails.NONE);
-				}
-				for(Trails trail : Trails.values()){
-					if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
-						Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
-					}
-				}
-				Shop.playerTrail.put(event.getPlayer().getUniqueId(), value);
+		Thread thr = new Thread(() -> {
+			String value = Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId());
+			if(value == null){
+				SetTrail st = new SetTrail();
+				st.init(event.getPlayer(), Trails.NONE);
 			}
+			for(Trails trail : Trails.values()){
+				if(Shop.syncCommands.get("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString()) == null){
+					Shop.syncCommands.set("trails-" + event.getPlayer().getUniqueId() + "-" + trail.toString(), "false");
+				}
+			}
+			Shop.playerTrail.put(event.getPlayer().getUniqueId(), value);
 		});
 		thr.start();
 	}

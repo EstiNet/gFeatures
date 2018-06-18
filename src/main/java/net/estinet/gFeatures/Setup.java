@@ -20,7 +20,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Setup {
-	Configs config;
 	public void onSetup() {
 		//Well, unfortunate part of the API :(
 
@@ -49,6 +48,7 @@ public class Setup {
 		net.estinet.gFeatures.Feature.Spleef.Configure.onSetup();
 		net.estinet.gFeatures.Feature.SurvivalTwo.Configure.onSetup();
 		net.estinet.gFeatures.Feature.EstiCoins.Configure.onSetup();
+		net.estinet.gFeatures.Feature.EstiTicket.Configure.onSetup();
 
 		/*
 		 * Initialize your Utilities here.

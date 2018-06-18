@@ -45,11 +45,9 @@ public class ConstantCheck {
                                 ps.setGameMode(GameMode.SPECTATOR);
                             }
                             Basic.flagger = null;
-                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                                public void run() {
-                                    Swap swap = new Swap();
-                                    swap.init();
-                                }
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                                Swap swap = new Swap();
+                                swap.init();
                             }, 80L);
                         } else {
                             Action.sendAllTitle(ChatColor.BOLD + p.getName() + " has secured the flag!", ChatColor.GOLD + "Orange wins this round!", 10, 10, 10);

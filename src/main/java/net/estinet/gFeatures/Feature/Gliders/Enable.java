@@ -73,6 +73,6 @@ public class Enable {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             ConstantCheck cc = new ConstantCheck();
             cc.goThrough();
-        }, 10L, 10L);
+        }, 20L, 20L);
     }
 }

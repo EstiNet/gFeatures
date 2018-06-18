@@ -42,102 +42,99 @@ https://github.com/EstiNet/gFeatures
 public class StartStop {
     static int tasknum;
     Loop loop = new Loop();
-    Action act = new Action();
     Respawn respawn = new Respawn();
     Spectate s = new Spectate();
     Lobby l = new Lobby();
 
     public void start() {
-        tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                boolean nu = true;
-                if (Basic.countdown <= 0) {
-                    if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
+        tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            boolean nu = true;
+            if (Basic.countdown <= 0) {
+                if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
 
-                        //Initialize world finding
-						/*if(Bukkit.getServer().getOnlinePlayers().size() <= 4){
-							MapTwo mt = new MapTwo();
-							mt.justDoIt();
-							mt.reassign();
-						}
-						else{*/
-                        MapOne mo = new MapOne();
-                        mo.justDoIt();
-                        mo.reassign();
-                        //}
+                    //Initialize world finding
+                    /*if(Bukkit.getServer().getOnlinePlayers().size() <= 4){
+                        MapTwo mt = new MapTwo();
+                        mt.justDoIt();
+                        mt.reassign();
+                    }
+                    else{*/
+                    MapOne mo = new MapOne();
+                    mo.justDoIt();
+                    mo.reassign();
+                    //}
 
-                        ClioteSky.getInstance().sendAsync(new byte[0], "mgstart", "Bungee");
-                        Bukkit.getScheduler().cancelTask(tasknum);
-                        Basic.mode = Mode.STARTED;
-                        for (Player p : Bukkit.getOnlinePlayers()) {
-                            p.setLevel(0);
-                            if (Basic.getOrangeSize() >= Basic.getBlueSize()) {
-                                Basic.teams.put(p.getUniqueId(), Team.BLUE);
-                                p.sendActionBar(ChatColor.BLUE + "You are on the blue team! Glide down from the plane and steal the flag!");
-                            } else {
-                                Basic.teams.put(p.getUniqueId(), Team.ORANGE);
-                                p.sendActionBar(ChatColor.GOLD + "You are on the orange team! Protect the flag from the gliders!");
-                            }
+                    ClioteSky.getInstance().sendAsync(new byte[0], "mgstart", "Bungee");
+                    Bukkit.getScheduler().cancelTask(tasknum);
+                    Basic.mode = Mode.STARTED;
+                    for (Player p : Bukkit.getOnlinePlayers()) {
+                        p.setLevel(0);
+                        if (Basic.getOrangeSize() >= Basic.getBlueSize()) {
+                            Basic.teams.put(p.getUniqueId(), Team.BLUE);
+                            p.sendActionBar(ChatColor.BLUE + "You are on the blue team! Glide down from the plane and steal the flag!");
+                        } else {
+                            Basic.teams.put(p.getUniqueId(), Team.ORANGE);
+                            p.sendActionBar(ChatColor.GOLD + "You are on the orange team! Protect the flag from the gliders!");
                         }
+                    }
 
-                        for (UUID uuid : Basic.teams.keySet()) {
-                            for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                                if (p.getUniqueId().equals(uuid)) {
-                                    respawn.respawn(p);
-                                }
-                            }
-                        }
-
-                        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                            Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
-                            Bukkit.getWorld(Basic.mapName).setSpawnLocation(Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX());
-                        }, 45L);
-
-                        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                            if (!Basic.swap) {
-                                Basic.firstteam = Team.ORANGE; //keep the first win team
-                                Swap swap = new Swap();
-                                swap.init();
-                            }
-                        }, 6000L);
-
-                        FinishStart fs = new FinishStart();
-                        fs.finish();
-                        recursive();
-                    } else {
-                        Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
-                        Basic.mode = Mode.WAITING;
-                        Basic.countdown = 60;
-                        Bukkit.getScheduler().cancelTask(tasknum);
+                    for (UUID uuid : Basic.teams.keySet()) {
                         for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                            p.setScoreboard(l.Initialize(p));
-                            p.setLevel(Basic.countdown);
-                            p.playSound(p.getLocation(), Sound.BLOCK_PORTAL_TRAVEL, 25, 25);
+                            if (p.getUniqueId().equals(uuid)) {
+                                respawn.respawn(p);
+                            }
                         }
+                    }
+
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
+                        Bukkit.getWorld(Basic.mapName).setSpawnLocation(Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX(), Basic.towerspawn.get(0).getBlockX());
+                    }, 45L);
+
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        if (!Basic.swap) {
+                            Basic.firstteam = Team.ORANGE; //keep the first win team
+                            Swap swap = new Swap();
+                            swap.init();
+                        }
+                    }, 6000L);
+
+                    FinishStart fs = new FinishStart();
+                    fs.finish();
+                    recursive();
+                } else {
+                    Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
+                    Basic.mode = Mode.WAITING;
+                    Basic.countdown = 60;
+                    Bukkit.getScheduler().cancelTask(tasknum);
+                    for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                        p.setScoreboard(l.Initialize(p));
+                        p.setLevel(Basic.countdown);
+                        p.playSound(p.getLocation(), Sound.BLOCK_PORTAL_TRAVEL, 25, 25);
+                    }
+                }
+            } else {
+                if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
+                    loop.goThrough();
+                    for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                        p.setScoreboard(l.Initialize(p));
+                        p.setLevel(Basic.countdown);
+                        p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HARP, 50, 50);
                     }
                 } else {
-                    if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
-                        loop.goThrough();
-                        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                            p.setScoreboard(l.Initialize(p));
-                            p.setLevel(Basic.countdown);
-                            p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HARP, 50, 50);
-                        }
-                    } else {
-                        Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
-                        Basic.mode = Mode.WAITING;
-                        Basic.countdown = 60;
-                        Bukkit.getScheduler().cancelTask(tasknum);
-                        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                            p.setScoreboard(l.Initialize(p));
-                            p.setLevel(Basic.countdown);
-                        }
-                        nu = false;
+                    Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");
+                    Basic.mode = Mode.WAITING;
+                    Basic.countdown = 60;
+                    Bukkit.getScheduler().cancelTask(tasknum);
+                    for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+                        p.setScoreboard(l.Initialize(p));
+                        p.setLevel(Basic.countdown);
                     }
+                    nu = false;
                 }
-                if (nu) {
-                    Basic.countdown--;
-                }
+            }
+            if (nu) {
+                Basic.countdown--;
             }
         }, 0, 20L);
     }
@@ -149,28 +146,26 @@ public class StartStop {
             s.handler(p);
             //Show their stats
             p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + ChatColor.GREEN + "" + ChatColor.BOLD + "Stats" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----");
-            p.sendMessage(ChatColor.AQUA + "Participation: +5 clupic");
+            p.sendMessage(ChatColor.AQUA + "Participation: +5 coins");
             p.sendMessage(ChatColor.AQUA + "Kills: " + Basic.kills.get(p.getUniqueId()));
             p.sendMessage(ChatColor.AQUA + "Deaths: " + Basic.deaths.get(p.getUniqueId()));
             int clupic = 0;
             if (winner.equals(Basic.teams.get(p.getUniqueId()))) {
-                p.sendMessage(ChatColor.AQUA + "Won Game: +20 clupic");
+                p.sendMessage(ChatColor.AQUA + "Won Game: +20 coins");
                 clupic += 20;
             } else if (winner.equals(Team.NONE)) {
-                p.sendMessage(ChatColor.AQUA + "Tie: +10 clupic");
+                p.sendMessage(ChatColor.AQUA + "Tie: +10 coins");
                 clupic += 10;
             }
             clupic += (Basic.kills.get(p.getUniqueId()) * 5 + 5);
-            p.sendMessage(ChatColor.GREEN + "Total Clupic Earned: " + clupic);
+            p.sendMessage(ChatColor.GREEN + "Total Coins Earned: " + clupic);
             p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "---------------");
             final int clupics = clupic;
-            Thread thr = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        EstiCoins.giveMoney(p, clupics);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            Thread thr = new Thread(() -> {
+                try {
+                    EstiCoins.giveMoney(p, clupics);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             });
             thr.start();
