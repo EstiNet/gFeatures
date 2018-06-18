@@ -1,8 +1,8 @@
 package net.estinet.gFeatures.Feature.Shop;
 
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
 import org.bukkit.Bukkit;
-
-import com.lambdaworks.redis.*;
 
 /*
 gFeatures

@@ -3,17 +3,15 @@ package net.estinet.gFeatures.Feature.Shop;
 import java.util.HashMap;
 import java.util.UUID;
 
-import org.bukkit.Bukkit;
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.api.StatefulRedisConnection;
+import io.lettuce.core.api.sync.RedisCommands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import com.lambdaworks.redis.RedisClient;
-import com.lambdaworks.redis.api.StatefulRedisConnection;
-import com.lambdaworks.redis.api.sync.RedisCommands;
 
 import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
