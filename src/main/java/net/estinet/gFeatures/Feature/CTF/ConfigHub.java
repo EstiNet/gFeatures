@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapTwo;
 import org.bukkit.Bukkit;
 import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Feature.CTF.Confligs.ConfligInit;
@@ -40,9 +42,11 @@ public class ConfigHub {
 		config.createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
 		if(ctf1.isDirectory()){
 			//TODO maps.add(Maps.One);
+			Basic.ctfmap = new MapOne();
 		}
 		if(ctf2.isDirectory()){
 			maps.add(Maps.Two);
+			Basic.ctfmap = new MapTwo();
 		}
 		if(maps.isEmpty()){
 			Bukkit.getLogger().info("[CTF] No maps found!");

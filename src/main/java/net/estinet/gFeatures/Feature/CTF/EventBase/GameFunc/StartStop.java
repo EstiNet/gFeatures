@@ -43,7 +43,6 @@ https://github.com/EstiNet/gFeatures
 public class StartStop {
     static int tasknum;
     Loop loop = new Loop();
-    Action act = new Action();
     Respawn respawn = new Respawn();
     Spectate s = new Spectate();
     Lobby l = new Lobby();
@@ -51,13 +50,7 @@ public class StartStop {
     public void start() {
         tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             boolean nu = true;
-            Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
-            Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
-            Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -175.5, 26.5, 45.5);
-            Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
-            Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), -27, 35, 2);
-            Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), -171, 21, 45);
-            Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 110, 19, 13);// PLZ DO OOP FOR *** SAKE
+            Basic.ctfmap.setPoints();
             if (Basic.countdown <= 0) {
                 if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
                     ClioteSky.getInstance().sendAsync(new byte[0], "mgstart", "Bungee");

@@ -7,6 +7,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.*;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -42,6 +44,7 @@ public class Basic {
 	public static int countdown = 60;  //CHANGE TO 60 when complete game
 	public static int minutes = 7;
 	public static int seconds = 30;
+	public static CTFMap ctfmap;
 	public static String mapName = "";
 	public static HashMap<UUID, Integer> kills = new HashMap<>();
 	public static HashMap<UUID, Integer> deaths = new HashMap<>();
