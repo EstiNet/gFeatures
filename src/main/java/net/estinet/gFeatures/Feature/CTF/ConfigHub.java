@@ -39,7 +39,7 @@ public class ConfigHub {
 		List<Maps> maps = new ArrayList<>();
 		config.createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
 		if(ctf1.isDirectory()){
-			maps.add(Maps.One);
+			//TODO maps.add(Maps.One);
 		}
 		if(ctf2.isDirectory()){
 			maps.add(Maps.Two);

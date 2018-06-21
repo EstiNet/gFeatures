@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.CTF.MapsSpec;
 import java.io.File;
 import java.io.IOException;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -29,17 +30,36 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class MapTwo {
+	public static Location orangespawn = new Location(Bukkit.getWorld("CTF"), 1206.5, 45.5, 785.5);
+	public static Location bluespawn = new Location(Bukkit.getWorld("CTF"), 1427.5, 45.5, 1005.5);
+	public static Location orangeflag = new Location(Bukkit.getWorld("CTF"), 1436.5, 26.5, 996.5);
+	public static Location blueflag = new Location(Bukkit.getWorld("CTF"), 113.5, 25.5, 13.5);
+	public static Location spectatespawn = new Location(Bukkit.getWorld("CTF"), 1321, 55, 876);
+	public static Location orangeafterspawn = new Location(Bukkit.getWorld("CTF"), 1427, 26, 1012);
+	public static Location blueafterspawn = new Location(Bukkit.getWorld("CTF"), 1206, 26, 780);
+
 	File f = new File("plugins/gFeatures/CTF/CTF2");
 	File fz = new File("./CTF");
+	File fl = new File("plugins/gFeatures/CTF/MinigameSpawn");
+	File flz = new File("./MinigameSpawn");
+
 	public void justDoIt(){
 		fz.delete();
+		flz.delete();
 		try {
 			FileUtils.copyDirectory(f, fz);
+			FileUtils.copyDirectory(fl, flz);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -167.5, 29.5, 45.5);
-		Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 105.5, 28.5, 13.5);
+		ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("Wild West"), "mgmap", "Bungee");
+		Basic.mapName = "Wild West";
+		Basic.orangespawn = orangespawn;
+		Basic.bluespawn = bluespawn;
+		Basic.orangeflag = orangeflag;
+		Basic.blueflag = blueflag;
+		Basic.spectatespawn = spectatespawn;
+		Basic.orangeafterspawn = orangeafterspawn;
+		Basic.blueafterspawn = blueafterspawn;
 	}
 }

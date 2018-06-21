@@ -59,18 +59,13 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-    static ItemStack navigator, additions, settings, pane, friend;
+    static ItemStack navigator, additions, settings, friend;
     Stacker st = new Stacker();
 
     public EventHub() {
         navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
         additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
         settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
-        pane = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
-        pane = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
-        ItemMeta im = pane.getItemMeta();
-        im.setDisplayName(ChatColor.GOLD + "Esti" + ChatColor.DARK_AQUA + "Net");
-        pane.setItemMeta(im);
         friend = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         ItemMeta ims = friend.getItemMeta();
         ims.setDisplayName(ChatColor.GOLD + "Friends");
@@ -83,7 +78,7 @@ public class EventHub {
         ClearInventory ci = new ClearInventory();
         ci.clearInv(p);
         p.setGameMode(GameMode.ADVENTURE);
-        p.getInventory().setItem(1, friend);
+        //p.getInventory().setItem(1, friend);
         p.getInventory().setItem(4, navigator);
         p.getInventory().setItem(3, additions);
         p.getInventory().setItem(5, settings);

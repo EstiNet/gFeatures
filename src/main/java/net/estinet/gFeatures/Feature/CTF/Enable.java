@@ -34,16 +34,14 @@ public class Enable {
 
         Capture c = new Capture();
         c.loop();
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                WorldCreator cs = new WorldCreator("MinigameSpawn");
-                Bukkit.getServer().createWorld(cs);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            WorldCreator cs = new WorldCreator("MinigameSpawn");
+            Bukkit.getServer().createWorld(cs);
 
-                WorldCreator cs1 = new WorldCreator("CTF");
-                Bukkit.getServer().createWorld(cs1);
+            WorldCreator cs1 = new WorldCreator("CTF");
+            Bukkit.getServer().createWorld(cs1);
 
-                ClioteSky.getInstance().sendAsync(new byte[0], "mghello", "Bungee");
-            }
+            ClioteSky.getInstance().sendAsync(new byte[0], "mghello", "Bungee");
         }, 40L);
     }
 }

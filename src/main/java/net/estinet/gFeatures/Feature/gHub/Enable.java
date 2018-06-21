@@ -46,15 +46,10 @@ public class Enable {
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     ClearInventory ci = new ClearInventory();
                     ci.clearInv(p);
-                    p.getInventory().setItem(0, EventHub.pane);
-                    p.getInventory().setItem(1, EventHub.friend);
-                    p.getInventory().setItem(2, EventHub.pane);
-                    p.getInventory().setItem(6, EventHub.pane);
+                    //p.getInventory().setItem(1, EventHub.friend);
                     p.getInventory().setItem(4, EventHub.navigator);
                     p.getInventory().setItem(3, EventHub.additions);
                     p.getInventory().setItem(5, EventHub.settings);
-                    p.getInventory().setItem(7, EventHub.pane);
-                    p.getInventory().setItem(8, EventHub.pane);
                 }
             }
         }, 600L, 600L);
