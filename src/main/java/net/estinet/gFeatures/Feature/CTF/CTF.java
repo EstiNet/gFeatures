@@ -72,9 +72,6 @@ public class CTF extends gFeature implements Events{
 		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
 			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
 		}
-		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
-			eh.onPlayerMove((PlayerMoveEvent) event);
-		}
 		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
 			eh.onPlayerDrop((PlayerDropItemEvent) event);
 		}
@@ -106,9 +103,6 @@ public class CTF extends gFeature implements Events{
 	@Override
 	@Retrieval
 	public void onEntityDamageByEntity(){}
-	@Override
-	@Retrieval
-	public void onPlayerMove(){}
 	@Override
 	@Retrieval
 	public void onPlayerDrop(){}
