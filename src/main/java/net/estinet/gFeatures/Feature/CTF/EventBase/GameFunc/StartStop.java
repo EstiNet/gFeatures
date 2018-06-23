@@ -78,14 +78,7 @@ public class StartStop {
                         Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
                     }, 45L);
 
-
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                        for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                            Music m = new Music();
-                            m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
-                        }
-                        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> stop(), 4500L);
-                    }, 4500L);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> stop(), 18000L);
                     FinishStart fs = new FinishStart();
                     fs.finish();
                     recursive();
@@ -186,10 +179,10 @@ public class StartStop {
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             if (Basic.mode.equals(Mode.STARTED)) {
                 if (Basic.seconds == 0) {
-                    Basic.seconds = 50;
+                    Basic.seconds = 59;
                     Basic.minutes -= 1;
                 } else {
-                    Basic.seconds -= 10;
+                    Basic.seconds -= 1;
                 }
                 for (Player p : Bukkit.getOnlinePlayers()) {
                     CTFScore ctfs = new CTFScore();
@@ -197,6 +190,6 @@ public class StartStop {
                 }
                 recursive();
             }
-        }, 200L);
+        }, 20L);
     }
 }

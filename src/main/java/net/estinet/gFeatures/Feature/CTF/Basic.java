@@ -42,7 +42,7 @@ public class Basic {
 	public static int orangeflags = 0;
 	public static int blueflags = 0;
 	public static int countdown = 60;  //CHANGE TO 60 when complete game
-	public static int minutes = 7;
+	public static int minutes = 15;
 	public static int seconds = 30;
 	public static CTFMap ctfmap;
 	public static String mapName = "";
@@ -52,8 +52,7 @@ public class Basic {
 	public static HashMap<UUID, PlayerMode> modes = new HashMap<>();
 	public static HashMap<UUID, Team> teams = new HashMap<>();
 	public static Mode mode = Mode.WAITING;
-	public static Team winningteam = null;
-	
+
 	public static boolean isInOrange(Player p){
 		if(teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			return true;

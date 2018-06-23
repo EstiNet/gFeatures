@@ -32,7 +32,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Respawn {
-	ClearInventory ci = new ClearInventory();
 	public void respawn(Player p){
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);

@@ -30,31 +30,26 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Dead {
-	Respawn r = new Respawn();
-	public void init(Player p){
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
-	            p.setHealth(20);
-	    }});
-		try{
-		if(Basic.blueflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
-			Basic.blueflagger = null;
-		}
-		}
-		catch(Exception e){}
-		try{
-		if(Basic.orangeflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
-			Basic.orangeflagger = null;
-		}
-		}
-		catch(Exception e){}
-		p.setGameMode(GameMode.SPECTATOR);
-		p.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	public void run(){
-        		r.respawn(p);
-        	}
-        }, 100L);
-	}
+    Respawn r = new Respawn();
+
+    public void init(Player p) {
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> p.setHealth(20));
+        try {
+            if (Basic.blueflagger.getName().equals(p.getName())) {
+                Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);
+                Basic.blueflagger = null;
+            }
+        } catch (Exception e) {
+        }
+        try {
+            if (Basic.orangeflagger.getName().equals(p.getName())) {
+                Action.sendAllTitle(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The blue flag has been returned.", 20, 40, 20);
+                Basic.orangeflagger = null;
+            }
+        } catch (Exception e) {
+        }
+        p.setGameMode(GameMode.SPECTATOR);
+        p.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> r.respawn(p), 100L);
+    }
 }

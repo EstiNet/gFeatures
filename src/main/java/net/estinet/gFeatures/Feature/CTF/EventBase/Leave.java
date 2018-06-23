@@ -55,11 +55,7 @@ public class Leave {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " MinigameHub"), "redirect", "Bungee");
             }
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                public void run() {
-                    Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop");
-                }
-            }, 100L);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "stop"), 100L);
         }
     }
 }

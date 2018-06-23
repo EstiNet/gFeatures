@@ -38,8 +38,8 @@ public class FinishStart {
 			else{
 				p.teleport(Basic.orangespawn);
 			}
-			Music m = new Music();
-			m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
+			//Music m = new Music();
+			//m.sendMusic(p, "theme", 100, "Vexento", "Movements", "");
 		}
 	}
 }
