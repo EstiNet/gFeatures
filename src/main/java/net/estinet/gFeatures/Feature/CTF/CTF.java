@@ -4,10 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -43,10 +40,10 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CTF extends gFeature implements Events{
-	
+
 	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
-	
+
 	public CTF(String featurename, String d) {
 		super(featurename, d);
 	}
@@ -82,14 +79,17 @@ public class CTF extends gFeature implements Events{
 			eh.onPlayerInteract((PlayerInteractEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
-			eh.onPlayerDeath((PlayerDeathEvent) event); 
+			eh.onPlayerDeath((PlayerDeathEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
-			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event); 
+			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event);
 		}
 		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
 			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
 		}
+        else if(event.getEventName().equalsIgnoreCase("entitychangeblockevent")){
+            eh.onSandFall((EntityChangeBlockEvent) event);
+        }
 	}
 	@Retrieval
 	@Override
@@ -119,7 +119,10 @@ public class CTF extends gFeature implements Events{
 	@Retrieval
 	public void onFoodLevelChange(){}
 	@Override
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
+	@Retrieval
+	public void onEntityChangeBlockEvent(){}
+	@Override
+	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
 			ch.onCommand(sender, cmd, label, args);
 	}
 }

@@ -6,11 +6,7 @@ import java.util.List;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
@@ -52,119 +48,153 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Library {
-	public void onPlayerJoin(PlayerJoinEvent event){
-		check("onPlayerJoin", event);
-	}
-	public void onPlayerLeave(PlayerQuitEvent event){
-		check("onPlayerLeave", event);
-	}
-    public void onPlayerMove(PlayerMoveEvent event){
-    	check("onPlayerMove", event);
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        check("onPlayerJoin", event);
     }
-    public void onPlayerRespawn(PlayerRespawnEvent event){
-    	check("onPlayerRespawn", event);
+
+    public void onPlayerLeave(PlayerQuitEvent event) {
+        check("onPlayerLeave", event);
     }
-    public void onPlayerDeath(PlayerDeathEvent event){
-    	check("onPlayerDeath", event);
+
+    public void onPlayerMove(PlayerMoveEvent event) {
+        check("onPlayerMove", event);
     }
+
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
+        check("onPlayerRespawn", event);
+    }
+
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        check("onPlayerDeath", event);
+    }
+
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
-    	check("onEntityDamageByEntity", event);
+        check("onEntityDamageByEntity", event);
     }
+
     public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
-    	check("onWeaponDamageEntity", event);
+        check("onWeaponDamageEntity", event);
     }
-    public void onPlayerInteract(PlayerInteractEvent event){
-    	check("onPlayerInteract", event);
+
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        check("onPlayerInteract", event);
     }
-    public void onPlayerBreakBlock(BlockBreakEvent event){
-    	check("onPlayerBreakBlock", event);
+
+    public void onPlayerBreakBlock(BlockBreakEvent event) {
+        check("onPlayerBreakBlock", event);
     }
-    public void onPlayerChat(AsyncPlayerChatEvent event){
-    	check("onPlayerChat", event);
+
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
+        check("onPlayerChat", event);
     }
-    public void onPlayerCommand(PlayerCommandPreprocessEvent event){
-    	check("onPlayerCommand", event);
+
+    public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
+        check("onPlayerCommand", event);
     }
-    public void onPlayerOpenInventory(InventoryOpenEvent event){
-    	check("onPlayerOpenInventory", event);
+
+    public void onPlayerOpenInventory(InventoryOpenEvent event) {
+        check("onPlayerOpenInventory", event);
     }
-    public void onPlayerItemHeld(PlayerItemHeldEvent event){
-    	check("onPlayerItemHeld", event);
+
+    public void onPlayerItemHeld(PlayerItemHeldEvent event) {
+        check("onPlayerItemHeld", event);
     }
-    public void onInventoryClick(InventoryClickEvent event){
-    	check("onInventoryClick", event);
+
+    public void onInventoryClick(InventoryClickEvent event) {
+        check("onInventoryClick", event);
     }
-    public void onEntityExplode(EntityExplodeEvent event){
-    	check("onEntityExplode", event);
+
+    public void onEntityExplode(EntityExplodeEvent event) {
+        check("onEntityExplode", event);
     }
-    public void onFoodLevelChange(FoodLevelChangeEvent event){
-    	check("onFoodLevelChange", event);
+
+    public void onFoodLevelChange(FoodLevelChangeEvent event) {
+        check("onFoodLevelChange", event);
     }
-    public void onPlayerDrop(PlayerDropItemEvent event){
-    	check("onPlayerDrop", event);
+
+    public void onPlayerDrop(PlayerDropItemEvent event) {
+        check("onPlayerDrop", event);
     }
-    public void onPlayerToggleFlight(PlayerToggleFlightEvent event){
-    	check("onPlayerToggleFlight", event);
+
+    public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
+        check("onPlayerToggleFlight", event);
     }
-    public void onEntityDamage(EntityDamageEvent event){
-    	check("onEntityDamage", event);
+
+    public void onEntityDamage(EntityDamageEvent event) {
+        check("onEntityDamage", event);
     }
-    public void onPlayerInteractEntity(PlayerInteractEntityEvent event){
-    	check("onPlayerInteractEntity", event);
+
+    public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
+        check("onPlayerInteractEntity", event);
     }
-    public void onWeatherChange(WeatherChangeEvent event){
-    	check("onWeatherChange", event);
+
+    public void onWeatherChange(WeatherChangeEvent event) {
+        check("onWeatherChange", event);
     }
-    public void onPlayerLogin(PlayerLoginEvent event){
-    	check("onPlayerLogin", event);
+
+    public void onPlayerLogin(PlayerLoginEvent event) {
+        check("onPlayerLogin", event);
     }
-    public void onWorldLoad(WorldLoadEvent event){
-    	check("onWorldLoad", event);
+
+    public void onWorldLoad(WorldLoadEvent event) {
+        check("onWorldLoad", event);
     }
-    public void onPlayerPickup(PlayerPickupItemEvent event){
-    	check("onPlayerPickup", event);
+
+    public void onPlayerPickup(PlayerPickupItemEvent event) {
+        check("onPlayerPickup", event);
     }
+
     public void onPlayerAnimate(org.bukkit.event.player.PlayerAnimationEvent event) {
-    	check("onPlayerAnimate", event);
-	}
-	public void onInventory(InventoryEvent event) {
-		check("onInventory", event);
-	}
-	public void onInventoryInteract(org.bukkit.event.inventory.InventoryInteractEvent event) {
-		check("onInventoryInteract", event);
-	}
-	public void onEntityDamageByBlock(org.bukkit.event.entity.EntityDamageByBlockEvent event) {
-		check("onEntityDamageByBlock", event);
-	}
-    public void check(String methodname, Event event){
-    	List<gFeature> features = gFeatures.getFeatures();
-		for(gFeature feature : features){
-			try {
-				if(!(feature.getClass().getDeclaredMethod(methodname).equals(null))){
-					if(feature.getState().equals(FeatureState.ENABLE)){
-					feature.eventTrigger(event);
-					}
-				}
-			} catch (NoSuchMethodException e) {} 
-			catch (SecurityException e) {}
-			catch (ConcurrentModificationException e) {}
-		}
-		List<Extension> extensions = gFeatures.getExtensions();
-		List<gUtility> utilities = new ArrayList<>();
-		for(Extension ext : extensions){
-			if(ext.getType().equals(ExtensionsType.Utility)){
-				utilities.add((gUtility) ext);
-			}
-		}
-		for(gUtility utility : utilities){
-			try {
-				if(!(utility.getClass().getDeclaredMethod(methodname).equals(null))){
-					if(utility.getState().equals(FeatureState.ENABLE)){
-					utility.eventTrigger(event);
-					}
-				}
-			} catch (NoSuchMethodException e) {} 
-			catch (SecurityException e) {}
-		}
+        check("onPlayerAnimate", event);
+    }
+
+    public void onInventory(InventoryEvent event) {
+        check("onInventory", event);
+    }
+
+    public void onInventoryInteract(org.bukkit.event.inventory.InventoryInteractEvent event) {
+        check("onInventoryInteract", event);
+    }
+
+    public void onEntityDamageByBlock(org.bukkit.event.entity.EntityDamageByBlockEvent event) {
+        check("onEntityDamageByBlock", event);
+    }
+
+    public void onEntityChangeBlock(EntityChangeBlockEvent event) {
+        check("onEntityChangeBlockEvent", event);
+    }
+
+    public void check(String methodname, Event event) {
+        List<gFeature> features = gFeatures.getFeatures();
+        for (gFeature feature : features) {
+            try {
+                if (!(feature.getClass().getDeclaredMethod(methodname).equals(null))) {
+                    if (feature.getState().equals(FeatureState.ENABLE)) {
+                        feature.eventTrigger(event);
+                    }
+                }
+            } catch (NoSuchMethodException e) {
+            } catch (SecurityException e) {
+            } catch (ConcurrentModificationException e) {
+            }
+        }
+        List<Extension> extensions = gFeatures.getExtensions();
+        List<gUtility> utilities = new ArrayList<>();
+        for (Extension ext : extensions) {
+            if (ext.getType().equals(ExtensionsType.Utility)) {
+                utilities.add((gUtility) ext);
+            }
+        }
+        for (gUtility utility : utilities) {
+            try {
+                if (!(utility.getClass().getDeclaredMethod(methodname).equals(null))) {
+                    if (utility.getState().equals(FeatureState.ENABLE)) {
+                        utility.eventTrigger(event);
+                    }
+                }
+            } catch (NoSuchMethodException e) {
+            } catch (SecurityException e) {
+            }
+        }
     }
 }

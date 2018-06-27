@@ -78,7 +78,7 @@ public class StartStop {
                         Bukkit.getWorld("CTF").spawn(Basic.orangeflag, EnderCrystal.class);
                     }, 45L);
 
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> stop(), 18000L);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> stop(), 18600L);
                     FinishStart fs = new FinishStart();
                     fs.finish();
                     recursive();

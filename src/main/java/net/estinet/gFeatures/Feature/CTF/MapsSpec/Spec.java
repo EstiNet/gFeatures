@@ -24,20 +24,26 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Spec {
-	MapTwo mt = new MapTwo();
-	MapOne mo = new MapOne();
-	public void direction(Maps map){
-		switch(map){
-		case One: 
-			Bukkit.getLogger().info("[CTF] Map one selected!");
-			mo.justDoIt();
-			break;
-		case Two:
-			Bukkit.getLogger().info("[CTF] Map Two selected!");
-			mt.justDoIt();
-			break;
-		default:
-			Bukkit.getLogger().info("Wat");
-		}
-	}
+    MapTwo mt = new MapTwo();
+    MapOne mo = new MapOne();
+    MapThree mth = new MapThree();
+
+    public void direction(Maps map) {
+        switch (map) {
+            case One:
+                Bukkit.getLogger().info("[CTF] Map one selected!");
+                mo.justDoIt();
+                break;
+            case Two:
+                Bukkit.getLogger().info("[CTF] Map Two selected!");
+                mt.justDoIt();
+                break;
+            case Three:
+                Bukkit.getLogger().info("[CTF] Map Three selected!");
+                mth.justDoIt();
+                break;
+            default:
+                Bukkit.getLogger().info("Wat");
+        }
+    }
 }

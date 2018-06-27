@@ -37,6 +37,7 @@ public class ConfligInit {
             MakeFile("DualLaserPistols");
             MakeFile("PlasmaShotgun");
             MakeFile("PlasmaSniper");
+            MakeFile("MiniGun");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,6 +48,7 @@ public class ConfligInit {
         DeleteFile("DualLaserPistols");
         DeleteFile("PlasmaShotgun");
         DeleteFile("PlasmaSniper");
+        DeleteFile("MiniGun");
     }
 
     public void MakeFile(String filename) throws IOException {

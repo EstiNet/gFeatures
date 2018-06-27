@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -83,31 +84,29 @@ public class EventHub {
                 if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)) {
                     event.setCancelled(true);
                 } else if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)) {
-                    if (event.getDamager().getType().equals(EntityType.PLAYER)) {
-                        Player pl = (Player) event.getDamager();
-                        if (((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))) {
+                    Player pl = (Player) event.getDamager();
+                    if (((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE))) || ((Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.teams.get(pl.getUniqueId()).equals(Team.ORANGE)))) {
+                        event.setCancelled(true);
+                    } else {
+                        int health = (int) p.getHealth();
+                        double damage = event.getDamage();
+                        if (health - damage <= 0) {
+                            ClearInventory ci = new ClearInventory();
+                            ci.clearInv(p);
                             event.setCancelled(true);
-                        } else {
-                            int health = (int) p.getHealth();
-                            double damage = event.getDamage();
-                            if (health - damage <= 0) {
-                                ClearInventory ci = new ClearInventory();
-                                ci.clearInv(p);
-                                event.setCancelled(true);
-                                int deaths = Basic.deaths.get(p.getUniqueId());
-                                deaths += 1;
-                                Basic.deaths.remove(p.getUniqueId());
-                                Basic.deaths.put(p.getUniqueId(), deaths);
+                            int deaths = Basic.deaths.get(p.getUniqueId());
+                            deaths += 1;
+                            Basic.deaths.remove(p.getUniqueId());
+                            Basic.deaths.put(p.getUniqueId(), deaths);
 
-                                int kills = Basic.kills.get(pl.getUniqueId());
-                                kills += 1;
-                                Basic.kills.remove(pl.getUniqueId());
-                                Basic.kills.put(pl.getUniqueId(), kills);
+                            int kills = Basic.kills.get(pl.getUniqueId());
+                            kills += 1;
+                            Basic.kills.remove(pl.getUniqueId());
+                            Basic.kills.put(pl.getUniqueId(), kills);
 
-                                Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
+                            Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
 
-                                d.init(p);
-                            }
+                            d.init(p);
                         }
                     }
                 }
@@ -131,7 +130,7 @@ public class EventHub {
             if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)) {
                 event.setCancelled(true);
             } else if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)) {
-                Player pl = (Player) event.getPlayer(); // CHECK IT OUT
+                Player pl = event.getPlayer(); // CHECK IT OUT
                 if ((Basic.isInBlue(p) && Basic.isInBlue(pl)) || (Basic.isInOrange(p) && Basic.isInOrange(pl))) {
                     event.setCancelled(true);
                     if (Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.teams.get(pl.getUniqueId()).equals(Team.BLUE)) {
@@ -197,11 +196,9 @@ public class EventHub {
 
                 event.getEntity().teleport(Basic.waitspawn);
                 Player player = event.getEntity();
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                    public void run() {
-                        if (event.getEntity().isDead())
-                            player.setHealth(20);
-                    }
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    if (event.getEntity().isDead())
+                        player.setHealth(20);
                 });
             } else if (Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.SELECT)) {
                 event.getEntity().setHealth(20);
@@ -212,11 +209,9 @@ public class EventHub {
                     event.getEntity().teleport(Basic.orangespawn);
                 }
                 Player player = event.getEntity();
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                    public void run() {
-                        if (event.getEntity().isDead())
-                            player.setHealth(20);
-                    }
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    if (event.getEntity().isDead())
+                        player.setHealth(20);
                 });
             } else if (Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)) {
 
@@ -230,9 +225,15 @@ public class EventHub {
                     if (event.getEntity().isDead())
                         event.getEntity().setHealth(20);
                 });
-                //Location loc = event.getEntity().getLocation();
-                //((CraftServer)Bukkit.getServer()).getHandle().moveToWorld(((CraftPlayer)event.getEntity()).getHandle(), 0, false);
-                //event.getEntity().teleport(loc);
+            }
+        }
+    }
+
+    public void onSandFall(EntityChangeBlockEvent event) {
+        if (event.getEntityType() == EntityType.FALLING_BLOCK && event.getTo() == Material.AIR) {
+            if (event.getBlock().getType() == Material.SAND) {
+                event.setCancelled(true);
+                event.getBlock().getState().update(false, false);
             }
         }
     }

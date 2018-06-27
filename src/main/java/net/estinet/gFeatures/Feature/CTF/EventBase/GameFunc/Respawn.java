@@ -32,7 +32,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Respawn {
-	public void respawn(Player p){
+	public static void respawn(Player p){
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(p);
 		Basic.modes.remove(p.getUniqueId());

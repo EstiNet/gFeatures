@@ -21,7 +21,7 @@ LaserRifle:
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
         Projectile_Speed: 30
-        Projectile_Damage: 6
+        Projectile_Damage: 7
         Projectile_Flames: false
         Projectile_Incendiary:
             Enable: false
@@ -30,7 +30,7 @@ LaserRifle:
         Sounds_Shoot: ENTITY_IRONGOLEM_HURT-1-2-0,ENTITY_SKELETON_HURT-1-2-0,ENTITY_ZOMBIE_ATTACK_DOOR_WOOD-1-2-0
     Fully_Automatic:
         Enable: true
-        Fire_Rate: 16
+        Fire_Rate: 10
     Sneak:
         Enable: false
     Ammo:
@@ -40,8 +40,8 @@ LaserRifle:
     Reload:
         Enable: true
         Reload_With_Mouse: false
-        Starting_Amount: 150
-        Reload_Amount: 150
+        Starting_Amount: 90
+        Reload_Amount: 90
         Reload_Bullets_Individually: false
         Take_Ammo_On_Reload: true
         Take_Ammo_As_Magazine: false

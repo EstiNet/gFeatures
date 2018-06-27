@@ -48,20 +48,13 @@ public class MapTwo implements CTFMap{
 		setPoints();
 	}
 	public void setPoints() {
-		Location orangespawn = new Location(Bukkit.getWorld("CTF"), 1427.5, 45.5, 1005.5);
-		Location bluespawn = new Location(Bukkit.getWorld("CTF"), 1206.5, 45.5, 785.5);
-		Location orangeflag = new Location(Bukkit.getWorld("CTF"), 1436.5, 26.5, 997.5);
-		Location blueflag = new Location(Bukkit.getWorld("CTF"), 1197.5, 27.5, 795.5);
-		Location spectatespawn = new Location(Bukkit.getWorld("CTF"), 1321, 55, 876);
-		Location orangeafterspawn = new Location(Bukkit.getWorld("CTF"), 1427, 26, 1012);
-		Location blueafterspawn = new Location(Bukkit.getWorld("CTF"), 1206, 26, 780);
 		Basic.mapName = "Wild West";
-		Basic.orangespawn = orangespawn;
-		Basic.bluespawn = bluespawn;
-		Basic.orangeflag = orangeflag;
-		Basic.blueflag = blueflag;
-		Basic.spectatespawn = spectatespawn;
-		Basic.orangeafterspawn = orangeafterspawn;
-		Basic.blueafterspawn = blueafterspawn;
+		Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), 1427.5, 45.5, 1005.5);
+		Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), 1206.5, 45.5, 785.5);
+		Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), 1436.5, 26.5, 997.5);
+		Basic.blueflag = new Location(Bukkit.getWorld("CTF"), 1197.5, 26.5, 795.5);
+		Basic.spectatespawn = new Location(Bukkit.getWorld("CTF"), 1321, 55, 876);
+		Basic.orangeafterspawn = new Location(Bukkit.getWorld("CTF"), 1427, 26, 1012);
+		Basic.blueafterspawn = new Location(Bukkit.getWorld("CTF"), 1206, 26, 780);
 	}
 }

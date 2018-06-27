@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapThree;
 import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapTwo;
 import org.bukkit.Bukkit;
 import net.estinet.gFeatures.Configuration.Config;
@@ -31,32 +32,37 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigHub {
-	Config config = new Config();
-	Spec spec = new Spec();
-	ConfligInit ci = new ConfligInit();
-	File f = new File("plugins/gFeatures/CTF/Config.yml");
-	File ctf1 = new File("plugins/gFeatures/CTF/CTF1");
-	File ctf2 = new File("plugins/gFeatures/CTF/CTF2");
-	public void setupConfig(){
-		List<Maps> maps = new ArrayList<>();
-		config.createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
-		if(ctf1.isDirectory()){
-			//TODO maps.add(Maps.One);
-			Basic.ctfmap = new MapOne();
-		}
-		if(ctf2.isDirectory()){
-			maps.add(Maps.Two);
-			Basic.ctfmap = new MapTwo();
-		}
-		if(maps.isEmpty()){
-			Bukkit.getLogger().info("[CTF] No maps found!");
-			Disable.onDisable();
-			net.estinet.gFeatures.gFeatures.getFeature("CTF").disable();
-			return;
-		}
-		int random = (int) Math.floor(Math.random() * maps.size());
-		spec.direction(maps.get(random));
-		
-		ci.createConfigs();
-	}
+    Config config = new Config();
+    Spec spec = new Spec();
+    ConfligInit ci = new ConfligInit();
+    File ctf1 = new File("plugins/gFeatures/CTF/CTF1");
+    File ctf2 = new File("plugins/gFeatures/CTF/CTF2");
+    File ctf3 = new File("plugins/gFeatures/CTF/CTF3");
+
+    public void setupConfig() {
+        List<Maps> maps = new ArrayList<>();
+        config.createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
+        if (ctf1.isDirectory()) {
+            //maps.add(Maps.One);
+            Basic.ctfmap = new MapOne(); //DISABLE physics
+        }
+        if (ctf2.isDirectory()) {
+            //maps.add(Maps.Two);
+            Basic.ctfmap = new MapTwo();
+        }
+        if (ctf3.isDirectory()) {
+            maps.add(Maps.Three);
+            Basic.ctfmap = new MapThree();
+        }
+        if (maps.isEmpty()) {
+            Bukkit.getLogger().info("[CTF] No maps found!");
+            Disable.onDisable();
+            net.estinet.gFeatures.gFeatures.getFeature("CTF").disable();
+            return;
+        }
+        int random = (int) Math.floor(Math.random() * maps.size());
+        spec.direction(maps.get(random));
+
+        ci.createConfigs();
+    }
 }

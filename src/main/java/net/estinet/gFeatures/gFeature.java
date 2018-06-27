@@ -93,4 +93,5 @@ public class gFeature{
     public void onInventory(){}
     public void onInventoryInteract(){}
     public void onEntityDamageByBlock(){}
+    public void onEntityChangeBlockEvent(){}
 }
