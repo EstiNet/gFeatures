@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.CTF;
 
+import net.estinet.gFeatures.Feature.CTF.EventBase.GameFunc.Respawn;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,7 +14,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
@@ -50,10 +50,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-    Join join = new Join();
     Leave leave = new Leave();
     Dead d = new Dead();
-    FlagHit fh = new FlagHit();
     SpawnMenu sm = new SpawnMenu();
 
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -66,7 +64,7 @@ public class EventHub {
         } catch (Exception e) {
             event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
         }
-        join.init(event);
+        Join.init(event);
     }
 
     public void onPlayerLeave(PlayerQuitEvent event) {
@@ -91,8 +89,7 @@ public class EventHub {
                         int health = (int) p.getHealth();
                         double damage = event.getDamage();
                         if (health - damage <= 0) {
-                            ClearInventory ci = new ClearInventory();
-                            ci.clearInv(p);
+                            ClearInventory.clearInv(p);
                             event.setCancelled(true);
                             int deaths = Basic.deaths.get(p.getUniqueId());
                             deaths += 1;
@@ -113,7 +110,7 @@ public class EventHub {
             } else {
                 if (event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)) {
                     event.setCancelled(true);
-                    fh.init(event.getEntity().getLocation(), (Player) event.getDamager());
+                    FlagHit.processEvent(event.getEntity().getLocation(), (Player) event.getDamager());
                 }
             }
         } else {
@@ -143,8 +140,7 @@ public class EventHub {
                     int health = (int) p.getHealth();
                     double damage = event.getDamage();
                     if (health - damage <= 0) {
-                        ClearInventory ci = new ClearInventory();
-                        ci.clearInv(p);
+                        ClearInventory.clearInv(p);
                         int deaths = Basic.deaths.get(p.getUniqueId());
                         deaths += 1;
                         Basic.deaths.remove(p.getUniqueId());
@@ -164,7 +160,7 @@ public class EventHub {
         } else {
             if (event.getVictim().getType().equals(EntityType.ENDER_CRYSTAL)) {
                 event.setCancelled(true);
-                fh.init(event.getVictim().getLocation(), (Player) event.getDamager());
+                FlagHit.processEvent(event.getVictim().getLocation(), (Player) event.getDamager());
             }
         }
     }
@@ -210,13 +206,13 @@ public class EventHub {
                 }
                 Player player = event.getEntity();
                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    Respawn.respawn(player);
                     if (event.getEntity().isDead())
                         player.setHealth(20);
                 });
             } else if (Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.INGAME)) {
 
-                ClearInventory ci = new ClearInventory();
-                ci.clearInv(event.getEntity());
+                ClearInventory.clearInv(event.getEntity());
                 for (int i = 0; i < event.getDrops().size(); i++) {
                     event.getDrops().set(i, new ItemStack(Material.AIR));
                 }

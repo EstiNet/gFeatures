@@ -23,7 +23,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Spectate {
-	public void handler(Player p){
+	public static void handler(Player p){
 		p.setGameMode(GameMode.SPECTATOR);
 	}
 }

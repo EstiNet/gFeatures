@@ -38,13 +38,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Join {
-	StartStop ss = new StartStop();
-	Spectate s = new Spectate();
-	Lobby l = new Lobby();
-	CTFScore ctfs = new CTFScore();
-	ClearInventory ci = new ClearInventory();
-	public void init(PlayerJoinEvent event){
-		ci.clearInv(event.getPlayer());
+	public static void init(PlayerJoinEvent event){
+		ClearInventory.clearInv(event.getPlayer());
 		event.getPlayer().setGameMode(GameMode.ADVENTURE);
 		Basic.kills.put(event.getPlayer().getUniqueId(), 0);
 		Basic.deaths.put(event.getPlayer().getUniqueId(), 0);
@@ -52,7 +47,7 @@ public class Join {
 		switch(Basic.mode){
 		case WAITING:
 			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(l.Initialize(p));
+				p.setScoreboard(Lobby.initialize(p));
 			}
 			event.getPlayer().setHealth(20);
 			event.getPlayer().setSaturation(20);
@@ -63,7 +58,7 @@ public class Join {
 				event.getPlayer().teleport(Basic.waitspawn);
 				if(Bukkit.getOnlinePlayers().size() >= 2 && Basic.countdown == 60){
 					Action.sendAll(ChatColor.AQUA + "Enough players! Game will be starting in 1 minute.");
-					ss.start();
+					StartStop.start();
 				}
 				ItemStack is = new ItemStack(Material.COMPASS, 1);
 				ItemMeta im = is.getItemMeta();
@@ -80,20 +75,20 @@ public class Join {
 			break;
 		case ENDED:
 			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(ctfs.Initialize(p));
+				p.setScoreboard(CTFScore.initialize(p));
 			}
 			event.getPlayer().teleport(Basic.spectatespawn);
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
-			s.handler(event.getPlayer());
+			Spectate.handler(event.getPlayer());
 			event.getPlayer().setGameMode(GameMode.SPECTATOR);
 			break;
 		case STARTED:
 			for(Player p : Bukkit.getOnlinePlayers()){
-				p.setScoreboard(ctfs.Initialize(p));
+				p.setScoreboard(CTFScore.initialize(p));
 			}
 			event.getPlayer().teleport(Basic.spectatespawn);
 			Basic.modes.put(event.getPlayer().getUniqueId(), PlayerMode.SPECTATE);
-			s.handler(event.getPlayer());
+			Spectate.handler(event.getPlayer());
 			event.getPlayer().setGameMode(GameMode.SPECTATOR);
 			break;
 		default:

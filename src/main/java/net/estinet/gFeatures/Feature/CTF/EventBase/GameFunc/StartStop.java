@@ -42,12 +42,8 @@ https://github.com/EstiNet/gFeatures
 
 public class StartStop {
     static int tasknum;
-    Loop loop = new Loop();
-    Respawn respawn = new Respawn();
-    Spectate s = new Spectate();
-    Lobby l = new Lobby();
 
-    public void start() {
+    public static void start() {
         tasknum = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             boolean nu = true;
             Basic.ctfmap.setPoints();
@@ -68,7 +64,7 @@ public class StartStop {
                     for (UUID uuid : Basic.teams.keySet()) {
                         for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                             if (p.getUniqueId().equals(uuid)) {
-                                respawn.respawn(p);
+                                Respawn.respawn(p);
                             }
                         }
                     }
@@ -88,16 +84,16 @@ public class StartStop {
                     Basic.countdown = 60;
                     Bukkit.getScheduler().cancelTask(tasknum);
                     for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                        p.setScoreboard(l.Initialize(p));
+                        p.setScoreboard(Lobby.initialize(p));
                         p.setLevel(Basic.countdown);
                         p.playSound(p.getLocation(), Sound.BLOCK_PORTAL_TRAVEL, 25, 25);
                     }
                 }
             } else {
                 if (Bukkit.getServer().getOnlinePlayers().size() >= 2) {
-                    loop.goThrough();
+                    Loop.goThrough();
                     for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                        p.setScoreboard(l.Initialize(p));
+                        p.setScoreboard(Lobby.initialize(p));
                         p.setLevel(Basic.countdown);
                         p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HARP, 50, 50);
                     }
@@ -107,7 +103,7 @@ public class StartStop {
                     Basic.countdown = 60;
                     Bukkit.getScheduler().cancelTask(tasknum);
                     for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-                        p.setScoreboard(l.Initialize(p));
+                        p.setScoreboard(Lobby.initialize(p));
                         p.setLevel(Basic.countdown);
                     }
                     nu = false;
@@ -119,11 +115,11 @@ public class StartStop {
         }, 0, 20L);
     }
 
-    public void stop() {
+    public static void stop() {
         for (Player p : Bukkit.getOnlinePlayers()) {
             Basic.modes.remove(p.getUniqueId());
             Basic.modes.put(p.getUniqueId(), PlayerMode.SPECTATE);
-            s.handler(p);
+            Spectate.handler(p);
             //Show their stats
             p.sendMessage(ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----" + ChatColor.RESET + ChatColor.GREEN + "" + ChatColor.BOLD + "Stats" + ChatColor.WHITE + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "-----");
             p.sendMessage(ChatColor.AQUA + "Participation: +10 coins");
@@ -175,7 +171,7 @@ public class StartStop {
         }, 1000L);
     }
 
-    public void recursive() {
+    public static void recursive() {
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             if (Basic.mode.equals(Mode.STARTED)) {
                 if (Basic.seconds == 0) {
@@ -185,8 +181,7 @@ public class StartStop {
                     Basic.seconds -= 1;
                 }
                 for (Player p : Bukkit.getOnlinePlayers()) {
-                    CTFScore ctfs = new CTFScore();
-                    p.setScoreboard(ctfs.Initialize(p));
+                    p.setScoreboard(CTFScore.initialize(p));
                 }
                 recursive();
             }

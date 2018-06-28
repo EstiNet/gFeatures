@@ -22,16 +22,14 @@ https://github.com/EstiNet/gFeatures
 import org.bukkit.entity.Player;
 
 public class ClearInventory {
-	public void clearInv(Player p)
-	{
-	for(int j=0; j<38; j++)
-	{
-	p.getInventory().setItem(j, null);
-	}
-	p.getInventory().setItemInOffHand(null);
-	p.getInventory().setHelmet(null);
-	p.getInventory().setChestplate(null);
-	p.getInventory().setLeggings(null);
-	p.getInventory().setBoots(null);
-	}
+    public static void clearInv(Player p) {
+        for (int j = 0; j < 38; j++) {
+            p.getInventory().setItem(j, null);
+        }
+        p.getInventory().setItemInOffHand(null);
+        p.getInventory().setHelmet(null);
+        p.getInventory().setChestplate(null);
+        p.getInventory().setLeggings(null);
+        p.getInventory().setBoots(null);
+    }
 }

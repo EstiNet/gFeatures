@@ -31,7 +31,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Lobby {
-    public Scoreboard Initialize(Player p) throws IllegalStateException, IllegalArgumentException {
+    public static Scoreboard initialize(Player p) throws IllegalStateException, IllegalArgumentException {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         Scoreboard board = manager.getNewScoreboard();
         Objective objective = board.registerNewObjective("test", "dummy");

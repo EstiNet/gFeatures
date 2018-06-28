@@ -30,43 +30,50 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class FlagHit {
-	CTFScore ctfs = new CTFScore();
-	public void init(Location loc, Player p){
-		if((loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)) && Basic.blueflagger == null){
-			Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the blue flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-			p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
-			Basic.blueflagger = p;
-			//Captured the blue flag
-		}
-		else if((loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)) && Basic.orangeflagger == null){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has taken the orange flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-			p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
-			Basic.orangeflagger = p;
-			//Captured the orange flag
-		}
-		else if(loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && Basic.orangeflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has captured the orange flag!", "", 20, 40, 20);
-			Basic.orangeflagger = null;
-			Basic.blueflags += 1;
-			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
-			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture + 1);
-			for(Player ps : Bukkit.getOnlinePlayers()){
-				ps.setScoreboard(ctfs.Initialize(ps));
-			}
-			//Fully Captured the orange flag
-		}
-		else if(loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ() && Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.blueflagger.getName().equals(p.getName())){
-			Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has captured the blue flag!", "", 20, 40, 20);
-			Basic.blueflagger = null;
-			Basic.orangeflags += 1;
-			Integer capture = Basic.flagcaptures.get(p.getUniqueId());
-			Basic.flagcaptures.remove(p.getUniqueId());
-			Basic.flagcaptures.put(p.getUniqueId(), capture+1);
-			for(Player ps : Bukkit.getOnlinePlayers()){
-				ps.setScoreboard(ctfs.Initialize(ps));
-			}
-			//Fully Captured the blue flag
-		}
-	}
+    CTFScore ctfs = new CTFScore();
+
+    public static void processEvent(Location loc, Player p) {
+
+        if (loc.getBlockX() == Basic.blueflag.getBlockX() && loc.getBlockY() == Basic.blueflag.getBlockY() && loc.getBlockZ() == Basic.blueflag.getBlockZ()) {
+            if (Basic.isInOrange(p)) {
+                if (Basic.blueflagger == null) {
+
+                    Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the blue flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
+                    p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
+                    Basic.blueflagger = p;
+                    // captured the blue flag
+                } else {
+                    p.sendTitle("The flag has already been taken.", "", 10, 20, 10);
+                }
+            } else if (Basic.isInBlue(p) && Basic.orangeflagger.getUniqueId().equals(p.getUniqueId())) {
+
+                Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has captured the orange flag!", "", 20, 40, 20);
+                Basic.orangeflagger = null;
+                Basic.blueflags++;
+                Basic.flagcaptures.remove(p.getUniqueId());
+                Basic.flagcaptures.put(p.getUniqueId(), Basic.flagcaptures.get(p.getUniqueId()));
+                // fully Captured the orange flag
+            }
+        } else if (loc.getBlockX() == Basic.orangeflag.getBlockX() && loc.getBlockY() == Basic.orangeflag.getBlockY() && loc.getBlockZ() == Basic.orangeflag.getBlockZ()) {
+            if (Basic.isInBlue(p)) {
+                if (Basic.orangeflagger == null) {
+
+                    Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has taken the orange flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
+                    p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
+                    Basic.orangeflagger = p;
+                    // captured the orange flag
+                } else {
+                    p.sendTitle("The flag has already been taken.", "", 10, 20, 10);
+                }
+            } else if (Basic.isInOrange(p) && Basic.blueflagger.getUniqueId().equals(p.getUniqueId())) {
+
+                Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has captured the blue flag!", "", 20, 40, 20);
+                Basic.blueflagger = null;
+                Basic.orangeflags++;
+                Basic.flagcaptures.remove(p.getUniqueId());
+                Basic.flagcaptures.put(p.getUniqueId(), Basic.flagcaptures.get(p.getUniqueId()));
+                // fully Captured the blue flag
+            }
+        }
+    }
 }

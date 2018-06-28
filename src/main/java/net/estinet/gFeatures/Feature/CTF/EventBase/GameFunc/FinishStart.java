@@ -29,9 +29,8 @@ https://github.com/EstiNet/gFeatures
 
 public class FinishStart {
 	public void finish(){
-		CTFScore ctfs = new CTFScore();
 		for(Player p : Bukkit.getOnlinePlayers()){
-			p.setScoreboard(ctfs.Initialize(p));
+			p.setScoreboard(CTFScore.initialize(p));
 			if(Basic.teams.get(p.getUniqueId()).equals(Team.BLUE)){
 				p.teleport(Basic.bluespawn);
 			}
