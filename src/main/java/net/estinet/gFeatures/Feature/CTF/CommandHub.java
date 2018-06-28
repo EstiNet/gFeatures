@@ -30,14 +30,11 @@ https://github.com/EstiNet/gFeatures
 public class CommandHub{
 
 	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
-		try{
-		args[0].toLowerCase();
-		}
-		catch(Exception e){}
 		if(args.length == 0){
 			sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
 		}
 		else if(args.length == 1){
+			args[0] = args[0].toLowerCase();
 			switch(args[0]){
 			case "help":
 				sender.sendMessage(ChatColor.GOLD + "-----CTF Help-----");
@@ -71,6 +68,7 @@ public class CommandHub{
 			}
 		}
 		else if(args.length == 2){
+			args[0] = args[0].toLowerCase();
 			switch(args[0]){
 			case "playermode":
 				if(Bukkit.getPlayer(args[1]) != null){

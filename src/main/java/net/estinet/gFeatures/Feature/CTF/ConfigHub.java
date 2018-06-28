@@ -4,13 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapOne;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapThree;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.MapTwo;
+import net.estinet.gFeatures.Feature.CTF.MapsSpec.*;
 import org.bukkit.Bukkit;
 import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Feature.CTF.Confligs.ConfligInit;
-import net.estinet.gFeatures.Feature.CTF.MapsSpec.Spec;
 
 /*
 gFeatures
@@ -32,37 +29,39 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigHub {
-    Config config = new Config();
-    Spec spec = new Spec();
-    ConfligInit ci = new ConfligInit();
-    File ctf1 = new File("plugins/gFeatures/CTF/CTF1");
-    File ctf2 = new File("plugins/gFeatures/CTF/CTF2");
-    File ctf3 = new File("plugins/gFeatures/CTF/CTF3");
+    private static List<CTFMap> maps = new ArrayList<>();
 
-    public void setupConfig() {
-        List<Maps> maps = new ArrayList<>();
-        config.createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
-        if (ctf1.isDirectory()) {
-            //maps.add(Maps.One);
-            Basic.ctfmap = new MapOne(); //DISABLE physics
+    static {
+        maps.add(new MapOne());
+        maps.add(new MapTwo());
+        maps.add(new MapThree());
+    }
+
+    public static void setupConfig() {
+        new Config().createDirectory("plugins/gFeatures/CTF", "[CTF] plugin directory set!");
+        List<CTFMap> mapList = new ArrayList<>();
+
+        // add maps to list
+
+        for (CTFMap map : maps) {
+            if (map.directory.isDirectory()) {
+                mapList.add(map);
+            }
         }
-        if (ctf2.isDirectory()) {
-            //maps.add(Maps.Two);
-            Basic.ctfmap = new MapTwo();
-        }
-        if (ctf3.isDirectory()) {
-            maps.add(Maps.Three);
-            Basic.ctfmap = new MapThree();
-        }
-        if (maps.isEmpty()) {
+        if (mapList.isEmpty()) {
             Bukkit.getLogger().info("[CTF] No maps found!");
             Disable.onDisable();
             net.estinet.gFeatures.gFeatures.getFeature("CTF").disable();
             return;
         }
-        int random = (int) Math.floor(Math.random() * maps.size());
-        spec.direction(maps.get(random));
 
-        ci.createConfigs();
+        // randomly select one
+
+        int random = (int) Math.floor(Math.random() * mapList.size());
+        Bukkit.getLogger().info("[CTF] Map " + (random+1) + " selected!");
+        Basic.ctfmap = mapList.get(random);
+        Basic.ctfmap.pullWorld();
+
+        new ConfligInit().createConfigs();
     }
 }

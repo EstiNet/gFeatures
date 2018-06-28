@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
+import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
@@ -31,33 +32,24 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Capture {
-	public void loop(){
+	public static void loop(){
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-            try{
                 if(Basic.blueflagger != null){
-                    Firework fw = (Firework) Bukkit.getServer().getWorld("CTF").spawnEntity(Basic.blueflagger.getLocation(), EntityType.FIREWORK);
-                    FireworkMeta fwm = fw.getFireworkMeta();
-                    FireworkEffect effect = FireworkEffect.builder().withColor(Color.AQUA).with(Type.BALL).build();
-
-                    fwm.addEffect(effect);
-                    fwm.setPower(2);
-
-                    fw.setFireworkMeta(fwm);
+                    createFirework(Basic.blueflagger.getLocation(), Color.AQUA);
                 }
                 if(Basic.orangeflagger != null){
-                    Firework fw = (Firework) Bukkit.getServer().getWorld("CTF").spawnEntity(Basic.orangeflagger.getLocation(), EntityType.FIREWORK);
-                    FireworkMeta fwm = fw.getFireworkMeta();
-                    FireworkEffect effect = FireworkEffect.builder().withColor(Color.ORANGE).with(Type.BALL).build();
-
-                    fwm.addEffect(effect);
-                    fwm.setPower(2);
-
-                    fw.setFireworkMeta(fwm);
+                    createFirework(Basic.orangeflagger.getLocation(), Color.ORANGE);
                 }
-            }
-            catch(Exception e){
-
-            }
         }, 80L, 80L);
 	}
+	public static void createFirework(Location loc, Color colour) {
+        Firework fw = (Firework) Bukkit.getServer().getWorld("CTF").spawnEntity(loc, EntityType.FIREWORK);
+        FireworkMeta fwm = fw.getFireworkMeta();
+        FireworkEffect effect = FireworkEffect.builder().withColor(colour).with(Type.BALL).build();
+
+        fwm.addEffect(effect);
+        fwm.setPower(2);
+
+        fw.setFireworkMeta(fwm);
+    }
 }

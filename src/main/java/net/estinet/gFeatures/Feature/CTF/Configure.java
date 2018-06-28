@@ -27,7 +27,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		CTF base = new CTF("CTF", "1.1.3");
+		CTF base = new CTF("CTF", "1.2.0");
 		gFeatures.addFeature(base);
 
 		ClioteSky.addHook(new GetMGInfoClioteHook("getmginfo", base.getName()));

@@ -1,34 +1,20 @@
 package net.estinet.gFeatures.Feature.CTF.MapsSpec;
 
-import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.CTF.Basic;
-import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import java.io.File;
-import java.io.IOException;
 
-public class MapThree implements CTFMap{
-    File f = new File("plugins/gFeatures/CTF/CTF3");
-    File fz = new File("./CTF");
-    File fl = new File("plugins/gFeatures/CTF/MinigameSpawn");
-    File flz = new File("./MinigameSpawn");
+public class MapThree extends CTFMap{
 
-    public void justDoIt(){
-        fz.delete();
-        flz.delete();
-        try {
-            FileUtils.copyDirectory(f, fz);
-            FileUtils.copyDirectory(fl, flz);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("Ridge"), "mgmap", "Bungee");
-        setPoints();
+    public MapThree() {
+        super.directory = new File("plugins/gFeatures/CTF/CTF3");
+        super.mapName = "Ridge";
     }
+
     public void setPoints() {
-        Basic.mapName = "Ridge";
+        Basic.mapName = super.mapName;
         Basic.orangespawn = new Location(Bukkit.getWorld("CTF"), -948.5, 113.5, 224.5);
         Basic.bluespawn = new Location(Bukkit.getWorld("CTF"), -682.5, 113.5, 242.5);
         Basic.orangeflag = new Location(Bukkit.getWorld("CTF"), -914.5, 70.5, 229.5);

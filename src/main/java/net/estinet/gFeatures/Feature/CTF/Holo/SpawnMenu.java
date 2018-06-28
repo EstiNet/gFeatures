@@ -32,13 +32,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class SpawnMenu {
-    ItemStack item1, item2, item3, item4, item5;
-    ClearInventory ci = new ClearInventory();
-    Respawn respawn = new Respawn();
-
-    public void init(Player p) {
-        ci.clearInv(p);
-
+    private static ItemStack item1, item2, item3, item4, item5;
+    static {
         item1 = new ItemStack(Material.IRON_PICKAXE, 1);
         ItemMeta item1meta = item1.getItemMeta();
         item1meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Plasma Sniper");
@@ -63,6 +58,10 @@ public class SpawnMenu {
         ItemMeta item5meta = item5.getItemMeta();
         item5meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Mini Gun");
         item5.setItemMeta(item5meta);
+    }
+
+    public static void init(Player p) {
+        ClearInventory.clearInv(p);
 
         p.getInventory().setItem(0, item1);
         p.getInventory().setItem(1, item2);
@@ -71,59 +70,30 @@ public class SpawnMenu {
         p.getInventory().setItem(4, item5);
     }
 
-    public void interact(PlayerInteractEvent event) {
+    public static void interact(PlayerInteractEvent event) {
         Player p = event.getPlayer();
 
-        item1 = new ItemStack(Material.IRON_PICKAXE, 1);
-        ItemMeta item1meta = item1.getItemMeta();
-        item1meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Plasma Sniper");
-        item1.setItemMeta(item1meta);
-
-        item2 = new ItemStack(Material.IRON_SPADE, 1);
-        ItemMeta item2meta = item2.getItemMeta();
-        item2meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Plasma Shotgun");
-        item2.setItemMeta(item2meta);
-
-        item3 = new ItemStack(Material.IRON_AXE, 1);
-        ItemMeta item3meta = item3.getItemMeta();
-        item3meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Laser Rifle");
-        item3.setItemMeta(item3meta);
-
-        item4 = new ItemStack(Material.IRON_HOE, 1);
-        ItemMeta item4meta = item4.getItemMeta();
-        item4meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Dual Laser Pistols");
-        item4.setItemMeta(item4meta);
-
-        item5 = new ItemStack(Material.IRON_AXE, 1);
-        ItemMeta item5meta = item5.getItemMeta();
-        item5meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Mini Gun");
-        item5.setItemMeta(item5meta);
-
-        if (p.getItemInHand().equals(item1)) {
-            ci.clearInv(p);
-            CSUtility cs = new CSUtility();
+        CSUtility cs = new CSUtility();
+        if (p.getInventory().getItemInMainHand().equals(item1)) {
+            finishPlayerInteraction(p);
             cs.giveWeapon(p, "PlasmaSniper", 1);
-            respawn.fullrespawn(p);
-        } else if (p.getItemInHand().equals(item2)) {
-            ci.clearInv(p);
-            CSUtility cs = new CSUtility();
+        } else if (p.getInventory().getItemInMainHand().equals(item2)) {
+            finishPlayerInteraction(p);
             cs.giveWeapon(p, "PlasmaShotgun", 1);
-            respawn.fullrespawn(p);
-        } else if (p.getItemInHand().equals(item3)) {
-            ci.clearInv(p);
-            CSUtility cs = new CSUtility();
+        } else if (p.getInventory().getItemInMainHand().equals(item3)) {
+            finishPlayerInteraction(p);
             cs.giveWeapon(p, "LaserRifle", 1);
-            respawn.fullrespawn(p);
-        } else if (p.getItemInHand().equals(item4)) {
-            ci.clearInv(p);
-            CSUtility cs = new CSUtility();
+        } else if (p.getInventory().getItemInMainHand().equals(item4)) {
+            finishPlayerInteraction(p);
             cs.giveWeapon(p, "DualLaserPistols", 1);
-            respawn.fullrespawn(p);
-        } else if (p.getItemInHand().equals(item5)) {
-            ci.clearInv(p);
-            CSUtility cs = new CSUtility();
+        } else if (p.getInventory().getItemInMainHand().equals(item5)) {
+            finishPlayerInteraction(p);
             cs.giveWeapon(p, "MiniGun", 1);
-            respawn.fullrespawn(p);
         }
+    }
+
+    public static void finishPlayerInteraction(Player p) {
+        ClearInventory.clearInv(p);
+        Respawn.fullrespawn(p);
     }
 }

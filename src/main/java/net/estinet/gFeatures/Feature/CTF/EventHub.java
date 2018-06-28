@@ -28,7 +28,6 @@ import net.estinet.gFeatures.Feature.CTF.EventBase.Join;
 import net.estinet.gFeatures.Feature.CTF.EventBase.Leave;
 import net.estinet.gFeatures.Feature.CTF.Holo.SpawnMenu;
 import net.estinet.gFeatures.Feature.CTF.Holo.WaitingMenu;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
 gFeatures
@@ -50,32 +49,21 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub {
-    Leave leave = new Leave();
-    Dead d = new Dead();
-    SpawnMenu sm = new SpawnMenu();
 
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player p = event.getPlayer();
-        try {
-            Retrieve r = new Retrieve();
-            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
-            String prefix = prefixs.replace('&', '§');
-            event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-        } catch (Exception e) {
-            event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-        }
+    public static void onPlayerJoin(PlayerJoinEvent event) {
+        event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
         Join.init(event);
     }
 
-    public void onPlayerLeave(PlayerQuitEvent event) {
-        leave.init(event);
+    public static void onPlayerLeave(PlayerQuitEvent event) {
+        Leave.init(event);
     }
 
-    public void onOpenInventory(InventoryClickEvent event) {
+    public static void onOpenInventory(InventoryClickEvent event) {
         event.setCancelled(true);
     }
 
-    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+    public static void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getDamager().getType().equals(EntityType.PLAYER)) {
             if (event.getEntityType().equals(EntityType.PLAYER)) {
                 Player p = (Player) event.getEntity();
@@ -103,7 +91,7 @@ public class EventHub {
 
                             Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
 
-                            d.init(p);
+                            Dead.init(p);
                         }
                     }
                 }
@@ -121,7 +109,7 @@ public class EventHub {
 
     }
 
-    public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
+    public static void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
         if (event.getVictim().getType().equals(EntityType.PLAYER)) {
             Player p = (Player) event.getVictim();
             if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)) {
@@ -153,7 +141,7 @@ public class EventHub {
                         Debug.print("[CTF] first kills:" + (kills - 1) + " afterkill: " + kills);
                         Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getPlayer().getDisplayName() + " killed " + ((Player) event.getVictim()).getDisplayName() + "!");
                         event.setCancelled(true);
-                        d.init(p);
+                        Dead.init(p);
                     }
                 }
             }
@@ -165,24 +153,24 @@ public class EventHub {
         }
     }
 
-    public void onPlayerDrop(PlayerDropItemEvent event) {
+    public static void onPlayerDrop(PlayerDropItemEvent event) {
         event.setCancelled(true);
     }
 
-    public void onPlayerPickup(PlayerPickupItemEvent event) {
+    public static void onPlayerPickup(PlayerPickupItemEvent event) {
         event.setCancelled(true);
     }
 
-    public void onPlayerInteract(PlayerInteractEvent event) {
+    public static void onPlayerInteract(PlayerInteractEvent event) {
         if (Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)) {
-            sm.interact(event);
+            SpawnMenu.interact(event);
         } else if (Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)) {
             WaitingMenu wm = new WaitingMenu();
             wm.init(event.getPlayer());
         }
     }
 
-    public void onPlayerDeath(PlayerDeathEvent event) {
+    public static void onPlayerDeath(PlayerDeathEvent event) {
         if (event.getEntity() != null) {
             if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
                 event.getDrops().remove(Material.STAINED_GLASS);
@@ -216,7 +204,7 @@ public class EventHub {
                 for (int i = 0; i < event.getDrops().size(); i++) {
                     event.getDrops().set(i, new ItemStack(Material.AIR));
                 }
-                d.init(event.getEntity());
+                Dead.init(event.getEntity());
                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                     if (event.getEntity().isDead())
                         event.getEntity().setHealth(20);
@@ -225,7 +213,7 @@ public class EventHub {
         }
     }
 
-    public void onSandFall(EntityChangeBlockEvent event) {
+    public static void onSandFall(EntityChangeBlockEvent event) {
         if (event.getEntityType() == EntityType.FALLING_BLOCK && event.getTo() == Material.AIR) {
             if (event.getBlock().getType() == Material.SAND) {
                 event.setCancelled(true);
@@ -234,7 +222,7 @@ public class EventHub {
         }
     }
 
-    public void onFoodLevelChange(FoodLevelChangeEvent event) {
+    public static void onFoodLevelChange(FoodLevelChangeEvent event) {
         ((Player) event.getEntity()).setFoodLevel(20);
         event.setCancelled(true);
     }

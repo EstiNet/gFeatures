@@ -26,14 +26,12 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable {
-    private static ConfigHub ch = new ConfigHub();
 
     public static void onEnable() {
         Bukkit.getLogger().info("[CTF] Enabled :D");
-        ch.setupConfig();
+        ConfigHub.setupConfig();
 
-        Capture c = new Capture();
-        c.loop();
+        Capture.loop();
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             WorldCreator cs = new WorldCreator("MinigameSpawn");
             Bukkit.getServer().createWorld(cs);

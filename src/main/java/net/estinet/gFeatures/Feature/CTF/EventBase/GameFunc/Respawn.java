@@ -33,8 +33,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Respawn {
 	public static void respawn(Player p){
-		ClearInventory ci = new ClearInventory();
-		ci.clearInv(p);
+		ClearInventory.clearInv(p);
 		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.SELECT);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
@@ -51,8 +50,7 @@ public class Respawn {
 			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
 			p.getInventory().setHelmet(wool);
 		}
-		SpawnMenu sm = new SpawnMenu();
-		sm.init(p);
+		SpawnMenu.init(p);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
@@ -68,7 +66,7 @@ public class Respawn {
 			p.getInventory().setHelmet(wool);
 		}
 	}
-	public void fullrespawn(Player p){
+	public static void fullrespawn(Player p){
 		Basic.modes.remove(p.getUniqueId());
 		Basic.modes.put(p.getUniqueId(), PlayerMode.INGAME);
 		if(Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE)){

@@ -30,7 +30,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Leave {
-    public void init(PlayerQuitEvent event) {
+    public static void init(PlayerQuitEvent event) {
         Basic.modes.remove(event.getPlayer().getUniqueId());
         Basic.kills.remove(event.getPlayer().getUniqueId());
         Basic.deaths.remove(event.getPlayer().getUniqueId());

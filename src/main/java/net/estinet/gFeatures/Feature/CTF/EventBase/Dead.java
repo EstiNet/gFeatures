@@ -31,7 +31,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Dead {
-    public void init(Player p) {
+    public static void init(Player p) {
         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> p.setHealth(20));
         if (Basic.blueflagger != null && Basic.blueflagger.getName().equals(p.getName())) {
             Action.sendAllTitle(ChatColor.GOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.GOLD + "" + ChatColor.BOLD + "The orange flag has been returned.", 20, 40, 20);

@@ -20,7 +20,7 @@ PlasmaShotgun:
         Projectile_Type: snowball
         Remove_Bullet_Drop: true
         Removal_Or_Drag_Delay: 15-false
-        Projectile_Speed: 20
+        Projectile_Speed: 15
         Projectile_Damage: 11
         Projectile_Flames: false
         Projectile_Incendiary:
