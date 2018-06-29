@@ -29,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 
 public class CommandHub{
 
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+	public static void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(args.length == 0){
 			sender.sendMessage(ChatColor.AQUA + "Do /CTF help for help.");
 		}

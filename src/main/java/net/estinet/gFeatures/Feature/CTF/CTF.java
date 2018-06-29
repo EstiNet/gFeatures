@@ -39,91 +39,102 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class CTF extends gFeature implements Events{
+public class CTF extends gFeature implements Events {
 
-	EventHub eh = new EventHub();
-	CommandHub ch = new CommandHub();
+    public CTF(String featurename, String d) {
+        super(featurename, d);
+    }
 
-	public CTF(String featurename, String d) {
-		super(featurename, d);
-	}
-	@Override
-	public void enable(){
-		Enable.onEnable();
-	}
-	@Override
-	public void disable(){
-		Disable.onDisable();
-	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
-			eh.onPlayerLeave((PlayerQuitEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
-			eh.onOpenInventory((InventoryClickEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
-			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
-			eh.onPlayerDrop((PlayerDropItemEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerpickupitemevent")){
-			eh.onPlayerPickup((PlayerPickupItemEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
-			eh.onPlayerInteract((PlayerInteractEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
-			eh.onPlayerDeath((PlayerDeathEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
-			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
-			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
-		}
-        else if(event.getEventName().equalsIgnoreCase("entitychangeblockevent")){
-            eh.onSandFall((EntityChangeBlockEvent) event);
+    @Override
+    public void enable() {
+        Enable.onEnable();
+    }
+
+    @Override
+    public void disable() {
+        Disable.onDisable();
+    }
+
+    @Override
+    public void eventTrigger(Event event) {
+        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
+            EventHub.onPlayerJoin((PlayerJoinEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
+            EventHub.onPlayerLeave((PlayerQuitEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("inventoryclickevent")) {
+            EventHub.onOpenInventory((InventoryClickEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")) {
+            EventHub.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("playerdropitemevent")) {
+            EventHub.onPlayerDrop((PlayerDropItemEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("playerpickupitemevent")) {
+            EventHub.onPlayerPickup((PlayerPickupItemEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("playerinteractevent")) {
+            EventHub.onPlayerInteract((PlayerInteractEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("playerdeathevent")) {
+            EventHub.onPlayerDeath((PlayerDeathEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("weapondamageentityevent")) {
+            EventHub.onWeaponDamageEntity((WeaponDamageEntityEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("foodlevelchangeevent")) {
+            EventHub.onFoodLevelChange((FoodLevelChangeEvent) event);
+        } else if (event.getEventName().equalsIgnoreCase("entitychangeblockevent")) {
+            EventHub.onSandFall((EntityChangeBlockEvent) event);
         }
-	}
-	@Retrieval
-	@Override
-	public void onPlayerJoin(){}
-	@Retrieval
-	@Override
-	public void onPlayerLeave(){}
-	@Override
-	@Retrieval
-	public void onInventoryClick(){}
-	@Override
-	@Retrieval
-	public void onEntityDamageByEntity(){}
-	@Override
-	@Retrieval
-	public void onPlayerDrop(){}
-	@Override
-	@Retrieval
-	public void onPlayerInteract(){}
-	@Override
-	@Retrieval
-	public void onPlayerDeath(){}
-	@Override
-	@Retrieval
-	public void onWeaponDamageEntity(){}
-	@Override
-	@Retrieval
-	public void onFoodLevelChange(){}
-	@Override
-	@Retrieval
-	public void onEntityChangeBlockEvent(){}
-	@Override
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
-			ch.onCommand(sender, cmd, label, args);
-	}
+    }
+
+    @Retrieval
+    @Override
+    public void onPlayerJoin() {
+    }
+
+    @Retrieval
+    @Override
+    public void onPlayerLeave() {
+    }
+
+    @Override
+    @Retrieval
+    public void onInventoryClick() {
+    }
+
+    @Override
+    @Retrieval
+    public void onEntityDamageByEntity() {
+    }
+
+    @Override
+    @Retrieval
+    public void onPlayerDrop() {
+    }
+
+    @Override
+    @Retrieval
+    public void onPlayerInteract() {
+    }
+
+    @Override
+    @Retrieval
+    public void onPlayerDeath() {
+    }
+
+    @Override
+    @Retrieval
+    public void onWeaponDamageEntity() {
+    }
+
+    @Override
+    @Retrieval
+    public void onFoodLevelChange() {
+    }
+
+    @Override
+    @Retrieval
+    public void onEntityChangeBlockEvent() {
+    }
+
+    @Override
+    public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
+        CommandHub.onCommand(sender, cmd, label, args);
+    }
 }
 
