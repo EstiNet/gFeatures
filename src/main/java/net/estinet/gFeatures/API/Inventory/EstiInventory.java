@@ -56,6 +56,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
+@Deprecated
 public class EstiInventory implements Listener {
 	
 	public static List<UUID> players = new ArrayList<>();
@@ -112,11 +113,7 @@ public class EstiInventory implements Listener {
     	if(!EstiInventory.players.contains(event.getWhoClicked().getUniqueId())){
         if (event.getInventory().getTitle().equals(name)) {
         	EstiInventory.players.add(event.getWhoClicked().getUniqueId());
-        	Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                public void run() {
-                    EstiInventory.players.remove(event.getWhoClicked().getUniqueId());
-                }
-            }, 3);
+        	Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> EstiInventory.players.remove(event.getWhoClicked().getUniqueId()), 3);
             event.setCancelled(true);
             int slot = event.getRawSlot();
             if (slot >= 0 && slot < size && optionNames[slot] != null) {
@@ -125,11 +122,7 @@ public class EstiInventory implements Listener {
                 handler.onOptionClick(e);
                 if (e.willClose()) {
                     final Player p = (Player)event.getWhoClicked();
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                        public void run() {
-                            p.closeInventory();
-                        }
-                    }, 1);
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, p::closeInventory, 1);
                 }
                 if (e.willDestroy()) {
                     destroy();
@@ -140,6 +133,8 @@ public class EstiInventory implements Listener {
         }
     	}
     }
+
+
    
     public interface OptionClickEventHandler {
         public void onOptionClick(OptionClickEvent event);      

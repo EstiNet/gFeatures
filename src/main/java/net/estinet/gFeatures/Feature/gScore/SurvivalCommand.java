@@ -21,6 +21,7 @@ public class SurvivalCommand extends CommandExecutable {
         if (super.sender instanceof Player) {
             InventoryAPI open = makeInventory((Player) super.sender); // FIX TELEPORT MAN teleporting the wrong person TODO TODOTODOTODO TODO
             open.open((Player) super.sender);
+            ((Player)super.sender).updateInventory();
         }
     }
 

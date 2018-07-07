@@ -30,12 +30,13 @@ https://github.com/EstiNet/gFeatures
 
 public class Settings {
 	public void init(Player p){
-		EstiInventory open = makeInventory(p);
+		InventoryAPI open = makeInventory(p);
 		open.open(p);
+		p.updateInventory();
 	}
-	public EstiInventory makeInventory(Player p){
+	public InventoryAPI makeInventory(Player p){
 		try{
-			EstiInventory menu = new EstiInventory(ChatColor.GRAY + "Settings for " + p.getDisplayName(), 9, event -> {
+			InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + "Settings for " + p.getDisplayName(), 9, event -> {
 				if(event.getName().equals(ChatColor.AQUA + "Show Players") || event.getName().equals(ChatColor.AQUA + "Hide Players")){
 					if(Constants.playerOn.get(p.getUniqueId())){
 						HidePlayers hp = new HidePlayers();

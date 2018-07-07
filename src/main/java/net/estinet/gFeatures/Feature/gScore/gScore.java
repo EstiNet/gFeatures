@@ -56,33 +56,25 @@ public class gScore extends gFeature {
     public void eventTrigger(Event event) {
         if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
             PlayerJoinEvent es = (PlayerJoinEvent) event;
-            try {
-                gScore.people.add(es.getPlayer().getUniqueId());
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                    try {
-                        for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
-                            if (gScore.people.contains(ps.getUniqueId())) {
-                                ps.setScoreboard(Scored.getScore(ps));
-                            }
-                        }
-                    } catch (IllegalArgumentException | IllegalStateException e1) {
-                        e1.printStackTrace();
-                    }
-                }, 40L);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            gScore.people.add(es.getPlayer().getUniqueId());
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), gScore::updateScores, 40L);
         } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
-            try {
-                gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
-                for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
-                    if (gScore.people.contains(ps.getUniqueId())) {
+            gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
+            updateScores();
+        }
+    }
+
+    public static void updateScores() {
+        try {
+            for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                if (gScore.people.contains(ps.getUniqueId())) {
+                    Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                         ps.setScoreboard(Scored.getScore(ps));
-                    }
+                    });
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
