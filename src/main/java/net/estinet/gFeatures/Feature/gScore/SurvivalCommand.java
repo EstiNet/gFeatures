@@ -52,8 +52,8 @@ public class SurvivalCommand extends CommandExecutable {
                 }
                 event.setWillClose(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
-                    .setOption(0, lime)
-                    .setOption(1, cyan);
+                    .setOption(2, lime)
+                    .setOption(6, cyan);
         } catch(Exception e) {
             e.printStackTrace();
         }
