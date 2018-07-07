@@ -35,9 +35,7 @@ import net.estinet.gFeatures.Feature.ServerQuery.ServerQuery;
 import java.io.File;
 
 public class Scored {
-	public static Scoreboard getScore(Player p) throws IllegalStateException, IllegalArgumentException{
-		ScoreboardManager manager = Bukkit.getScoreboardManager();
-		Scoreboard board = manager.getNewScoreboard();
+	public static Scoreboard getScore(Player p, Scoreboard board) throws IllegalStateException, IllegalArgumentException{
 		Objective objective = board.registerNewObjective("test", "dummy");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "     Esti" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD +"Net     ");

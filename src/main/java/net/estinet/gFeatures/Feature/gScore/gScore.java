@@ -14,6 +14,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 /*
 gFeatures
@@ -68,8 +70,10 @@ public class gScore extends gFeature {
         try {
             for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
                 if (gScore.people.contains(ps.getUniqueId())) {
+                    ScoreboardManager manager = Bukkit.getScoreboardManager();
+                    Scoreboard score = manager.getNewScoreboard();
                     Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
-                        ps.setScoreboard(Scored.getScore(ps));
+                        ps.setScoreboard(Scored.getScore(ps, score));
                     });
                 }
             }
