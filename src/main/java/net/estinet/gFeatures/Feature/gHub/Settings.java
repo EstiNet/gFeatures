@@ -35,26 +35,23 @@ public class Settings {
 	}
 	public EstiInventory makeInventory(Player p){
 		try{
-			EstiInventory menu = new EstiInventory(ChatColor.GRAY + "Settings for " + p.getDisplayName(), 9, new EstiInventory.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(EstiInventory.OptionClickEvent event) {
-					if(event.getName().equals(ChatColor.AQUA + "Show Players") || event.getName().equals(ChatColor.AQUA + "Hide Players")){
-						if(Constants.playerOn.get(p.getUniqueId())){
-							HidePlayers hp = new HidePlayers();
-							hp.hide(p);
-						}
-						else{
-							HidePlayers hp = new HidePlayers();
-							hp.show(p);
-						}
+			EstiInventory menu = new EstiInventory(ChatColor.GRAY + "Settings for " + p.getDisplayName(), 9, event -> {
+				if(event.getName().equals(ChatColor.AQUA + "Show Players") || event.getName().equals(ChatColor.AQUA + "Hide Players")){
+					if(Constants.playerOn.get(p.getUniqueId())){
+						HidePlayers hp = new HidePlayers();
+						hp.hide(p);
 					}
-					else if(event.getName().equals(ChatColor.DARK_AQUA+"Stacker")){
-						Stacker st = new Stacker();
-						st.event(p);
-						event.getPlayer().closeInventory();
+					else{
+						HidePlayers hp = new HidePlayers();
+						hp.show(p);
 					}
-					event.setWillClose(true);
 				}
+				else if(event.getName().equals(ChatColor.DARK_AQUA+"Stacker")){
+					Stacker st = new Stacker();
+					st.event(p);
+					event.getPlayer().closeInventory();
+				}
+				event.setWillClose(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
 					.setOption(0, Constants.getPlayersOnSetting(p))
 					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.DARK_AQUA+"Stacker");

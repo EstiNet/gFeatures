@@ -43,34 +43,28 @@ public class CrystalInteract {
     public InventoryAPI makeInventory(Player p, Location loc) {
         MGServer mgs = Basis.crystals.get(loc);
         try {
-            InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, new InventoryAPI.OptionClickEventHandler() {
-                @Override
-                public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-                    Bukkit.getLogger().info("ni");
-                    if (event.getName().contains(ChatColor.GREEN + "")) {
-                        Bukkit.getLogger().info("ni");
-                        char[] subit = event.getName().toCharArray();
-                        List<Character> strs = new ArrayList<>();
-                        for (char ch : subit) {
-                            strs.add(ch);
-                        }
-                        String cache = "";
-                        for (int i = 0; i < strs.size(); i++) {
-                            if (Character.isDigit(strs.get(i))) {
-                                cache += strs.get(i);
-                            }
-                        }
-                        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getPlayer().getName() + " " + mgs.getName() + cache), "redirect", "Bungee");
-                    } else {
-                        p.sendMessage(ChatColor.RED + "That server is currently ingame, or is offline!");
+            InventoryAPI menu = new InventoryAPI(ChatColor.GRAY + mgs.getName() + " Server Menu", 18, event -> {
+                if (event.getName().contains(ChatColor.GREEN + "")) {
+                    char[] subit = event.getName().toCharArray();
+                    List<Character> strs = new ArrayList<>();
+                    for (char ch : subit) {
+                        strs.add(ch);
                     }
-                    event.setWillClose(true);
-                    event.setWillDestroy(true);
+                    StringBuilder cache = new StringBuilder();
+                    for (int i = 0; i < strs.size(); i++) {
+                        if (Character.isDigit(strs.get(i))) {
+                            cache.append(strs.get(i));
+                        }
+                    }
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getPlayer().getName() + " " + mgs.getName() + cache), "redirect", "Bungee");
+                } else {
+                    p.sendMessage(ChatColor.RED + "That server is currently ingame, or is offline!");
                 }
+                event.setWillClose(true);
+                event.setWillDestroy(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
             int iter = 0;
-            Bukkit.getLogger().info("ni");
             for (MGServerPlus mgsp : Basis.getServersWithType(mgs.getName())) {
                 if (mgsp.getState().equals("WAIT")) {
                     ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);

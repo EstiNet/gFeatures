@@ -29,6 +29,9 @@ public class Configure {
 		gScore base = new gScore("gScore", "2.0.0");
 		gFeatures.addFeature(base);
 
+		EstiCommand test = new EstiCommand("survival", "Opens the survival menu.", "/survival", base, new SurvivalCommand());
+		gFeatures.addCommand(test);
+
 		EstiCommand ecs = new EstiCommand("score", "Toggles the scoreboard.", "/score", base, new ScoreCommand());
 		gFeatures.addCommand(ecs);
 	}

@@ -37,7 +37,7 @@ public class MGReturnClioteHook extends ClioteHook {
 
 		List<String> args = ClioteSky.parseBytesToStringList(data);
 		try{
-			if(Basis.recieving == true){
+			if(Basis.recieving){
 				MGServerPlus mgsp = new MGServerPlus(args.get(0), args.get(1), args.get(2), args.get(3));
 				Basis.assemble.add(mgsp);
 			}

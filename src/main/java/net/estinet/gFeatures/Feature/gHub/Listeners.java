@@ -28,14 +28,11 @@ https://github.com/EstiNet/gFeatures
 
 public class Listeners {
 	public void onPlayerJoin(final PlayerJoinEvent event){
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-        	@SuppressWarnings("deprecation")
-			public void run(){
-        		Location loc = new Location(Bukkit.getServer().getWorld("GenesisHub"), -2036, 168, 1963);
-        		event.getPlayer().playEffect(loc, Effect.RECORD_PLAY, Material.RECORD_7.getId());
-        		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Now playing: Vexento-Pixel Party");
-        		event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Make sure you get the resource pack!");
-           }
-        }, 60L);
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+			Location loc = new Location(Bukkit.getServer().getWorld("GenesisHub"), -2036, 168, 1963);
+			event.getPlayer().playEffect(loc, Effect.RECORD_PLAY, Material.RECORD_7.getId());
+			event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Now playing: Vexento-Pixel Party");
+			event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Make sure you get the resource pack!");
+}, 60L);
 	}
 }

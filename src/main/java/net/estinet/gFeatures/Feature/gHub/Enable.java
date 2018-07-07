@@ -41,23 +41,18 @@ public class Enable {
         gFeatures.addPlayerSection("Settings.showChat", "true");
         gFeatures.addPlayerSection("Settings.scoreBoard", "true");
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                for (Player p : Bukkit.getOnlinePlayers()) {
-                    ClearInventory ci = new ClearInventory();
-                    ci.clearInv(p);
-                    //p.getInventory().setItem(1, EventHub.friend);
-                    p.getInventory().setItem(4, EventHub.navigator);
-                    p.getInventory().setItem(3, EventHub.additions);
-                    p.getInventory().setItem(5, EventHub.settings);
-                }
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                ClearInventory.clearInv(p);
+                //p.getInventory().setItem(1, EventHub.friend);
+                p.getInventory().setItem(4, EventHub.navigator);
+                p.getInventory().setItem(3, EventHub.additions);
+                p.getInventory().setItem(5, EventHub.settings);
             }
         }, 600L, 600L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                PreventFall pf = new PreventFall();
-                pf.check();
-            }
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            PreventFall pf = new PreventFall();
+            pf.check();
         }, 10L, 10L);
     }
 }
