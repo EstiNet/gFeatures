@@ -1,6 +1,6 @@
 package net.estinet.gFeatures.Feature.gScore;
 
-import net.estinet.gFeatures.API.Inventory.EstiInventory;
+import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.CommandExecutable;
 import org.bukkit.Bukkit;
@@ -19,12 +19,12 @@ public class SurvivalCommand extends CommandExecutable {
     @Override
     public void run() {
         if (super.sender instanceof Player) {
-            EstiInventory open = makeInventory((Player) super.sender);
+            InventoryAPI open = makeInventory((Player) super.sender); // FIX TELEPORT MAN teleporting the wrong person TODO TODOTODOTODO TODO
             open.open((Player) super.sender);
         }
     }
 
-    public EstiInventory makeInventory(Player p){
+    public InventoryAPI makeInventory(Player p){
         try {
 
             ItemStack lime = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
@@ -39,7 +39,7 @@ public class SurvivalCommand extends CommandExecutable {
             cyanM.setLore(Arrays.asList(ChatColor.WHITE + "Survival multiplayer with more addons (kits, economy, etc.)."));
             cyan.setItemMeta(cyanM);
 
-            return new EstiInventory(ChatColor.GREEN + "Survival Menu", 9, event -> {
+            return new InventoryAPI(ChatColor.GREEN + "Survival Menu", 9, event -> {
                 if(event.getName().equals(ChatColor.GREEN + "Survival (Lime)")){
                     event.getPlayer().closeInventory();
                     event.getPlayer().sendMessage(ChatColor.GREEN + "Attempting to connect you to Survival (Lime)...");
