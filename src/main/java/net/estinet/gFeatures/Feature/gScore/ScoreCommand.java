@@ -38,7 +38,7 @@ public class ScoreCommand extends CommandExecutable{
 		else {
 			ScoreboardManager manager = Bukkit.getScoreboardManager();
 			Scoreboard score = manager.getNewScoreboard();
-			p.setScoreboard(Scored.getScore(p, score)); //TODO FIX THE SCOREBOARD FOR ASYNC USAGE!!!!! AND ALSO CHECK IF THE SURVIVAL MENU WORKS
+			p.setScoreboard(Scored.getScore(p, score));
 			gScore.people.add(p.getUniqueId());
 		}
 		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Toggled scoreboard.");

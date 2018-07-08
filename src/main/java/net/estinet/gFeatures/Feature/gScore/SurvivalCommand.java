@@ -53,8 +53,15 @@ public class SurvivalCommand extends CommandExecutable {
                 }
                 event.setWillClose(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
+                    .setOption(0, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(1, new ItemStack(Material.STAINED_GLASS_PANE))
                     .setOption(2, lime)
-                    .setOption(6, cyan);
+                    .setOption(3, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(4, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(5, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(6, cyan)
+                    .setOption(8, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(7, new ItemStack(Material.STAINED_GLASS_PANE));
         } catch(Exception e) {
             e.printStackTrace();
         }
