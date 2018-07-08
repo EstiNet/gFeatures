@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.ServerQuery;
 import net.estinet.gFeatures.ClioteSky.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gScore.Scored;
+import net.estinet.gFeatures.Feature.gScore.gScore;
 import net.estinet.gFeatures.FeatureState;
 import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
@@ -45,15 +46,7 @@ public class ServerQueryClioteHook extends ClioteHook {
         if (args.get(0).equals("online")) {
             ServerQuery.setPlayerCount(Integer.parseInt(args.get(1)));
             if (gFeatures.getFeature("gScore").getState().equals(FeatureState.ENABLE)) {
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                    try {
-                        for (Player p : Bukkit.getOnlinePlayers()) {
-                            p.setScoreboard(Scored.getScore(p));
-                        }
-                    } catch (IllegalArgumentException | IllegalStateException e) {
-                        e.printStackTrace();
-                    }
-                }, 40L);
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), gScore::updateScores, 40L);
             }
         } else if (args.get(0).equals("playerget")) {
             ServerQuery.requestQueue.poll().run(Collections.singletonList(args.get(2)));
