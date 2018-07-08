@@ -5,6 +5,8 @@ import org.bukkit.entity.Player;
 
 import net.estinet.gFeatures.Command.CommandExecutable;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 /*
 gFeatures
@@ -34,7 +36,9 @@ public class ScoreCommand extends CommandExecutable{
 			p.setScoreboard(Bukkit.getServer().getScoreboardManager().getNewScoreboard());
 		}
 		else {
-			p.setScoreboard(Scored.getScore(p));
+			ScoreboardManager manager = Bukkit.getScoreboardManager();
+			Scoreboard score = manager.getNewScoreboard();
+			p.setScoreboard(Scored.getScore(p, score)); //TODO FIX THE SCOREBOARD FOR ASYNC USAGE!!!!! AND ALSO CHECK IF THE SURVIVAL MENU WORKS
 			gScore.people.add(p.getUniqueId());
 		}
 		p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Toggled scoreboard.");
