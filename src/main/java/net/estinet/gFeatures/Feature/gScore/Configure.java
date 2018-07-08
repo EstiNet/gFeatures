@@ -26,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		gScore base = new gScore("gScore", "2.0.0");
+		gScore base = new gScore("gScore", "2.1.0");
 		gFeatures.addFeature(base);
 
 		EstiCommand test = new EstiCommand("survival", "Opens the survival menu.", "/survival", base, new SurvivalCommand());

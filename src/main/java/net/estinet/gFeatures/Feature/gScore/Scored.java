@@ -51,9 +51,9 @@ public class Scored {
 		score.setScore(7);
 		Score score5;
 		if(new File("plugins/Essentials/userdata").exists()) {
-			score5 = objective.getScore(ChatColor.GRAY + "" + String.format("%.2f", EssentialsEcoUtil.getMoney(p.getUniqueId())));
+			score5 = objective.getScore(ChatColor.GRAY + "" + String.format("%.2f", EssentialsEcoUtil.getMoney(p.getUniqueId()) + 0.0001));
 		} else {
-			score5 = objective.getScore(ChatColor.GRAY + "" + String.format("%.2f", EstiCoins.getMoney(p)));
+			score5 = objective.getScore(ChatColor.GRAY + "" + String.format("%.2f", EstiCoins.getMoney(p) + 0.0001));
 		}
 		score5.setScore(6);
 		Score score11 = objective.getScore("  ");

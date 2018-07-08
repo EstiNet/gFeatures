@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gScore;
 
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
@@ -60,6 +61,7 @@ public class gScore extends gFeature {
             PlayerJoinEvent es = (PlayerJoinEvent) event;
             gScore.people.add(es.getPlayer().getUniqueId());
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), gScore::updateScores, 40L);
+            ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee");
         } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
             gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
             updateScores();
@@ -72,9 +74,7 @@ public class gScore extends gFeature {
                 if (gScore.people.contains(ps.getUniqueId())) {
                     ScoreboardManager manager = Bukkit.getScoreboardManager();
                     Scoreboard score = manager.getNewScoreboard();
-                    Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
-                        ps.setScoreboard(Scored.getScore(ps, score));
-                    });
+                    Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> ps.setScoreboard(Scored.getScore(ps, score)));
                 }
             }
         } catch (Exception e) {
