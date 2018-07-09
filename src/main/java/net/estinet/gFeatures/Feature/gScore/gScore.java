@@ -60,8 +60,10 @@ public class gScore extends gFeature {
         if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
             PlayerJoinEvent es = (PlayerJoinEvent) event;
             gScore.people.add(es.getPlayer().getUniqueId());
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), gScore::updateScores, 40L);
-            ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee");
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                gScore.updateScores();
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee"), 40L);
+            }, 40L);
         } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
             gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
             updateScores();
