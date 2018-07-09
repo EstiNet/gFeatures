@@ -30,7 +30,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class FlagHit {
-    CTFScore ctfs = new CTFScore();
 
     public static void processEvent(Location loc, Player p) {
 
@@ -42,7 +41,7 @@ public class FlagHit {
                     p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
                     Basic.blueflagger = p;
                     // captured the blue flag
-                } else {
+                } else if (!Basic.blueflagger.getUniqueId().equals(p.getUniqueId())) {
                     p.sendTitle("The flag has already been taken.", "", 10, 20, 10);
                 }
             } else if (Basic.isInBlue(p) && Basic.orangeflagger.getUniqueId().equals(p.getUniqueId())) {
@@ -62,7 +61,7 @@ public class FlagHit {
                     p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
                     Basic.orangeflagger = p;
                     // captured the orange flag
-                } else {
+                } else if (!Basic.orangeflagger.getUniqueId().equals(p.getUniqueId())) {
                     p.sendTitle("The flag has already been taken.", "", 10, 20, 10);
                 }
             } else if (Basic.isInOrange(p) && Basic.blueflagger.getUniqueId().equals(p.getUniqueId())) {
