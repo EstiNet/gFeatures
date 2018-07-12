@@ -33,53 +33,50 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class StartupTask {
-	public void init(PlayerJoinEvent event){
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-			Player p = event.getPlayer();
-			SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n"+
-					"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n"+
-					"WHERE NOT EXISTS (\n"+
-					"SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n"+
-					") LIMIT 1;\n"
-					);
-			if(!Basis.hasRank(p)){
-				gRanks.setRank(Basis.getRank("Default"), p);
-			}
-		}, 40L);
-		try{
-		PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-		for(String perm : Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms()){
-			if(perm.equals("'*'")){
-				event.getPlayer().setOp(true);
-			}
-			else{
-				boolean isittrue;
-				if(perm.contains("-")){
-					isittrue = false;
-					perm = perm.replace("-", "");
-				}
-				else{
-					isittrue = true;
-				}
-				Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + event.getPlayer().getName());
-				pa.setPermission(perm, isittrue);
-			}
-		}
-			gRanks.oplist = new ArrayList<>();
-			for(OfflinePlayer op : Bukkit.getOperators()){
-				gRanks.oplist.add(op.getUniqueId());
-			}
-		if(!Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())){
-			event.getPlayer().setOp(false);
-		}
-		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
-		}
-		catch(NullPointerException e){
-			Thread thr = new Thread(() -> {
+    public void init(PlayerJoinEvent event) {
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            Player p = event.getPlayer();
+            SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n" +
+                    "SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n" +
+                    "WHERE NOT EXISTS (\n" +
+                    "SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n" +
+                    ") LIMIT 1;\n"
+            );
+            if (!Basis.hasRank(p)) {
+                gRanks.setRank(Basis.getRank("Default"), p);
+            }
+        }, 40L);
+        try {
+            PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
+            for (String perm : Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms()) {
+                if (perm.equals("'*'")) {
+                    event.getPlayer().setOp(true);
+                } else {
+                    boolean isittrue;
+                    if (perm.contains("-")) {
+                        isittrue = false;
+                        perm = perm.replace("-", "");
+                    } else {
+                        isittrue = true;
+                    }
+                    Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + event.getPlayer().getName());
+                    pa.setPermission(perm, isittrue);
+                }
+            }
+            gRanks.oplist = new ArrayList<>();
+            for (OfflinePlayer op : Bukkit.getOperators()) {
+                gRanks.oplist.add(op.getUniqueId());
+            }
+            if (!Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())) {
+                event.getPlayer().setOp(false);
+            }
+            Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
+        } catch (NullPointerException e) {
+            Thread thr = new Thread(() -> {
                 StartupTask st = new StartupTask();
                 st.init(event);
             });
-			thr.start();
-		}
-	}
+            thr.start();
+        }
+    }
 }

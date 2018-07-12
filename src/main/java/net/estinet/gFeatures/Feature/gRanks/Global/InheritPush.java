@@ -31,7 +31,6 @@ public class InheritPush implements Runnable {
 
     @Override
     public void run() {
-        SQLConnect c = new SQLConnect();
         SQLConnect.Connect("TRUNCATE TABLE Inherits;");
         for (Rank rank : Basis.getRanks()) {
             File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");

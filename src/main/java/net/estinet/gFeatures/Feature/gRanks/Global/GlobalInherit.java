@@ -1,9 +1,8 @@
 package net.estinet.gFeatures.Feature.gRanks.Global;
 
-import java.util.List;
-
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 
 /*
 gFeatures
@@ -27,22 +26,16 @@ https://github.com/EstiNet/gFeatures
 public class GlobalInherit {
 
     public void start() {
-        int cache = 0;
-        try {
-            int i = Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Inherits").get(1));
-            List<String> permdata = SQLConnect.ConnectReturnInherit("SELECT * FROM Inherits;");
-            for (int iter = 0; iter < i; iter++) {
-                String inherit = permdata.get(cache);
-                cache += 1;
-                String rank = permdata.get(cache);
-                cache += 1;
-                try {
-                    Basis.getRank(rank).addInherit(Basis.getRank(inherit));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e) {
-        }
+
+        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Inherits").get(1)),
+                SQLConnect.ConnectReturnInherit("SELECT * FROM Inherits;"),
+                (inherit, rank) -> {
+                    try {
+                        Basis.getRank(rank).addInherit(Basis.getRank(inherit));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+
     }
 }

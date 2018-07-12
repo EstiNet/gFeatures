@@ -1,9 +1,8 @@
 package net.estinet.gFeatures.Feature.gRanks.Global;
 
-import java.util.List;
-
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 
 /*
 gFeatures
@@ -26,18 +25,8 @@ https://github.com/EstiNet/gFeatures
 
 public class GlobalPerm {
     public void start() {
-        int cache = 0;
-        try {
-            int i = Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Perms").get(1));
-            List<String> permdata = SQLConnect.ConnectReturnPerm("SELECT * FROM Perms;");
-            for (int iter = 0; iter < i; iter++) {
-                String perm = permdata.get(cache);
-                cache++;
-                String rank = permdata.get(cache);
-                cache++;
-                Basis.getRank(rank).addPerm(perm);
-            }
-        } catch (Exception e) {
-        }
+        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Perms").get(1)),
+                SQLConnect.ConnectReturnPerm("SELECT * FROM Perms;"),
+                (perm, rank) -> Basis.getRank(rank).addPerm(perm));
     }
 }

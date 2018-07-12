@@ -34,37 +34,38 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class PermApp {
-	public void setupPerms(){
-		for(Rank r : Basis.getRanks()){
-			File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt");
-			try {
-				for(String permission : gRanks.getPermsFile(f)){
-					Basis.getRank(r.getName()).addPerm(permission);
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		test();
-		test();
-		test();
-	}
+    public void setupPerms() {
+        for (Rank r : Basis.getRanks()) {
+            File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt");
+            try {
+                for (String permission : gRanks.getPermsFile(f)) {
+                    Basis.getRank(r.getName()).addPerm(permission);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        test();
+        test();
+        test();
+    }
 
-	private void test() {
-		for(Rank r : Basis.getRanks()){
-			try {
-				for(String inherit : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))){
-					try{
-						for(String perm : Basis.getRank(inherit).getPerms()){
-							r.addInherit(Basis.getRank(inherit));
-							r.addPerm(perm);
-						}
-					}
-					catch(Exception e){}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    private void test() {
+        for (Rank r : Basis.getRanks()) {
+            try {
+                for (String inherit : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))) {
+                    try {
+                        for (String perm : Basis.getRank(inherit).getPerms()) {
+                            r.addInherit(Basis.getRank(inherit));
+                            r.addPerm(perm);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

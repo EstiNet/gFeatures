@@ -29,26 +29,26 @@ https://github.com/EstiNet/gFeatures
 
 public class FileSync {
     public void start() {
-        int cache = 0;
         try {
             for (Rank rank : Basis.getRanks()) {
                 PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
                 pw.close();
             }
+
             List<String> permdata = SQLConnect.ConnectReturnPerm("SELECT * FROM Perms;");
-            for (int iter = 0; iter < permdata.size(); iter++) {
-                try {
-                    String perm = permdata.get(cache);
-                    cache += 1;
-                    String rank = permdata.get(cache);
-                    cache += 1;
-                    BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt"), true));
-                    output.write(perm);
-                    output.newLine();
-                    output.close();
-                } catch (Exception e) {
-                }
-            }
+            gRanks.loopThroughSQLQuery(permdata.size(),
+                    permdata,
+                    (perm, rank) -> {
+                        try {
+                            BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/gperms/" + rank + ".txt"), true));
+                            output.write(perm);
+                            output.newLine();
+                            output.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,45 +28,36 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class InheritSync {
-    SQLConnect c = new SQLConnect();
-
     public void start() {
 
-        int cache = 0;
-        try {
-            int i = Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Inherits").get(1));
-            List<String> permdata = SQLConnect.ConnectReturnInherit("SELECT * FROM Inherits;");
-            for (Rank rank : Basis.getRanks()) {
-                PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
-                pw.close();
+        for (Rank rank : Basis.getRanks()) {
+            PrintWriter pw = null;
+            try {
+                pw = new PrintWriter("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             }
-            for (int iter = 0; iter < i; iter++) {
-                String inherit = permdata.get(cache);
-                cache += 1;
-                String rank = permdata.get(cache);
-                cache += 1;
-                try {
-                    BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt"), true));
-                    output.write(inherit);
-                    output.newLine();
-                    output.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    continue;
-                }
-            }
-        } catch (Exception e) {
+            pw.close();
         }
+
+        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Inherits").get(1)),
+                SQLConnect.ConnectReturnInherit("SELECT * FROM Inherits;"),
+                (inherit, rank) -> {
+                    try {
+                        BufferedWriter output = new BufferedWriter(new FileWriter(new File("plugins/gFeatures/gRanks/ginherit/" + rank + ".txt"), true));
+                        output.write(inherit);
+                        output.newLine();
+                        output.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
         for (Rank rank : Basis.getRanks()) {
             File f = new File("plugins/gFeatures/gRanks/ginherit/" + rank.getName() + ".txt");
             try {
                 for (String inherit : gRanks.getPermsFile(f)) {
-                    try {
-                        Basis.getRank(rank.getName()).addInherit(Basis.getRank(inherit));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        continue;
-                    }
+                    Basis.getRank(rank.getName()).addInherit(Basis.getRank(inherit));
                 }
             } catch (IOException e) {
                 e.printStackTrace();
