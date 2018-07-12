@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,7 +29,6 @@ import net.estinet.gFeatures.Feature.Gliders.EventBase.FlagHit;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.Join;
 import net.estinet.gFeatures.Feature.Gliders.EventBase.Leave;
 import net.estinet.gFeatures.Feature.Gliders.Holo.WaitingMenu;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
 gFeatures
@@ -58,8 +58,7 @@ public class EventHub {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         try {
-            Retrieve r = new Retrieve();
-            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
             String prefix = prefixs.replace('&', '§');
             event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
         } catch (Exception e) {
@@ -91,8 +90,7 @@ public class EventHub {
                             int health = (int) p.getHealth();
                             double damage = event.getDamage();
                             if (health - damage <= 0) {
-                                ClearInventory ci = new ClearInventory();
-                                ci.clearInv(p);
+                                ClearInventory.clearInv(p);
                                 event.setCancelled(true);
                                 int deaths = Basic.deaths.get(p.getUniqueId());
                                 deaths += 1;
@@ -149,8 +147,7 @@ public class EventHub {
                     int health = (int) p.getHealth();
                     double damage = event.getDamage();
                     if (health - damage <= 0) {
-                        ClearInventory ci = new ClearInventory();
-                        ci.clearInv(p);
+                        ClearInventory.clearInv(p);
                         int deaths = Basic.deaths.get(p.getUniqueId());
                         deaths += 1;
                         Basic.deaths.remove(p.getUniqueId());
@@ -211,8 +208,7 @@ public class EventHub {
                             event.getEntity().setHealth(20);
                     }
                 });
-                ClearInventory ci = new ClearInventory();
-                ci.clearInv(event.getEntity());
+                ClearInventory.clearInv(event.getEntity());
                 for (int i = 0; i < event.getDrops().size(); i++) {
                     event.getDrops().set(i, new ItemStack(Material.AIR));
                 }
@@ -236,11 +232,9 @@ public class EventHub {
                     p.setHealth(20);
 
                     p.teleport(Basic.waitspawn);
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                        public void run() {
-                            if (event.getEntity().isDead())
-                                p.setHealth(20);
-                        }
+                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        if (event.getEntity().isDead())
+                            p.setHealth(20);
                     });
                 } else if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.INGAME)) {
                     p.getInventory().clear();
@@ -259,11 +253,7 @@ public class EventHub {
     public void onEntityExplode(EntityExplodeEvent event) {
         if (event.getEntityType().equals(EntityType.ENDER_CRYSTAL)) {
             event.setCancelled(true);
-            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                public void run() {
-                    Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class);
-                }
-            }, 20L);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> Bukkit.getWorld(Basic.mapName).spawn(Basic.flag, EnderCrystal.class), 20L);
         }
     }
 }

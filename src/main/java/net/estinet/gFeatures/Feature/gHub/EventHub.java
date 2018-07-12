@@ -10,8 +10,8 @@ import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
 import net.estinet.gFeatures.Feature.gHub.config.gHubConfig;
 import net.estinet.gFeatures.Feature.gHub.crystal.Crystal;
 import net.estinet.gFeatures.Feature.gHub.crystal.CrystalInteract;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -37,7 +37,6 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
 /*
 gFeatures
@@ -85,8 +84,7 @@ public class EventHub {
         event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
         Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
             try {
-                Retrieve r = new Retrieve();
-                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
                 String prefix = prefixs.replace('&', '§');
                 event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
             } catch (Exception e) {
@@ -181,8 +179,7 @@ public class EventHub {
 
     public void onPlayerLeave(PlayerQuitEvent event) {
         try {
-            Retrieve r = new Retrieve();
-            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
             String prefix = prefixs.replace('&', '§');
             event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
         } catch (Exception e) {

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import net.estinet.gFeatures.Feature.gRanks.gRanks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,7 +17,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gUtility;
 import net.estinet.gFeatures.Configuration.Config;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
 gFeatures
@@ -89,8 +89,7 @@ public class EstiJoin extends gUtility {
             e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
             Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                 try {
-                    Retrieve r = new Retrieve();
-                    String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(e.getPlayer())).getPrefix();
+                    String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(e.getPlayer())).getPrefix();
                     String prefix = prefixs.replace('&', '§');
                     e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
                 } catch (Exception eg) {
@@ -100,8 +99,7 @@ public class EstiJoin extends gUtility {
         } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
             PlayerQuitEvent e = (PlayerQuitEvent) event;
             try {
-                Retrieve r = new Retrieve();
-                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(r.getRank(e.getPlayer())).getPrefix();
+                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(e.getPlayer())).getPrefix();
                 String prefix = prefixs.replace('&', '§');
                 e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
             } catch (Exception es) {
