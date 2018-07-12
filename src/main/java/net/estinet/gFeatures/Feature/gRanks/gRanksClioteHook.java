@@ -39,6 +39,7 @@ public class gRanksClioteHook extends ClioteHook {
 	public void run(byte[] data, String sender) {
 
 		List<String> args = ClioteSky.parseBytesToStringList(data);
+
 		if(args.get(0).equals("sync")){
 			try{
 				Bukkit.getLogger().info("[gRanks] Syncing permissions database...");

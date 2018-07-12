@@ -3,7 +3,6 @@ package net.estinet.gFeatures.Feature.gRanks.Perms;
 import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 
 /*
 gFeatures
@@ -25,7 +24,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Files {
-	Retrieve r = new Retrieve();
 	PermApp pa = new PermApp();
 	public void setupFiles(){
 		Config c = new Config();

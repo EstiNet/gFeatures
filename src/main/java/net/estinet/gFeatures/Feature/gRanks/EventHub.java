@@ -1,17 +1,12 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
-import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Events.StartupTask;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.permissions.Permission;
-import org.bukkit.permissions.PermissionAttachment;
 
 /*
 gFeatures
@@ -33,18 +28,14 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class EventHub{
-	Retrieve r = new Retrieve();
-	SQLConnect sqlc = new SQLConnect();
-	public void onPlayerJoin(PlayerJoinEvent event){
+	public static void onPlayerJoin(PlayerJoinEvent event){
 		for(OfflinePlayer op : Bukkit.getOperators()){
 			gRanks.oplist.add(op.getUniqueId());
 		}
 		try{
-			Thread thr = new Thread(new Runnable(){
-				public void run(){
-					StartupTask st = new StartupTask();
-					st.init(event);
-				}
+			Thread thr = new Thread(() -> {
+				StartupTask st = new StartupTask();
+				st.init(event);
 			});
 			thr.start();
 		}
@@ -52,9 +43,9 @@ public class EventHub{
 			e.printStackTrace();
 		}
 	}
-	public void onPlayerChat(AsyncPlayerChatEvent event){
+	public static void onPlayerChat(AsyncPlayerChatEvent event){
 		try{
-			String prefix = Basis.getRank(r.getRank(event.getPlayer())).getPrefix();
+			String prefix = Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
 			String name = prefix.replace('&', '§');
 			if(!event.getPlayer().getDisplayName().contains(name)){
 				event.getPlayer().setDisplayName(name + event.getPlayer().getName());
@@ -64,7 +55,7 @@ public class EventHub{
 			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
 		}
 	}
-	public void onPlayerLeave(PlayerQuitEvent event){
+	public static void onPlayerLeave(PlayerQuitEvent event){
 		try{
 			Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
 		}

@@ -31,12 +31,12 @@ https://github.com/EstiNet/gFeatures
 public class SQLConnect {
 
 
-    public void Connect(String url, String user, String password, String query) {
+    public static void Connect(String query) {
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             st.executeUpdate(query);
         } catch (SQLException ex) {
@@ -58,14 +58,14 @@ public class SQLConnect {
         }
     }
 
-    public List<String> ConnectReturn(String url, String user, String password, String query) {
+    public static List<String> ConnectReturn(String query) {
         List<String> array = new ArrayList<>();
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
-        ResultSet result = null;
+        ResultSet result;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
@@ -99,14 +99,14 @@ public class SQLConnect {
         return null;
     }
 
-    public List<String> ConnectReturnRanks(String url, String user, String password, String query) {
+    public static List<String> ConnectReturnRanks(String query) {
         List<String> array = new ArrayList<>();
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
         ResultSet result = null;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
@@ -141,14 +141,14 @@ public class SQLConnect {
         return null;
     }
 
-    public List<String> ConnectReturnPeople(String url, String user, String password, String query) {
+    public static List<String> ConnectReturnPeople(String query) {
         List<String> array = new ArrayList<>();
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
         ResultSet result = null;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
@@ -183,14 +183,14 @@ public class SQLConnect {
         return null;
     }
 
-    public List<String> ConnectReturnPerm(String url, String user, String password, String query) {
+    public static List<String> ConnectReturnPerm(String query) {
         List<String> array = new ArrayList<>();
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
         ResultSet result = null;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
@@ -225,14 +225,14 @@ public class SQLConnect {
         return null;
     }
 
-    public List<String> ConnectReturnInherit(String url, String user, String password, String query) {
+    public static List<String> ConnectReturnInherit(String query) {
         List<String> array = new ArrayList<>();
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
         ResultSet result = null;
         try {
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(gRanks.url, gRanks.username, gRanks.password);
             st = con.createStatement();
             result = st.executeQuery(query);
             result.beforeFirst();
@@ -267,7 +267,7 @@ public class SQLConnect {
         return null;
     }
 
-    public boolean checkOnline(String url, String user, String password) {
+    public static boolean checkOnline(String url, String user, String password) {
         java.sql.Connection con = null;
         java.sql.Statement st = null;
         ResultSet rs = null;
@@ -300,7 +300,7 @@ public class SQLConnect {
         return false;
     }
 
-    public String toURL(String port, String address, String table) {
+    public static String toURL(String port, String address, String table) {
         return "jdbc:mysql://" + address + ":" + port + "/" + table + "?autoReconnect=true&useSSL=false";
     }
 

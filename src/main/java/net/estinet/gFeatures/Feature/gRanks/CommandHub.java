@@ -28,19 +28,16 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CommandHub{
-	OneArg oa = new OneArg();
-	TwoArg ta = new TwoArg();
-	ThreeArg tha = new ThreeArg();
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+	public static void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("gRanks")){
 			if(args.length == 1){
-				oa.onCommand(sender, cmd, label, args);
+				OneArg.onCommand(sender, cmd, label, args);
 			}
 			else if(args.length == 2){
-				ta.onCommand(sender, cmd, label, args);
+				TwoArg.onCommand(sender, cmd, label, args);
 			}
 			else if(args.length == 3){
-				tha.onCommand(sender, cmd, label, args);
+				ThreeArg.onCommand(sender, cmd, label, args);
 			}
 			else{
 				sender.sendMessage(ChatColor.GRAY + "[gRanks] Do /gRanks help.");

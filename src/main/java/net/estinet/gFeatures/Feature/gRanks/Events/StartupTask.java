@@ -9,7 +9,6 @@ import org.bukkit.permissions.PermissionAttachment;
 
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
-import net.estinet.gFeatures.Feature.gRanks.Retrieve;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
 
 import java.util.ArrayList;
@@ -35,25 +34,21 @@ https://github.com/EstiNet/gFeatures
 
 public class StartupTask {
 	public void init(PlayerJoinEvent event){
-		SQLConnect sqlc = new SQLConnect();
-		Retrieve r = new Retrieve();
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-			public void run(){
-				Player p = event.getPlayer();
-				sqlc.Connect(sqlc.toURL(r.getPort(), r.getAddress(), r.getTablename()), r.getUsername(), r.getPassword(), "INSERT INTO People(UUID, Rank)\n"+
-						"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n"+
-						"WHERE NOT EXISTS (\n"+
-						"SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n"+
-						") LIMIT 1;\n"
-						);
-				if(!Basis.hasRank(p)){
-					r.setRank(Basis.getRank("Default"), p);
-				}
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+			Player p = event.getPlayer();
+			SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n"+
+					"SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n"+
+					"WHERE NOT EXISTS (\n"+
+					"SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n"+
+					") LIMIT 1;\n"
+					);
+			if(!Basis.hasRank(p)){
+				gRanks.setRank(Basis.getRank("Default"), p);
 			}
 		}, 40L);
 		try{
 		PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-		for(String perm : Basis.getRank(r.getRank(event.getPlayer())).getPerms()){
+		for(String perm : Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms()){
 			if(perm.equals("'*'")){
 				event.getPlayer().setOp(true);
 			}
@@ -74,7 +69,7 @@ public class StartupTask {
 			for(OfflinePlayer op : Bukkit.getOperators()){
 				gRanks.oplist.add(op.getUniqueId());
 			}
-		if(!Basis.getRank(r.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())){
+		if(!Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())){
 			event.getPlayer().setOp(false);
 		}
 		Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);

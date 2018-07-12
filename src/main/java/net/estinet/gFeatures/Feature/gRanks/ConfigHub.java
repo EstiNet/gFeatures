@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gRanks;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -28,45 +29,59 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class ConfigHub {
-	File f = new File("plugins/gFeatures/gRanks/Config.yml");
-	public void setupConfig(){
-		Config c = new Config();
-		c.createDirectory("plugins/gFeatures/gRanks", "gRanks files created!");
-		YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
-		if(!f.exists()){
-			Bukkit.getLogger().info("[gRanks] Setting up configs....");
-			try {
-				f.createNewFile();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			yamlFile.createSection("Config");
-			yamlFile.createSection("Config.MySQL");
-			yamlFile.createSection("Config.MySQL.Address");
-			yamlFile.createSection("Config.MySQL.Port");
-			yamlFile.createSection("Config.MySQL.TableName");
-			yamlFile.createSection("Config.MySQL.Username");
-			yamlFile.createSection("Config.MySQL.Password");
-			yamlFile.createSection("Config.ClioteSky");
-			yamlFile.createSection("Config.ClioteSky.Enable");
-			yamlFile.set("Config.MySQL.Port", "3306");
-			yamlFile.set("Config.MySQL.Address", "localhost");
-			yamlFile.set("Config.MySQL.TableName", "granks");
-			yamlFile.set("Config.MySQL.Username", "root");
-			yamlFile.set("Config.MySQL.Password", "pass123");
-			yamlFile.set("Config.ClioteSky.Enable", "false");
-			
-			try {
-				yamlFile.save(f);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			Bukkit.getLogger().info("[gRanks] Successfully added config!");
-		}
-		if(!(yamlFile.contains("Config.ClioteSky.Enable"))){
-			yamlFile.createSection("Config.ClioteSky");
-			yamlFile.createSection("Config.ClioteSky.Enable");
-			yamlFile.set("Config.ClioteSky.Enable", "true");
-		}
-	}
+
+    private static HashMap<String, String> configFields = new HashMap<>();
+
+    static {
+        configFields.put("Config", "");
+        configFields.put("Config.Cached", "true");
+        configFields.put("Config.MySQL", "");
+        configFields.put("Config.MySQL.Port", "3306");
+        configFields.put("Config.MySQL.Address", "localhost");
+        configFields.put("Config.MySQL.TableName", "granks");
+        configFields.put("Config.MySQL.Username", "root");
+        configFields.put("Config.MySQL.Password", "pass123");
+        configFields.put("Config.ClioteSky", "");
+        configFields.put("Config.ClioteSky.Enable", "true");
+    }
+
+    public static void setupConfig() {
+        File f = new File("plugins/gFeatures/gRanks/config.yml");
+        Config c = new Config();
+        c.createDirectory("plugins/gFeatures/gRanks", "gRanks files created!");
+        if (!f.exists()) {
+            Bukkit.getLogger().info("[gRanks] Setting up configs....");
+            try {
+                f.createNewFile();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+        YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(f);
+
+        for (String key : configFields.keySet()) {
+            if (!yamlFile.contains(key)) {
+                yamlFile.createSection(key);
+                if (!configFields.get(key).equals("")) {
+                    yamlFile.set(key, configFields.get(key));
+                }
+            }
+        }
+
+        try {
+            yamlFile.save(f);
+            Bukkit.getLogger().info("[gRanks] Successfully added config!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        gRanks.address = yamlFile.getString("Config.MySQL.Address");
+        gRanks.password = yamlFile.getString("Config.MySQL.Password");
+        gRanks.tablename = yamlFile.getString("Config.MySQL.TableName");
+        gRanks.port = yamlFile.getString("Config.MySQL.Port");
+        gRanks.username = yamlFile.getString("Config.MySQL.Username");
+        gRanks.cliotesky = yamlFile.getBoolean("Config.ClioteSky.Enable");
+        gRanks.url = "jdbc:mysql://" + gRanks.address + ":" + gRanks.port + "/" + gRanks.tablename + "?autoReconnect=true&useSSL=false";
+
+    }
 }

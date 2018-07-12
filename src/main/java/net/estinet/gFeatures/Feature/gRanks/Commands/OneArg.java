@@ -30,7 +30,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class OneArg {
-	public void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
+	public static void onCommand(final CommandSender sender, Command cmd, String label, String[] args){
 		if(args[0].equalsIgnoreCase("help")){
 			sender.sendMessage(ChatColor.GRAY + "------" + ChatColor.GOLD + "gRanks Help" + ChatColor.GRAY + "------");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks help - Shows the help page.");

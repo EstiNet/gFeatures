@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.CTF;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Configs;
+import net.estinet.gFeatures.Feature.CTF.Commands.SuicideCommand;
 import net.estinet.gFeatures.gFeatures;
 
 /*
@@ -34,5 +35,8 @@ public class Configure{
 
 		EstiCommand test = new EstiCommand("ctf", "CTF commands!", "/CTF", "gFeatures.minigames", base, true);
 		gFeatures.addCommand(test);
+
+		EstiCommand suicide = new EstiCommand("suicide", "Kills the player that executes this command!", "/suicide", base, new SuicideCommand());
+		gFeatures.addCommand(suicide);
 	}
 }
