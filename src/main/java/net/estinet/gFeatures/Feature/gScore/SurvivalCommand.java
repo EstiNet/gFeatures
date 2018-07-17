@@ -19,7 +19,7 @@ public class SurvivalCommand extends CommandExecutable {
     @Override
     public void run() {
         if (super.sender instanceof Player) {
-            InventoryAPI open = makeInventory((Player) super.sender); // FIX TELEPORT MAN teleporting the wrong person TODO TODOTODOTODO TODO
+            InventoryAPI open = makeInventory((Player) super.sender); 
             open.open((Player) super.sender);
             ((Player)super.sender).updateInventory();
         }
@@ -40,6 +40,12 @@ public class SurvivalCommand extends CommandExecutable {
             cyanM.setLore(Arrays.asList(ChatColor.WHITE + "Survival multiplayer with more addons (kits, economy, etc.)."));
             cyan.setItemMeta(cyanM);
 
+            ItemStack pink = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 6);
+            ItemMeta pinkM = pink.getItemMeta();
+            pinkM.setDisplayName(ChatColor.PINK + "Survival (Pink)");
+            pinkM.setLore(Arrays.asList(ChatColor.WHITE + "Modded Survival multiplayer with FTB Revelation!"));
+            pink.setItemMeta(pinkM);
+
             return new InventoryAPI(ChatColor.GREEN + "Survival Menu", 9, event -> {
                 if(event.getName().equals(ChatColor.GREEN + "Survival (Lime)")){
                     event.getPlayer().closeInventory();
@@ -51,15 +57,20 @@ public class SurvivalCommand extends CommandExecutable {
                     event.getPlayer().sendMessage(ChatColor.AQUA + "Attempting to connect you to Survival (Cyan)...");
                     ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalO"), "redirect", "Bungee");
                 }
+                else if(event.getName().equals(ChatColor.PINK + "Survival (Pink)")){
+                    event.getPlayer().closeInventory();
+                    event.getPlayer().sendMessage(ChatColor.AQUA + "Attempting to connect you to Survival (Pink)...");
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalPink"), "redirect", "Bungee");
+                }
                 event.setWillClose(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
                     .setOption(0, new ItemStack(Material.STAINED_GLASS_PANE))
                     .setOption(1, new ItemStack(Material.STAINED_GLASS_PANE))
-                    .setOption(2, lime)
+                    .setOption(2, cyan)
                     .setOption(3, new ItemStack(Material.STAINED_GLASS_PANE))
-                    .setOption(4, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(4, lime)
                     .setOption(5, new ItemStack(Material.STAINED_GLASS_PANE))
-                    .setOption(6, cyan)
+                    .setOption(6, pink)
                     .setOption(8, new ItemStack(Material.STAINED_GLASS_PANE))
                     .setOption(7, new ItemStack(Material.STAINED_GLASS_PANE));
         } catch(Exception e) {
