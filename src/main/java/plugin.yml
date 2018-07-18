@@ -1,6 +1,6 @@
 name: gFeatures
 main: net.estinet.gFeatures.Listeners
-version: 3.5.0
+version: 3.5.1
 load: STARTUP
 commands:
    gFeatures:
@@ -10,4 +10,5 @@ commands:
      usage: Syntax error! Do /gFeatures help for help.
    plugin:
      description: Shows the plugins on the server.
-softdepend: [Skript, CrackShot, Factions]
+softdepend: [CrackShot]
+api-version: 1.13

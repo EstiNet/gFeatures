@@ -10,7 +10,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'net.estinet.gFeatures'
-version = 'v3.5.0'
+version = 'v3.5.1'
 
 description = """gFeatures"""
 

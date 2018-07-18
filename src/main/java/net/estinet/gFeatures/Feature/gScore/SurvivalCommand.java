@@ -42,7 +42,7 @@ public class SurvivalCommand extends CommandExecutable {
 
             ItemStack pink = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 6);
             ItemMeta pinkM = pink.getItemMeta();
-            pinkM.setDisplayName(ChatColor.PINK + "Survival (Pink)");
+            pinkM.setDisplayName(ChatColor.LIGHT_PURPLE + "Survival (Pink)");
             pinkM.setLore(Arrays.asList(ChatColor.WHITE + "Modded Survival multiplayer with FTB Revelation!"));
             pink.setItemMeta(pinkM);
 
@@ -57,7 +57,7 @@ public class SurvivalCommand extends CommandExecutable {
                     event.getPlayer().sendMessage(ChatColor.AQUA + "Attempting to connect you to Survival (Cyan)...");
                     ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalO"), "redirect", "Bungee");
                 }
-                else if(event.getName().equals(ChatColor.PINK + "Survival (Pink)")){
+                else if(event.getName().equals(ChatColor.LIGHT_PURPLE + "Survival (Pink)")){
                     event.getPlayer().closeInventory();
                     event.getPlayer().sendMessage(ChatColor.AQUA + "Attempting to connect you to Survival (Pink)...");
                     ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalPink"), "redirect", "Bungee");

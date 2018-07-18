@@ -201,7 +201,7 @@ public class gRanks extends gFeature {
         for (int i = 0; i < perms.size(); i++) {
             perms.set(i, perms.get(i).replace("\r", ""));
             if (perms.get(i).equals("")) {
-                i--;
+                if (i != 0) i--;
                 perms.remove(i);
             }
         }
