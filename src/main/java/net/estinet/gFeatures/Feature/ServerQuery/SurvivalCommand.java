@@ -1,4 +1,4 @@
-package net.estinet.gFeatures.Feature.gScore;
+package net.estinet.gFeatures.Feature.ServerQuery;
 
 import net.estinet.gFeatures.API.Inventory.InventoryAPI;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;

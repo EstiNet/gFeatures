@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.gScore;
 
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.Command.EstiCommand;
+import net.estinet.gFeatures.Feature.ServerQuery.SurvivalCommand;
 import net.estinet.gFeatures.gFeatures;
 
 /*
@@ -28,9 +29,6 @@ public class Configure {
 	public static void onSetup(){
 		gScore base = new gScore("gScore", "2.1.0");
 		gFeatures.addFeature(base);
-
-		EstiCommand test = new EstiCommand("survival", "Opens the survival menu.", "/survival", base, new SurvivalCommand());
-		gFeatures.addCommand(test);
 
 		EstiCommand ecs = new EstiCommand("score", "Toggles the scoreboard.", "/score", base, new ScoreCommand());
 		gFeatures.addCommand(ecs);

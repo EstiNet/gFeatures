@@ -20,6 +20,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.estinet.gFeatures.Command.EstiCommand;
 import net.estinet.gFeatures.Configs;
 import net.estinet.gFeatures.gFeatures;
 
@@ -30,5 +31,8 @@ public class Configure {
         gFeatures.addFeature(base);
 
 		ClioteSky.addHook(new ServerQueryClioteHook("info", base.getName()));
+
+        EstiCommand test = new EstiCommand("survival", "Opens the survival menu.", "/survival", base, new SurvivalCommand());
+        gFeatures.addCommand(test);
     }
 }

@@ -40,6 +40,7 @@ https://github.com/EstiNet/gFeatures
 public class gScore extends gFeature {
 
     public static List<UUID> people = new ArrayList<>();
+    public static boolean currentlyUpdating = false;
 
     public gScore(String featurename, String d) {
         super(featurename, d);
@@ -71,16 +72,22 @@ public class gScore extends gFeature {
     }
 
     public static void updateScores() {
-        try {
-            for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
-                if (gScore.people.contains(ps.getUniqueId())) {
-                    ScoreboardManager manager = Bukkit.getScoreboardManager();
-                    Scoreboard score = manager.getNewScoreboard();
-                    Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> ps.setScoreboard(Scored.getScore(ps, score)));
+        if (!currentlyUpdating) {
+            currentlyUpdating = true;
+            try {
+                for (Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                    if (gScore.people.contains(ps.getUniqueId())) {
+                        ScoreboardManager manager = Bukkit.getScoreboardManager();
+                        Scoreboard score = manager.getNewScoreboard();
+                        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> ps.setScoreboard(Scored.getScore(ps, score)));
+                    }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> currentlyUpdating = false, 40);
+        } else {
+            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), gScore::updateScores, 40);
         }
     }
 
