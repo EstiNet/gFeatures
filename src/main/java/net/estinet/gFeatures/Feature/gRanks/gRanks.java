@@ -187,6 +187,7 @@ public class gRanks extends gFeature {
     }
 
     public static void loopThroughSQLQuery(int length, List<String> list, TwoVal tv) {
+        try {
         for (int i = 0, cache = 0; i < length; i++) {
             String arg1 = list.get(cache);
             cache++;
@@ -194,6 +195,7 @@ public class gRanks extends gFeature {
             cache++;
             tv.run(arg1, arg2);
         }
+        } catch (IndexOutOfBoundsException e) {}
     }
 
     public static List<String> getPermsFile(File f) throws IOException {
