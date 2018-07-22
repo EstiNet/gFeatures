@@ -36,6 +36,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Basis {
+
+    public static boolean queued = false;
     public static volatile ConcurrentHashMap<UUID, PermissionAttachment> permissions = new ConcurrentHashMap<>();
     private static List<Rank> ranks = new ArrayList<>();
 

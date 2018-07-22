@@ -42,23 +42,23 @@ public class MainMenu {
     public InventoryAPI makeInventory(Player p) {
         try {
             InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Survival Menu", 9, event -> {
-                if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "Teleport Home" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                if (event.getPosition() == 0) {
                     p.performCommand("home");
-                } else if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "Set Home" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                } else if (event.getPosition() == 1) {
                     p.performCommand("sethome");
-                } else if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "Open Shop" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                } else if (event.getPosition() == 2) {
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                         Shop shop = new Shop();
                         shop.init(p);
                     }, 5L);
-                } else if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "Teleport to a Player" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                } else if (event.getPosition() == 69) { //TPA MENU IS DISABLED
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                         TpaMenu tm = new TpaMenu();
                         tm.init(p);
                     }, 5L);
-                } else if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.YELLOW + "Toggle the Scoreboard" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                } else if (event.getPosition() == 4) {
                     p.performCommand("score");
-                } else if (event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_BLUE + "Find the Recipe of an Item" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")) {
+                } else if (event.getPosition() == 69) { //RECIPE MENU IS DISABLED
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                         RecipeMenu tm = new RecipeMenu();
                         tm.init(p);

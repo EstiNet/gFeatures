@@ -40,20 +40,15 @@ public class MainShop {
 	}
 	public InventoryAPI makeInventory(Player p){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Cosmetics", 18, new InventoryAPI.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "Trails" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
-						Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-							public void run(){
-								TrailShop ts = new TrailShop();
-								ts.init(event.getPlayer());
-							}
-						}, 5L);
-					}
-					event.setWillClose(true);
-					event.setWillDestroy(true);
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Cosmetics", 18, event -> {
+				if(event.getPosition() == 0){
+					Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+						TrailShop ts = new TrailShop();
+						ts.init(event.getPlayer());
+					}, 5L);
 				}
+				event.setWillClose(true);
+				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
 			menu.setOption(0, createItem(Material.BLAZE_POWDER, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "Trails" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "" + Shop.getNumOfTrails(p.getUniqueId().toString()) + "/" + Shop.getTotalNumOfTrails() + " trails owned."));
