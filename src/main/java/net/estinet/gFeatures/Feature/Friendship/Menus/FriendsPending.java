@@ -65,7 +65,7 @@ public class FriendsPending {
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
 			for(int i = 0 ; i < hash.size(); i++){
-				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
+				ItemStack skull = new ItemStack(Material.LEGACY_SKULL_ITEM, 1);
 				//SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner(hash.get(i));

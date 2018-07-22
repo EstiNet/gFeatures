@@ -65,7 +65,7 @@ public class EventHub {
         navigator = createItem(Material.COMPASS, ChatColor.GOLD + "Navigator");
         additions = createItem(Material.CHEST, ChatColor.BLUE + "Shop");
         settings = createItem(Material.FURNACE, ChatColor.GRAY + "Settings");
-        friend = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+        friend = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         ItemMeta ims = friend.getItemMeta();
         ims.setDisplayName(ChatColor.GOLD + "Friends");
         friend.setItemMeta(ims);
@@ -113,7 +113,7 @@ public class EventHub {
                     Settings s = new Settings();
                     s.init(event.getPlayer());
                     break;
-                case SKULL_ITEM:
+                case LEGACY_SKULL_ITEM:
                     FriendsMenu fm = new FriendsMenu();
                     fm.init(event.getPlayer());
                     break;
@@ -136,7 +136,7 @@ public class EventHub {
             player.setAllowFlight(false);
             player.setFlying(false);
             player.setVelocity(st.giveVector(player.getLocation()).multiply(3));
-            player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LARGE_BLAST, 1.0F, -5.0F);
+            player.getLocation().getWorld().playSound(player.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_LARGE_BLAST, 1.0F, -5.0F);
         }
     }
 

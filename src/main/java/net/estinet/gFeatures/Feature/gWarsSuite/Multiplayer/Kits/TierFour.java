@@ -42,7 +42,7 @@ public class TierFour{
 	public TierFour(Player player) {
 		p = player;
 		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "C14 Timberwolf");
-		shotgun4 = createItem(Material.DIAMOND_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
+		shotgun4 = createItem(Material.DIAMOND_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.DIAMOND_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
 		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Heckler and Koch MP-5");
 		

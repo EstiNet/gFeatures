@@ -46,7 +46,7 @@ public class Compass {
 				event.setWillClose(true);
 				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-			ItemStack pane = new ItemStack(Material.STAINED_GLASS_PANE, 1,(short) 5);
+			ItemStack pane = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
 			ItemMeta im = pane.getItemMeta();
 			im.setDisplayName(ChatColor.GREEN + "Accept");
 			pane.setItemMeta(im);

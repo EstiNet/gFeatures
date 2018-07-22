@@ -164,6 +164,10 @@ public class Library {
         check("onEntityChangeBlockEvent", event);
     }
 
+    public void onCreatureSpawn(CreatureSpawnEvent event) {
+        check("onCreatureSpawn", event);
+    }
+
     public void check(String methodname, Event event) {
         List<gFeature> features = gFeatures.getFeatures();
         for (gFeature feature : features) {
@@ -197,4 +201,5 @@ public class Library {
             }
         }
     }
+
 }

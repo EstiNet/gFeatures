@@ -42,7 +42,7 @@ public class TierThree{
 	public TierThree(Player player) {
 		p = player;
 		sniper3 = createItem(Material.IRON_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SR-25");
-		shotgun3 = createItem(Material.IRON_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "FN-TPS");
+		shotgun3 = createItem(Material.IRON_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "FN-TPS");
 		special3 = createItem(Material.IRON_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Assassin");
 		autorifle3 = createItem(Material.IRON_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Beretta ARX100");
 		

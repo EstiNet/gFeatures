@@ -32,6 +32,7 @@ public class MusicMenu {
 			menu.open(p);
 	}
 	public InventoryAPI makeInventory(final Player p){
+		/*
 		try{
 		InventoryAPI menu = new InventoryAPI("Music Menu", 9, new InventoryAPI.OptionClickEventHandler() {
 	        @Override
@@ -154,9 +155,11 @@ public class MusicMenu {
 	}catch(Exception e){
 		e.printStackTrace();
 	}
+	*/
 		return null;
     }
 	public InventoryAPI vexento(final Player p){
+		/*
 		try{
 		final InventoryAPI menu = new InventoryAPI("Artist: Vexento", 36, new InventoryAPI.OptionClickEventHandler() {
 	        @SuppressWarnings("deprecation")
@@ -560,6 +563,7 @@ public class MusicMenu {
 	}catch(Exception e){
 		e.printStackTrace();
 	}
+	*/
 		return null;
     }
 	public void inTo(Player p){

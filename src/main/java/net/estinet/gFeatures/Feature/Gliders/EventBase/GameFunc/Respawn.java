@@ -42,7 +42,7 @@ public class Respawn {
 			int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
 			p.teleport(Basic.towerspawn.get(random));
 
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 
 			CSUtility cs = new CSUtility();
@@ -54,7 +54,7 @@ public class Respawn {
 			p.setGameMode(GameMode.ADVENTURE);
 			int random = (int) Math.floor(Math.random() * Basic.planespawn.size());
 			p.teleport(Basic.planespawn.get(random));
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+			ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 
 			p.getInventory().setChestplate(new ItemStack(Material.ELYTRA, 1));

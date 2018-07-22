@@ -34,7 +34,7 @@ public class Constants {
 	public static HashMap<UUID, Boolean> playerOn = new HashMap<>();
 	public static ItemStack getPlayersOnSetting(Player p){
 		if(playerOn.get(p.getUniqueId()).equals(true)){
-			return createItem(Material.SULPHUR, ChatColor.AQUA + "Hide Players");
+			return createItem(Material.GUNPOWDER, ChatColor.AQUA + "Hide Players");
 		}
 		else{
 			return createItem(Material.REDSTONE, ChatColor.AQUA + "Show Players");

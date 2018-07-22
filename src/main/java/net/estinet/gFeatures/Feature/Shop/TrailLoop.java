@@ -2,6 +2,7 @@ package net.estinet.gFeatures.Feature.Shop;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
 /*
@@ -33,45 +34,45 @@ public class TrailLoop {
 						continue;
 					case "FIRE":
 						//ParticleEffect.FLAME.display(0, 0, 0, 3, 1, p.getLocation(), 100);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 28);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.LAVA_POP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.LAVADRIP, 32);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 34);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.LAVA, p.getLocation(), 28);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.DRIP_LAVA, p.getLocation(),31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.DRIP_LAVA, p.getLocation(), 32);
 						break;
 					case "WATER":
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 28);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 28);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.WATERDRIP, 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_BUBBLE, p.getLocation(), 34);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_SPLASH, p.getLocation(), 28);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_WAKE, p.getLocation(), 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.DRIP_WATER, p.getLocation(), 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_DROP, p.getLocation(), 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_BUBBLE, p.getLocation(), 38);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_SPLASH, p.getLocation(), 25);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_WAKE, p.getLocation(), 30);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.DRIP_WATER, p.getLocation(), 29);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.WATER_DROP, p.getLocation(), 36);
 						break;
 					case "GRAY":
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CLOUD, 28, 7);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 7);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 21);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.PARTICLE_SMOKE, 31, 15);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.CLOUD, p.getLocation(), 34);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.CLOUD, p.getLocation(), 28, 7);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.SMOKE_LARGE, p.getLocation(), 31, 7);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.SMOKE_LARGE, p.getLocation(), 31, 21);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.SMOKE_LARGE, p.getLocation(), 31, 15);
 						break;
 					case "MUSIC":
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.NOTE, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.CRIT, 28, 7);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.NOTE, 31, 7);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.NOTE, p.getLocation(), 34);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.CRIT, p.getLocation(), 28, 7);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.NOTE, p.getLocation(), 31, 7);
 						break;
 					case "RAINBOW":
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 34);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 28);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 32);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 29);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 44);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 24);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
-						Bukkit.getWorld(p.getWorld().getName()).playEffect(p.getLocation(), Effect.COLOURED_DUST, 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.SMOKE_NORMAL, p.getLocation(), 34);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.HEART, p.getLocation(), 28);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 32);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 29);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 44);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 24);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 31);
+						Bukkit.getWorld(p.getWorld().getName()).spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation(), 31);
 						break;
 					}
 				}

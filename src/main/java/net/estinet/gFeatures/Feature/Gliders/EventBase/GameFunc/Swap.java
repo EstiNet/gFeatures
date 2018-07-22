@@ -41,15 +41,13 @@ public class Swap {
         Basic.flagger = null;
         Basic.minutes = 5;
         Basic.seconds = 0;
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                if (!Basic.mode.equals(Mode.ENDED)) {
-                    StartStop ss = new StartStop();
-                    if (Basic.firstteam.equals(Team.BLUE)) {
-                        ss.stopGame(Team.BLUE);
-                    } else {
-                        ss.stopGame(Team.NONE);
-                    }
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            if (!Basic.mode.equals(Mode.ENDED)) {
+                StartStop ss = new StartStop();
+                if (Basic.firstteam.equals(Team.BLUE)) {
+                    ss.stopGame(Team.BLUE);
+                } else {
+                    ss.stopGame(Team.NONE);
                 }
             }
         }, 6000L);// counter just in case game keeps going
@@ -63,7 +61,7 @@ public class Swap {
                 p.setGameMode(GameMode.ADVENTURE);
                 int random = (int) Math.floor(Math.random() * Basic.planespawn.size());
                 p.teleport(Basic.planespawn.get(random));
-                ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte) 3);
+                ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
                 p.getInventory().setHelmet(wool);
 
                 p.getInventory().setChestplate(new ItemStack(Material.ELYTRA, 1));
@@ -82,7 +80,7 @@ public class Swap {
                 int random = (int) Math.floor(Math.random() * Basic.towerspawn.size());
                 p.teleport(Basic.towerspawn.get(random));
 
-                ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte) 1);
+                ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
                 p.getInventory().setHelmet(wool);
 
                 p.setHealth(20);

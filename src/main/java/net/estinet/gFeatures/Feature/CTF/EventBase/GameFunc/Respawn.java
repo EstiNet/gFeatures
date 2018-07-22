@@ -40,14 +40,14 @@ public class Respawn {
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 		else{
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.bluespawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+			ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 		SpawnMenu.init(p);
@@ -55,14 +55,14 @@ public class Respawn {
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangespawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 		else{
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.bluespawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+			ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 	}
@@ -73,14 +73,14 @@ public class Respawn {
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.orangeafterspawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+			ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 		else{
 			p.setGameMode(GameMode.ADVENTURE);
 			p.teleport(Basic.blueafterspawn);
 			p.setWalkSpeed((float) 0.3);
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+			ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
 			p.getInventory().setHelmet(wool);
 		}
 	}

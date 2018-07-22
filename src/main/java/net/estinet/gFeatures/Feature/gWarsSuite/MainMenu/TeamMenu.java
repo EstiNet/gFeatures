@@ -42,13 +42,13 @@ public class TeamMenu {
     ItemStack item1, item2;
 
     public TeamMenu() {
-        item1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
-        ItemMeta item1meta = (ItemMeta) item1.getItemMeta();
+        item1 = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE, 1);
+        ItemMeta item1meta = item1.getItemMeta();
         item1meta.setDisplayName(ChatColor.GOLD + "Kloyne (Orange) Players: " + OrangeTeam.size());
         item1.setItemMeta(item1meta);
 
-        item2 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 3);
-        ItemMeta item2meta = (ItemMeta) item2.getItemMeta();
+        item2 = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE, 1);
+        ItemMeta item2meta = item2.getItemMeta();
         item2meta.setDisplayName(ChatColor.DARK_AQUA + "Innisfil (Blue) Players: " + BlueTeam.size());
         item2.setItemMeta(item2meta);
     }
@@ -56,31 +56,29 @@ public class TeamMenu {
     public void initialize(Player p) {
         ci.clearInv(p);
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                p.getInventory().setItem(0, item1);
-                p.getInventory().setItem(1, item2);
-            }
+        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            p.getInventory().setItem(0, item1);
+            p.getInventory().setItem(1, item2);
         }, 2L);
 
     }
 
     public void interact(PlayerInteractEvent event) {
-        if (event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getInventory().getItemInMainHand().getData().getData() == 1) {
+        if (event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.ORANGE_STAINED_GLASS)) {
             if (!(BlueTeam.size() < OrangeTeam.size())) {
                 OrangeTeam.addPlayer(event.getPlayer());
                 event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + ".");
-                ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte) 1);
+                ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
                 event.getPlayer().getInventory().setHelmet(wool);
                 finals(event.getPlayer());
             } else {
                 event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Can't join " + ChatColor.GOLD + "Kloyne" + ChatColor.GRAY + " because the teams will be unfair!");
             }
-        } else if (event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.STAINED_GLASS_PANE) && event.getPlayer().getInventory().getItemInMainHand().getData().getData() == 3) {
+        } else if (event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.LIGHT_BLUE_STAINED_GLASS_PANE)) {
             if (!(BlueTeam.size() > OrangeTeam.size())) {
                 BlueTeam.addPlayer(event.getPlayer());
                 event.getPlayer().sendMessage(ChatColor.GRAY + "[Team] Joined " + ChatColor.DARK_AQUA + "Innisfil" + ChatColor.GRAY + ".");
-                ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte) 3);
+                ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
                 event.getPlayer().getInventory().setHelmet(wool);
                 finals(event.getPlayer());
             } else {

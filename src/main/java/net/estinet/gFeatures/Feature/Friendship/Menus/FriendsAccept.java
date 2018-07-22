@@ -42,24 +42,21 @@ public class FriendsAccept {
 
     public InventoryAPI makeInventory(Player p, String name) {
         try {
-            InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept friend request?", 9, new InventoryAPI.OptionClickEventHandler() {
-                @Override
-                public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-                    if (event.getName().equalsIgnoreCase(ChatColor.GREEN + "Accept")) {
-                        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("confirm " + p.getName() + " " + name), "friends", "Bungee");
-                    } else if (event.getName().equalsIgnoreCase(ChatColor.RED + "Deny")) {
-                        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("unfriend " + p.getName() + " " + name), "friends", "Bungee");
-                    }
-                    event.setWillClose(true);
-                    event.setWillDestroy(true);
+            InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Accept friend request?", 9, event -> {
+                if (event.getName().equalsIgnoreCase(ChatColor.GREEN + "Accept")) {
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("confirm " + p.getName() + " " + name), "friends", "Bungee");
+                } else if (event.getName().equalsIgnoreCase(ChatColor.RED + "Deny")) {
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("unfriend " + p.getName() + " " + name), "friends", "Bungee");
                 }
+                event.setWillClose(true);
+                event.setWillDestroy(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-            ItemStack pane = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+            ItemStack pane = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
             ItemMeta im = pane.getItemMeta();
             im.setDisplayName(ChatColor.GREEN + "Accept");
             pane.setItemMeta(im);
 
-            ItemStack pane1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+            ItemStack pane1 = new ItemStack(Material.RED_STAINED_GLASS_PANE, 1);
             ItemMeta im1 = pane1.getItemMeta();
             im1.setDisplayName(ChatColor.RED + "Deny");
             pane1.setItemMeta(im1);
@@ -68,7 +65,7 @@ public class FriendsAccept {
             menu.setOption(1, pane);
             menu.setOption(2, pane);
             menu.setOption(3, pane);
-            ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
+            ItemStack skull = new ItemStack(Material.LEGACY_SKULL_ITEM, 1);
             //SkullMeta sm = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
             SkullMeta sm = (SkullMeta) skull.getItemMeta();
             sm.setOwner(name);

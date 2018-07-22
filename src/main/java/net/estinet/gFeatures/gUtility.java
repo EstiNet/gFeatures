@@ -61,4 +61,5 @@ public class gUtility extends Extension{
     public void onInventoryInteract(){}
     public void onEntityDamageByBlock(){}
     public void onEntityChangeBlockEvent(){}
+    public void onCreatureSpawn(){}
 }

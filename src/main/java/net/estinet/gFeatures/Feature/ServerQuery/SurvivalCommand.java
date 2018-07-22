@@ -28,19 +28,19 @@ public class SurvivalCommand extends CommandExecutable {
     public InventoryAPI makeInventory(Player p){
         try {
 
-            ItemStack lime = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+            ItemStack lime = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
             ItemMeta limeM = lime.getItemMeta();
             limeM.setDisplayName(ChatColor.GREEN + "Survival (Lime)");
             limeM.setLore(Arrays.asList(ChatColor.WHITE + "Minecraft multiplayer as it was intended (with no PVP)."));
             lime.setItemMeta(limeM);
 
-            ItemStack cyan = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 9);
+            ItemStack cyan = new ItemStack(Material.CYAN_STAINED_GLASS_PANE, 1);
             ItemMeta cyanM = cyan.getItemMeta();
             cyanM.setDisplayName(ChatColor.AQUA + "Survival (Cyan)");
             cyanM.setLore(Arrays.asList(ChatColor.WHITE + "Survival multiplayer with more addons (kits, economy, etc.)."));
             cyan.setItemMeta(cyanM);
 
-            ItemStack pink = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 6);
+            ItemStack pink = new ItemStack(Material.PINK_STAINED_GLASS_PANE, 1);
             ItemMeta pinkM = pink.getItemMeta();
             pinkM.setDisplayName(ChatColor.LIGHT_PURPLE + "Survival (Pink)");
             pinkM.setLore(Arrays.asList(ChatColor.WHITE + "Modded Survival multiplayer with FTB Revelation!"));
@@ -64,15 +64,15 @@ public class SurvivalCommand extends CommandExecutable {
                 }
                 event.setWillClose(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
-                    .setOption(0, new ItemStack(Material.STAINED_GLASS_PANE))
-                    .setOption(1, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(0, new ItemStack(Material.WHITE_STAINED_GLASS_PANE))
+                    .setOption(1, new ItemStack(Material.WHITE_STAINED_GLASS_PANE))
                     .setOption(2, cyan)
-                    .setOption(3, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(3, new ItemStack(Material.WHITE_STAINED_GLASS_PANE))
                     .setOption(4, lime)
-                    .setOption(5, new ItemStack(Material.STAINED_GLASS_PANE))
+                    .setOption(5, new ItemStack(Material.WHITE_STAINED_GLASS_PANE))
                     .setOption(6, pink)
-                    .setOption(8, new ItemStack(Material.STAINED_GLASS_PANE))
-                    .setOption(7, new ItemStack(Material.STAINED_GLASS_PANE));
+                    .setOption(8, new ItemStack(Material.WHITE_STAINED_GLASS_PANE))
+                    .setOption(7, new ItemStack(Material.WHITE_STAINED_GLASS_PANE));
         } catch(Exception e) {
             e.printStackTrace();
         }

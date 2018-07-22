@@ -67,12 +67,12 @@ public class Confirm {
                     event.setWillDestroy(true);
                 }
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
-            ItemStack pane = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+            ItemStack pane = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
             ItemMeta im = pane.getItemMeta();
             im.setDisplayName(ChatColor.GREEN + "Yes");
             pane.setItemMeta(im);
 
-            ItemStack pane1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+            ItemStack pane1 = new ItemStack(Material.RED_STAINED_GLASS_PANE, 1);
             ItemMeta im1 = pane1.getItemMeta();
             im1.setDisplayName(ChatColor.RED + "No");
             pane1.setItemMeta(im1);

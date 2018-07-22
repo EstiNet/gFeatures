@@ -41,10 +41,10 @@ public class TierTwo{
 	ItemStack sniper2, shotgun2, special2, autorifle2, ammo, jetpackammo;
 	public TierTwo(Player player) {
 		p = player;
-		sniper2 = createItem(Material.GOLD_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SilSil69");
-		shotgun2 = createItem(Material.GOLD_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS Regular");
-		special2 = createItem(Material.GOLD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Flamethrower");
-		autorifle2 = createItem(Material.GOLD_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "AK47 Silver");
+		sniper2 = createItem(Material.GOLDEN_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SilSil69");
+		shotgun2 = createItem(Material.GOLDEN_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS Regular");
+		special2 = createItem(Material.GOLDEN_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Flamethrower");
+		autorifle2 = createItem(Material.GOLDEN_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "AK47 Silver");
 		
 		ammo = new ItemStack(Material.MELON_SEEDS, 16);
 		ItemMeta meta = ammo.getItemMeta();

@@ -37,13 +37,13 @@ public class Inventory {
     GunMenu gm = new GunMenu();
 
     public Inventory() {
-        ItemStack items = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
+        ItemStack items = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.CREEPER.ordinal());
         SkullMeta item1meta = (SkullMeta) items.getItemMeta();
         item1meta.setDisplayName(ChatColor.GOLD + "Singleplayer");
         items.setItemMeta(item1meta);
         item1 = items;
 
-        item2 = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+        item2 = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
         SkullMeta item2meta = (SkullMeta) item2.getItemMeta();
         item2meta.setDisplayName(ChatColor.GOLD + "Multiplayer");
         item2.setItemMeta(item2meta);

@@ -50,15 +50,15 @@ public class SpawnMenu {
 		teamspawn = createItem(Material.BEACON, ChatColor.WHITE + "Posessive Spawns");
 		capturespawn = createItem(Material.BEACON, ChatColor.WHITE + "Captured Spawns");
 		
-		kloynehighwayexit = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Kloyne Highway Exit");
-		innisfilhighwayexit = createItem(Material.STAINED_GLASS_PANE, ChatColor.AQUA + "Innisfil Highway Exit");
-		bridge = createItem(Material.STAINED_GLASS_PANE, ChatColor.WHITE + "Bridge");
+		kloynehighwayexit = createItem(Material.WHITE_STAINED_GLASS_PANE, ChatColor.GOLD + "Kloyne Highway Exit");
+		innisfilhighwayexit = createItem(Material.WHITE_STAINED_GLASS_PANE, ChatColor.AQUA + "Innisfil Highway Exit");
+		bridge = createItem(Material.WHITE_STAINED_GLASS_PANE, ChatColor.WHITE + "Bridge");
 		
 		if(OrangeTeam.hasPlayer(p)){
-			mainbase = createItem(Material.STAINED_GLASS_PANE, ChatColor.GOLD + "Kloyne Military Base");
+			mainbase = createItem(Material.WHITE_STAINED_GLASS_PANE, ChatColor.GOLD + "Kloyne Military Base");
 		}
 		else{
-			mainbase = createItem(Material.STAINED_GLASS_PANE, ChatColor.AQUA + "Innisfil Military Base");
+			mainbase = createItem(Material.WHITE_STAINED_GLASS_PANE, ChatColor.AQUA + "Innisfil Military Base");
 		}
 	}
 	public void intialize(){

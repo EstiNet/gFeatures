@@ -67,7 +67,7 @@ public class CrystalInteract {
             int iter = 0;
             for (MGServerPlus mgsp : Basis.getServersWithType(mgs.getName())) {
                 if (mgsp.getState().equals("WAIT")) {
-                    ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+                    ItemStack ready = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
                     ItemMeta im = ready.getItemMeta();
                     im.setDisplayName(ChatColor.GREEN + mgsp.getName() + ": Waiting!");
                     List<String> lore = new ArrayList<>();
@@ -79,7 +79,7 @@ public class CrystalInteract {
                     ready.setItemMeta(im);
                     menu.setOption(iter, ready);
                 } else if (mgsp.getState().equals("STARTED")) {
-                    ItemStack ready = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+                    ItemStack ready = new ItemStack(Material.RED_STAINED_GLASS_PANE, 1);
                     ItemMeta im = ready.getItemMeta();
                     im.setDisplayName(ChatColor.YELLOW + mgsp.getName() + ": Ingame!");
                     List<String> lore = new ArrayList<>();

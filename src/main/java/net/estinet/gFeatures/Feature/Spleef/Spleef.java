@@ -100,7 +100,7 @@ public class Spleef extends FusionGame implements Events {
         }, 10L, 10L);
         for (Player p : Bukkit.getOnlinePlayers()) {
             p.setGameMode(GameMode.SURVIVAL);
-            p.getInventory().addItem(new ItemStack(Material.DIAMOND_SPADE));
+            p.getInventory().addItem(new ItemStack(Material.DIAMOND_SHOVEL));
         }
     }
 

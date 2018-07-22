@@ -57,28 +57,28 @@ public class TierMenu {
 		tierfour = createItem(Material.EMERALD_BLOCK, ChatColor.AQUA + "Tier 4", ChatColor.GOLD + "This tier requires 50 kills.");
 		kills = createItem(Material.EMERALD, ChatColor.GREEN + "You have " + s.getKills(p) + " kills.", ChatColor.GOLD + " Play to earn more kills!");
 		
-		sniper = createItem(Material.WOOD_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
-		shotgun = createItem(Material.WOOD_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
-		special = createItem(Material.WOOD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Crossbow");
-		autorifle = createItem(Material.WOOD_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Auto-Rifle");
+		sniper = createItem(Material.WOODEN_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "Sniper");
+		shotgun = createItem(Material.WOODEN_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Shotgun");
+		special = createItem(Material.WOODEN_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Crossbow");
+		autorifle = createItem(Material.WOODEN_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Auto-Rifle");
 		
 		sniper1 = createItem(Material.STONE_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "ULR338");
-		shotgun1 = createItem(Material.STONE_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Colt Model 1");
+		shotgun1 = createItem(Material.STONE_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Colt Model 1");
 		special1 = createItem(Material.STONE_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Rocket Launcher");
 		autorifle1 = createItem(Material.STONE_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16");
 		
-		sniper2 = createItem(Material.GOLD_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SilSil69");
-		shotgun2 = createItem(Material.GOLD_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS Regular");
-		special2 = createItem(Material.GOLD_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Flamethrower");
-		autorifle2 = createItem(Material.GOLD_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "AK47 Silver");
+		sniper2 = createItem(Material.GOLDEN_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SilSil69");
+		shotgun2 = createItem(Material.GOLDEN_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS Regular");
+		special2 = createItem(Material.GOLDEN_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Flamethrower");
+		autorifle2 = createItem(Material.GOLDEN_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "AK47 Silver");
 
 		sniper3 = createItem(Material.IRON_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "SR-25");
-		shotgun3 = createItem(Material.IRON_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "FN-TPS");
+		shotgun3 = createItem(Material.IRON_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "FN-TPS");
 		special3 = createItem(Material.IRON_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Assassin");
 		autorifle3 = createItem(Material.IRON_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Beretta ARX100");
 		
 		sniper4 = createItem(Material.DIAMOND_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "C14 Timberwolf");
-		shotgun4 = createItem(Material.DIAMOND_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
+		shotgun4 = createItem(Material.DIAMOND_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "SPAS-12");
 		special4 = createItem(Material.DIAMOND_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Strike Team");
 		autorifle4 = createItem(Material.DIAMOND_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "Heckler and Koch MP-5");	
 		

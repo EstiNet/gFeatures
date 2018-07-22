@@ -172,8 +172,11 @@ public class EventHub {
 
     public static void onPlayerDeath(PlayerDeathEvent event) {
         if (event.getEntity() != null) {
-            if (event.getEntity().getInventory().contains(Material.STAINED_GLASS)) {
-                event.getDrops().remove(Material.STAINED_GLASS);
+            if (event.getEntity().getInventory().contains(Material.LIGHT_BLUE_STAINED_GLASS)) {
+                event.getDrops().remove(new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS));
+            }
+            if (event.getEntity().getInventory().contains(Material.ORANGE_STAINED_GLASS)) {
+                event.getDrops().remove(new ItemStack(Material.ORANGE_STAINED_GLASS));
             }
             if (Basic.modes.get(event.getEntity().getUniqueId()).equals(PlayerMode.WAITING)) {
                 event.getEntity().setHealth(20);

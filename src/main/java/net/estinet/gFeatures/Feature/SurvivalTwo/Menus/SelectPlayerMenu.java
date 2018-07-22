@@ -59,7 +59,7 @@ public class SelectPlayerMenu {
 				if(player.getName().equals(p.getName())){
 					continue;
 				}
-				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
+				ItemStack skull = new ItemStack(Material.LEGACY_SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
 				SkullMeta meta = (SkullMeta) skull.getItemMeta();
 				meta.setOwner(player.getName());
 				meta.setDisplayName(player.getDisplayName());

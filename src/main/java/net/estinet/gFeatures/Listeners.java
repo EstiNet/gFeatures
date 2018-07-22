@@ -11,6 +11,7 @@ import net.estinet.gFeatures.SQL.Update.Obtain;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Creature;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -279,6 +280,11 @@ public class Listeners extends JavaPlugin implements Listener {
     @EventHandler
     public void EntityChangeBlockEvent(EntityChangeBlockEvent event) {
         library.onEntityChangeBlock(event);
+    }
+
+    @EventHandler
+    public void CreatureSpawnEvent(CreatureSpawnEvent event) {
+        library.onCreatureSpawn(event);
     }
 
     @Override

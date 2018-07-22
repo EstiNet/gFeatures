@@ -53,7 +53,7 @@ public class GameStart {
                     for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                         p.setScoreboard(cd.get(p, iter));
                         p.setLevel(iter);
-                        p.playSound(p.getLocation(), Sound.BLOCK_NOTE_PLING, 50, 50);
+                        p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 50, 50);
                     }
                 }
                 iter--;
@@ -63,7 +63,7 @@ public class GameStart {
             int randomx = (int) Math.floor(Math.random() * 156);
             int randomz = (int) Math.floor(Math.random() * 60);
             Location loc = new Location(Bukkit.getServer().getWorld("Grasslands"), randomx - 20, 35, randomz);
-            loc.getWorld().dropItemNaturally(loc, new ItemStack(Material.MONSTER_EGG));
+            loc.getWorld().dropItemNaturally(loc, new ItemStack(Material.EGG));
             Bukkit.getLogger().info("Dropped egg at: x: " + randomx + "-20 z: " + randomz);
         }
     }

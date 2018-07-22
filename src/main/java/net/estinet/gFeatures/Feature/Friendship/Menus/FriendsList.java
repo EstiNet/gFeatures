@@ -50,19 +50,16 @@ public class FriendsList {
 				//will add later (Overflow friends (too many) needz more pages) plz future espidev :/:/
 				amount = 45;
 			}
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", amount, new InventoryAPI.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					
-					//add player options????
-					
-					event.setWillClose(false);
-					event.setWillDestroy(true);
-				}
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Friends List", amount, event -> {
+
+				//add player options????
+
+				event.setWillClose(false);
+				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
 			for(int i = 0 ; i < hash.size(); i++){
-				ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
+				ItemStack skull = new ItemStack(Material.LEGACY_SKULL_ITEM, 1);
 				SkullMeta sm = (SkullMeta) skull.getItemMeta();
 				sm.setOwner((String) hash.keySet().toArray()[i]);
 				sm.setDisplayName(ChatColor.AQUA + "<" + ChatColor.WHITE +(String) hash.keySet().toArray()[i] + ChatColor.AQUA + ">" + ChatColor.RESET);

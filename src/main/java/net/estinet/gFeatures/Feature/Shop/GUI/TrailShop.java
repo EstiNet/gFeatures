@@ -42,36 +42,33 @@ public class TrailShop {
 	}
 	public InventoryAPI makeInventory(Player p){
 		try{
-			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Trails", 18, new InventoryAPI.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.NONE);
-					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.FIRE) + "Fire Trail")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.FIRE);
-					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Water Trail")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.WATER);
-					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.GRAY) + "Grey Trail")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.GRAY);
-					}
-					else if(event.getName().equalsIgnoreCase(getText(p, Trails.MUSIC) + "Music Trail")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.MUSIC);
-					}
-					else if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Rainbow Trail") || event.getName().equalsIgnoreCase(ChatColor.RED + "Rainbow Trail")){
-						SetTrail st = new SetTrail();
-						st.init(p, Trails.RAINBOW);
-					}
-					event.setWillClose(true);
-					event.setWillDestroy(true);
+			InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Trails", 18, event -> {
+				if(event.getName().equalsIgnoreCase(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.RED + "No Trail" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.NONE);
 				}
+				else if(event.getName().equalsIgnoreCase(getText(p, Trails.FIRE) + "Fire Trail")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.FIRE);
+				}
+				else if(event.getName().equalsIgnoreCase(getText(p, Trails.WATER) + "Water Trail")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.WATER);
+				}
+				else if(event.getName().equalsIgnoreCase(getText(p, Trails.GRAY) + "Grey Trail")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.GRAY);
+				}
+				else if(event.getName().equalsIgnoreCase(getText(p, Trails.MUSIC) + "Music Trail")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.MUSIC);
+				}
+				else if(event.getName().equalsIgnoreCase(ChatColor.GREEN + "Rainbow Trail") || event.getName().equalsIgnoreCase(ChatColor.RED + "Rainbow Trail")){
+					SetTrail st = new SetTrail();
+					st.init(p, Trails.RAINBOW);
+				}
+				event.setWillClose(true);
+				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 			
 			//Fire Trail
@@ -104,10 +101,10 @@ public class TrailShop {
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("GRAY")){
-					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(2, createItem(Material.INK_SAC, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(2, createItem(Material.INK_SACK, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(2, createItem(Material.INK_SAC, getText(p, Trails.GRAY) + "Grey Trail", 8, ChatColor.GRAY + "Coloured trail!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			//Music Trail
@@ -116,10 +113,10 @@ public class TrailShop {
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("MUSIC")){
-					menu.setOption(3, createItem(Material.RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(3, createItem(Material.LEGACY_RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(3, createItem(Material.RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(3, createItem(Material.LEGACY_RECORD_3, getText(p, Trails.MUSIC) + "Music Trail", ChatColor.GRAY + "Blasting musical notes since the 90s!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			//Rainbow Trail
@@ -128,10 +125,10 @@ public class TrailShop {
 			}
 			else{
 				if(Shop.playerTrail.get(p.getUniqueId()).equals("RAINBOW")){
-					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Currently enabled!"));
+					menu.setOption(9, createItem(Material.BREWING_STAND, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Currently enabled!"));
 				}
 				else{
-					menu.setOption(9, createItem(Material.BREWING_STAND_ITEM, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Click to ENABLE."));
+					menu.setOption(9, createItem(Material.BREWING_STAND, ChatColor.GREEN + "Rainbow Trail", ChatColor.GRAY + "Rainbows are da greatest!", ChatColor.GREEN + "Click to ENABLE."));
 				}
 			}
 			

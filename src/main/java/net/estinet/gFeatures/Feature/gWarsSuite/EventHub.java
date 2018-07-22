@@ -159,11 +159,11 @@ public class EventHub {
 			SpawnMenu sm = new SpawnMenu(event.getPlayer());
 			sm.intialize();
 			if(BlueTeam.hasPlayer(event.getPlayer())){
-				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
+				ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
 				event.getPlayer().getInventory().setHelmet(wool);
 			}
 			else if(OrangeTeam.hasPlayer(event.getPlayer())){
-				ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
+				ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
 				event.getPlayer().getInventory().setHelmet(wool);
 			}
 		}
@@ -183,37 +183,35 @@ public class EventHub {
 		Death d = new Death();
 		d.init(event);
 		Player player = event.getEntity();
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable(){ public void run() {
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
 			if(event.getEntity().isDead())
 				player.setHealth(20);
 			player.setGameMode(GameMode.SPECTATOR);
 			player.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
-		}});
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-				public void run(){
-					Source s = new Source();
-					s.flushAll();
-					event.getEntity().setGameMode(GameMode.ADVENTURE);
-					if(stats.getMode((Player)event.getEntity()).equals(gWarsMode.TEAM)){
-						stats.setMode(event.getEntity(), gWarsMode.SPAWNMENU);
-						SpawnMenu sm = new SpawnMenu(event.getEntity());
-						sm.intialize();
-						if(BlueTeam.hasPlayer(event.getEntity())){
-							ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
-							event.getEntity().getInventory().setHelmet(wool);
-						}
-						else if(OrangeTeam.hasPlayer(event.getEntity())){
-							ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
-							event.getEntity().getInventory().setHelmet(wool);
-						}
-					}
-					Join join = new Join();
-					join.algore(event.getEntity());
+		});
+		Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+			Source s = new Source();
+			s.flushAll();
+			event.getEntity().setGameMode(GameMode.ADVENTURE);
+			if(stats.getMode((Player)event.getEntity()).equals(gWarsMode.TEAM)){
+				stats.setMode(event.getEntity(), gWarsMode.SPAWNMENU);
+				SpawnMenu sm = new SpawnMenu(event.getEntity());
+				sm.intialize();
+				if(BlueTeam.hasPlayer(event.getEntity())){
+					ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
+					event.getEntity().getInventory().setHelmet(wool);
 				}
-			}, 100L);
+				else if(OrangeTeam.hasPlayer(event.getEntity())){
+					ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
+					event.getEntity().getInventory().setHelmet(wool);
+				}
+			}
+			Join join = new Join();
+			join.algore(event.getEntity());
+		}, 100L);
 	}
 	public void onPlayerDrop(PlayerDropItemEvent event){
-		if(stats.getMode((Player) event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
+		if(stats.getMode(event.getPlayer()).equals(gWarsMode.MAINMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.GUNMENU) || stats.getMode(event.getPlayer()).equals(gWarsMode.TEAMMENU) || stats.getMode((Player)event.getPlayer()).equals(gWarsMode.SPAWNMENU)){
 			event.setCancelled(true);
 		}
 	}

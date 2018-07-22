@@ -119,7 +119,7 @@ public class StartStop {
                     for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                         p.setScoreboard(l.Initialize(p));
                         p.setLevel(Basic.countdown);
-                        p.playSound(p.getLocation(), Sound.BLOCK_NOTE_HARP, 50, 50);
+                        p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP, 50, 50);
                     }
                 } else {
                     Bukkit.broadcastMessage(ChatColor.AQUA + "[Gliders] " + ChatColor.WHITE + "Not enough players! Counter restarting. :/");

@@ -37,41 +37,42 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Finish {
-	Statistics stats = new Statistics();
-	Join join = new Join();
-	public void intialize(Player p){
-		stats.setMode(p, gWarsMode.TEAM);
-		join.end(p);
-		p.teleport(new Location(Bukkit.getServer().getWorld("gWars"), Constants.spawndump.get(p.getName()).getX(), Constants.spawndump.get(p.getName()).getY(), Constants.spawndump.get(p.getName()).getZ()));
-		Constants.spawndump.remove(p);
-		Source s = new Source();
-		s.flushAll();
-		for(Player player : Bukkit.getOnlinePlayers()){
-			player.showPlayer(p);
-			p.showPlayer(player);
-		}
-		ItemStack compass = createItem(Material.COMPASS, ChatColor.AQUA + "Compass");
-		p.getInventory().setItem(7, compass);
-		p.setWalkSpeed((float) 0.5);
-		if(OrangeTeam.hasPlayer(p)){
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)1);
-			p.getInventory().setHelmet(wool);
-		}
-		else{
-			ItemStack wool = new ItemStack(Material.STAINED_GLASS, 1, (byte)3);
-			p.getInventory().setHelmet(wool);
-		}
-	}
-	public ItemStack createItem(Material material, String name, String ... lore){
-		ItemStack item = new ItemStack(material, 1);
-		List<String> lores = new ArrayList<>();
-		for(String lor : lore){
-		lores.add(lor);
-		}
-		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName(name);
-		meta.setLore(lores);
-		item.setItemMeta(meta);
-		return item;
-	}
+    Statistics stats = new Statistics();
+    Join join = new Join();
+
+    public void intialize(Player p) {
+        stats.setMode(p, gWarsMode.TEAM);
+        join.end(p);
+        p.teleport(new Location(Bukkit.getServer().getWorld("gWars"), Constants.spawndump.get(p.getName()).getX(), Constants.spawndump.get(p.getName()).getY(), Constants.spawndump.get(p.getName()).getZ()));
+        Constants.spawndump.remove(p);
+        Source s = new Source();
+        s.flushAll();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.showPlayer(p);
+            p.showPlayer(player);
+        }
+        ItemStack compass = createItem(Material.COMPASS, ChatColor.AQUA + "Compass");
+        p.getInventory().setItem(7, compass);
+        p.setWalkSpeed((float) 0.5);
+        if (OrangeTeam.hasPlayer(p)) {
+            ItemStack wool = new ItemStack(Material.ORANGE_STAINED_GLASS, 1);
+            p.getInventory().setHelmet(wool);
+        } else {
+            ItemStack wool = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS, 1);
+            p.getInventory().setHelmet(wool);
+        }
+    }
+
+    public ItemStack createItem(Material material, String name, String... lore) {
+        ItemStack item = new ItemStack(material, 1);
+        List<String> lores = new ArrayList<>();
+        for (String lor : lore) {
+            lores.add(lor);
+        }
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(name);
+        meta.setLore(lores);
+        item.setItemMeta(meta);
+        return item;
+    }
 }

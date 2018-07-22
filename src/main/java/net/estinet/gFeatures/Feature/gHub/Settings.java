@@ -55,7 +55,7 @@ public class Settings {
 				event.setWillClose(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"))
 					.setOption(0, Constants.getPlayersOnSetting(p))
-					.setOption(1, new ItemStack(Material.WATCH, 1), ChatColor.DARK_AQUA+"Stacker");
+					.setOption(1, new ItemStack(Material.CLOCK, 1), ChatColor.DARK_AQUA+"Stacker");
 			return menu;
 		}catch(Exception e){
 			e.printStackTrace();

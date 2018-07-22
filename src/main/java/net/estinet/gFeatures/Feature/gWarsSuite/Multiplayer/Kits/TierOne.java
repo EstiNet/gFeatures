@@ -42,7 +42,7 @@ public class TierOne{
 	public TierOne(Player player) {
 		p  = player;
 		sniper1 = createItem(Material.STONE_PICKAXE, ChatColor.AQUA + "Sniper", ChatColor.GOLD + "ULR338");
-		shotgun1 = createItem(Material.STONE_SPADE, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Colt Model 1");
+		shotgun1 = createItem(Material.STONE_SHOVEL, ChatColor.AQUA + "Shotgun", ChatColor.GOLD + "Colt Model 1");
 		special1 = createItem(Material.STONE_HOE, ChatColor.AQUA + "Special", ChatColor.GOLD + "Rocket Launcher");
 		autorifle1 = createItem(Material.STONE_AXE, ChatColor.AQUA + "Auto-Rifle", ChatColor.GOLD + "m16");
 		

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 
@@ -89,7 +90,7 @@ public class Point {
 	public void setOrange(){
 		for(Location location : location){
 			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
-			block.setTypeIdAndData(95, (byte) 1, true);
+			block.setType(Material.ORANGE_STAINED_GLASS);
 		}
 		capturestate = CaptureState.orange;
 	}
@@ -97,7 +98,7 @@ public class Point {
 	public void setBlue(){
 		for(Location location : location){
 			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
-			block.setTypeIdAndData(95, (byte) 3, true);
+			block.setType(Material.LIGHT_BLUE_STAINED_GLASS);
 		}
 		capturestate = CaptureState.blue;
 	}
@@ -105,7 +106,7 @@ public class Point {
 	public void setNeutral(){
 		for(Location location : location){
 			Block block = Bukkit.getServer().getWorld("gWars").getBlockAt(location);
-			block.setTypeId(95);
+			block.setType(Material.WHITE_STAINED_GLASS);
 		}
 		capturestate = CaptureState.white;
 	}

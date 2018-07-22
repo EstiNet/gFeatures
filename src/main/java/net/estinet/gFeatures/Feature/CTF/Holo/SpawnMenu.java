@@ -39,7 +39,7 @@ public class SpawnMenu {
         item1meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Plasma Sniper");
         item1.setItemMeta(item1meta);
 
-        item2 = new ItemStack(Material.IRON_SPADE, 1);
+        item2 = new ItemStack(Material.IRON_SHOVEL, 1);
         ItemMeta item2meta = item2.getItemMeta();
         item2meta.setDisplayName(ChatColor.RESET + "" + ChatColor.BOLD + "Plasma Shotgun");
         item2.setItemMeta(item2meta);
