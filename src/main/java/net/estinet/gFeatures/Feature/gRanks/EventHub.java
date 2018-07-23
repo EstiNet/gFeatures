@@ -46,15 +46,8 @@ public class EventHub {
     }
 
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
-        /*try {
-            String prefix = Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
-            String name = prefix.replace('&', '§');
-            if (!event.getPlayer().getDisplayName().contains(name)) {
-                event.getPlayer().setDisplayName(name + event.getPlayer().getName());
-            }
-        } catch (Exception e) {
-            Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
-        }*/
+        String prefix = gRanks.prefixes.getOrDefault(event.getPlayer().getUniqueId(), "");
+        if (!prefix.equals("")) event.getPlayer().setDisplayName(prefix);
     }
 
     public static void onPlayerLeave(PlayerQuitEvent event) {

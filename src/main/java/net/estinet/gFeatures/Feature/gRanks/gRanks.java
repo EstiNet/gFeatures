@@ -18,10 +18,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /*
 gFeatures
@@ -46,6 +43,7 @@ public class gRanks extends gFeature {
 
     public static String address, port, tablename, username, password, url;
     public static boolean cliotesky;
+    public static HashMap<UUID, String> prefixes = new HashMap<>();
 
     public static List<UUID> oplist = new ArrayList<>();
 
@@ -119,6 +117,9 @@ public class gRanks extends gFeature {
     public static void setRank(Rank rank, String UUID) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + UUID + "';");
         Basis.getRank(rank.getName()).addPerson(UUID);
+        if (Bukkit.getPlayer(UUID) != null && Bukkit.getPlayer(UUID).isOnline()) {
+            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(UUID)), 50);
+        }
     }
 
     public static void updatePrefix(Player p) {
@@ -128,6 +129,8 @@ public class gRanks extends gFeature {
             if (!p.getDisplayName().contains(name)) {
                 p.setDisplayName(name + p.getName());
             }
+            prefixes.remove(p.getUniqueId());
+            prefixes.put(p.getUniqueId(), name + p.getName());
         } catch (Exception e) {
             Basis.getRank("Default").addPerson(p.getUniqueId().toString());
         }
