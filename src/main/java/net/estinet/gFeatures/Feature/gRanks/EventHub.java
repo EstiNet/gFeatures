@@ -46,7 +46,7 @@ public class EventHub {
     }
 
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
-        try {
+        /*try {
             String prefix = Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
             String name = prefix.replace('&', '§');
             if (!event.getPlayer().getDisplayName().contains(name)) {
@@ -54,7 +54,7 @@ public class EventHub {
             }
         } catch (Exception e) {
             Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
-        }
+        }*/
     }
 
     public static void onPlayerLeave(PlayerQuitEvent event) {

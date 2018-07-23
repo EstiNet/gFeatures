@@ -71,6 +71,9 @@ public class StartupTask {
                 event.getPlayer().setOp(false);
             }
             Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
+
+            gRanks.updatePrefix(event.getPlayer());
+
         } catch (NullPointerException e) {
             Thread thr = new Thread(() -> {
                 StartupTask st = new StartupTask();

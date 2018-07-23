@@ -31,7 +31,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class CommandHub {
-    public void init(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException {
+    public static void init(CommandSender sender, Command command, String commandLabel, String[] args) throws IllegalArgumentException, IllegalStateException {
         if (args.length == 0) {
             coins(sender);
         } else {

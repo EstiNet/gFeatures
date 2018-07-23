@@ -81,8 +81,7 @@ public class EstiCoins extends gFeature implements Events {
 
     @Override
     public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
-        CommandHub ch = new CommandHub();
-        ch.init(sender, cmd, label, args);
+        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> CommandHub.init(sender, cmd, label, args));
     }
 
     private static List<String> connectReturn(String query) {

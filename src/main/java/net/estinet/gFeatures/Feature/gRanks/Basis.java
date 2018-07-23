@@ -156,6 +156,8 @@ public class Basis {
                 p.setOp(false);
             }
             Basis.addPermissionAttach(p.getUniqueId(), pa);
+
+            gRanks.updatePrefix(p);
         }
     }
 

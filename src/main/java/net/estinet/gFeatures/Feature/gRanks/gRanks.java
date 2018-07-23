@@ -5,6 +5,7 @@ import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
 import org.apache.commons.io.IOUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -91,7 +92,7 @@ public class gRanks extends gFeature {
     @Override
     public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender.hasPermission("gFeatures.admin")) {
-            CommandHub.onCommand(sender, cmd, label, args);
+            Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> CommandHub.onCommand(sender, cmd, label, args));
         }
     }
 
@@ -112,11 +113,24 @@ public class gRanks extends gFeature {
     public static void setRank(Rank rank, Player p) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + p.getUniqueId().toString() + "';");
         Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
+        updatePrefix(p);
     }
 
     public static void setRank(Rank rank, String UUID) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + UUID + "';");
         Basis.getRank(rank.getName()).addPerson(UUID);
+    }
+
+    public static void updatePrefix(Player p) {
+        try {
+            String prefix = Basis.getRank(gRanks.getRank(p)).getPrefix();
+            String name = prefix.replace('&', '§');
+            if (!p.getDisplayName().contains(name)) {
+                p.setDisplayName(name + p.getName());
+            }
+        } catch (Exception e) {
+            Basis.getRank("Default").addPerson(p.getUniqueId().toString());
+        }
     }
 
     public static void addRank(Rank rank) {
@@ -139,6 +153,7 @@ public class gRanks extends gFeature {
         try {
             Debug.print(rankname + " is adding " + perm);
             Basis.getRank(rankname).addPerm(perm);
+        } catch (NullPointerException e2) {
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -153,6 +168,7 @@ public class gRanks extends gFeature {
         );
         try {
             Basis.getRank(rankname).addInherit(Basis.getRank(inherit));
+        } catch (NullPointerException e2) {
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -172,6 +188,7 @@ public class gRanks extends gFeature {
         SQLConnect.Connect("DELETE FROM Perms WHERE Perm = '" + perm + "' AND Rank = '" + rankname + "';");
         try {
             Basis.getRank(rankname).removePerm(perm);
+        } catch (NullPointerException e2) {
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -181,6 +198,7 @@ public class gRanks extends gFeature {
         SQLConnect.Connect("DELETE FROM Inherits WHERE Inherit = '" + inherit + "' AND Rank = '" + rankname + "';");
         try {
             Basis.getRank(rankname).removeInherit(Basis.getRank(rankname));
+        } catch (NullPointerException e2) {
         } catch (Exception e) {
             e.printStackTrace();
         }
