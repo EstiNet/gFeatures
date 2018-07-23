@@ -50,8 +50,9 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub {
     public void onPlayerJoin(PlayerJoinEvent event) {
+        if (Listeners.debug) Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
         if (!event.getPlayer().hasPlayedBefore() || !new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists()) {
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "rc player " + event.getPlayer().getName());
+            event.getPlayer().performCommand("rc");
         }
     }
 
