@@ -42,15 +42,12 @@ public class SelectPlayerMenu {
 	public InventoryAPI makeInventory(Player p, MenuRunnable mr){
 		try{
 			int calculatenum = (int) (Math.ceil(Bukkit.getOnlinePlayers().size()/9)*9);
-			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Choose a player.", calculatenum, new InventoryAPI.OptionClickEventHandler() {
-				@Override
-				public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-					mr.event = event;
-					mr.p = p;
-					mr.run();
-					event.setWillClose(true);
-					event.setWillDestroy(true);
-				}
+			InventoryAPI menu = new InventoryAPI(ChatColor.AQUA + "Choose a player.", calculatenum, event -> {
+				mr.event = event;
+				mr.p = p;
+				mr.run();
+				event.setWillClose(true);
+				event.setWillDestroy(true);
 			}, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
 			int i = 0;

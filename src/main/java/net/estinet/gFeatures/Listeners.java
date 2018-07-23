@@ -112,6 +112,7 @@ public class Listeners extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
+        library.onPlayerJoin(event);
         Thread thr = new Thread(() -> {
             try {
                 setups.checkPlayer(event.getPlayer());
@@ -127,7 +128,6 @@ public class Listeners extends JavaPlugin implements Listener {
         }
         );
         thr.start();
-        library.onPlayerJoin(event);
     }
 
     @EventHandler

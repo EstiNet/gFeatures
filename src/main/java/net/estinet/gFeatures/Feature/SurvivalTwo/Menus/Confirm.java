@@ -40,32 +40,27 @@ public class Confirm {
 
     public InventoryAPI makeInventory(Player p, String price, Material give, String name) {
         try {
-            InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Buy protection stone? It's " + ChatColor.DARK_AQUA + "$" + price, 9, new InventoryAPI.OptionClickEventHandler() {
-                @Override
-                public void onOptionClick(InventoryAPI.OptionClickEvent event) {
-                    if (event.getName().equalsIgnoreCase(ChatColor.GREEN + "Yes")) {
-                        if (EssentialsEcoUtil.getMoney(p.getUniqueId()) >= Double.parseDouble(price)) {
-                            Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "eco take " + p.getName() + " " + Double.parseDouble(price));
-                            if (p.getInventory().firstEmpty() == -1) {
-                                p.getWorld().dropItem(p.getLocation(), createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                            } else {
-                                p.getInventory().addItem(createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                            }
-                            p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You got a protection stone!");
+            InventoryAPI menu = new InventoryAPI(ChatColor.GOLD + "Buy protection stone? It's " + ChatColor.DARK_AQUA + "$" + price, 9, event -> {
+                if (event.getPosition() >= 0 && event.getPosition() <= 3) {
+                    if (EssentialsEcoUtil.getMoney(p.getUniqueId()) >= Double.parseDouble(price)) {
+                        Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "eco take " + p.getName() + " " + Double.parseDouble(price));
+                        if (p.getInventory().firstEmpty() == -1) {
+                            p.getWorld().dropItem(p.getLocation(), createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
                         } else {
-                            p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You don't have enough money!");
+                            p.getInventory().addItem(createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
                         }
-                    } else if (event.getName().equalsIgnoreCase(ChatColor.RED + "No")) {
-                        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                            public void run() {
-                                Shop shop = new Shop();
-                                shop.init(p);
-                            }
-                        }, 5L);
+                        p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You got a protection stone!");
+                    } else {
+                        p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You don't have enough money!");
                     }
-                    event.setWillClose(true);
-                    event.setWillDestroy(true);
+                } else if (event.getPosition() >= 5 && event.getPosition() <= 8) {
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        Shop shop = new Shop();
+                        shop.init(p);
+                    }, 5L);
                 }
+                event.setWillClose(true);
+                event.setWillDestroy(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
             ItemStack pane = new ItemStack(Material.LIME_STAINED_GLASS_PANE, 1);
             ItemMeta im = pane.getItemMeta();
