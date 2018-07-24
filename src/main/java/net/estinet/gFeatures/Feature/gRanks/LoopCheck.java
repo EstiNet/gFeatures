@@ -25,30 +25,28 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class LoopCheck {
-	public void start(){
-		if(!gRanks.cliotesky){
-			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-				Thread th = new Thread(() -> {
-					try{
-						Basis b = new Basis();
-						b.initializeQuery();
-					}
-					catch(Exception e){
-						Debug.print(e.getMessage());
-					}
-				});
-				th.start();
-			}, 1000L, 1000L);
+    public void start() {
+        if (!gRanks.cliotesky) {
+            Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                Thread th = new Thread(() -> {
+                    try {
+                        Basis b = new Basis();
+                        b.initializeQuery();
+                    } catch (Exception e) {
+                        Debug.print(e.getMessage());
+                    }
+                });
+                th.start();
+            }, 1000L, 1000L);
 
-			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-				try{
-					Thread th = new Thread(new Cleanup());
-					th.start();
-				}
-				catch(Exception e){
-					Debug.print(e.getMessage());
-				}
-			}, 9000L, 9000L);
-		}
-	}
+            Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                try {
+                    Thread th = new Thread(new Cleanup());
+                    th.start();
+                } catch (Exception e) {
+                    Debug.print(e.getMessage());
+                }
+            }, 9000L, 9000L);
+        }
+    }
 }

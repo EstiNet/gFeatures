@@ -37,7 +37,7 @@ public class EventHub {
         try {
             Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"),  () -> {
                 StartupTask st = new StartupTask();
-                st.init(event);
+                st.init(event, 0);
             });
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class EventHub {
 
     public static void onPlayerLeave(PlayerQuitEvent event) {
         if (Basis.queued) {
-            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 20);
+            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 20);
             return;
         }
         try {
