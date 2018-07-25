@@ -106,8 +106,9 @@ public class EventHub {
         if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
             switch (event.getPlayer().getInventory().getItemInMainHand().getType()) {
                 case CHEST:
-                    MainShop ms = new MainShop();
-                    ms.init(event.getPlayer());
+                    event.getPlayer().sendMessage("This feature is still in development!");
+                    //MainShop ms = new MainShop();
+                    //ms.init(event.getPlayer());
                     break;
                 case FURNACE:
                     Settings s = new Settings();
