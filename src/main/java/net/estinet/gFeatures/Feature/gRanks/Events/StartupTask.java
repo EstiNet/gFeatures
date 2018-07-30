@@ -33,7 +33,8 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class StartupTask {
-    public void init(PlayerJoinEvent event) {
+    public void init(PlayerJoinEvent event, int times) {
+        if (times > 25) return;
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             Player p = event.getPlayer();
             SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n" +
@@ -71,12 +72,13 @@ public class StartupTask {
                 event.getPlayer().setOp(false);
             }
             Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
+
+            gRanks.updatePrefix(event.getPlayer());
         } catch (NullPointerException e) {
-            Thread thr = new Thread(() -> {
+            Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                 StartupTask st = new StartupTask();
-                st.init(event);
+                st.init(event, times + 1);
             });
-            thr.start();
         }
     }
 }

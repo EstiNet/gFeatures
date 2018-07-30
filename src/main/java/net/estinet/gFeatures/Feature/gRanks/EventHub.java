@@ -27,40 +27,40 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
-	public static void onPlayerJoin(PlayerJoinEvent event){
-		for(OfflinePlayer op : Bukkit.getOperators()){
+
+public class EventHub {
+
+	public static void onPlayerJoin(PlayerJoinEvent event) {
+		Basis.queued = true;
+		for (OfflinePlayer op : Bukkit.getOperators()) {
 			gRanks.oplist.add(op.getUniqueId());
 		}
-		try{
-			Thread thr = new Thread(() -> {
+		try {
+			Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"),  () -> {
 				StartupTask st = new StartupTask();
-				st.init(event);
+				st.init(event, 0);
 			});
-			thr.start();
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.queued = false, 30);
 	}
-	public static void onPlayerChat(AsyncPlayerChatEvent event){
-		try{
-			String prefix = Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
-			String name = prefix.replace('&', '§');
-			if(!event.getPlayer().getDisplayName().contains(name)){
-				event.getPlayer().setDisplayName(name + event.getPlayer().getName());
-			}
-		}
-		catch(Exception e){
-			Basis.getRank("Default").addPerson(event.getPlayer().getUniqueId().toString());
-		}
+
+	public static void onPlayerChat(AsyncPlayerChatEvent event) {
+		String prefix = gRanks.prefixes.getOrDefault(event.getPlayer().getUniqueId(), "");
+		if (!prefix.equals("")) event.getPlayer().setDisplayName(prefix);
 	}
-	public static void onPlayerLeave(PlayerQuitEvent event){
-		try{
+
+	public static void onPlayerLeave(PlayerQuitEvent event) {
+		if (Basis.queued) {
+			Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 20);
+			return;
+		}
+		try {
 			Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
-		}
-		catch(Throwable e){
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+
 	}
 }

@@ -25,15 +25,14 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class LoopCheck {
-	public void start(){
-		if(!gRanks.cliotesky){
+	public void start() {
+		if (!gRanks.cliotesky) {
 			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
 				Thread th = new Thread(() -> {
-					try{
+					try {
 						Basis b = new Basis();
 						b.initializeQuery();
-					}
-					catch(Exception e){
+					} catch (Exception e) {
 						Debug.print(e.getMessage());
 					}
 				});
@@ -41,14 +40,14 @@ public class LoopCheck {
 			}, 1000L, 1000L);
 
 			Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-				try{
+				try {
 					Thread th = new Thread(new Cleanup());
 					th.start();
-				}
-				catch(Exception e){
+				} catch (Exception e) {
 					Debug.print(e.getMessage());
 				}
 			}, 9000L, 9000L);
 		}
 	}
+
 }

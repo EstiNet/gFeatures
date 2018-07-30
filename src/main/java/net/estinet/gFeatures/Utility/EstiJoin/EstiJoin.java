@@ -87,24 +87,9 @@ public class EstiJoin extends gUtility {
             } catch (Exception es) {
             }
             e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
-            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
-                try {
-                    String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(e.getPlayer())).getPrefix();
-                    String prefix = prefixs.replace('&', '§');
-                    e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
-                } catch (Exception eg) {
-                    e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
-                }
-            });
         } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
             PlayerQuitEvent e = (PlayerQuitEvent) event;
-            try {
-                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(e.getPlayer())).getPrefix();
-                String prefix = prefixs.replace('&', '§');
-                e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + e.getPlayer().getName());
-            } catch (Exception es) {
-                e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
-            }
+            e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
         }
     }
 
