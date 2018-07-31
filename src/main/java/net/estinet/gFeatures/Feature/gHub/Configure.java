@@ -37,5 +37,6 @@ public class Configure {
         ClioteSky.addHook(new MGDoneClioteHook("mgdone", base.getName()));
         ClioteSky.addHook(new MGReturnClioteHook("mgrecieve", base.getName()));
         ClioteSky.addHook(new MGStartClioteHook("mgstart", base.getName()));
+        ClioteSky.addHook(new SurvivalMenuClioteHook("survivalmenu", base.getName()));
     }
 }
