@@ -82,15 +82,6 @@ public class EventHub {
         p.getInventory().setItem(5, settings);
         Constants.playerOn.put(p.getUniqueId(), true);
         event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
-            try {
-                String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
-                String prefix = prefixs.replace('&', '§');
-                event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
-            } catch (Exception e) {
-                event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
-            }
-        });
         for (UUID uuid : Constants.playerOn.keySet()) {
             if (!Constants.playerOn.get(uuid)) {
                 Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
