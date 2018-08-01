@@ -1,10 +1,10 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
-import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -98,33 +98,68 @@ public class gRanks extends gFeature {
      * API
      */
 
-    public static String getRank(Player p) {
-        List<String> rs = SQLConnect.ConnectReturn("SELECT UUID, Rank FROM People WHERE UUID = '" + p.getUniqueId().toString() + "';");
-        return rs.get(1);
+    /*
+     * Helper for getRankOfPlayer
+     */
+
+    public static Rank getRankOfPlayer(Player p, boolean useSQL) {
+        return getRankOfPlayer(p.getUniqueId().toString(), useSQL);
     }
 
-    public static String getRank(String UUID) {
+    /*
+     * Gets the rank of a player
+     * UUID: string of the uuid of the player
+     * useSQL: whether or not to use the sql database to find the player's rank if it isn't cached
+     */
+
+    public static Rank getRankOfPlayer(String UUID, boolean useSQL) {
+        for (Rank rank : Basis.getRanks()) {
+            for (String uuid : rank.getPersonList()) {
+                if (uuid.equals(UUID)) {
+                    return rank;
+                }
+            }
+        }
+        if (useSQL) {
+            return Basis.getRank(getRankOfPlayerSQL(UUID));
+        } else {
+            return null;
+        }
+    }
+
+    public static String getRankOfPlayerSQL(String UUID) {
         List<String> rs = SQLConnect.ConnectReturn("SELECT UUID, Rank FROM People WHERE UUID = '" + UUID + "';");
         return rs.get(1);
     }
 
     public static void setRank(Rank rank, Player p) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + p.getUniqueId().toString() + "';");
+
+        gRanks.getRankOfPlayer(p.getUniqueId().toString(), true).removePerson(p.getUniqueId().toString());
         Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
-        updatePrefix(p);
+
+        Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
+
+        ClioteSky.getInstance().send(ClioteSky.stringToBytes("update " + p.getUniqueId() + " " + rank.getName()), "granks", "all");
     }
 
     public static void setRank(Rank rank, String UUID) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + UUID + "';");
+
+        gRanks.getRankOfPlayer(UUID, true).removePerson(UUID);
         Basis.getRank(rank.getName()).addPerson(UUID);
+
         if (Bukkit.getPlayer(UUID) != null && Bukkit.getPlayer(UUID).isOnline()) {
             Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(UUID)), 50);
+        }
+        if (gRanks.cliotesky) {
+            ClioteSky.getInstance().send(ClioteSky.stringToBytes("update " + UUID + " " + rank.getName()), "granks", "all");
         }
     }
 
     public static void updatePrefix(Player p) {
         try {
-            String prefix = Basis.getRank(gRanks.getRank(p)).getPrefix();
+            String prefix = gRanks.getRankOfPlayer(p, true).getPrefix();
             String name = prefix.replace('&', '§');
             if (!p.getDisplayName().contains(name)) {
                 p.setDisplayName(name + p.getName());
@@ -135,6 +170,7 @@ public class gRanks extends gFeature {
             Basis.getRank("Default").addPerson(p.getUniqueId().toString());
         }
     }
+
 
     public static void addRank(Rank rank) {
         SQLConnect.Connect("INSERT INTO Ranks(Name, Prefix)\n" +
@@ -185,6 +221,7 @@ public class gRanks extends gFeature {
             Basis.getRank("Default").addPerson(uuid);
         }
         Basis.removeRank(rank);
+        ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
     }
 
     public static void deletegPerm(String perm, String rankname) {
@@ -209,14 +246,15 @@ public class gRanks extends gFeature {
 
     public static void loopThroughSQLQuery(int length, List<String> list, TwoVal tv) {
         try {
-        for (int i = 0, cache = 0; i < length; i++) {
-            String arg1 = list.get(cache);
-            cache++;
-            String arg2 = list.get(cache);
-            cache++;
-            tv.run(arg1, arg2);
+            for (int i = 0, cache = 0; i < length; i++) {
+                String arg1 = list.get(cache);
+                cache++;
+                String arg2 = list.get(cache);
+                cache++;
+                tv.run(arg1, arg2);
+            }
+        } catch (IndexOutOfBoundsException e) {
         }
-        } catch (IndexOutOfBoundsException e) {}
     }
 
     public static List<String> getPermsFile(File f) throws IOException {

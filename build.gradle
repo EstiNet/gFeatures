@@ -48,6 +48,8 @@ dependencies {
     compile 'io.grpc:grpc-netty-shaded:1.11.0'
     compile 'io.grpc:grpc-protobuf:1.11.0'
     compile 'io.grpc:grpc-stub:1.11.0'
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
     //compile "com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT"
     //compile 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
     compile "com.destroystokyo.paper:paper-api:1.13-R0.1-SNAPSHOT"

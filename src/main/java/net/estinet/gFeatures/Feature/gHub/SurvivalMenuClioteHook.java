@@ -1,5 +1,6 @@
 package net.estinet.gFeatures.Feature.gHub;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import org.bukkit.Bukkit;
@@ -14,7 +15,7 @@ public class SurvivalMenuClioteHook extends ClioteHook {
         this.gFeatureName = gFeatureName;
     }
 
-    public static int i = 0, taskID;
+    public int i = 0, taskID;
 
     @Override
     public void run(byte[] data, String sender) {
@@ -30,6 +31,6 @@ public class SurvivalMenuClioteHook extends ClioteHook {
                 i++;
             }
         };
-        SurvivalMenuClioteHook.taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("gFeatures"), run, 20, 20);
+        this.taskID = Bukkit.getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin("gFeatures"), run, 20, 30);
     }
 }

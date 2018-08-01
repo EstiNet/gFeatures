@@ -40,16 +40,22 @@ public class gRanksClioteHook extends ClioteHook {
 
 		List<String> args = ClioteSky.parseBytesToStringList(data);
 
-		if(args.get(0).equals("sync")){
-			try{
+		if (args.get(0).equals("sync")) {
+			try {
 				Bukkit.getLogger().info("[gRanks] Syncing permissions database...");
 				Thread th = new Thread(new Cleanup());
 				th.start();
 				Basis b = new Basis();
 				b.initializeQuery();
-			}
-			catch(Exception e){
+			} catch (Exception e) {
 				Debug.print(e.getMessage());
+			}
+		} else if (args.get(0).equals("update")) {
+			gRanks.getRankOfPlayer(args.get(1), true).removePerson(args.get(1));
+			Basis.getRank(args.get(2)).addPerson(args.get(2));
+
+			if (Bukkit.getPlayer(args.get(1)) != null && Bukkit.getPlayer(args.get(1)).isOnline()) {
+				Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> gRanks.updatePrefix(Bukkit.getPlayer(args.get(1))), 50);
 			}
 		}
 	}

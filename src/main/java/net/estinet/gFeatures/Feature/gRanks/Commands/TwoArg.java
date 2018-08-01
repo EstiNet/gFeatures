@@ -46,7 +46,7 @@ public class TwoArg {
             }
             String rs;
             try {
-                rs = gRanks.getRank(response.get(args[1]).toString());
+                rs = rs = gRanks.getRankOfPlayer(response.get(args[1]).toString(), true).getName();
             } catch (Exception e) {
                 sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
                 return;
