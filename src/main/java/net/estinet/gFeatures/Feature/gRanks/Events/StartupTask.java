@@ -35,21 +35,24 @@ https://github.com/EstiNet/gFeatures
 public class StartupTask {
     public void init(PlayerJoinEvent event, int times) {
         if (times > 25) return;
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-            Player p = event.getPlayer();
+
+        Player p = event.getPlayer();
+        if (!Basis.hasRank(p)) {
+            gRanks.setRank(Basis.getRank("Default"), p);
+        }
+
+        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n" +
                     "SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n" +
                     "WHERE NOT EXISTS (\n" +
                     "SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n" +
                     ") LIMIT 1;\n"
             );
-            if (!Basis.hasRank(p)) {
-                gRanks.setRank(Basis.getRank("Default"), p);
-            }
-        }, 40L);
+        });
+
         try {
             PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms()) {
+            for (String perm : gRanks.getRankOfPlayer(event.getPlayer(), true).getPerms()) {
                 if (perm.equals("'*'")) {
                     event.getPlayer().setOp(true);
                 } else {
@@ -68,12 +71,13 @@ public class StartupTask {
             for (OfflinePlayer op : Bukkit.getOperators()) {
                 gRanks.oplist.add(op.getUniqueId());
             }
-            if (!Basis.getRank(gRanks.getRank(event.getPlayer())).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())) {
+            if (!gRanks.getRankOfPlayer(event.getPlayer(), true).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())) {
                 event.getPlayer().setOp(false);
             }
-            Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
 
+            Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
             gRanks.updatePrefix(event.getPlayer());
+
         } catch (NullPointerException e) {
             Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                 StartupTask st = new StartupTask();

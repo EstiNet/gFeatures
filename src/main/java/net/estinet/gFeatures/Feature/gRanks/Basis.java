@@ -92,7 +92,7 @@ public class Basis {
     }
 
     public void resetDisplayName(Player p) {
-        p.setDisplayName(Basis.getRank(gRanks.getRank(p)).getPrefix() + p.getName());
+        p.setDisplayName(gRanks.getRankOfPlayer(p, true).getPrefix() + p.getName());
     }
 
     public void initializeQuery() {
@@ -122,6 +122,7 @@ public class Basis {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         GlobalPerm gp = new GlobalPerm();
         gp.start();
         Files f = new Files();
@@ -130,10 +131,11 @@ public class Basis {
         fs.start();
         InheritSync is = new InheritSync();
         is.start();
+
         for (Player p : Bukkit.getOnlinePlayers()) {
             Basis.removePermissionsAttach(p.getUniqueId());
             PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : Basis.getRank(gRanks.getRank(p)).getPerms()) {
+            for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
                 if (perm.equals("'*'")) {
                     p.setOp(true);
                 } else {
@@ -152,7 +154,7 @@ public class Basis {
             for (OfflinePlayer op : Bukkit.getOperators()) {
                 gRanks.oplist.add(op.getUniqueId());
             }
-            if (!Basis.getRank(gRanks.getRank(p)).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
+            if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
                 p.setOp(false);
             }
             Basis.addPermissionAttach(p.getUniqueId(), pa);
@@ -163,7 +165,7 @@ public class Basis {
 
     public static boolean hasRank(Player p) {
         try {
-            gRanks.getRank(p);
+            gRanks.getRankOfPlayer(p, true);
         } catch (Exception e) {
             return false;
         }

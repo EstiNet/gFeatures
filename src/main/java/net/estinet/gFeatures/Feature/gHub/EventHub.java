@@ -81,7 +81,15 @@ public class EventHub {
         p.getInventory().setItem(3, additions);
         p.getInventory().setItem(5, settings);
         Constants.playerOn.put(p.getUniqueId(), true);
-        event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+
+        try {
+            String prefixs = gRanks.getRankOfPlayer(event.getPlayer(), true).getPrefix();
+            String prefix = prefixs.replace('&', '§');
+            event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
+        } catch (Exception e) {
+            event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + p.getName());
+        }
+
         for (UUID uuid : Constants.playerOn.keySet()) {
             if (!Constants.playerOn.get(uuid)) {
                 Bukkit.getPlayer(uuid).hidePlayer(event.getPlayer());
@@ -171,7 +179,7 @@ public class EventHub {
 
     public void onPlayerLeave(PlayerQuitEvent event) {
         try {
-            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
+            String prefixs = gRanks.getRankOfPlayer(event.getPlayer(), false).getPrefix();
             String prefix = prefixs.replace('&', '§');
             event.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + event.getPlayer().getName());
         } catch (Exception e) {

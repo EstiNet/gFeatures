@@ -58,7 +58,7 @@ public class EventHub {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         try {
-            String prefixs = net.estinet.gFeatures.Feature.gRanks.Basis.getRank(gRanks.getRank(event.getPlayer())).getPrefix();
+            String prefixs = gRanks.getRankOfPlayer(event.getPlayer(), false).getPrefix();
             String prefix = prefixs.replace('&', '§');
             event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + prefix + "" + ChatColor.WHITE + p.getName());
         } catch (Exception e) {
