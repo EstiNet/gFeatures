@@ -61,7 +61,7 @@ public class SurvivalTwo extends gFeature implements Events {
         } else if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
             eh.onPlayerJoin((PlayerJoinEvent) event);
         } else if (event.getEventName().equalsIgnoreCase("playerrespawnevent")) {
-            eh.onPlayerDeath((PlayerRespawnEvent) event);
+            eh.onPlayerRespawn((PlayerRespawnEvent) event);
         }  else if (event.getEventName().equalsIgnoreCase("creaturespawnevent")) {
             eh.onCreatureSpawn((CreatureSpawnEvent) event);
         }

@@ -250,7 +250,9 @@ public class EventHub {
         return item;
     }
 
-    public void onPlayerDeath(PlayerRespawnEvent event) {
+    //TODO DO NOT LET PEOPLE DO /RC IN THE NETHER OR END! THEY WILL DIEEEEEEEEEEEEEE
+
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
         if (event.getPlayer().getBedSpawnLocation() == null) {
             event.getPlayer().performCommand("rc");
         }

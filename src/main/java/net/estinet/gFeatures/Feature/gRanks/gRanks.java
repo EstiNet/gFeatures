@@ -135,7 +135,8 @@ public class gRanks extends gFeature {
     public static void setRank(Rank rank, Player p) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + p.getUniqueId().toString() + "';");
 
-        gRanks.getRankOfPlayer(p.getUniqueId().toString(), true).removePerson(p.getUniqueId().toString());
+        Rank rank1 = gRanks.getRankOfPlayer(p.getUniqueId().toString(), true);
+        if (rank1 != null) rank1.removePerson(p.getUniqueId().toString());
         Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
 
         Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
@@ -146,7 +147,8 @@ public class gRanks extends gFeature {
     public static void setRank(Rank rank, String UUID) {
         SQLConnect.Connect("UPDATE People SET Rank = '" + rank.getName() + "' \nWHERE UUID = '" + UUID + "';");
 
-        gRanks.getRankOfPlayer(UUID, true).removePerson(UUID);
+        Rank rank1 = gRanks.getRankOfPlayer(UUID, true);
+        if (rank1 != null) rank1.removePerson(UUID);
         Basis.getRank(rank.getName()).addPerson(UUID);
 
         if (Bukkit.getPlayer(UUID) != null && Bukkit.getPlayer(UUID).isOnline()) {
