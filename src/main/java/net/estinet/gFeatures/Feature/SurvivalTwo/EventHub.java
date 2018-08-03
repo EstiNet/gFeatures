@@ -50,7 +50,8 @@ https://github.com/EstiNet/gFeatures
 
 public class EventHub {
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (Listeners.debug) Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
+        if (Listeners.debug)
+            Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
         if (!event.getPlayer().hasPlayedBefore() || !new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists()) {
             event.getPlayer().performCommand("rc");
         }
@@ -59,8 +60,23 @@ public class EventHub {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Block block = event.getPlayer().getTargetBlock(null, 5);
 
-        if (block.getType().equals(Material.SUNFLOWER) || block.getType().equals(Material.TALL_GRASS) || block.getType().equals(Material.GRASS)) {
-            return; //prevent 2 tall glitch
+        List<Material> bannedBlocks = new ArrayList<>();
+        bannedBlocks.add(Material.SUNFLOWER);
+        bannedBlocks.add(Material.TALL_GRASS);
+        bannedBlocks.add(Material.AIR);
+        bannedBlocks.add(Material.GRASS);
+        bannedBlocks.add(Material.WATER);
+        bannedBlocks.add(Material.ACACIA_LEAVES);
+        bannedBlocks.add(Material.BIRCH_LEAVES);
+        bannedBlocks.add(Material.DARK_OAK_LEAVES);
+        bannedBlocks.add(Material.JUNGLE_LEAVES);
+        bannedBlocks.add(Material.OAK_LEAVES);
+        bannedBlocks.add(Material.SPRUCE_LEAVES);
+
+        for (Material m : bannedBlocks) {
+            if (block.getType().equals(m)) {
+                return;
+            }
         }
 
         if (event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.COMMAND_BLOCK)) {
