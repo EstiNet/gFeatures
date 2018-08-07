@@ -129,7 +129,11 @@ public class gRanks extends gFeature {
 
     public static String getRankOfPlayerSQL(String UUID) {
         List<String> rs = SQLConnect.ConnectReturn("SELECT UUID, Rank FROM People WHERE UUID = '" + UUID + "';");
-        return rs.get(1);
+        try {
+            return rs.get(1);
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 
     public static void setRank(Rank rank, Player p) {
