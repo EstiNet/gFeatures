@@ -55,9 +55,11 @@ public class PermApp {
             try {
                 for (String inherit : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))) {
                     try {
-                        for (String perm : Basis.getRank(inherit).getPerms()) {
-                            r.addInherit(Basis.getRank(inherit));
-                            r.addPerm(perm);
+                        if (Basis.getRank(inherit) != null) {
+                            for (String perm : Basis.getRank(inherit).getPerms()) {
+                                r.addInherit(Basis.getRank(inherit));
+                                r.addPerm(perm);
+                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

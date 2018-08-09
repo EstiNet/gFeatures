@@ -35,10 +35,8 @@ public class EventHub {
             gRanks.oplist.add(op.getUniqueId());
         }
         try {
-            Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"),  () -> {
-                StartupTask st = new StartupTask();
-                st.init(event, 0);
-            });
+            StartupTask st = new StartupTask();
+            st.init(event, 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,6 +58,5 @@ public class EventHub {
         } catch (Throwable e) {
             e.printStackTrace();
         }
-
     }
 }
