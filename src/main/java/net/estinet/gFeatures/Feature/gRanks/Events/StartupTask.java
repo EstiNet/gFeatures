@@ -56,12 +56,9 @@ public class StartupTask {
                 if (perm.equals("'*'")) {
                     event.getPlayer().setOp(true);
                 } else {
-                    boolean isittrue;
-                    if (perm.contains("-")) {
-                        isittrue = false;
+                    boolean isittrue = !perm.contains("-");
+                    if (isittrue) {
                         perm = perm.replace("-", "");
-                    } else {
-                        isittrue = true;
                     }
                     Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + event.getPlayer().getName());
                     pa.setPermission(perm, isittrue);
@@ -79,7 +76,7 @@ public class StartupTask {
             gRanks.updatePrefix(event.getPlayer());
 
         } catch (NullPointerException e) {
-            Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                 StartupTask st = new StartupTask();
                 st.init(event, times + 1);
             });

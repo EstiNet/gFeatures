@@ -5,7 +5,6 @@ import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
-import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
