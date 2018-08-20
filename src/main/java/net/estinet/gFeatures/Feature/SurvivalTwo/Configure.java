@@ -27,7 +27,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		SurvivalTwo base = new SurvivalTwo("SurvivalTwo", "1.0.1");
+		SurvivalTwo base = new SurvivalTwo("SurvivalTwo", "1.0.2");
 		gFeatures.addFeature(base);
 		
 		EstiCommand ec = new EstiCommand("shop", "Opens the shop menu.", "/shop", base, new ShopCommand());

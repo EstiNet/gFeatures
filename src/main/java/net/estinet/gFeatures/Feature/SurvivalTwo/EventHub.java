@@ -243,7 +243,13 @@ public class EventHub {
                 } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
                     name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
                 }
-                block.getWorld().dropItem(block.getLocation(), createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
+                ItemStack is = createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!");
+
+                if (event.getPlayer().getInventory().firstEmpty() == -1) {
+                    block.getWorld().dropItem(block.getLocation(), is);
+                } else {
+                    event.getPlayer().getInventory().addItem(is);
+                }
                 Bukkit.getServer().getPluginManager().callEvent(blockevent);
             }
         } catch (NullPointerException e) {
