@@ -49,9 +49,8 @@ public class SurvivalCommand extends CommandExecutable {
             return new InventoryAPI(ChatColor.GREEN + "Survival Menu", 9, event -> {
                 if(event.getName().equals(ChatColor.GREEN + "Survival (Lime)")){
                     event.getPlayer().closeInventory();
-                    event.getPlayer().sendMessage(ChatColor.GREEN + "We currently don't support switching servers just yet! Please try directly connecting with the ip: lime.estinet.net");
-                    //event.getPlayer().sendMessage(ChatColor.GREEN + "Attempting to connect you to Survival (Lime)...");
-                    //ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalLime"), "redirect", "Bungee");
+                    event.getPlayer().sendMessage(ChatColor.GREEN + "Attempting to connect you to Survival (Lime)...");
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalLime"), "redirect", "Bungee");
                 }
                 else if(event.getName().equals(ChatColor.AQUA + "Survival (Cyan)")){
                     event.getPlayer().closeInventory();
