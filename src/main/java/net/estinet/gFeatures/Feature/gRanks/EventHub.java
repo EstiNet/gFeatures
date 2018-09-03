@@ -51,12 +51,6 @@ public class EventHub {
     public static void onPlayerLeave(PlayerQuitEvent event) {
         if (Basis.queued) {
             Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 10);
-            return;
-        }
-        try {
-            Basis.removePermissionsAttach(event.getPlayer().getUniqueId());
-        } catch (Throwable e) {
-            e.printStackTrace();
         }
     }
 }
