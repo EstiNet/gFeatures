@@ -37,6 +37,9 @@ public class FileSync {
             }
 
             List<String> permdata = SQLConnect.ConnectReturnPerm("SELECT * FROM Perms;");
+
+            if (permdata == null) return;
+
             gRanks.loopThroughSQLQuery(permdata.size()-1,
                     permdata,
                     (perm, rank) -> {

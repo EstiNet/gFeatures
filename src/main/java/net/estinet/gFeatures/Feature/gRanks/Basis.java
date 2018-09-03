@@ -40,7 +40,6 @@ https://github.com/EstiNet/gFeatures
 public class Basis {
 
     public static boolean queued = false;
-    private static volatile ConcurrentHashMap<UUID, PermissionAttachment> permissions = new ConcurrentHashMap<>();
     private static List<Rank> ranks = new ArrayList<>();
 
     public static List<Rank> getRanks() {
@@ -51,16 +50,8 @@ public class Basis {
         ranks.add(rank);
     }
 
-    public static void addPermissionAttach(UUID uuid, PermissionAttachment pa) {
-        permissions.put(uuid, pa);
-    }
-
     public static void removeRank(Rank rank) {
         ranks.remove(rank);
-    }
-
-    public static void removePermissionsAttach(UUID uuid) {
-        permissions.remove(uuid);
     }
 
     public static Rank getRank(String rankname) {
@@ -70,10 +61,6 @@ public class Basis {
             }
         }
         return null;
-    }
-
-    public static PermissionAttachment getPermissionsAttach(UUID uuid) {
-        return permissions.get(uuid);
     }
 
     public static boolean isRank(String rankname) {
@@ -102,7 +89,6 @@ public class Basis {
     }
 
     public static void setPlayerPerms(Player p) {
-        Basis.removePermissionsAttach(p.getUniqueId());
         PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 
         for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
@@ -120,7 +106,6 @@ public class Basis {
         if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
             p.setOp(false);
         }
-        Basis.addPermissionAttach(p.getUniqueId(), pa);
 
         gRanks.updatePrefix(p);
     }

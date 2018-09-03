@@ -50,6 +50,7 @@ public class gRanksClioteHook extends ClioteHook {
 				Debug.print(e.getMessage());
 			}
 		} else if (args.get(0).equals("update")) { // update [player] [rank]
+			Bukkit.getLogger().info("[gRanks] Updating permissions database...");
 			gRanks.getRankOfPlayer(args.get(1), true).removePerson(args.get(1));
 			Basis.getRank(args.get(2)).addPerson(args.get(2));
 

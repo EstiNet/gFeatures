@@ -83,5 +83,6 @@ public class ConfigHub {
         gRanks.cliotesky = yamlFile.getBoolean("Config.ClioteSky.Enable");
         gRanks.url = "jdbc:mysql://" + gRanks.address + ":" + gRanks.port + "/" + gRanks.tablename + "?autoReconnect=true&useSSL=false";
 
+        Bukkit.getLogger().info("[gRanks] ClioteSky Support: " + gRanks.cliotesky);
     }
 }
