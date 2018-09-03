@@ -33,31 +33,18 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class PermApp {
-    public void setupPerms() {
-        for (Rank r : Basis.getRanks()) {
-            File f = new File("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt");
-            try {
-                for (String permission : gRanks.getPermsFile(f)) {
+class PermApp {
+    public static void setupPerms() {
+        try {
+            for (Rank r : Basis.getRanks()) {
+                for (String permission : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/perms/" + r.getName() + ".txt"))) {
                     Basis.getRank(r.getName()).addPerm(permission);
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        test();
-        test();
-        test();
-    }
-
-    private void test() {
-        for (Rank r : Basis.getRanks()) {
-            try {
                 for (String inherit : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))) {
                     try {
-                        if (Basis.getRank(inherit) != null) {
-                            for (String perm : Basis.getRank(inherit).getPerms()) {
-                                r.addInherit(Basis.getRank(inherit));
+                        if (Basis.getRank(inherit.replace("!", "")) != null) {
+                            if (!inherit.contains("!")) r.addInherit(Basis.getRank(inherit));
+                            for (String perm : Basis.getRank(inherit.replace("!", "")).getPerms()) {
                                 r.addPerm(perm);
                             }
                         }
@@ -65,9 +52,22 @@ public class PermApp {
                         e.printStackTrace();
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+            for (Rank r : Basis.getRanks()) dfs(r, r, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void dfs(Rank original, Rank current, int layer) {
+        if (layer >= 10) return;
+        if (layer != 0) {
+            for (String perm : current.getPerms()) {
+                original.addPerm(perm);
+            }
+        }
+        for (Rank r : current.getInheritList()) {
+            dfs(original, r, layer + 1);
         }
     }
 }

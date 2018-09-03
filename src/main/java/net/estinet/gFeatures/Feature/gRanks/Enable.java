@@ -34,7 +34,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Enable {
-    static LoopCheck lc = new LoopCheck();
 
     public static void onEnable() {
         Bukkit.getLogger().info("[gRanks] Plugin enabled!");
@@ -44,35 +43,10 @@ public class Enable {
         SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
         SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Perms(id MEDIUMINT NOT NULL AUTO_INCREMENT, Perm VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
         SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Inherits(id MEDIUMINT NOT NULL AUTO_INCREMENT, Inherit VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
-        try {
-            Basis.resetAll();
 
-            gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Ranks").get(1)),
-                    SQLConnect.ConnectReturnRanks("SELECT * FROM Ranks;"),
-                    (name, prefix) -> {
-                        Rank newrank = new Rank(name, prefix);
-                        Basis.addRank(newrank);
-                        Bukkit.getLogger().info("[gRanks] Adding rank " + name + " with prefix of " + prefix);
-                    });
-        } catch (Exception e) {
-            e.printStackTrace();
-            Rank r = new Rank("Default", "[&aPlayer&f]");
-            gRanks.addRank(r);
-            Basis.addRank(r);
-        }
+        Basis.initializeQuery(false);
+        for (Rank rank : Basis.getRanks()) Bukkit.getLogger().info("[gRanks] Adding rank " + rank.getName() + " with prefix of " + rank.getPrefix());
+        if (!gRanks.cliotesky) LoopCheck.start();
 
-        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM People").get(1)),
-                SQLConnect.ConnectReturnPeople("SELECT * FROM People;"),
-                (uuid, rank) -> Basis.getRank(rank).addPerson(uuid));
-
-        lc.start();
-        Files f = new Files();
-        f.setupFiles();
-        GlobalPerm gp = new GlobalPerm();
-        gp.start();
-        GlobalInherit gi = new GlobalInherit();
-        gi.start();
-        FileSync fs = new FileSync();
-        fs.start();
     }
 }

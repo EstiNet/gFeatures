@@ -37,7 +37,7 @@ public class TwoArg {
     public static void onCommand(final CommandSender sender, Command cmd, String label, String[] args) {
         if (args[0].equalsIgnoreCase("get")) {
             UUIDFetcher uuid = new UUIDFetcher(Collections.singletonList(args[1]));
-            Map<String, UUID> response = null;
+            Map<String, UUID> response;
             try {
                 response = uuid.call();
             } catch (Exception e) {

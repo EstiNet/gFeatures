@@ -50,12 +50,12 @@ public class SurvivalCommand extends CommandExecutable {
                 if(event.getName().equals(ChatColor.GREEN + "Survival (Lime)")){
                     event.getPlayer().closeInventory();
                     event.getPlayer().sendMessage(ChatColor.GREEN + "Attempting to connect you to Survival (Lime)...");
-                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " Survival"), "redirect", "Bungee");
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalLime"), "redirect", "Bungee");
                 }
                 else if(event.getName().equals(ChatColor.AQUA + "Survival (Cyan)")){
                     event.getPlayer().closeInventory();
                     event.getPlayer().sendMessage(ChatColor.AQUA + "Attempting to connect you to Survival (Cyan)...");
-                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalO"), "redirect", "Bungee");
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(p.getName() + " SurvivalCyan"), "redirect", "Bungee");
                 }
                 else if(event.getName().equals(ChatColor.LIGHT_PURPLE + "Survival (Pink)")){
                     event.getPlayer().closeInventory();

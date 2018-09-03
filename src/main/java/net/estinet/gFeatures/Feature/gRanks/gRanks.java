@@ -143,7 +143,7 @@ public class gRanks extends gFeature {
         if (rank1 != null) rank1.removePerson(p.getUniqueId().toString());
         Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
 
-        Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
+        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
 
         ClioteSky.getInstance().send(ClioteSky.stringToBytes("update " + p.getUniqueId() + " " + rank.getName()), "granks", "all");
     }

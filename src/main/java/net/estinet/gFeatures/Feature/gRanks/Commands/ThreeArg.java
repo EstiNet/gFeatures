@@ -52,7 +52,7 @@ public class ThreeArg {
                 gRanks.setRank(rank, response.get(args[1]).toString());
                 sender.sendMessage(ChatColor.GRAY + "[gRanks] Set " + args[1] + "'s rank to " + args[2] + ".");
                 if (gRanks.cliotesky) {
-                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
+                    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("update " + args[1] + " " + args[2]), "granks", "all");
                 }
             }
         } else if (args[0].equalsIgnoreCase("create")) {

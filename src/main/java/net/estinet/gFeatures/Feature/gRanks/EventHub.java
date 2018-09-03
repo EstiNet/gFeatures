@@ -40,7 +40,7 @@ public class EventHub {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.queued = false, 30);
+        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.queued = false, 10);
     }
 
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
@@ -50,7 +50,7 @@ public class EventHub {
 
     public static void onPlayerLeave(PlayerQuitEvent event) {
         if (Basis.queued) {
-            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 20);
+            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 10);
             return;
         }
         try {

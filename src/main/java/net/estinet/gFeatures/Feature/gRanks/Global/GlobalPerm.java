@@ -24,7 +24,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class GlobalPerm {
-    public void start() {
+    public static void start() {
         gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Perms").get(1)),
                 SQLConnect.ConnectReturnPerm("SELECT * FROM Perms;"),
                 (perm, rank) -> Basis.getRank(rank).addPerm(perm));

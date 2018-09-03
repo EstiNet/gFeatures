@@ -4,6 +4,7 @@ import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
 import net.estinet.gFeatures.Feature.gRanks.gRanks;
+import org.bukkit.Bukkit;
 
 import java.io.*;
 import java.util.List;
@@ -28,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class FileSync {
-    public void start() {
+    public static void start() {
         try {
             for (Rank rank : Basis.getRanks()) {
                 PrintWriter pw = new PrintWriter("plugins/gFeatures/gRanks/gperms/" + rank.getName() + ".txt");
@@ -64,8 +65,7 @@ public class FileSync {
         }
     }
 
-    public void push() {
-        Thread thread = new Thread(new FilePush());
-        thread.start();
+    public static void push() {
+        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), new FilePush());
     }
 }	

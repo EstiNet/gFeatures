@@ -4,6 +4,7 @@ import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 import net.estinet.gFeatures.Feature.gRanks.SQLConnect;
 import net.estinet.gFeatures.Feature.gRanks.gRanks;
+import org.bukkit.Bukkit;
 
 import java.io.*;
 import java.util.List;
@@ -28,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class InheritSync {
-    public void start() {
+    public static void start() {
 
         for (Rank rank : Basis.getRanks()) {
             PrintWriter pw = null;
@@ -65,8 +66,7 @@ public class InheritSync {
         }
     }
 
-    public void push() {
-        Thread thread = new Thread(new InheritPush());
-        thread.start();
+    public static void push() {
+        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), new InheritPush());
     }
 }

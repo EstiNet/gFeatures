@@ -6,7 +6,9 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.Feature.gRanks.Global.FileSync;
+import net.estinet.gFeatures.Feature.gRanks.Global.GlobalInherit;
 import net.estinet.gFeatures.Feature.gRanks.Global.GlobalPerm;
 import net.estinet.gFeatures.Feature.gRanks.Global.InheritSync;
 import net.estinet.gFeatures.Feature.gRanks.Perms.Files;
@@ -38,7 +40,7 @@ https://github.com/EstiNet/gFeatures
 public class Basis {
 
     public static boolean queued = false;
-    public static volatile ConcurrentHashMap<UUID, PermissionAttachment> permissions = new ConcurrentHashMap<>();
+    private static volatile ConcurrentHashMap<UUID, PermissionAttachment> permissions = new ConcurrentHashMap<>();
     private static List<Rank> ranks = new ArrayList<>();
 
     public static List<Rank> getRanks() {
@@ -58,11 +60,7 @@ public class Basis {
     }
 
     public static void removePermissionsAttach(UUID uuid) {
-        try {
-            permissions.remove(uuid);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        permissions.remove(uuid);
     }
 
     public static Rank getRank(String rankname) {
@@ -87,88 +85,81 @@ public class Basis {
         return false;
     }
 
-    public static void resetAll() {
+    private static void resetAll() {
         ranks = new ArrayList<>();
     }
 
-    public void resetDisplayName(Player p) {
-        p.setDisplayName(gRanks.getRankOfPlayer(p, true).getPrefix() + p.getName());
+    private static void fetchRanksSQL() {
+        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Ranks").get(1)),
+                SQLConnect.ConnectReturnRanks("SELECT * FROM Ranks;"),
+                (name, prefix) -> Basis.addRank(new Rank(name, prefix)));
     }
 
-    public void initializeQuery() {
-        Basis.resetAll();
-        int i = Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Ranks").get(1));
-        int cache = 0;
-        List<String> ranksdata = SQLConnect.ConnectReturnRanks("SELECT * FROM Ranks;");
-        for (int iter = 0; iter < i; iter++) {
-            String name = ranksdata.get(cache);
-            cache += 1;
-            String prefix = ranksdata.get(cache);
-            cache += 1;
-            Rank newrank = new Rank(name, prefix);
-            Basis.addRank(newrank);
-        }
-        cache = 0;
-        try {
-            int is = Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM People").get(1));
-            List<String> peopledata = SQLConnect.ConnectReturnPeople("SELECT * FROM People;");
-            for (int iter = 0; iter < is; iter++) {
-                String UUID = peopledata.get(cache);
-                cache += 1;
-                String rank = peopledata.get(cache);
-                cache += 1;
-                Basis.getRank(rank).addPerson(UUID);
+    private static void fetchPeopleSQL() {
+        gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM People").get(1)),
+                SQLConnect.ConnectReturnPeople("SELECT * FROM People;"),
+                (uuid, rank) -> Basis.getRank(rank).addPerson(uuid));
+    }
+
+    public static void setPlayerPerms(Player p) {
+        Basis.removePermissionsAttach(p.getUniqueId());
+        PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
+
+        for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
+            if (perm.equals("'*'")) {
+                p.setOp(true);
+            } else {
+                Debug.print("[gRanks] Set permission " + perm + " to " + !perm.contains("-") + " for player " + p.getName());
+                pa.setPermission(perm.replace("-", ""), !perm.contains("-"));
             }
+        }
+        gRanks.oplist = new ArrayList<>();
+        for (OfflinePlayer op : Bukkit.getOperators()) {
+            gRanks.oplist.add(op.getUniqueId());
+        }
+        if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
+            p.setOp(false);
+        }
+        Basis.addPermissionAttach(p.getUniqueId(), pa);
+
+        gRanks.updatePrefix(p);
+    }
+
+    public static void initializeQuery(boolean fixPlayers) {
+        Basis.resetAll();
+        try {
+            fetchRanksSQL();
         } catch (Exception e) {
             e.printStackTrace();
+            Rank r = new Rank("Default", "[&aPlayer&f] ");
+            gRanks.addRank(r);
         }
+        fetchPeopleSQL();
 
-        GlobalPerm gp = new GlobalPerm();
-        gp.start();
-        Files f = new Files();
-        f.setupFiles();
-        FileSync fs = new FileSync();
-        fs.start();
-        InheritSync is = new InheritSync();
-        is.start();
+        Config c = new Config();
+        c.createDirectory("plugins/gFeatures/gRanks/perms", "Created Permissions folder!");
+        c.createDirectory("plugins/gFeatures/gRanks/inherit", "Created Inherit folder!");
+        c.createDirectory("plugins/gFeatures/gRanks/ginherit", "Created Global Inherit folder!");
+        c.createDirectory("plugins/gFeatures/gRanks/gperms", "Created Global Permissions folder!");
 
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            Basis.removePermissionsAttach(p.getUniqueId());
-            PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
-                if (perm.equals("'*'")) {
-                    p.setOp(true);
-                } else {
-                    boolean isittrue;
-                    if (perm.contains("-")) {
-                        isittrue = false;
-                        perm = perm.replace("-", "");
-                    } else {
-                        isittrue = true;
-                    }
-                    Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + p.getName());
-                    pa.setPermission(perm, isittrue);
+        FileSync.start();
+        InheritSync.start();
+        GlobalPerm.start();
+        GlobalInherit.start();
+        Files.setupFiles();
+
+        if (fixPlayers) {
+
+            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+                for (Player p : Bukkit.getOnlinePlayers()) {
+                    setPlayerPerms(p);
                 }
-            }
-            gRanks.oplist = new ArrayList<>();
-            for (OfflinePlayer op : Bukkit.getOperators()) {
-                gRanks.oplist.add(op.getUniqueId());
-            }
-            if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
-                p.setOp(false);
-            }
-            Basis.addPermissionAttach(p.getUniqueId(), pa);
-
-            gRanks.updatePrefix(p);
+            });
         }
+
     }
 
     public static boolean hasRank(Player p) {
-        try {
-            gRanks.getRankOfPlayer(p, true);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
+        return gRanks.getRankOfPlayer(p, true) != null;
     }
 }

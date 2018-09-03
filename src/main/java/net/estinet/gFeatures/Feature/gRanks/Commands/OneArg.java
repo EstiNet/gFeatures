@@ -6,6 +6,7 @@ import net.estinet.gFeatures.Feature.gRanks.Global.FileSync;
 import net.estinet.gFeatures.Feature.gRanks.Global.InheritSync;
 import net.estinet.gFeatures.Feature.gRanks.Perms.Cleanup;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -37,7 +38,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks get [Player] - Gets the rank of a player.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks set [Player] [Rank Name] - Sets the rank of a player.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks create [Rank Name] [Rank Prefix]");
-			sender.sendMessage(ChatColor.GRAY + "/gRanks setprefix [Rank Name] [Rank Prefix]");
+//			sender.sendMessage(ChatColor.GRAY + "/gRanks setprefix [Rank Name] [Rank Prefix]"); TODO
 			sender.sendMessage(ChatColor.GRAY + "/gRanks delete [Rank Name]");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks list - Lists the ranks.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks perms [Rank Name] - Lists the ranks.");
@@ -53,18 +54,12 @@ public class OneArg {
 			}
 		}
 		else if(args[0].equalsIgnoreCase("refresh")){
-			Thread thr = new Thread(() -> {
-                Basis b = new Basis();
-                b.initializeQuery();
-            });
-			thr.start();
+			Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.initializeQuery(true));
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Plugin refreshed.");
 		}
 		else if(args[0].equalsIgnoreCase("push")){
-			FileSync fs = new FileSync();
-			fs.push();
-			InheritSync is = new InheritSync();
-			is.push();
+			FileSync.push();
+			InheritSync.push();
 			sender.sendMessage(ChatColor.GRAY + "[gRanks] Your changes have been pushed.");
 		}
 		else if(args[0].equalsIgnoreCase("cleanup")){

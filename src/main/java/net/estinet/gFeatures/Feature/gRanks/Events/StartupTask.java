@@ -51,30 +51,7 @@ public class StartupTask {
         });
 
         try {
-            PermissionAttachment pa = event.getPlayer().addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : gRanks.getRankOfPlayer(event.getPlayer(), true).getPerms()) {
-                if (perm.equals("'*'")) {
-                    event.getPlayer().setOp(true);
-                } else {
-                    boolean isittrue = !perm.contains("-");
-                    if (isittrue) {
-                        isittrue = false;
-                    }
-                    Debug.print("[gRanks] Set permission " + perm + " to " + isittrue + " for player " + event.getPlayer().getName());
-                    pa.setPermission(perm, isittrue);
-                }
-            }
-            gRanks.oplist = new ArrayList<>();
-            for (OfflinePlayer op : Bukkit.getOperators()) {
-                gRanks.oplist.add(op.getUniqueId());
-            }
-            if (!gRanks.getRankOfPlayer(event.getPlayer(), true).getPerms().contains("'*'") && !gRanks.oplist.contains(event.getPlayer().getUniqueId())) {
-                event.getPlayer().setOp(false);
-            }
-
-            Basis.addPermissionAttach(event.getPlayer().getUniqueId(), pa);
-            gRanks.updatePrefix(event.getPlayer());
-
+            Basis.setPlayerPerms(event.getPlayer());
         } catch (NullPointerException e) {
             Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
                 StartupTask st = new StartupTask();

@@ -25,7 +25,7 @@ https://github.com/EstiNet/gFeatures
 
 public class GlobalInherit {
 
-    public void start() {
+    public static void start() {
 
         gRanks.loopThroughSQLQuery(Integer.parseInt(SQLConnect.ConnectReturn("SELECT COUNT(*) FROM Inherits").get(1)),
                 SQLConnect.ConnectReturnInherit("SELECT * FROM Inherits;"),
