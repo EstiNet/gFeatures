@@ -89,25 +89,31 @@ public class Basis {
     }
 
     public static void setPlayerPerms(Player p) {
-        PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
+        Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+            PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
 
-        for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
-            if (perm.equals("'*'")) {
-                p.setOp(true);
-            } else {
-                Debug.print("[gRanks] Set permission " + perm + " to " + !perm.contains("-") + " for player " + p.getName());
-                pa.setPermission(perm.replace("-", ""), !perm.contains("-"));
+            List<String> list = Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms();
+
+            for (String perm : list) {
+                if (perm.equals("'*'")) {
+                    p.setOp(true);
+                } else {
+                    Debug.print("[gRanks] Set permission " + perm + " to " + !perm.contains("-") + " for player " + p.getName());
+                    Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+                        pa.setPermission(perm.replace("-", ""), !perm.contains("-"));
+                    });
+                }
             }
-        }
-        gRanks.oplist = new ArrayList<>();
-        for (OfflinePlayer op : Bukkit.getOperators()) {
-            gRanks.oplist.add(op.getUniqueId());
-        }
-        if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
-            p.setOp(false);
-        }
+            gRanks.oplist = new ArrayList<>();
+            for (OfflinePlayer op : Bukkit.getOperators()) {
+                gRanks.oplist.add(op.getUniqueId());
+            }
+            if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
+                Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(false));
+            }
 
-        gRanks.updatePrefix(p);
+            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> gRanks.updatePrefix(p));
+        });
     }
 
     public static void initializeQuery(boolean fixPlayers) {
