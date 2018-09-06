@@ -90,13 +90,11 @@ public class Basis {
 
     public static void setPlayerPerms(Player p) {
         Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
+
             PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-
-            List<String> list = Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms();
-
-            for (String perm : list) {
+            for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
                 if (perm.equals("'*'")) {
-                    p.setOp(true);
+                    Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(true));
                 } else {
                     Debug.print("[gRanks] Set permission " + perm + " to " + !perm.contains("-") + " for player " + p.getName());
                     Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
@@ -104,6 +102,7 @@ public class Basis {
                     });
                 }
             }
+
             gRanks.oplist = new ArrayList<>();
             for (OfflinePlayer op : Bukkit.getOperators()) {
                 gRanks.oplist.add(op.getUniqueId());
@@ -111,8 +110,7 @@ public class Basis {
             if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
                 Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(false));
             }
-
-            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> gRanks.updatePrefix(p));
+            gRanks.updatePrefix(p);
         });
     }
 

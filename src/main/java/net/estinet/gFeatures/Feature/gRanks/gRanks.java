@@ -19,6 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /*
 gFeatures
@@ -43,7 +44,7 @@ public class gRanks extends gFeature {
 
     public static String address, port, tablename, username, password, url;
     public static boolean cliotesky;
-    public static HashMap<UUID, String> prefixes = new HashMap<>();
+    public static ConcurrentHashMap<UUID, String> prefixes = new ConcurrentHashMap<>();
 
     public static List<UUID> oplist = new ArrayList<>();
 
@@ -168,7 +169,7 @@ public class gRanks extends gFeature {
             String prefix = gRanks.getRankOfPlayer(p, true).getPrefix();
             String name = prefix.replace('&', '§');
             if (!p.getDisplayName().contains(name)) {
-                p.setDisplayName(name + p.getName());
+                Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setDisplayName(name + p.getName()));
             }
             prefixes.remove(p.getUniqueId());
             prefixes.put(p.getUniqueId(), name + p.getName());
