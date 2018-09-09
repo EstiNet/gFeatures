@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.estinet.gFeatures.Feature.gRanks.gRanks;
@@ -43,9 +44,13 @@ class PermApp {
                 for (String inherit : gRanks.getPermsFile(new File("plugins/gFeatures/gRanks/inherit/" + r.getName() + ".txt"))) {
                     try {
                         if (Basis.getRank(inherit.replace("!", "")) != null) {
-                            if (!inherit.contains("!")) r.addInherit(Basis.getRank(inherit));
-                            for (String perm : Basis.getRank(inherit.replace("!", "")).getPerms()) {
-                                r.addPerm(perm);
+                            if (!inherit.contains("!")) {
+                                r.addInherit(Basis.getRank(inherit));
+                                Basis.getRank(inherit).addInherited(r);
+                            } else {
+                                for (String perm : Basis.getRank(inherit.replace("!", "")).getPerms()) {
+                                    r.addPerm(perm);
+                                }
                             }
                         }
                     } catch (Exception e) {
@@ -53,21 +58,31 @@ class PermApp {
                     }
                 }
             }
-            for (Rank r : Basis.getRanks()) dfs(r, r, 0);
+            List<Rank> bottomNodes = new ArrayList<>();
+            for (Rank r : Basis.getRanks()) {
+                if (r.getInherited().size() == 0) bottomNodes.add(r);
+            }
+            for (Rank r : bottomNodes) dfs(r, 0);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void dfs(Rank original, Rank current, int layer) {
-        if (layer >= 10) return;
-        if (layer != 0) {
-            for (String perm : current.getPerms()) {
-                original.addPerm(perm);
+    private static List<String> dfs(Rank current, int layer) {
+        if (layer >= 20) return Arrays.asList("permission loop detected");
+        if (current.getInheritList().size() == 0) {
+            return current.getPerms();
+        } else {
+            List<String> perms = new ArrayList<>();
+            for (Rank r : current.getInheritList()) {
+                perms.addAll(dfs(r, layer + 1));
             }
-        }
-        for (Rank r : current.getInheritList()) {
-            dfs(original, r, layer + 1);
+            for (String perm : perms) {
+                if (!current.getPerms().contains(perm)) {
+                    current.addPerm(perm);
+                }
+            }
+            return perms;
         }
     }
 }
