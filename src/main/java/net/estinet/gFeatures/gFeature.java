@@ -24,37 +24,50 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gFeature implements Listener {
-	private String name;
-	private String version;
-	private FeatureState state;
+public abstract class gFeature implements Listener {
+    private String name;
+    private String version;
+    private FeatureState state;
+    private Listener eventListener = this;
 
-	public gFeature(String featurename, String d){
-		name = featurename;
-		version = d;
-	}
-	public void setName(String featurename){
-		name = featurename;
-		return;
-	}
-	public void setVersion(String featureversion){
-		version = featureversion;
-		return;
-	}
-	public void setState(FeatureState states){
-		state = states;
-		return;
-	}
-	public String getName(){
-		return name;
-	}
-	public String getVersion(){
-		return version;
-	}
-	public FeatureState getState(){
-		return state;
-	}
-	public void enable(){}
-	public void disable(){}
-	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
+    public gFeature(String featurename, String d) {
+        name = featurename;
+        version = d;
+    }
+
+    public void setName(String featurename) {
+        name = featurename;
+    }
+
+    public void setVersion(String featureversion) {
+        version = featureversion;
+    }
+
+    public void setState(FeatureState states) {
+        state = states;
+    }
+
+    public void setEventListener(Listener eventListener) {
+        this.eventListener = eventListener;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public FeatureState getState() {
+        return state;
+    }
+
+    public Listener getEventListener() {return eventListener;}
+
+    public abstract void enable();
+
+    public abstract void disable();
+
+    public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
 }

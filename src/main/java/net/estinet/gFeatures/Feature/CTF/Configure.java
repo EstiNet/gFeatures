@@ -29,6 +29,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		CTF base = new CTF("CTF", "1.2.0");
+		base.setEventListener(new EventHub());
 		gFeatures.addFeature(base);
 
 		ClioteSky.addHook(new GetMGInfoClioteHook("getmginfo", base.getName()));

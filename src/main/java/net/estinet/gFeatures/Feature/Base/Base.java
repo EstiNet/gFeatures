@@ -1,10 +1,8 @@
 package net.estinet.gFeatures.Feature.Base;
 
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 
 /*
@@ -26,7 +24,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Base extends gFeature implements Events{
+public class Base extends gFeature {
 	
 	public Base(String featurename, String version) {
 		super(featurename, version);
@@ -39,12 +37,8 @@ public class Base extends gFeature implements Events{
 	public void disable(){
 		Disable.onDisable();
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			EventHub.onPlayerJoin((PlayerJoinEvent)event);
-		}
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event){
+		EventHub.onPlayerJoin(event);
 	}
-	@Retrieval
-	public void onPlayerJoin(){}
 }

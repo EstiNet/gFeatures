@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.EstiChat;
 
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -23,11 +25,13 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 		ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getPlayer().getName() + " <" + event.getPlayer().getDisplayName() + "> " + event.getMessage()), "chat", "Bungee");
 		EstiChat.lastSent = event.getMessage();
 	}
+	@EventHandler
 	public void onPlayerDeath(PlayerDeathEvent event){
 	    ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes(event.getEntity().getName() + " " + event.getDeathMessage()), "chat", "Bungee");
 		EstiChat.lastSent = event.getDeathMessage();

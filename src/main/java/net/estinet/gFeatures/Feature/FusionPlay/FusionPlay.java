@@ -39,9 +39,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FusionPlay extends gFeature implements Events {
-
-    EventHub eh = new EventHub();
+public class FusionPlay extends gFeature {
 
     public static List<FusionGame> games = new ArrayList<>();
     public static FusionGame currentGame = null;
@@ -60,39 +58,6 @@ public class FusionPlay extends gFeature implements Events {
     @Override
     public void disable() {
         Disable.onDisable();
-    }
-
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            eh.onPlayerJoin((PlayerJoinEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerinteractevent")) {
-            eh.onPlayerInteract((PlayerInteractEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("foodlevelchangeevent")) {
-            eh.onFoodLevelChange((FoodLevelChangeEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("entitydamageevent")) {
-            eh.onPlayerDamage((EntityDamageEvent) event);
-        }
-    }
-
-    @Retrieval
-    @Override
-    public void onPlayerJoin() {
-    }
-
-    @Retrieval
-    @Override
-    public void onPlayerInteract() {
-    }
-
-    @Retrieval
-    @Override
-    public void onFoodLevelChange() {
-    }
-
-    @Retrieval
-    @Override
-    public void onEntityDamage() {
     }
 
     public static void addGame(FusionGame fg) {

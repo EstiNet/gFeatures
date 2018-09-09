@@ -6,6 +6,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -48,22 +50,26 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
 
-    public static void onPlayerJoin(PlayerJoinEvent event) {
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
         event.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + event.getPlayer().getName());
         Join.init(event);
     }
 
-    public static void onPlayerLeave(PlayerQuitEvent event) {
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent event) {
         Leave.init(event);
     }
 
-    public static void onOpenInventory(InventoryClickEvent event) {
+    @EventHandler
+    public void onOpenInventory(InventoryClickEvent event) {
         event.setCancelled(true);
     }
 
-    public static void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
+    @EventHandler
+    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getDamager().getType().equals(EntityType.PLAYER)) {
             if (event.getEntityType().equals(EntityType.PLAYER)) {
                 Player p = (Player) event.getEntity();
@@ -79,14 +85,10 @@ public class EventHub {
                         if (health - damage <= 0) {
                             ClearInventory.clearInv(p);
                             event.setCancelled(true);
-                            int deaths = Basic.deaths.get(p.getUniqueId());
-                            deaths += 1;
-                            Basic.deaths.remove(p.getUniqueId());
+                            int deaths = Basic.deaths.get(p.getUniqueId())+1;
                             Basic.deaths.put(p.getUniqueId(), deaths);
 
-                            int kills = Basic.kills.get(pl.getUniqueId());
-                            kills += 1;
-                            Basic.kills.remove(pl.getUniqueId());
+                            int kills = Basic.kills.get(pl.getUniqueId()) + 1;
                             Basic.kills.put(pl.getUniqueId(), kills);
 
                             Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getDamager().getName() + " killed " + event.getEntity().getName() + "!");
@@ -109,7 +111,8 @@ public class EventHub {
 
     }
 
-    public static void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
+    @EventHandler
+    public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
         if (event.getVictim().getType().equals(EntityType.PLAYER)) {
             Player p = (Player) event.getVictim();
             if (Basic.modes.get(p.getUniqueId()).equals(PlayerMode.WAITING) || Basic.modes.get(p.getUniqueId()).equals(PlayerMode.SELECT)) {
@@ -129,14 +132,11 @@ public class EventHub {
                     double damage = event.getDamage();
                     if (health - damage <= 0) {
                         ClearInventory.clearInv(p);
-                        int deaths = Basic.deaths.get(p.getUniqueId());
-                        deaths += 1;
-                        Basic.deaths.remove(p.getUniqueId());
+                        int deaths = Basic.deaths.get(p.getUniqueId()) + 1;
                         Basic.deaths.put(p.getUniqueId(), deaths);
                         Debug.print("[CTF] first deaths:" + (deaths - 1) + " afterdeaths: " + deaths);
-                        int kills = Basic.kills.get(pl.getUniqueId());
-                        kills += 1;
-                        Basic.kills.remove(pl.getUniqueId());
+
+                        int kills = Basic.kills.get(pl.getUniqueId()) + 1;
                         Basic.kills.put(pl.getUniqueId(), kills);
                         Debug.print("[CTF] first kills:" + (kills - 1) + " afterkill: " + kills);
                         Bukkit.broadcastMessage(ChatColor.AQUA + "[" + ChatColor.GOLD + "Kill" + ChatColor.AQUA + "] " + ChatColor.DARK_AQUA + event.getPlayer().getDisplayName() + " killed " + ((Player) event.getVictim()).getDisplayName() + "!");
@@ -153,15 +153,18 @@ public class EventHub {
         }
     }
 
-    public static void onPlayerDrop(PlayerDropItemEvent event) {
+    @EventHandler
+    public void onPlayerDrop(PlayerDropItemEvent event) {
         event.setCancelled(true);
     }
 
-    public static void onPlayerPickup(PlayerPickupItemEvent event) {
+    @EventHandler
+    public void onPlayerPickup(PlayerPickupItemEvent event) {
         event.setCancelled(true);
     }
 
-    public static void onPlayerInteract(PlayerInteractEvent event) {
+    @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
         if (Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.SELECT)) {
             SpawnMenu.interact(event);
         } else if (Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)) {
@@ -170,7 +173,8 @@ public class EventHub {
         }
     }
 
-    public static void onPlayerDeath(PlayerDeathEvent event) {
+    @EventHandler
+    public void onPlayerDeath(PlayerDeathEvent event) {
         if (event.getEntity() != null) {
             if (event.getEntity().getInventory().contains(Material.LIGHT_BLUE_STAINED_GLASS)) {
                 event.getDrops().remove(new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS));
@@ -216,7 +220,8 @@ public class EventHub {
         }
     }
 
-    public static void onSandFall(EntityChangeBlockEvent event) {
+    @EventHandler
+    public void onSandFall(EntityChangeBlockEvent event) {
         if (event.getEntityType() == EntityType.FALLING_BLOCK && event.getTo() == Material.AIR) {
             if (event.getBlock().getType() == Material.SAND) {
                 event.setCancelled(true);
@@ -225,7 +230,8 @@ public class EventHub {
         }
     }
 
-    public static void onFoodLevelChange(FoodLevelChangeEvent event) {
+    @EventHandler
+    public void onFoodLevelChange(FoodLevelChangeEvent event) {
         ((Player) event.getEntity()).setFoodLevel(20);
         event.setCancelled(true);
     }

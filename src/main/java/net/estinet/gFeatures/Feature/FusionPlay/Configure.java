@@ -27,6 +27,7 @@ public class Configure {
     @Configs
     public static void onSetup() {
         FusionPlay base = new FusionPlay("FusionPlay", "1.0.0");
+        base.setEventListener(new EventHub());
         gFeatures.addFeature(base);
 
         ClioteSky.addHook(new FusionPlayClioteHook("fusionplay", base.getName()));

@@ -35,6 +35,7 @@ public class Enabler {
         for (gFeature feature : features) {
             if (feature.getState().equals(FeatureState.ENABLE)) {
                 try {
+                    Bukkit.getPluginManager().registerEvents(feature.getEventListener(), gFeatures.getPlugin());
                     feature.enable();
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -1,10 +1,8 @@
 package net.estinet.gFeatures.Feature.EstiTicket;
 
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -26,7 +24,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EstiTicket extends gFeature implements Events{
+public class EstiTicket extends gFeature {
 	
 	public EstiTicket(String featurename, String version) {
 		super(featurename, version);
@@ -40,12 +38,6 @@ public class EstiTicket extends gFeature implements Events{
 	public void disable(){
 		Bukkit.getLogger().info("[EstiTicket] Disabled!");
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			EventHub.onPlayerJoin((PlayerJoinEvent)event);
-		}
-	}
-	@Retrieval
-	public void onPlayerJoin(){}
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event){}
 }

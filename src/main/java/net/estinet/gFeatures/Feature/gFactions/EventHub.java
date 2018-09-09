@@ -4,6 +4,8 @@ import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
@@ -32,9 +34,10 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
     GetMenu gm = new GetMenu();
 
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent event) {
         if (event.getRightClicked().getType().equals(EntityType.ENDER_CRYSTAL)) {
             event.setCancelled(true);
@@ -42,6 +45,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onWorldLoad(WorldLoadEvent event) {
         if (event.getWorld().getName().equals("Factions1.8.3")) {
             for (Entity ent : event.getWorld().getEntities()) {
@@ -66,6 +70,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.getEntityType().equals(EntityType.ENDER_CRYSTAL)) {
             event.setCancelled(true);
@@ -80,12 +85,14 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onEntityExplode(EntityExplodeEvent event) {
         if (event.getEntityType().equals(EntityType.ENDER_CRYSTAL)) {
             event.setCancelled(false);
         }
     }
 
+    @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
 		/*Player pl = event.getPlayer();
 		try{

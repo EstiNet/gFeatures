@@ -1,19 +1,15 @@
 package net.estinet.gFeatures.Feature.EstiCoins;
 
 import net.estinet.gFeatures.API.SQLInterface.MySQLUtil;
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,7 +32,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EstiCoins extends gFeature implements Events {
+public class EstiCoins extends gFeature {
 
     //SQL Fields
     public static String sqlAddress, sqlPort, sqlTablename, sqlUsername, sqlPassword;
@@ -62,21 +58,14 @@ public class EstiCoins extends gFeature implements Events {
         Bukkit.getLogger().info("[EstiCoins] Disabled. Good bye!");
     }
 
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            PlayerJoinEvent e = (PlayerJoinEvent) event;
-            new Thread(() -> connect("INSERT INTO Peoples(Name, Money)\n" +
-                    "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n" +
-                    "WHERE NOT EXISTS (\n" +
-                    "SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n" +
-                    ") LIMIT 1;\n"
-            )).start();
-        }
-    }
-
-    @Retrieval
-    public void onPlayerJoin() {
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) {
+        Bukkit.getScheduler().runTaskAsynchronously(gFeatures.getPlugin(), () -> connect("INSERT INTO Peoples(Name, Money)\n" +
+                "SELECT * FROM (SELECT '" + e.getPlayer().getUniqueId() + "', '0') AS tmp\n" +
+                "WHERE NOT EXISTS (\n" +
+                "SELECT Name FROM Peoples WHERE Name = '" + e.getPlayer().getUniqueId() + "'\n" +
+                ") LIMIT 1;\n"
+        ));
     }
 
     @Override

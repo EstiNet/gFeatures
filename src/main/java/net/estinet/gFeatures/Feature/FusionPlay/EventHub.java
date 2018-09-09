@@ -3,6 +3,8 @@ package net.estinet.gFeatures.Feature.FusionPlay;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByBlockEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -33,7 +35,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		ClearInventory ci = new ClearInventory();
 		ci.clearInv(event.getPlayer());
@@ -52,6 +55,7 @@ public class EventHub{
 			event.setCancelled(true);
 		}
 	}
+	@EventHandler
 	public void onPlayerDamage(EntityDamageEvent event){
 		if(event.getEntity() instanceof Player){
 			if(!FusionPlay.currentGame.getSettings().allowPlayerTakeDamage()){
@@ -62,6 +66,7 @@ public class EventHub{
 			}
 		}
 	}
+	@EventHandler
 	public void onFoodLevelChange(FoodLevelChangeEvent event) {
 		if(!FusionPlay.currentGame.getSettings().allowPlayerLoseHunger()){
 			Bukkit.getLogger().info("hunger");
