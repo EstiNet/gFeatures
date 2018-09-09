@@ -3,6 +3,10 @@ package net.estinet.gFeatures;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
+import org.bukkit.event.Listener;
+
+import java.util.Arrays;
+import java.util.List;
 
 /*
 gFeatures
@@ -23,13 +27,18 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gUtility extends Extension{
+public class gUtility extends Extension {
+
+	private List<Listener> eventListeners = Arrays.asList(this); // Default event listener is the current class
 
 	public gUtility(String featurename, String d) {
 		super(featurename, d, ExtensionsType.Utility);
 	}
 	public void enable(){}
 	public void disable(){}
-	public void eventTrigger(Event event){}
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args){}
+	public void addEventListener(Listener eventListener) {
+		this.eventListeners.add(eventListener);
+	}
+	public List<Listener> getEventListeners() {return eventListeners;}
 }

@@ -48,6 +48,9 @@ public class Enabler {
             Extension extension = gFeatures.getExtensions().get(i);
             if (extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)) {
                 gUtility gu = (gUtility) extension;
+                for (Listener l : gu.getEventListeners()) {
+                    Bukkit.getPluginManager().registerEvents(l, gFeatures.getPlugin());
+                }
                 gu.enable();
             }
         }

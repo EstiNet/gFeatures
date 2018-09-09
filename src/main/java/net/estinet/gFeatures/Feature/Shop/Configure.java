@@ -27,6 +27,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		Shop base = new Shop("Shop", "1.0.0");
+		base.addEventListener(new EventHub());
 		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("cosmetics", "Shows cosmetics menu.", "/cosmetics", base, true);

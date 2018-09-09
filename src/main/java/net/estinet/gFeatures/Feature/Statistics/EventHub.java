@@ -4,6 +4,8 @@ import net.estinet.gFeatures.API.PlayerStats.gPlayer;
 
 import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -25,7 +27,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		gPlayer player = gFeatures.getgPlayer(event.getPlayer().getName());
 		String value = gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString()).getValue("Statistics.LoginCount");

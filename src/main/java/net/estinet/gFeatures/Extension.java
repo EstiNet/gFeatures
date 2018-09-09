@@ -19,7 +19,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Extension {
+import org.bukkit.event.Listener;
+
+public class Extension implements Listener {
 	private String name;
 	private String version;
 	private FeatureState state;

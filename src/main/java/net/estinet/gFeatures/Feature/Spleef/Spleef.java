@@ -1,26 +1,20 @@
 package net.estinet.gFeatures.Feature.Spleef;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.ItemStack;
-
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+import java.util.UUID;
 
 /*
 gFeatures
@@ -41,7 +35,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Spleef extends FusionGame implements Events {
+public class Spleef extends FusionGame {
 
     EventHub eh = new EventHub();
 
@@ -60,25 +54,6 @@ public class Spleef extends FusionGame implements Events {
     @Override
     public void disable() {
         Disable.onDisable();
-    }
-
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            eh.onPlayerJoin((PlayerJoinEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("blockbreakevent")) {
-            eh.onPlayerBreak((BlockBreakEvent) event);
-        }
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerJoin() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerBreakBlock() {
     }
 
     @Override

@@ -1,12 +1,8 @@
 package net.estinet.gFeatures.Feature.Statistics;
 
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
 gFeatures
@@ -29,7 +25,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Statistics extends gFeature{
 	
-	EventHub eh = new EventHub();
 	Enable enable = new Enable();
 	Disable disable = new Disable();
 	
@@ -44,14 +39,6 @@ public class Statistics extends gFeature{
 	public void disable(){
 		disable.onDisable();
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}
-	}
-	@Retrieval
-	public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			//TODO Meh...

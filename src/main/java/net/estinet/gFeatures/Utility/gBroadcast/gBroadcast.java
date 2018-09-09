@@ -1,11 +1,11 @@
 package net.estinet.gFeatures.Utility.gBroadcast;
 
-import net.estinet.gFeatures.Retrieval;
+import net.estinet.gFeatures.Configuration.Config;
 import net.estinet.gFeatures.gUtility;
-
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
@@ -28,7 +28,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gBroadcast extends gUtility{
-	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
 	
 	public gBroadcast(String featurename, String d) {
@@ -36,20 +35,18 @@ public class gBroadcast extends gUtility{
 	}
 	@Override
 	public void enable(){
-		Enable.onEnable();
+		Bukkit.getLogger().info("Base Plugin enabled!");
+		Config config = new Config();
+		config.createDirectory("plugins/gFeatures/Test", "Base plugin directory set!");
 	}
 	@Override
 	public void disable(){
-		Disable.onDisable();
+		Bukkit.getLogger().info("Base Plugin Disabled!");
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent e){
+		Bukkit.getLogger().info("Player Joined!");
 	}
-	@Retrieval
-	public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

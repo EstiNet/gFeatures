@@ -43,6 +43,7 @@ public class Configure{
 		fs.setCoolGameName(ChatColor.BOLD + "ヾ(⌐■_■)ノ♪" + ChatColor.DARK_BLUE + " Spleef");
 		fg.setSettings(fs);
 		fg.setMaps(MapsConfigure.init());
+		fg.addEventListener(new EventHub());
 		FusionPlay.addGame(fg);
 	}
 }

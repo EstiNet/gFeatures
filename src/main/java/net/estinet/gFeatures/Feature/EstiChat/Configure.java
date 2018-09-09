@@ -27,7 +27,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		EstiChat base = new EstiChat("EstiChat", "1.0.0");
-		base.setEventListener(new EventHub());
+		base.addEventListener(new EventHub());
 		gFeatures.addFeature(base);
 
 		ClioteSky.addHook(new ConsoleClioteHook("consolechat", base.getName()));

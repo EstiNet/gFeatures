@@ -28,6 +28,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		SurvivalTwo base = new SurvivalTwo("SurvivalTwo", "1.0.2");
+		base.addEventListener(new EventHub());
 		gFeatures.addFeature(base);
 		
 		EstiCommand ec = new EstiCommand("shop", "Opens the shop menu.", "/shop", base, new ShopCommand());

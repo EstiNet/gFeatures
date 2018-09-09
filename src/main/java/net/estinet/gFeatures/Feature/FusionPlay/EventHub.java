@@ -50,6 +50,7 @@ public class EventHub implements Listener {
 			JoinProcess.init(event);
 		}
 	}
+	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		if(SpectateProcess.spectators.contains(event.getPlayer().getUniqueId())){
 			event.setCancelled(true);

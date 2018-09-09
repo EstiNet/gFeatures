@@ -2,6 +2,8 @@ package net.estinet.gFeatures.Feature.Spleef;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -28,16 +30,19 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
 			Spleef.stillIn.add(event.getPlayer().getUniqueId());
 		}
 	}
+	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event){
 		Spleef.stillIn.remove(event.getPlayer().getUniqueId());
 		Spleef.howFar.remove(event.getPlayer().getUniqueId());
 	}
+	@EventHandler
 	public void onPlayerBreak(BlockBreakEvent event) {
 		event.setCancelled(true);
 		Block block = event.getBlock();

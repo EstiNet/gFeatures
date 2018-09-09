@@ -1,22 +1,19 @@
 package net.estinet.gFeatures.Utility.EstiJoin;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
-import net.estinet.gFeatures.Feature.gRanks.gRanks;
+import net.estinet.gFeatures.Configuration.Config;
+import net.estinet.gFeatures.gUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gUtility;
-import net.estinet.gFeatures.Configuration.Config;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 /*
 gFeatures
@@ -76,31 +73,20 @@ public class EstiJoin extends gUtility {
         Bukkit.getLogger().info("[EstiJoin] Disabled.");
     }
 
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            PlayerJoinEvent e = (PlayerJoinEvent) event;
-            try {
-                if (!title.equals("")) {
-                    e.getPlayer().sendTitle(title.replace('&', '§'), subtitle.replace('&', '§'), 50, 40, 50);
-                }
-            } catch (Exception es) {
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) {
+        try {
+            if (!title.equals("")) {
+                e.getPlayer().sendTitle(title.replace('&', '§'), subtitle.replace('&', '§'), 50, 40, 50);
             }
-            e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
-        } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
-            PlayerQuitEvent e = (PlayerQuitEvent) event;
-            e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
+        } catch (Exception es) {
         }
+        e.setJoinMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Join" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
     }
 
-    @Override
-    @Retrieval
-    public void onPlayerJoin() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerLeave() {
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent e) {
+        e.setQuitMessage(ChatColor.GOLD + "[" + ChatColor.DARK_AQUA + "Leave" + ChatColor.GOLD + "]" + ChatColor.RESET + " " + ChatColor.WHITE + e.getPlayer().getName());
     }
 
     @Override

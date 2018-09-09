@@ -31,7 +31,7 @@ public abstract class gFeature implements Listener {
     private String name;
     private String version;
     private FeatureState state;
-    private List<Listener> eventListeners = Arrays.asList(this);
+    private List<Listener> eventListeners = Arrays.asList(this); // Default event listener is the current class
 
     public gFeature(String featurename, String d) {
         name = featurename;

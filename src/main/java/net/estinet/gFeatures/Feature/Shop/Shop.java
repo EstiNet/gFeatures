@@ -1,22 +1,17 @@
 package net.estinet.gFeatures.Feature.Shop;
 
-import java.util.HashMap;
-import java.util.UUID;
-
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.api.sync.RedisCommands;
+import net.estinet.gFeatures.Feature.Shop.Enums.Trails;
+import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
+import net.estinet.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.gFeature;
-import net.estinet.gFeatures.Feature.Shop.Enums.Trails;
-import net.estinet.gFeatures.Feature.Shop.GUI.MainShop;
+import java.util.HashMap;
+import java.util.UUID;
 
 /*
 gFeatures
@@ -37,7 +32,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Shop extends gFeature implements Events{
+public class Shop extends gFeature {
 	
 	EventHub eh = new EventHub();
 	
@@ -60,15 +55,6 @@ public class Shop extends gFeature implements Events{
 	public void disable(){
 		Disable.onDisable();
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerquitevent")){
-			eh.onPlayerLeave((PlayerQuitEvent) event);
-		}
-	}
 	
 	public static int getNumOfTrails(String uuid){
 		int num = 0;
@@ -86,12 +72,6 @@ public class Shop extends gFeature implements Events{
 	public static int getTotalNumOfTrails(){
 		return Trails.values().length-1;
 	}
-	
-	@Override
-	public void onPlayerJoin(){}
-	
-	@Override
-	public void onPlayerLeave(){}
 	
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 

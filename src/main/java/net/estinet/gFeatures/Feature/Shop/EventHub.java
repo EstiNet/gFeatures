@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.Shop;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -24,7 +26,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 
 		Thread thr = new Thread(() -> {

@@ -1,13 +1,11 @@
 package net.estinet.gFeatures.Utility.gMotd;
 
+import net.estinet.gFeatures.gUtility;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
-
-import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gUtility;
 
 /*
 gFeatures
@@ -43,17 +41,12 @@ public class gMotd extends gUtility{
 	public void disable(){
 		Bukkit.getLogger().info("[gMotd] Disabled.");
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			PlayerJoinEvent events = (PlayerJoinEvent) event;
-			String motd = YMLSetter.getMotd();
-			String motds = motd.replace("{PLAYER}", events.getPlayer().getName());
-			events.getPlayer().sendMessage(motds);
-		}
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent event){
+		String motd = YMLSetter.getMotd();
+		String motds = motd.replace("{PLAYER}", event.getPlayer().getName());
+		event.getPlayer().sendMessage(motds);
 	}
-	@Retrieval
-	public void onPlayerJoin(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {}
 }

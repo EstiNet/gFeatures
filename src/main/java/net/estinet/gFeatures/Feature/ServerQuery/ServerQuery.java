@@ -1,9 +1,7 @@
 package net.estinet.gFeatures.Feature.ServerQuery;
 
-import net.estinet.gFeatures.Events;
 import net.estinet.gFeatures.gFeature;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Event;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -27,7 +25,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class ServerQuery extends gFeature implements Events {
+public class ServerQuery extends gFeature {
 
     private static int playerCount = 0;
 
@@ -54,9 +52,5 @@ public class ServerQuery extends gFeature implements Events {
 
     public static int getPlayerCount() {
         return playerCount;
-    }
-
-    @Override
-    public void eventTrigger(Event event) {
     }
 }

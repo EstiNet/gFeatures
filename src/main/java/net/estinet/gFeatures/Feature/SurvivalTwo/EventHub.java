@@ -13,6 +13,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -48,7 +50,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
  */
 
-public class EventHub {
+public class EventHub implements Listener {
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (Listeners.debug)
             Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
@@ -57,6 +60,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Block block = event.getPlayer().getTargetBlock(null, 5);
 
@@ -100,6 +104,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand) {
         Block b = getPlaceBlock(event.getBlockFace(), block);
         Debug.print("[SurvivalTwo] Placing command block.");
@@ -274,12 +279,14 @@ public class EventHub {
 
     //TODO DO NOT LET PEOPLE DO /RC IN THE NETHER OR END! THEY WILL DIEEEEEEEEEEEEEE
 
+    @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         if (event.getPlayer().getBedSpawnLocation() == null) {
             event.getPlayer().performCommand("rc");
         }
     }
 
+    @EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent event) {
         if (event.getEntity().getType().equals(EntityType.PHANTOM)) {
             event.setCancelled(true);

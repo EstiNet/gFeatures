@@ -1,21 +1,5 @@
 package net.estinet.gFeatures.Feature.ParkourRace;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.scoreboard.Scoreboard;
-
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.Feature.FusionPlay.FusionPlay;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.FusionGame;
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics.SpectateProcess;
@@ -23,6 +7,17 @@ import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Scoreboard;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
 /*
 gFeatures
