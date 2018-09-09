@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,7 +30,7 @@ https://github.com/EstiNet/gFeatures
 
 public class gUtility extends Extension {
 
-	private List<Listener> eventListeners = Arrays.asList(this); // Default event listener is the current class
+	private ArrayList<Listener> eventListeners = new ArrayList<>(Arrays.asList(this)); // Default event listener is the current class
 
 	public gUtility(String featurename, String d) {
 		super(featurename, d, ExtensionsType.Utility);

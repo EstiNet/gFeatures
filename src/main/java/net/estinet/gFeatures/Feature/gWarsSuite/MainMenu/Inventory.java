@@ -61,7 +61,7 @@ public class Inventory {
             TeamMenu tm = new TeamMenu();
             stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
             tm.initialize(event.getPlayer());
-            event.getPlayer().playSound(event.getPlayer().getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
+            //event.getPlayer().playSound(event.getPlayer().getLocation(), "Kime&Vexento-Climb(Fixed)", 500, 1);
         }
     }
 }

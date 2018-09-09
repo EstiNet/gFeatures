@@ -41,8 +41,9 @@ public class Interact {
 	public void initialize(PlayerInteractEvent event){
 		try{
 			Statistics stats = new Statistics();
+			if (event.getClickedBlock() == null) return;
 			if(stats.getMode(event.getPlayer().getName()).equals(gWarsMode.TEAM)){
-				Bukkit.getLogger().info("x: " + event.getClickedBlock().getLocation().getX() + " y: " + event.getClickedBlock().getLocation().getY() + " z: " + event.getClickedBlock().getLocation().getZ());
+				//Bukkit.getLogger().info("x: " + event.getClickedBlock().getLocation().getX() + " y: " + event.getClickedBlock().getLocation().getY() + " z: " + event.getClickedBlock().getLocation().getZ());
 				World world = Bukkit.getServer().getWorld("gWars");
 				if(event.getClickedBlock().getLocation().equals(new Location(Bukkit.getServer().getWorld("gWars"), 657, 61, -57))){//Orange
 					if(!Constants.vehiclehog.contains(event.getPlayer().getUniqueId())){
