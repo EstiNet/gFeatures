@@ -53,12 +53,11 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Listeners extends JavaPlugin implements Listener {
-    public static final String version = "3.5.1";
+    public static final String version = "4.0.0";
     public static boolean debug = false;
 
     Enabler enable = new Enabler();
     Disabler disable = new Disabler();
-    Library library = new Library();
     CommandLibrary commands = new CommandLibrary();
     Setup setup = new Setup();
     Load load = new Load();
@@ -112,7 +111,6 @@ public class Listeners extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        library.onPlayerJoin(event);
         Thread thr = new Thread(() -> {
             try {
                 setups.checkPlayer(event.getPlayer());
@@ -132,7 +130,6 @@ public class Listeners extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
-        library.onPlayerLeave(event);
         Thread thr = new Thread(() -> {
             try {
                 gPlayer gp = gFeatures.getgPlayer(event.getPlayer().getUniqueId().toString());
@@ -145,146 +142,6 @@ public class Listeners extends JavaPlugin implements Listener {
             }
         });
         thr.start();
-    }
-
-    @EventHandler
-    public void onPlayerMove(PlayerMoveEvent event) {
-        library.onPlayerMove(event);
-    }
-
-    @EventHandler
-    public void onPlayerRespawn(PlayerRespawnEvent event) {
-        library.onPlayerRespawn(event);
-    }
-
-    @EventHandler
-    public void onDeath(PlayerDeathEvent event) {
-        library.onPlayerDeath(event);
-    }
-
-    @EventHandler
-    public void onHit(EntityDamageByEntityEvent event) {
-        library.onEntityDamageByEntity(event);
-    }
-
-    @EventHandler
-    public void onHit1(WeaponDamageEntityEvent event) {
-        library.onWeaponDamageEntity(event);
-    }
-
-    @EventHandler
-    public void PlayerInteract(PlayerInteractEvent event) {
-        library.onPlayerInteract(event);
-    }
-
-    @EventHandler
-    public void PlayerBreakBlock(BlockBreakEvent event) {
-        library.onPlayerBreakBlock(event);
-    }
-
-    @EventHandler
-    public void PlayerChatEvent(AsyncPlayerChatEvent event) {
-        library.onPlayerChat(event);
-    }
-
-    @EventHandler
-    public void PlayerCommandEvent(PlayerCommandPreprocessEvent event) {
-        library.onPlayerCommand(event);
-    }
-
-    @EventHandler
-    public void PlayerInventoryEvent(InventoryOpenEvent event) {
-        library.onPlayerOpenInventory(event);
-    }
-
-    @EventHandler
-    public void PlayerHeldItemEvent(PlayerItemHeldEvent event) {
-        library.onPlayerItemHeld(event);
-    }
-
-    @EventHandler
-    public void InventoryClickEvent(InventoryClickEvent event) {
-        library.onInventoryClick(event);
-    }
-
-    @EventHandler
-    public void EntityExplodeEvent(EntityExplodeEvent event) {
-        library.onEntityExplode(event);
-    }
-
-    @EventHandler
-    public void FoodLevelChangeEvent(org.bukkit.event.entity.FoodLevelChangeEvent event) {
-        library.onFoodLevelChange(event);
-    }
-
-    @EventHandler
-    public void PlayerDropItemEvent(PlayerDropItemEvent event) {
-        library.onPlayerDrop(event);
-    }
-
-    @EventHandler
-    public void PlayerToggleFlightEvent(PlayerToggleFlightEvent event) {
-        library.onPlayerToggleFlight(event);
-    }
-
-    @EventHandler
-    public void EntityDamageEvent(EntityDamageEvent event) {
-        library.onEntityDamage(event);
-    }
-
-    @EventHandler
-    public void PlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
-        library.onPlayerInteractEntity(event);
-    }
-
-    @EventHandler
-    public void WeatherChangeEvent(org.bukkit.event.weather.WeatherChangeEvent event) {
-        library.onWeatherChange(event);
-    }
-
-    @EventHandler
-    public void PlayerLoginEvent(PlayerLoginEvent event) {
-        library.onPlayerLogin(event);
-    }
-
-    @EventHandler
-    public void WorldLoadEvent(WorldLoadEvent event) {
-        library.onWorldLoad(event);
-    }
-
-    @EventHandler
-    public void PlayerPickupItemEvent(PlayerPickupItemEvent event) {
-        library.onPlayerPickup(event);
-    }
-
-    @EventHandler
-    public void PlayerAnimationEvent(PlayerAnimationEvent event) {
-        //library.onPlayerAnimate(event);
-    }
-
-    @EventHandler
-    public void InventoryEvent(InventoryEvent event) {
-        library.onInventory(event);
-    }
-
-    @EventHandler
-    public void InventoryInteractEvent(org.bukkit.event.inventory.InventoryInteractEvent event) {
-        library.onInventoryInteract(event);
-    }
-
-    @EventHandler
-    public void EntityDamageByBlockEvent(org.bukkit.event.entity.EntityDamageByBlockEvent event) {
-        library.onEntityDamageByBlock(event);
-    }
-
-    @EventHandler
-    public void EntityChangeBlockEvent(EntityChangeBlockEvent event) {
-        library.onEntityChangeBlock(event);
-    }
-
-    @EventHandler
-    public void CreatureSpawnEvent(CreatureSpawnEvent event) {
-        library.onCreatureSpawn(event);
     }
 
     @Override

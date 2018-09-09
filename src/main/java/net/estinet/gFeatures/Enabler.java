@@ -61,15 +61,6 @@ public class Enabler {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-/*
-                try {
-                    Method commandMap = Bukkit.getServer().getClass().getMethod("getCommandMap", (Class<?>) null);
-                    Object cmdmap = commandMap.invoke(Bukkit.getServer(), (Object) null);
-                    Method register = cmdmap.getClass().getMethod("register", String.class, Command.class);
-                    register.invoke(cmdmap, command.getName(), command);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }*/
             }
         }
     }

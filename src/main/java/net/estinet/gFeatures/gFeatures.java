@@ -8,6 +8,7 @@ import net.estinet.gFeatures.SQL.Update.Read;
 import net.estinet.gFeatures.SQL.Update.Write;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -161,6 +162,9 @@ public class gFeatures {
     @SuppressWarnings("rawtypes")
     public static List<EstiPlayer> getEstiPlayers(){
         return sqlplayers;
+    }
+    public static Plugin getPlugin() {
+        return Bukkit.getPluginManager().getPlugin("gFeatures");
     }
     public static void setgPlayers(List<gPlayer> pl){
         playerstats = pl;
