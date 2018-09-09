@@ -34,8 +34,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Shop extends gFeature {
 	
-	EventHub eh = new EventHub();
-	
 	public static RedisClient redisClient = null;
 	public static StatefulRedisConnection<String, String> connection = null;
 	public static RedisCommands<String, String> syncCommands = null;

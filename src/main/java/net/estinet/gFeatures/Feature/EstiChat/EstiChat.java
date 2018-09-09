@@ -23,7 +23,6 @@ https://github.com/EstiNet/gFeatures
 
 public class EstiChat extends gFeature {
 	
-	EventHub eh = new EventHub();
 	public static String lastSent = "";
 	
 	public EstiChat(String featurename, String d) {

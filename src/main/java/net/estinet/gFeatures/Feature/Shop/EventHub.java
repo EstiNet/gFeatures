@@ -45,6 +45,7 @@ public class EventHub implements Listener {
 		});
 		thr.start();
 	}
+	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event){
 		Shop.playerTrail.remove(event.getPlayer().getUniqueId());
 	}
