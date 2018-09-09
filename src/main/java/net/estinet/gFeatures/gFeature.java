@@ -5,6 +5,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 
+import java.util.Arrays;
+import java.util.List;
+
 /*
 gFeatures
 https://github.com/EstiNet/gFeatures
@@ -28,7 +31,7 @@ public abstract class gFeature implements Listener {
     private String name;
     private String version;
     private FeatureState state;
-    private Listener eventListener = this;
+    private List<Listener> eventListeners = Arrays.asList(this);
 
     public gFeature(String featurename, String d) {
         name = featurename;
@@ -47,8 +50,8 @@ public abstract class gFeature implements Listener {
         state = states;
     }
 
-    public void setEventListener(Listener eventListener) {
-        this.eventListener = eventListener;
+    public void addEventListener(Listener eventListener) {
+        this.eventListeners.add(eventListener);
     }
 
     public String getName() {
@@ -63,7 +66,7 @@ public abstract class gFeature implements Listener {
         return state;
     }
 
-    public Listener getEventListener() {return eventListener;}
+    public List<Listener> getEventListeners() {return eventListeners;}
 
     public abstract void enable();
 

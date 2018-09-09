@@ -95,18 +95,10 @@ public class FusionPlay extends gFeature {
             if (!games.get(random).getName().equalsIgnoreCase(not)) {
                 games.get(random).setFusionState(FusionState.WAITING);
                 currentGame = games.get(random);
-                Thread thr = new Thread(() -> {
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    gFeature feature = games.get(random);
-                    feature.setState(FeatureState.ENABLE);
-                    gFeatures.addFeature(games.get(random));
-                    games.get(random).enable();
-                });
-                thr.start();
+                gFeature feature = games.get(random);
+                feature.setState(FeatureState.ENABLE);
+                gFeatures.addFeature(games.get(random));
+                games.get(random).enable();
                 break;
             }
             Bukkit.getLogger().info("[FusionPlay] Ugh.");

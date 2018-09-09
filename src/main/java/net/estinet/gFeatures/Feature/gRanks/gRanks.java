@@ -2,23 +2,21 @@ package net.estinet.gFeatures.Feature.gRanks;
 
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
-
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /*
@@ -63,35 +61,9 @@ public class gRanks extends gFeature {
     }
 
     @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            EventHub.onPlayerJoin((PlayerJoinEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("asyncplayerchatevent")) {
-            EventHub.onPlayerChat((AsyncPlayerChatEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("PlayerQuitEvent")) {
-            EventHub.onPlayerLeave((PlayerQuitEvent) event);
-        }
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerJoin() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerChat() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerLeave() {
-    }
-
-    @Override
     public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender.hasPermission("gFeatures.admin")) {
-            Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> CommandHub.onCommand(sender, cmd, label, args));
+            Bukkit.getScheduler().runTaskAsynchronously(gFeatures.getPlugin(), () -> CommandHub.onCommand(sender, cmd, label, args));
         }
     }
 
@@ -144,7 +116,7 @@ public class gRanks extends gFeature {
         if (rank1 != null) rank1.removePerson(p.getUniqueId().toString());
         Basis.getRank(rank.getName()).addPerson(p.getUniqueId().toString());
 
-        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
+        Bukkit.getScheduler().runTaskLater(gFeatures.getPlugin(), () -> updatePrefix(Bukkit.getPlayer(p.getUniqueId())), 50);
 
         ClioteSky.getInstance().send(ClioteSky.stringToBytes("update " + p.getUniqueId() + " " + rank.getName()), "granks", "all");
     }
@@ -157,7 +129,7 @@ public class gRanks extends gFeature {
         Basis.getRank(rank.getName()).addPerson(UUID);
 
         if (Bukkit.getPlayer(UUID) != null && Bukkit.getPlayer(UUID).isOnline()) {
-            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> updatePrefix(Bukkit.getPlayer(UUID)), 50);
+            Bukkit.getScheduler().runTaskLaterAsynchronously(gFeatures.getPlugin(), () -> updatePrefix(Bukkit.getPlayer(UUID)), 50);
         }
         if (gRanks.cliotesky) {
             ClioteSky.getInstance().send(ClioteSky.stringToBytes("update " + UUID + " " + rank.getName()), "granks", "all");
@@ -169,7 +141,7 @@ public class gRanks extends gFeature {
             String prefix = gRanks.getRankOfPlayer(p, true).getPrefix();
             String name = prefix.replace('&', '§');
             if (!p.getDisplayName().contains(name)) {
-                Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setDisplayName(name + p.getName()));
+                Bukkit.getScheduler().runTask(gFeatures.getPlugin(), () -> p.setDisplayName(name + p.getName()));
             }
             prefixes.remove(p.getUniqueId());
             prefixes.put(p.getUniqueId(), name + p.getName());

@@ -30,7 +30,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class FusionGame extends gFeature {
+public abstract class FusionGame extends gFeature {
     protected List<FusionMap> maps = new ArrayList<>();
     protected FusionSettings settings = new FusionSettings();
     protected FusionState state = FusionState.NOTUSED;

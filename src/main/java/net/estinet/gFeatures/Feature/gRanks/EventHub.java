@@ -4,6 +4,8 @@ import net.estinet.gFeatures.Feature.gRanks.Events.StartupTask;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -27,8 +29,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
 
+    @EventHandler
     public static void onPlayerJoin(PlayerJoinEvent event) {
         Basis.queued = true;
         for (OfflinePlayer op : Bukkit.getOperators()) {
@@ -43,11 +46,13 @@ public class EventHub {
         Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.queued = false, 10);
     }
 
+    @EventHandler
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
         String prefix = gRanks.prefixes.getOrDefault(event.getPlayer().getUniqueId(), "");
         if (!prefix.equals("")) event.getPlayer().setDisplayName(prefix);
     }
 
+    @EventHandler
     public static void onPlayerLeave(PlayerQuitEvent event) {
         if (Basis.queued) {
             Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 10);

@@ -48,10 +48,10 @@ https://github.com/EstiNet/gFeatures
 public class Configure{
 	@Configs
 	public static void onSetup(){
-		Base base = new Base("Base", "1.2.5");
-		gFeatures.addFeature(base);
+		Base plugin = new Base("Base", "1.2.5");
+		gFeatures.addFeature(plugin);
 		
-		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", base, new TestCommand());
+		EstiCommand test = new EstiCommand("test", "Says test!", "/test", "gFeatures.test", plugin, new TestCommand());
 		gFeatures.addCommand(test);
 		
 		HashMap<Key<String>, String> hash = new HashMap<>();
@@ -60,7 +60,7 @@ public class Configure{
 		hash.put(key, "He's healthy!");
 		EstiSet<String, String> set = new EstiSet<>();
 		set.setData(hash);
-		set.setTag(base.getName());
+		set.setTag(plugin.getName());
 		gFeatures.addSQLFields(set);
 		
 	}

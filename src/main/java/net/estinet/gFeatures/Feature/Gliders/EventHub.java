@@ -7,6 +7,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.EnderCrystal;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
@@ -49,12 +51,13 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
     Join join = new Join();
     Leave leave = new Leave();
     Dead d = new Dead();
     FlagHit fh = new FlagHit();
 
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         try {
@@ -67,14 +70,17 @@ public class EventHub {
         join.init(event);
     }
 
+    @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         leave.init(event);
     }
 
+    @EventHandler
     public void onOpenInventory(InventoryClickEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getDamager().getType().equals(EntityType.PLAYER)) {
             if (event.getEntityType().equals(EntityType.PLAYER)) {
@@ -128,6 +134,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onWeaponDamageEntity(WeaponDamageEntityEvent event) {
         if (event.getVictim().getType().equals(EntityType.PLAYER)) {
             Player p = (Player) event.getVictim();
@@ -170,14 +177,17 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerDrop(PlayerDropItemEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onPlayerPickup(PlayerPickupItemEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (Basic.modes.get(event.getPlayer().getUniqueId()).equals(PlayerMode.WAITING)) {
             WaitingMenu wm = new WaitingMenu();
@@ -185,6 +195,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         if (event.getEntity() instanceof Player) {
             for (ItemStack im : event.getDrops()) {
@@ -217,11 +228,13 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onFoodLevelChange(FoodLevelChangeEvent event) {
         ((Player) event.getEntity()).setFoodLevel(20);
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player p = (Player) event.getEntity();
@@ -250,6 +263,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onEntityExplode(EntityExplodeEvent event) {
         if (event.getEntityType().equals(EntityType.ENDER_CRYSTAL)) {
             event.setCancelled(true);

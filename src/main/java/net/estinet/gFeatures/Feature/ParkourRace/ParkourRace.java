@@ -43,13 +43,11 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class ParkourRace extends FusionGame implements Events {
+public class ParkourRace extends FusionGame {
 
     public static List<UUID> start = new ArrayList<>();
     public static List<UUID> checkpoint = new ArrayList<>();
     public static HashMap<Double, UUID> distances = new HashMap<>();
-
-    EventHub eh = new EventHub();
 
     public ParkourRace(String featurename, String d) {
         super(featurename, d);
@@ -63,17 +61,6 @@ public class ParkourRace extends FusionGame implements Events {
     @Override
     public void disable() {
         Disable.onDisable();
-    }
-
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            eh.onPlayerJoin((PlayerJoinEvent) event);
-        }
-    }
-
-    @Retrieval
-    public void onPlayerJoin() {
     }
 
     @Override

@@ -4,6 +4,7 @@ import net.estinet.gFeatures.Command.EstiCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
+import org.bukkit.event.Listener;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -30,19 +31,21 @@ https://github.com/EstiNet/gFeatures
 
 public class Enabler {
     public void onEnable() {
-        List<gFeature> features = gFeatures.getFeatures();
-        List<Extension> extensions = gFeatures.getExtensions();
-        for (gFeature feature : features) {
+        for (int i = 0; i < gFeatures.getFeatures().size(); i++) {
+            gFeature feature = gFeatures.getFeatures().get(i);
             if (feature.getState().equals(FeatureState.ENABLE)) {
                 try {
-                    Bukkit.getPluginManager().registerEvents(feature.getEventListener(), gFeatures.getPlugin());
+                    for (Listener l : feature.getEventListeners()) {
+                        Bukkit.getPluginManager().registerEvents(l, gFeatures.getPlugin());
+                    }
                     feature.enable();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        for (Extension extension : extensions) {
+        for (int i = 0; i < gFeatures.getExtensions().size(); i++) {
+            Extension extension = gFeatures.getExtensions().get(i);
             if (extension.getState().equals(FeatureState.ENABLE) && extension.getType().equals(ExtensionsType.Utility)) {
                 gUtility gu = (gUtility) extension;
                 gu.enable();

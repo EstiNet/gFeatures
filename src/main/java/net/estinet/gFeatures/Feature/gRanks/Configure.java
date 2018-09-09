@@ -28,6 +28,7 @@ public class Configure {
     @Configs
     public static void onSetup() {
         gRanks base = new gRanks("gRanks", "2.2.3");
+        base.addEventListener(new EventHub());
         gFeatures.addFeature(base);
 
         EstiCommand test = new EstiCommand("gRanks", "gRanks administrative commands.", "/gRanks help", "gFeatures.admin", base, true);

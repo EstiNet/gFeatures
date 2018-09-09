@@ -1,30 +1,7 @@
 package net.estinet.gFeatures.Feature.gHub;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerToggleFlightEvent;
-import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.event.weather.WeatherEvent;
-import org.bukkit.event.world.WorldLoadEvent;
-
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
+import org.bukkit.Location;
 
 /*
 gFeatures
@@ -45,11 +22,9 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class gHub extends gFeature implements Events {
+public class gHub extends gFeature {
     public static Location spawn;
     public static boolean fall = true;
-
-    EventHub eh = new EventHub();
 
     public gHub(String featurename, String d) {
         super(featurename, d);
@@ -67,108 +42,4 @@ public class gHub extends gFeature implements Events {
         d.onDisable();
     }
 
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            eh.onPlayerJoin((PlayerJoinEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerdropitemevent")) {
-            eh.onPlayerDrop((PlayerDropItemEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerinteractevent")) {
-            eh.onPlayerInteract((PlayerInteractEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("inventoryclickevent")) {
-            eh.onInventoryClick((InventoryClickEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playertoggleflightevent")) {
-            eh.onPlayerToggleFlight((PlayerToggleFlightEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playermoveevent")) {
-            eh.onPlayerMove((PlayerMoveEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerdropitemevent")) {
-            eh.onPlayerDrop((PlayerDropItemEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerinteractentityevent")) {
-            eh.onPlayerInteractEntity((PlayerInteractEntityEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("entitydamagebyentityevent")) {
-            eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
-            eh.onPlayerLeave((PlayerQuitEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("foodlevelchangeevent")) {
-            eh.onFoodLevelChange((FoodLevelChangeEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("entitydamageevent")) {
-            eh.onEntityDamage((EntityDamageEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("weatherchangeevent")) {
-            eh.onWeatherChange((WeatherChangeEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("inventoryinteractevent")) {
-            eh.onInventoryInteract((InventoryInteractEvent) event);
-        } else if (event.getEventName().equalsIgnoreCase("worldloadevent")) {
-            eh.onWorldLoad((WorldLoadEvent) event);
-        }
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerJoin() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerDrop() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerInteract() {
-    }
-
-    @Override
-    @Retrieval
-    public void onInventoryClick() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerToggleFlight() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerMove() {
-    }
-
-    @Override
-    @Retrieval
-    public void onFoodLevelChange() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerInteractEntity() {
-    }
-
-    @Override
-    @Retrieval
-    public void onEntityDamageByEntity() {
-    }
-
-    @Override
-    @Retrieval
-    public void onPlayerLeave() {
-    }
-
-    @Override
-    @Retrieval
-    public void onEntityDamage() {
-    }
-
-    @Override
-    @Retrieval
-    public void onWeatherChange() {
-    }
-
-    @Override
-    @Retrieval
-    public void onInventoryInteract() {
-    }
-
-    @Override
-    @Retrieval
-    public void onWorldLoad() {
-    }
 }

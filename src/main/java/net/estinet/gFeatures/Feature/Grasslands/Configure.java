@@ -26,6 +26,7 @@ public class Configure{
 	@Configs
 	public static void onSetup(){
 		Grasslands base = new Grasslands("Grasslands", "1.0.0");
+		base.addEventListener(new EventHub());
 		gFeatures.addFeature(base);
 	}
 }

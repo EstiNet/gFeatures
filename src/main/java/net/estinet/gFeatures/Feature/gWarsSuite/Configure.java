@@ -29,6 +29,7 @@ public class Configure {
 	@Configs
 	public static void onSetup(){
 		gWarsSuite base = new gWarsSuite("gWarsSuite", "3.8.3");
+		base.addEventListener(new EventHub());
 		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("gWarss", "gWarsSuite core command.", "/gWarss help", "gFeatures.admin", base, Arrays.asList("gw"), true);

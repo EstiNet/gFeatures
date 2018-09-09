@@ -28,6 +28,7 @@ public class Configure{
     @Configs
     public static void onSetup(){
         Gliders base = new Gliders("Gliders", "1.0.0");
+        base.addEventListener(new EventHub());
         gFeatures.addFeature(base);
 
         ClioteSky.addHook(new GetMGInfoClioteHook("getmginfo", base.getName()));

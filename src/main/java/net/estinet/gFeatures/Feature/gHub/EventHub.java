@@ -20,6 +20,8 @@ import org.bukkit.SkullType;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -57,7 +59,7 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub {
+public class EventHub implements Listener {
     static ItemStack navigator, additions, settings, friend;
     Stacker st = new Stacker();
 
@@ -71,6 +73,7 @@ public class EventHub {
         friend.setItemMeta(ims);
     }
 
+    @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         p.teleport(gHub.spawn);
@@ -98,10 +101,12 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerDrop(PlayerDropItemEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
             switch (event.getPlayer().getInventory().getItemInMainHand().getType()) {
@@ -129,6 +134,7 @@ public class EventHub {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onPlayerToggleFlight(PlayerToggleFlightEvent event) {
         Player player = event.getPlayer();
         if ((player.getGameMode() != GameMode.CREATIVE)) {
@@ -140,28 +146,34 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         event.getPlayer().setAllowFlight(true);
     }
 
+    @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onFoodLevelChange(FoodLevelChangeEvent event) {
         Player p = (Player) event.getEntity();
         p.setFoodLevel(20);
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onPlayerInteractEntity(PlayerInteractEntityEvent event) {
         st.onEntityInteract(event);
     }
 
+    @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getEntity().getType().equals(EntityType.ENDER_CRYSTAL)) {
             CrystalInteract ci = new CrystalInteract();
@@ -170,6 +182,7 @@ public class EventHub {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onWeatherChange(WeatherChangeEvent event) {
         boolean d = event.toWeatherState();
         if (d) {
@@ -177,6 +190,7 @@ public class EventHub {
         }
     }
 
+    @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         try {
             String prefixs = gRanks.getRankOfPlayer(event.getPlayer(), false).getPrefix();
@@ -200,10 +214,12 @@ public class EventHub {
         return item;
     }
 
+    @EventHandler
     public void onInventoryInteract(InventoryInteractEvent event) {
         event.setCancelled(true);
     }
 
+    @EventHandler
     public void onWorldLoad(WorldLoadEvent event) {
         Crystal c = new Crystal();
         c.initCrystal();

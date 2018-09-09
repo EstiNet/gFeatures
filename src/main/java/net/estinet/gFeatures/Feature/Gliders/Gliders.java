@@ -1,27 +1,8 @@
 package net.estinet.gFeatures.Feature.Gliders;
 
-import org.bukkit.Bukkit;
+import net.estinet.gFeatures.gFeature;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.Event;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-
-import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
-
-import net.estinet.gFeatures.Events;
-import net.estinet.gFeatures.Retrieval;
-import net.estinet.gFeatures.gFeature;
 
 /*
 gFeatures
@@ -42,9 +23,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class Gliders extends gFeature implements Events{
+public class Gliders extends gFeature {
 	
-	EventHub eh = new EventHub();
 	CommandHub ch = new CommandHub();
 	
 	public Gliders(String featurename, String d) {
@@ -58,87 +38,6 @@ public class Gliders extends gFeature implements Events{
 	public void disable(){
 		Disable.onDisable();
 	}
-	@Override
-	public void eventTrigger(Event event) {
-		if(event.getEventName().equalsIgnoreCase("playerquitevent")){
-			eh.onPlayerLeave((PlayerQuitEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("inventoryclickevent")){
-			eh.onOpenInventory((InventoryClickEvent)event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("EntityDamageByEntityEvent")){
-			eh.onEntityDamageByEntity((EntityDamageByEntityEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playermoveevent")){
-			//eh.onPlayerMove((PlayerMoveEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerjoinevent")){
-			eh.onPlayerJoin((PlayerJoinEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerdropitemevent")){
-			eh.onPlayerDrop((PlayerDropItemEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerpickupitemevent")){
-			eh.onPlayerPickup((PlayerPickupItemEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerinteractevent")){
-			eh.onPlayerInteract((PlayerInteractEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("playerdeathevent")){
-			eh.onPlayerDeath((PlayerDeathEvent) event); 
-		}
-		else if(event.getEventName().equalsIgnoreCase("weapondamageentityevent")){
-			eh.onWeaponDamageEntity((WeaponDamageEntityEvent) event); 
-		}
-		else if(event.getEventName().equalsIgnoreCase("foodlevelchangeevent")){
-			eh.onFoodLevelChange((FoodLevelChangeEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("entitydamageevent")){
-			eh.onEntityDamage((EntityDamageEvent) event);
-		}
-		else if(event.getEventName().equalsIgnoreCase("entityexplodeevent")){
-			eh.onEntityExplode((EntityExplodeEvent) event);
-		}
-	}
-	@Retrieval
-	@Override
-	public void onPlayerJoin(){}
-	@Retrieval
-	@Override
-	public void onPlayerLeave(){}
-	@Override
-	@Retrieval
-	public void onInventoryClick(){}
-	@Override
-	@Retrieval
-	public void onEntityDamageByEntity(){}
-	@Override
-	@Retrieval
-	public void onPlayerMove(){}
-	@Override
-	@Retrieval
-	public void onPlayerDrop(){}
-	@Override
-	@Retrieval
-	public void onPlayerInteract(){}
-	@Override
-	@Retrieval
-	public void onPlayerDeath(){}
-	@Override
-	@Retrieval
-	public void onWeaponDamageEntity(){}
-	@Override
-	@Retrieval
-	public void onFoodLevelChange(){}
-	@Override
-	@Retrieval
-	public void onPlayerRespawn(){}
-	@Override
-	@Retrieval
-	public void onEntityDamage(){}
-	@Override
-	@Retrieval
-	public void onEntityExplode(){}
 	@Override
 	public void commandTrigger(CommandSender sender, Command cmd, String label, String[] args) { 
 			ch.onCommand(sender, cmd, label, args);

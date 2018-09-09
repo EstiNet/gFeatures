@@ -1,7 +1,6 @@
 package net.estinet.gFeatures.Feature.FusionPlay;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Server.Spigot;
 import org.bukkit.WorldCreator;
 
 import net.estinet.gFeatures.Feature.FusionPlay.GameUtil.EnabledHandler;

@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.ParkourRace;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -25,12 +27,14 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		if(FusionPlay.currentGame.getFusionState().equals(FusionState.WAITING)){
 			ParkourRace.start.add(event.getPlayer().getUniqueId());
 		}
 	}
+	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event){
 		ParkourRace.start.remove(event.getPlayer().getUniqueId());
 		ParkourRace.checkpoint.remove(event.getPlayer().getUniqueId());

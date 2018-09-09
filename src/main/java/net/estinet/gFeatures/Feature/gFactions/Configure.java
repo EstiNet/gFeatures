@@ -26,7 +26,7 @@ public class Configure {
     @Configs
     public static void onSetup() {
         gFactions base = new gFactions("gFactions", "1.0.2");
-        base.setEventListener(new EventHub());
+        base.addEventListener(new EventHub());
         gFeatures.addFeature(base);
     }
 }

@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.gFactions;
 
 import net.estinet.gFeatures.gFeature;
+import net.estinet.gFeatures.gFeatures;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -24,8 +26,6 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class gFactions extends gFeature {
-    Listeners listeners = new Listeners();
-    Enable en = new Enable();
 
     public gFactions(String featurename, String d) {
         super(featurename, d);
@@ -33,12 +33,15 @@ public class gFactions extends gFeature {
 
     @Override
     public void enable() {
-        en.plzenable();
+        Bukkit.getLogger().info("gFactions initialized! Yay!");
+        gFeatures.addPlayerSection("gFactions", "");
+        gFeatures.addPlayerSection("gFactionsTier", "none");
+        gFeatures.addPlayerSection("gFactionsTierRank", "0");
     }
 
     @Override
     public void disable() {
-        listeners.onDisable();
+        Bukkit.getLogger().info("gFactions is now off! :(");
     }
 
     @Override

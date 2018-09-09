@@ -1,22 +1,18 @@
 package net.estinet.gFeatures.Feature.gScore;
 
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
-import net.estinet.gFeatures.Retrieval;
 import net.estinet.gFeatures.gFeature;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 /*
 gFeatures
@@ -56,21 +52,6 @@ public class gScore extends gFeature {
         Bukkit.getLogger().info("[gScore] Disabled! :(");
     }
 
-    @Override
-    public void eventTrigger(Event event) {
-        if (event.getEventName().equalsIgnoreCase("playerjoinevent")) {
-            PlayerJoinEvent es = (PlayerJoinEvent) event;
-            gScore.people.add(es.getPlayer().getUniqueId());
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                gScore.updateScores();
-                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee"), 40L);
-            }, 40L);
-        } else if (event.getEventName().equalsIgnoreCase("playerquitevent")) {
-            gScore.people.remove(((PlayerQuitEvent) event).getPlayer().getUniqueId());
-            updateScores();
-        }
-    }
-
     public static void updateScores() {
         if (!currentlyUpdating) {
             currentlyUpdating = true;
@@ -91,11 +72,18 @@ public class gScore extends gFeature {
         }
     }
 
-    @Retrieval
-    public void onPlayerJoin() {
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        gScore.people.add(event.getPlayer().getUniqueId());
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+            gScore.updateScores();
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee"), 40L);
+        }, 40L);
     }
 
-    @Retrieval
-    public void onPlayerLeave() {
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent event) {
+        gScore.people.remove(event.getPlayer().getUniqueId());
+        updateScores();
     }
 }

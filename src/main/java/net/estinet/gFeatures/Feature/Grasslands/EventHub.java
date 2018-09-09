@@ -3,6 +3,8 @@ package net.estinet.gFeatures.Feature.Grasslands;
 import net.estinet.gFeatures.Feature.Grasslands.Scoreboard.Countdown;
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -25,7 +27,8 @@ https://github.com/EstiNet/gFeatures
    limitations under the License.
 */
 
-public class EventHub{
+public class EventHub implements Listener {
+	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event){
 		Enable.grasslands.addPlayer(event.getPlayer());
 		Countdown cd = new Countdown();
@@ -36,6 +39,7 @@ public class EventHub{
 			gs.check();
 		}
 	}
+	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent event){
 		if(Basis.mode.equals(GrasslandsMode.Counting)){
 			if(Bukkit.getOnlinePlayers().size() == 2){
