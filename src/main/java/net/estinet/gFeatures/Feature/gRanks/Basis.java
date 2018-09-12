@@ -39,7 +39,6 @@ https://github.com/EstiNet/gFeatures
 
 public class Basis {
 
-    public static boolean queued = false;
     private static List<Rank> ranks = new ArrayList<>();
 
     public static List<Rank> getRanks() {
@@ -92,7 +91,7 @@ public class Basis {
         Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
 
             PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms()) {
+            for (String perm : gRanks.getRankOfPlayer(p, true).getPerms()) {
                 if (perm.equals("'*'")) {
                     Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(true));
                 } else {
@@ -107,7 +106,7 @@ public class Basis {
             for (OfflinePlayer op : Bukkit.getOperators()) {
                 gRanks.oplist.add(op.getUniqueId());
             }
-            if (!Basis.getRank(gRanks.getRankOfPlayerSQL(p.getUniqueId().toString())).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
+            if (!gRanks.getRankOfPlayer(p, true).getPerms().contains("'*'") && !gRanks.oplist.contains(p.getUniqueId())) {
                 Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(false));
             }
             gRanks.updatePrefix(p);

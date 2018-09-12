@@ -239,7 +239,7 @@ public class gRanks extends gFeature {
     public static List<String> getPermsFile(File f) throws IOException {
         List<String> perms = Files.readAllLines(Paths.get(f.getPath()), StandardCharsets.UTF_8);
         for (int i = 0; i < perms.size(); i++) {
-            perms.set(i, perms.get(i).replace("\r", ""));
+            perms.set(i, perms.get(i).replace("\r", "").trim());
             if (perms.get(i).equals("")) {
                 if (i != 0) i--;
                 perms.remove(i);

@@ -11,6 +11,7 @@ import net.estinet.gFeatures.Feature.gRanks.Basis;
 import net.estinet.gFeatures.Feature.gRanks.Rank;
 
 import net.estinet.gFeatures.Feature.gRanks.gRanks;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -50,6 +51,9 @@ public class ThreeArg {
                 }
                 Rank rank = Basis.getRank(args[2]);
                 gRanks.setRank(rank, response.get(args[1]).toString());
+                if (Bukkit.getPlayer(response.get(args[1])) != null) {
+                    Basis.setPlayerPerms(Bukkit.getPlayer(response.get(args[1])));
+                }
                 sender.sendMessage(ChatColor.GRAY + "[gRanks] Set " + args[1] + "'s rank to " + args[2] + ".");
                 if (gRanks.cliotesky) {
                     ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("update " + args[1] + " " + args[2]), "granks", "all");

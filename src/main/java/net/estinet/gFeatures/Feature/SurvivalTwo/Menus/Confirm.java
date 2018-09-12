@@ -3,8 +3,10 @@ package net.estinet.gFeatures.Feature.SurvivalTwo.Menus;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.Feature.SurvivalTwo.SurvivalTwo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -45,13 +47,15 @@ public class Confirm {
                     if (EssentialsEcoUtil.getMoney(p.getUniqueId()) >= Double.parseDouble(price)) {
                         Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "eco take " + p.getName() + " " + Double.parseDouble(price));
                         if (p.getInventory().firstEmpty() == -1) {
-                            p.getWorld().dropItem(p.getLocation(), createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
+                            Location l = p.getLocation();
+                            l.add(0, 1, 0);
+                            p.getWorld().dropItem(l, createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
                         } else {
                             p.getInventory().addItem(createItem(give, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
                         }
-                        p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You got a protection stone!");
+                        p.sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You got a protection stone!");
                     } else {
-                        p.sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You don't have enough money!");
+                        p.sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You don't have enough money!");
                     }
                 } else if (event.getPosition() >= 5 && event.getPosition() <= 8) {
                     Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {

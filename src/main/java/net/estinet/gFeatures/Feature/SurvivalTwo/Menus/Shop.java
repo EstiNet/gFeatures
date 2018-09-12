@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.SurvivalTwo.Menus;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.estinet.gFeatures.Feature.SurvivalTwo.SurvivalTwo;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -61,9 +62,9 @@ public class Shop {
                 event.setWillDestroy(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
 
-            menu.setOption(0, createItem(Material.COMMAND_BLOCK, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
-            menu.setOption(1, createItem(Material.CHAIN_COMMAND_BLOCK, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300"));
-            menu.setOption(2, createItem(Material.REPEATING_COMMAND_BLOCK, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->", ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500"));
+            menu.setOption(0, createItem(Material.COMMAND_BLOCK, SurvivalTwo.PROTECT32, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
+            menu.setOption(1, createItem(Material.CHAIN_COMMAND_BLOCK, SurvivalTwo.PROTECT64, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300"));
+            menu.setOption(2, createItem(Material.REPEATING_COMMAND_BLOCK, SurvivalTwo.PROTECT128, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500"));
 
             return menu;
         } catch (Exception e) {

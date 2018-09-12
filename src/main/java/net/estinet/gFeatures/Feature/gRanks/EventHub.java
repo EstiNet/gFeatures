@@ -1,14 +1,12 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
-import net.estinet.gFeatures.Feature.gRanks.Events.StartupTask;
-
+import net.estinet.gFeatures.gFeatures;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 /*
 gFeatures
@@ -33,29 +31,35 @@ public class EventHub implements Listener {
 
     @EventHandler
     public static void onPlayerJoin(PlayerJoinEvent event) {
-        Basis.queued = true;
-        for (OfflinePlayer op : Bukkit.getOperators()) {
-            gRanks.oplist.add(op.getUniqueId());
-        }
+        Player p = event.getPlayer();
         try {
-            StartupTask st = new StartupTask();
-            st.init(event, 0);
+            if (!Basis.hasRank(p)) {
+                gRanks.setRank(Basis.getRank("Default"), p);
+            }
+            Bukkit.getLogger().info(gRanks.getRankOfPlayer(p, true).getName());
+            Basis.setPlayerPerms(event.getPlayer());
+            Bukkit.getScheduler().runTaskAsynchronously(gFeatures.getPlugin(), () -> {
+                try {
+                    SQLConnect.Connect("INSERT INTO People(UUID, Rank)\n" +
+                            "SELECT * FROM (SELECT '" + event.getPlayer().getUniqueId().toString() + "', 'Default') AS tmp\n" +
+                            "WHERE NOT EXISTS (\n" +
+                            "SELECT UUID FROM People WHERE UUID = '" + event.getPlayer().getUniqueId().toString() + "'\n" +
+                            ") LIMIT 1;\n"
+                    );
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> Basis.queued = false, 10);
     }
 
     @EventHandler
     public static void onPlayerChat(AsyncPlayerChatEvent event) {
         String prefix = gRanks.prefixes.getOrDefault(event.getPlayer().getUniqueId(), "");
-        if (!prefix.equals("")) event.getPlayer().setDisplayName(prefix);
-    }
-
-    @EventHandler
-    public static void onPlayerLeave(PlayerQuitEvent event) {
-        if (Basis.queued) {
-            Bukkit.getScheduler().runTaskLaterAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> onPlayerLeave(event), 10);
+        if (!prefix.equals("")) {
+            event.getPlayer().setDisplayName(prefix);
         }
     }
 }

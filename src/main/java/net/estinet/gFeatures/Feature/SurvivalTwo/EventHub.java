@@ -53,8 +53,9 @@ https://github.com/EstiNet/gFeatures
 public class EventHub implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (Listeners.debug)
+        if (Listeners.debug) {
             Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
+        }
         if (!event.getPlayer().hasPlayedBefore() || !new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists()) {
             event.getPlayer().performCommand("rc");
         }
@@ -104,7 +105,6 @@ public class EventHub implements Listener {
         }
     }
 
-    @EventHandler
     public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand) {
         Block b = getPlaceBlock(event.getBlockFace(), block);
         Debug.print("[SurvivalTwo] Placing command block.");
@@ -125,35 +125,33 @@ public class EventHub implements Listener {
                     BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
                     Bukkit.getServer().getPluginManager().callEvent(bpe);
                     SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                        public void run() {
-                            if (bpe.isCancelled()) {
-                                Debug.print("[SurvivalTwo] Event cancelled.");
-                                String name = "";
-                                if (material.equals(Material.COMMAND_BLOCK)) {
-                                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                                } else if (material.equals(Material.CHAIN_COMMAND_BLOCK)) {
-                                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                                } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
-                                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                                }
-                                b.setType(type);
-                                event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                                event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
-                            } else {
-                                YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                                if (!yamlFile.contains(block.getX() + "." + block.getY() + "." + block.getZ())) {
-                                    yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
-                                }
-                                yamlFile.set(block.getX() + "." + (block.getY() + 1) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
-                                try {
-                                    yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                Debug.print("[SurvivalTwo] Event not cancelled.");
-                                event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        if (bpe.isCancelled()) {
+                            Debug.print("[SurvivalTwo] Event cancelled.");
+                            String name = "";
+                            if (material.equals(Material.COMMAND_BLOCK)) {
+                                name = SurvivalTwo.PROTECT32;
+                            } else if (material.equals(Material.CHAIN_COMMAND_BLOCK)) {
+                                name = SurvivalTwo.PROTECT64;
+                            } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
+                                name = SurvivalTwo.PROTECT128;
                             }
+                            b.setType(type);
+                            event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
+                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
+                        } else {
+                            YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+                            if (!yamlFile.contains(block.getX() + "." + block.getY() + "." + block.getZ())) {
+                                yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
+                            }
+                            yamlFile.set(block.getX() + "." + (block.getY() + 1) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
+                            try {
+                                yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Debug.print("[SurvivalTwo] Event not cancelled.");
+                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
                         }
                     }, 1L);
                     Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId()), 10L);
@@ -171,17 +169,10 @@ public class EventHub implements Listener {
                     Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
                         if (bpe.isCancelled()) {
                             Debug.print("[SurvivalTwo] Event cancelled.");
-                            String name = "";
-                            if (material.equals(Material.COMMAND_BLOCK)) {
-                                name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                            } else if (material.equals(Material.CHAIN_COMMAND_BLOCK)) {
-                                name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                            } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
-                                name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                            }
+                            String name = getCommandBlockName(material);
                             b.setType(type);
                             event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                            event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
+                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
                         } else {
                             YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
                             if (!yamlFile.contains(block.getX() + "." + block.getY() + "." + block.getZ())) {
@@ -194,14 +185,10 @@ public class EventHub implements Listener {
                                 e.printStackTrace();
                             }
                             Debug.print("[SurvivalTwo] Event not cancelled.");
-                            event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've placed a protection stone.");
+                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
                         }
                     }, 5L);
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-                        public void run() {
-                            SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId());
-                        }
-                    }, 10L);
+                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId()), 10L);
                 }
             }
         }
@@ -230,7 +217,7 @@ public class EventHub implements Listener {
         try {
             Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
             if (!yamlFile.get(block.getX() + "." + block.getY() + "." + block.getZ()).equals(event.getPlayer().getUniqueId().toString()) && !event.getPlayer().hasPermission("gFeatures.admin")) {
-                event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "This isn't your protection stone!");
+                event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "This isn't your protection stone!");
             } else {
                 yamlFile.set(block.getX() + "." + block.getY() + "." + block.getZ(), null);
                 try {
@@ -239,15 +226,8 @@ public class EventHub implements Listener {
                     e.printStackTrace();
                 }
                 BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
-                event.getPlayer().sendMessage(ChatColor.BOLD + "[" + ChatColor.DARK_AQUA + "Esti" + ChatColor.GOLD + "Net" + ChatColor.RESET + "" + ChatColor.BOLD + "] " + ChatColor.RESET + "" + ChatColor.AQUA + "You've removed your protection stone.");
-                String name = "";
-                if (material.equals(Material.COMMAND_BLOCK)) {
-                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.DARK_AQUA + "32x32 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                } else if (material.equals(Material.CHAIN_COMMAND_BLOCK)) {
-                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GREEN + "64x64 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
-                    name = ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->";
-                }
+                event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've removed your protection stone.");
+                String name = getCommandBlockName(material);
                 ItemStack is = createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!");
 
                 if (event.getPlayer().getInventory().firstEmpty() == -1) {
@@ -262,6 +242,17 @@ public class EventHub implements Listener {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static String getCommandBlockName(Material m) {
+        if (m.equals(Material.COMMAND_BLOCK)) {
+            return SurvivalTwo.PROTECT32;
+        } else if (m.equals(Material.CHAIN_COMMAND_BLOCK)) {
+            return SurvivalTwo.PROTECT64;
+        } else if (m.equals(Material.REPEATING_COMMAND_BLOCK)) {
+            return SurvivalTwo.PROTECT128;
+        }
+        return SurvivalTwo.PROTECT32;
     }
 
     public ItemStack createItem(Material material, String name, String... lore) {
