@@ -146,22 +146,6 @@ public class EventHub implements Listener {
 
     public Block getPlaceBlock(BlockFace bf, Block block) {
         return block.getWorld().getBlockAt(block.getX() + bf.getModX(), block.getY() + bf.getModY(), block.getZ() + bf.getModZ());
-        /*if (bf.equals(BlockFace.DOWN)) {
-            return block.getWorld().getBlockAt(block.getX(), block.getY() - 1, block.getZ());
-        } else if (bf.equals(BlockFace.UP)) {
-            return block.getWorld().getBlockAt(block.getX(), block.getY() + 1, block.getZ());
-        } else if (bf.equals(BlockFace.EAST)) {
-            return block.getWorld().getBlockAt(block.getX() - 1, block.getY(), block.getZ());
-        } else if (bf.equals(BlockFace.WEST)) {
-            return block.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ());
-        } else if (bf.equals(BlockFace.NORTH)) {
-            return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ() - 1);
-        } else if (bf.equals(BlockFace.SOUTH)) {
-            return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ() + 1);
-        } else {
-            Bukkit.getLogger().info("NO");
-            return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ());
-        }*/
     }
 
     public void removeBlock(PlayerInteractEvent event, Material material, Block block) {
