@@ -36,7 +36,6 @@ public class EventHub implements Listener {
             if (!Basis.hasRank(p)) {
                 gRanks.setRank(Basis.getRank("Default"), p);
             }
-            Bukkit.getLogger().info(gRanks.getRankOfPlayer(p, true).getName());
             Basis.setPlayerPerms(event.getPlayer());
             Bukkit.getScheduler().runTaskAsynchronously(gFeatures.getPlugin(), () -> {
                 try {

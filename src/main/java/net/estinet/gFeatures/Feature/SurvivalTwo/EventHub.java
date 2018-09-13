@@ -91,21 +91,15 @@ public class EventHub implements Listener {
         } else if (event.getAction().equals(Action.LEFT_CLICK_BLOCK) && block.getType().equals(Material.REPEATING_COMMAND_BLOCK)) {
             removeBlock(event, Material.REPEATING_COMMAND_BLOCK, block);
         } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.COMMAND_BLOCK)) {
-            placeBlock(event, Material.COMMAND_BLOCK, block, true);
-        } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.COMMAND_BLOCK)) {
-            placeBlock(event, Material.COMMAND_BLOCK, block, false);
+            placeBlock(event, Material.COMMAND_BLOCK, block);
         } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.CHAIN_COMMAND_BLOCK)) {
-            placeBlock(event, Material.CHAIN_COMMAND_BLOCK, block, true);
-        } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.CHAIN_COMMAND_BLOCK)) {
-            placeBlock(event, Material.CHAIN_COMMAND_BLOCK, block, false);
+            placeBlock(event, Material.CHAIN_COMMAND_BLOCK, block);
         } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.REPEATING_COMMAND_BLOCK)) {
-            placeBlock(event, Material.REPEATING_COMMAND_BLOCK, block, true);
-        } else if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.REPEATING_COMMAND_BLOCK)) {
-            placeBlock(event, Material.REPEATING_COMMAND_BLOCK, block, false);
+            placeBlock(event, Material.REPEATING_COMMAND_BLOCK, block);
         }
     }
 
-    public void placeBlock(PlayerInteractEvent event, Material material, Block block, boolean hand) {
+    public void placeBlock(PlayerInteractEvent event, Material material, Block block) {
         Block b = getPlaceBlock(event.getBlockFace(), block);
         Debug.print("[SurvivalTwo] Placing command block.");
         if (!SurvivalTwo.playerPlace.contains(event.getPlayer().getUniqueId())) {
@@ -114,102 +108,60 @@ public class EventHub implements Listener {
                 Debug.print("[SurvivalTwo] Passed AIR block and WATER check.");
                 Material type = b.getType();
                 b.setType(material);
-                if (hand) {
-                    Debug.print("[SurvivalTwo] Main Hand.");
-                    int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
-                    if (amount == 1) {
-                        event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-                    } else {
-                        event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount - 1));
-                    }
-                    BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
-                    Bukkit.getServer().getPluginManager().callEvent(bpe);
-                    SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                        if (bpe.isCancelled()) {
-                            Debug.print("[SurvivalTwo] Event cancelled.");
-                            String name = "";
-                            if (material.equals(Material.COMMAND_BLOCK)) {
-                                name = SurvivalTwo.PROTECT32;
-                            } else if (material.equals(Material.CHAIN_COMMAND_BLOCK)) {
-                                name = SurvivalTwo.PROTECT64;
-                            } else if (material.equals(Material.REPEATING_COMMAND_BLOCK)) {
-                                name = SurvivalTwo.PROTECT128;
-                            }
-                            b.setType(type);
-                            event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
-                        } else {
-                            YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                            if (!yamlFile.contains(block.getX() + "." + block.getY() + "." + block.getZ())) {
-                                yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
-                            }
-                            yamlFile.set(block.getX() + "." + (block.getY() + 1) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
-                            try {
-                                yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            Debug.print("[SurvivalTwo] Event not cancelled.");
-                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
-                        }
-                    }, 1L);
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId()), 10L);
+                int amount = event.getPlayer().getInventory().getItemInMainHand().getAmount();
+                if (amount == 1) {
+                    event.getPlayer().getInventory().setItemInMainHand(new ItemStack(Material.AIR));
                 } else {
-                    Debug.print("[SurvivalTwo] Off hand.");
-                    int amount = event.getPlayer().getInventory().getItemInOffHand().getAmount();
-                    if (amount == 1) {
-                        event.getPlayer().getInventory().setItemInOffHand(new ItemStack(Material.AIR));
-                    } else {
-                        event.getPlayer().getInventory().setItemInOffHand(new ItemStack(material, amount - 1));
-                    }
-                    BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInOffHand(), event.getPlayer(), true, EquipmentSlot.OFF_HAND);
-                    Bukkit.getServer().getPluginManager().callEvent(bpe);
-                    SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
-                        if (bpe.isCancelled()) {
-                            Debug.print("[SurvivalTwo] Event cancelled.");
-                            String name = getCommandBlockName(material);
-                            b.setType(type);
-                            event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
-                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
-                        } else {
-                            YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                            if (!yamlFile.contains(block.getX() + "." + block.getY() + "." + block.getZ())) {
-                                yamlFile.createSection(block.getX() + "." + block.getY() + "." + block.getZ());
-                            }
-                            yamlFile.set(block.getX() + "." + (block.getY()) + "." + block.getZ(), event.getPlayer().getUniqueId().toString());
-                            try {
-                                yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            Debug.print("[SurvivalTwo] Event not cancelled.");
-                            event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
-                        }
-                    }, 5L);
-                    Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId()), 10L);
+                    event.getPlayer().getInventory().setItemInMainHand(new ItemStack(material, amount - 1));
                 }
+                BlockPlaceEvent bpe = new BlockPlaceEvent(b, b.getState(), block, event.getPlayer().getInventory().getItemInMainHand(), event.getPlayer(), true, EquipmentSlot.HAND);
+                Bukkit.getServer().getPluginManager().callEvent(bpe);
+                SurvivalTwo.playerPlace.add(event.getPlayer().getUniqueId());
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                    if (bpe.isCancelled()) {
+                        Debug.print("[SurvivalTwo] Event cancelled.");
+                        String name = getCommandBlockName(material);
+                        b.setType(type);
+                        event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
+                        event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
+                    } else {
+                        YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+                        if (!yamlFile.contains(b.getX() + "." + b.getY() + "." + b.getZ())) {
+                            yamlFile.createSection(b.getX() + "." + b.getY() + "." + b.getZ());
+                        }
+                        yamlFile.set(b.getX() + "." + b.getY() + "." + b.getZ(), event.getPlayer().getUniqueId().toString());
+                        try {
+                            yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        Debug.print("[SurvivalTwo] Event not cancelled.");
+                        event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
+                    }
+                }, 1L);
+                Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> SurvivalTwo.playerPlace.remove(event.getPlayer().getUniqueId()), 10L);
             }
         }
     }
 
     public Block getPlaceBlock(BlockFace bf, Block block) {
-        if (bf.equals(BlockFace.DOWN)) {
+        return block.getWorld().getBlockAt(block.getX() + bf.getModX(), block.getY() + bf.getModY(), block.getZ() + bf.getModZ());
+        /*if (bf.equals(BlockFace.DOWN)) {
             return block.getWorld().getBlockAt(block.getX(), block.getY() - 1, block.getZ());
         } else if (bf.equals(BlockFace.UP)) {
             return block.getWorld().getBlockAt(block.getX(), block.getY() + 1, block.getZ());
         } else if (bf.equals(BlockFace.EAST)) {
-            return block.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ());
-        } else if (bf.equals(BlockFace.WEST)) {
             return block.getWorld().getBlockAt(block.getX() - 1, block.getY(), block.getZ());
+        } else if (bf.equals(BlockFace.WEST)) {
+            return block.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ());
         } else if (bf.equals(BlockFace.NORTH)) {
             return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ() - 1);
         } else if (bf.equals(BlockFace.SOUTH)) {
             return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ() + 1);
         } else {
+            Bukkit.getLogger().info("NO");
             return block.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ());
-        }
+        }*/
     }
 
     public void removeBlock(PlayerInteractEvent event, Material material, Block block) {
@@ -235,6 +187,7 @@ public class EventHub implements Listener {
                 } else {
                     event.getPlayer().getInventory().addItem(is);
                 }
+                block.setType(Material.AIR);
                 Bukkit.getServer().getPluginManager().callEvent(blockevent);
             }
         } catch (NullPointerException e) {

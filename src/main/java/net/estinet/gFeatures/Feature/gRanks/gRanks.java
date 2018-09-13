@@ -52,12 +52,22 @@ public class gRanks extends gFeature {
 
     @Override
     public void enable() {
-        Enable.onEnable();
+        Bukkit.getLogger().info("[gRanks] Plugin enabled!");
+        ConfigHub.setupConfig();
+        SQLConnect.checkOnline(gRanks.url, gRanks.username, gRanks.password);
+        SQLConnect.Connect("CREATE TABLE IF NOT EXISTS People(id MEDIUMINT NOT NULL AUTO_INCREMENT, UUID VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+        SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Ranks(id MEDIUMINT NOT NULL AUTO_INCREMENT, Name VARCHAR(200), Prefix VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+        SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Perms(id MEDIUMINT NOT NULL AUTO_INCREMENT, Perm VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+        SQLConnect.Connect("CREATE TABLE IF NOT EXISTS Inherits(id MEDIUMINT NOT NULL AUTO_INCREMENT, Inherit VARCHAR(200), Rank VARCHAR(200), PRIMARY KEY (id))  ENGINE=InnoDB;");
+
+        Basis.initializeQuery(false);
+        for (Rank rank : Basis.getRanks()) Bukkit.getLogger().info("[gRanks] Adding rank " + rank.getName() + " with prefix of " + rank.getPrefix());
+        if (!gRanks.cliotesky) LoopCheck.start();
     }
 
     @Override
     public void disable() {
-        Disable.onDisable();
+        Bukkit.getLogger().info("[gRanks] Plugin Disabled!");
     }
 
     @Override
