@@ -148,7 +148,7 @@ public class EventHub implements Listener {
         return block.getWorld().getBlockAt(block.getX() + bf.getModX(), block.getY() + bf.getModY(), block.getZ() + bf.getModZ());
     }
 
-    public void removeBlock(PlayerInteractEvent event, Material material, Block block) {
+    public void removeBlock(PlayerInteractEvent event, Material material, Block block) { //TODO let plugin try and prevent breaking it
         YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
         try {
             Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
@@ -161,10 +161,13 @@ public class EventHub implements Listener {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
                 event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've removed your protection stone.");
                 String name = getCommandBlockName(material);
                 ItemStack is = createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!");
+
+                Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "region remove ps"+block.getX()+"x"+block.getY()+"y"+block.getZ()+"z -w " +event.getPlayer().getLocation().getWorld().getName());
 
                 if (event.getPlayer().getInventory().firstEmpty() == -1) {
                     block.getWorld().dropItem(block.getLocation(), is);
