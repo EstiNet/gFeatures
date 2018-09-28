@@ -58,6 +58,11 @@ public class Shop {
                         confirm.init(p, "2500", Material.REPEATING_COMMAND_BLOCK, ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "<---" + ChatColor.RESET + ChatColor.GOLD + "128x128 Protection Stone" + ChatColor.RESET + ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "--->");
                     }, 5L);
                 }
+                else if (event.getPosition() == 8) {
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
+                        p.performCommand("vote shop");
+                    }, 5L);
+                }
                 event.setWillClose(true);
                 event.setWillDestroy(true);
             }, Bukkit.getServer().getPluginManager().getPlugin("gFeatures"));
@@ -65,6 +70,7 @@ public class Shop {
             menu.setOption(0, createItem(Material.COMMAND_BLOCK, SurvivalTwo.PROTECT32, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$500"));
             menu.setOption(1, createItem(Material.CHAIN_COMMAND_BLOCK, SurvivalTwo.PROTECT64, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$1300"));
             menu.setOption(2, createItem(Material.REPEATING_COMMAND_BLOCK, SurvivalTwo.PROTECT128, ChatColor.GRAY + "Price: " + ChatColor.LIGHT_PURPLE + "$2500"));
+            menu.setOption(8, createItem(Material.CHEST, ChatColor.WHITE + "" + ChatColor.BOLD + "Vote Rewards Shop", ChatColor.GRAY + "Buy items from voting points!"));
 
             return menu;
         } catch (Exception e) {
