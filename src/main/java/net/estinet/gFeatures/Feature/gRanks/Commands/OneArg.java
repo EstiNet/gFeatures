@@ -37,6 +37,7 @@ public class OneArg {
 			sender.sendMessage(ChatColor.GRAY + "/gRanks help - Shows the help page.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks get [Player] - Gets the rank of a player.");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks set [Player] [Rank Name] - Sets the rank of a player.");
+			sender.sendMessage(ChatColor.GRAY + "/gRanks haspermission [Rank] [Perm] - Checks if rank has a permission");
 			sender.sendMessage(ChatColor.GRAY + "/gRanks create [Rank Name] [Rank Prefix]");
 //			sender.sendMessage(ChatColor.GRAY + "/gRanks setprefix [Rank Name] [Rank Prefix]"); TODO
 			sender.sendMessage(ChatColor.GRAY + "/gRanks delete [Rank Name]");

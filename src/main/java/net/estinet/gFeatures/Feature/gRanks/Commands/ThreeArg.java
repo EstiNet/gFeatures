@@ -67,6 +67,18 @@ public class ThreeArg {
             if (gRanks.cliotesky) {
                 ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("sync"), "granks", "all");
             }
+        } else if (args[0].equalsIgnoreCase("haspermission")) {
+            Rank rank = Basis.getRank(args[1]);
+            if (rank != null) {
+                for (String perm : rank.getPerms()) {
+                    if (perm.contains(args[2])) {
+                        sender.sendMessage(ChatColor.GRAY + rank.getName() + " has permission " + perm);
+                        return;
+                    }
+                }
+                sender.sendMessage(ChatColor.GRAY + rank.getName() + " does not have permission " + args[2]);
+            }
+            sender.sendMessage(ChatColor.GRAY + "Rank not found.");
         } else {
             sender.sendMessage(ChatColor.GRAY + "[gRanks] Please do /gRanks help.");
         }

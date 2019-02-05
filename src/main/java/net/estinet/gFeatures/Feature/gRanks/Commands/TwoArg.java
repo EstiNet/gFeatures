@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
+import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.API.MojangAPI.UUIDFetcher;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.gRanks.Basis;
@@ -63,8 +64,10 @@ public class TwoArg {
             try {
                 Rank rank = Basis.getRank(args[1]);
                 sender.sendMessage(ChatColor.GRAY + "Permissions for " + args[1]);
+                Debug.print("Permissions for " + args[1]);
                 for (String perm : rank.getPerms()) {
                     sender.sendMessage(ChatColor.GRAY + "- " + perm);
+                    Debug.print("- " + perm);
                 }
             } catch (Exception e) {
                 sender.sendMessage(ChatColor.RED + "[gRanks] Error with your input. Please try again!");
