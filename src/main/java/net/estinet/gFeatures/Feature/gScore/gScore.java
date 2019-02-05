@@ -74,7 +74,7 @@ public class gScore extends gFeature {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        gScore.people.add(event.getPlayer().getUniqueId());
+        if (!gScore.people.contains(event.getPlayer().getUniqueId()) gScore.people.add(event.getPlayer().getUniqueId());
         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             gScore.updateScores();
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> ClioteSky.getInstance().sendAsync(ClioteSky.stringToBytes("online"), "info", "Bungee"), 40L);
@@ -83,7 +83,6 @@ public class gScore extends gFeature {
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
-        gScore.people.remove(event.getPlayer().getUniqueId());
         updateScores();
     }
 }

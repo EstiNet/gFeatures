@@ -60,7 +60,7 @@ public class Scored {
 		score11.setScore(5);
 		Score score8 = objective.getScore(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Random Word");
 		score8.setScore(4);
-		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "Dude!", "EstiNet!", "Hi!", "wuzzup ¯\\_(ツ)_/¯", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "Play!", "toes"};
+		String[] str = {"Awesome!", "Epic!", "Amazing!", "Cool!", "I caz spll", "ya!", "EstiNet!", "Hi!", "wuzzup ¯\\_(ツ)_/¯", "Oink." , "Beep!", "Welcome!", "Yo.", "LOL!", "wut", "huh!", "toes"};
 		Score score9 = objective.getScore(ChatColor.GRAY + str[(int) Math.floor(Math.random() * 17)]);
 		score9.setScore(3);
 		Score score100 = objective.getScore("   ");

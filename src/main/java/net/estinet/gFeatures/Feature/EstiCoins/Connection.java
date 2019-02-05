@@ -29,68 +29,46 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Connection {
-	public static void connect(String url, String user, String password, String query){
-		java.sql.Connection con = null;
-        java.sql.Statement st = null;
-        ResultSet rs = null;
-        try {
-            con = DriverManager.getConnection(url, user, password);
-            st = con.createStatement();
-            st.executeUpdate(query);
-        } catch (SQLException ex) {
-            Debug.print(ex.getMessage());
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException ex) {
-                Debug.print(ex.getMessage());
-            }
-        }
-	}
-	public static List<String> connectReturn(String url, String user, String password, String query){
-		List<String> array = new ArrayList<>();
-		java.sql.Connection con = null;
-        java.sql.Statement st = null;
-        ResultSet rs = null;
-        ResultSet result = null;
-        try {
-            con = DriverManager.getConnection(url, user, password);
-            st = con.createStatement();
-            result = st.executeQuery(query);
-            result.beforeFirst();
-            for(; !result.isLast();){
-            result.next();
-            array.add(result.getString(1));
-            array.add(result.getString(2));
-            }
-            return array;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
+	private static ResultSet doSQLQuery(String url, String user, String password, String query, boolean printError, boolean wantReturn) {
+		try {
+			java.sql.Connection con = DriverManager.getConnection(url, user, password);
+			java.sql.Statement st = con.createStatement();
+			ResultSet rs = null;
+			if (wantReturn) {
+				rs = st.executeQuery(query);
+			} else {
+				st.executeUpdate(query);
+			}
+			rs.close();
+			st.close();
+			con.close();
+			return rs;
+		} catch (SQLException ex) {
+			if (!printError) Debug.print(ex.getMessage());
+			else {
+				Bukkit.getLogger().info("Aww... Unable to connect to MySQL Server " + url);
+            			Bukkit.getLogger().info("Make sure you check if the port is correct!");	
+				ex.printStackTrace();			
+			}
+		}
 		return null;
 	}
+	public static void connect(String url, String user, String password, String query) {
+		doSQLQuery(url, user, password, query, false, false);
+	}
+	public static List<String> connectReturn(String url, String user, String password, String query){
+		ResultSet result = doSQLQuery(url, user, password, query, false, true);
+		if (result == null) return null;
+		List<String> ret = new ArrayList<>();
+		result.beforeFirst();
+		while(!result.isLast()) {
+            		result.next();
+            		array.add(result.getString(1));
+            		array.add(result.getString(2));
+            	}
+		return array;
+	}
+
 	public static boolean checkOnline(String url, String user, String password){
 		java.sql.Connection con = null;
         java.sql.Statement st = null;
