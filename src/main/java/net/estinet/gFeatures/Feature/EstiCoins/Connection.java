@@ -39,7 +39,7 @@ public class Connection {
             } else {
                 st.executeUpdate(query);
             }
-            rs.close();
+            if (rs != null) rs.close();
             st.close();
             con.close();
             return rs;

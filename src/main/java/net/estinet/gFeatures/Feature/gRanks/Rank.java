@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -25,9 +26,9 @@ https://github.com/EstiNet/gFeatures
 public class Rank {
     private String name, prefix;
     private List<String> people = new ArrayList<>();
-    private List<String> perms = new ArrayList<>();
-    private List<Rank> inherits = new ArrayList<>();
-    private List<Rank> inheriteds = new ArrayList<>();
+    HashSet<String> perms = new HashSet<>();
+    private List<Rank> inherits = new ArrayList<>(); // parents
+    private List<Rank> inheriteds = new ArrayList<>(); // children
 
     public Rank(String name, String prefix) {
         this.name = name;
@@ -47,7 +48,7 @@ public class Rank {
     }
 
     public void addPerm(String perm) {
-        if (!perm.equals("") && !perms.contains(perm)) {
+        if (!perm.equals("")) {
             perms.add(perm);
         }
     }
@@ -94,14 +95,7 @@ public class Rank {
         }
     }
 
-    public boolean isPerm(String perm) {
-        if (perms.contains(perm)) {
-            return true;
-        }
-        return false;
-    }
-
-    public List<String> getPerms() {
+    public HashSet<String> getPerms() {
         return perms;
     }
 

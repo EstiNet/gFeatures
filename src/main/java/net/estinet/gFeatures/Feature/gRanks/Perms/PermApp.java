@@ -8,6 +8,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import net.estinet.gFeatures.Feature.gRanks.gRanks;
@@ -51,7 +52,7 @@ class PermApp {
                         if (Basis.getRank(inherit.replace("!", "")) != null) {
                             if (inherit.contains("!")) {
                                 for (String perm : Basis.getRank(inherit.replace("!", "")).getPerms()) {
-                                    if (!r.getPerms().contains(perm)) r.addPerm(perm);
+                                    r.addPerm(perm);
                                 }
                             } else {
                                 r.addInherit(Basis.getRank(inherit));
@@ -66,7 +67,7 @@ class PermApp {
             // Resolve dependency tree
             for (Rank r : Basis.getRanks()) {
                 if (r.getInherited().size() == 0) {
-                    Bukkit.getLogger().info("DFS Start: " + r.getName());
+//                    Bukkit.getLogger().info("DFS Start: " + r.getName());
                     dfs(r, 0);
                 }
             }
@@ -75,20 +76,18 @@ class PermApp {
         }
     }
 
-    private static List<String> dfs(Rank current, int layer) {
-        Bukkit.getLogger().info("DFS: " + current.getName());
-        if (layer >= 20) return Arrays.asList("permission loop detected");
+    private static HashSet<String> dfs(Rank current, int layer) {
+//        Bukkit.getLogger().info("DFS: " + current.getName());
+        if (layer >= 20) return new HashSet<>(Arrays.asList("permission loop detected"));
         if (current.getInheritList().size() == 0) {
             return current.getPerms();
         } else {
-            List<String> perms = new ArrayList<>();
+            HashSet<String> perms = current.getPerms();
             for (Rank r : current.getInheritList()) {
                 perms.addAll(dfs(r, layer + 1));
             }
             for (String perm : perms) {
-                if (!current.getPerms().contains(perm)) {
-                    current.addPerm(perm);
-                }
+                current.addPerm(perm);
             }
             return perms;
         }

@@ -71,6 +71,12 @@ public class ThreeArg {
             Rank rank = Basis.getRank(args[1]);
             if (rank != null) {
                 for (String perm : rank.getPerms()) {
+                    if (perm.equals(args[2])) {
+                        sender.sendMessage(ChatColor.GRAY + rank.getName() + " has permission " + perm);
+                        return;
+                    }
+                }
+                for (String perm : rank.getPerms()) {
                     if (perm.contains(args[2])) {
                         sender.sendMessage(ChatColor.GRAY + rank.getName() + " has permission " + perm);
                         return;
