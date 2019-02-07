@@ -77,6 +77,7 @@ public class ThreeArg {
                     }
                 }
                 sender.sendMessage(ChatColor.GRAY + rank.getName() + " does not have permission " + args[2]);
+                return;
             }
             sender.sendMessage(ChatColor.GRAY + "Rank not found.");
         } else {
