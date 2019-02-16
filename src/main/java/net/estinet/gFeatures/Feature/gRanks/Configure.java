@@ -27,7 +27,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
     @Configs
     public static void onSetup() {
-        gRanks base = new gRanks("gRanks", "2.2.6");
+        gRanks base = new gRanks("gRanks", "2.2.7");
         base.addEventListener(new EventHub());
         gFeatures.addFeature(base);
 

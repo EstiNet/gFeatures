@@ -91,7 +91,8 @@ public class Basis {
         Bukkit.getScheduler().runTaskAsynchronously(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> {
 
             PermissionAttachment pa = p.addAttachment(Bukkit.getPluginManager().getPlugin("gFeatures"));
-            for (String perm : gRanks.getRankOfPlayer(p, true).getPerms()) {
+            Rank rank = (gRanks.getRankOfPlayer(p, true) == null) ? Basis.getRank("Default") : gRanks.getRankOfPlayer(p, true);
+            for (String perm : rank.getPerms()) {
                 if (perm.equals("'*'")) {
                     Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("gFeatures"), () -> p.setOp(true));
                 } else {
