@@ -29,7 +29,7 @@ https://github.com/EstiNet/gFeatures
 */
 
 public class Connection {
-    private static ResultSet doSQLQuery(String url, String user, String password, String query, boolean printError, boolean wantReturn) {
+    private static List<List<Object>> doSQLQuery(String url, String user, String password, String query, boolean printError, boolean wantReturn) {
         try {
             java.sql.Connection con = DriverManager.getConnection(url, user, password);
             java.sql.Statement st = con.createStatement();
@@ -39,10 +39,21 @@ public class Connection {
             } else {
                 st.executeUpdate(query);
             }
-            if (rs != null) rs.close();
+
+            List<List<Object>> list = new ArrayList<>();
+            if (rs != null) {
+                rs.beforeFirst();
+                while (!rs.isLast()) {
+                    rs.next();
+                    List<Object> l = new ArrayList<>();
+                    for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) l.add(i);
+                    list.add(l);
+                }
+                rs.close();
+            }
             st.close();
             con.close();
-            return rs;
+            return list;
         } catch (SQLException ex) {
             if (!printError) Debug.print(ex.getMessage());
             else {
@@ -59,18 +70,13 @@ public class Connection {
     }
 
     public static List<String> connectReturn(String url, String user, String password, String query) {
-        ResultSet result = doSQLQuery(url, user, password, query, false, true);
+        List<List<Object>> result = doSQLQuery(url, user, password, query, false, true);
         if (result == null) return null;
         List<String> array = new ArrayList<>();
-        try {
-            result.beforeFirst();
-            while (!result.isLast()) {
-                result.next();
-                array.add(result.getString(1));
-                array.add(result.getString(2));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+
+        for (List<Object> l : result) {
+            array.add(l.get(0).toString());
+            array.add(l.get(1).toString());
         }
         return array;
     }

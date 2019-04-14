@@ -26,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 public class Configure {
 	@Configs
 	public static void onSetup(){
-		EstiCoins base = new EstiCoins("EstiCoins", "1.2.0");
+		EstiCoins base = new EstiCoins("EstiCoins", "1.2.1");
 		gFeatures.addFeature(base);
 		
 		EstiCommand test = new EstiCommand("coins", "Money related commands.", "/coins help", base, true);
