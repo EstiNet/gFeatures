@@ -1,6 +1,7 @@
 package net.estinet.gFeatures.Feature.gRanks;
 
 import java.util.List;
+import java.util.Objects;
 
 import net.estinet.gFeatures.ClioteSky.ClioteHook;
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
@@ -52,7 +53,9 @@ public class gRanksClioteHook extends ClioteHook {
 		} else if (args.get(0).equals("update")) { // update [player] [rank]
 			try {
 				Bukkit.getLogger().info("[gRanks] Updating permissions database...");
-				gRanks.getRankOfPlayer(args.get(1), true).removePerson(args.get(1));
+
+				Rank oRank = gRanks.getRankOfPlayer(args.get(1), true);
+				if (oRank != null) oRank.removePerson(args.get(1));
 				Basis.getRank(args.get(2)).addPerson(args.get(2));
 
 				if (Bukkit.getPlayer(args.get(1)) != null && Bukkit.getPlayer(args.get(1)).isOnline()) {

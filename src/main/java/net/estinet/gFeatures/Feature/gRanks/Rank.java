@@ -3,6 +3,7 @@ package net.estinet.gFeatures.Feature.gRanks;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /*
 gFeatures
@@ -25,7 +26,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Rank {
     private String name, prefix;
-    private List<String> people = new ArrayList<>();
+    private List<String> people = new CopyOnWriteArrayList<>();
     HashSet<String> perms = new HashSet<>();
     private List<Rank> inherits = new ArrayList<>(); // parents
     private List<Rank> inheriteds = new ArrayList<>(); // children

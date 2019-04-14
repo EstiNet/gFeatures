@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Configuration.Config;
@@ -39,7 +40,7 @@ https://github.com/EstiNet/gFeatures
 
 public class Basis {
 
-    private static List<Rank> ranks = new ArrayList<>();
+    private static List<Rank> ranks = new CopyOnWriteArrayList<>();
 
     public static List<Rank> getRanks() {
         return ranks;
