@@ -1,17 +1,15 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import net.estinet.gFeatures.API.Logger.Debug;
+import net.estinet.gFeatures.Listeners;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +17,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -27,9 +24,10 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.estinet.gFeatures.Listeners;
-import net.estinet.gFeatures.API.Logger.Debug;
-import net.md_5.bungee.api.ChatColor;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 gFeatures
@@ -125,17 +123,6 @@ public class EventHub implements Listener {
                         event.getPlayer().getInventory().addItem(createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!"));
                         event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "Your claim is overlapping another claim.");
                     } else {
-                        YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                        if (!yamlFile.contains(b.getX() + "." + b.getY() + "." + b.getZ())) {
-                            yamlFile.createSection(b.getX() + "." + b.getY() + "." + b.getZ());
-                        }
-                        yamlFile.set(b.getX() + "." + b.getY() + "." + b.getZ(), event.getPlayer().getUniqueId().toString());
-                        try {
-                            yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Debug.print("[SurvivalTwo] Event not cancelled.");
                         event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've placed a protection stone.");
                     }
                 }, 1L);
@@ -149,18 +136,14 @@ public class EventHub implements Listener {
     }
 
     public void removeBlock(PlayerInteractEvent event, Material material, Block block) { //TODO let plugin try and prevent breaking it
-        YamlConfiguration yamlFile = YamlConfiguration.loadConfiguration(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
         try {
             Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
-            if (!yamlFile.get(block.getX() + "." + block.getY() + "." + block.getZ()).equals(event.getPlayer().getUniqueId().toString()) && !event.getPlayer().hasPermission("gFeatures.admin")) {
+
+            boolean isOwner = WorldGuard.getInstance().getPlatform().getRegionContainer().get(BukkitAdapter.adapt(event.getPlayer().getWorld())).getRegion("ps" + block.getX() + "x" + block.getY() + "y" + block.getZ() + "z").isOwner(((WorldGuardPlugin)Bukkit.getServer().getPluginManager().getPlugin("WorldGuard")).wrapPlayer(event.getPlayer()));
+
+            if (!isOwner && !event.getPlayer().hasPermission("gFeatures.admin")) {
                 event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "This isn't your protection stone!");
             } else {
-                yamlFile.set(block.getX() + "." + block.getY() + "." + block.getZ(), null);
-                try {
-                    yamlFile.save(new File("plugins/gFeatures/SurvivalTwo/data.yml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
 
                 BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
                 event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've removed your protection stone.");
