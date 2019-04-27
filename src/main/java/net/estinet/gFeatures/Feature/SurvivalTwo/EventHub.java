@@ -1,8 +1,5 @@
 package net.estinet.gFeatures.Feature.SurvivalTwo;
 
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
-import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import net.estinet.gFeatures.API.Logger.Debug;
 import net.estinet.gFeatures.Listeners;
 import net.md_5.bungee.api.ChatColor;
@@ -25,7 +22,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,26 +135,14 @@ public class EventHub implements Listener {
         try {
             Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
 
-            boolean isOwner = WorldGuard.getInstance().getPlatform().getRegionContainer().get(BukkitAdapter.adapt(event.getPlayer().getWorld())).getRegion("ps" + block.getX() + "x" + block.getY() + "y" + block.getZ() + "z").isOwner(((WorldGuardPlugin)Bukkit.getServer().getPluginManager().getPlugin("WorldGuard")).wrapPlayer(event.getPlayer()));
+            BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
+            Bukkit.getServer().getPluginManager().callEvent(blockevent);
 
-            if (!isOwner && !event.getPlayer().hasPermission("gFeatures.admin")) {
+            if (blockevent.isCancelled()) {
                 event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "This isn't your protection stone!");
             } else {
-
-                BlockBreakEvent blockevent = new BlockBreakEvent(block, event.getPlayer());
                 event.getPlayer().sendMessage(SurvivalTwo.ESTIPREFIX + "" + ChatColor.AQUA + "You've removed your protection stone.");
-                String name = getCommandBlockName(material);
-                ItemStack is = createItem(material, name, ChatColor.GOLD + "ヾ(⌐■_■)ノ♪ Nobody's gonna touch my stuff!");
-
-                Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "region remove ps"+block.getX()+"x"+block.getY()+"y"+block.getZ()+"z -w " +event.getPlayer().getLocation().getWorld().getName());
-
-                if (event.getPlayer().getInventory().firstEmpty() == -1) {
-                    block.getWorld().dropItem(block.getLocation(), is);
-                } else {
-                    event.getPlayer().getInventory().addItem(is);
-                }
                 block.setType(Material.AIR);
-                Bukkit.getServer().getPluginManager().callEvent(blockevent);
             }
         } catch (NullPointerException e) {
             if (Listeners.debug) {
