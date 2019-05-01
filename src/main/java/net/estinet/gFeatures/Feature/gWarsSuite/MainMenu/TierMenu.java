@@ -11,6 +11,8 @@ import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierThree;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierTwo;
 import net.estinet.gFeatures.Feature.gWarsSuite.Multiplayer.Kits.TierZero;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -133,23 +135,23 @@ public class TierMenu {
 	
 	public void interact(PlayerInteractEvent event){
 		if(event.getPlayer().getInventory().getItemInMainHand().equals(tierzero)){
-			event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a weapon.");
+			event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a weapon."));
 			tier(0 ,event.getPlayer());
 		}
 		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierone)){
-			event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a weapon. You will need 5 kills for this tier.");
+			event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a weapon. You will need 5 kills for this tier."));
 			tier(1,event.getPlayer());
 		}
 		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tiertwo)){
-			event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a weapon. You will need 10 kills for this tier.");
+			event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a weapon. You will need 10 kills for this tier."));
 			tier(2,event.getPlayer());
 		}
 		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierthree)){
-			event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a weapon. You will need 25 kills for this tier.");
+			event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a weapon. You will need 25 kills for this tier."));
 			tier(3,event.getPlayer());
 		}
 		else if(event.getPlayer().getInventory().getItemInMainHand().equals(tierfour)){
-			event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a weapon. You will need 50 kills for this tier.");
+			event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a weapon. You will need 50 kills for this tier."));
 			tier(4,event.getPlayer());
 		}
 		else if(event.getPlayer().getInventory().getItemInMainHand().equals(sniper) || event.getPlayer().getInventory().getItemInMainHand().equals(shotgun) || event.getPlayer().getInventory().getItemInMainHand().equals(special) || event.getPlayer().getInventory().getItemInMainHand().equals(autorifle)){

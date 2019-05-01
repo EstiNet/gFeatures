@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -34,11 +36,7 @@ public class Dead {
     Respawn r = new Respawn();
 
     public void init(Player p) {
-        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
-            public void run() {
-                p.setHealth(20);
-            }
-        });
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> p.setHealth(20));
         try {
             if (Basic.flagger.getName().equals(p.getName())) {
                 Action.sendAllTitle(ChatColor.BOLD + "" + ChatColor.BOLD + p.getName() + " has died!", ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "The flag has been returned.", 20, 40, 20);
@@ -47,7 +45,7 @@ public class Dead {
         } catch (Exception e) {
         }
         p.setGameMode(GameMode.SPECTATOR);
-        p.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "Respawning in 5 seconds..."));
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), new Runnable() {
             public void run() {
                 r.respawn(p);

@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase.GameFunc;
 
 import com.destroystokyo.paper.Title;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -27,7 +29,7 @@ import org.bukkit.entity.Player;
 public class Action {
     public static void sendAll(String message) {
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.sendActionBar(message);
+            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
         }
     }
 

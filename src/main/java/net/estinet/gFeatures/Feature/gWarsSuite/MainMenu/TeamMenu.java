@@ -89,7 +89,7 @@ public class TeamMenu {
     }
 
     private void finals(Player p) {
-		p.sendActionBar(ChatColor.AQUA + "Please select a place to spawn.");
+		p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a place to spawn."));
         stats.setMode(p, gWarsMode.SPAWNMENU);
         SpawnMenu gm = new SpawnMenu(p);
         gm.intialize();

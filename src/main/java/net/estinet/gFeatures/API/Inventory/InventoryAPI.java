@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
@@ -38,7 +39,7 @@ import net.estinet.gFeatures.API.Logger.Debug;
  */
 
 public class InventoryAPI implements Listener {
- 
+
     private String name;
     private String playerName;
     private int size;
@@ -90,7 +91,7 @@ public class InventoryAPI implements Listener {
    
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClick(InventoryClickEvent event) {
-        if (event.getInventory().getTitle().equals(name) && event.getWhoClicked().getUniqueId().toString().equals(playerName)) {
+        if (event.getWhoClicked().getOpenInventory().getTitle().equals(name) && event.getWhoClicked().getUniqueId().toString().equals(playerName)) {
             event.setCancelled(true);
             int slot = event.getRawSlot();
             if (slot >= 0 && slot < size && optionNames[slot] != null) {
@@ -111,7 +112,7 @@ public class InventoryAPI implements Listener {
     }
     @EventHandler(priority=EventPriority.MONITOR)
     void onInventoryClose(InventoryCloseEvent event){
-    	if(event.getInventory().getTitle().equals(name) && event.getPlayer().getUniqueId().toString().equals(playerName)){
+    	if(event.getPlayer().getOpenInventory().getTitle().equals(name) && event.getPlayer().getUniqueId().toString().equals(playerName)){
     		destroy();
     	}
     }

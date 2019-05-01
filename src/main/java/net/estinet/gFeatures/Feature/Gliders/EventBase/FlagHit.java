@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.Gliders.EventBase;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -31,7 +33,7 @@ public class FlagHit {
     public void init(Location loc, Player p) {
         if (loc.getBlockX() == Basic.flag.getBlockX() && loc.getBlockY() == Basic.flag.getBlockY() && loc.getBlockZ() == Basic.flag.getBlockZ() && ((Basic.teams.get(p.getUniqueId()).equals(Team.BLUE) && !Basic.swap) || (Basic.teams.get(p.getUniqueId()).equals(Team.ORANGE) && Basic.swap)) && Basic.flagger == null) {
             Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-            p.sendActionBar(ChatColor.AQUA + "Jump off the island to secure victory!");
+            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Jump off the island to secure victory!"));
             Basic.flagger = p;
         }
     }

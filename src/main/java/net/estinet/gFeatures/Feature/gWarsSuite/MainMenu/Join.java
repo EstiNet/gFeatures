@@ -48,7 +48,7 @@ public class Join {
     Statistics stats = new Statistics();
 
     public void start(PlayerJoinEvent event) {
-        event.getPlayer().sendActionBar(ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + gFeatures.getFeature("gWarsSuite").getVersion());
+        event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Welcome to the " + ChatColor.GOLD + "gWars " + ChatColor.AQUA + "Beta! Code version: " + gFeatures.getFeature("gWarsSuite").getVersion()));
         Player p = event.getPlayer();
         ClearInventory ci = new ClearInventory();
         ci.clearInv(event.getPlayer());

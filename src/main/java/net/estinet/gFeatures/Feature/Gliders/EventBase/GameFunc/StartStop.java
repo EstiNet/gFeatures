@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
 import net.estinet.gFeatures.Feature.EstiCoins.EstiCoins;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -72,10 +74,10 @@ public class StartStop {
                         p.setLevel(0);
                         if (Basic.getOrangeSize() >= Basic.getBlueSize()) {
                             Basic.teams.put(p.getUniqueId(), Team.BLUE);
-                            p.sendActionBar(ChatColor.BLUE + "You are on the blue team! Glide down from the plane and steal the flag!");
+                            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.BLUE + "You are on the blue team! Glide down from the plane and steal the flag!"));
                         } else {
                             Basic.teams.put(p.getUniqueId(), Team.ORANGE);
-                            p.sendActionBar(ChatColor.GOLD + "You are on the orange team! Protect the flag from the gliders!");
+                            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.GOLD + "You are on the orange team! Protect the flag from the gliders!"));
                         }
                     }
 

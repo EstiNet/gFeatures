@@ -58,7 +58,7 @@ public class Inventory {
         if (event.getPlayer().getInventory().getItemInMainHand().equals(item1)) {
             event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "We are still working on it! Please be patient!");
         } else if (event.getPlayer().getInventory().getItemInMainHand().equals(item2)) {
-            event.getPlayer().sendActionBar(ChatColor.AQUA + "Please select a team.");
+            event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Please select a team."));
             TeamMenu tm = new TeamMenu();
             stats.setMode(event.getPlayer(), gWarsMode.TEAMMENU);
             tm.initialize(event.getPlayer());

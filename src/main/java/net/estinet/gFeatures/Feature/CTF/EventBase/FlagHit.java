@@ -1,5 +1,7 @@
 package net.estinet.gFeatures.Feature.CTF.EventBase;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -39,7 +41,7 @@ public class FlagHit {
                 if (Basic.blueflagger == null) {
 
                     Action.sendAllTitle(ChatColor.GOLD + p.getName() + " has taken the blue flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-                    p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
+                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!"));
                     Basic.blueflagger = p;
                     // captured the blue flag
                 } else if (!Basic.blueflagger.getUniqueId().equals(p.getUniqueId())) {
@@ -59,7 +61,7 @@ public class FlagHit {
                 if (Basic.orangeflagger == null) {
 
                     Action.sendAllTitle(ChatColor.DARK_AQUA + p.getName() + " has taken the orange flag!", ChatColor.BOLD + "Fireworks will trace " + p.getName() + "!", 20, 40, 20);
-                    p.sendActionBar(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!");
+                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "Get back to your base and punch the ender crystal to capture the flag!"));
                     Basic.orangeflagger = p;
                     // captured the orange flag
                 } else if (!Basic.orangeflagger.getUniqueId().equals(p.getUniqueId())) {

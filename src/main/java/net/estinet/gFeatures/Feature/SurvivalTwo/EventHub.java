@@ -52,7 +52,7 @@ public class EventHub implements Listener {
             Bukkit.getLogger().info(!event.getPlayer().hasPlayedBefore() + " " + new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists());
         }
         if (!event.getPlayer().hasPlayedBefore() || !new File("plugins/gFeatures/Players/" + event.getPlayer().getUniqueId() + ".yml").exists()) {
-            event.getPlayer().performCommand("rc");
+            // TODO event.getPlayer().performCommand("rc");
         }
     }
 
@@ -132,7 +132,7 @@ public class EventHub implements Listener {
         return block.getWorld().getBlockAt(block.getX() + bf.getModX(), block.getY() + bf.getModY(), block.getZ() + bf.getModZ());
     }
 
-    public void removeBlock(PlayerInteractEvent event, Material material, Block block) { //TODO let plugin try and prevent breaking it
+    public void removeBlock(PlayerInteractEvent event, Material material, Block block) {
         try {
             Bukkit.getLogger().info(block.getX() + "." + block.getY() + "." + block.getZ());
 

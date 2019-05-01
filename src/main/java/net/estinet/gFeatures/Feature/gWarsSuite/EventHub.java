@@ -212,7 +212,7 @@ public class EventHub implements Listener {
             if (event.getEntity().isDead())
                 player.setHealth(20);
             player.setGameMode(GameMode.SPECTATOR);
-            player.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "Respawning in 5 seconds..."));
         });
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             Source s = new Source();

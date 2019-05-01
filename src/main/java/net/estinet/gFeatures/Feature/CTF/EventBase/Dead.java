@@ -1,6 +1,8 @@
 package net.estinet.gFeatures.Feature.CTF.EventBase;
 
 import net.estinet.gFeatures.Feature.CTF.Mode;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -43,7 +45,7 @@ public class Dead {
             Basic.orangeflagger = null;
         }
         p.setGameMode(GameMode.SPECTATOR);
-        p.sendActionBar(ChatColor.RED + "Respawning in 5 seconds...");
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.RED + "Respawning in 5 seconds..."));
         Bukkit.getScheduler().scheduleSyncDelayedTask(Bukkit.getServer().getPluginManager().getPlugin("gFeatures"), () -> {
             if (Basic.mode != Mode.ENDED) Respawn.respawn(p);
         }, 100L);

@@ -7,6 +7,8 @@ import net.estinet.gFeatures.Feature.ParkourRace.Logistics.DetermineWinner;
 import net.estinet.gFeatures.Feature.ParkourRace.Logistics.ScoreboardCreator;
 import net.estinet.gFeatures.Feature.ParkourRace.Maps.PRMap;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -135,7 +137,7 @@ public class ParkourRace extends FusionGame {
             if (Math.abs(p.getLocation().getX()) > map.checkPointZ && start.contains(p.getUniqueId())) {
                 start.remove(p.getUniqueId());
                 checkpoint.add(p.getUniqueId());
-                p.sendActionBar(ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!");
+                p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "(づ｡◕‿‿◕｡)づ You passed the checkpoint!"));
             }
             if (Math.abs(p.getLocation().getX()) > map.pastDistanceZ && (start.contains(p.getUniqueId()) || checkpoint.contains(p.getUniqueId()))) {
                 finishGame(false);

@@ -3,6 +3,8 @@ package net.estinet.gFeatures.Feature.FusionPlay.GameUtil.Logistics;
 import java.util.concurrent.TimeUnit;
 
 import net.estinet.gFeatures.ClioteSky.ClioteSky;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -45,7 +47,7 @@ public class WaitingProcess {
         FusionPlay.currentGame.setFusionState(FusionState.STARTED);
         FusionPlay.currentGame.waitTimerComplete();
         for (Player p : Bukkit.getOnlinePlayers()) {
-            p.sendActionBar(ChatColor.AQUA + "(╯°□°）╯︵ ┻━┻");
+            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColor.AQUA + "(╯°□°）╯︵ ┻━┻"));
             p.sendTitle(FusionPlay.currentGame.getSettings().getCoolGameName(), ChatColor.BOLD + "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Game Start! (⌐■_■)", 30, 60, 30);
         }
         TimeManager tm = FusionPlay.currentGame.getSettings().getTimeManager();
