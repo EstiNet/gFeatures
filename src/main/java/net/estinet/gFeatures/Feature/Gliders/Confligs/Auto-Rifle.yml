@@ -1,6 +1,6 @@
 Auto-Rifle:
     Item_Information:
-        Item_Name: Auto-Rifle
+        Item_Name: "&b&lAuto-Rifle&f&l"
         Item_Type: 258
         Item_Lore: "&eAuto-Rifle"
         Melee_Mode: false

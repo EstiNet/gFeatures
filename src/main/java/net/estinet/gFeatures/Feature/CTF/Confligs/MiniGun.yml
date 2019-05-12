@@ -1,6 +1,6 @@
 MiniGun:
     Item_Information:
-        Item_Name: Mini-Gun
+        Item_Name: "&b&lMini-Gun&f&l"
         Item_Type: iron_axe
         Item_Lore: "&eMini-Gun"
         Melee_Mode: false

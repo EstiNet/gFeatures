@@ -1,6 +1,6 @@
 PlasmaSniper:
     Item_Information:
-        Item_Name: Plasma Sniper
+        Item_Name: "&b&lPlasma Sniper&f&l"
         Item_Type: iron_pickaxe
         Item_Lore: "&ePlasma Sniper"
         Melee_Mode: false

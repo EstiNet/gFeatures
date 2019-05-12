@@ -1,6 +1,6 @@
 SilSil69:
     Item_Information:
-        Item_Name: SilSil69
+        Item_Name: "&b&lSilSil69&f&l"
         Item_Type: 285
         Item_Lore: "&SilSil69|&eTier 2 Sniper|&eAccurate and fast but lower damage than regular snipers"
         Melee_Mode: false

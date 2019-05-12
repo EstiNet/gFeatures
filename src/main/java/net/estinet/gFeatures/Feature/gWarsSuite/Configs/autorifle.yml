@@ -1,6 +1,6 @@
 Auto-Rifle:
     Item_Information:
-        Item_Name: Auto-Rifle
+        Item_Name: "&b&lAuto-Rifle&f&l"
         Item_Type: 271
         Item_Lore: "&eAuto-Rifle|&eClassic starter Auto-Rifle|&eFast firing but unaccurate."
         Melee_Mode: false

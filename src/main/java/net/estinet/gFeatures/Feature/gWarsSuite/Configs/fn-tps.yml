@@ -1,6 +1,6 @@
 FN-TPS:
     Item_Information:
-        Item_Name: FN-TPS
+        Item_Name: "&b&lFN-TPS&f&l"
         Item_Type: 256
         Item_Lore: "&eFN-TPS|&eTier 3 Shotgun|&eSets opponents alight."
         Melee_Mode: false

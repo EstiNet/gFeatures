@@ -1,6 +1,6 @@
 SR-25:
     Item_Information:
-        Item_Name: SR-25
+        Item_Name: "&b&lSR-25&f&l"
         Item_Type: 257
         Item_Lore: "&eSR-25|&eTier 3 Sniper|&eAccurate but slow firing"
         Melee_Mode: false

@@ -1,15 +1,12 @@
 AK47-Silver:
     Item_Information:
-        Item_Name: AK47-Silver
-        Item_Type: 286
+        Item_Name: "&b&lAK47-Silver&f&l"
+        Item_Type: GOLDEN_AXE
         Item_Lore: "&eAK47-Silver|&eTier 2 auto-rifle|&eExtremely fast but unaccurate"
         Melee_Mode: false
-        Skip_Name_Check: false
         Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
         Remove_Unused_Tag: false
-        Hidden_From_List: false
     Shooting:
-        Disable: false
         Dual_Wield: false
         Right_Click_To_Shoot: true
         Cancel_Left_Click_Block_Damage: true
@@ -36,7 +33,7 @@ AK47-Silver:
         Enable: false
     Ammo:
         Enable: true
-        Ammo_Item_ID: 362
+        Ammo_Item_ID: MELON_SEEDS
         Take_Ammo_Per_Shot: false
     Reload:
         Enable: true

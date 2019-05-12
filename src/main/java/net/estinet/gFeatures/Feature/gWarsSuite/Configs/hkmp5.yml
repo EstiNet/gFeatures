@@ -1,6 +1,6 @@
 HecklerAndKochMP5:
     Item_Information:
-        Item_Name: "Heckler & Koch MP-5"
+        Item_Name: "&b&lHeckler & Koch MP-5&f&l"
         Item_Type: 279
         Item_Lore: "&eHeckler & Koch MP-5|&eTier 4 Auto-Rifle|&eTop tier auto-rifle."
         Melee_Mode: false

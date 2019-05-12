@@ -1,6 +1,6 @@
 SPAS:
     Item_Information:
-        Item_Name: SPAS
+        Item_Name: "&b&lSPAS&f&l"
         Item_Type: 284
         Item_Lore: "&eSPAS|&eTier 2 Shotgun|&eFaster shooting but less damage."
         Melee_Mode: false

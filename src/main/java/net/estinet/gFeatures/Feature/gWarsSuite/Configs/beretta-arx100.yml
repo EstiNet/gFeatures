@@ -1,6 +1,6 @@
 Beretta-ARX100:
     Item_Information:
-        Item_Name: Beretta-ARX100
+        Item_Name: "&b&lBeretta-ARX100&f&l"
         Item_Type: 258
         Item_Lore: "&eBeretta-ARX100|&eTier 3 Auto-Rifle|&eFast reloading and more damage dealt."
         Melee_Mode: false

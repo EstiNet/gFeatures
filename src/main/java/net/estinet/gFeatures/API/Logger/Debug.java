@@ -26,7 +26,7 @@ import net.estinet.gFeatures.Listeners;
 
 public class Debug {
 	public static void print(String str){
-		if(Listeners.debug == true){
+		if(Listeners.debug){
 			Bukkit.getLogger().info("[Debug] " + str);
 		} 
 	}

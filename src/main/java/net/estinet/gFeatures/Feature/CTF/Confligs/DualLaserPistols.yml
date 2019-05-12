@@ -1,6 +1,6 @@
 DualLaserPistols:
     Item_Information:
-        Item_Name: "&eDual Laser Pistols"
+        Item_Name: "&b&lDual Laser Pistols&f&l"
         Item_Type: iron_horse_armor
         Item_Lore: "&eDual Laser Pistols"
         Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0

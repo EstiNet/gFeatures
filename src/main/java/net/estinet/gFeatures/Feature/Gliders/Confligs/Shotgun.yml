@@ -1,6 +1,6 @@
 Shotgun:
     Item_Information:
-        Item_Name: Shotgun
+        Item_Name: "&b&lShotgun&f&l"
         Item_Type: 256
         Item_Lore: "&eShotgun"
         Melee_Mode: false

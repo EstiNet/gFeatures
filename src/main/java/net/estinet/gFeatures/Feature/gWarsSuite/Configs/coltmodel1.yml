@@ -1,6 +1,6 @@
 Colt Model 1:
     Item_Information:
-        Item_Name: Colt Model 1
+        Item_Name: "&b&lColt Model 1&f&l"
         Item_Type: 273
         Item_Lore: "&eColt Model 1|&eTier 1 Shotgun|&eShoots multiple bullets at once but slow"
         Melee_Mode: false
@@ -9,7 +9,6 @@ Colt Model 1:
         Remove_Unused_Tag: false
         Hidden_From_List: false
     Shooting:
-        Disable: false
         Dual_Wield: false
         Right_Click_To_Shoot: true
         Cancel_Left_Click_Block_Damage: true

@@ -1,6 +1,6 @@
 Shotgun:
     Item_Information:
-        Item_Name: Shotgun
+        Item_Name: "&b&lShotgun&f&l"
         Item_Type: 269
         Item_Lore: "&eShotgun|&eClassic starter Shotgun|&eShoots multiple bullets at once but slow"
         Melee_Mode: false

@@ -1,6 +1,6 @@
 LaserRifle:
     Item_Information:
-        Item_Name: Laser-Rifle
+        Item_Name: "&b&lLaser-Rifle&f&l"
         Item_Type: iron_axe
         Item_Lore: "&eLaser-Rifle"
         Melee_Mode: false

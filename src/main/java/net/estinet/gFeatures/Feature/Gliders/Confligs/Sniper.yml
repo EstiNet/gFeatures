@@ -1,6 +1,6 @@
 Sniper:
     Item_Information:
-        Item_Name: Sniper
+        Item_Name: "&b&lSniper&f&l"
         Item_Type: 257
         Item_Lore: "&eSniper"
         Melee_Mode: false

@@ -1,6 +1,6 @@
 Bazooka:
     Item_Information:
-        Item_Name: "&eBazooka"
+        Item_Name: "&b&lBazooka&f&l"
         Item_Type: 417
         Item_Lore: "&eRocket launcher.|&eFire down at your|&efeet to rocket-jump.|&eNegates fall damage."
         Sounds_Acquired: ENTITY_BAT_TAKEOFF-1-1-0
@@ -13,7 +13,7 @@ Bazooka:
         Projectile_Amount: 1
         Projectile_Type: fireball
         Projectile_Speed: 20
-        Projectile_Damage: 50
+        Projectile_Damage: 100
         Sounds_Shoot: ENTITY_ZOMBIE_ATTACK_DOOR_WOOD-1-0-0,BLOCK_FIRE_EXTINGUISH-1-1-0
     Sneak:
         Enable: true
@@ -36,7 +36,7 @@ Bazooka:
     Explosions:
         Enable: true
         Knockback: 5
-        Damage_Multiplier: 20
+        Damage_Multiplier: 50
         Explosion_No_Grief: true
         Explosion_Radius: 6
         Sounds_Shooter: ENTITY_ARROW_SHOOT-1-2-0

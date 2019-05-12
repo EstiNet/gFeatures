@@ -1,6 +1,6 @@
 Sniper:
     Item_Information:
-        Item_Name: Sniper
+        Item_Name: "&b&lSniper&f&l"
         Item_Type: 270
         Item_Lore: "&eSniper|&eClassic starter Sniper|&eAccurate but slow firing"
         Melee_Mode: false

@@ -1,6 +1,6 @@
 PlasmaShotgun:
     Item_Information:
-        Item_Name: Plasma Shotgun
+        Item_Name: "&b&lPlasma Shotgun&f&l"
         Item_Type: iron_shovel
         Item_Lore: "&ePlasma Shotgun"
         Melee_Mode: false
